@@ -289,7 +289,7 @@ text # also not a comment
   });
 }); // Update with your actual module path
 
-describe("internal_parseHeading", () => {
+describe("parseDataFileHeading", () => {
   it("should return undefined for empty input", () => {
     expect(parseDataFileHeading("")).toBeUndefined();
   });
@@ -475,7 +475,8 @@ describe("internal_parseHeading", () => {
   });
 });
 
-describe("rawDataFile", () => {
+// eslint-disable-next-line test/prefer-lowercase-title
+describe("RawDataFile", () => {
   it("should initialize with content", () => {
     const content = "# Heading\nline1\nline2";
     const dataFile = new RawDataFile(content);
@@ -495,7 +496,7 @@ describe("rawDataFile", () => {
     const content = "line1\nline2\nline3";
     const dataFile = new RawDataFile(content);
 
-    expect(dataFile.heading).toBeUndefined();
+    expect(() => dataFile.heading).toThrowError("heading is not set");
   });
 
   it("should parse multi-line heading", () => {
