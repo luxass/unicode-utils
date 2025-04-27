@@ -1,0 +1,34 @@
+# NamedSequences-6.2.0.txt
+# Date: 2012-05-15, 21:23:00 GMT [KW]
+# Unicode Character Database
+# Copyright (c) 1991-2012 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+# Code point sequences in the UCD use spaces as delimiters.
+# The corresponding format for a USI in ISO/IEC 10646 uses
+# comma delimitation and angle brackets. Thus, a named sequence
+# of the form:
+# EXAMPLE NAME;1000 1001 1002
+# in this data file, would correspond to a 10646 USI as follows:
+# <1000, 1001, 1002> 
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+# ================================================
+# Additions for Lithuanian. Provisional 2006-05-18, Approved 2007-10-19
+# Entries for JIS X 0213 compatibility mapping.
+# Provisional: 2008-11-07, Approved 2010-05-14
+# Entry for a Bangla entity.
+# Provisional: 2009-08-10, Approved 2010-05-14
+# Additions for Tamil. Provisional 2008-02-08, Approved 2009-08-14
+# A visual display of the Tamil named sequences is available
+# in the documentation for the Unicode Standard. See Section 9.6, Tamil in
+# http://www.unicode.org/versions/latest/
+# Sinhala medial consonants and "reph" form
+# Provisional 2010-05-13, Approved 2011-08-05
+# Entries for JIS X 0213 compatibility mapping.
+# Provisional: 2008-11-07, Approved 2010-05-14
+# EOF
