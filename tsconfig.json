@@ -13,7 +13,7 @@
   },
   "include": [
     "src"
-  ],
+, "extract-comments.ts"  ],
   "exclude": [
     "node_modules",
     "dist"
