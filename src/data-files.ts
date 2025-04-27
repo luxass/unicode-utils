@@ -22,7 +22,7 @@ export class RawDataFile {
   }
 
   public get lines(): string[] {
-    if (this._rawContent == null) {
+    if (this._lines == null) {
       throw new Error("lines is not set");
     }
 
@@ -30,7 +30,7 @@ export class RawDataFile {
   }
 
   public get heading(): string | undefined {
-    if (this._rawContent == null) {
+    if (this._heading == null) {
       throw new Error("heading is not set");
     }
 
