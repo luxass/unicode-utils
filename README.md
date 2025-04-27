@@ -14,10 +14,13 @@ npm install @luxass/unicode-utils
 ## Usage
 
 ```ts
-import { UNICODE_VERSIONS, UNICODE_VERSIONS_WITH_UCD } from "@luxass/unicode-utils";
+import { getDataFileComments, UNICODE_VERSIONS, UNICODE_VERSIONS_WITH_UCD } from "@luxass/unicode-utils";
 
 console.log(UNICODE_VERSIONS); // List of Unicode Versions
 console.log(UNICODE_VERSIONS_WITH_UCD); // List of Unicode Versions with UCD
+
+const dataFileComments = getDataFileComments("UnicodeData.txt");
+console.log(dataFileComments); // Comments from UnicodeData.txt
 ```
 
 ## 📄 License
