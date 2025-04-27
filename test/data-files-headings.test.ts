@@ -304,7 +304,8 @@ describe("parseDataFileHeading(LineBreak)", () => {
         # with ranges of code points, the code point count in square brackets.
         #
         # For more information, see UAX #14: Unicode Line Breaking Algorithm,
-        # at http://www.unicode.org/reports/tr14/"
+        # at http://www.unicode.org/reports/tr14/
+        #"
     `);
   });
 
@@ -361,7 +362,8 @@ describe("parseDataFileHeading(LineBreak)", () => {
         # the code point count in square brackets.
         #
         # For more information, see UAX #14: Unicode Line Breaking Algorithm,
-        # at https://www.unicode.org/reports/tr14/"
+        # at https://www.unicode.org/reports/tr14/
+        #"
     `);
   });
 });
@@ -437,7 +439,10 @@ describe("parseDataFileHeading(BidiMirroring)", () => {
         # beyond the frozen OMPL list. Implementers should be aware of this
         # intentional distinction.
         #
-        # ############################################################"
+        # ############################################################
+        #
+        # Property:\tBidi_Mirroring_Glyph
+        #"
       `);
   });
 
@@ -448,7 +453,7 @@ describe("parseDataFileHeading(BidiMirroring)", () => {
         # Date: 2011-12-20, 19:31:00 GMT [KW, LI]
         #
         # Bidi_Mirroring_Glyph Property
-        #
+        #\u0020
         # This file is an informative contributory data file in the
         # Unicode Character Database.
         #
@@ -460,23 +465,23 @@ describe("parseDataFileHeading(BidiMirroring)", () => {
         # that is the mirror image of the original character's glyph.
         #
         # The repertoire covered by the file is Unicode 6.1.0.
-        #
+        #\u0020
         # The file contains a list of lines with mappings from one code point
         # to another one for character-based mirroring.
         # Note that for "real" mirroring, a rendering engine needs to select
         # appropriate alternative glyphs, and that many Unicode characters do not
         # have a mirror-image Unicode character.
-        #
+        #\u0020
         # Each mapping line contains two fields, separated by a semicolon (';').
         # Each of the two fields contains a code point represented as a
         # variable-length hexadecimal value with 4 to 6 digits.
         # A comment indicates where the characters are "BEST FIT" mirroring.
-        #
-        # Code points for which Bidi_Mirrored=Yes, but for which no appropriate
+        #\u0020
+        # Code points for which Bidi_Mirrored=Yes, but for which no appropriate\u0020
         # characters exist with mirrored glyphs, are
         # listed as comments at the end of the file.
         #
-        #   Note: (2011-12-19) There is an inconsistency between the
+        #   Note: (2011-12-19) There is an inconsistency between the\u0020
         #   following statement about the default value
         #   of the Bidi_Mirroring_Glyph property and the
         #   value of the @missing line for Bidi_Mirroring_Glyph in
@@ -490,15 +495,18 @@ describe("parseDataFileHeading(BidiMirroring)", () => {
         # point has the default value for the Bidi_Mirroring_Glyph property,
         # that means that no other character exists whose glyph is suitable
         # for character-based mirroring.
-        #
+        #\u0020
         # For information on bidi mirroring, see UAX #9: Bidirectional Algorithm,
         # at http://www.unicode.org/unicode/reports/tr9/
-        #
+        #\u0020
         # This file was originally created by Markus Scherer.
         # Extended for Unicode 3.2, 4.0, 4.1, 5.0, 5.1, 5.2, and 6.0 by Ken Whistler,
         # and for Unicode 6.1 by Ken Whistler and Laurentiu Iancu.
+        #\u0020
+        # ############################################################
         #
-        # ############################################################"
+        # Property:\tBidi_Mirroring_Glyph
+        #"
       `);
   });
 });

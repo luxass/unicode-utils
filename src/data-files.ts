@@ -75,7 +75,7 @@ export function parseDataFileHeading(content: string): string | undefined {
     const nextLine = lines[i + 1];
 
     // if the next line contains @missing, we can break out of the loop
-    if (nextLine?.trim().includes("@missing")) {
+    if (isCommentLine(line) && line.startsWith("# @missing")) {
       break;
     }
 
@@ -88,13 +88,13 @@ export function parseDataFileHeading(content: string): string | undefined {
 
       // break out of loop if line starts is a comment
       // and is followed by a lot of #
-      if (line.match(/#\s*#+/)) {
+      if (line.match(/#\s*#+/) && !isCommentLine(nextLine)) {
         break;
       }
 
       // break out of loop if line starts is a comment
       // and is followed by a lot of =
-      if (line.match(/#\s*=+/)) {
+      if (line.match(/#\s*=+/) && !isCommentLine(nextLine)) {
         break;
       }
     }
@@ -113,6 +113,8 @@ export function parseDataFileHeading(content: string): string | undefined {
       break;
     }
   }
+
+  // if there is multiple lines of like ##### or ===== in the heading, use the last and cut the rest of.
 
   return heading.trim() === "" ? undefined : heading.trim();
 }
