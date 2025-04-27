@@ -12,7 +12,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "src"
+    "src",
+    "extract-comments.ts"
   ],
   "exclude": [
     "node_modules",
