@@ -9,5 +9,8 @@
  * @returns {string} A string containing all comment lines concatenated with newline characters
  */
 export function getDataFileComments(content: string): string {
-  return content.split("\n").filter((line) => line.trim() && line.trim().startsWith("# ")).join("\n");
+  return content.split("\n").filter((line) => {
+    const trimmed = line.trim();
+    return trimmed && trimmed.startsWith("# ");
+  }).join("\n");
 }
