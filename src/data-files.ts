@@ -10,7 +10,7 @@ export class RawDataFile {
 
     this._rawContent = content;
     this._lines = content.split("\n");
-    this._heading = internal_parseHeading(content);
+    this._heading = parseDataFileHeading(content);
   }
 
   public get rawContent(): string {
@@ -38,7 +38,29 @@ export class RawDataFile {
   }
 }
 
-export function internal_parseHeading(content: string): string | undefined {
+/**
+ * Parses the heading from a Unicode data file content.
+ *
+ * A heading in Unicode data files is typically at the beginning of the file,
+ * consisting of consecutive comment lines (starting with #) that describe the file's content.
+ *
+ * The function extracts these comment lines until it encounters one of these conditions:
+ * - A comment line containing a pattern like "# ###" (# followed by multiple #)
+ * - A comment line containing a pattern like "# ===" (# followed by multiple =)
+ * - An empty line after comment lines
+ * - A non-comment line after comment lines
+ *
+ * @param {string} content - The content of the Unicode data file as a string
+ * @returns {string | undefined} The heading as a string if found, otherwise undefined
+ *
+ * @example
+ * ```
+ * const fileContent = "# Unicode Data File\n# Version: 14.0\n\nU+0020;SPACE";
+ * const heading = parseDataFileHeading(fileContent);
+ * // heading will be "# Unicode Data File\n# Version: 14.0"
+ * ```
+ */
+export function parseDataFileHeading(content: string): string | undefined {
   if (!content) {
     return;
   }
