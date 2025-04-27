@@ -4,6 +4,10 @@ export class RawDataFile {
   private readonly _heading: string | undefined;
 
   constructor(content: string) {
+    if (content.trim() === "" || content == null) {
+      throw new Error("content is empty");
+    }
+
     this._rawContent = content;
     this._lines = content.split("\n");
     this._heading = internal_parseHeading(content);
@@ -22,7 +26,7 @@ export class RawDataFile {
       throw new Error("lines is not set");
     }
 
-    return this.lines;
+    return this._lines;
   }
 
   public get heading(): string | undefined {

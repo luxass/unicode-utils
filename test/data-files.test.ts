@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { getDataFileComments, internal_parseHeading } from "../src/data-files";
+import { getDataFileComments, internal_parseHeading, RawDataFile } from "../src/data-files";
 
 function dataFileFixture(version: string, file: string) {
   return readFileSync(
@@ -472,5 +472,53 @@ describe("internal_parseHeading", () => {
       # See documentation at:
       # https://example.com/docs
     `);
+  });
+});
+
+describe("rawDataFile", () => {
+  it("should initialize with content", () => {
+    const content = "# Heading\nline1\nline2";
+    const dataFile = new RawDataFile(content);
+
+    expect(dataFile.rawContent).toBe(content);
+    expect(dataFile.heading).toBe("# Heading");
+  });
+
+  it("should split content into lines", () => {
+    const content = "line1\nline2\nline3";
+    const dataFile = new RawDataFile(content);
+
+    expect(dataFile.lines).toEqual(["line1", "line2", "line3"]);
+  });
+
+  it("should handle content without heading", () => {
+    const content = "line1\nline2\nline3";
+    const dataFile = new RawDataFile(content);
+
+    expect(dataFile.heading).toBeUndefined();
+  });
+
+  it("should parse multi-line heading", () => {
+    const content = dedent`
+      # Line 1
+      # Line 2
+      # Line 3
+
+      Content starts here
+    `;
+    const dataFile = new RawDataFile(content);
+
+    expect(dataFile.heading).toBe(dedent`
+      # Line 1
+      # Line 2
+      # Line 3
+    `);
+  });
+
+  it("should throw error if content is empty", () => {
+    expect(() => {
+      // eslint-disable-next-line no-new
+      new RawDataFile("");
+    }).toThrowError("content is empty");
   });
 });
