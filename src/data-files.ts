@@ -69,7 +69,16 @@ export function parseDataFileHeading(content: string): string | undefined {
   let isInHeading: boolean = false;
 
   const lines = content.split("\n");
-  for (const line of lines) {
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const nextLine = lines[i + 1];
+
+    // if the next line contains @missing, we can break out of the loop
+    if (nextLine?.trim().includes("@missing")) {
+      break;
+    }
+
     // comments start with #
     if (isCommentLine(line)) {
       isInHeading = true;
@@ -106,23 +115,6 @@ export function parseDataFileHeading(content: string): string | undefined {
   }
 
   return heading.trim() === "" ? undefined : heading.trim();
-}
-
-/**
- * Extracts and concatenates comment lines from a data file content.
- *
- * This function takes a string representing the content of a data file,
- * filters out all lines except those that start with '#' (comment lines),
- * and joins them together with newline characters.
- *
- * @param {string} content - The content of the data file as a string
- * @returns {string} A string containing all comment lines concatenated with newline characters
- */
-export function getDataFileComments(content: string): string {
-  return content.split("\n").filter((line) => {
-    const trimmed = line.trim();
-    return trimmed && trimmed.startsWith("# ");
-  }).join("\n");
 }
 
 export function isCommentLine(line: string): boolean {
