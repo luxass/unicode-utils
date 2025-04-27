@@ -4,7 +4,7 @@ export class RawDataFile {
   private readonly _heading: string | undefined;
 
   constructor(content: string) {
-    if (content.trim() === "" || content == null) {
+    if (content == null || content.trim() === "") {
       throw new Error("content is empty");
     }
 
