@@ -365,3 +365,99 @@ describe("parseDataFileHeading(LineBreak)", () => {
     `);
   });
 });
+
+describe("parseDataFileHeading(BidiMirroring)", () => {
+  it("v15.1.0", () => {
+    const content = dataFileFixture("15.1.0", "BidiMirroring.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v6.1.0", () => {
+    const content = dataFileFixture("6.1.0", "BidiMirroring.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(BidiTest)", () => {
+  it("v14.0.0", () => {
+    const content = dataFileFixture("14.0.0", "BidiTest.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v5.2.0", () => {
+    const content = dataFileFixture("5.2.0", "BidiTest.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(CaseFolding)", () => {
+  it("v13.0.0", () => {
+    const content = dataFileFixture("13.0.0", "CaseFolding.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v7.0.0", () => {
+    const content = dataFileFixture("7.0.0", "CaseFolding.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(EmojiSources)", () => {
+  it("v12.1.0", () => {
+    const content = dataFileFixture("12.1.0", "EmojiSources.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v6.0.0", () => {
+    const content = dataFileFixture("6.0.0", "EmojiSources.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(NamedSequences)", () => {
+  it("v15.0.0", () => {
+    const content = dataFileFixture("15.0.0", "NamedSequences.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v9.0.0", () => {
+    const content = dataFileFixture("9.0.0", "NamedSequences.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(PropList)", () => {
+  it("v11.0.0", () => {
+    const content = dataFileFixture("11.0.0", "PropList.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v4.1.0", () => {
+    const content = dataFileFixture("4.1.0", "PropList.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(Scripts)", () => {
+  it("v12.0.0", () => {
+    const content = dataFileFixture("12.0.0", "Scripts.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v5.0.0", () => {
+    const content = dataFileFixture("5.0.0", "Scripts.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
+
+describe("parseDataFileHeading(UnicodeData)", () => {
+  it("v10.0.0", () => {
+    const content = dataFileFixture("10.0.0", "UnicodeData.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+
+  it("v6.2.0", () => {
+    const content = dataFileFixture("6.2.0", "UnicodeData.txt");
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+  });
+});
