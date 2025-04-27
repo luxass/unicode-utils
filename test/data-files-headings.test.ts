@@ -369,95 +369,675 @@ describe("parseDataFileHeading(LineBreak)", () => {
 describe("parseDataFileHeading(BidiMirroring)", () => {
   it("v15.1.0", () => {
     const content = dataFileFixture("15.1.0", "BidiMirroring.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+        "# BidiMirroring-15.1.0.txt
+        # Date: 2023-01-05
+        # © 2023 Unicode®, Inc.
+        # For terms of use, see https://www.unicode.org/terms_of_use.html
+        #
+        # Unicode Character Database
+        # For documentation, see https://www.unicode.org/reports/tr44/
+        #
+        # Bidi_Mirroring_Glyph Property
+        #
+        # This file is an informative contributory data file in the
+        # Unicode Character Database.
+        #
+        # This data file lists characters that have the Bidi_Mirrored=Yes property
+        # value, for which there is another Unicode character that typically has a glyph
+        # that is the mirror image of the original character's glyph.
+        #
+        # The repertoire covered by the file is Unicode 15.1.0.
+        #
+        # The file contains a list of lines with mappings from one code point
+        # to another one for character-based mirroring.
+        # Note that for "real" mirroring, a rendering engine needs to select
+        # appropriate alternative glyphs, and that many Unicode characters do not
+        # have a mirror-image Unicode character.
+        #
+        # Each mapping line contains two fields, separated by a semicolon (';').
+        # Each of the two fields contains a code point represented as a
+        # variable-length hexadecimal value with 4 to 6 digits.
+        # A comment indicates where the characters are "BEST FIT" mirroring.
+        #
+        # Code points for which Bidi_Mirrored=Yes, but for which no appropriate
+        # characters exist with mirrored glyphs, are
+        # listed as comments at the end of the file.
+        #
+        # Formally, the default value of the Bidi_Mirroring_Glyph property
+        # for each code point is <none>, unless a mapping to
+        # some other character is specified in this data file. When a code
+        # point has the default value for the Bidi_Mirroring_Glyph property,
+        # that means that no other character exists whose glyph is suitable
+        # for character-based mirroring.
+        #
+        # For information on bidi mirroring, see UAX #9: Unicode Bidirectional Algorithm,
+        # at https://www.unicode.org/reports/tr9/
+        #
+        # This file was originally created by Markus Scherer.
+        # Extended for Unicode 3.2, 4.0, 4.1, 5.0, 5.1, 5.2, and 6.0 by Ken Whistler,
+        # and for subsequent versions by Ken Whistler, Laurentiu Iancu, and Roozbeh Pournader.
+        #
+        # Historical and Compatibility Information:
+        #
+        # The OpenType Mirroring Pairs List (OMPL) is frozen to match the
+        # Unicode 5.1 version of the Bidi_Mirroring_Glyph property (2008).
+        # See https://www.microsoft.com/typography/otspec/ompl.txt
+        #
+        # The Unicode 6.1 version of the Bidi_Mirroring_Glyph property (2011)
+        # added one mirroring pair: 27CB <--> 27CD.
+        #
+        # The Unicode 11.0 version of the Bidi_Mirroring_Glyph property (2018)
+        # underwent a substantial revision, to formally recognize all of the
+        # exact mirroring pairs and "BEST FIT" mirroring pairs that had been
+        # added after the freezing of the OMPL list. As a result, starting
+        # with Unicode 11.0, the bmg mapping values more accurately reflect
+        # the current status of glyphs for Bidi_Mirrored characters in
+        # the Unicode Standard, but this listing now extends significantly
+        # beyond the frozen OMPL list. Implementers should be aware of this
+        # intentional distinction.
+        #
+        # ############################################################"
+      `);
   });
 
   it("v6.1.0", () => {
     const content = dataFileFixture("6.1.0", "BidiMirroring.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+        "# BidiMirroring-6.1.0.txt
+        # Date: 2011-12-20, 19:31:00 GMT [KW, LI]
+        #
+        # Bidi_Mirroring_Glyph Property
+        #
+        # This file is an informative contributory data file in the
+        # Unicode Character Database.
+        #
+        # Copyright (c) 1991-2011 Unicode, Inc.
+        # For terms of use, see http://www.unicode.org/terms_of_use.html
+        #
+        # This data file lists characters that have the Bidi_Mirrored=Yes property
+        # value, for which there is another Unicode character that typically has a glyph
+        # that is the mirror image of the original character's glyph.
+        #
+        # The repertoire covered by the file is Unicode 6.1.0.
+        #
+        # The file contains a list of lines with mappings from one code point
+        # to another one for character-based mirroring.
+        # Note that for "real" mirroring, a rendering engine needs to select
+        # appropriate alternative glyphs, and that many Unicode characters do not
+        # have a mirror-image Unicode character.
+        #
+        # Each mapping line contains two fields, separated by a semicolon (';').
+        # Each of the two fields contains a code point represented as a
+        # variable-length hexadecimal value with 4 to 6 digits.
+        # A comment indicates where the characters are "BEST FIT" mirroring.
+        #
+        # Code points for which Bidi_Mirrored=Yes, but for which no appropriate
+        # characters exist with mirrored glyphs, are
+        # listed as comments at the end of the file.
+        #
+        #   Note: (2011-12-19) There is an inconsistency between the
+        #   following statement about the default value
+        #   of the Bidi_Mirroring_Glyph property and the
+        #   value of the @missing line for Bidi_Mirroring_Glyph in
+        #   PropertyValueAliases.txt. This inconsistency was discovered too
+        #   late in the release process to be resolved by
+        #   the UTC. The inconsistency will be resolved in a future revision.
+        #
+        # Formally, the default value of the Bidi_Mirroring_Glyph property
+        # for each code point is the code point itself, unless a mapping to
+        # some other character is specified in this data file. When a code
+        # point has the default value for the Bidi_Mirroring_Glyph property,
+        # that means that no other character exists whose glyph is suitable
+        # for character-based mirroring.
+        #
+        # For information on bidi mirroring, see UAX #9: Bidirectional Algorithm,
+        # at http://www.unicode.org/unicode/reports/tr9/
+        #
+        # This file was originally created by Markus Scherer.
+        # Extended for Unicode 3.2, 4.0, 4.1, 5.0, 5.1, 5.2, and 6.0 by Ken Whistler,
+        # and for Unicode 6.1 by Ken Whistler and Laurentiu Iancu.
+        #
+        # ############################################################"
+      `);
   });
 });
 
 describe("parseDataFileHeading(BidiTest)", () => {
   it("v14.0.0", () => {
     const content = dataFileFixture("14.0.0", "BidiTest.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+        "# BidiTest-14.0.0.txt
+        # Date: 2021-03-08, 19:35:40 GMT
+        # © 2021 Unicode®, Inc.
+        # Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+        # For terms of use, see http://www.unicode.org/terms_of_use.html
+        #
+        # Unicode Character Database
+        #   For documentation, see http://www.unicode.org/reports/tr44/
+        #
+        # This file provides a conformance test for UBA (Unicode Bidi Algorithm) implementations.
+        # It is designed to be reasonably compact, and yet provide a thorough test of all cases up to
+        # a given limit (currently 4). Additionally, it contains some longer cases useful for testing
+        # some common pitfalls of UBA implementations.
+        #
+        # Note that for the test cases in this file, it is assumed that no bidi
+        # paired brackets exist in the input that would affect the resolved levels
+        # or reordering. For test cases with bidi paired brackets and other
+        # character-code specific test cases, refer to BidiCharacterTest.txt.
+        # Implementations are expected to correctly cover all test cases in both
+        # test files.
+        #
+        # The test cases in this file are further limited in the following ways:
+        #
+        # - The Bidi_Class B (Paragraph_Separator) only appears as the last
+        #   character in a sequence. Thus, each sequence is assumed to consist of
+        #   only one paragraph. Implementations may need extra testing for rule P1
+        #   of the UBA.
+        #
+        # - For the application of rules L1 and L2, it is assumed that all the
+        #   characters in the input would be rendered on a single line, with no line
+        #   breaks.
+        #
+        # - Implementation of rules L3 and L4 is platform- and character-specific
+        #   and test cases for it are not provided in this data file.
+        #
+        #
+        # Format:
+        #
+        # All tokens may be separated by whitespaces (space or tab). There are three kinds of lines:
+        # Levels, Reorder, and data.
+        #
+        # A Levels line indicates that all following data lines, up to the next Levels line,
+        # have the same resulting ordering levels. It has the following format:
+        #
+        # @Levels: <levels>
+        #
+        #    <levels> =     An ordered space-delimited list of numbers indicating the resulting levels
+        #                   for each input property value. The UBA does not assign levels to certain values;
+        #                   those are indicated with an x. See the note below.
+        # Examples:
+        #   @Levels:    1 0
+        #   @Levels:    x 1 x 2
+        #
+        # A Reorder line indicates that all following data lines, up to the next Reorder line,
+        # have the same resulting reordering. It has the following format:
+        #
+        # @Reorder: <ordering>
+        #
+        #    <ordering> =   An ordered space-delimited list of numbers indicating the resulting
+        #                   visual ordering from left to right. The numbers are zero-based, and
+        #                   are indexes into the input string. Items with a level of x are skipped.
+        #                   Thus "1 0" indicates what would happen with input of "L R" and an RTL
+        #                   paragraph direction.
+        # Example:
+        #   @Reorder:    1 0
+        #   @Reorder:    3 1
+        #
+        # A data line has the following format:
+        # <input> ; <bitset>
+        #   <input>  =      An ordered list of BIDI property values
+        #   <bitset> =      A hex bitset for paragraph levels (P): 1 = auto-LTR, 2 = LTR, 4 = RTL
+        #                   Auto-LTR (standard BIDI) uses the first L/R/AL character, and is LTR if none is found.
+        # Example:
+        #    L LRE R R; 7
+        #    L LRE R AL; 7
+        #
+        # Any other line starting with @ is to be ignored (this allows some degree of forward compatibility).
+        #
+        # Usage:
+        #
+        # - If the implementation API allows a list of bidi property values as input:
+        #
+        #   For each of the paragraph levels in the bitset:
+        #     Find the levels in each line, and compare that to the last @Levels values.
+        #       If they are different, the test fails.
+        #     Reorder the elements, and compare to the @Reorder values.
+        #       If they are different, the test fails.
+        #
+        # - If the implementation allows for a character string as input,
+        #   randomly pick characters from those with the same Bidi_Class values,
+        #   and test the reordering as above.
+        #
+        # Note that the UBA doesn't specify the output level or order of certain characters,
+        # such as LRO. These are omitted from the reordered output. Thus the following two
+        # input lines have the same result (0), since the LRE (item 1) is omitted on the second line.
+        #
+        #   L; 7
+        #   L LRE; 7
+        #"
+      `);
   });
 
   it("v5.2.0", () => {
     const content = dataFileFixture("5.2.0", "BidiTest.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+        "# BidiTest-5.2.0.txt
+        # Date: 2009-06-03, 17:03:12 GMT [MD]
+        #
+        # Unicode Character Database
+        # Copyright (c) 1991-2009 Unicode, Inc.
+        # For terms of use, see http://www.unicode.org/terms_of_use.html
+        # For documentation, see http://www.unicode.org/reports/tr44/
+        #
+        # This file provides a conformance test for UBA (Unicode Bidi Algorithm) implementations.
+        # It is designed to be reasonably compact, and yet provide a thorough test of all cases up to
+        # a given limit (currently 4).
+        #
+        # Format:
+        #
+        # @Type:    <bidi_class>:  <set>
+        # These lines define which characters have the bidi_class property value,
+        # and are used in the remainder of the test.
+        #   <bidi_class> =  The bidi class property value
+        #   <set> =         All and only the those codepoints with that property value in <set>.
+        #                   <set> is a character range as defined in UTS #18 Unicode Regular Expressions.
+        # Example:
+        #   @Type:    AN:    [\\u0600-\\u0603\\u0660-\\u0669\\u066B\\u066C\\u06DD]
+        #
+        # @Levels: <levels>
+        # These lines indicate that all following* data lines have the same resulting ordering levels
+        # (*that is, data lines up to the next @Levels).
+        #    <levels> =     An ordered space-delimited list of numbers indicating the resulting levels
+        #                   for each input property value. The UBA does not assign levels to certain values;
+        #                   those are indicated with an x. See the note below.
+        # Examples:
+        #   @Levels:    1 0
+        #   @Levels:    x 1 x 2
+        #
+        # @Reorder: <ordering>
+        # These lines indicate that all following* data lines have the same resulting reordering
+        # (*that is, data lines up to the next @Reorder).
+        #    <ordering> =   An ordered space-delimited list of numbers indicating the resulting
+        #                   ordering from left to right. The numbers are zero-based. Items with
+        #                   a level of x are skipped. Thus "1 0" indicates what would happen
+        #                   with input of "L R" and an RTL paragraph direction.
+        # Example:
+        #   @Reorder:    1 0
+        #   @Reorder:    3 1
+        #
+        # <input> ; <bitset>
+        #   <input>  =      An ordered list of BIDI property values
+        #   <bitset> =      A bitset for paragraph levels (P): 1 = automatic, 2 = LTR, 4 = RTL
+        # Example:
+        #    L LRE R R; 7
+        #    L LRE R AL; 7
+        #
+        # Usage:
+        #
+        # - If the implementation API allows a list of bidi property values as input:
+        #
+        #   For each of the paragraph levels in the bitset:
+        #     Find the levels in each line, and compare that to the last @Levels values.
+        #       If they are different, the test fails.
+        #     Reorder the elements, and compare to the @Reorder values.
+        #       If they are different, the test fails.
+        #
+        # - If the implementation allows for a character string as input,
+        #   randomly pick characters from the @type values, and test the reordering as above.
+        #
+        # Note that the UBA doesn't specify the output level or order of certain characters,
+        # such as LRO. These are omitted from the reordered output. Thus the following two
+        # input lines have the same result (0), since the LRE (item 1) is omitted on the second line.
+        #
+        #   L; 7
+        #   L LRE; 7
+        #"
+      `);
   });
 });
 
 describe("parseDataFileHeading(CaseFolding)", () => {
   it("v13.0.0", () => {
     const content = dataFileFixture("13.0.0", "CaseFolding.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# CaseFolding-13.0.0.txt
+      # Date: 2019-09-08, 23:30:59 GMT
+      # © 2019 Unicode®, Inc.
+      # Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      #
+      # Unicode Character Database
+      #   For documentation, see http://www.unicode.org/reports/tr44/
+      #
+      # Case Folding Properties
+      #
+      # This file is a supplement to the UnicodeData file.
+      # It provides a case folding mapping generated from the Unicode Character Database.
+      # If all characters are mapped according to the full mapping below, then
+      # case differences (according to UnicodeData.txt and SpecialCasing.txt)
+      # are eliminated.
+      #
+      # The data supports both implementations that require simple case foldings
+      # (where string lengths don't change), and implementations that allow full case folding
+      # (where string lengths may grow). Note that where they can be supported, the
+      # full case foldings are superior: for example, they allow "MASSE" and "Maße" to match.
+      #
+      # All code points not listed in this file map to themselves.
+      #
+      # NOTE: case folding does not preserve normalization formats!
+      #
+      # For information on case folding, including how to have case folding
+      # preserve normalization formats, see Section 3.13 Default Case Algorithms in
+      # The Unicode Standard.
+      #
+      # ================================================================================
+      # Format
+      # ================================================================================
+      # The entries in this file are in the following machine-readable format:
+      #
+      # <code>; <status>; <mapping>; # <name>
+      #
+      # The status field is:
+      # C: common case folding, common mappings shared by both simple and full mappings.
+      # F: full case folding, mappings that cause strings to grow in length. Multiple characters are separated by spaces.
+      # S: simple case folding, mappings to single characters where different from F.
+      # T: special case for uppercase I and dotted uppercase I
+      #    - For non-Turkic languages, this mapping is normally not used.
+      #    - For Turkic languages (tr, az), this mapping can be used instead of the normal mapping for these characters.
+      #      Note that the Turkic mappings do not maintain canonical equivalence without additional processing.
+      #      See the discussions of case mapping in the Unicode Standard for more information.
+      #
+      # Usage:
+      #  A. To do a simple case folding, use the mappings with status C + S.
+      #  B. To do a full case folding, use the mappings with status C + F.
+      #
+      #    The mappings with status T can be used or omitted depending on the desired case-folding
+      #    behavior. (The default option is to exclude them.)
+      #
+      # ================================================================="
+    `);
   });
 
   it("v7.0.0", () => {
     const content = dataFileFixture("7.0.0", "CaseFolding.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# CaseFolding-7.0.0.txt
+      # Date: 2014-04-09, 20:00:56 GMT [MD]
+      #
+      # Unicode Character Database
+      # Copyright (c) 1991-2014 Unicode, Inc.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      # For documentation, see http://www.unicode.org/reports/tr44/
+      #
+      # Case Folding Properties
+      #
+      # This file is a supplement to the UnicodeData file.
+      # It provides a case folding mapping generated from the Unicode Character Database.
+      # If all characters are mapped according to the full mapping below, then
+      # case differences (according to UnicodeData.txt and SpecialCasing.txt)
+      # are eliminated.
+      #
+      # The data supports both implementations that require simple case foldings
+      # (where string lengths don't change), and implementations that allow full case folding
+      # (where string lengths may grow). Note that where they can be supported, the
+      # full case foldings are superior: for example, they allow "MASSE" and "Maße" to match.
+      #
+      # All code points not listed in this file map to themselves.
+      #
+      # NOTE: case folding does not preserve normalization formats!
+      #
+      # For information on case folding, including how to have case folding\u0020
+      # preserve normalization formats, see Section 3.13 Default Case Algorithms in
+      # The Unicode Standard.
+      #
+      # ================================================================================
+      # Format
+      # ================================================================================
+      # The entries in this file are in the following machine-readable format:
+      #
+      # <code>; <status>; <mapping>; # <name>
+      #
+      # The status field is:
+      # C: common case folding, common mappings shared by both simple and full mappings.
+      # F: full case folding, mappings that cause strings to grow in length. Multiple characters are separated by spaces.
+      # S: simple case folding, mappings to single characters where different from F.
+      # T: special case for uppercase I and dotted uppercase I
+      #    - For non-Turkic languages, this mapping is normally not used.
+      #    - For Turkic languages (tr, az), this mapping can be used instead of the normal mapping for these characters.
+      #      Note that the Turkic mappings do not maintain canonical equivalence without additional processing.
+      #      See the discussions of case mapping in the Unicode Standard for more information.
+      #
+      # Usage:
+      #  A. To do a simple case folding, use the mappings with status C + S.
+      #  B. To do a full case folding, use the mappings with status C + F.
+      #
+      #    The mappings with status T can be used or omitted depending on the desired case-folding
+      #    behavior. (The default option is to exclude them.)
+      #
+      # ================================================================="
+    `);
   });
 });
 
 describe("parseDataFileHeading(EmojiSources)", () => {
   it("v12.1.0", () => {
     const content = dataFileFixture("12.1.0", "EmojiSources.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# EmojiSources-12.1.0.txt
+      # Date: 2019-03-08, 23:59:00 GMT [MS, KW]
+      # © 2019 Unicode®, Inc.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      #
+      # Unicode Character Database
+      # For documentation, see http://www.unicode.org/reports/tr44/
+      #
+      # This file provides historical mappings between Unicode code points and sequences on one hand
+      # and Shift-JIS codes for cell phone carrier symbols on the other hand.
+      # Each mapping is symmetric ("round trip"), for equivalent Unicode and carrier
+      # symbols or sequences. This file does not include best-fit ("fallback")
+      # mappings to similar but not equivalent symbols in either mapping direction.
+      #
+      # Created for Unicode 6.0 by Markus Scherer.
+      # Updated for subsequent versions by Ken Whistler (no changes to mappings).
+      #
+      # Format: Semicolon-delimited file with a fixed number of fields.
+      # Note that the format, including the number of fields, may change in the future.
+      #
+      # Fields:
+      # 0: Unicode code point or sequence
+      # 1: DoCoMo Shift-JIS code
+      # 2: KDDI Shift-JIS code
+      # 3: SoftBank Shift-JIS code
+      #
+      # Each field 1..3 contains a code if and only if the vendor character set
+      # has a symbol which is equivalent to the Unicode character or sequence."
+    `);
   });
 
   it("v6.0.0", () => {
     const content = dataFileFixture("6.0.0", "EmojiSources.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# EmojiSources-6.0.0.txt
+      # Date: 2010-04-24, 00:00:00 GMT [MS]
+      #
+      # Unicode Character Database
+      # Copyright (c) 1991-2010 Unicode, Inc.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      # For documentation, see http://www.unicode.org/reports/tr44/
+      #
+      # This file provides mappings between Unicode code points and sequences on one hand
+      # and Shift-JIS codes for cell phone carrier symbols on the other hand.
+      # Each mapping is symmetric ("round trip"), for equivalent Unicode and carrier
+      # symbols or sequences. This file does not include best-fit ("fallback")
+      # mappings to similar but not equivalent symbols in either mapping direction.
+      #
+      # Note: It is possible that future versions of this file will include
+      # additional data columns providing mappings for additional vendors.
+      #
+      # Format: Semicolon-delimited file with a fixed number of fields.
+      # The number of fields may increase in the future.
+      #
+      # Fields:
+      # 0: Unicode code point or sequence
+      # 1: DoCoMo Shift-JIS code
+      # 2: KDDI Shift-JIS code
+      # 3: SoftBank Shift-JIS code
+      #
+      # Each field 1..3 contains a code if and only if the vendor character set
+      # has a symbol which is equivalent to the Unicode character or sequence."
+    `);
   });
 });
 
 describe("parseDataFileHeading(NamedSequences)", () => {
   it("v15.0.0", () => {
     const content = dataFileFixture("15.0.0", "NamedSequences.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# NamedSequences-15.0.0.txt
+      # Date: 2021-12-07, 17:18:00 GMT [KW]
+      # © 2021 Unicode®, Inc.
+      # For terms of use, see https://www.unicode.org/terms_of_use.html
+      #
+      # Unicode Character Database
+      # For documentation, see https://www.unicode.org/reports/tr44/
+      #
+      # Unicode Named Character Sequences
+      #
+      # This file is a normative contributory data file in the Unicode
+      # Character Database.
+      #
+      # Format:
+      # Name of Sequence; Code Point Sequence for USI
+      #
+      # Code point sequences in the Unicode Character Database
+      # use spaces as delimiters. The corresponding format for a
+      # UCS Sequence Identifier (USI) in ISO/IEC 10646 uses
+      # comma delimitation and angle brackets. Thus, a Unicode
+      # named character sequence of the form:
+      #
+      # EXAMPLE NAME;1000 1001 1002
+      #
+      # in this data file, would correspond to an ISO/IEC 10646 USI
+      # as follows:
+      #
+      # <1000, 1001, 1002>
+      #
+      # For more information, see UAX #34: Unicode Named Character
+      # Sequences, at https://www.unicode.org/reports/tr34/
+      #
+      # Note: The order of entries in this file is not significant.
+      # However, entries are generally in script order corresponding
+      # to block order in the Unicode Standard, to make it easier
+      # to find entries in the list."
+    `);
   });
 
   it("v9.0.0", () => {
     const content = dataFileFixture("9.0.0", "NamedSequences.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# NamedSequences-9.0.0.txt
+      # Date: 2016-05-26, 00:00:00 GMT [KW, LI]
+      # © 2016 Unicode®, Inc.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      #
+      # Unicode Character Database
+      # For documentation, see http://www.unicode.org/reports/tr44/
+      #
+      # Unicode Named Character Sequences
+      #
+      # This file is a normative contributory data file in the Unicode
+      # Character Database.
+      #
+      # Format:
+      # Name of Sequence; Code Point Sequence for USI
+      #
+      # Code point sequences in the Unicode Character Database
+      # use spaces as delimiters. The corresponding format for a
+      # UCS Sequence Identifier (USI) in ISO/IEC 10646 uses
+      # comma delimitation and angle brackets. Thus, a Unicode
+      # named character sequence of the form:
+      #
+      # EXAMPLE NAME;1000 1001 1002
+      #
+      # in this data file, would correspond to an ISO/IEC 10646 USI
+      # as follows:
+      #
+      # <1000, 1001, 1002>
+      #
+      # For more information, see UAX #34: Unicode Named Character
+      # Sequences, at http://www.unicode.org/unicode/reports/tr34/
+      #
+      # Note: The order of entries in this file is not significant.
+      # However, entries are generally in script order corresponding
+      # to block order in the Unicode Standard, to make it easier
+      # to find entries in the list."
+    `);
   });
 });
 
 describe("parseDataFileHeading(PropList)", () => {
   it("v11.0.0", () => {
     const content = dataFileFixture("11.0.0", "PropList.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# PropList-11.0.0.txt
+      # Date: 2018-03-15, 04:28:35 GMT
+      # © 2018 Unicode®, Inc.
+      # Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      #
+      # Unicode Character Database
+      #   For documentation, see http://www.unicode.org/reports/tr44/"
+    `);
   });
 
   it("v4.1.0", () => {
     const content = dataFileFixture("4.1.0", "PropList.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+      "# PropList-4.1.0.txt
+      # Date: 2005-03-26, 00:34:40 GMT [MD]
+      #
+      # Unicode Character Database
+      # Copyright (c) 1991-2005 Unicode, Inc.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      # For documentation, see UCD.html"
+    `);
   });
 });
 
 describe("parseDataFileHeading(Scripts)", () => {
   it("v12.0.0", () => {
     const content = dataFileFixture("12.0.0", "Scripts.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+        "# Scripts-12.0.0.txt
+        # Date: 2019-01-28, 22:16:47 GMT
+        # © 2019 Unicode®, Inc.
+        # Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+        # For terms of use, see http://www.unicode.org/terms_of_use.html
+        #
+        # Unicode Character Database
+        #   For documentation, see http://www.unicode.org/reports/tr44/
+        # For more information, see:
+        #   UAX #24, Unicode Script Property: http://www.unicode.org/reports/tr24/
+        #     Especially the sections:
+        #       http://www.unicode.org/reports/tr24/#Assignment_Script_Values
+        #       http://www.unicode.org/reports/tr24/#Assignment_ScriptX_Values
+        #"
+      `);
   });
 
   it("v5.0.0", () => {
     const content = dataFileFixture("5.0.0", "Scripts.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
+        "# Scripts-5.0.0.txt
+        # Date: 2006-03-09, 23:14:25 GMT [MD]
+        #
+        # Unicode Character Database
+        # Copyright (c) 1991-2006 Unicode, Inc.
+        # For terms of use, see http://www.unicode.org/terms_of_use.html
+        # For documentation, see UCD.html"
+      `);
   });
 });
 
 describe("parseDataFileHeading(UnicodeData)", () => {
   it("v10.0.0", () => {
     const content = dataFileFixture("10.0.0", "UnicodeData.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`undefined`);
   });
 
   it("v6.2.0", () => {
     const content = dataFileFixture("6.2.0", "UnicodeData.txt");
-    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`INSERT HERE`);
+    expect(parseDataFileHeading(content)).toMatchInlineSnapshot(`undefined`);
   });
 });
