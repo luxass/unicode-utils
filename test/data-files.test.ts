@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { getDataFileComments } from "../src/data-files";
+import { getDataFileComments, internal_parseHeading } from "../src/data-files";
 
 function dataFileFixture(version: string, file: string) {
   return readFileSync(
@@ -285,5 +286,191 @@ text # also not a comment
     const expected = dataFileFixture(version, `${file}.comments`);
 
     expect(getDataFileComments(input)).toBe(expected);
+  });
+}); // Update with your actual module path
+
+describe("internal_parseHeading", () => {
+  it("should return undefined for empty input", () => {
+    expect(internal_parseHeading("")).toBeUndefined();
+  });
+
+  it("should return undefined for null input", () => {
+    expect(internal_parseHeading(null as any)).toBeUndefined();
+  });
+
+  it("should return undefined when no heading is present", () => {
+    const content = dedent`
+      This is some content
+      without any heading
+    `;
+    expect(internal_parseHeading(content)).toBeUndefined();
+  });
+
+  it("should parse a single line heading", () => {
+    const content = dedent`
+      # This is a heading
+    `;
+    expect(internal_parseHeading(content)).toBe("# This is a heading");
+  });
+
+  it("should parse a multi-line heading", () => {
+    const content = dedent`
+      # This is a heading
+      # This is still part of the heading
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # This is a heading
+      # This is still part of the heading
+    `);
+  });
+
+  it("should stop parsing at empty line", () => {
+    const content = dedent`
+      # This is a heading
+
+      # This is not part of the heading
+    `;
+    expect(internal_parseHeading(content)).toBe("# This is a heading");
+  });
+
+  it("should stop parsing at non-comment line", () => {
+    const content = dedent`
+      # This is a heading
+      This is not a heading
+      # This should not be included
+    `;
+    expect(internal_parseHeading(content)).toBe("# This is a heading");
+  });
+
+  it("should stop parsing when encountering # followed by multiple #", () => {
+    const content = dedent`
+      # This is a heading
+      # ####
+      # This should not be included
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # This is a heading
+      # ####
+    `);
+  });
+
+  it("should stop parsing when encountering # followed by multiple =", () => {
+    const content = dedent`
+      # This is a heading
+      # ====
+      # This should not be included
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # This is a heading
+      # ====
+    `);
+  });
+
+  it("should handle whitespace after #", () => {
+    const content = dedent`
+      #  This has extra spaces
+      # This has a tab
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      #  This has extra spaces
+      # This has a tab
+    `);
+  });
+
+  it("should not include lines that do not start with \"# \"", () => {
+    const content = dedent`
+      # This is a heading
+      #This has no space
+      # This is still part of the heading
+    `;
+    expect(internal_parseHeading(content)).toBe("# This is a heading");
+  });
+
+  it("should handle content with mixed comment and non-comment lines", () => {
+    const content = dedent`
+      Some initial text
+      # This is a heading
+      # More heading
+      Non-heading text
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # This is a heading
+      # More heading
+    `);
+  });
+
+  it("should properly detect heading end with hash followed by equals", () => {
+    const content = dedent`
+      # Heading start
+      # =========
+      Regular content
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # Heading start
+      # =========
+    `);
+  });
+
+  it("should handle heading with special characters", () => {
+    const content = dedent`
+      # Special chars: !@#$%^&*()_+{}[]|\\:;"'<>,.?/
+    `;
+    expect(internal_parseHeading(content)).toBe("# Special chars: !@#$%^&*()_+{}[]|\\:;\"'<>,.?/");
+  });
+
+  it("should return undefined when content has only non-comment lines", () => {
+    const content = dedent`
+      First line
+      Second line
+      Third line
+    `;
+    expect(internal_parseHeading(content)).toBeUndefined();
+  });
+
+  it("should handle multi-paragraph heading example", () => {
+    const content = dedent`
+      # Document Title
+      #
+      # This is a multi-paragraph header
+      # with several lines of content
+      #
+      # It includes multiple sections
+
+      This is the main content.
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # Document Title
+      #
+      # This is a multi-paragraph header
+      # with several lines of content
+      #
+      # It includes multiple sections
+    `);
+  });
+
+  it("should handle code examples in headers", () => {
+    const content = dedent`
+      # Function usage:
+      # parseHeading('# Header')
+
+      Regular content starts here
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # Function usage:
+      # parseHeading('# Header')
+    `);
+  });
+
+  it("should handle URLs in headers", () => {
+    const content = dedent`
+      # See documentation at:
+      # https://example.com/docs
+
+      Content below
+    `;
+    expect(internal_parseHeading(content)).toBe(dedent`
+      # See documentation at:
+      # https://example.com/docs
+    `);
   });
 });
