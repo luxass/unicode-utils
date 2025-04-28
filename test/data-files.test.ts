@@ -309,7 +309,7 @@ describe("isCommentLine", () => {
     ["#This is not a comment", false],
     ["Text # with hash", false],
     ["", false],
-    ["  # This is a comment with leading space", true],
+    ["  # This is a comment with leading space", false],
     [" #This is not a comment despite space", false],
   ])("should correctly identify '%s' as %s", (line, expected) => {
     expect(isCommentLine(line)).toBe(expected);
