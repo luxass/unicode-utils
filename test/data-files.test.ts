@@ -1,6 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { parseDataFileHeading, RawDataFile } from "../src/data-files";
+import { isMissingAnnotation, parseDataFileHeading, parseMissingAnnotation, RawDataFile } from "../src/data-files";
 
 describe("parseDataFileHeading", () => {
   it("should return undefined for empty input", () => {
@@ -234,5 +234,69 @@ describe("RawDataFile", () => {
       // eslint-disable-next-line no-new
       new RawDataFile("");
     }).toThrowError("content is empty");
+  });
+});
+
+describe("missing annotation", () => {
+  it.each([
+    ["# @missing: 0000..007F; Basic Latin", true],
+    ["# @missing: 0000..10FFFF; NFD_QC; Yes", true],
+    ["# @missing: 20000..2FFFD; Wide", true],
+    ["# Not a missing annotation", false],
+    ["Regular text", false],
+  ])("should identify %s as %s", (line, expected) => {
+    expect(isMissingAnnotation(line)).toBe(expected);
+  });
+
+  it("should return null for non-missing annotation lines", () => {
+    expect(parseMissingAnnotation("# This is not a missing annotation")).toBeNull();
+    expect(parseMissingAnnotation("Regular content")).toBeNull();
+  });
+
+  it("should correctly parse simple missing annotation", () => {
+    const result = parseMissingAnnotation("# @missing: 0000..007F; Basic Latin");
+    expect(result).toEqual({
+      start: "0000",
+      end: "007F",
+      propertyName: undefined,
+      defaultPropertyValue: "Basic Latin",
+    });
+  });
+
+  it("should correctly parse missing annotation with property name", () => {
+    const result = parseMissingAnnotation("# @missing: 0000..10FFFF; NFD_QC; Yes");
+    expect(result).toEqual({
+      start: "0000",
+      end: "10FFFF",
+      propertyName: "NFD_QC",
+      defaultPropertyValue: "Yes",
+    });
+  });
+
+  it("should handle different code point ranges", () => {
+    const result = parseMissingAnnotation("# @missing: 20000..2FFFD; Wide");
+    expect(result).toEqual({
+      start: "20000",
+      end: "2FFFD",
+      propertyName: undefined,
+      defaultPropertyValue: "Wide",
+    });
+  });
+
+  it("should handle missing annotation with special tags", () => {
+    const result = parseMissingAnnotation("# @missing: 0000..007F; Script; <none>");
+    expect(result).toEqual({
+      start: "0000",
+      end: "007F",
+      propertyName: "Script",
+      defaultPropertyValue: "<none>",
+      specialTag: "none",
+    });
+  });
+
+  it("should return null for malformed missing annotations", () => {
+    expect(parseMissingAnnotation("# @missing: invalid..format; Value")).toBeNull();
+    expect(parseMissingAnnotation("# @missing: 0000..007F")).toBeNull();
+    expect(parseMissingAnnotation("# @missing:")).toBeNull();
   });
 });

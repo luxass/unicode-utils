@@ -122,3 +122,87 @@ export function parseDataFileHeading(content: string): string | undefined {
 export function isCommentLine(line: string): boolean {
   return line.startsWith("# ") || line.trim() === "#";
 }
+
+export function isEmptyLine(line: string): boolean {
+  return line.trim() === "";
+}
+
+/**
+ * Check if a given line from a Unicode data file is a 'missing' annotation.
+ *
+ * In Unicode data files, lines starting with '# @missing:' indicate
+ * a range of code points that are not assigned.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line is a missing annotation, false otherwise
+ */
+export function isMissingAnnotation(line: string): boolean {
+  return line.startsWith("# @missing:");
+}
+
+export interface MissingAnnotation {
+  start: string;
+  end: string;
+  propertyName?: string;
+  defaultPropertyValue: string;
+  /**
+   * The special tag used in the Annotation.
+   *
+   * NOTE:
+   * - "none" no value is defined
+   * - "script" the value equal to the Script property value for this code point
+   * - "code-point" the string representation of the code point value
+   */
+  specialTag?: "none" | "script" | "code-point";
+}
+
+const MISSING_ANNOTATION_SPECIAL_TAGS: Record<string, "none" | "script" | "code-point"> = {
+  "<none>": "none",
+  "<script>": "script",
+  "<code-point>": "code-point",
+};
+
+/**
+ * Parses a line into a MissingAnnotation object.
+ *
+ * This function attempts to extract information from a line that follows the
+ * format of a missing annotation in Unicode data files.
+ *
+ * The format being parsed is:
+ * `# @missing: START..END; DEFAULT_PROP_VALUE_OR_PROPERTY_NAME[; DEFAULT_PROPERTY_VALUE]`
+ *
+ * @param {string} line - The line to parse
+ * @returns {MissingAnnotation | null} A MissingAnnotation object if the line is a valid missing annotation, null otherwise
+ *
+ * @example
+ * ```ts
+ * parseMissingAnnotation("# @missing: 0000..007F; NA")
+ * // -> { start: "0000", end: "007F", defaultPropertyValue: "NA" }
+ *
+ * parseMissingAnnotation("# @missing: 0000..007F; Script; Unknown")
+ * // -> { start: "0000", end: "007F", propertyName: "Script", defaultPropertyValue: "Unknown" }
+ * ```
+ */
+export function parseMissingAnnotation(line: string): MissingAnnotation | null {
+  if (!isMissingAnnotation(line)) {
+    return null;
+  }
+
+  const match = line.match(/^# @missing: ([0-9A-F]+)\.\.([0-9A-F]+); ([^;\n]+)(?:; ([^\n]+))?$/m);
+  if (match == null) {
+    return null;
+  }
+
+  const [_, start, end, defaultPropValueOrPropertyName, defaultPropertyValue] = match;
+
+  const defaultProperty = defaultPropertyValue == null ? defaultPropValueOrPropertyName : defaultPropertyValue;
+  const specialTag: "none" | "script" | "code-point" | undefined = MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty] ?? undefined;
+
+  return {
+    start,
+    end,
+    propertyName: defaultPropertyValue == null ? undefined : defaultPropValueOrPropertyName,
+    defaultPropertyValue: defaultProperty,
+    specialTag,
+  };
+}
