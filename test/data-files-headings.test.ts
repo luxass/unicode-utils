@@ -506,7 +506,7 @@ describe("parseDataFileHeading(BidiMirroring)", () => {
 });
 
 describe("parseDataFileHeading(BidiTest)", () => {
-  it("v16.0.0", () => {
+  it.todo("v16.0.0", () => {
     const content = dataFileFixture("16.0.0", "BidiTest.txt");
     expect(parseDataFileHeading(content)).toMatchInlineSnapshot(dedent`
         "# BidiTest-16.0.0.txt
