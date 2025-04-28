@@ -1,6 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { isMissingAnnotation, parseDataFileHeading, parseMissingAnnotation, RawDataFile } from "../src/data-files";
+import { isCommentLine, isEmptyLine, isMissingAnnotation, parseDataFileHeading, parseMissingAnnotation, RawDataFile } from "../src/data-files";
 
 describe("parseDataFileHeading", () => {
   it("should return undefined for empty input", () => {
@@ -298,5 +298,37 @@ describe("missing annotation", () => {
     expect(parseMissingAnnotation("# @missing: invalid..format; Value")).toBeNull();
     expect(parseMissingAnnotation("# @missing: 0000..007F")).toBeNull();
     expect(parseMissingAnnotation("# @missing:")).toBeNull();
+  });
+});
+
+describe("isCommentLine", () => {
+  it.each([
+    ["# This is a comment", true],
+    ["#", true],
+    ["  #  ", true],
+    ["#This is not a comment", false],
+    ["Text # with hash", false],
+    ["", false],
+    ["  # This is a comment with leading space", true],
+    [" #This is not a comment despite space", false],
+  ])("should correctly identify '%s' as %s", (line, expected) => {
+    expect(isCommentLine(line)).toBe(expected);
+  });
+});
+
+describe("isEmptyLine", () => {
+  it.each([
+    ["", true],
+    ["  ", true],
+    ["\t", true],
+    ["\n", true],
+    ["  \t  ", true],
+    ["text", false],
+    [" text ", false],
+    ["\ttext\t", false],
+    ["  text with spaces  ", false],
+    ["special chars !@#", false],
+  ])("should correctly identify '%s' as %s", (line, expected) => {
+    expect(isEmptyLine(line)).toBe(expected);
   });
 });

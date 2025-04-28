@@ -119,10 +119,25 @@ export function parseDataFileHeading(content: string): string | undefined {
   return heading.trim() === "" ? undefined : heading.trim();
 }
 
+/**
+ * Determines if a line is a comment line.
+ *
+ * A comment line is either a line that starts with "# " or
+ * a line that only contains "#" (possibly with whitespace).
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line is a comment line, false otherwise
+ */
 export function isCommentLine(line: string): boolean {
   return line.startsWith("# ") || line.trim() === "#";
 }
 
+/**
+ * Checks if a string line is empty after trimming whitespace.
+ *
+ * @param {string} line - The string to check for emptiness
+ * @returns {boolean} A boolean indicating whether the trimmed line is empty
+ */
 export function isEmptyLine(line: string): boolean {
   return line.trim() === "";
 }
