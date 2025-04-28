@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@luxass/utils':
-        specifier: ^1.4.0
-        version: 1.4.0
+        specifier: ^1.5.0
+        version: 1.5.0
     devDependencies:
       '@luxass/eslint-config':
         specifier: ^4.18.1
@@ -397,8 +397,8 @@ packages:
       prettier-plugin-astro:
         optional: true
 
-  '@luxass/utils@1.4.0':
-    resolution: {integrity: sha512-ugZSgDPMMZoGBH5AU+Ab1AwMJJ62e73qMGIuoyQgut1JGpt/8X7xfNSZkH7+rff1geBZnzHoOlIdF7v2H7qJMw==}
+  '@luxass/utils@1.5.0':
+    resolution: {integrity: sha512-6IV3liWg9moF/S0opdQSx2lXeQ1VFuknXFm6qgrQRmH4DYY/yQvzuuOwwUCtBVa8bPHD9CPGwGuUTuG17ZCfBA==}
     engines: {node: '>=20'}
 
   '@napi-rs/wasm-runtime@0.2.9':
@@ -2795,7 +2795,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@luxass/utils@1.4.0': {}
+  '@luxass/utils@1.5.0': {}
 
   '@napi-rs/wasm-runtime@0.2.9':
     dependencies:

@@ -1,6 +1,13 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { isCommentLine, isEmptyLine, isMissingAnnotation, parseDataFileHeading, parseMissingAnnotation, RawDataFile } from "../src/data-files";
+import {
+  isCommentLine,
+  isEmptyLine,
+  isMissingAnnotation,
+  parseDataFileHeading,
+  parseMissingAnnotation,
+  RawDataFile,
+} from "../src/data-files";
 
 describe("parseDataFileHeading", () => {
   it("should return undefined for empty input", () => {
