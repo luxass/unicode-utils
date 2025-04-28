@@ -1,5 +1,5 @@
 export class RawDataFile {
-  private readonly _rawContent: string | undefined;
+  private readonly _rawContent: string;
   private readonly _lines: string[];
   private readonly _heading: string | undefined;
 
@@ -14,26 +14,14 @@ export class RawDataFile {
   }
 
   public get rawContent(): string {
-    if (this._rawContent == null) {
-      throw new Error("rawContent is not set");
-    }
-
     return this._rawContent;
   }
 
   public get lines(): string[] {
-    if (this._lines == null) {
-      throw new Error("lines is not set");
-    }
-
     return this._lines;
   }
 
   public get heading(): string | undefined {
-    if (this._heading == null) {
-      throw new Error("heading is not set");
-    }
-
     return this._heading;
   }
 }
