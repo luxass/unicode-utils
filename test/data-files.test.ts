@@ -209,7 +209,7 @@ describe("RawDataFile", () => {
     const content = "line1\nline2\nline3";
     const dataFile = new RawDataFile(content);
 
-    expect(() => dataFile.heading).toThrowError("heading is not set");
+    expect(dataFile.heading).toBeUndefined();
   });
 
   it("should parse multi-line heading", () => {
