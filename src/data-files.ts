@@ -54,7 +54,7 @@ export class RawDataFile {
  * @returns {string | undefined} The heading as a string if found, otherwise undefined
  *
  * @example
- * ```
+ * ```ts
  * const fileContent = "# Unicode Data File\n# Version: 14.0\n\nU+0020;SPACE";
  * const heading = parseDataFileHeading(fileContent);
  * // heading will be "# Unicode Data File\n# Version: 14.0"
@@ -69,6 +69,9 @@ export function parseDataFileHeading(content: string): string | undefined {
   let isInHeading: boolean = false;
 
   const lines = content.split("\n");
+
+  // keep track of boundary lines.
+  let lastBoundaryLineIndex: number = -1;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -86,15 +89,16 @@ export function parseDataFileHeading(content: string): string | undefined {
       // add line to heading
       heading += `${line}\n`;
 
-      // break out of loop if line starts is a comment
-      // and is followed by a lot of #
-      if (line.match(/#\s*#+/) && !isCommentLine(nextLine)) {
-        break;
+      const isHashBoundary = line.match(/#\s*#+/);
+      const isEqualsBoundary = line.match(/#\s*=+/);
+
+      if (isHashBoundary || isEqualsBoundary) {
+        lastBoundaryLineIndex = i;
       }
 
-      // break out of loop if line starts is a comment
-      // and is followed by a lot of =
-      if (line.match(/#\s*=+/) && !isCommentLine(nextLine)) {
+      // If this is a boundary pattern followed by a non-comment line,
+      // we might be at the end of the heading section
+      if ((isHashBoundary || isEqualsBoundary) && nextLine && !isCommentLine(nextLine)) {
         break;
       }
     }
@@ -114,7 +118,11 @@ export function parseDataFileHeading(content: string): string | undefined {
     }
   }
 
-  // if there is multiple lines of like ##### or ===== in the heading, use the last and cut the rest of.
+  // TODO: check if there is edge cases for this especially.
+  if (lastBoundaryLineIndex !== -1) {
+    // keep only the lines up to and including the last boundary line
+    heading = `${lines.slice(0, lastBoundaryLineIndex + 1).join("\n")}\n`;
+  }
 
   return heading.trim() === "" ? undefined : heading.trim();
 }
