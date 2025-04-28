@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/unicode-utils#readme",
   "repository": {
@@ -42,7 +42,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@luxass/utils": "^1.3.0"
+    "@luxass/utils": "^1.4.0"
   },
   "devDependencies": {
     "@luxass/eslint-config": "^4.18.1",
@@ -50,7 +50,7 @@
     "@vitest/coverage-v8": "3.1.2",
     "eslint": "^9.25.1",
     "publint": "^0.3.12",
-    "tsdown": "^0.9.8",
+    "tsdown": "^0.10.0",
     "typescript": "^5.8.3",
     "vitest": "^3.1.2"
   }
