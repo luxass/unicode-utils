@@ -2,19 +2,79 @@ name: Check Unicode Releases
 
 on:
   schedule:
-    - cron: "0 0 * * *" # run daily
-  workflow_dispatch: # allow manual triggers
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        type: boolean
+        description: Run the workflow without creating a pull request
+        required: false
+        default: false
 
 jobs:
   check-releases:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check Unicode Releases
-        uses: luxass/unicode-releases-action@v0.2.0
+        with:
+          persist-credentials: false
+
+      - name: check unicode releases
+        uses: luxass/unicode-releases-action@v0.3.0
         id: unicode
-      - name: Use Release Information
+
+      - name: generate constants
+        env:
+          UNICODE_DRAFT_VERSION: ${{ steps.unicode.outputs.current_draft}}
+          UNICODE_RELEASES: ${{ steps.unicode.outputs.all_releases }}
+          UNICODE_LATEST_RELEASE: ${{ steps.unicode.outputs.latest_release }}
+          UNICODE_UCD_RELEASES: ${{ steps.unicode.outputs.ucd_releases }}
         run: |
-          echo "Latest Release: ${{ steps.unicode.outputs.latest_release }}"
-          echo "All Releases: ${{ steps.unicode.outputs.all_releases }}"
-          echo "Current Draft: ${{ steps.unicode.outputs.current_draft }}"
+          npx tsx ./scripts/generate-constants.ts
+
+      - name: generate diff
+        id: generate-diff
+        run: |
+          git diff ./src/constants.ts > constants.diff
+
+          # if the diff is empty
+          if [ ! -s constants.diff ]; then
+            echo "No changes found in the Constants file."
+            exit 0
+          fi
+
+          echo "Changes found in the Constants file:"
+          {
+            echo 'DIFF<<EOF'
+            cat constants.diff
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: create pull request
+        uses: peter-evans/create-pull-request@dd2324fc52d5d43c699a5636bcf19fceaa70c284 # v7.0.7
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        env:
+          DIFF: ${{ steps.generate-diff.outputs.DIFF }}
+        with:
+          commit-message: "feat: updated generated files"
+          title: "feat: updated generated files"
+          body: |
+            This is an automated PR to update the auto-generated files in the repository.
+
+            <details>
+            <summary>Schema Changes</summary><br/>
+
+            ```diff
+            ${{ env.DIFF }}
+            ```
+
+            <br/></details>
+
+            I will be waiting for your approval 👋.
+          branch: update-generated-files
+          add-paths: src/constants.ts
+          base: main
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          reviewers: luxass
+

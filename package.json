@@ -39,7 +39,8 @@
     "dev": "tsdown --watch",
     "test": "vitest --run",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate:constants": "tsx scripts/generate-constants.ts"
   },
   "dependencies": {
     "@luxass/utils": "^1.5.0"
@@ -52,6 +53,7 @@
     "eslint-plugin-format": "^1.0.1",
     "publint": "^0.3.12",
     "tsdown": "^0.10.0",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "vitest": "^3.1.2"
   }
