@@ -18,7 +18,8 @@ async function run() {
   const draftVersion = process.env.UNICODE_DRAFT_VERSION || null;
 
   // validate that latest version is in versions array
-  if (!versions.includes(latestVersion)) {
+  const isInVersions = versions.find(({ version }) => version === latestVersion);
+  if (!isInVersions) {
     throw new Error(`Latest version ${latestVersion} not found in versions array`);
   }
 
