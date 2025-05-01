@@ -26,9 +26,9 @@ jobs:
       - name: generate constants
         env:
           UNICODE_DRAFT_VERSION: ${{ steps.unicode.outputs.current_draft}}
-          UNICODE_RELEASES: ${{ steps.unicode.outputs.all_releases }}
-          UNICODE_LATEST_RELEASE: ${{ steps.unicode.outputs.latest_release }}
-          UNICODE_UCD_RELEASES: ${{ steps.unicode.outputs.ucd_releases }}
+          UNICODE_VERSIONS: ${{ steps.unicode.outputs.all_releases }}
+          UNICODE_LATEST_VERSION: ${{ steps.unicode.outputs.latest_release }}
+          UNICODE_UCD_VERSIONS: ${{ steps.unicode.outputs.ucd_releases }}
         run: |
           npx tsx ./scripts/generate-constants.ts
 
