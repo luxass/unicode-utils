@@ -12,8 +12,8 @@ function getRequiredEnvVar(name: string): string {
 
 async function run() {
   // get required environment variables
-  const versions = getRequiredEnvVar("UNICODE_VERSIONS").split(",");
-  const ucdVersions = getRequiredEnvVar("UNICODE_UCD_VERSIONS").split(",");
+  const versions = JSON.parse(getRequiredEnvVar("UNICODE_VERSIONS"));
+  const ucdVersions = JSON.parse(getRequiredEnvVar("UNICODE_UCD_VERSIONS"));
   const latestVersion = getRequiredEnvVar("UNICODE_LATEST_VERSION");
   const draftVersion = process.env.UNICODE_DRAFT_VERSION || null;
 
