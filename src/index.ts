@@ -1,4 +1,4 @@
-export { UNICODE_VERSIONS, UNICODE_VERSIONS_WITH_UCD } from "./constants";
+export { UNICODE_DRAFT_VERSION, UNICODE_LATEST_VERSION, UNICODE_VERSIONS, UNICODE_VERSIONS_WITH_UCD, type UnicodeUCDVersion, type UnicodeVersion } from "./constants";
 export {
   isCommentLine,
   isEmptyLine,
@@ -8,4 +8,8 @@ export {
   parseMissingAnnotation,
   RawDataFile,
 } from "./data-files";
-export { expandHexRange, fromHexToCodepoint, stripHex } from "./hexcodes";
+export {
+  expandHexRange,
+  fromHexToCodepoint,
+  stripHex,
+} from "./hexcodes";
