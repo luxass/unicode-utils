@@ -5,6 +5,9 @@
 
 Utilities for working with Unicode.
 
+> [!IMPORTANT]
+> This package is still in a very early stage of development and many things are still missing. If you have any suggestions or ideas, please open an issue or a pull request.
+
 ## Installation
 
 ```bash
