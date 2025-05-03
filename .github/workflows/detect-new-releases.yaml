@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@6267db1c88c66701c9e61aa4681526c1cabb0e38 # v0.3.1
+        uses: luxass/unicode-releases-action@70e2aafa115379d0ecff4004ce005eb808375d38 # v0.3.2
         id: unicode
 
       - name: generate constants
