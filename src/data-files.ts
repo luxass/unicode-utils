@@ -1,7 +1,7 @@
 export class RawDataFile {
-  private readonly _rawContent: string;
-  private readonly _lines: string[];
-  private readonly _heading: string | undefined;
+  private readonly _rawContent: string = "";
+  private readonly _lines: string[] = [];
+  private readonly _heading: string | undefined = undefined;
 
   constructor(content: string) {
     if (content == null || content.trim() === "") {
