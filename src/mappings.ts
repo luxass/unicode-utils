@@ -1,6 +1,10 @@
 export const UNICODE_MAPPINGS: Record<string, string> = {
+  // there was no files published for 1.0.0,
+  // so we just use 1.1-Update for those versions
+  // https://www.unicode.org/versions/Unicode1.0.0/
+  "1.0.0": "1.1-Update",
   "1.1.0": "1.1-Update",
-  "1.1.5": "1.1-Update1",
+  "1.1.5": "1.1-Update",
   "2.0.0": "2.0-Update",
 
   // there was no files for 2.1.0
@@ -31,7 +35,7 @@ export const UNICODE_MAPPINGS: Record<string, string> = {
  * @returns {string} The mapped Unicode version or the original version if not mapped
  */
 export function mapUnicodeVersion(version: string): string {
-  // Check if the version is in the mappings
+  // check if the version is in the mappings
   const mappedVersion = UNICODE_MAPPINGS[version];
   if (mappedVersion) {
     return mappedVersion;
