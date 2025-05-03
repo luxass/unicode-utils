@@ -8,3 +8,4 @@ export {
   parseMissingAnnotation,
   RawDataFile,
 } from "./data-files";
+export { expandHexRange, fromHexToCodepoint, stripHex } from "./hexcodes";
