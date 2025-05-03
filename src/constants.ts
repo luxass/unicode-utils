@@ -126,61 +126,61 @@ export const UNICODE_VERSIONS = [
     "version": "4.0.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode4.0.1/",
     "date": "2004",
-    "ucdUrl": "https://www.unicode.org/Public/4.0-Update1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/4.0-Update1/"
   },
   {
     "version": "4.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode4.0.0/",
     "date": "2003",
-    "ucdUrl": "https://www.unicode.org/Public/4.0-Update/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/4.0-Update/"
   },
   {
     "version": "3.2.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.2.0/",
     "date": "2002",
-    "ucdUrl": "https://www.unicode.org/Public/3.2-Update/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.2-Update/"
   },
   {
     "version": "3.1.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.1/",
     "date": "2001",
-    "ucdUrl": "https://www.unicode.org/Public/3.1-Update1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.1-Update1/"
   },
   {
     "version": "3.1.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.0/",
     "date": "2001",
-    "ucdUrl": "https://www.unicode.org/Public/3.1-Update/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.1-Update/"
   },
   {
     "version": "3.0.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.0.1/",
     "date": "2000",
-    "ucdUrl": "https://www.unicode.org/Public/3.0-Update1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.0-Update1/"
   },
   {
     "version": "3.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.0.0/",
     "date": "1999",
-    "ucdUrl": "https://www.unicode.org/Public/3.0-Update/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.0-Update/"
   },
   {
     "version": "2.1.9",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1999",
-    "ucdUrl": "https://www.unicode.org/Public/2.1-Update4/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update4/"
   },
   {
     "version": "2.1.8",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1-Update3/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update3/"
   },
   {
     "version": "2.1.5",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1-Update2/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update2/"
   },
   {
     "version": "2.1.2",
@@ -192,7 +192,7 @@ export const UNICODE_VERSIONS = [
     "version": "2.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.0.0/",
     "date": "1996",
-    "ucdUrl": "https://www.unicode.org/Public/2.0-Update/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.0-Update/"
   },
   {
     "version": "1.1.5",
@@ -204,7 +204,7 @@ export const UNICODE_VERSIONS = [
     "version": "1.1.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode1.1.0/",
     "date": "1993",
-    "ucdUrl": "https://www.unicode.org/Public/1.1-Update/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/1.1-Update/"
   },
   {
     "version": "1.0.1",
