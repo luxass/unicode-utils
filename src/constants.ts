@@ -126,61 +126,61 @@ export const UNICODE_VERSIONS = [
     "version": "4.0.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode4.0.1/",
     "date": "2004",
-    "ucdUrl": "https://www.unicode.org/Public/4.0.1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/4.0-Update1/ucd"
   },
   {
     "version": "4.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode4.0.0/",
     "date": "2003",
-    "ucdUrl": "https://www.unicode.org/Public/4.0.0/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/4.0-Update/ucd"
   },
   {
     "version": "3.2.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.2.0/",
     "date": "2002",
-    "ucdUrl": "https://www.unicode.org/Public/3.2.0/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.2-Update/ucd"
   },
   {
     "version": "3.1.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.1/",
     "date": "2001",
-    "ucdUrl": "https://www.unicode.org/Public/3.1.1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.1-Update1/ucd"
   },
   {
     "version": "3.1.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.0/",
     "date": "2001",
-    "ucdUrl": "https://www.unicode.org/Public/3.1.0/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.1-Update/ucd"
   },
   {
     "version": "3.0.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.0.1/",
     "date": "2000",
-    "ucdUrl": "https://www.unicode.org/Public/3.0.1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.0-Update1/ucd"
   },
   {
     "version": "3.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.0.0/",
     "date": "1999",
-    "ucdUrl": "https://www.unicode.org/Public/3.0.0/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/3.0-Update/ucd"
   },
   {
     "version": "2.1.9",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1999",
-    "ucdUrl": "https://www.unicode.org/Public/2.1.9/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update4/ucd"
   },
   {
     "version": "2.1.8",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1.8/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update3/ucd"
   },
   {
     "version": "2.1.5",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1.5/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update2/ucd"
   },
   {
     "version": "2.1.2",
@@ -192,7 +192,7 @@ export const UNICODE_VERSIONS = [
     "version": "2.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.0.0/",
     "date": "1996",
-    "ucdUrl": "https://www.unicode.org/Public/2.0.0/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.0-Update/ucd"
   },
   {
     "version": "1.1.5",
@@ -204,7 +204,7 @@ export const UNICODE_VERSIONS = [
     "version": "1.1.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode1.1.0/",
     "date": "1993",
-    "ucdUrl": "https://www.unicode.org/Public/1.1.0/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/1.1-Update/ucd"
   },
   {
     "version": "1.0.1",
@@ -221,135 +221,135 @@ export const UNICODE_LATEST_VERSION = "16.0.0" as const;
 export const UNICODE_VERSIONS_WITH_UCD = [
   {
     "version": "1.1.0",
-    "ucdPath": "1.1-Update"
+    "mappedVersion": "1.1-Update"
   },
   {
     "version": "2.0.0",
-    "ucdPath": "2.0-Update"
+    "mappedVersion": "2.0-Update"
   },
   {
     "version": "2.1.1",
-    "ucdPath": "2.1-Update"
+    "mappedVersion": "2.1-Update"
   },
   {
     "version": "2.1.5",
-    "ucdPath": "2.1-Update2"
+    "mappedVersion": "2.1-Update2"
   },
   {
     "version": "2.1.8",
-    "ucdPath": "2.1-Update3"
+    "mappedVersion": "2.1-Update3"
   },
   {
     "version": "2.1.9",
-    "ucdPath": "2.1-Update4"
+    "mappedVersion": "2.1-Update4"
   },
   {
     "version": "3.0.0",
-    "ucdPath": "3.0-Update"
+    "mappedVersion": "3.0-Update"
   },
   {
     "version": "3.0.1",
-    "ucdPath": "3.0-Update1"
+    "mappedVersion": "3.0-Update1"
   },
   {
     "version": "3.1.0",
-    "ucdPath": "3.1-Update"
+    "mappedVersion": "3.1-Update"
   },
   {
     "version": "3.1.1",
-    "ucdPath": "3.1-Update1"
+    "mappedVersion": "3.1-Update1"
   },
   {
     "version": "3.2.0",
-    "ucdPath": "3.2-Update"
+    "mappedVersion": "3.2-Update"
   },
   {
     "version": "4.0.0",
-    "ucdPath": "4.0-Update"
+    "mappedVersion": "4.0-Update"
   },
   {
     "version": "4.0.1",
-    "ucdPath": "4.0-Update1"
+    "mappedVersion": "4.0-Update1"
   },
   {
     "version": "4.1.0",
-    "ucdPath": "4.1.0"
+    "mappedVersion": "4.1.0"
   },
   {
     "version": "5.0.0",
-    "ucdPath": "5.0.0"
+    "mappedVersion": "5.0.0"
   },
   {
     "version": "5.1.0",
-    "ucdPath": "5.1.0"
+    "mappedVersion": "5.1.0"
   },
   {
     "version": "5.2.0",
-    "ucdPath": "5.2.0"
+    "mappedVersion": "5.2.0"
   },
   {
     "version": "6.0.0",
-    "ucdPath": "6.0.0"
+    "mappedVersion": "6.0.0"
   },
   {
     "version": "6.1.0",
-    "ucdPath": "6.1.0"
+    "mappedVersion": "6.1.0"
   },
   {
     "version": "6.2.0",
-    "ucdPath": "6.2.0"
+    "mappedVersion": "6.2.0"
   },
   {
     "version": "6.3.0",
-    "ucdPath": "6.3.0"
+    "mappedVersion": "6.3.0"
   },
   {
     "version": "7.0.0",
-    "ucdPath": "7.0.0"
+    "mappedVersion": "7.0.0"
   },
   {
     "version": "8.0.0",
-    "ucdPath": "8.0.0"
+    "mappedVersion": "8.0.0"
   },
   {
     "version": "9.0.0",
-    "ucdPath": "9.0.0"
+    "mappedVersion": "9.0.0"
   },
   {
     "version": "10.0.0",
-    "ucdPath": "10.0.0"
+    "mappedVersion": "10.0.0"
   },
   {
     "version": "11.0.0",
-    "ucdPath": "11.0.0"
+    "mappedVersion": "11.0.0"
   },
   {
     "version": "12.0.0",
-    "ucdPath": "12.0.0"
+    "mappedVersion": "12.0.0"
   },
   {
     "version": "12.1.0",
-    "ucdPath": "12.1.0"
+    "mappedVersion": "12.1.0"
   },
   {
     "version": "13.0.0",
-    "ucdPath": "13.0.0"
+    "mappedVersion": "13.0.0"
   },
   {
     "version": "14.0.0",
-    "ucdPath": "14.0.0"
+    "mappedVersion": "14.0.0"
   },
   {
     "version": "15.0.0",
-    "ucdPath": "15.0.0"
+    "mappedVersion": "15.0.0"
   },
   {
     "version": "15.1.0",
-    "ucdPath": "15.1.0"
+    "mappedVersion": "15.1.0"
   },
   {
     "version": "16.0.0",
-    "ucdPath": "16.0.0"
+    "mappedVersion": "16.0.0"
   }
 ] as const;
 
