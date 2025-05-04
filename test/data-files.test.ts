@@ -243,6 +243,18 @@ describe("RawDataFile", () => {
       new RawDataFile("");
     }).toThrowError("content is empty");
   });
+
+  it("should use provided fileName when specified", () => {
+    const content = "# SomeFile-1.0.0.txt\nContent here";
+    const dataFile = new RawDataFile(content, "ExplicitName");
+    expect(dataFile.fileName).toBe("ExplicitName");
+  });
+
+  it("should infer fileName when not specified", () => {
+    const content = "# SomeFile-1.0.0.txt\nContent here";
+    const dataFile = new RawDataFile(content);
+    expect(dataFile.fileName).toBe("SomeFile");
+  });
 });
 
 describe("missing annotation", () => {
