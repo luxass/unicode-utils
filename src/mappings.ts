@@ -3,6 +3,7 @@ export const UNICODE_MAPPINGS: Record<string, string> = {
   // so we just use 1.1-Update for those versions
   // https://www.unicode.org/versions/Unicode1.0.0/
   "1.0.0": "1.1-Update",
+  "1.0.1": "1.1-Update",
   "1.1.0": "1.1-Update",
   "1.1.5": "1.1-Update",
   "2.0.0": "2.0-Update",
