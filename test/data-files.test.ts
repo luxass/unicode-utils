@@ -1,6 +1,7 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
 import {
+  inferFileName,
   isCommentLine,
   isEmptyLine,
   isMissingAnnotation,
@@ -337,5 +338,50 @@ describe("isEmptyLine", () => {
     ["special chars !@#", false],
   ])("should correctly identify '%s' as %s", (line, expected) => {
     expect(isEmptyLine(line)).toBe(expected);
+  });
+});
+
+describe("inferFileName", () => {
+  it("should return undefined for empty input", () => {
+    expect(inferFileName("")).toBeUndefined();
+  });
+
+  it("should return undefined for null input", () => {
+    expect(inferFileName(null as any)).toBeUndefined();
+  });
+
+  it("should return undefined when first line is not a comment", () => {
+    const content = "Not a comment\n# Second line";
+    expect(inferFileName(content)).toBeUndefined();
+  });
+
+  it("should return undefined when first comment line is empty", () => {
+    const content = "#\nSecond line";
+    expect(inferFileName(content)).toBeUndefined();
+  });
+
+  it("should extract filename from comment line", () => {
+    const content = "# ArabicShaping-5.0.0.txt\nContent here";
+    expect(inferFileName(content)).toBe("ArabicShaping");
+  });
+
+  it("should handle whitespace in comment", () => {
+    const content = "#   UnicodeData-15.0.0.txt  \nContent here";
+    expect(inferFileName(content)).toBe("UnicodeData");
+  });
+
+  it("should only use the first line", () => {
+    const content = "# FirstLine\n# SecondLine";
+    expect(inferFileName(content)).toBe("FirstLine");
+  });
+
+  it("should handle comments with special characters", () => {
+    const content = "# Special-File_Name!.txt\nContent";
+    expect(inferFileName(content)).toBe("Special");
+  });
+
+  it("should correctly handle single hash with space", () => {
+    const content = "# Filename";
+    expect(inferFileName(content)).toBe("Filename");
   });
 });
