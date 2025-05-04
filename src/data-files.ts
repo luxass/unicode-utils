@@ -2,8 +2,10 @@ export class RawDataFile {
   private readonly _rawContent: string = "";
   private readonly _lines: string[] = [];
   private readonly _heading: string | undefined = undefined;
+  // If not provided, the file name will try and be inferred from the first line of the file.
+  readonly fileName: string | undefined = undefined;
 
-  constructor(content: string) {
+  constructor(content: string, fileName?: string) {
     if (content == null || content.trim() === "") {
       throw new Error("content is empty");
     }
@@ -11,6 +13,7 @@ export class RawDataFile {
     this._rawContent = content;
     this._lines = content.split("\n");
     this._heading = parseDataFileHeading(content);
+    this.fileName = fileName ?? inferFileName(content);
   }
 
   public get rawContent(): string {
@@ -216,4 +219,41 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
     defaultPropertyValue: defaultProperty,
     specialTag,
   };
+}
+
+/**
+ * Attempts to infer the file name from the content of a Unicode data file.
+ *
+ * This function extracts the file name from the first line of the content,
+ * assuming it's a comment line. It removes any leading '#' characters and whitespace.
+ *
+ * For example:
+ * - From a file with first line "# ArabicShaping-5.0.0.txt", it returns "ArabicShaping"
+ * - From a file with first line "# UnicodeData-5.0.0.txt", it returns "UnicodeData"
+ *
+ * @param {string} content - The content of the file as a string
+ * @returns {string | undefined} The inferred file name, or undefined if it can't be determined
+ */
+export function inferFileName(content: string): string | undefined {
+  if (!content) {
+    return;
+  }
+
+  const lines = content.split("\n");
+  const firstLine = lines[0];
+
+  // check if the first line is a comment line
+  if (!isCommentLine(firstLine)) {
+    return undefined;
+  }
+
+  const line = firstLine.trim().replace(/^#\s*/, "");
+  if (line === "") {
+    return undefined;
+  }
+
+  // e.g. ArabicShaping-5.0.0.txt -> ArabicShaping
+  // e.g. UnicodeData-5.0.0.txt -> UnicodeData
+
+  return line.split("-")[0].trim();
 }
