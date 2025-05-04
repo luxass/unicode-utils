@@ -41,11 +41,11 @@ jobs:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@70e2aafa115379d0ecff4004ce005eb808375d38 # v0.3.2
+        uses: luxass/unicode-releases-action@86159f3378d13323ef56a15f293693858a386bc6 # v0.3.3
         id: unicode
         with:
-          api-base-url: ${{ github.event.inputs.api-base-url }}
-          proxy-base-url: ${{ github.event.inputs.proxy-base-url }}
+          api_base_url: ${{ github.event.inputs.api-base-url }}
+          proxy_base_url: ${{ github.event.inputs.proxy-base-url }}
 
       - name: generate constants
         env:
