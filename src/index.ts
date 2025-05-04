@@ -13,3 +13,4 @@ export {
   fromHexToCodepoint,
   stripHex,
 } from "./hexcodes";
+export { mapUnicodeVersion, UNICODE_MAPPINGS } from "./mappings";
