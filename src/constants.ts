@@ -186,7 +186,7 @@ export const UNICODE_VERSIONS = [
     "version": "2.1.2",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1.2/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update1/"
   },
   {
     "version": "2.0.0",
@@ -198,7 +198,7 @@ export const UNICODE_VERSIONS = [
     "version": "1.1.5",
     "documentationUrl": "https://www.unicode.org/versions/Unicode1.1.0/",
     "date": "1995",
-    "ucdUrl": "https://www.unicode.org/Public/1.1.5/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/1.1-Update/"
   },
   {
     "version": "1.1.0",
@@ -210,7 +210,13 @@ export const UNICODE_VERSIONS = [
     "version": "1.0.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode1.0.0/",
     "date": "1992",
-    "ucdUrl": "https://www.unicode.org/Public/1.0.1/ucd"
+    "ucdUrl": "https://www.unicode.org/Public/1.1-Update/"
+  },
+  {
+    "version": "1.0.0",
+    "documentationUrl": "https://www.unicode.org/versions/Unicode1.0.0/",
+    "date": "1991",
+    "ucdUrl": "https://www.unicode.org/Public/1.1-Update/"
   }
 ] as const;
 
