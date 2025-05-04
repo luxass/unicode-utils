@@ -10,6 +10,22 @@ on:
         description: Run the workflow without creating a pull request
         required: false
         default: false
+      api-base-url:
+        type: choice
+        description: the base URL of the ucdjs API
+        required: false
+        default: "https://api.ucdjs.dev"
+        options:
+          - "https://api.ucdjs.dev"
+          - "https://preview.api.ucdjs.dev"
+      proxy-base-url:
+        type: choice
+        description: the base URL of the unicode proxy
+        required: false
+        default: "https://unicode-proxy.ucdjs.dev"
+        options:
+          - "https://unicode-proxy.ucdjs.dev"
+          - "https://preview.unicode-proxy.ucdjs.dev"
 
 jobs:
   check-releases:
@@ -27,6 +43,9 @@ jobs:
       - name: check unicode releases
         uses: luxass/unicode-releases-action@70e2aafa115379d0ecff4004ce005eb808375d38 # v0.3.2
         id: unicode
+        with:
+          api-base-url: ${{ github.event.inputs.api-base-url }}
+          proxy-base-url: ${{ github.event.inputs.proxy-base-url }}
 
       - name: generate constants
         env:
@@ -67,7 +86,7 @@ jobs:
             This is an automated PR to update the auto-generated files in the repository.
 
             <details>
-            <summary>Schema Changes</summary><br/>
+            <summary>📚 Diff</summary><br/>
 
             ```diff
             ${{ env.DIFF }}
