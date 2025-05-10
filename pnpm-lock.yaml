@@ -42,6 +42,9 @@ importers:
       vitest:
         specifier: ^3.1.2
         version: 3.1.2(@types/debug@4.1.12)(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.19.4)(yaml@2.7.1)
+      vitest-package-exports:
+        specifier: ^0.1.1
+        version: 0.1.1
 
 packages:
 
@@ -2412,6 +2415,9 @@ packages:
         optional: true
       yaml:
         optional: true
+
+  vitest-package-exports@0.1.1:
+    resolution: {integrity: sha512-rXgU5noxaaMA5VJXgVPhXRzPiQ1WFmWwgo8dQFPg9j/yFM028scO0IAylFHVI8XMRevhozEt1usa6RQYQY26lg==}
 
   vitest@3.1.2:
     resolution: {integrity: sha512-WaxpJe092ID1C0mr+LH9MmNrhfzi8I65EX/NRU/Ld016KqQNRgxSOlGNP1hHN+a/F8L15Mh8klwaF77zR3GeDQ==}
@@ -4997,6 +5003,11 @@ snapshots:
       lightningcss: 1.29.3
       tsx: 4.19.4
       yaml: 2.7.1
+
+  vitest-package-exports@0.1.1:
+    dependencies:
+      find-up-simple: 1.0.1
+      pathe: 2.0.3
 
   vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.19.4)(yaml@2.7.1):
     dependencies:
