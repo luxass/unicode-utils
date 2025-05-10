@@ -20,6 +20,7 @@ it("exports-snapshot", async () => {
           "expandHexRange": "function",
           "fromHexToCodepoint": "function",
           "inferFileName": "function",
+          "inferVersion": "function",
           "isCommentLine": "function",
           "isEmptyLine": "function",
           "isMissingAnnotation": "function",
@@ -31,6 +32,7 @@ it("exports-snapshot", async () => {
         "./data-files": {
           "RawDataFile": "function",
           "inferFileName": "function",
+          "inferVersion": "function",
           "isCommentLine": "function",
           "isEmptyLine": "function",
           "isMissingAnnotation": "function",
