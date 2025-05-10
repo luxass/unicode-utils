@@ -130,7 +130,7 @@ export function parseDataFileHeading(content: string): string | undefined {
  * @returns {boolean} True if the line is a comment line, false otherwise
  */
 export function isCommentLine(line: string): boolean {
-  return line.startsWith("# ") || line.trim() === "#";
+  return line.startsWith("# ") || line.startsWith("#\t\t") || line.trim() === "#";
 }
 
 /**
