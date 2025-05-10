@@ -271,6 +271,9 @@ function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
     return;
   }
 
+  // if there is multiple lines, we only care about the first one
+  line = line.split("\n")[0].trim();
+
   // check if the first line is a comment line
   if (!isCommentLine(line)) {
     return undefined;
@@ -281,12 +284,21 @@ function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
     return undefined;
   }
 
-  const match = line.match(/^(.*?)-([0-9.]+)\.txt$/);
+  let match = line.match(/^(.*?)(?:-([0-9.]+))?\.txt$/);
   if (match == null) {
-    return;
+    // If no .txt extension, try matching just the name
+    match = line.match(/^(.*?)(?:-([0-9.]+))?$/);
+    if (match == null) {
+      return undefined;
+    }
   }
 
   const [_, fileName, version] = match;
+
+  // Don't return a version if the file name is empty or whitespace-only
+  if (!fileName || fileName.trim() === "") {
+    return undefined;
+  }
 
   return {
     fileName,

@@ -2,6 +2,7 @@ import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
 import {
   inferFileName,
+  inferVersion,
   isCommentLine,
   isEmptyLine,
   isMissingAnnotation,
@@ -353,47 +354,145 @@ describe("isEmptyLine", () => {
   });
 });
 
-describe("inferFileName", () => {
-  it("should return undefined for empty input", () => {
-    expect(inferFileName("")).toBeUndefined();
+describe("inferrence", () => {
+  describe("inferFileName", () => {
+    it.each([
+      // valid comment lines with file names and versions
+      ["# ArabicShaping-5.0.0.txt", "ArabicShaping"],
+      ["# UnicodeData-14.0.0.txt", "UnicodeData"],
+      ["#   PropertyValueAliases-13.0.0.txt", "PropertyValueAliases"],
+      ["# DerivedAge-15.1.0.txt", "DerivedAge"],
+      ["# EastAsianWidth-12.1.0.txt", "EastAsianWidth"],
+
+      // valid comment lines without versions
+      ["# ReadMe.txt", "ReadMe"],
+      ["# SimpleFile.txt", "SimpleFile"],
+      ["# NameWithoutVersion", "NameWithoutVersion"],
+      ["# AnotherFile", "AnotherFile"],
+
+      // file names with complex patterns
+      ["# File-Name-Complex-1.2.3.txt", "File-Name-Complex"],
+      ["# Multi-Part-File-0.0.1.txt", "Multi-Part-File"],
+      ["# name-with-hyphens-2.5.7.txt", "name-with-hyphens"],
+    ])("should extract \"%s\" correctly as \"%s\"", (line, expected) => {
+      expect(inferFileName(line)).toBe(expected);
+    });
+
+    it.each([
+      // empty or undefined inputs
+      ["", undefined],
+      [null as any, undefined],
+      [undefined as any, undefined],
+
+      // non-comment lines
+      ["UnicodeData-14.0.0.txt", undefined],
+      ["This is not a comment", undefined],
+      ["# ", undefined],
+      ["#", undefined],
+
+      // invalid patterns
+      ["# NoExtension", "NoExtension"],
+      ["# .txt", undefined], // empty fileName should now return undefined
+      ["# -1.0.0.txt", undefined], // empty fileName should now return undefined
+      ["# File-.txt", "File-"],
+    ])("should return undefined or expected value for invalid input \"%s\"", (line, expected) => {
+      expect(inferFileName(line)).toBe(expected);
+    });
   });
 
-  it("should return undefined for null input", () => {
-    expect(inferFileName(null as any)).toBeUndefined();
+  describe("inferVersion", () => {
+    it.each([
+      // valid comment lines with versions
+      ["# ArabicShaping-5.0.0.txt", "5.0.0"],
+      ["# UnicodeData-14.0.0.txt", "14.0.0"],
+      ["# PropertyValueAliases-13.0.0.txt", "13.0.0"],
+      ["# DerivedAge-15.1.0.txt", "15.1.0"],
+      ["# EastAsianWidth-12.1.0.txt", "12.1.0"],
+
+      // different version formats
+      ["# File-1.txt", "1"],
+      ["# File-1.2.txt", "1.2"],
+      ["# File-1.2.3.4.txt", "1.2.3.4"],
+      ["# File-0.0.1.txt", "0.0.1"],
+      ["# File-999.999.999.txt", "999.999.999"],
+
+      // complex file names with versions
+      ["# Multi-Part-File-2.5.7.txt", "2.5.7"],
+      ["# File-With-Many-Hyphens-3.1.4.txt", "3.1.4"],
+    ])("should extract version from \"%s\" as \"%s\"", (line, expected) => {
+      expect(inferVersion(line)).toBe(expected);
+    });
+
+    it.each([
+      // files without versions
+      ["# ReadMe.txt", undefined],
+      ["# SimpleFile.txt", undefined],
+      ["# FileName", undefined],
+      ["# AnotherFile", undefined],
+
+      // empty or invalid inputs
+      ["", undefined],
+      [null as any, undefined],
+      [undefined as any, undefined],
+
+      // non-comment lines
+      ["UnicodeData-14.0.0.txt", undefined],
+      ["This is not a comment", undefined],
+      ["# ", undefined],
+      ["#", undefined],
+
+      // invalid patterns
+      ["# File-.txt", undefined], // empty fileName before hyphen
+      ["# -1.0.0.txt", undefined], // empty fileName before hyphen
+      ["# .txt", undefined], // empty fileName
+      ["# File-v1.0.0.txt", undefined], // invalid version format
+      ["# File-abc.txt", undefined], // non-numeric version
+    ])("should return undefined for no version in \"%s\"", (line, expected) => {
+      expect(inferVersion(line)).toBe(expected);
+    });
   });
 
-  it("should return undefined when first line is not a comment", () => {
-    const content = "Not a comment\n# Second line";
-    expect(inferFileName(content)).toBeUndefined();
-  });
+  describe("edge cases and complex scenarios", () => {
+    it.each([
+      // multi-line input (should only process first line)
+      ["# FirstLine-1.0.0.txt\nSecondLine", "FirstLine", "1.0.0"],
+      ["# OnlyFirst-2.0.0.txt\n# IgnoreThis-3.0.0.txt", "OnlyFirst", "2.0.0"],
+      ["# Line1-5.0.0.txt\n\n# Line3", "Line1", "5.0.0"],
 
-  it("should return undefined when first comment line is empty", () => {
-    const content = "#\nSecond line";
-    expect(inferFileName(content)).toBeUndefined();
-  });
+      // whitespace variations
+      ["  #  SpacesBefore-1.0.0.txt  ", "SpacesBefore", "1.0.0"],
+      ["#\t\tTabsBefore-2.0.0.txt", "TabsBefore", "2.0.0"],
+      ["#    LotsOfSpaces-3.0.0.txt    ", "LotsOfSpaces", "3.0.0"],
 
-  it("should extract filename from comment line", () => {
-    const content = "# ArabicShaping-5.0.0.txt\nContent here";
-    expect(inferFileName(content)).toBe("ArabicShaping");
-  });
+      // special characters in file names
+      ["# File_With_Underscores-1.0.0.txt", "File_With_Underscores", "1.0.0"],
+      ["# File.With.Dots-2.0.0.txt", "File.With.Dots", "2.0.0"],
 
-  it("should handle whitespace in comment", () => {
-    const content = "#   UnicodeData-15.0.0.txt  \nContent here";
-    expect(inferFileName(content)).toBe("UnicodeData");
-  });
+      // version edge cases
+      ["# SingleDigit-1.txt", "SingleDigit", "1"],
+      ["# VeryLongVersion-1.2.3.4.5.6.7.8.9.txt", "VeryLongVersion", "1.2.3.4.5.6.7.8.9"],
+      ["# ZeroVersion-0.0.0.txt", "ZeroVersion", "0.0.0"],
+    ])("should handle \"%s\" correctly, extracting fileName: \"%s\" and version: \"%s\"", (line, expectedFileName, expectedVersion) => {
+      expect(inferFileName(line)).toBe(expectedFileName);
+      expect(inferVersion(line)).toBe(expectedVersion);
+    });
 
-  it("should only use the first line", () => {
-    const content = "# FirstLine\n# SecondLine";
-    expect(inferFileName(content)).toBe("FirstLine");
-  });
+    it.each([
+      // boundary cases
+      ["", undefined, undefined],
+      ["#", undefined, undefined],
+      ["# ", undefined, undefined],
+      ["#\t", undefined, undefined],
+      ["# .txt", undefined, undefined], // empty fileName should now return undefined
+      ["# -1.0.0.txt", undefined, undefined], // empty fileName should now return undefined
 
-  it("should handle comments with special characters", () => {
-    const content = "# Special-File_Name!.txt\nContent";
-    expect(inferFileName(content)).toBe("Special");
-  });
-
-  it("should correctly handle single hash with space", () => {
-    const content = "# Filename";
-    expect(inferFileName(content)).toBe("Filename");
+      // malformed inputs
+      ["Not a comment line", undefined, undefined],
+      ["# File with spaces-1.0.0.txt", "File with spaces", "1.0.0"],
+      ["# File\twith\ttabs-2.0.0.txt", "File\twith\ttabs", "2.0.0"],
+    ])("should handle boundary case \"%s\" with fileName: %s and version: %s", (line, expectedFileName, expectedVersion) => {
+      expect(inferFileName(line)).toBe(expectedFileName);
+      expect(inferVersion(line)).toBe(expectedVersion);
+    });
   });
 });
