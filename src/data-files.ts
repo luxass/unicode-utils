@@ -4,6 +4,7 @@ export class RawDataFile {
   private readonly _heading: string | undefined = undefined;
   // If not provided, the file name will try and be inferred from the first line of the file.
   readonly fileName: string | undefined = undefined;
+  readonly version: string | undefined = undefined;
 
   constructor(content: string, fileName?: string) {
     if (content == null || content.trim() === "") {
@@ -14,6 +15,7 @@ export class RawDataFile {
     this._lines = content.split("\n");
     this._heading = parseDataFileHeading(content);
     this.fileName = fileName ?? inferFileName(content);
+    this.version = inferVersion(content);
   }
 
   public get rawContent(): string {
@@ -222,7 +224,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
 }
 
 /**
- * Attempts to infer the file name from the content of a Unicode data file.
+ * Attempts to infer the file name from the first line of a Unicode data file.
  *
  * This function extracts the file name from the first line of the content,
  * assuming it's a comment line. It removes any leading '#' characters and whitespace.
@@ -231,29 +233,63 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
  * - From a file with first line "# ArabicShaping-5.0.0.txt", it returns "ArabicShaping"
  * - From a file with first line "# UnicodeData-5.0.0.txt", it returns "UnicodeData"
  *
- * @param {string} content - The content of the file as a string
+ * @param {string} line - The first line of the file
  * @returns {string | undefined} The inferred file name, or undefined if it can't be determined
  */
-export function inferFileName(content: string): string | undefined {
-  if (!content) {
+export function inferFileName(line: string): string | undefined {
+  return internal_parseFileNameLine(line)?.fileName;
+}
+
+/**
+ * Attempts to infer the version from the first line of a Unicode data file.
+ *
+ * This function extracts the version number from the first line of the content,
+ * assuming it's a comment line. It looks for a pattern like "Name-X.Y.Z.txt"
+ * and extracts the X.Y.Z part as the version.
+ *
+ * For example:
+ * - From a file with first line "# ArabicShaping-5.0.0.txt", it returns "5.0.0"
+ * - From a file with first line "# UnicodeData-14.0.0.txt", it returns "14.0.0"
+ *
+ * @param {string} line - The first line of the file
+ * @returns {string | undefined} The inferred version number, or undefined if it can't be determined
+ */
+export function inferVersion(line: string): string | undefined {
+  return internal_parseFileNameLine(line)?.version;
+}
+
+interface ParsedFileName {
+  fileName: string;
+  version: string;
+}
+
+/**
+ * @internal
+ */
+function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
+  if (!line) {
     return;
   }
 
-  const lines = content.split("\n");
-  const firstLine = lines[0];
-
   // check if the first line is a comment line
-  if (!isCommentLine(firstLine)) {
+  if (!isCommentLine(line)) {
     return undefined;
   }
 
-  const line = firstLine.trim().replace(/^#\s*/, "");
+  line = line.trim().replace(/^#\s*/, "");
   if (line === "") {
     return undefined;
   }
 
-  // e.g. ArabicShaping-5.0.0.txt -> ArabicShaping
-  // e.g. UnicodeData-5.0.0.txt -> UnicodeData
+  const match = line.match(/^(.*?)-([0-9.]+)\.txt$/);
+  if (match == null) {
+    return;
+  }
 
-  return line.split("-")[0].trim();
+  const [_, fileName, version] = match;
+
+  return {
+    fileName,
+    version,
+  };
 }
