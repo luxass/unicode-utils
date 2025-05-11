@@ -1,9 +1,39 @@
+/**
+ * Represents a raw Unicode data file with methods to access its content.
+ *
+ * This class parses and provides access to various components of Unicode data files,
+ * including the raw content, individual lines, file metadata (like heading, version),
+ * and determines if the file has an EOF marker.
+ *
+ * @example
+ * ```ts
+ * // Create a RawDataFile from a string content
+ * const content = "# UnicodeData-14.0.0.txt\n# Some Unicode data\n\nU+0020;SPACE\n# EOF";
+ * const dataFile = new RawDataFile(content);
+ *
+ * // Access file properties
+ * console.log(dataFile.fileName); // "UnicodeData"
+ * console.log(dataFile.version);  // "14.0.0"
+ * console.log(dataFile.hasEOF);   // true
+ * console.log(dataFile.heading);  // "# UnicodeData-14.0.0.txt\n# Some Unicode data"
+ * ```
+ */
 export class RawDataFile {
-  private readonly _rawContent: string = "";
-  private readonly _lines: string[] = [];
-  private readonly _heading: string | undefined = undefined;
-  // If not provided, the file name will try and be inferred from the first line of the file.
+  readonly rawContent: string = "";
+  readonly lines: string[] = [];
+  readonly heading: string | undefined = undefined;
+
+  /**
+   * The name of the file, if available.
+   * This is typically extracted from the first line of the file.
+   * It may not always be present, especially if the file is empty or malformed.
+   */
   readonly fileName: string | undefined = undefined;
+
+  /**
+   * The version of the file, if available.
+   * This is typically extracted from the first line of the file.
+   */
   readonly version: string | undefined = undefined;
 
   /**
@@ -17,24 +47,12 @@ export class RawDataFile {
       throw new Error("content is empty");
     }
 
-    this._rawContent = content;
-    this._lines = content.split("\n");
-    this._heading = parseDataFileHeading(content);
+    this.rawContent = content;
+    this.lines = content.split("\n");
+    this.heading = parseDataFileHeading(content);
     this.fileName = fileName ?? inferFileName(content);
     this.version = inferVersion(content);
     this.hasEOF = content.endsWith("# EOF");
-  }
-
-  public get rawContent(): string {
-    return this._rawContent;
-  }
-
-  public get lines(): string[] {
-    return this._lines;
-  }
-
-  public get heading(): string | undefined {
-    return this._heading;
   }
 }
 
