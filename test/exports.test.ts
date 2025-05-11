@@ -19,6 +19,7 @@ it("exports-snapshot", async () => {
           "UNICODE_VERSIONS_WITH_UCD": "object",
           "expandHexRange": "function",
           "fromHexToCodepoint": "function",
+          "hasSections": "function",
           "inferFileName": "function",
           "inferVersion": "function",
           "isCommentLine": "function",
@@ -31,6 +32,7 @@ it("exports-snapshot", async () => {
         },
         "./data-files": {
           "RawDataFile": "function",
+          "hasSections": "function",
           "inferFileName": "function",
           "inferVersion": "function",
           "isCommentLine": "function",

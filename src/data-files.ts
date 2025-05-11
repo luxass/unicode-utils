@@ -1,3 +1,5 @@
+import type { UCDSectionWithLines } from "./types";
+
 /**
  * Represents a raw Unicode data file with methods to access its content.
  *
@@ -33,6 +35,8 @@ export class RawDataFile {
   /** The lines of the content, will not include the heading */
   readonly lines: string[] = [];
   readonly heading: string | undefined = undefined;
+
+  readonly sections: Map<string, UCDSectionWithLines> = new Map();
 
   /**
    * The name of the file, if available.
