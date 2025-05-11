@@ -1,7 +1,7 @@
 import type { UCDSectionWithLines } from "./types";
 
-export const HASH_BOUNDARY_REGEX = /#\s*#+/;
-export const EQUALS_BOUNDARY_REGEX = /#\s*=+/;
+export const HASH_BOUNDARY_REGEX = /#\s*#{2,}/;
+export const EQUALS_BOUNDARY_REGEX = /#\s*={2,}/;
 
 /**
  * Represents a raw Unicode data file with methods to access its content.

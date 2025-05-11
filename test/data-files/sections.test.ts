@@ -3,6 +3,10 @@ import { hasSections, parseSections, RawDataFile } from "../../src/data-files";
 import { dataFileFixture } from "../__utils";
 
 describe("hasSections", () => {
+  it("should return false for empty data file", () => {
+    expect(hasSections("")).toBe(false);
+  });
+
   it.each([
     [{ version: "4.1.0", file: "ArabicShaping.txt", expected: true }],
     [{ version: "4.1.0", file: "BidiMirroring.txt", expected: false }],
@@ -18,6 +22,10 @@ describe("hasSections", () => {
 });
 
 describe("parseSections", () => {
+  it("should return empty map for empty data file", () => {
+    expect(parseSections("")).toEqual(new Map());
+  });
+
   it.each([
     [{ version: "4.1.0", file: "ArabicShaping.txt", expected: 4 }],
     [{ version: "4.1.0", file: "BidiMirroring.txt", expected: 0 }],
