@@ -12,6 +12,7 @@ export {
   inferVersion,
   isCommentLine,
   isEmptyLine,
+  isLineWithData,
   isMissingAnnotation,
   type MissingAnnotation,
   parseDataFileHeading,

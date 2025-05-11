@@ -205,6 +205,26 @@ export function isEmptyLine(line: string): boolean {
 }
 
 /**
+ * Determines if a line contains data in a Unicode data file.
+ *
+ * A line is considered to contain data if it is neither a comment line
+ * (starting with '#') nor an empty line.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line contains data, false otherwise
+ *
+ * @example
+ * ```ts
+ * isLineWithData("U+0020;SPACE"); // true
+ * isLineWithData("# Comment line"); // false
+ * isLineWithData(""); // false
+ * ```
+ */
+export function isLineWithData(line: string): boolean {
+  return !isCommentLine(line) && !isEmptyLine(line);
+}
+
+/**
  * Check if a given line from a Unicode data file is a 'missing' annotation.
  *
  * In Unicode data files, lines starting with '# @missing:' indicate
