@@ -58,7 +58,7 @@ export class RawDataFile {
       throw new Error("content is empty");
     }
 
-    this.rawContent = content;
+    this.rawContent = this.content = content;
     this.heading = parseDataFileHeading(content);
 
     if (this.heading != null) {
