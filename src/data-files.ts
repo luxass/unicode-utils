@@ -313,6 +313,14 @@ function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
   if (match == null) {
     // If no .txt extension, try matching just the name
     match = line.match(/^(.*?)(?:-([0-9.]+))?$/);
+
+    // If still no match, return undefined
+    // This is a fallback, and should not happen in normal cases
+    // but we want to be safe and not throw an error
+    // But i can't find a input that would cause this to happen,
+    // so we can't cover this case with a test
+
+    /* v8 ignore next 3 */
     if (match == null) {
       return undefined;
     }
