@@ -205,6 +205,10 @@ export function isCommentLine(line: string): boolean {
  * @returns {boolean} A boolean indicating whether the trimmed line is empty
  */
 export function isEmptyLine(line: string): boolean {
+  if (!line) {
+    return true;
+  }
+
   return line.trim() === "";
 }
 
