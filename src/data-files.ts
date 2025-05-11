@@ -72,6 +72,22 @@ export class RawDataFile {
   }
 }
 
+export function hasSections(content: string): boolean {
+  if (!content) {
+    return false;
+  }
+
+  const lines = content.split("\n");
+
+  for (let i = 0; i < lines.length; i++) {
+    const prevLine = lines[i - 1];
+    const currentLine = lines[i];
+    const nextLine = lines[i + 1];
+  }
+
+  return false;
+}
+
 /**
  * Parses the heading from a Unicode data file content.
  *
