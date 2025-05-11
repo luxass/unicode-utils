@@ -52,7 +52,7 @@ export class RawDataFile {
     this.heading = parseDataFileHeading(content);
     this.fileName = fileName ?? inferFileName(content);
     this.version = inferVersion(content);
-    this.hasEOF = content.endsWith("# EOF");
+    this.hasEOF = this.lines.at(-1)?.trim() === "# EOF";
   }
 }
 
