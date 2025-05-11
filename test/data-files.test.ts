@@ -5,6 +5,9 @@ import {
   inferVersion,
   isCommentLine,
   isEmptyLine,
+  isEqualsBoundary,
+  isHashBoundary,
+  isLineWithData,
   isMissingAnnotation,
   parseDataFileHeading,
   parseMissingAnnotation,
@@ -351,6 +354,59 @@ describe("isEmptyLine", () => {
     ["special chars !@#", false],
   ])("should correctly identify '%s' as %s", (line, expected) => {
     expect(isEmptyLine(line)).toBe(expected);
+  });
+});
+
+describe("isEqualsBoundary", () => {
+  it.each([
+    ["# ====", true],
+    ["# =======", true],
+    ["# ============", true],
+    ["# ==", true],
+    ["# = =", false],
+    ["# ===", true],
+    ["# ===  ", true],
+    ["#  ===", true],
+    ["#  ==", true],
+    ["#", false],
+    ["", false],
+  ])("should correctly identify '%s' as %s", (line, expected) => {
+    expect(isEqualsBoundary(line)).toBe(expected);
+  });
+});
+
+describe("isHashBoundary", () => {
+  it.each([
+    ["# ####", true],
+    ["# ########", true],
+    ["# ##########", true],
+    ["# ##", true],
+    ["# # #", false],
+    ["# ###", true],
+    ["# #### ", true],
+    ["#  ####", true],
+    ["#", false],
+    ["", false],
+  ])("should correctly identify '%s' as %s", (line, expected) => {
+    expect(isHashBoundary(line)).toBe(expected);
+  });
+});
+
+describe("isLineWithData", () => {
+  it.each([
+    ["# This is a comment", false],
+    ["", false],
+    ["  ", false],
+    ["\t", false],
+    ["\n", false],
+    ["  \t  ", false],
+    ["text", true],
+    [" text ", true],
+    ["\ttext\t", true],
+    ["  text with spaces  ", true],
+    ["special chars !@#", true],
+  ])("should correctly identify '%s' as %s", (line, expected) => {
+    expect(isLineWithData(line)).toBe(expected);
   });
 });
 
