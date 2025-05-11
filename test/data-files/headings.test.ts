@@ -1,15 +1,7 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { parseDataFileHeading } from "../src/data-files";
-
-function dataFileFixture(version: string, file: string) {
-  return readFileSync(
-    join(__dirname, "fixtures/data-files", `v${version}`, file),
-    "utf-8",
-  );
-}
+import { parseDataFileHeading } from "../../src/data-files";
+import { dataFileFixture } from "../__utils";
 
 describe("parseDataFileHeading(ArabicShaping)", () => {
   it("v12.0.0", () => {
