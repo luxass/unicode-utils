@@ -19,7 +19,18 @@
  * ```
  */
 export class RawDataFile {
+  /** The content includes everything */
   readonly rawContent: string = "";
+
+  /**
+   * The content without the heading section.
+   *
+   * NOTE:
+   * If we couldn't find a heading, this will be the same as `rawContent`.
+   */
+  readonly content: string = "";
+
+  /** The lines of the content, will not include the heading */
   readonly lines: string[] = [];
   readonly heading: string | undefined = undefined;
 
@@ -48,8 +59,13 @@ export class RawDataFile {
     }
 
     this.rawContent = content;
-    this.lines = content.split("\n");
     this.heading = parseDataFileHeading(content);
+
+    if (this.heading != null) {
+      this.content = content.replace(this.heading, "").trim();
+    }
+
+    this.lines = this.content.split("\n");
     this.fileName = fileName ?? inferFileName(content);
     this.version = inferVersion(content);
     this.hasEOF = this.lines.at(-1)?.trim() === "# EOF";
