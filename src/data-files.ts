@@ -325,7 +325,7 @@ export function isHashBoundary(line: string): boolean {
     return false;
   }
 
-  return line.match(HASH_BOUNDARY_REGEX) != null;
+  return HASH_BOUNDARY_REGEX.test(line);
 }
 
 /**
@@ -349,7 +349,7 @@ export function isEqualsBoundary(line: string): boolean {
     return false;
   }
 
-  return line.match(EQUALS_BOUNDARY_REGEX) != null;
+  return EQUALS_BOUNDARY_REGEX.test(line);
 }
 
 /**
