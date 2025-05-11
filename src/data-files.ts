@@ -6,6 +6,12 @@ export class RawDataFile {
   readonly fileName: string | undefined = undefined;
   readonly version: string | undefined = undefined;
 
+  /**
+   * Indicates if the file has an EOF marker.
+   * This is typically used to indicate the end of the file in Unicode data files.
+   */
+  readonly hasEOF: boolean = false;
+
   constructor(content: string, fileName?: string) {
     if (content == null || content.trim() === "") {
       throw new Error("content is empty");
@@ -16,6 +22,7 @@ export class RawDataFile {
     this._heading = parseDataFileHeading(content);
     this.fileName = fileName ?? inferFileName(content);
     this.version = inferVersion(content);
+    this.hasEOF = content.endsWith("# EOF");
   }
 
   public get rawContent(): string {
