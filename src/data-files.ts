@@ -1,5 +1,8 @@
 import type { UCDSectionWithLines } from "./types";
 
+export const HASH_BOUNDARY_REGEX = /#\s*#+/;
+export const EQUALS_BOUNDARY_REGEX = /#\s*=+/;
+
 /**
  * Represents a raw Unicode data file with methods to access its content.
  *
@@ -143,16 +146,16 @@ export function parseDataFileHeading(content: string): string | undefined {
       // add line to heading
       heading += `${line}\n`;
 
-      const isHashBoundary = line.match(/#\s*#+/);
-      const isEqualsBoundary = line.match(/#\s*=+/);
+      const hashBoundary = isHashBoundary(line);
+      const equalsBoundary = isEqualsBoundary(line);
 
-      if (isHashBoundary || isEqualsBoundary) {
+      if (hashBoundary || equalsBoundary) {
         lastBoundaryLineIndex = i;
       }
 
       // If this is a boundary pattern followed by a non-comment line,
       // we might be at the end of the heading section
-      if ((isHashBoundary || isEqualsBoundary) && nextLine && !isCommentLine(nextLine)) {
+      if ((hashBoundary || equalsBoundary) && nextLine && !isCommentLine(nextLine)) {
         break;
       }
     }
@@ -179,6 +182,54 @@ export function parseDataFileHeading(content: string): string | undefined {
   }
 
   return heading.trim() === "" ? undefined : heading.trim();
+}
+
+/**
+ * Determines if a line contains a hash boundary pattern.
+ *
+ * A hash boundary is a line containing a pattern like "# ###" (# followed by multiple #).
+ * These patterns are used in Unicode data files to separate different sections of content.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line contains a hash boundary pattern, false otherwise
+ *
+ * @example
+ * ```ts
+ * isHashBoundary("# #####"); // true
+ * isHashBoundary("# Some text"); // false
+ * isHashBoundary(""); // false
+ * ```
+ */
+export function isHashBoundary(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  return line.match(HASH_BOUNDARY_REGEX) != null;
+}
+
+/**
+ * Determines if a line contains an equals boundary pattern.
+ *
+ * An equals boundary is a line containing a pattern like "# ===" (# followed by multiple =).
+ * These patterns are used in Unicode data files to separate different sections of content.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line contains an equals boundary pattern, false otherwise
+ *
+ * @example
+ * ```ts
+ * isEqualsBoundary("# ====="); // true
+ * isEqualsBoundary("# Some text"); // false
+ * isEqualsBoundary(""); // false
+ * ```
+ */
+export function isEqualsBoundary(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  return line.match(EQUALS_BOUNDARY_REGEX) != null;
 }
 
 /**

@@ -7,16 +7,21 @@ export {
   type UnicodeVersion,
 } from "./constants";
 export {
+  EQUALS_BOUNDARY_REGEX,
+  HASH_BOUNDARY_REGEX,
   hasSections,
   inferFileName,
   inferVersion,
   isCommentLine,
   isEmptyLine,
+  isEqualsBoundary,
+  isHashBoundary,
   isLineWithData,
   isMissingAnnotation,
   type MissingAnnotation,
   parseDataFileHeading,
   parseMissingAnnotation,
+  parseSections,
   RawDataFile,
 } from "./data-files";
 export {

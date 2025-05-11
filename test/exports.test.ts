@@ -11,6 +11,8 @@ it("exports-snapshot", async () => {
   expect(manifest.exports).toMatchInlineSnapshot(`
       {
         ".": {
+          "EQUALS_BOUNDARY_REGEX": "object",
+          "HASH_BOUNDARY_REGEX": "object",
           "RawDataFile": "function",
           "UNICODE_DRAFT_VERSION": "string",
           "UNICODE_LATEST_VERSION": "string",
@@ -24,24 +26,32 @@ it("exports-snapshot", async () => {
           "inferVersion": "function",
           "isCommentLine": "function",
           "isEmptyLine": "function",
+          "isEqualsBoundary": "function",
+          "isHashBoundary": "function",
           "isLineWithData": "function",
           "isMissingAnnotation": "function",
           "mapUnicodeVersion": "function",
           "parseDataFileHeading": "function",
           "parseMissingAnnotation": "function",
+          "parseSections": "function",
           "stripHex": "function",
         },
         "./data-files": {
+          "EQUALS_BOUNDARY_REGEX": "object",
+          "HASH_BOUNDARY_REGEX": "object",
           "RawDataFile": "function",
           "hasSections": "function",
           "inferFileName": "function",
           "inferVersion": "function",
           "isCommentLine": "function",
           "isEmptyLine": "function",
+          "isEqualsBoundary": "function",
+          "isHashBoundary": "function",
           "isLineWithData": "function",
           "isMissingAnnotation": "function",
           "parseDataFileHeading": "function",
           "parseMissingAnnotation": "function",
+          "parseSections": "function",
         },
       }
   `);
