@@ -76,6 +76,7 @@ export class RawDataFile {
     this.fileName = fileName ?? inferFileName(content);
     this.version = inferVersion(content);
     this.hasEOF = this.lines.at(-1)?.trim() === "# EOF";
+    this.sections = parseSections(this.content);
   }
 }
 
