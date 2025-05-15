@@ -100,3 +100,24 @@
 # the derived property file DerivedJoiningType.txt.
 #
 # #############################################################
+# Unicode; Schematic Name; Joining Type; Joining Group
+# Arabic Characters
+# Syriac Characters
+# Arabic Supplement Characters
+# N'Ko Characters
+# Mandaic Characters
+# Syriac Supplement Characters
+# Arabic Extended-A Characters
+# Mongolian Characters
+# Other
+# Phags-Pa Characters
+# Manichaean Characters
+# Psalter Pahlavi Characters
+# Hanifi Rohingya Characters
+# Sogdian Characters
+# Kaithi Number Signs
+# These are prepended concatenation marks, comparable
+# to the number signs in the Arabic script.
+# Listed here for consistency in property values.
+# Adlam Characters
+# EOF

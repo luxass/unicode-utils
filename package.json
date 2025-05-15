@@ -43,7 +43,9 @@
     "generate:constants": "tsx scripts/generate-constants.ts"
   },
   "dependencies": {
-    "@luxass/utils": "^2.1.0"
+    "@luxass/utils": "^2.1.0",
+    "@types/glob": "^8.1.0",
+    "glob": "^11.0.2"
   },
   "devDependencies": {
     "@luxass/eslint-config": "^4.18.1",

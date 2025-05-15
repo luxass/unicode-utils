@@ -38,7 +38,7 @@ describe("heading inferrence v12", async () => {
     expect(inferHeading(content)).toBe(expected);
   });
 
-  it.only("inferHeading(Blocks)", () => {
+  it("inferHeading(Blocks)", () => {
     const content = ucdFiles("12.0.0", "Blocks.txt");
     const expected = ucdFiles("12.0.0", "Blocks.comments.txt");
 

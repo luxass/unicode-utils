@@ -1,17 +1,5 @@
 import { invariant } from "@luxass/utils";
-import { isCommentLine, isEmptyLine, isEOFMarker, isEqualsBoundary, isHashBoundary, isMissingAnnotation, parseFileNameLine } from "./data-files";
-
-/**
- * For files that have some inconsistent formatting, we can provide some general rules
- * to infer the heading. This is a temporary solution until we can fix the files.
- */
-const FILE_SETTINGS = {
-  "v12.0.0": {
-    Blocks: {
-
-    },
-  },
-};
+import { isCommentLine, isEmptyLine, isEOFMarker, isMissingAnnotation, parseFileNameLine } from "./data-files";
 
 export function inferHeading(content: string): string | null {
   if (content == null || !content.trim()) {
@@ -24,33 +12,42 @@ export function inferHeading(content: string): string | null {
 
   let heading: string | null = null;
   let isInHeading = false;
-  // keep track of boundary lines.
-  let lastBoundaryLineIndex: number = -1;
+  let headingEndLineIndex: number = -1;
 
   const lines = content.split("\n");
+
+  // Helper to detect boundary lines with lots of # or = characters
+  const isBoundaryLine = (line: string) => {
+    const trimmed = line.trim();
+    if (!trimmed.startsWith("#") && !trimmed.startsWith("=")) {
+      return false;
+    }
+    // Look for long runs of # or = characters
+    const boundary = trimmed.startsWith("#") ? "#" : "=";
+    return (trimmed.match(new RegExp(boundary, "g")) || []).length > 10;
+  };
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const nextLine = lines[i + 1];
+    const trimmedLine = line.trim();
 
-    // If we encounter a EOF marker, we stop processing
-    // and return the heading we have so far
+    // If we encounter a EOF marker, stop processing
     if (isEOFMarker(line) || isEOFMarker(nextLine)) {
       invariant(heading == null, "heading should be null");
     }
 
-    // TODO: handle edge case if the @missing is defined like this:
-
-    // # Property: Block
-    // #
-    // # @missing: 0000..10FFFF; No_Block
-
-    // if the next line contains @missing, we can break out of the loop
-    if (isCommentLine(line) && isMissingAnnotation(line)) {
-      break;
+    // Data section markers start with @ (like @missing, @levels, etc)
+    if (trimmedLine.startsWith("@")) {
+      // If this @ line is not part of an example (indicated by comments around it)
+      const prevLineIsComment = i > 0 && isCommentLine(lines[i - 1]);
+      if (!prevLineIsComment || !nextLine || !isCommentLine(nextLine)) {
+        headingEndLineIndex = i;
+        break;
+      }
     }
 
-    // comments start with #
+    // If this is a comment line
     if (isCommentLine(line)) {
       isInHeading = true;
 
@@ -58,73 +55,102 @@ export function inferHeading(content: string): string | null {
         heading = "";
       }
 
-      // add line to heading
-      heading += `${line}\n`;
-
-      const hashBoundary = isHashBoundary(line);
-      const equalsBoundary = isEqualsBoundary(line);
-
-      if (hashBoundary || equalsBoundary) {
-        lastBoundaryLineIndex = i;
+      // Skip adding bare "#" lines at the beginning
+      if (!heading && trimmedLine === "#") {
+        continue;
       }
 
-      // If this is a boundary pattern followed by a non-comment line,
-      // we might be at the end of the heading section
-      if ((hashBoundary || equalsBoundary) && nextLine && !isCommentLine(nextLine)) {
+      // Before adding this line, check if it marks the end
+      if (isBoundaryLine(line)) {
+        // Look ahead to the next non-empty line
+        let j = i + 1;
+        let foundDataLine = false;
+        while (j < lines.length && j < i + 5) {
+          const nextLine = lines[j];
+          if (!nextLine || nextLine.trim() === "#") {
+            j++;
+            continue;
+          }
+          const nextIsBoundary = isBoundaryLine(nextLine);
+          const nextIsExample = isCommentLine(nextLine)
+            && lines[j + 1]?.trim().startsWith("@")
+            && lines[j + 2] && isCommentLine(lines[j + 2]);
+          const nextIsProperty = nextLine.trim().startsWith("# Property:");
+
+          // If none of these special cases, treat as data
+          if (!nextIsBoundary && !nextIsExample && !nextIsProperty) {
+            foundDataLine = true;
+          }
+          break;
+        }
+        if (foundDataLine) {
+          headingEndLineIndex = i + 1;
+          break;
+        }
+      }
+
+      // Check for property markers directly
+      if (trimmedLine.startsWith("# Property:")) {
+        headingEndLineIndex = i;
         break;
       }
-    }
 
-    // TODO: handle edge case in BidiTest.txt
-    // from BidiTest.txt
-    // # A data line has the following format:
-    //
-    // # <input> ; <bitset>
-    //
-    // #   <input>  =      An ordered list of BIDI property values
+      // Add the line to the heading
+      heading = `${heading}${line}\n`;
+    } else if (isEmptyLine(line)) {
+      // For empty lines in between comments, preserve them
+      if (heading && nextLine && isCommentLine(nextLine)) {
+        heading = `${heading}${line}\n`;
+      } else if (isInHeading) {
+        // Look ahead for more comment lines
+        let hasMoreComments = false;
 
-    const neighbors = hasNeighboringDataLines(lines, i + 1, i + 5);
-    console.log({
-      neighbors,
-      line,
-      nextLine,
-      isInHeading,
-      isCommentLine: isCommentLine(line),
-      isHashBoundary: isHashBoundary(line),
-      isEqualsBoundary: isEqualsBoundary(line),
-    });
+        // Look ahead a few lines to determine what comes next
+        for (let j = i + 1; j < lines.length && j < i + 5; j++) {
+          const nextLine = lines[j].trim();
+          if (nextLine !== "" && !isCommentLine(lines[j])) {
+            headingEndLineIndex = i;
+            break;
+          }
+          if (isCommentLine(lines[j]) && nextLine !== "#") {
+            // Don't count property lines as comments for this purpose
+            if (nextLine.startsWith("# Property:")) {
+              break;
+            }
+            hasMoreComments = true;
+            break;
+          }
+        }
 
-    // if we just were in a heading and the line is empty
-    // we can break out of the loop since the heading is done
-    // but only if the next line is not a comment line, and doesn't have any neighboring data lines
-    if (isInHeading && isEmptyLine(line) && !isCommentLine(nextLine) && !neighbors) {
+        if (hasMoreComments) {
+          heading = `${heading}${line}\n`;
+        } else {
+          headingEndLineIndex = i;
+          break;
+        }
+      }
+    } else if (isInHeading) {
+      // If we see any non-comment, non-empty line and we're in a heading, we're done
+      headingEndLineIndex = i;
       break;
     }
   }
 
-  // TODO: check if there is edge cases for this especially.
-  if (lastBoundaryLineIndex !== -1) {
-    // keep only the lines up to and including the last boundary line
-    heading = `${lines.slice(0, lastBoundaryLineIndex + 1).join("\n")}\n`;
+  // If we found where the heading ends, use that
+  if (headingEndLineIndex !== -1) {
+    let endLinesWithoutEmptyLines = headingEndLineIndex;
+
+    // Trim empty lines and bare # lines at the end
+    while (endLinesWithoutEmptyLines > 0) {
+      const prevLine = lines[endLinesWithoutEmptyLines - 1].trim();
+      if (prevLine !== "" && prevLine !== "#") {
+        break;
+      }
+      endLinesWithoutEmptyLines--;
+    }
+
+    heading = `${lines.slice(0, endLinesWithoutEmptyLines).join("\n")}\n`;
   }
 
   return heading;
-}
-
-function hasNeighboringDataLines(
-  lines: string[],
-  startIndex: number,
-  endIndex: number,
-): boolean {
-  for (let i = startIndex; i < endIndex; i++) {
-    const line = lines[i];
-    if (line.trim() === "" || isCommentLine(line)) {
-      continue;
-    }
-
-    // if we find a non-empty line that is not a comment, we can break out of the loop
-    return true;
-  }
-
-  return false;
 }
