@@ -1,4 +1,4 @@
-import { read, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { glob } from "node:fs/promises";
 import { join } from "node:path";
 
