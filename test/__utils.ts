@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { read, readFileSync } from "node:fs";
 import { glob } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -34,18 +34,27 @@ export async function mapUCDFiles(version: string) {
 
   return {
     files,
+    expected(file: string) {
+      if (!file.endsWith(".comments.txt")) {
+        throw new Error(`File ${file} is not a comment file`);
+      }
+      const filePath = join(__dirname, "../ucd-files", `v${version}`, file);
+      return readFileSync(filePath, "utf-8") || null;
+    },
     file(file: string) {
-      const index = files.indexOf(file);
-      if (index === -1) {
+      const filePath = join(__dirname, "../ucd-files", `v${version}`, file);
+
+      // if the file is not in the list, throw an error.
+      // if the file is in the list, read the file and remove the file from the list
+      if (!files.includes(file)) {
         throw new Error(`File ${file} not found`);
       }
 
-      files.splice(index, 1);
+      const content = readFileSync(filePath, "utf-8");
 
-      return readFileSync(
-        join(__dirname, "../ucd-files", `v${version}`, file),
-        "utf-8",
-      );
+      // remove the file from the list
+      files.splice(files.indexOf(file), 1);
+      return content;
     },
   };
 }
