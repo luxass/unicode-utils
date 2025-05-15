@@ -1,5 +1,5 @@
 {
   "explorer.fileNesting.patterns": {
-    "*.txt": "${capture}.txt.comments"
+    "*.txt": "${capture}.comments.txt"
   }
 }

@@ -7,3 +7,10 @@ export function dataFileFixture(version: string, file: string) {
     "utf-8",
   );
 }
+
+export function ucdFiles(version: string, file: string) {
+  return readFileSync(
+    join(__dirname, "../ucd-files", `v${version}`, file),
+    "utf-8",
+  );
+}

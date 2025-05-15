@@ -14,15 +14,18 @@ export {
   inferVersion,
   isCommentLine,
   isEmptyLine,
+  isEOFMarker,
   isEqualsBoundary,
   isHashBoundary,
   isLineWithData,
   isMissingAnnotation,
   type MissingAnnotation,
   parseDataFileHeading,
+  parseFileNameLine,
   parseMissingAnnotation,
   parseSections,
   RawDataFile,
+  type SpecialTag,
 } from "./data-files";
 export {
   expandHexRange,
