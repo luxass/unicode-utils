@@ -1,0 +1,41 @@
+# SentenceBreakProperty-6.0.0.txt
+# Date: 2010-08-19, 00:48:47 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2010 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	Sentence_Break
+#  All code points not explicitly listed for Sentence_Break
+#  have the value Other (XX).
+# @missing: 0000..10FFFF; Other
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 1502
+# ================================================
+# Total code points: 3
+# ================================================
+# Total code points: 138
+# ================================================
+# Total code points: 21
+# ================================================
+# Total code points: 1917
+# ================================================
+# Total code points: 1509
+# ================================================
+# Total code points: 97369
+# ================================================
+# Total code points: 412
+# ================================================
+# Total code points: 4
+# ================================================
+# Total code points: 73
+# ================================================
+# Total code points: 177
+# ================================================
+# Total code points: 26
+# EOF

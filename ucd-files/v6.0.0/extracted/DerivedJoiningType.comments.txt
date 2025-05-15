@@ -1,0 +1,25 @@
+# DerivedJoiningType-6.0.0.txt
+# Date: 2010-08-19, 00:48:10 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2010 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+#	Type T is derived, as described in ArabicShaping.txt
+#  All code points not explicitly listed for Joining_Type
+#  have the value Non_Joining (U).
+# @missing: 0000..10FFFF; Non_Joining
+# ================================================
+# Joining_Type=Join_Causing
+# Total code points: 3
+# ================================================
+# Joining_Type=Dual_Joining
+# Total code points: 189
+# ================================================
+# Joining_Type=Right_Joining
+# Total code points: 74
+# ================================================
+# Joining_Type=Transparent
+# Total code points: 1344
+# EOF

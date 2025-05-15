@@ -1,0 +1,142 @@
+# DoNotEmit-16.0.0.txt
+# Date: 2024-07-30, 19:30:00 GMT
+# © 2024 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use and license, see https://www.unicode.org/terms_of_use.html
+#
+# For documentation, see UAX #44: Unicode Character Database,
+# at https://www.unicode.org/reports/tr44/
+#
+# Do_Not_Emit
+#
+# This file is part of the Unicode Character Database. It does not define
+# any properties, but rather provides additional information about
+# characters or character sequences that should not be emitted or generated
+# in newly authored text. Applications such as input methods could use this
+# information to replace "Do Not Emit" sequences input by users with an
+# acceptable alternative. Other applications may use the information in
+# this file to consider certain sequences similar to each other for display,
+# collation, or searching purposes. (This is an addition to canonical
+# equivalence, which is defined elsewhere in the standard.)
+#
+# Note that the discouraged sequences listed in this file should not be
+# considered invalid input to text display implementations. When received
+# by an implementation, the sequences are not required to be displayed with
+# a visual indication of an error (such as dotted circles). Implementation
+# should try their best to display them as normal text, perhaps in the same
+# way or very similar to the way their alternative sequence is displayed.
+#
+# Only characters and character sequences for which a suitable alternative
+# sequence exists are provided. For example, deprecated characters for
+# which no suitable alternative exists are not listed. (For a list of
+# deprecated characters see the "Deprecated" property defined in the Unicode
+# Character Database file "PropList.txt".)
+#
+# Also, canonically equivalent sequences are not listed, even if one
+# sequence is specified to be discouraged or deprecated in the Unicode
+# Standard. For example, U+2126 OHM SIGN, which is canonically equivalent
+# to U+03A9 GREEK CAPITAL LETTER OMEGA is not explicitly listed, since it is
+# expected that conforming Unicode processes would discover the relation
+# between the two characters.
+#
+# Note that some sequences could be considered recursive, in the way that
+# the preferred sequence to use may be a subsequence of the "Do Not Emit"
+# sequence. This may have implications for some implementations who may want
+# to treat the original sequence and its alternative as similar.
+#
+# This file should not be considered to be comprehensive. It is expected
+# that new sequences and categories may be added to or removed from the file
+# as the Unicode Standard goes through new releases.
+#
+# Format:
+#    Field 0  A sequence of Unicode code point values
+#    Field 1  A replacement sequence of Unicode code point values
+#    Field 2  DoNotEmit type of the original character sequence
+#
+# Field 2 is followed by an optional human-readable comment field.
+#
+# These are the values used for Field 2:
+# Indic_Atomic_Consonant:
+#    Sequences that look like an Indic consonant but should be avoided
+#    in representing that consonant. For now, these are limited to
+#    Devanagari.
+# Indic_Consonant_Conjunct:
+#    Sequences that look like an Indic conjunct but should be avoided
+#    in representing that conjunct. For now, these are limited to
+#    Devanagari.
+# Indic_Vowel_Letter:
+#    Sequences that look like an Indic vowel letter but should be avoided
+#    in representing that vowel letter.
+# Bengali_Khanda_Ta:
+#    Legacy representation of Bengali khanda ta prior to
+#    Unicode Version 4.1.
+# Malayalam_Chillu:
+#    Legacy representation of Malayalam chillus prior to
+#    Unicode Version 5.1. Note that the sequence in Field 0 may appear
+#    in legitimate Malayalam sequences not related to chillus.
+# Tamil_Shrii:
+#    Legacy representation of Tamil ligature shri prior to
+#    Unicode Version 4.1.
+# Dotless_Form:
+#    Dotless forms of lowercase Latin i and j followed by a
+#    combining dot above.
+# Hamza_Form:
+#    Sequences containing Arabic hamza above, which should be avoided.
+# Precomposed_Form:
+#    Sequences for which a precomposed form exists, but without canonical
+#    equivalence.
+# Deprecated:
+#    Characters that are identified in the Unicode Standard as
+#    deprecated for which a replacement sequence exists.
+# Discouraged:
+#    Miscellaneous characters and sequences discouraged in the
+#    Unicode Standard.
+# Preferred_Spelling:
+#    Miscellaneous characters and sequeences for which the Unicode Standard
+#    specifies a preferred spelling.
+# ================================================
+# "Do Not Use" tables from the Core Specification
+# ================================================
+# Devanagari, from Table 12-1
+# Devanagari, from Table 12-2
+# Review Note: Some experts have recommended removing these, while
+# others prefer keeping them. They may also be procedurally generated.
+# Devanagari, from Table 12-3
+# Review Note: Some experts have recommended removing these, while
+# others prefer keeping them. They may also be procedurally generated.
+# Note: This list may be incomplete.
+# Bengali, from Table 12-11
+# Gurmukhi, from Table 12-16
+# Gujarati, from Table 12-20
+# Oriya, from Table 12-22
+# Tamil, from Table 12-26
+# Telugu, from Table 12-30
+# Kannada, from Table 12-31
+# Malayalam, from Table 12-32
+# Sinhala, from Table 13-2
+# Brahmi, from Table 14-1
+# Takri, from Table 15-1
+# Khojki, from Table 15-3
+# Khudawadi, from Table 15-4
+# Tirhuta, from Table 15-6
+# Modi, from Table 15-7
+# ================================================
+# Deprecated characters and other discouraged characters and sequences
+# ================================================
+# Latin, from text of Section 7.1, the NamesList, and the uppercase mapping
+# Characters with overstruck tilde for which a precomposed form exists,
+# but the sequences are not canonically equivalent
+# Characters with palatalized hook for which a precomposed form exists,
+# but the sequences are not canonically equivalent
+# Characters with retroflex hook for which a precomposed form exists,
+# but the sequences are not canonically equivalent
+# Arabic, from text of Section 9.2 and the NamesList
+# Devanagari, from Section 12.1 and the NamesList
+# Bengali, from Section 12.2
+# Gujarati, from the NamesList
+# Tamil ligature shri
+# Malayalam Chillus, from Table 12-40
+# Tibetan, from text of Section 13.4, the NamesList, and the decompositions
+# Khmer, from text of Section 16.4 and the NamesList
+# Sharada, from the NamesList, and glyph shape of U+1118E
+# EOF

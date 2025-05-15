@@ -1,0 +1,179 @@
+# DerivedCombiningClass-6.0.0.txt
+# Date: 2010-08-19, 00:48:04 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2010 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Combining Class (listing UnicodeData.txt, field 3: see UAX #44: http://www.unicode.org/reports/tr44/)
+#  All code points not explicitly listed for Canonical_Combining_Class
+#  have the value Not_Reordered (0).
+# @missing: 0000..10FFFF; Not_Reordered
+# ================================================
+# Canonical_Combining_Class=Not_Reordered
+# The above property value applies to 867195 code points not listed here.
+# Total code points: 1113506
+# ================================================
+# Canonical_Combining_Class=Overlay
+# Total code points: 26
+# ================================================
+# Canonical_Combining_Class=Nukta
+# Total code points: 12
+# ================================================
+# Canonical_Combining_Class=Kana_Voicing
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=Virama
+# Total code points: 31
+# ================================================
+# Canonical_Combining_Class=10
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=11
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=12
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=13
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=14
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=15
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=16
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=17
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=18
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=19
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=20
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=21
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=22
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=23
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=24
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=25
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=26
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=27
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=28
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=29
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=30
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=31
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=32
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=33
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=34
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=35
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=36
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=84
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=91
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=103
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=107
+# Total code points: 4
+# ================================================
+# Canonical_Combining_Class=118
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=122
+# Total code points: 4
+# ================================================
+# Canonical_Combining_Class=129
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=130
+# Total code points: 6
+# ================================================
+# Canonical_Combining_Class=132
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=Attached_Below
+# Total code points: 5
+# ================================================
+# Canonical_Combining_Class=Attached_Above
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=Attached_Above_Right
+# Total code points: 9
+# ================================================
+# Canonical_Combining_Class=Below_Left
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=Below
+# Total code points: 121
+# ================================================
+# Canonical_Combining_Class=Below_Right
+# Total code points: 4
+# ================================================
+# Canonical_Combining_Class=Left
+# Total code points: 2
+# ================================================
+# Canonical_Combining_Class=Right
+# Total code points: 1
+# ================================================
+# Canonical_Combining_Class=Above_Left
+# Total code points: 3
+# ================================================
+# Canonical_Combining_Class=Above
+# Total code points: 320
+# ================================================
+# Canonical_Combining_Class=Above_Right
+# Total code points: 4
+# ================================================
+# Canonical_Combining_Class=Double_Below
+# Total code points: 4
+# ================================================
+# Canonical_Combining_Class=Double_Above
+# Total code points: 5
+# ================================================
+# Canonical_Combining_Class=Iota_Subscript
+# Total code points: 1
+# EOF

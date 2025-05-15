@@ -1,0 +1,114 @@
+# IndicMatraCategory-6.1.0.txt
+# Date: 2011-08-31, 23:50:00 GMT [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2011 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UAX #44.
+#
+# This file defines the following provisional property:
+#
+#    Indic_Matra_Category     enumerated property
+#
+# NB: Provisional properties and data files have no associated stability 
+# guarantees. They are provided in part to determine the possible usefulness
+# of a property or other data and to encourage analysis and further investigation
+# which may result in their improvement. Provisional properties and
+# data files may change arbitrarily, or may even be removed in a future version of the
+# Unicode Character Database, if they prove not to be useful.
+#
+# Scope: This provisional property is aimed at the problem of
+# the specification of syllabic structure for Indic scripts.
+# Because dependent vowels (and visible viramas, where they occur)
+# are placed in notional slots around the consonant (or consonant
+# cluster) core of an Indic syllable, there may be cooccurrence
+# constraints or other interactions. Also, it may be desirable,
+# in cases where more than one dependent vowel may occur in
+# sequence, as for example, in a top slot and a bottom slot, to
+# specify preferred orders for spelling. As such, this property
+# is designed primarily to supplement the Indic_Syllabic_Category
+# property.
+#
+# Note that this provisional property is *not* intended as
+# a prescriptive property regarding display or font design,
+# for a number of reasons. Good font design requires information
+# that is outside the context of a character encoding standard,
+# and is best handled in other venues. For Indic dependent
+# vowels, in particular:
+#
+#   1. Matra placement may vary somewhat based on typeface design.
+#   2. Matra placement, even within a single script, may vary
+#      somewhat according to historic period or local conventions.
+#   3. Matra placement may be changed by explicit orthographic reform
+#      decisions.
+#   4. Matras may ligate in various ways with a consonant (or even
+#      other elements of a syllable) instead of occurring in a
+#      discrete location.
+#   4. Matra display may be contextually determined. This is
+#      notable, for example, in the Tamil script, where the shape
+#      and placement of -u and -uu vowels depends strongly on
+#      which consonant they adjoin. 
+#
+# Format:
+#    Field 0  Code Point or Code Point Range
+#    Field 1  Indic_Matra_Category
+#
+# A comment field shows General_Category property values and character names.
+#
+# The scripts assessed as containing dependent vowels or viramas in the
+# structural sense used for the Indic_Matra_Category are:
+#
+# Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu,
+# Kannada, Malayalam, Sinhala, Thai, Lao, Tibetan, Myanmar,
+# Tagalog, Hanunoo, Buhid, Tagbanwa, Khmer, Limbu, New Tai Lue,
+# Buginese, Tai Tham, Balinese, Sundanese, Batak, Lepcha,
+# Syloti Nagri, Saurashtra, Rejang, Javanese, Cham, Tai Viet,
+# Meetei Mayek, Kharoshthi, Brahmi, Kaithi, Chakma, Sharada, Takri
+#
+# All characters for all other scripts not in that list
+# take the default value for this property.
+#
+# See IndicSyllabicCategory.txt for a slightly more extended
+# list of Indic scripts, including those which do not have
+# dependent vowel characters. Currently, those additional
+# Indic scripts without dependent vowel characters are
+# Tai Le, Phags-pa, and Kayah Li.
+#
+# ================================================
+# Property: Indic_Matra_Category
+#
+#  All code points not explicitly listed for Indic_Matra_Category
+#  have the value NA (Not_Applicable).
+#
+# @missing: 0000..10FFFF; NA
+# Only Indic dependent vowels (Indic_Syllabic_Category=Vowel_Dependent)
+# and viramas (Indic_Syllabic_Category=Virama)
+# have a non-default value for this property.
+# ------------------------------------------------
+# Indic_Matra_Category=Right
+# Note: U and UU form complex ligatures with consonants in older Malayalam orthography
+# Indic_Matra_Category=Left
+# Indic_Matra_Category=Visual_Order_Left
+# These are dependent vowels that occur to the left of the consonant
+# letter in a syllable, but which occur in scripts using the visual order
+# model, instead of the logical order model. Because of the different
+# model, these left-side vowels occur first in the backing store (before
+# the consonant letter) and are not reordered during text rendering.
+#
+# [Derivation: Logical_Order_Exception=True]
+# Indic_Matra_Category=Left_And_Right
+# Indic_Matra_Category=Top
+# Indic_Matra_Category=Bottom
+# Note: U and UU have contextually variable placement in Tamil.
+# Indic_Matra_Category=Top_And_Bottom
+# Indic_Matra_Category=Top_And_Right
+# Indic_Matra_Category=Top_And_Left
+# Indic_Matra_Category=Top_And_Left_And_Right
+# Indic_Matra_Category=Bottom_And_Right
+# Indic_Matra_Category=Top_And_Bottom_And_Right
+# Indic_Matra_Category=Overstruck
+# Indic_Matra_Category=Invisible
+# The Invisible category refers to viramas for certain script
+# which are used only to control consonant stacking or cluster
+# formation, and which have no visible display on their own.
+# EOF

@@ -1,0 +1,11 @@
+# DerivedBinaryProperties-5.0.0.txt
+# Date: 2006-02-27, 23:41:18 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2006 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+# ================================================
+# Bidi_Mirrored (listing UnicodeData.txt, field 9: see UCD.html)
+# Total code points: 537
+# EOF

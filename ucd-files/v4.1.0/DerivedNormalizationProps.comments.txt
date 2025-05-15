@@ -1,0 +1,80 @@
+# DerivedNormalizationProps-4.1.0.txt
+# Date: 2005-02-26, 02:37:43 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2005 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+# ================================================
+# Derived Property: FC_NFKC_Closure
+#  Generated from computing: b = NFKC(Fold(a)); c = NFKC(Fold(b));
+#  Then if (c != b) add the mapping from a to c to the set of
+#  mappings that constitute the FC_NFKC_Closure list
+#  Uses the full case folding from CaseFolding.txt, without the T option.
+# Total code points: 564
+# ================================================
+# Derived Property: Full_Composition_Exclusion
+#  Generated from: Composition Exclusions + Singletons + Non-Starter Decompositions
+# Total code points: 1115
+# ================================================
+# Property:	NFD_Quick_Check
+#  All code points not explicitly listed for NFD_Quick_Check
+#  have the value Yes (Y).
+# ================================================
+# NFD_Quick_Check=No
+# Total code points: 13204
+# ================================================
+# Property:	NFC_Quick_Check
+#  All code points not explicitly listed for NFC_Quick_Check
+#  have the value Yes (Y).
+# ================================================
+# NFC_Quick_Check=No
+# Total code points: 1115
+# ================================================
+# NFC_Quick_Check=Maybe
+# Total code points: 101
+# ================================================
+# Property:	NFKD_Quick_Check
+#  All code points not explicitly listed for NFKD_Quick_Check
+#  have the value Yes (Y).
+# ================================================
+# NFKD_Quick_Check=No
+# Total code points: 16561
+# ================================================
+# Property:	NFKC_Quick_Check
+#  All code points not explicitly listed for NFKC_Quick_Check
+#  have the value Yes (Y).
+# ================================================
+# NFKC_Quick_Check=No
+# Total code points: 4484
+# ================================================
+# NFKC_Quick_Check=Maybe
+# Total code points: 101
+# ================================================
+# Derived Property: Expands_On_NFD
+#   Generated according to UAX #15.
+#   Characters whose normalized length is not one.
+#   WARNING: Normalization of STRINGS must use the algorithm in UAX #15 because characters may interact.
+#            The length of a normalized string is not necessarily the sum of the lengths of the normalized characters!
+# Total code points: 12192
+# ================================================
+# Derived Property: Expands_On_NFC
+#   Generated according to UAX #15.
+#   Characters whose normalized length is not one.
+#   WARNING: Normalization of STRINGS must use the algorithm in UAX #15 because characters may interact.
+#            The length of a normalized string is not necessarily the sum of the lengths of the normalized characters!
+# Total code points: 85
+# ================================================
+# Derived Property: Expands_On_NFKD
+#   Generated according to UAX #15.
+#   Characters whose normalized length is not one.
+#   WARNING: Normalization of STRINGS must use the algorithm in UAX #15 because characters may interact.
+#            The length of a normalized string is not necessarily the sum of the lengths of the normalized characters!
+# Total code points: 13299
+# ================================================
+# Derived Property: Expands_On_NFKC
+#   Generated according to UAX #15.
+#   Characters whose normalized length is not one.
+#   WARNING: Normalization of STRINGS must use the algorithm in UAX #15 because characters may interact.
+#            The length of a normalized string is not necessarily the sum of the lengths of the normalized characters!
+# Total code points: 1171

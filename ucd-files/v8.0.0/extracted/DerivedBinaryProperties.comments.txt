@@ -1,0 +1,11 @@
+# DerivedBinaryProperties-8.0.0.txt
+# Date: 2015-02-13, 13:47:09 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2015 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Bidi_Mirrored (listing UnicodeData.txt, field 9: see UAX #44: http://www.unicode.org/reports/tr44/)
+# Total code points: 545
+# EOF

@@ -1,0 +1,56 @@
+# NamedSequences-8.0.0.txt
+# Date: 2015-02-19, 00:30:00 GMT [KW, LI]
+#
+# Unicode Named Character Sequences
+#
+# This file is a normative contributory data file in the Unicode
+# Character Database.
+#
+# Copyright (c) 1991-2015 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Code point sequences in the Unicode Character Database
+# use spaces as delimiters. The corresponding format for a
+# UCS Sequence Identifier (USI) in ISO/IEC 10646 uses
+# comma delimitation and angle brackets. Thus, a Unicode
+# named character sequence of the form:
+#
+# EXAMPLE NAME;1000 1001 1002
+#
+# in this data file, would correspond to an ISO/IEC 10646 USI
+# as follows:
+#
+# <1000, 1001, 1002>
+#
+# For more information, see UAX #34: Unicode Named Character
+# Sequences, at http://www.unicode.org/unicode/reports/tr34/
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+# ================================================
+# Additions for Lithuanian.
+# Provisional 2006-05-18, Approved 2007-10-19
+# Entries for JIS X 0213 compatibility mapping.
+# Provisional 2008-11-07, Approved 2010-05-14
+# Entries for Uyghur and Chagatai.
+# Provisional N/A, Approved 2012-11-08
+# Entry for a Bangla entity.
+# Provisional 2009-08-10, Approved 2010-05-14
+#
+# Note that this same sequence is also used for the ASSAMESE LETTER KSSA.
+# Additions for Tamil.
+# Provisional 2008-02-08, Approved 2009-08-14
+#
+# A visual display of the Tamil named character sequences is available
+# in the documentation for the Unicode Standard. See Section 12.6, Tamil in
+# http://www.unicode.org/versions/latest/
+# Sinhala medial consonants and "reph" form.
+# Provisional 2010-05-13, Approved 2011-08-05
+# Entries for JIS X 0213 compatibility mapping.
+# Provisional 2008-11-07, Approved 2010-05-14
+# EOF

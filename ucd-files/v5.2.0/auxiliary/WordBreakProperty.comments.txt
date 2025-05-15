@@ -1,0 +1,37 @@
+# WordBreakProperty-5.2.0.txt
+# Date: 2009-07-12, 04:17:35 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2009 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	Word_Break
+#  All code points not explicitly listed for Word_Break
+#  have the value Other (XX).
+# @missing: 0000..10FFFF; Other
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 5
+# ================================================
+# Total code points: 1455
+# ================================================
+# Total code points: 137
+# ================================================
+# Total code points: 309
+# ================================================
+# Total code points: 23694
+# ================================================
+# Total code points: 8
+# ================================================
+# Total code points: 15
+# ================================================
+# Total code points: 8
+# ================================================
+# Total code points: 402
+# ================================================
+# Total code points: 10
+# EOF
