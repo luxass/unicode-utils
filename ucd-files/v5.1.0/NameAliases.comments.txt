@@ -1,0 +1,27 @@
+# NameAliases-5.1.0.txt
+# Date: 2008-02-11, 11:36:00 PST [KW]
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+#
+# Copyright (c) 2005-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# This file defines the formal name aliases for Unicode characters.
+#
+# For informative aliases see NamesList.txt
+#
+# For documentation, see UCD.html and NamesList.html
+#
+# FORMAT
+#
+# Each line has two fields
+# First field: Code point
+# Second field: Alias
+#
+# In case multiple aliases are assigned, additional aliases
+# would be provided on separate lines
+#
+#-----------------------------------------------------------------
+# Total code points: 11
+# EOF

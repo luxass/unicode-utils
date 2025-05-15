@@ -1,0 +1,35 @@
+# GraphemeBreakProperty-5.2.0.txt
+# Date: 2009-06-09, 21:40:09 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2009 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	Grapheme_Cluster_Break
+#  All code points not explicitly listed for Grapheme_Cluster_Break
+#  have the value Other (XX).
+# @missing: 0000..10FFFF; Other
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 203
+# ================================================
+# Total code points: 1205
+# ================================================
+# Total code points: 15
+# ================================================
+# Total code points: 257
+# ================================================
+# Total code points: 125
+# ================================================
+# Total code points: 95
+# ================================================
+# Total code points: 137
+# ================================================
+# Total code points: 399
+# ================================================
+# Total code points: 10773
+# EOF

@@ -1,0 +1,150 @@
+# DerivedAge-15.1.0.txt
+# Date: 2023-07-28, 23:33:51 GMT
+# © 2023 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+#
+# Unicode Character Database: Derived Property Data
+# This file shows when various code points were first assigned in Unicode.
+#
+# Notes:
+#
+# - The term 'assigned' means that a previously reserved code point was assigned
+#   to be a character (graphic, format, control, or private-use);
+#   a noncharacter code point; or a surrogate code point.
+#   For more information, see The Unicode Standard Section 2.4
+#
+# - Versions are only tracked from 1.1 onwards, since version 1.0
+#   predated changes required by the ISO 10646 merger.
+#
+# - The Hangul Syllables that were removed from 2.0 are not included in the 1.1 listing.
+#
+# - The supplementary private use code points and the non-character code points
+#   were assigned in version 2.0, but not specifically listed in the UCD
+#   until versions 3.0 and 3.1 respectively.
+#
+# - Contiguous ranges are broken into separate lines where they would cross code point
+#   types: graphic, format, control, private-use, surrogate, noncharacter
+#
+# For details on the contents of each version, see
+#   http://www.unicode.org/versions/enumeratedversions.html.
+# ================================================
+# Property: Age
+#
+# Note: When using the Age property in regular expressions,
+# an expression such as "\p{age=3.0}" matches all of the code points
+# assigned in Version 3.0--that is, all the code points with a value
+# less than or equal to 3.0 for the Age property.
+# For more information, see [https://www.unicode.org/reports/tr18/].
+#  All code points not explicitly listed for Age
+#  have the value Unassigned (NA).
+# @missing: 0000..10FFFF; Unassigned
+# ================================================
+# Age=V1_1
+# Assigned as of Unicode 1.1.0 (June, 1993)
+# [excluding removed Hangul Syllables]
+# Total code points: 33979
+# ================================================
+# Age=V2_0
+# Newly assigned in Unicode 2.0.0 (July, 1996)
+# Total code points: 144521
+# ================================================
+# Age=V2_1
+# Newly assigned in Unicode 2.1.2 (May, 1998)
+# Total code points: 2
+# ================================================
+# Age=V3_0
+# Newly assigned in Unicode 3.0.0 (September, 1999)
+# Total code points: 10307
+# ================================================
+# Age=V3_1
+# Newly assigned in Unicode 3.1.0 (March, 2001)
+# Total code points: 44978
+# ================================================
+# Age=V3_2
+# Newly assigned in Unicode 3.2.0 (March, 2002)
+# Total code points: 1016
+# ================================================
+# Age=V4_0
+# Newly assigned in Unicode 4.0.0 (April, 2003)
+# Total code points: 1226
+# ================================================
+# Age=V4_1
+# Newly assigned in Unicode 4.1.0 (March, 2005)
+# Total code points: 1273
+# ================================================
+# Age=V5_0
+# Newly assigned in Unicode 5.0.0 (July, 2006)
+# Total code points: 1369
+# ================================================
+# Age=V5_1
+# Newly assigned in Unicode 5.1.0 (March, 2008)
+# Total code points: 1624
+# ================================================
+# Age=V5_2
+# Newly assigned in Unicode 5.2.0 (October, 2009)
+# Total code points: 6648
+# ================================================
+# Age=V6_0
+# Newly assigned in Unicode 6.0.0 (October, 2010)
+# Total code points: 2088
+# ================================================
+# Age=V6_1
+# Newly assigned in Unicode 6.1.0 (January, 2012)
+# Total code points: 732
+# ================================================
+# Age=V6_2
+# Newly assigned in Unicode 6.2.0 (September, 2012)
+# Total code points: 1
+# ================================================
+# Age=V6_3
+# Newly assigned in Unicode 6.3.0 (September, 2013)
+# Total code points: 5
+# ================================================
+# Age=V7_0
+# Newly assigned in Unicode 7.0.0 (June, 2014)
+# Total code points: 2834
+# ================================================
+# Age=V8_0
+# Newly assigned in Unicode 8.0.0 (June, 2015)
+# Total code points: 7716
+# ================================================
+# Age=V9_0
+# Newly assigned in Unicode 9.0.0 (June, 2016)
+# Total code points: 7500
+# ================================================
+# Age=V10_0
+# Newly assigned in Unicode 10.0.0 (June, 2017)
+# Total code points: 8518
+# ================================================
+# Age=V11_0
+# Newly assigned in Unicode 11.0.0 (June, 2018)
+# Total code points: 684
+# ================================================
+# Age=V12_0
+# Newly assigned in Unicode 12.0.0 (March, 2019)
+# Total code points: 554
+# ================================================
+# Age=V12_1
+# Newly assigned in Unicode 12.1.0 (May, 2019)
+# Total code points: 1
+# ================================================
+# Age=V13_0
+# Newly assigned in Unicode 13.0.0 (March, 2020)
+# Total code points: 5930
+# ================================================
+# Age=V14_0
+# Newly assigned in Unicode 14.0.0 (September, 2021)
+# Total code points: 838
+# ================================================
+# Age=V15_0
+# Newly assigned in Unicode 15.0.0 (September, 2022)
+# Total code points: 4489
+# ================================================
+# Age=V15_1
+# Newly assigned in Unicode 15.1.0 (September, 2023)
+# Total code points: 627
+# EOF

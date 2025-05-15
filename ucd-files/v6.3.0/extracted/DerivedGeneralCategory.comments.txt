@@ -1,0 +1,100 @@
+# DerivedGeneralCategory-6.3.0.txt
+# Date: 2013-07-05, 14:08:45 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2013 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	General_Category
+# ================================================
+# General_Category=Unassigned
+# Total code points: 864409
+# ================================================
+# General_Category=Uppercase_Letter
+# Total code points: 1441
+# ================================================
+# General_Category=Lowercase_Letter
+# Total code points: 1751
+# ================================================
+# General_Category=Titlecase_Letter
+# Total code points: 31
+# ================================================
+# General_Category=Modifier_Letter
+# Total code points: 237
+# ================================================
+# General_Category=Other_Letter
+# Total code points: 97553
+# ================================================
+# General_Category=Nonspacing_Mark
+# Total code points: 1281
+# ================================================
+# General_Category=Enclosing_Mark
+# Total code points: 12
+# ================================================
+# General_Category=Spacing_Mark
+# Total code points: 352
+# ================================================
+# General_Category=Decimal_Number
+# Total code points: 460
+# ================================================
+# General_Category=Letter_Number
+# Total code points: 224
+# ================================================
+# General_Category=Other_Number
+# Total code points: 464
+# ================================================
+# General_Category=Space_Separator
+# Total code points: 17
+# ================================================
+# General_Category=Line_Separator
+# Total code points: 1
+# ================================================
+# General_Category=Paragraph_Separator
+# Total code points: 1
+# ================================================
+# General_Category=Control
+# Total code points: 65
+# ================================================
+# General_Category=Format
+# Total code points: 145
+# ================================================
+# General_Category=Private_Use
+# Total code points: 137468
+# ================================================
+# General_Category=Surrogate
+# Total code points: 2048
+# ================================================
+# General_Category=Dash_Punctuation
+# Total code points: 23
+# ================================================
+# General_Category=Open_Punctuation
+# Total code points: 74
+# ================================================
+# General_Category=Close_Punctuation
+# Total code points: 73
+# ================================================
+# General_Category=Connector_Punctuation
+# Total code points: 10
+# ================================================
+# General_Category=Other_Punctuation
+# Total code points: 434
+# ================================================
+# General_Category=Math_Symbol
+# Total code points: 948
+# ================================================
+# General_Category=Currency_Symbol
+# Total code points: 49
+# ================================================
+# General_Category=Modifier_Symbol
+# Total code points: 115
+# ================================================
+# General_Category=Other_Symbol
+# Total code points: 4404
+# ================================================
+# General_Category=Initial_Punctuation
+# Total code points: 12
+# ================================================
+# General_Category=Final_Punctuation
+# Total code points: 10
+# EOF

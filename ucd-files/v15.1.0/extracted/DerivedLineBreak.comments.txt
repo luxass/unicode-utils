@@ -1,0 +1,197 @@
+# DerivedLineBreak-15.1.0.txt
+# Date: 2023-07-28, 23:34:03 GMT
+# © 2023 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	Line_Break
+#  All code points not explicitly listed for Line_Break
+#  have the value Unknown (XX).
+# @missing: 0000..10FFFF; Unknown
+# 20A0..20CF Currency_Symbols
+# @missing: 20A0..20CF; Prefix_Numeric
+# 3400..4DBF CJK_Unified_Ideographs_Extension_A
+# @missing: 3400..4DBF; Ideographic
+# 4E00..9FFF CJK_Unified_Ideographs
+# @missing: 4E00..9FFF; Ideographic
+# F900..FAFF CJK_Compatibility_Ideographs
+# @missing: F900..FAFF; Ideographic
+# 1F000..1F02F Mahjong_Tiles
+# 1F030..1F09F Domino_Tiles
+# 1F0A0..1F0FF Playing_Cards
+# 1F100..1F1FF Enclosed_Alphanumeric_Supplement
+# 1F200..1F2FF Enclosed_Ideographic_Supplement
+# 1F300..1F5FF Miscellaneous_Symbols_And_Pictographs
+# 1F600..1F64F Emoticons
+# 1F650..1F67F Ornamental_Dingbats
+# 1F680..1F6FF Transport_And_Map_Symbols
+# 1F700..1F77F Alchemical_Symbols
+# 1F780..1F7FF Geometric_Shapes_Extended
+# 1F800..1F8FF Supplemental_Arrows_C
+# 1F900..1F9FF Supplemental_Symbols_And_Pictographs
+# 1FA00..1FA6F Chess_Symbols
+# 1FA70..1FAFF Symbols_And_Pictographs_Extended_A
+# @missing: 1F000..1FAFF; Ideographic
+# @missing: 1FC00..1FFFD; Ideographic
+# 20000..2A6DF CJK_Unified_Ideographs_Extension_B
+# 2A700..2B73F CJK_Unified_Ideographs_Extension_C
+# 2B740..2B81F CJK_Unified_Ideographs_Extension_D
+# 2B820..2CEAF CJK_Unified_Ideographs_Extension_E
+# 2CEB0..2EBEF CJK_Unified_Ideographs_Extension_F
+# 2EBF0..2EE5F CJK_Unified_Ideographs_Extension_I
+# 2F800..2FA1F CJK_Compatibility_Ideographs_Supplement
+# @missing: 20000..2FFFD; Ideographic
+# 30000..3134F CJK_Unified_Ideographs_Extension_G
+# 31350..323AF CJK_Unified_Ideographs_Extension_H
+# @missing: 30000..3FFFD; Ideographic
+# ================================================
+# Line_Break=Unknown
+# The above property value applies to 762725 code points not listed here.
+# Total code points: 900193
+# ================================================
+# Line_Break=Open_Punctuation
+# Total code points: 95
+# ================================================
+# Line_Break=Close_Punctuation
+# Total code points: 97
+# ================================================
+# Line_Break=Quotation
+# Total code points: 39
+# ================================================
+# Line_Break=Glue
+# Total code points: 32
+# ================================================
+# Line_Break=Nonstarter
+# Total code points: 33
+# ================================================
+# Line_Break=Exclamation
+# Total code points: 40
+# ================================================
+# Line_Break=Break_Symbols
+# Total code points: 1
+# ================================================
+# Line_Break=Infix_Numeric
+# Total code points: 13
+# ================================================
+# Line_Break=Prefix_Numeric
+# The above property value applies to 15 code points not listed here.
+# Total code points: 67
+# ================================================
+# Line_Break=Postfix_Numeric
+# Total code points: 38
+# ================================================
+# Line_Break=Numeric
+# Total code points: 624
+# ================================================
+# Line_Break=Alphabetic
+# Total code points: 21729
+# ================================================
+# Line_Break=Ideographic
+# The above property value applies to 61978 code points not listed here.
+# Total code points: 172568
+# ================================================
+# Line_Break=Inseparable
+# Total code points: 6
+# ================================================
+# Line_Break=Hyphen
+# Total code points: 1
+# ================================================
+# Line_Break=Combining_Mark
+# Total code points: 2429
+# ================================================
+# Line_Break=Break_Before
+# Total code points: 55
+# ================================================
+# Line_Break=Break_After
+# Total code points: 266
+# ================================================
+# Line_Break=Space
+# Total code points: 1
+# ================================================
+# Line_Break=Mandatory_Break
+# Total code points: 4
+# ================================================
+# Line_Break=Carriage_Return
+# Total code points: 1
+# ================================================
+# Line_Break=Line_Feed
+# Total code points: 1
+# ================================================
+# Line_Break=Contingent_Break
+# Total code points: 1
+# ================================================
+# Line_Break=Complex_Context
+# Total code points: 758
+# ================================================
+# Line_Break=Ambiguous
+# Total code points: 707
+# ================================================
+# Line_Break=Break_Both
+# Total code points: 3
+# ================================================
+# Line_Break=Surrogate
+# Total code points: 2048
+# ================================================
+# Line_Break=ZWSpace
+# Total code points: 1
+# ================================================
+# Line_Break=Next_Line
+# Total code points: 1
+# ================================================
+# Line_Break=Word_Joiner
+# Total code points: 2
+# ================================================
+# Line_Break=JL
+# Total code points: 125
+# ================================================
+# Line_Break=JV
+# Total code points: 95
+# ================================================
+# Line_Break=JT
+# Total code points: 137
+# ================================================
+# Line_Break=H2
+# Total code points: 399
+# ================================================
+# Line_Break=H3
+# Total code points: 10773
+# ================================================
+# Line_Break=Close_Parenthesis
+# Total code points: 2
+# ================================================
+# Line_Break=Hebrew_Letter
+# Total code points: 75
+# ================================================
+# Line_Break=Conditional_Japanese_Starter
+# Total code points: 60
+# ================================================
+# Line_Break=Regional_Indicator
+# Total code points: 26
+# ================================================
+# Line_Break=E_Base
+# Total code points: 134
+# ================================================
+# Line_Break=E_Modifier
+# Total code points: 5
+# ================================================
+# Line_Break=ZWJ
+# Total code points: 1
+# ================================================
+# Line_Break=Aksara
+# Total code points: 293
+# ================================================
+# Line_Break=Aksara_Prebase
+# Total code points: 5
+# ================================================
+# Line_Break=Aksara_Start
+# Total code points: 120
+# ================================================
+# Line_Break=Virama
+# Total code points: 6
+# ================================================
+# Line_Break=Virama_Final
+# Total code points: 2
+# EOF

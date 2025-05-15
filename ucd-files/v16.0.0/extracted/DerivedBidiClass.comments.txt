@@ -1,0 +1,170 @@
+# DerivedBidiClass-16.0.0.txt
+# Date: 2024-04-30, 21:48:13 GMT
+# © 2024 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use and license, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+# ================================================
+# Bidi Class (listing UnicodeData.txt, field 4: see UAX #44: https://www.unicode.org/reports/tr44/)
+# Unlike other properties, unassigned code points in blocks
+# reserved for right-to-left scripts are given either values R or AL,
+# and unassigned code points in the Currency Symbols block are given the value ET.
+# For details see the @missing lines below.
+#
+# The unassigned code points that default to BN have one of the following properties:
+#     Default_Ignorable_Code_Point
+#     Noncharacter_Code_Point
+#
+# For all other cases:
+#  All code points not explicitly listed for Bidi_Class
+#  have the value Left_To_Right (L).
+# @missing: 0000..10FFFF; Left_To_Right
+# 0590..05FF Hebrew
+# @missing: 0590..05FF; Right_To_Left
+# 0600..06FF Arabic
+# 0700..074F Syriac
+# 0750..077F Arabic_Supplement
+# 0780..07BF Thaana
+# @missing: 0600..07BF; Arabic_Letter
+# 07C0..07FF NKo
+# 0800..083F Samaritan
+# 0840..085F Mandaic
+# @missing: 07C0..085F; Right_To_Left
+# 0860..086F Syriac_Supplement
+# 0870..089F Arabic_Extended_B
+# 08A0..08FF Arabic_Extended_A
+# @missing: 0860..08FF; Arabic_Letter
+# 20A0..20CF Currency_Symbols
+# @missing: 20A0..20CF; European_Terminator
+# FB00..FB4F Alphabetic_Presentation_Forms (partial)
+# @missing: FB1D..FB4F; Right_To_Left
+# FB50..FDFF Arabic_Presentation_Forms_A (partial)
+# @missing: FB50..FDCF; Arabic_Letter
+# FB50..FDFF Arabic_Presentation_Forms_A (partial)
+# @missing: FDF0..FDFF; Arabic_Letter
+# FE70..FEFF Arabic_Presentation_Forms_B
+# @missing: FE70..FEFF; Arabic_Letter
+# 10800..1083F Cypriot_Syllabary
+# 10840..1085F Imperial_Aramaic
+# 10860..1087F Palmyrene
+# 10880..108AF Nabataean
+# 108E0..108FF Hatran
+# 10900..1091F Phoenician
+# 10920..1093F Lydian
+# 10980..1099F Meroitic_Hieroglyphs
+# 109A0..109FF Meroitic_Cursive
+# 10A00..10A5F Kharoshthi
+# 10A60..10A7F Old_South_Arabian
+# 10A80..10A9F Old_North_Arabian
+# 10AC0..10AFF Manichaean
+# 10B00..10B3F Avestan
+# 10B40..10B5F Inscriptional_Parthian
+# 10B60..10B7F Inscriptional_Pahlavi
+# 10B80..10BAF Psalter_Pahlavi
+# 10C00..10C4F Old_Turkic
+# 10C80..10CFF Old_Hungarian
+# @missing: 10800..10CFF; Right_To_Left
+# 10D00..10D3F Hanifi_Rohingya
+# @missing: 10D00..10D3F; Arabic_Letter
+# 10D40..10D8F Garay
+# 10E60..10E7F Rumi_Numeral_Symbols
+# 10E80..10EBF Yezidi
+# @missing: 10D40..10EBF; Right_To_Left
+# 10EC0..10EFF Arabic_Extended_C
+# @missing: 10EC0..10EFF; Arabic_Letter
+# 10F00..10F2F Old_Sogdian
+# @missing: 10F00..10F2F; Right_To_Left
+# 10F30..10F6F Sogdian
+# @missing: 10F30..10F6F; Arabic_Letter
+# 10F70..10FAF Old_Uyghur
+# 10FB0..10FDF Chorasmian
+# 10FE0..10FFF Elymaic
+# @missing: 10F70..10FFF; Right_To_Left
+# 1E800..1E8DF Mende_Kikakui
+# 1E900..1E95F Adlam
+# @missing: 1E800..1EC6F; Right_To_Left
+# 1EC70..1ECBF Indic_Siyaq_Numbers
+# @missing: 1EC70..1ECBF; Arabic_Letter
+# @missing: 1ECC0..1ECFF; Right_To_Left
+# 1ED00..1ED4F Ottoman_Siyaq_Numbers
+# @missing: 1ED00..1ED4F; Arabic_Letter
+# @missing: 1ED50..1EDFF; Right_To_Left
+# 1EE00..1EEFF Arabic_Mathematical_Alphabetic_Symbols
+# @missing: 1EE00..1EEFF; Arabic_Letter
+# @missing: 1EF00..1EFFF; Right_To_Left
+# ================================================
+# Bidi_Class=Left_To_Right
+# The above property value applies to 815351 code points not listed here.
+# Total code points: 1095513
+# ================================================
+# Bidi_Class=Right_To_Left
+# The above property value applies to 2087 code points not listed here.
+# Total code points: 3631
+# ================================================
+# Bidi_Class=European_Number
+# Total code points: 178
+# ================================================
+# Bidi_Class=European_Separator
+# Total code points: 12
+# ================================================
+# Bidi_Class=European_Terminator
+# The above property value applies to 15 code points not listed here.
+# Total code points: 92
+# ================================================
+# Bidi_Class=Arabic_Number
+# Total code points: 73
+# ================================================
+# Bidi_Class=Common_Separator
+# Total code points: 15
+# ================================================
+# Bidi_Class=Paragraph_Separator
+# Total code points: 7
+# ================================================
+# Bidi_Class=Segment_Separator
+# Total code points: 3
+# ================================================
+# Bidi_Class=White_Space
+# Total code points: 17
+# ================================================
+# Bidi_Class=Other_Neutral
+# Total code points: 6751
+# ================================================
+# Bidi_Class=Boundary_Neutral
+# Total code points: 4016
+# ================================================
+# Bidi_Class=Nonspacing_Mark
+# Total code points: 2028
+# ================================================
+# Bidi_Class=Arabic_Letter
+# The above property value applies to 293 code points not listed here.
+# Total code points: 1767
+# ================================================
+# Bidi_Class=Left_To_Right_Override
+# Total code points: 1
+# ================================================
+# Bidi_Class=Right_To_Left_Override
+# Total code points: 1
+# ================================================
+# Bidi_Class=Left_To_Right_Embedding
+# Total code points: 1
+# ================================================
+# Bidi_Class=Right_To_Left_Embedding
+# Total code points: 1
+# ================================================
+# Bidi_Class=Pop_Directional_Format
+# Total code points: 1
+# ================================================
+# Bidi_Class=Left_To_Right_Isolate
+# Total code points: 1
+# ================================================
+# Bidi_Class=Right_To_Left_Isolate
+# Total code points: 1
+# ================================================
+# Bidi_Class=First_Strong_Isolate
+# Total code points: 1
+# ================================================
+# Bidi_Class=Pop_Directional_Isolate
+# Total code points: 1
+# EOF

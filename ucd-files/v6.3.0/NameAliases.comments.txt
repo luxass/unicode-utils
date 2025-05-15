@@ -1,0 +1,55 @@
+# NameAliases-6.3.0.txt
+# Date: 2013-02-05, 23:33:00 GMT [KW]
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+#
+# Copyright (c) 2005-2013 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# This file defines the formal name aliases for Unicode characters.
+#
+# For informative aliases see NamesList.txt
+#
+# The formal name aliases are divided into five types.
+#
+# 1. Corrections for serious problems in the character names
+# 2. ISO 6429 names for C0 and C1 control functions, and other
+#    commonly occurring names for control codes
+# 3. A few widely used alternate names for format characters
+# 4. Several documented labels for C1 control code points which
+#    were never actually approved in any standard
+# 5. Commonly occurring abbreviations (or acronyms) for control codes,
+#    format characters, spaces, and variation selectors
+#
+# The formal name aliases are part of the Unicode character namespace, which
+# includes the character names and the names of named character sequences.
+# The inclusion of ISO 6429 names and other commonly occurring names and
+# abbreviations for control codes and format characters as formal name aliases
+# is to help avoid name collisions between Unicode character names and the 
+# labels which commonly appear in text and/or in implementations such as regex, for
+# control codes (which have no Unicode character name) or for format characters.
+#
+# For documentation, see NamesList.html and http://www.unicode.org/reports/tr44/
+#
+# FORMAT
+#
+# Each line has three fields, as described here:
+#
+# First field:  Code point
+# Second field: Alias
+# Third field:  Type
+#
+# The Type labels used are: correction, control, alternate, figment, abbreviation
+#
+# Those Type labels can be mapped to other strings for display, if desired.
+#
+# In case multiple aliases are assigned, additional aliases
+# are provided on separate lines. Parsers of this data file should
+# take note that the same code point can (and does) occur more than once.
+#
+#-----------------------------------------------------------------
+# Note that no formal name alias for the ISO 6429 "BELL" is
+# provided for U+0007, because of the existing name collision
+# with U+1F514 BELL.
+# EOF
