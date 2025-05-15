@@ -1,0 +1,93 @@
+# ScriptExtensions-6.3.0.txt
+# Date: 2013-03-02, 16:07:55 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2013 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# The Script_Extensions property indicates which characters are commonly used
+# with more than one script, but with a limited number of scripts.
+# For each code point, there is one or more property values.  Each such value is a Script property value.
+# For more information, see:
+#   UAX #24: http://www.unicode.org/reports/tr24/ and
+#   UAX #44: http://www.unicode.org/reports/tr44/
+#
+#  All code points not explicitly listed for Script_Extensions
+#  have as their value the corresponding Script property value
+#
+# @missing: 0000..10FFFF; <script>
+# ================================================
+# Property:	Script_Extensions
+# ================================================
+# Script_Extensions=Deva
+# Total code points: 28
+# ================================================
+# Script_Extensions=Grek
+# Total code points: 4
+# ================================================
+# Script_Extensions=Latn
+# Total code points: 13
+# ================================================
+# Script_Extensions=Arab Syrc
+# Total code points: 12
+# ================================================
+# Script_Extensions=Arab Thaa
+# Total code points: 12
+# ================================================
+# Script_Extensions=Armn Geor
+# Total code points: 1
+# ================================================
+# Script_Extensions=Bopo Hani
+# Total code points: 4
+# ================================================
+# Script_Extensions=Bugi Java
+# Total code points: 1
+# ================================================
+# Script_Extensions=Cprt Linb
+# Total code points: 57
+# ================================================
+# Script_Extensions=Cyrl Latn
+# Total code points: 2
+# ================================================
+# Script_Extensions=Deva Kthi
+# Total code points: 10
+# ================================================
+# Script_Extensions=Deva Latn
+# Total code points: 2
+# ================================================
+# Script_Extensions=Hira Kana
+# Total code points: 14
+# ================================================
+# Script_Extensions=Mong Phag
+# Total code points: 3
+# ================================================
+# Script_Extensions=Arab Mand Syrc
+# Total code points: 1
+# ================================================
+# Script_Extensions=Arab Syrc Thaa
+# Total code points: 4
+# ================================================
+# Script_Extensions=Beng Cakm Sylo
+# Total code points: 10
+# ================================================
+# Script_Extensions=Cakm Mymr Tale
+# Total code points: 10
+# ================================================
+# Script_Extensions=Hani Hira Kana
+# Total code points: 19
+# ================================================
+# Script_Extensions=Buhd Hano Tagb Tglg
+# Total code points: 2
+# ================================================
+# Script_Extensions=Beng Deva Guru Orya Takr
+# Total code points: 2
+# ================================================
+# Script_Extensions=Bopo Hang Hani Hira Kana
+# Total code points: 206
+# ================================================
+# Script_Extensions=Deva Gujr Guru Kthi Takr
+# Total code points: 10
+# ================================================
+# Script_Extensions=Bopo Hang Hani Hira Kana Yiii
+# Total code points: 26
+# EOF

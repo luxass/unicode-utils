@@ -1,0 +1,89 @@
+# DerivedCoreProperties-5.1.0.txt
+# Date: 2008-03-20, 17:54:49 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+# ================================================
+# Derived Property: Math
+#  Generated from: Sm + Other_Math
+# Total code points: 2161
+# ================================================
+# Derived Property: Alphabetic
+#  Generated from: Lu+Ll+Lt+Lm+Lo+Nl + Other_Alphabetic
+# Total code points: 94332
+# ================================================
+# Derived Property: Lowercase
+#  Generated from: Ll + Other_Lowercase
+# Total code points: 1907
+# ================================================
+# Derived Property: Uppercase
+#  Generated from: Lu + Other_Uppercase
+# Total code points: 1463
+# ================================================
+# Derived Property: ID_Start
+#  Characters that can start an identifier.
+#  Generated from:
+#      Lu + Ll + Lt + Lm + Lo + Nl
+#    + Other_ID_Start
+#    - Pattern_Syntax
+#    - Pattern_White_Space
+#  NOTE: See UAX #31 for more information
+# Total code points: 93672
+# ================================================
+# Derived Property: ID_Continue
+#  Characters that can continue an identifier.
+#  Generated from:
+#      ID_Start
+#    + Mn + Mc + Nd + Pc
+#    + Other_ID_Continue
+#    - Pattern_Syntax
+#    - Pattern_White_Space
+#  NOTE: See UAX #31 for more information
+# Total code points: 95331
+# ================================================
+# Derived Property: XID_Start
+#  ID_Start modified for closure under NFKx
+#  Modified as described in UAX #15
+#  NOTE: Does NOT remove the non-NFKx characters.
+#        Merely ensures that if isIdentifer(string) then isIdentifier(NFKx(string))
+#  NOTE: See UAX #31 for more information
+# Total code points: 93649
+# ================================================
+# Derived Property: XID_Continue
+#  Mod_ID_Continue modified for closure under NFKx
+#  Modified as described in UAX #15
+#  NOTE: Cf characters should be filtered out.
+#  NOTE: Does NOT remove the non-NFKx characters.
+#        Merely ensures that if isIdentifer(string) then isIdentifier(NFKx(string))
+#  NOTE: See UAX #31 for more information
+# Total code points: 95312
+# ================================================
+# Derived Property: Default_Ignorable_Code_Point
+#  Generated from
+#    Other_Default_Ignorable_Code_Point
+#  + Cf (Format characters)
+#  + Variation_Selector
+#  - White_Space
+#  - FFF9..FFFB (Annotation Characters)
+#  - 0600..0603, 06DD, 070F (exceptional Cf characters that should be visible)
+# Total code points: 4167
+# ================================================
+# Derived Property: Grapheme_Extend
+#  Generated from: Me + Mn + Other_Grapheme_Extend
+#  Note: depending on an application's interpretation of Co (private use),
+#  they may be either in Grapheme_Base, or in Grapheme_Extend, or in neither.
+# Total code points: 1068
+# ================================================
+# Derived Property: Grapheme_Base
+#  Generated from: [0..10FFFF] - Cc - Cf - Cs - Co - Cn - Zl - Zp - Grapheme_Extend
+#  Note: depending on an application's interpretation of Co (private use),
+#  they may be either in Grapheme_Base, or in Grapheme_Extend, or in neither.
+# Total code points: 99441
+# ================================================
+# Derived Property: Grapheme_Link (deprecated)
+#  Generated from: Canonical_Combining_Class=Virama
+#  Use Canonical_Combining_Class=Virama directly instead
+# Total code points: 23
+# EOF

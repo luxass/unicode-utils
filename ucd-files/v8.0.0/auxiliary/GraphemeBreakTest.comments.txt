@@ -1,0 +1,26 @@
+# GraphemeBreakTest-8.0.0.txt
+# Date: 2015-02-13, 13:47:15 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2015 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# Default Grapheme Break Test
+#
+# Format:
+# <string> (# <comment>)? 
+#  <string> contains hex Unicode code points, with 
+#	÷ wherever there is a break opportunity, and 
+#	× wherever there is not.
+#  <comment> the format can change, but currently it shows:
+#	- the sample character name
+#	- (x) the Grapheme_Cluster_Break property value for the sample character
+#	- [x] the rule that determines whether there is a break or not
+#
+# These samples may be extended or changed in the future.
+#
+#
+# Lines: 402
+#
+# EOF

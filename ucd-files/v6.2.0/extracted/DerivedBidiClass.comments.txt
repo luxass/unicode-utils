@@ -1,0 +1,110 @@
+# DerivedBidiClass-6.2.0.txt
+# Date: 2012-05-20, 00:42:30 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2012 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Bidi Class (listing UnicodeData.txt, field 4: see UAX #44: http://www.unicode.org/reports/tr44/)
+# Unlike other properties, unassigned code points in blocks
+# reserved for right-to-left scripts are given either types R or AL.
+#
+# The unassigned code points that default to AL are in the ranges:
+#     [\u0600-\u07BF \u08A0-\u08FF \uFB50-\uFDCF \uFDF0-\uFDFF \uFE70-\uFEFF \U0001EE00-\U0001EEFF]
+#
+#     Arabic:            U+0600  -  U+06FF
+#     Syriac:            U+0700  -  U+074F
+#     Arabic_Supplement: U+0750  -  U+077F
+#     Thaana:            U+0780  -  U+07BF
+#     Arabic Extended-A: U+08A0  -  U+08FF
+#     Arabic_Presentation_Forms_A:
+#                        U+FB50  -  U+FDCF
+#                        U+FDF0  -  U+FDFF
+#     Arabic_Presentation_Forms_B:
+#                        U+FE70  -  U+FEFF
+#     Arabic Mathematical Alphabetic Symbols:
+#                       U+1EE00  - U+1EEFF
+#
+# The unassigned code points that default to R are in the ranges:
+#     [\u0590-\u05FF \u07C0-\u089F \uFB1D-\uFB4F \U00010800-\U00010FFF \U0001E800-\U0001EDFF \U0001EF00-\U0001EFFF]
+#
+#     Hebrew:            U+0590  -  U+05FF
+#     NKo:               U+07C0  -  U+07FF
+#     Cypriot_Syllabary: U+10800 - U+1083F
+#     Phoenician:        U+10900 - U+1091F
+#     Lydian:            U+10920 - U+1093F
+#     Meroitic Hieroglyphs:
+#                        U+10980 - U+1099F
+#     Meroitic Cursive:  U+109A0 - U+109FF
+#     Kharoshthi:        U+10A00 - U+10A5F
+#     and any others in the ranges:
+#                        U+0800  -  U+089F,
+#                        U+FB1D  -  U+FB4F,
+#                        U+10840 - U+10FFF,
+#                        U+1E800 - U+1EDFF,
+#                        U+1EF00 - U+1EFFF
+#
+# For all other cases:
+#  All code points not explicitly listed for Bidi_Class
+#  have the value Left_To_Right (L).
+# @missing: 0000..10FFFF; Left_To_Right
+# ================================================
+# Bidi_Class=Left_To_Right
+# The above property value applies to 858959 code points not listed here.
+# Total code points: 1098530
+# ================================================
+# Bidi_Class=Right_To_Left
+# Total code points: 4086
+# ================================================
+# Bidi_Class=European_Number
+# Total code points: 131
+# ================================================
+# Bidi_Class=European_Separator
+# Total code points: 12
+# ================================================
+# Bidi_Class=European_Terminator
+# Total code points: 66
+# ================================================
+# Bidi_Class=Arabic_Number
+# Total code points: 49
+# ================================================
+# Bidi_Class=Common_Separator
+# Total code points: 15
+# ================================================
+# Bidi_Class=Paragraph_Separator
+# Total code points: 7
+# ================================================
+# Bidi_Class=Segment_Separator
+# Total code points: 3
+# ================================================
+# Bidi_Class=White_Space
+# Total code points: 18
+# ================================================
+# Bidi_Class=Other_Neutral
+# Total code points: 4447
+# ================================================
+# Bidi_Class=Boundary_Neutral
+# Total code points: 4015
+# ================================================
+# Bidi_Class=Nonspacing_Mark
+# Total code points: 1290
+# ================================================
+# Bidi_Class=Arabic_Letter
+# Total code points: 1438
+# ================================================
+# Bidi_Class=Left_To_Right_Override
+# Total code points: 1
+# ================================================
+# Bidi_Class=Right_To_Left_Override
+# Total code points: 1
+# ================================================
+# Bidi_Class=Left_To_Right_Embedding
+# Total code points: 1
+# ================================================
+# Bidi_Class=Right_To_Left_Embedding
+# Total code points: 1
+# ================================================
+# Bidi_Class=Pop_Directional_Format
+# Total code points: 1
+# EOF

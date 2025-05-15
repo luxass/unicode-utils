@@ -1,0 +1,34 @@
+# LineBreak-5.0.0.txt
+# Date: 2006-05-23, 11:43:00 PST [KW]
+#
+# Line Break Properties
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+# It contains both normative and informative data.
+#
+# Copyright (c) 1991-2006 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# The format is two fields separated by a semicolon.
+# Field 0: Unicode value
+# Field 1: LineBreak property, consisting of one of the following values:
+#   Normative:
+#         "BK", "CR", "LF", "CM", "SG", "GL", "CB", "SP", "ZW",
+#         "NL", "WJ", "JL", "JV", "JT", "H2", "H3"
+#   Informative:
+#         "XX", "OP", "CL", "QU", "NS", "EX", "SY",
+#         "IS", "PR", "PO", "NU", "AL", "ID", "IN", "HY",
+#         "BB", "BA", "SA", "AI", "B2"
+#  - All code points, assigned and unassigned, that are not listed 
+#         explicitly are given the value "XX".
+#  - Characters ranges are specified as for other property files in
+#         the Unicode Character Database.
+#
+# The Unicode name of each character is provided in a comment for help
+# in identifying the characters.
+#
+# See UAX #14: Line Breaking Properties, for more information
+#
+# @missing: 0000..10FFFF; XX
+# EOF

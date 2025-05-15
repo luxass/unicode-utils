@@ -1,0 +1,201 @@
+# PropertyValueAliases-6.0.0.txt
+# Date: 2010-07-17, 22:44:06 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2010 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# This file contains aliases for property values used in the UCD.
+# These names can be used for XML formats of UCD data, for regular-expression
+# property tests, and other programmatic textual descriptions of Unicode data.
+# For information on which properties are normative, see UCD.html.
+#
+# The names may be translated in appropriate environments, and additional
+# aliases may be useful.
+#
+# FORMAT
+#
+# Each line describes a property value name.
+# This consists of three or more fields, separated by semicolons.
+#
+# First Field: The first field describes the property for which that
+# property value name is used.
+#
+# Second Field: The second field is an abbreviated name.
+# If there is no abbreviated name available, the field is marked with "n/a".
+#
+# Third Field: The third field is a long name.
+#
+# In the case of ccc, there are 4 fields. The second field is numeric, third
+# is abbreviated, and fourth is long.
+#
+# The above are the preferred aliases. Other aliases may be listed in additional fields.
+#
+# Loose matching should be applied to all property names and property values, with
+# the exception of String Property values. With loose matching of property names and
+# values, the case distinctions, whitespace, and '_' are ignored. For Numeric Property
+# values, numeric equivalencies are applied: thus "01.00" is equivalent to "1".
+#
+# NOTE: Property value names are NOT unique across properties. For example:
+#
+#   AL means Arabic Letter for the Bidi_Class property, and
+#   AL means Above_Left for the Combining_Class property, and
+#   AL means Alphabetic for the Line_Break property.
+#
+# In addition, some property names may be the same as some property value names.
+# For example:
+#
+#   sc means the Script property, and
+#   Sc means the General_Category property value Currency_Symbol (Sc)
+#
+# The combination of property value and property name is, however, unique.
+#
+# For more information, see UTS #18: Unicode Regular Expressions
+# ================================================
+# ASCII_Hex_Digit (AHex)
+# Age (age)
+# Alphabetic (Alpha)
+# Bidi_Class (bc)
+# Bidi_Control (Bidi_C)
+# Bidi_Mirrored (Bidi_M)
+# Bidi_Mirroring_Glyph (bmg)
+# @missing: 0000..10FFFF; Bidi_Mirroring_Glyph; <none>
+# Block (blk)
+# Canonical_Combining_Class (ccc)
+# Case_Folding (cf)
+# @missing: 0000..10FFFF; Case_Folding; <code point>
+# Case_Ignorable (CI)
+# Cased (Cased)
+# Changes_When_Casefolded (CWCF)
+# Changes_When_Casemapped (CWCM)
+# Changes_When_Lowercased (CWL)
+# Changes_When_NFKC_Casefolded (CWKCF)
+# Changes_When_Titlecased (CWT)
+# Changes_When_Uppercased (CWU)
+# Composition_Exclusion (CE)
+# Dash (Dash)
+# Decomposition_Mapping (dm)
+# @missing: 0000..10FFFF; Decomposition_Mapping; <code point>
+# Decomposition_Type (dt)
+# Default_Ignorable_Code_Point (DI)
+# Deprecated (Dep)
+# Diacritic (Dia)
+# East_Asian_Width (ea)
+# Expands_On_NFC (XO_NFC)
+# Expands_On_NFD (XO_NFD)
+# Expands_On_NFKC (XO_NFKC)
+# Expands_On_NFKD (XO_NFKD)
+# Extender (Ext)
+# FC_NFKC_Closure (FC_NFKC)
+# @missing: 0000..10FFFF; FC_NFKC_Closure; <code point>
+# Full_Composition_Exclusion (Comp_Ex)
+# General_Category (gc)
+# Grapheme_Base (Gr_Base)
+# Grapheme_Cluster_Break (GCB)
+# Grapheme_Extend (Gr_Ext)
+# Grapheme_Link (Gr_Link)
+# Hangul_Syllable_Type (hst)
+# Hex_Digit (Hex)
+# Hyphen (Hyphen)
+# IDS_Binary_Operator (IDSB)
+# IDS_Trinary_Operator (IDST)
+# ID_Continue (IDC)
+# ID_Start (IDS)
+# ISO_Comment (isc)
+# @missing: 0000..10FFFF; ISO_Comment; <none>
+# Ideographic (Ideo)
+# Jamo_Short_Name (JSN)
+# @missing: 0000..10FFFF; Jamo_Short_Name; <none>
+# Join_Control (Join_C)
+# Joining_Group (jg)
+# Joining_Type (jt)
+# Line_Break (lb)
+# Logical_Order_Exception (LOE)
+# Lowercase (Lower)
+# Lowercase_Mapping (lc)
+# @missing: 0000..10FFFF; Lowercase_Mapping; <code point>
+# Math (Math)
+# NFC_Quick_Check (NFC_QC)
+# NFD_Quick_Check (NFD_QC)
+# NFKC_Casefold (NFKC_CF)
+# @missing: 0000..10FFFF; NFKC_Casefold; <code point>
+# NFKC_Quick_Check (NFKC_QC)
+# NFKD_Quick_Check (NFKD_QC)
+# Name (na)
+# @missing: 0000..10FFFF; Name; <none>
+# Name_Alias (Name_Alias)
+# @missing: 0000..10FFFF; Name_Alias; <none>
+# Noncharacter_Code_Point (NChar)
+# Numeric_Type (nt)
+# Numeric_Value (nv)
+# @missing: 0000..10FFFF; Numeric_Value; NaN
+# Other_Alphabetic (OAlpha)
+# Other_Default_Ignorable_Code_Point (ODI)
+# Other_Grapheme_Extend (OGr_Ext)
+# Other_ID_Continue (OIDC)
+# Other_ID_Start (OIDS)
+# Other_Lowercase (OLower)
+# Other_Math (OMath)
+# Other_Uppercase (OUpper)
+# Pattern_Syntax (Pat_Syn)
+# Pattern_White_Space (Pat_WS)
+# Quotation_Mark (QMark)
+# Radical (Radical)
+# STerm (STerm)
+# Script (sc)
+# Sentence_Break (SB)
+# Simple_Case_Folding (scf)
+# @missing: 0000..10FFFF; Simple_Case_Folding; <code point>
+# Simple_Lowercase_Mapping (slc)
+# @missing: 0000..10FFFF; Simple_Lowercase_Mapping; <code point>
+# Simple_Titlecase_Mapping (stc)
+# @missing: 0000..10FFFF; Simple_Titlecase_Mapping; <code point>
+# Simple_Uppercase_Mapping (suc)
+# @missing: 0000..10FFFF; Simple_Uppercase_Mapping; <code point>
+# Soft_Dotted (SD)
+# Terminal_Punctuation (Term)
+# Titlecase_Mapping (tc)
+# @missing: 0000..10FFFF; Titlecase_Mapping; <code point>
+# Unicode_1_Name (na1)
+# @missing: 0000..10FFFF; Unicode_1_Name; <none>
+# Unified_Ideograph (UIdeo)
+# Uppercase (Upper)
+# Uppercase_Mapping (uc)
+# @missing: 0000..10FFFF; Uppercase_Mapping; <code point>
+# Variation_Selector (VS)
+# White_Space (WSpace)
+# Word_Break (WB)
+# XID_Continue (XIDC)
+# XID_Start (XIDS)
+# cjkAccountingNumeric (cjkAccountingNumeric)
+# @missing: 0000..10FFFF; cjkAccountingNumeric; NaN
+# cjkCompatibilityVariant (cjkCompatibilityVariant)
+# @missing: 0000..10FFFF; cjkCompatibilityVariant; <code point>
+# cjkIICore (cjkIICore)
+# @missing: 0000..10FFFF; cjkIICore; <none>
+# cjkIRG_GSource (cjkIRG_GSource)
+# @missing: 0000..10FFFF; cjkIRG_GSource; <none>
+# cjkIRG_HSource (cjkIRG_HSource)
+# @missing: 0000..10FFFF; cjkIRG_HSource; <none>
+# cjkIRG_JSource (cjkIRG_JSource)
+# @missing: 0000..10FFFF; cjkIRG_JSource; <none>
+# cjkIRG_KPSource (cjkIRG_KPSource)
+# @missing: 0000..10FFFF; cjkIRG_KPSource; <none>
+# cjkIRG_KSource (cjkIRG_KSource)
+# @missing: 0000..10FFFF; cjkIRG_KSource; <none>
+# cjkIRG_MSource (cjkIRG_MSource)
+# @missing: 0000..10FFFF; cjkIRG_MSource; <none>
+# cjkIRG_TSource (cjkIRG_TSource)
+# @missing: 0000..10FFFF; cjkIRG_TSource; <none>
+# cjkIRG_USource (cjkIRG_USource)
+# @missing: 0000..10FFFF; cjkIRG_USource; <none>
+# cjkIRG_VSource (cjkIRG_VSource)
+# @missing: 0000..10FFFF; cjkIRG_VSource; <none>
+# cjkOtherNumeric (cjkOtherNumeric)
+# @missing: 0000..10FFFF; cjkOtherNumeric; NaN
+# cjkPrimaryNumeric (cjkPrimaryNumeric)
+# @missing: 0000..10FFFF; cjkPrimaryNumeric; NaN
+# cjkRSUnicode (cjkRSUnicode)
+# @missing: 0000..10FFFF; cjkRSUnicode; <none>
+# EOF

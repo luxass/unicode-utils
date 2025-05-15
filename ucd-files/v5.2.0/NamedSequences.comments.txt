@@ -1,0 +1,22 @@
+# NamedSequences-5.2.0.txt
+# Date: 2009-09-14, 12:44:00 PDT [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2009 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+# ================================================
+# Additions for Lithuanian. Provisional 2006-05-18, Approved 2007-10-19
+# Additions for Tamil. Provisional 2008-02-08, Approved 2009-08-14
+#
+# A visual display of the Tamil named sequences is available
+# in the documentation for Unicode 5.2. See:
+# http://www.unicode.org/versions/Unicode5.2.0/

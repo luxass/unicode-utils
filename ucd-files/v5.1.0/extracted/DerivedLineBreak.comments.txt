@@ -1,0 +1,122 @@
+# DerivedLineBreak-5.1.0.txt
+# Date: 2008-03-20, 17:55:02 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+# ================================================
+# Property:	Line_Break
+#  All code points not explicitly listed for Line_Break
+#  have the value Unknown (XX).
+# @missing: 0000..10FFFF; Unknown
+# ================================================
+# Line_Break=Unknown
+# The above property value applies to 873883 code points not listed here.
+# Total code points: 1011351
+# ================================================
+# Line_Break=Open_Punctuation
+# Total code points: 75
+# ================================================
+# Line_Break=Close_Punctuation
+# Total code points: 81
+# ================================================
+# Line_Break=Quotation
+# Total code points: 34
+# ================================================
+# Line_Break=Glue
+# Total code points: 16
+# ================================================
+# Line_Break=Nonstarter
+# Total code points: 77
+# ================================================
+# Line_Break=Exclamation
+# Total code points: 34
+# ================================================
+# Line_Break=Break_Symbols
+# Total code points: 1
+# ================================================
+# Line_Break=Infix_Numeric
+# Total code points: 13
+# ================================================
+# Line_Break=Prefix_Numeric
+# Total code points: 42
+# ================================================
+# Line_Break=Postfix_Numeric
+# Total code points: 23
+# ================================================
+# Line_Break=Numeric
+# Total code points: 362
+# ================================================
+# Line_Break=Alphabetic
+# Total code points: 12318
+# ================================================
+# Line_Break=Ideographic
+# Total code points: 73797
+# ================================================
+# Line_Break=Inseparable
+# Total code points: 4
+# ================================================
+# Line_Break=Hyphen
+# Total code points: 1
+# ================================================
+# Line_Break=Combining_Mark
+# Total code points: 1319
+# ================================================
+# Line_Break=Break_Before
+# Total code points: 19
+# ================================================
+# Line_Break=Break_After
+# Total code points: 113
+# ================================================
+# Line_Break=Space
+# Total code points: 1
+# ================================================
+# Line_Break=Mandatory_Break
+# Total code points: 4
+# ================================================
+# Line_Break=Carriage_Return
+# Total code points: 1
+# ================================================
+# Line_Break=Line_Feed
+# Total code points: 1
+# ================================================
+# Line_Break=Contingent_Break
+# Total code points: 1
+# ================================================
+# Line_Break=Complex_Context
+# Total code points: 450
+# ================================================
+# Line_Break=Ambiguous
+# Total code points: 509
+# ================================================
+# Line_Break=Break_Both
+# Total code points: 1
+# ================================================
+# Line_Break=Surrogate
+# Total code points: 2048
+# ================================================
+# Line_Break=ZWSpace
+# Total code points: 1
+# ================================================
+# Line_Break=Next_Line
+# Total code points: 1
+# ================================================
+# Line_Break=Word_Joiner
+# Total code points: 2
+# ================================================
+# Line_Break=JL
+# Total code points: 91
+# ================================================
+# Line_Break=JV
+# Total code points: 67
+# ================================================
+# Line_Break=JT
+# Total code points: 82
+# ================================================
+# Line_Break=H2
+# Total code points: 399
+# ================================================
+# Line_Break=H3
+# Total code points: 10773
+# EOF

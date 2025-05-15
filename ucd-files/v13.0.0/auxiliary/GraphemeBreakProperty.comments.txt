@@ -1,0 +1,40 @@
+# GraphemeBreakProperty-13.0.0.txt
+# Date: 2019-10-21, 14:30:35 GMT
+# © 2019 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	Grapheme_Cluster_Break
+#  All code points not explicitly listed for Grapheme_Cluster_Break
+#  have the value Other (XX).
+# @missing: 0000..10FFFF; Other
+# ================================================
+# Total code points: 24
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 3886
+# ================================================
+# Total code points: 1984
+# ================================================
+# Total code points: 26
+# ================================================
+# Total code points: 388
+# ================================================
+# Total code points: 125
+# ================================================
+# Total code points: 95
+# ================================================
+# Total code points: 137
+# ================================================
+# Total code points: 399
+# ================================================
+# Total code points: 10773
+# ================================================
+# Total code points: 1
+# EOF

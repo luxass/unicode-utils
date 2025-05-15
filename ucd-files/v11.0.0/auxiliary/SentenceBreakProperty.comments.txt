@@ -1,0 +1,42 @@
+# SentenceBreakProperty-11.0.0.txt
+# Date: 2018-03-15, 04:28:45 GMT
+# © 2018 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+# Property:	Sentence_Break
+#  All code points not explicitly listed for Sentence_Break
+#  have the value Other (XX).
+# @missing: 0000..10FFFF; Other
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 1
+# ================================================
+# Total code points: 2333
+# ================================================
+# Total code points: 3
+# ================================================
+# Total code points: 54
+# ================================================
+# Total code points: 20
+# ================================================
+# Total code points: 2333
+# ================================================
+# Total code points: 1932
+# ================================================
+# Total code points: 121519
+# ================================================
+# Total code points: 602
+# ================================================
+# Total code points: 4
+# ================================================
+# Total code points: 138
+# ================================================
+# Total code points: 187
+# ================================================
+# Total code points: 26
+# EOF

@@ -1,0 +1,29 @@
+# DerivedJoiningType-13.0.0.txt
+# Date: 2020-01-21, 07:36:28 GMT
+# © 2020 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+# ================================================
+#	Type T is derived, as described in ArabicShaping.txt
+#  All code points not explicitly listed for Joining_Type
+#  have the value Non_Joining (U).
+# @missing: 0000..10FFFF; Non_Joining
+# ================================================
+# Joining_Type=Join_Causing
+# Total code points: 4
+# ================================================
+# Joining_Type=Dual_Joining
+# Total code points: 586
+# ================================================
+# Joining_Type=Right_Joining
+# Total code points: 130
+# ================================================
+# Joining_Type=Left_Joining
+# Total code points: 5
+# ================================================
+# Joining_Type=Transparent
+# Total code points: 1997
+# EOF
