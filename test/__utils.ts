@@ -35,7 +35,12 @@ export async function mapUCDFiles(version: string) {
   return {
     files,
     file(file: string) {
-      files.splice(files.indexOf(file), 1);
+      const index = files.indexOf(file);
+      if (index === -1) {
+        throw new Error(`File ${file} not found`);
+      }
+
+      files.splice(index, 1);
 
       return readFileSync(
         join(__dirname, "../ucd-files", `v${version}`, file),

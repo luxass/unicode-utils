@@ -1,14 +1,10 @@
 import { invariant } from "@luxass/utils";
-import { isCommentLine, isEmptyLine, isEOFMarker, isMissingAnnotation, parseFileNameLine } from "./data-files";
+import { isCommentLine, isEmptyLine, isEOFMarker } from "./data-files";
 
 export function inferHeading(content: string): string | null {
   if (content == null || !content.trim()) {
     return null;
   }
-
-  const parsedFileName = parseFileNameLine(content);
-  invariant(parsedFileName?.version, "version could not be inferred");
-  invariant(parsedFileName.fileName, "fileName could not be inferred");
 
   let heading: string | null = null;
   let isInHeading = false;

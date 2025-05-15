@@ -52,5 +52,3 @@
 #
 #	For more information, see Section 18.10, Tangut, of the
 #	core specification.
-#
-# EOF
