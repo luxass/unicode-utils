@@ -270,6 +270,143 @@ describe("heading inferrence v10.0.0", async () => {
 
     expect(inferHeading(content)).toBe(expected);
   });
+
+  describe("auxiliary files", () => {
+    it("inferHeading(GraphemeBreakProperty)", () => {
+      const content = ucdFiles.file("auxiliary/GraphemeBreakProperty.txt");
+      const expected = ucdFiles.expected("auxiliary/GraphemeBreakProperty.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(GraphemeBreakTest)", () => {
+      const content = ucdFiles.file("auxiliary/GraphemeBreakTest.txt");
+      const expected = ucdFiles.expected("auxiliary/GraphemeBreakTest.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(LineBreakTest)", () => {
+      const content = ucdFiles.file("auxiliary/LineBreakTest.txt");
+      const expected = ucdFiles.expected("auxiliary/LineBreakTest.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(SentenceBreakProperty)", () => {
+      const content = ucdFiles.file("auxiliary/SentenceBreakProperty.txt");
+      const expected = ucdFiles.expected("auxiliary/SentenceBreakProperty.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(SentenceBreakTest)", () => {
+      const content = ucdFiles.file("auxiliary/SentenceBreakTest.txt");
+      const expected = ucdFiles.expected("auxiliary/SentenceBreakTest.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(WordBreakProperty)", () => {
+      const content = ucdFiles.file("auxiliary/WordBreakProperty.txt");
+      const expected = ucdFiles.expected("auxiliary/WordBreakProperty.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(WordBreakTest)", () => {
+      const content = ucdFiles.file("auxiliary/WordBreakTest.txt");
+      const expected = ucdFiles.expected("auxiliary/WordBreakTest.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+  });
+
+  describe("extracted files", () => {
+    it("inferHeading(DerivedBidiClass)", () => {
+      const content = ucdFiles.file("extracted/DerivedBidiClass.txt");
+      const expected = ucdFiles.expected("extracted/DerivedBidiClass.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedBinaryProperties)", () => {
+      const content = ucdFiles.file("extracted/DerivedBinaryProperties.txt");
+      const expected = ucdFiles.expected("extracted/DerivedBinaryProperties.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedCombiningClass)", () => {
+      const content = ucdFiles.file("extracted/DerivedCombiningClass.txt");
+      const expected = ucdFiles.expected("extracted/DerivedCombiningClass.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedDecompositionType)", () => {
+      const content = ucdFiles.file("extracted/DerivedDecompositionType.txt");
+      const expected = ucdFiles.expected("extracted/DerivedDecompositionType.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedEastAsianWidth)", () => {
+      const content = ucdFiles.file("extracted/DerivedEastAsianWidth.txt");
+      const expected = ucdFiles.expected("extracted/DerivedEastAsianWidth.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedGeneralCategory)", () => {
+      const content = ucdFiles.file("extracted/DerivedGeneralCategory.txt");
+      const expected = ucdFiles.expected("extracted/DerivedGeneralCategory.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedJoiningGroup)", () => {
+      const content = ucdFiles.file("extracted/DerivedJoiningGroup.txt");
+      const expected = ucdFiles.expected("extracted/DerivedJoiningGroup.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedJoiningType)", () => {
+      const content = ucdFiles.file("extracted/DerivedJoiningType.txt");
+      const expected = ucdFiles.expected("extracted/DerivedJoiningType.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedLineBreak)", () => {
+      const content = ucdFiles.file("extracted/DerivedLineBreak.txt");
+      const expected = ucdFiles.expected("extracted/DerivedLineBreak.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedName)", () => {
+      const content = ucdFiles.file("extracted/DerivedName.txt");
+      const expected = ucdFiles.expected("extracted/DerivedName.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedNumericType)", () => {
+      const content = ucdFiles.file("extracted/DerivedNumericType.txt");
+      const expected = ucdFiles.expected("extracted/DerivedNumericType.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(DerivedNumericValues)", () => {
+      const content = ucdFiles.file("extracted/DerivedNumericValues.txt");
+      const expected = ucdFiles.expected("extracted/DerivedNumericValues.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+  });
 });
 
 it("ensure that all files have been tested", () => {
