@@ -29,5 +29,9 @@ export {
   fromHexToCodepoint,
   stripHex,
 } from "./hexcodes";
-export { mapUnicodeVersion, UNICODE_MAPPINGS } from "./mappings";
+export {
+  hasUCDPath,
+  mapUnicodeVersion,
+  UNICODE_MAPPINGS,
+} from "./mappings";
 export type { UCDSectionWithLines } from "./types";
