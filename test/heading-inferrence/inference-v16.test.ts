@@ -294,7 +294,7 @@ describe("heading inference v16.0.0", async () => {
     });
   });
 
-  describe("extracted files", () => {
+  describe.only("extracted files", () => {
     it("inferHeading(DerivedBidiClass)", () => {
       const content = ucdFiles.file("extracted/DerivedBidiClass.txt");
       const expected = ucdFiles.expected("extracted/DerivedBidiClass.comments.txt");

@@ -1,4 +1,3 @@
-```
 # StandardizedVariants-16.0.0.txt
 # Date: 2024-07-31, 15:31:00 GMT [KW]
 # © 2024 Unicode®, Inc.
@@ -49,4 +48,3 @@
 # of the overall names list syntax used for code chart production.
 #
 # =============================
-```

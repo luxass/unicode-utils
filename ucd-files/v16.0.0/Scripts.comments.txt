@@ -1,4 +1,3 @@
-```
 # Scripts-16.0.0.txt
 # Date: 2024-04-30, 21:48:40 GMT
 # © 2024 Unicode®, Inc.
@@ -13,14 +12,5 @@
 #       https://www.unicode.org/reports/tr24/#Assignment_Script_Values
 #       https://www.unicode.org/reports/tr24/#Assignment_ScriptX_Values
 #
-# ================================================
-
-# Property:	Script
-
-#  All code points not explicitly listed for Script
-#  have the value Unknown (Zzzz).
-
-# @missing: 0000..10FFFF; Unknown
 
 # ================================================
-```

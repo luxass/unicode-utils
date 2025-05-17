@@ -1,4 +1,3 @@
-```
 # NushuSources-16.0.0.txt
 # Date: 2024-02-02
 # © 2024 Unicode®, Inc.
@@ -8,6 +7,7 @@
 # Unicode Character Database
 # For documentation, see https://www.unicode.org/reports/tr44/
 #
+
 # Source references file for Nushu characters
 #
 #	Synchronized with: ISO/IEC 10646:2020/Amd 1.0 (E) (NushuSrc.txt)
@@ -28,4 +28,3 @@
 # Nushu common reading: kReading
 #	Nushu common reading. Currently this reading contains only ASCII characters,
 #	but in principle could be extended to use other characters, expressed in UTF-8.
-```

@@ -1,5 +1,8 @@
 {
   "explorer.fileNesting.patterns": {
     "*.txt": "${capture}.comments.txt"
+  },
+  "[plaintext]": {
+    "files.trimTrailingWhitespace": false
   }
 }

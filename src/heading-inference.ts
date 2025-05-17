@@ -1,5 +1,5 @@
 import { invariant } from "@luxass/utils";
-import { isCommentLine, isEmptyLine, isEOFMarker } from "./data-files";
+import { isBoundaryLine, isCommentLine, isEmptyLine, isEOFMarker } from "./data-files";
 
 export function inferHeading(content: string): string | null {
   if (content == null || !content.trim()) {
@@ -11,17 +11,6 @@ export function inferHeading(content: string): string | null {
   let headingEndLineIndex: number = -1;
 
   const lines = content.split("\n");
-
-  // Helper to detect boundary lines with lots of # or = characters
-  const isBoundaryLine = (line: string) => {
-    const trimmed = line.trim();
-    if (!trimmed.startsWith("#") && !trimmed.startsWith("=")) {
-      return false;
-    }
-    // Look for long runs of # or = characters
-    const boundary = trimmed.startsWith("#") ? "#" : "=";
-    return (trimmed.match(new RegExp(boundary, "g")) || []).length > 10;
-  };
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
