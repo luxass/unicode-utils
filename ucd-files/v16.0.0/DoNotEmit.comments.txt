@@ -94,49 +94,7 @@
 # Preferred_Spelling:
 #    Miscellaneous characters and sequeences for which the Unicode Standard
 #    specifies a preferred spelling.
+
 # ================================================
 # "Do Not Use" tables from the Core Specification
 # ================================================
-# Devanagari, from Table 12-1
-# Devanagari, from Table 12-2
-# Review Note: Some experts have recommended removing these, while
-# others prefer keeping them. They may also be procedurally generated.
-# Devanagari, from Table 12-3
-# Review Note: Some experts have recommended removing these, while
-# others prefer keeping them. They may also be procedurally generated.
-# Note: This list may be incomplete.
-# Bengali, from Table 12-11
-# Gurmukhi, from Table 12-16
-# Gujarati, from Table 12-20
-# Oriya, from Table 12-22
-# Tamil, from Table 12-26
-# Telugu, from Table 12-30
-# Kannada, from Table 12-31
-# Malayalam, from Table 12-32
-# Sinhala, from Table 13-2
-# Brahmi, from Table 14-1
-# Takri, from Table 15-1
-# Khojki, from Table 15-3
-# Khudawadi, from Table 15-4
-# Tirhuta, from Table 15-6
-# Modi, from Table 15-7
-# ================================================
-# Deprecated characters and other discouraged characters and sequences
-# ================================================
-# Latin, from text of Section 7.1, the NamesList, and the uppercase mapping
-# Characters with overstruck tilde for which a precomposed form exists,
-# but the sequences are not canonically equivalent
-# Characters with palatalized hook for which a precomposed form exists,
-# but the sequences are not canonically equivalent
-# Characters with retroflex hook for which a precomposed form exists,
-# but the sequences are not canonically equivalent
-# Arabic, from text of Section 9.2 and the NamesList
-# Devanagari, from Section 12.1 and the NamesList
-# Bengali, from Section 12.2
-# Gujarati, from the NamesList
-# Tamil ligature shri
-# Malayalam Chillus, from Table 12-40
-# Tibetan, from text of Section 13.4, the NamesList, and the decompositions
-# Khmer, from text of Section 16.4 and the NamesList
-# Sharada, from the NamesList, and glyph shape of U+1118E
-# EOF

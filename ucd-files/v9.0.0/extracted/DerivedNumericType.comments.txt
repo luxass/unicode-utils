@@ -18,11 +18,3 @@
 #   Numeric_Type=None:    Otherwise
 #  All code points not explicitly listed for Numeric_Type
 #  have the value None.
-# @missing: 0000..10FFFF; None
-# ================================================
-# Total code points: 865
-# ================================================
-# Total code points: 128
-# ================================================
-# Total code points: 580
-# EOF

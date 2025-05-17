@@ -23,6 +23,3 @@
 #
 # All code points not explicitly listed for Script_Extensions
 # have as their value the corresponding Script property value.
-#
-# @missing: 0000..10FFFF; <script>
-# EOF

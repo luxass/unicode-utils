@@ -38,5 +38,3 @@
 #   generated from the pattern string "CJK COMPATIBILITY IDEOGRAPH-*",
 #   is CJK COMPATIBILITY IDEOGRAPH-2F89F.
 #
-# Total code points: 154998
-# EOF

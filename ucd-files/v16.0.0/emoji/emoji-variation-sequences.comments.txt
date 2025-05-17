@@ -8,6 +8,3 @@
 # Used with Emoji Version 16.0 and subsequent minor revisions (if any)
 #
 # For documentation and usage, see https://www.unicode.org/reports/tr51
-#
-#Total sequences: 371
-#EOF

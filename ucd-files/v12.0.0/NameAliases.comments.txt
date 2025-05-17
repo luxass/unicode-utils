@@ -83,4 +83,3 @@
 # SINGLE GRAPHIC CHARACTER INTRODUCER is another
 # architectural concept from early drafts of ISO/IEC 10646-1
 # which was never approved and standardized.
-# EOF

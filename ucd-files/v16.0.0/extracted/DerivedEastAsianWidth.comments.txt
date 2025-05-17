@@ -6,46 +6,5 @@
 #
 # Unicode Character Database
 #   For documentation, see https://www.unicode.org/reports/tr44/
+
 # ================================================
-# East_Asian_Width (listing EastAsianWidth.txt, field 1)
-#  All code points not explicitly listed for East_Asian_Width
-#  have the value Neutral (N).
-# @missing: 0000..10FFFF; Neutral
-# 3400..4DBF CJK_Unified_Ideographs_Extension_A
-# @missing: 3400..4DBF; Wide
-# 4E00..9FFF CJK_Unified_Ideographs
-# @missing: 4E00..9FFF; Wide
-# F900..FAFF CJK_Compatibility_Ideographs
-# @missing: F900..FAFF; Wide
-# 20000..2A6DF CJK_Unified_Ideographs_Extension_B
-# 2A700..2B73F CJK_Unified_Ideographs_Extension_C
-# 2B740..2B81F CJK_Unified_Ideographs_Extension_D
-# 2B820..2CEAF CJK_Unified_Ideographs_Extension_E
-# 2CEB0..2EBEF CJK_Unified_Ideographs_Extension_F
-# 2EBF0..2EE5F CJK_Unified_Ideographs_Extension_I
-# 2F800..2FA1F CJK_Compatibility_Ideographs_Supplement
-# @missing: 20000..2FFFD; Wide
-# 30000..3134F CJK_Unified_Ideographs_Extension_G
-# 31350..323AF CJK_Unified_Ideographs_Extension_H
-# @missing: 30000..3FFFD; Wide
-# ================================================
-# East_Asian_Width=Neutral
-# The above property value applies to 761099 code points not listed here.
-# Total code points: 792420
-# ================================================
-# East_Asian_Width=Ambiguous
-# Total code points: 138739
-# ================================================
-# East_Asian_Width=Halfwidth
-# Total code points: 123
-# ================================================
-# East_Asian_Width=Wide
-# The above property value applies to 60482 code points not listed here.
-# Total code points: 182615
-# ================================================
-# East_Asian_Width=Fullwidth
-# Total code points: 104
-# ================================================
-# East_Asian_Width=Narrow
-# Total code points: 111
-# EOF

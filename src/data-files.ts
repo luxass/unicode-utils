@@ -2,6 +2,7 @@ import type { UCDSectionWithLines } from "./types";
 
 export const HASH_BOUNDARY_REGEX = /^\s*#\s*#{2,}\s*$/;
 export const EQUALS_BOUNDARY_REGEX = /^\s*#\s*={2,}\s*$/;
+export const DASH_BOUNDARY_REGEX = /^\s*#\s*-{2,}\s*$/;
 
 /**
  * Represents a raw Unicode data file with methods to access its content.
@@ -75,7 +76,7 @@ export class RawDataFile {
     this.lines = this.content.split("\n");
     this.fileName = fileName ?? inferFileName(content);
     this.version = inferVersion(content);
-    this.hasEOF = this.lines.at(-1)?.trim() === "# EOF";
+    this.hasEOF = isEOFMarker(this.lines.at(-1));
     this.sections = parseSections(this.content);
   }
 }
@@ -174,7 +175,7 @@ export function parseSections(content: string): Map<string, UCDSectionWithLines>
 
     if (isCommentLine(line)) {
       // skip boundaries lines
-      if (isHashBoundary(line) || isEqualsBoundary(line)) {
+      if (isHashBoundary(line) || isEqualsBoundary(line) || isDashBoundary(line)) {
         continue;
       }
 
@@ -269,14 +270,15 @@ export function parseDataFileHeading(content: string): string | undefined {
 
       const hashBoundary = isHashBoundary(line);
       const equalsBoundary = isEqualsBoundary(line);
+      const dashBoundary = isDashBoundary(line);
 
-      if (hashBoundary || equalsBoundary) {
+      if (hashBoundary || equalsBoundary || dashBoundary) {
         lastBoundaryLineIndex = i;
       }
 
       // If this is a boundary pattern followed by a non-comment line,
       // we might be at the end of the heading section
-      if ((hashBoundary || equalsBoundary) && nextLine && !isCommentLine(nextLine)) {
+      if ((hashBoundary || equalsBoundary || dashBoundary) && nextLine && !isCommentLine(nextLine)) {
         break;
       }
     }
@@ -354,6 +356,57 @@ export function isEqualsBoundary(line: string): boolean {
 }
 
 /**
+ * Determines if a line contains a dash boundary pattern.
+ *
+ * A dash boundary is a line containing a pattern like "# ---" (# followed by multiple -).
+ * These patterns are used in Unicode data files to separate different sections of content.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line contains a dash boundary pattern, false otherwise
+ *
+ * @example
+ * ```ts
+ * isDashBoundary("# -----"); // true
+ * isDashBoundary("# Some text"); // false
+ * isDashBoundary(""); // false
+ * ```
+ */
+export function isDashBoundary(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  return DASH_BOUNDARY_REGEX.test(line);
+}
+
+/**
+ * Determines if a line is any type of boundary line.
+ *
+ * A boundary line is any line that matches one of the boundary patterns:
+ * hash boundary, equals boundary, or dash boundary. These patterns are used
+ * in Unicode data files to separate different sections of content.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line is a boundary line, false otherwise
+ *
+ * @example
+ * ```ts
+ * isBoundaryLine("# #####"); // true (hash boundary)
+ * isBoundaryLine("# ====="); // true (equals boundary)
+ * isBoundaryLine("# -----"); // true (dash boundary)
+ * isBoundaryLine("# Some text"); // false
+ * isBoundaryLine(""); // false
+ * ```
+ */
+export function isBoundaryLine(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  return isHashBoundary(line) || isEqualsBoundary(line) || isDashBoundary(line);
+}
+
+/**
  * Determines if a line is a comment line.
  *
  * A comment line is either a line that starts with "# " or
@@ -417,6 +470,8 @@ export function isMissingAnnotation(line: string): boolean {
   return line.startsWith("# @missing:");
 }
 
+export type SpecialTag = "none" | "script" | "code-point";
+
 export interface MissingAnnotation {
   start: string;
   end: string;
@@ -430,10 +485,10 @@ export interface MissingAnnotation {
    * - "script" the value equal to the Script property value for this code point
    * - "code-point" the string representation of the code point value
    */
-  specialTag?: "none" | "script" | "code-point";
+  specialTag?: SpecialTag;
 }
 
-const MISSING_ANNOTATION_SPECIAL_TAGS: Record<string, "none" | "script" | "code-point"> = {
+const MISSING_ANNOTATION_SPECIAL_TAGS: Record<string, SpecialTag> = {
   "<none>": "none",
   "<script>": "script",
   "<code-point>": "code-point",
@@ -473,7 +528,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
   const [_, start, end, defaultPropValueOrPropertyName, defaultPropertyValue] = match;
 
   const defaultProperty = defaultPropertyValue == null ? defaultPropValueOrPropertyName : defaultPropertyValue;
-  const specialTag: "none" | "script" | "code-point" | undefined = MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty] ?? undefined;
+  const specialTag: SpecialTag | undefined = MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty] ?? undefined;
 
   return {
     start,
@@ -498,7 +553,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
  * @returns {string | undefined} The inferred file name, or undefined if it can't be determined
  */
 export function inferFileName(line: string): string | undefined {
-  return internal_parseFileNameLine(line)?.fileName;
+  return parseFileNameLine(line)?.fileName;
 }
 
 /**
@@ -516,7 +571,7 @@ export function inferFileName(line: string): string | undefined {
  * @returns {string | undefined} The inferred version number, or undefined if it can't be determined
  */
 export function inferVersion(line: string): string | undefined {
-  return internal_parseFileNameLine(line)?.version;
+  return parseFileNameLine(line)?.version;
 }
 
 interface ParsedFileName {
@@ -525,9 +580,30 @@ interface ParsedFileName {
 }
 
 /**
- * @internal
+ * Parses a line from a Unicode data file to extract the file name and version information.
+ *
+ * This function tries to extract file name and version information from a line that
+ * typically appears at the beginning of Unicode data files. It handles various formats:
+ * - "FileName-1.2.3.txt"
+ * - "FileName-1.2.3"
+ * - "FileName.txt"
+ *
+ * The function also properly handles comment markers at the beginning of the line.
+ *
+ * @param {string} line - The line to parse, typically the first line of a Unicode data file
+ * @returns {ParsedFileName | undefined} An object containing the file name and version if
+ *                                      successfully parsed, or undefined if parsing fails
+ *
+ * @example
+ * ```ts
+ * parseFileNameLine("# UnicodeData-14.0.0.txt");
+ * // Returns { fileName: "UnicodeData", version: "14.0.0" }
+ *
+ * parseFileNameLine("# ArabicShaping.txt");
+ * // Returns { fileName: "ArabicShaping", version: undefined }
+ * ```
  */
-function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
+export function parseFileNameLine(line: string): ParsedFileName | undefined {
   if (!line) {
     return;
   }
@@ -573,4 +649,25 @@ function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
     fileName,
     version,
   };
+}
+
+/**
+ * Determines if a line is an End-of-File (EOF) marker.
+ *
+ * In Unicode data files, the EOF marker is typically represented
+ * as a line containing only "# EOF".
+ *
+ * @param {string} [line] - The line to check
+ * @returns {boolean} True if the line is an EOF marker, false otherwise
+ *
+ * @example
+ * ```ts
+ * isEOFMarker("# EOF"); // true
+ * isEOFMarker("Some text"); // false
+ * isEOFMarker(); // false
+ * ```
+ */
+export function isEOFMarker(line?: string): boolean {
+  if (!line) return false;
+  return line.trim() === "# EOF";
 }

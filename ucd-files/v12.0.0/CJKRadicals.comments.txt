@@ -31,4 +31,3 @@
 # and for subsequent versions by Ken Whistler and Laurentiu Iancu.
 #
 # ####################################################
-# EOF

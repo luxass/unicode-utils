@@ -15,22 +15,6 @@
 #
 # Characters and sequences are listed in code point order. Users should be shown a more natural order.
 # See the CLDR collation order for Emoji.
+
+
 # ================================================
-# All omitted code points have Emoji=No
-# Total elements: 1431
-# ================================================
-# All omitted code points have Emoji_Presentation=No
-# Total elements: 1212
-# ================================================
-# All omitted code points have Emoji_Modifier=No
-# Total elements: 5
-# ================================================
-# All omitted code points have Emoji_Modifier_Base=No
-# Total elements: 134
-# ================================================
-# All omitted code points have Emoji_Component=No
-# Total elements: 146
-# ================================================
-# All omitted code points have Extended_Pictographic=No
-# Total elements: 3537
-#EOF

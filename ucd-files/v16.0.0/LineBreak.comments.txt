@@ -49,6 +49,3 @@
 #
 # For more information, see UAX #14: Unicode Line Breaking Algorithm,
 # at https://www.unicode.org/reports/tr14/
-#
-# @missing: 0000..10FFFF; XX
-# EOF

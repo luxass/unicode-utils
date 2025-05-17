@@ -46,3 +46,22 @@ export function mapUnicodeVersion(version: string): string {
   // since newer versions are not mapped
   return version;
 }
+
+/**
+ * Determines whether a Unicode version has a UCD (Unicode Character Database) path.
+ *
+ * This function checks if the version string contains "Update" or if it exists as a key
+ * in the UNICODE_MAPPINGS object. Versions containing "Update" or found in the mappings
+ * do not have a direct UCD path.
+ *
+ * @param {string} version - The Unicode version string to check
+ * @returns {boolean} - Returns true if the version has a UCD path, false otherwise
+ */
+export function hasUCDPath(version: string): boolean {
+  if (version.includes("Update")) {
+    return false;
+  }
+
+  // if version is key of UNICODE_MAPPINGS, then return false, otherwise true
+  return !Object.keys(UNICODE_MAPPINGS).includes(version);
+}

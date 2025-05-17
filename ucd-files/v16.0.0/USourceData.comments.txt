@@ -40,16 +40,3 @@
 # Field 9: First residual stroke
 #
 # Additions prior to Unicode 6.3.0: 952
-# Unicode 6.3.0 Additions: 245
-# Unicode 7.0.0 Additions: 1
-# Unicode 8.0.0 Additions: 3
-# Unicode 9.0.0 Additions: 1768
-# Unicode 10.0.0 Additions: 6
-# Unicode 11.0.0 Additions: 192
-# Unicode 12.0.0 Additions: 37
-# Unicode 13.0.0 Additions: 6
-# Unicode 14.0.0 Additions: 28
-# Unicode 15.0.0 Additions: 59
-# Unicode 15.1.0 Additions: 39
-# Unicode 16.0.0 Additions: 151
-# EOF

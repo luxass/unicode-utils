@@ -1,3 +1,4 @@
+```
 # EastAsianWidth-16.0.0.txt
 # Date: 2024-04-30, 21:48:20 GMT
 # © 2024 Unicode®, Inc.
@@ -39,4 +40,4 @@
 # at https://www.unicode.org/reports/tr11/
 #
 # @missing: 0000..10FFFF; N
-# EOF
+```

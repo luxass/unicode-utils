@@ -6,37 +6,5 @@
 #
 # Unicode Character Database
 #   For documentation, see https://www.unicode.org/reports/tr44/
+
 # ================================================
-# Property:	Sentence_Break
-#  All code points not explicitly listed for Sentence_Break
-#  have the value Other (XX).
-# @missing: 0000..10FFFF; Other
-# ================================================
-# Total code points: 1
-# ================================================
-# Total code points: 1
-# ================================================
-# Total code points: 2601
-# ================================================
-# Total code points: 3
-# ================================================
-# Total code points: 60
-# ================================================
-# Total code points: 20
-# ================================================
-# Total code points: 2522
-# ================================================
-# Total code points: 1963
-# ================================================
-# Total code points: 136908
-# ================================================
-# Total code points: 775
-# ================================================
-# Total code points: 4
-# ================================================
-# Total code points: 166
-# ================================================
-# Total code points: 195
-# ================================================
-# Total code points: 31
-# EOF

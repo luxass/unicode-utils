@@ -5,13 +5,5 @@
 # Copyright (c) 1991-2005 Unicode, Inc.
 # For terms of use, see http://www.unicode.org/terms_of_use.html
 # For documentation, see UCD.html
+
 # ================================================
-# Numeric Type (from UnicodeData.txt, field 6/7/8 plus Unihan.txt: see UCD.html)
-#  All code points not explicitly listed for Numeric_Type
-#  have the value None.
-# ================================================
-# Total code points: 396
-# ================================================
-# Total code points: 98
-# ================================================
-# Total code points: 270

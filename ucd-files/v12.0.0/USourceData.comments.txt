@@ -40,13 +40,3 @@
 #
 # The full format for this file and information on parsing the source
 # field are available at <http://www.unicode.org/reports/tr45/>.
-#
-# Additions prior to Unicode 6.3.0: 952
-# Unicode 6.3.0 Additions: 245
-# Unicode 7.0.0 Additions: 1
-# Unicode 8.0.0 Additions: 3
-# Unicode 9.0.0 Additions: 1768
-# Unicode 10.0.0 Additions: 6
-# Unicode 11.0.0 Additions: 192
-# Unicode 12.0.0 Additions: 37
-# EOF

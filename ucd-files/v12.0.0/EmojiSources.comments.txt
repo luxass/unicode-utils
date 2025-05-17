@@ -26,11 +26,12 @@
 #
 # Each field 1..3 contains a code if and only if the vendor character set
 # has a symbol which is equivalent to the Unicode character or sequence.
+
 # ================================================
+
 # Keycap sequences for telephone keypad.
 # The following 11 mappings are historical. The combining character sequences
 # in these mappings do not include variation selectors for emoji presentation.
 # Thus they do not match the named character sequences with keycaps listed in
 # NamedSequences.txt.
 # For modern data used in emoji support, see http://www.unicode.org/Public/emoji/latest/
-# EOF

@@ -13,7 +13,7 @@
 # exemplified in various tables of The Unicode Standard core specification.
 #
 # This file also defines Joining_Type values for
-# Mongolian, Phags-pa, Psalter Pahlavi, Sogdian, Old Uyghur, Chorasmian, 
+# Mongolian, Phags-pa, Psalter Pahlavi, Sogdian, Old Uyghur, Chorasmian,
 # and Adlam positional shaping,
 # and Joining_Type and Joining_Group values for Hanifi Rohingya positional shaping,
 # which are not listed in tables in the core specification.
@@ -115,28 +115,3 @@
 # calculating the set for Joining_Type=T based on General_Category values.
 #
 # #############################################################
-# Unicode; Schematic Name; Joining Type; Joining Group
-# Arabic Characters
-# Syriac Characters
-# Arabic Supplement Characters
-# N'Ko Characters
-# Mandaic Characters
-# Syriac Supplement Characters
-# Arabic Extended-B Characters
-# Arabic Extended-A Characters
-# Mongolian Characters
-# Other
-# Phags-Pa Characters
-# Manichaean Characters
-# Psalter Pahlavi Characters
-# Hanifi Rohingya Characters
-# Arabic Extended-C Characters
-# Sogdian Characters
-# Old Uyghur Characters
-# Chorasmian Characters
-# Kaithi Number Signs
-# These are prepended concatenation marks, comparable
-# to the number signs in the Arabic script.
-# Listed here for consistency in property values.
-# Adlam Characters
-# EOF

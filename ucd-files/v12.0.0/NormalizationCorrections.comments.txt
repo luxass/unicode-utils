@@ -41,5 +41,3 @@
 #            the correction
 #
 # For more information, see UAX #15, Unicode Normalization Forms.
-#
-# EOF
