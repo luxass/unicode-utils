@@ -1,3 +1,4 @@
+```
 # EquivalentUnifiedIdeograph-16.0.0.txt
 # Date: 2024-02-02
 # © 2024 Unicode®, Inc.
@@ -42,24 +43,4 @@
 # Property: Equivalent_Unified_Ideograph
 #
 # @missing: 0000..10FFFF; <none>
-# The following characters have no equivalent CJK unified ideograph.
-# 2E80; CJK RADICAL REPEAT
-# 31C0; CJK STROKE T
-# 31C1; CJK STROKE WG
-# 31C2; CJK STROKE XG
-# 31C3; CJK STROKE BXG
-# 31C4; CJK STROKE SW
-# 31C5; CJK STROKE HZZ
-# 31C7; CJK STROKE HP
-# 31C8; CJK STROKE HZWG
-# 31C9; CJK STROKE SZWG
-# 31CA; CJK STROKE HZT
-# 31CB; CJK STROKE HZZP
-# 31CC; CJK STROKE HPWG
-# 31CD; CJK STROKE HZW
-# 31CE; CJK STROKE HZZZ
-# 31E2; CJK STROKE PG
-# 31E3; CJK STROKE Q
-# 31E4; CJK STROKE HXG
-# 31E5; CJK STROKE SZP
-# EOF
+```

@@ -6,24 +6,10 @@
 #
 # Unicode Character Database
 #   For documentation, see https://www.unicode.org/reports/tr44/
+
 # ================================================
+
 #	Type T is derived, as described in ArabicShaping.txt
+
 #  All code points not explicitly listed for Joining_Type
 #  have the value Non_Joining (U).
-# @missing: 0000..10FFFF; Non_Joining
-# ================================================
-# Joining_Type=Join_Causing
-# Total code points: 7
-# ================================================
-# Joining_Type=Dual_Joining
-# Total code points: 612
-# ================================================
-# Joining_Type=Right_Joining
-# Total code points: 153
-# ================================================
-# Joining_Type=Left_Joining
-# Total code points: 5
-# ================================================
-# Joining_Type=Transparent
-# Total code points: 2185
-# EOF

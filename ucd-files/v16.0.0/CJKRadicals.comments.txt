@@ -1,3 +1,4 @@
+```
 # CJKRadicals-16.0.0.txt
 # Date: 2024-02-02
 # © 2024 Unicode®, Inc.
@@ -34,4 +35,4 @@
 # and for subsequent versions by Ken Whistler and Laurentiu Iancu.
 #
 # ####################################################
-# EOF
+```

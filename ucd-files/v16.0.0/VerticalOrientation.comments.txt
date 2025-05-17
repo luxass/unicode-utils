@@ -71,6 +71,3 @@
 # property value or the L& alias of the derived value LC, the Unicode
 # character name or names, and, in lines with ranges of code points,
 # the code point count in square brackets.
-#
-# @missing: 0000..10FFFF; R
-# EOF

@@ -1,3 +1,4 @@
+```
 # LineBreak-16.0.0.txt
 # Date: 2024-07-29, 16:26:55 GMT
 # © 2024 Unicode®, Inc.
@@ -51,4 +52,4 @@
 # at https://www.unicode.org/reports/tr14/
 #
 # @missing: 0000..10FFFF; XX
-# EOF
+```

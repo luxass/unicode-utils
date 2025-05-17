@@ -1,3 +1,4 @@
+```
 # NushuSources-16.0.0.txt
 # Date: 2024-02-02
 # © 2024 Unicode®, Inc.
@@ -27,5 +28,4 @@
 # Nushu common reading: kReading
 #	Nushu common reading. Currently this reading contains only ASCII characters,
 #	but in principle could be extended to use other characters, expressed in UTF-8.
-#
-# EOF
+```

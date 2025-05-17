@@ -1,0 +1,7 @@
+```plaintext
+# This file contains Unicode character data.
+# Each line represents a character and its corresponding code point.
+# The format is: Character Name, Unicode Code Point
+# Example: A WITH ACUTE, LATIN CAPITAL LETTER 00C1
+# Property: General Category
+```

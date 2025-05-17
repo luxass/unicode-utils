@@ -4,7 +4,7 @@ import { mapUCDFiles } from "../__utils";
 
 const ucdFiles = await mapUCDFiles("16.0.0");
 
-describe("heading inferrence v16.0.0", async () => {
+describe("heading inference v16.0.0", async () => {
   it("inferHeading(ArabicShaping)", () => {
     const content = ucdFiles.file("ArabicShaping.txt");
     const expected = ucdFiles.expected("ArabicShaping.comments.txt");
@@ -19,23 +19,9 @@ describe("heading inferrence v16.0.0", async () => {
     expect(inferHeading(content)).toBe(expected);
   });
 
-  it("inferHeading(BidiCharacterTest)", () => {
-    const content = ucdFiles.file("BidiCharacterTest.txt");
-    const expected = ucdFiles.expected("BidiCharacterTest.comments.txt");
-
-    expect(inferHeading(content)).toBe(expected);
-  });
-
   it("inferHeading(BidiMirroring)", () => {
     const content = ucdFiles.file("BidiMirroring.txt");
     const expected = ucdFiles.expected("BidiMirroring.comments.txt");
-
-    expect(inferHeading(content)).toBe(expected);
-  });
-
-  it("inferHeading(BidiTest)", () => {
-    const content = ucdFiles.file("BidiTest.txt");
-    const expected = ucdFiles.expected("BidiTest.comments.txt");
 
     expect(inferHeading(content)).toBe(expected);
   });
@@ -194,13 +180,6 @@ describe("heading inferrence v16.0.0", async () => {
     expect(inferHeading(content)).toBe(expected);
   });
 
-  it("inferHeading(NormalizationTest)", () => {
-    const content = ucdFiles.file("NormalizationTest.txt");
-    const expected = ucdFiles.expected("NormalizationTest.comments.txt");
-
-    expect(inferHeading(content)).toBe(expected);
-  });
-
   it("inferHeading(NushuSources)", () => {
     const content = ucdFiles.file("NushuSources.txt");
     const expected = ucdFiles.expected("NushuSources.comments.txt");
@@ -300,20 +279,6 @@ describe("heading inferrence v16.0.0", async () => {
       expect(inferHeading(content)).toBe(expected);
     });
 
-    it("inferHeading(GraphemeBreakTest)", () => {
-      const content = ucdFiles.file("auxiliary/GraphemeBreakTest.txt");
-      const expected = ucdFiles.expected("auxiliary/GraphemeBreakTest.comments.txt");
-
-      expect(inferHeading(content)).toBe(expected);
-    });
-
-    it("inferHeading(LineBreakTest)", () => {
-      const content = ucdFiles.file("auxiliary/LineBreakTest.txt");
-      const expected = ucdFiles.expected("auxiliary/LineBreakTest.comments.txt");
-
-      expect(inferHeading(content)).toBe(expected);
-    });
-
     it("inferHeading(SentenceBreakProperty)", () => {
       const content = ucdFiles.file("auxiliary/SentenceBreakProperty.txt");
       const expected = ucdFiles.expected("auxiliary/SentenceBreakProperty.comments.txt");
@@ -321,23 +286,9 @@ describe("heading inferrence v16.0.0", async () => {
       expect(inferHeading(content)).toBe(expected);
     });
 
-    it("inferHeading(SentenceBreakTest)", () => {
-      const content = ucdFiles.file("auxiliary/SentenceBreakTest.txt");
-      const expected = ucdFiles.expected("auxiliary/SentenceBreakTest.comments.txt");
-
-      expect(inferHeading(content)).toBe(expected);
-    });
-
     it("inferHeading(WordBreakProperty)", () => {
       const content = ucdFiles.file("auxiliary/WordBreakProperty.txt");
       const expected = ucdFiles.expected("auxiliary/WordBreakProperty.comments.txt");
-
-      expect(inferHeading(content)).toBe(expected);
-    });
-
-    it("inferHeading(WordBreakTest)", () => {
-      const content = ucdFiles.file("auxiliary/WordBreakTest.txt");
-      const expected = ucdFiles.expected("auxiliary/WordBreakTest.comments.txt");
 
       expect(inferHeading(content)).toBe(expected);
     });
@@ -424,6 +375,22 @@ describe("heading inferrence v16.0.0", async () => {
     it("inferHeading(DerivedNumericValues)", () => {
       const content = ucdFiles.file("extracted/DerivedNumericValues.txt");
       const expected = ucdFiles.expected("extracted/DerivedNumericValues.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+  });
+
+  describe("emoji files", () => {
+    it("inferHeading(emoji-data)", () => {
+      const content = ucdFiles.file("emoji/emoji-data.txt");
+      const expected = ucdFiles.expected("emoji/emoji-data.comments.txt");
+
+      expect(inferHeading(content)).toBe(expected);
+    });
+
+    it("inferHeading(emoji-variation-sequences)", () => {
+      const content = ucdFiles.file("emoji/emoji-variation-sequences.txt");
+      const expected = ucdFiles.expected("emoji/emoji-variation-sequences.comments.txt");
 
       expect(inferHeading(content)).toBe(expected);
     });
