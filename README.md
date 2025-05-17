@@ -31,7 +31,7 @@ console.log(dataFileComments); // Comments from UnicodeData.txt
 Published under [MIT License](./LICENSE).
 
 > [!NOTE]
-> The files inside `test/fixtures/data-files` is not part of the MIT license, and instead licensed under the [Unicode License](https://unicode.org/copyright.html#License). The files are used for testing purposes only and are not part of the package.
+> The files inside `test/fixtures/data-files` & `ucd-files` is not part of the MIT license, and instead licensed under the [Unicode License](https://unicode.org/copyright.html#License). The files are used for testing purposes only and are not part of the package.
 
 <!-- Badges -->
 
