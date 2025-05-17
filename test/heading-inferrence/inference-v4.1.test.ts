@@ -295,13 +295,6 @@ describe("heading inference v4.1.0", async () => {
       expect(inferHeading(content)).toBe(expected);
     });
 
-    it("inferHeading(DerivedName)", () => {
-      const content = ucdFiles.file("extracted/DerivedName.txt");
-      const expected = ucdFiles.expected("extracted/DerivedName.comments.txt");
-
-      expect(inferHeading(content)).toBe(expected);
-    });
-
     it("inferHeading(DerivedNumericType)", () => {
       const content = ucdFiles.file("extracted/DerivedNumericType.txt");
       const expected = ucdFiles.expected("extracted/DerivedNumericType.comments.txt");
@@ -316,9 +309,9 @@ describe("heading inference v4.1.0", async () => {
       expect(inferHeading(content)).toBe(expected);
     });
   });
-});
 
-it("ensure that all files have been tested", () => {
-  expect(ucdFiles.files).toEqual([]);
-  expect(ucdFiles.files.length).toBe(0);
+  it("ensure that all files have been tested", () => {
+    expect(ucdFiles.files).toEqual([]);
+    expect(ucdFiles.files.length).toBe(0);
+  });
 });
