@@ -23,6 +23,7 @@ it("exports-snapshot", async () => {
           "expandHexRange": "function",
           "fromHexToCodepoint": "function",
           "hasSections": "function",
+          "hasUCDPath": "function",
           "inferFileName": "function",
           "inferVersion": "function",
           "isBoundaryLine": "function",
