@@ -1,6 +1,6 @@
 {
   "name": "@luxass/unicode-utils",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Utilities for working with Unicode",
   "type": "module",
   "author": {
