@@ -22,6 +22,7 @@ it("exports-snapshot", async () => {
           "UNICODE_VERSIONS_WITH_UCD": "object",
           "expandHexRange": "function",
           "fromHexToCodepoint": "function",
+          "getCurrentDraftVersion": "function",
           "hasSections": "function",
           "hasUCDPath": "function",
           "inferFileName": "function",
