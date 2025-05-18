@@ -11,9 +11,6 @@ importers:
       '@luxass/utils':
         specifier: ^2.0.0
         version: 2.0.0
-      '@mojis/moji-compare':
-        specifier: ^0.5.0
-        version: 0.5.0
     devDependencies:
       '@luxass/eslint-config':
         specifier: ^4.18.1
@@ -409,9 +406,6 @@ packages:
   '@luxass/utils@2.0.0':
     resolution: {integrity: sha512-8xAqJ0KtEavS0l3+5VG5X1pLGnGBXFOHH4sHlXPqjzHjJp1XmacxwbfmWI7lhSE61yvIjIgo2Jgj+VA008CG1A==}
     engines: {node: '>=20'}
-
-  '@mojis/moji-compare@0.5.0':
-    resolution: {integrity: sha512-zsroT/Woh4ZZ1IRalsNW1HMyM0XC1ChmiGAHjv14DIEzDLt5tXP5qsq4ZNgDg06xsvxycI8Htx5GDtFZfjQcPw==}
 
   '@napi-rs/wasm-runtime@0.2.9':
     resolution: {integrity: sha512-OKRBiajrrxB9ATokgEQoG87Z25c67pCpYcCwmXYX8PBftC9pBfN18gnm/fh1wurSLEKIAt+QRFLFCQISrb66Jg==}
@@ -1095,9 +1089,6 @@ packages:
   comment-parser@1.4.1:
     resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==}
     engines: {node: '>= 12.0.0'}
-
-  compare-versions@6.1.1:
-    resolution: {integrity: sha512-4hm4VPpIecmlg59CHXnRDnqGplJFrbLG4aFEl5vl6cK1u76ws3LLvX7ikFnTDl5vo39sjWD6AaDPYodJp/NNHg==}
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -2820,10 +2811,6 @@ snapshots:
 
   '@luxass/utils@2.0.0': {}
 
-  '@mojis/moji-compare@0.5.0':
-    dependencies:
-      compare-versions: 6.1.1
-
   '@napi-rs/wasm-runtime@0.2.9':
     dependencies:
       '@emnapi/core': 1.4.3
@@ -3404,8 +3391,6 @@ snapshots:
   color-name@1.1.4: {}
 
   comment-parser@1.4.1: {}
-
-  compare-versions@6.1.1: {}
 
   concat-map@0.0.1: {}
 
