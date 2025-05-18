@@ -20,7 +20,6 @@ it("exports-snapshot", async () => {
           "UNICODE_VERSIONS": "object",
           "UNICODE_VERSIONS_WITH_UCD": "object",
           "expandHexRange": "function",
-          "extractVersionFromReadme": "function",
           "fromHexToCodepoint": "function",
           "getCurrentDraftVersion": "function",
           "hasSections": "function",
