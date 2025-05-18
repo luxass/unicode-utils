@@ -24,6 +24,7 @@ export {
   parseSections,
   RawDataFile,
 } from "./data-files";
+export { type DraftVersion, extractVersionFromReadme, getCurrentDraftVersion } from "./draft";
 export {
   expandHexRange,
   fromHexToCodepoint,
