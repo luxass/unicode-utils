@@ -410,7 +410,7 @@ describe("isLineWithData", () => {
   });
 });
 
-describe("inferrence", () => {
+describe("inference", () => {
   describe("inferFileName", () => {
     it.each([
       // valid comment lines with file names and versions

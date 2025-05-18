@@ -6,7 +6,9 @@
 #
 # Unicode Character Database
 #   For documentation, see https://www.unicode.org/reports/tr44/
+
 # ================================================
+
 # Derived Property:   Numeric_Type
 #  The values are based on fields 6-8 of UnicodeData.txt, plus the fields
 #  kAccountingNumeric, kOtherNumeric, kPrimaryNumeric in the Unicode Han Database (Unihan).
@@ -16,13 +18,6 @@
 #   Numeric_Type=Numeric: When there are values for kAccountingNumeric, kOtherNumeric, kPrimaryNumeric,
 #                         or there is a value in field 8, but not in field 7.
 #   Numeric_Type=None:    Otherwise
+
 #  All code points not explicitly listed for Numeric_Type
 #  have the value None.
-# @missing: 0000..10FFFF; None
-# ================================================
-# Total code points: 1114
-# ================================================
-# Total code points: 128
-# ================================================
-# Total code points: 760
-# EOF

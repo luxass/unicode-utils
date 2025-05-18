@@ -120,34 +120,6 @@
 # may have different positions in different styles:
 #   * U+119D2 NANDINAGARI VOWEL SIGN I has stylistically variable placement
 #     in Nandinagari.
+
+
 # ================================================
-# Property: Indic_Positional_Category
-#
-#  All code points not explicitly listed for Indic_Positional_Category
-#  have the value NA (not applicable).
-#
-# @missing: 0000..10FFFF; NA
-# ------------------------------------------------
-# Indic_Positional_Category=Right
-# Indic_Positional_Category=Left
-# Indic_Positional_Category=Visual_Order_Left
-# These are dependent vowels that occur to the left of the consonant
-# letter in a syllable, but which occur in scripts using the visual order
-# model, instead of the logical order model. Because of the different
-# model, these left-side vowels occur first in the backing store (before
-# the consonant letter) and are not reordered during text rendering.
-#
-# [Derivation: Logical_Order_Exception=Yes]
-# Indic_Positional_Category=Left_And_Right
-# Indic_Positional_Category=Top
-# Indic_Positional_Category=Bottom
-# Indic_Positional_Category=Top_And_Bottom
-# Indic_Positional_Category=Top_And_Right
-# Indic_Positional_Category=Top_And_Left
-# Indic_Positional_Category=Top_And_Left_And_Right
-# Indic_Positional_Category=Bottom_And_Right
-# Indic_Positional_Category=Bottom_And_Left
-# Indic_Positional_Category=Top_And_Bottom_And_Right
-# Indic_Positional_Category=Top_And_Bottom_And_Left
-# Indic_Positional_Category=Overstruck
-# EOF

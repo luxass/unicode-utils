@@ -6,5 +6,8 @@ export default luxass({
 }, {
   ignores: [
     "./src/constants.ts",
+
+    // formatting should not be enabled for these files
+    "./ucd-files/**/*",
   ],
 });

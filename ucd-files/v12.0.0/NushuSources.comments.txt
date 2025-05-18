@@ -6,6 +6,7 @@
 # Unicode Character Database
 # For documentation, see http://www.unicode.org/reports/tr44/
 #
+
 # Source references file for Nushu characters
 #
 #	Synchronized with: ISO/IEC 10646:2017 (NushuSrc.txt)
@@ -26,5 +27,3 @@
 # Nushu common reading: kReading
 #	Nushu common reading. Currently this reading contains only ASCII characters,
 #	but in principle could be extended to use other characters, expressed in UTF-8.
-#
-# EOF

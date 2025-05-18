@@ -7,22 +7,28 @@ export {
   type UnicodeVersion,
 } from "./constants";
 export {
+  DASH_BOUNDARY_REGEX,
   EQUALS_BOUNDARY_REGEX,
   HASH_BOUNDARY_REGEX,
   hasSections,
   inferFileName,
   inferVersion,
+  isBoundaryLine,
   isCommentLine,
+  isDashBoundary,
   isEmptyLine,
+  isEOFMarker,
   isEqualsBoundary,
   isHashBoundary,
   isLineWithData,
   isMissingAnnotation,
   type MissingAnnotation,
   parseDataFileHeading,
+  parseFileNameLine,
   parseMissingAnnotation,
   parseSections,
   RawDataFile,
+  type SpecialTag,
 } from "./data-files";
 export { getCurrentDraftVersion, type GetCurrentDraftVersionOptions } from "./draft";
 export {

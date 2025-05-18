@@ -36,21 +36,3 @@
 # However, entries are generally in script order corresponding
 # to block order in the Unicode Standard, to make it easier
 # to find entries currently in the list.
-# ================================================
-# Provisional entries for NamedSequences.txt.
-# No provisional entries are currently defined.
-# ================================================
-# Entries from Unicode 4.1.0 version of NamedSequences.txt,
-# subsequently disapproved because of potential errors in
-# representation.
-# GURMUKHI HALF YA;0A2F 0A4D
-# GURMUKHI PARI YA;0A4D 0A2F
-# Entry removed 2006-05-18:
-#
-# LATIN SMALL LETTER A WITH ACUTE AND OGONEK;00E1 0328
-#
-# This entry was removed because the sequence was not in NFC,
-# as required. It was replaced with the NFC version of
-# the sequence, based on the Lithuanian additions accepted
-# for Unicode 5.0.
-# EOF
