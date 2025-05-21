@@ -59,18 +59,24 @@ jobs:
       - name: generate diff
         id: generate-diff
         run: |
-          git diff ./src/constants.ts > constants.diff
+          # Create a combined diff of constants.ts and data files
+          {
+            echo "=== Changes in src/constants.ts ==="
+            git diff ./src/constants.ts
+            echo -e "\n=== Changes in src/data/ ==="
+            git diff ./src/data/
+          } > combined.diff
 
           # if the diff is empty
-          if [ ! -s constants.diff ]; then
-            echo "No changes found in the Constants file."
+          if [ ! -s combined.diff ]; then
+            echo "No changes found in the files."
             exit 0
           fi
 
-          echo "Changes found in the Constants file:"
+          echo "Changes found in the files:"
           {
             echo 'DIFF<<EOF'
-            cat constants.diff
+            cat combined.diff
             echo EOF
           } >> "$GITHUB_OUTPUT"
 
@@ -96,7 +102,10 @@ jobs:
 
             I will be waiting for your approval 👋.
           branch: update-generated-files
-          add-paths: src/constants.ts
+          add-paths: |
+            src/constants.ts
+            src/data/unicode-version-metadata.json
+            src/data/ucd-path-mappings.json
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
