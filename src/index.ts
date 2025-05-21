@@ -1,10 +1,10 @@
 export {
+  UCD_PATH_MAPPINGS,
+  type UCDPathMapping,
   UNICODE_DRAFT_VERSION,
-  UNICODE_LATEST_VERSION,
-  UNICODE_VERSIONS,
-  UNICODE_VERSIONS_WITH_UCD,
-  type UnicodeUCDVersion,
-  type UnicodeVersion,
+  UNICODE_STABLE_VERSION,
+  UNICODE_VERSION_METADATA,
+  type UnicodeVersionMetadata,
 } from "./constants";
 export {
   EQUALS_BOUNDARY_REGEX,

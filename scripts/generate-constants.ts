@@ -1,4 +1,4 @@
-import { writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
 
@@ -10,12 +10,18 @@ function getRequiredEnvVar(name: string): string {
   return value;
 }
 
+async function ensureDataDir() {
+  const dataDir = join(process.cwd(), "src", "data");
+  await mkdir(dataDir, { recursive: true });
+  return dataDir;
+}
+
 async function run() {
   // get required environment variables
   const versions = JSON.parse(getRequiredEnvVar("UNICODE_VERSIONS"));
   const ucdVersions = JSON.parse(getRequiredEnvVar("UNICODE_UCD_VERSIONS"));
   const latestVersion = getRequiredEnvVar("UNICODE_LATEST_VERSION");
-  const draftVersion = process.env.UNICODE_DRAFT_VERSION || null;
+  const draftVersion = process.env.UNICODE_DRAFT_VERSION || latestVersion.replace(/\d+/, (n) => String(Number(n) + 1));
 
   // validate that latest version is in versions array
   const isInVersions = versions.find(({ version }) => version === latestVersion);
@@ -23,26 +29,44 @@ async function run() {
     throw new Error(`Latest version ${latestVersion} not found in versions array`);
   }
 
-  const constantsContent = `// This file is auto-generated. Do not edit directly.
-// https://www.unicode.org/versions/enumeratedversions.html
+  // write JSON files
+  const dataDir = await ensureDataDir();
 
-export const UNICODE_VERSIONS = ${JSON.stringify(versions, null, 2)} as const;
+  await writeFile(
+    join(dataDir, "unicode-version-metadata.json"),
+    JSON.stringify(versions, null, 2),
+    "utf-8",
+  );
 
-export const UNICODE_DRAFT_VERSION = ${draftVersion ? `"${draftVersion}"` : "null"} as const;
+  await writeFile(
+    join(dataDir, "ucd-path-mappings.json"),
+    JSON.stringify(ucdVersions.map(({ version, mappedVersion }) => ({
+      unicodeVersion: version,
+      ucdPath: mappedVersion,
+    })), null, 2),
+    "utf-8",
+  );
 
-export const UNICODE_LATEST_VERSION = "${latestVersion}" as const;
+  // update version numbers in constants.ts
+  const constantsPath = join(process.cwd(), "src", "constants.ts");
+  let content = await readFile(constantsPath, "utf-8");
 
-export const UNICODE_VERSIONS_WITH_UCD = ${JSON.stringify(ucdVersions, null, 2)} as const;
+  // replace the version numbers
+  content = content.replace(
+    /export const UNICODE_DRAFT_VERSION = "[\d.]+" as const;/,
+    `export const UNICODE_DRAFT_VERSION = "${draftVersion}" as const;`,
+  );
+  content = content.replace(
+    /export const UNICODE_STABLE_VERSION = "[\d.]+" as const;/,
+    `export const UNICODE_STABLE_VERSION = "${latestVersion}" as const;`,
+  );
 
-export type UnicodeVersion = typeof UNICODE_VERSIONS[number];
-export type UnicodeUCDVersion = typeof UNICODE_VERSIONS_WITH_UCD[number];
-`;
-
-  await writeFile(join(process.cwd(), "src", "constants.ts"), constantsContent, "utf-8");
-  console.log("Successfully generated constants.ts");
+  // write the updated constants file
+  await writeFile(constantsPath, content, "utf-8");
+  console.log("Successfully updated JSON files and version numbers in constants.ts");
 }
 
 run().catch((error) => {
-  console.error("Error generating constants:", error);
+  console.error("Error updating files:", error);
   process.exit(1);
 });
