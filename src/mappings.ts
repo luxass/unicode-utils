@@ -51,7 +51,7 @@ export const UNICODE_TO_UCD_PATH_MAPPINGS: Record<string, string> = {
  * @param {string} version - The Unicode version to map to a UCD path version
  * @returns {string} The corresponding UCD path version or the original version if not mapped
  */
-export function mapUnicodeVersion(version: string): string {
+export function mapToUCDPathVersion(version: string): string {
   // check if the version needs to be mapped to a different UCD path version
   const ucdPathVersion = UNICODE_TO_UCD_PATH_MAPPINGS[version];
   if (ucdPathVersion) {

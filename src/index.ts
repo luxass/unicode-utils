@@ -32,7 +32,7 @@ export {
 } from "./hexcodes";
 export {
   hasUCDPath,
-  mapUnicodeVersion,
-  UNICODE_MAPPINGS,
+  mapToUCDPathVersion,
+  UNICODE_TO_UCD_PATH_MAPPINGS,
 } from "./mappings";
 export type { UCDSectionWithLines } from "./types";
