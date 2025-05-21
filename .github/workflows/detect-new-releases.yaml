@@ -14,10 +14,10 @@ on:
         type: choice
         description: the base URL of the ucdjs API
         required: false
-        default: "https://api.ucdjs.dev"
+        default: "https://unicode-api.luxass.dev"
         options:
-          - "https://api.ucdjs.dev"
-          - "https://preview.api.ucdjs.dev"
+          - "https://unicode-api.luxass.dev"
+          - "https://preview.unicode-api.luxass.dev"
       proxy-base-url:
         type: choice
         description: the base URL of the unicode proxy
@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@86159f3378d13323ef56a15f293693858a386bc6 # v0.3.3
+        uses: luxass/unicode-releases-action@55920d174f30748a87314ff16f82b0ab9b50374f # v0.5.0
         id: unicode
         with:
           api_base_url: ${{ github.event.inputs.api-base-url }}
