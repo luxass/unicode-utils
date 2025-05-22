@@ -40,10 +40,10 @@ async function run() {
 
   await writeFile(
     join(dataDir, "ucd-path-mappings.json"),
-    JSON.stringify(`${ucdVersions.map(({ version, mappedVersion }) => ({
+    `${JSON.stringify(ucdVersions.map(({ version, mappedVersion }) => ({
       unicodeVersion: version,
       ucdPath: mappedVersion,
-    }))}\n`, null, 2),
+    })), null, 2)}\n`,
     "utf-8",
   );
 
