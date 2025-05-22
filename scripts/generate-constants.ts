@@ -1,10 +1,6 @@
-import { exec as execCallback } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
-import { promisify } from "node:util";
-
-const exec = promisify(execCallback);
 
 function getRequiredEnvVar(name: string): string {
   const value = process.env[name];
@@ -38,16 +34,16 @@ async function run() {
 
   await writeFile(
     join(dataDir, "unicode-version-metadata.json"),
-    JSON.stringify(versions, null, 2),
+    `${JSON.stringify(versions, null, 2)}\n`,
     "utf-8",
   );
 
   await writeFile(
     join(dataDir, "ucd-path-mappings.json"),
-    JSON.stringify(ucdVersions.map(({ version, mappedVersion }) => ({
+    JSON.stringify(`${ucdVersions.map(({ version, mappedVersion }) => ({
       unicodeVersion: version,
       ucdPath: mappedVersion,
-    })), null, 2),
+    }))}\n`, null, 2),
     "utf-8",
   );
 
@@ -68,8 +64,6 @@ async function run() {
   // write the updated constants file
   await writeFile(constantsPath, content, "utf-8");
   console.log("Successfully updated JSON files and version numbers in constants.ts");
-
-  await exec("npx eslint --fix ./src/constants.ts ./src/data/*.json");
 }
 
 run().catch((error) => {
