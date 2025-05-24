@@ -1,0 +1,16 @@
+# DerivedJoiningGroup-15.0.0.txt
+# Date: 2022-02-26, 00:38:32 GMT
+# © 2022 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Joining Group (listing ArabicShaping.txt, field 3)
+
+#  All code points not explicitly listed for Joining_Group
+#  have the value No_Joining_Group.
+

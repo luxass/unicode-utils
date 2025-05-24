@@ -1,0 +1,31 @@
+# EmojiSources-7.0.0.txt
+# Date: 2013-12-17, 00:00:00 GMT [MS, KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2014 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# This file provides mappings between Unicode code points and sequences on one hand
+# and Shift-JIS codes for cell phone carrier symbols on the other hand.
+# Each mapping is symmetric ("round trip"), for equivalent Unicode and carrier
+# symbols or sequences. This file does not include best-fit ("fallback")
+# mappings to similar but not equivalent symbols in either mapping direction.
+#
+# Note: It is possible that future versions of this file will include
+# additional data columns providing mappings for additional vendors.
+#
+# Created for Unicode 6.0 by Markus Scherer.
+# Updated for Unicode 6.1, 6.2, 6.3, and 7.0 by Ken Whistler (no changes to mappings).
+#
+# Format: Semicolon-delimited file with a fixed number of fields.
+# The number of fields may increase in the future.
+#
+# Fields:
+# 0: Unicode code point or sequence
+# 1: DoCoMo Shift-JIS code
+# 2: KDDI Shift-JIS code
+# 3: SoftBank Shift-JIS code
+#
+# Each field 1..3 contains a code if and only if the vendor character set
+# has a symbol which is equivalent to the Unicode character or sequence.

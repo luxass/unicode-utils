@@ -1,0 +1,25 @@
+# DerivedBidiClass-15.0.0.txt
+# Date: 2022-08-05, 17:39:24 GMT
+# © 2022 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Bidi Class (listing UnicodeData.txt, field 4: see UAX #44: https://www.unicode.org/reports/tr44/)
+# Unlike other properties, unassigned code points in blocks
+# reserved for right-to-left scripts are given either values R or AL,
+# and unassigned code points in the Currency Symbols block are given the value ET.
+# For details see the @missing lines below.
+#
+# The unassigned code points that default to BN have one of the following properties:
+#     Default_Ignorable_Code_Point
+#     Noncharacter_Code_Point
+#
+# For all other cases:
+
+#  All code points not explicitly listed for Bidi_Class
+#  have the value Left_To_Right (L).

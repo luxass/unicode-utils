@@ -1,0 +1,41 @@
+# EastAsianWidth-13.0.0.txt
+# Date: 2029-01-21, 18:14:00 GMT [KW, LI]
+# © 2020 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# East_Asian_Width Property
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+#
+# The format is two fields separated by a semicolon.
+# Field 0: Unicode code point value or range of code point values
+# Field 1: East_Asian_Width property, consisting of one of the following values:
+#         "A", "F", "H", "N", "Na", "W"
+#  - All code points, assigned or unassigned, that are not listed
+#      explicitly are given the value "N".
+#  - The unassigned code points in the following blocks default to "W":
+#         CJK Unified Ideographs Extension A: U+3400..U+4DBF
+#         CJK Unified Ideographs:             U+4E00..U+9FFF
+#         CJK Compatibility Ideographs:       U+F900..U+FAFF
+#  - All undesignated code points in Planes 2 and 3, whether inside or
+#      outside of allocated blocks, default to "W":
+#         Plane 2:                            U+20000..U+2FFFD
+#         Plane 3:                            U+30000..U+3FFFD
+#
+# Character ranges are specified as for other property files in the
+# Unicode Character Database.
+#
+# For legacy reasons, there are no spaces before or after the semicolon
+# which separates the two fields. The comments following the number sign
+# "#" list the General_Category property value or the L& alias of the
+# derived value LC, the Unicode character name or names, and, in lines
+# with ranges of code points, the code point count in square brackets.
+#
+# For more information, see UAX #11: East Asian Width,
+# at http://www.unicode.org/reports/tr11/
+#

@@ -1,0 +1,41 @@
+# EquivalentUnifiedIdeograph-12.1.0.txt
+# Date: 2019-03-08, 23:59:00 GMT [KL, KW]
+# © 2019 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# For documentation, see UAX #44: Unicode Character Database,
+# at http://www.unicode.org/reports/tr44/
+#
+# This file defines the following property:
+#
+# Equivalent_Unified_Ideograph
+#
+# This data file lists CJK radicals and CJK strokes (aka characters
+# that have the Radical=Yes property or are in the CJK Strokes block)
+# for which there are reasonably equivalent CJK unified ideographs in
+# that they are visually identical or near-identical.
+#
+# The file contains a list of lines with mappings from one code point
+# or code point range to an equivalent CJK unified ideograph.
+#
+# Each mapping line contains two fields, separated by a semicolon (';').
+# The first field contains a code point or code point range represented
+# as a variable-length hexadecimal value with 4 to 6 digits. The second
+# field contains a code point represented as a variable-length
+# hexadecimal value with 4 to 6 digits.
+#
+# CJK radicals and CJK strokes for which no reasonably equivalent CJK
+# unified ideographs exist are listed as comments at the end of the file.
+#
+# Formally, the default value of the Equivalent_Unified_Ideograph
+# property for each code point is <none>, unless a mapping to some
+# other character is specified in this data file. When a code point
+# has the default value for the Equivalent_Unified_Ideograph property,
+# that means that no other character exists whose representative glyph
+# is a reasonably equivalent CJK unified ideograph.
+#
+# This file was originally created by Ken Lunde.
+#
+# ############################################################
+#

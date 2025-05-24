@@ -1,0 +1,38 @@
+# EastAsianWidth-6.2.0.txt
+# Date: 2012-05-15, 18:30:00 GMT [KW]
+#
+# East Asian Width Properties
+#
+# This file is an informative contributory data file in the
+# Unicode Character Database.
+#
+# Copyright (c) 1991-2012 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# The format is two fields separated by a semicolon.
+# Field 0: Unicode value
+# Field 1: East Asian Width property, consisting of one of the following values:
+#         "N", "A", "H", "W", "F", "Na"
+#  - All code points, assigned or unassigned, that are not listed 
+#         explicitly are given the value "N".
+# The unassigned code points that default to "W" include ranges in the
+# following blocks:
+#     CJK Unified Ideographs Extension A:       U+3400..U+4DBF
+#     CJK Unified Ideographs:                   U+4E00..U+9FFF
+#     CJK Compatibility Ideographs:             U+F900..U+FAFF
+#     CJK Unified Ideographs Extension B:      U+20000..U+2A6DF 
+#     CJK Unified Ideographs Extension C:      U+2A700..U+2B73F
+#     CJK Unified Ideographs Extension D:      U+2B740..U+2B81F
+#     CJK Compatibility Ideographs Supplement: U+2F800..U+2FA1F
+#     and any other reserved code points on
+#         Planes 2 and 3:                      U+20000..U+2FFFD
+#                                              U+30000..U+3FFFD
+#  - Characters ranges are specified as for other property files in
+#         the Unicode Character Database.
+#
+# The Unicode name of each character is provided in a comment for help
+# in identifying the characters.
+#
+# See UAX #11: East Asian Width, for more information.
+#
+# @missing: 0000..10FFFF; N
