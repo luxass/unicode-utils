@@ -80,31 +80,11 @@ describe("heading inference ${formattedVersion}", async () => {
     })
     .join("\n\n  ")}
 
-<<<<<<< HEAD:scripts/generate-infer-test-file.ts
-    const content = dedent`
-    import { describe, expect, it } from "vitest";
-    import { mapUCDFiles } from "../__utils";
-    import { inferHeading } from "../../src/inference/heading";
-
-    const ucdFiles = await mapUCDFiles("${version}");
-
-    describe("heading inference ${formattedVersion}", async () => {
-      ${cases}
-
-
-      it("ensure that all files have been tested", () => {
-        expect(ucdFiles.files).toEqual([]);
-        expect(ucdFiles.files.length).toBe(0);
-      });
-    });
-  `;
-=======
   it("ensure that all files have been tested", () => {
     expect(ucdFiles.files).toEqual([]);
     expect(ucdFiles.files.length).toBe(0);
   });
 });\n`;
->>>>>>> origin/prepare-inference:scripts/generate-infer-test-files.ts
 
     console.log(`Test file generated: heading-${formattedVersion}.test.ts`);
     writeFile(`./test/inference/heading-${formattedVersion}.test.ts`, content, "utf-8");
