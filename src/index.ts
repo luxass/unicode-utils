@@ -7,29 +7,10 @@ export {
   type UnicodeVersionMetadata,
 } from "./constants";
 export {
-  DASH_BOUNDARY_REGEX,
-  EQUALS_BOUNDARY_REGEX,
-  HASH_BOUNDARY_REGEX,
   hasSections,
-  inferFileName,
-  inferVersion,
-  isBoundaryLine,
-  isCommentLine,
-  isDashBoundary,
-  isEmptyLine,
-  isEOFMarker,
-  isEqualsBoundary,
-  isHashBoundary,
-  isLineWithData,
-  isMissingAnnotation,
-  type MissingAnnotation,
   parseDataFileHeading,
-  type ParsedFileName,
-  parseFileNameLine,
-  parseMissingAnnotation,
   parseSections,
   RawDataFile,
-  type SpecialTag,
 } from "./data-files";
 export { getCurrentDraftVersion, type GetCurrentDraftVersionOptions } from "./draft";
 export {
@@ -37,9 +18,11 @@ export {
   fromHexToCodepoint,
   stripHex,
 } from "./hexcodes";
+export * from "./line-helpers";
 export {
   hasUCDFolderPath,
   resolveUCDVersion,
   UNICODE_TO_UCD_VERSION_MAPPINGS,
 } from "./mappings";
+
 export type { UCDSectionWithLines } from "./types";
