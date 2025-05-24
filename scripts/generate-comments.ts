@@ -6,7 +6,7 @@ import { openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
 
-const UCD_VERSION = "v5.0.0";
+const UCD_VERSION = "v5.1.0";
 const MAX_LINES = 150;
 const DEFAULT_EXCLUDED_FILES = [".comments.txt"];
 const ADDITIONAL_EXCLUDED_FILES: string[] = [
@@ -36,9 +36,8 @@ async function run() {
 
   console.log(`Found ${filesToProcess.length} files to process in version ${UCD_VERSION}`);
 
-  for (const filePath of filesToProcess) {
-    await processFile(filePath, versionDir);
-  }
+  const promises = filesToProcess.map((filePath) => processFile(filePath, versionDir));
+  await Promise.all(promises);
 
   console.log("All files processed successfully.");
 }
@@ -94,14 +93,12 @@ Important rules:
       ],
     });
 
-    // Get the response text
     const response = result.object.text;
     if (!response) {
       console.warn(`No response generated for ${relativeFilePath}. Skipping.`);
       return;
     }
 
-    // Write output to .comments.txt file
     await writeFile(outputFilePath, response, "utf-8");
     console.log(`✓ Extracted heading for ${relativeFilePath}`);
   } catch (error) {
@@ -109,9 +106,6 @@ Important rules:
   }
 }
 
-/**
- * Recursively reads all files in a directory
- */
 function readFilesRecursively(dir: string): string[] {
   const entries = readdirSync(dir, { withFileTypes: true });
 
@@ -128,7 +122,6 @@ function readFilesRecursively(dir: string): string[] {
   return [...files, ...subFiles];
 }
 
-// Run script and handle errors
 run().catch((err) => {
   console.error(err);
   process.exit(1);
