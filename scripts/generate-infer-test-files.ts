@@ -84,8 +84,7 @@ describe("heading inference ${formattedVersion}", async () => {
     expect(ucdFiles.files).toEqual([]);
     expect(ucdFiles.files.length).toBe(0);
   });
-});
-    `;
+});\n`;
 
     console.log(`Test file generated: heading-${formattedVersion}.test.ts`);
     writeFile(`./test/inference/heading-${formattedVersion}.test.ts`, content, "utf-8");

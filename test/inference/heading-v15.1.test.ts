@@ -401,4 +401,3 @@ describe("heading inference v15.1", async () => {
     expect(ucdFiles.files.length).toBe(0);
   });
 });
-    

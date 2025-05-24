@@ -380,4 +380,3 @@ describe("heading inference v12", async () => {
     expect(ucdFiles.files.length).toBe(0);
   });
 });
-    
