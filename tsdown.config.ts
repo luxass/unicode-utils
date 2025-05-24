@@ -4,7 +4,9 @@ export default defineConfig({
   entry: [
     "./src/index.ts",
     "./src/data-files.ts",
+    "./src/line-helpers.ts",
   ],
+  exports: true,
   format: ["esm"],
   clean: true,
   dts: true,
