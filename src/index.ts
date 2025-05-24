@@ -25,6 +25,7 @@ export {
   parseMissingAnnotation,
   parseSections,
   RawDataFile,
+  type SpecialTag,
 } from "./data-files";
 export { getCurrentDraftVersion, type GetCurrentDraftVersionOptions } from "./draft";
 export {

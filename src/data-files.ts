@@ -442,6 +442,8 @@ export function isMissingAnnotation(line: string): boolean {
   return line.startsWith("# @missing:");
 }
 
+export type SpecialTag = "none" | "script" | "code-point";
+
 export interface MissingAnnotation {
   start: string;
   end: string;
@@ -455,10 +457,10 @@ export interface MissingAnnotation {
    * - "script" the value equal to the Script property value for this code point
    * - "code-point" the string representation of the code point value
    */
-  specialTag?: "none" | "script" | "code-point";
+  specialTag?: SpecialTag;
 }
 
-const MISSING_ANNOTATION_SPECIAL_TAGS: Record<string, "none" | "script" | "code-point"> = {
+const MISSING_ANNOTATION_SPECIAL_TAGS: Record<string, SpecialTag> = {
   "<none>": "none",
   "<script>": "script",
   "<code-point>": "code-point",
@@ -498,7 +500,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
   const [_, start, end, defaultPropValueOrPropertyName, defaultPropertyValue] = match;
 
   const defaultProperty = defaultPropertyValue == null ? defaultPropValueOrPropertyName : defaultPropertyValue;
-  const specialTag: "none" | "script" | "code-point" | undefined = MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty] ?? undefined;
+  const specialTag: SpecialTag | undefined = MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty] ?? undefined;
 
   return {
     start,
