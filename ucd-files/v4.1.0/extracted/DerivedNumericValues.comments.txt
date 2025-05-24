@@ -1,0 +1,17 @@
+# DerivedNumericValues-4.1.0.txt
+# Date: 2005-03-10, 03:07:57 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2005 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+
+# ================================================
+
+# Numeric Values (from UnicodeData.txt, field 6/7/8)
+# WARNING: Certain valus, such as 0.16666667, are repeating fractions
+# Although they are only printed with a limited number of decimal places
+# in this file, they should be expressed to the limits of the precision
+# available when used.
+
+# ================================================
