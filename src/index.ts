@@ -17,6 +17,7 @@ export {
   isCommentLine,
   isDashBoundary,
   isEmptyLine,
+  isEOFMarker,
   isEqualsBoundary,
   isHashBoundary,
   isLineWithData,

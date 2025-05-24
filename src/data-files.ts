@@ -648,3 +648,24 @@ export function parseFileNameLine(line: string): ParsedFileName | undefined {
     version,
   };
 }
+
+/**
+ * Determines if a line is an End-of-File (EOF) marker.
+ *
+ * In Unicode data files, the EOF marker is typically represented
+ * as a line containing only "# EOF".
+ *
+ * @param {string} [line] - The line to check
+ * @returns {boolean} True if the line is an EOF marker, false otherwise
+ *
+ * @example
+ * ```ts
+ * isEOFMarker("# EOF"); // true
+ * isEOFMarker("Some text"); // false
+ * isEOFMarker(); // false
+ * ```
+ */
+export function isEOFMarker(line?: string): boolean {
+  if (!line) return false;
+  return line.trim() === "# EOF";
+}
