@@ -1,0 +1,50 @@
+# StandardizedVariants-16.0.0.txt
+# Date: 2024-07-31, 15:31:00 GMT [KW]
+# © 2024 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use and license, see https://www.unicode.org/terms_of_use.html
+#
+# Specification of the variation sequences that are defined in the
+# Unicode Standard.
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+#
+# Standardized variation sequences are defined in this file.
+#
+# Ideographic variation sequences are defined according to the registration
+# process specified in UTS #37, and are listed in the Ideographic
+# Variation Database.
+#
+# Emoji variation sequences are defined in the file
+# emoji-variation-sequences.txt, documented in UTS #51, Unicode Emoji.
+#
+# Only those three types of variation sequences
+# are sanctioned for use by conformant implementations.
+# In all other cases, use of a variation selector character does
+# not change the visual appearance of the preceding base character
+# from what it would have had in the absence of the variation selector.
+#
+# For more information on standardized variation sequences,
+# see Section 23.4, Variation Selectors,
+# in The Unicode Standard, Version 16.0.
+#
+# For more information on the Ideographic Variation Database,
+# see https://www.unicode.org/ivd/
+#
+# For more information on emoji variation sequences,
+# see https://www.unicode.org/reports/tr51/
+#
+# Format:
+#   Field 0: the variation sequence
+#   Field 1: the description of the desired appearance
+#   Field 2: where the appearance is only different in particular shaping environments
+#	this field lists them. The possible values are: isolate, initial, medial, final.
+#	If more than one is present, there are spaces between them.
+#
+# Note that parentheses must not be used in Field 1, because for names
+# list generation, values from Field 2 are appended as a parenthetical to the Field 1
+# value, and that parenthetical syntax is explicitly interpreted as part
+# of the overall names list syntax used for code chart production.
+#
+# =============================

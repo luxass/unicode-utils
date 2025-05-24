@@ -1,0 +1,11 @@
+@@@\tThe Unicode Standard 5.0
+@@@+\tU50M060619.lst
+\t\tFinal Unicode 5.0 names list.
+\t\tThis file is semi-automatically derived from UnicodeData.txt and
+\t\ta set of manually created annotations using a script to select
+\t\tor suppress information from the data file. The rules used
+\t\tfor this process are aimed at readability for the human reader,
+\t\tat the expense of some details; therefore, this file should not
+\t\tbe parsed for machine-readable information.
+@+\t\tCopyright (c) 1991-2006 Unicode, Inc.
+\t\tFor terms of use, see http://www.unicode.org/terms_of_use.html
