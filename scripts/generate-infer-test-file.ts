@@ -54,7 +54,7 @@ async function run() {
 
     const files = readFiles(versionDir);
 
-    const cases = files.map((filePath) => {
+    const cases = files.filter((file) => !file.endsWith(".comments.txt")).map((filePath) => {
       const fileName = filePath.replace(`${versionDir}/`, "");
       return dedent`
         it("inferHeading(${fileName})", () => {
