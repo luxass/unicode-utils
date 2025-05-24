@@ -1,0 +1,47 @@
+; charset=UTF-8
+@@@ The Unicode Standard 6.3.0
+@@@+ U63M130730.lst
+	Unicode 6.3.0 names list, fourteenth delta.
+	Updated annotation for U+A980.
+	Move subhead for U+200C to include U+200B.
+	Commented out alt glyph lines for 222B, 222C.
+	Updated annotations for U+3001 and U+FF0C.
+	Merged with applicable annotations from DAM1 text.
+	Added annotation for 06BA.
+	Added notice about spelling of Oriya as Odia.
+	Added aliases for 09F0 and 09F1.
+	Added annotations and xrefs for 0022, 0027, 05F3, 05F4.
+	Tweaked annotations for 0022, 0027.
+	Added subhead for new bidi format controls at 2066.
+	Added formal name aliases for 122D4 and 122D5.
+	Update xref for 2EE7.
+	Added xrefs for 2696, 1F40F, 264E, 2648.
+	Added notice for Bengali block.
+	Adjustments for adding 061C to repertoire.
+	Added annotation for A9CF.
+	Added annotations for 2592.
+	Added annotation for 111C4.
+	Updated aliases for FEFF.
+	Added xrefs for 2294 and 2A03.
+	Added xrefs for 002D and 2043.
+	Updated annotations for noncharacters, consistent with Corrigendum #9.
+	Updated annotation for 0024.
+	Updated annotation for 0B83.
+	Added annotation for 06AA.
+	Updated notice at 2500.
+	Updated subheads for various Jamo blocks.
+	Updated annotations and cross-references for several math characters.
+	Updated casing for two Assamese annotations.
+	Removed extraneous tab in entry for 1F4AE.
+	Added several explicit standardized variant summary headers.
+	Added notice about the exceptional bidi behavior of FD3E and FD3F.
+	Added xrefs for diamonds and squares related to modal logic.
+	Removed obelus as alias for 2020.
+	This file is semi-automatically derived from UnicodeData.txt and
+	a set of manually created annotations using a script to select
+	or suppress information from the data file. The rules used
+	for this process are aimed at readability for the human reader,
+	at the expense of some details; therefore, this file should not
+	be parsed for machine-readable information.
+@+ Copyright (c) 1991-2013 Unicode, Inc.
+	For terms of use, see http://www.unicode.org/terms_of_use.html
