@@ -35,8 +35,8 @@ export {
   stripHex,
 } from "./hexcodes";
 export {
-  hasUCDPath,
-  mapToUCDPathVersion,
-  UNICODE_TO_UCD_PATH_MAPPINGS,
+  hasUCDFolderPath,
+  resolveUCDVersion,
+  UNICODE_TO_UCD_VERSION_MAPPINGS,
 } from "./mappings";
 export type { UCDSectionWithLines } from "./types";
