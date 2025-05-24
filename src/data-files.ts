@@ -175,7 +175,7 @@ export function parseSections(content: string): Map<string, UCDSectionWithLines>
 
     if (isCommentLine(line)) {
       // skip boundaries lines
-      if (isHashBoundary(line) || isEqualsBoundary(line)) {
+      if (isBoundaryLine(line)) {
         continue;
       }
 
@@ -268,16 +268,15 @@ export function parseDataFileHeading(content: string): string | undefined {
       // add line to heading
       heading += `${line}\n`;
 
-      const hashBoundary = isHashBoundary(line);
-      const equalsBoundary = isEqualsBoundary(line);
+      const boundaryLine = isBoundaryLine(line);
 
-      if (hashBoundary || equalsBoundary) {
+      if (boundaryLine) {
         lastBoundaryLineIndex = i;
       }
 
       // If this is a boundary pattern followed by a non-comment line,
       // we might be at the end of the heading section
-      if ((hashBoundary || equalsBoundary) && nextLine && !isCommentLine(nextLine)) {
+      if ((boundaryLine) && nextLine && !isCommentLine(nextLine)) {
         break;
       }
     }
@@ -376,6 +375,33 @@ export function isDashBoundary(line: string): boolean {
   }
 
   return DASH_BOUNDARY_REGEX.test(line);
+}
+
+/**
+ * Determines if a line is any type of boundary line.
+ *
+ * A boundary line is any line that matches one of the boundary patterns:
+ * hash boundary, equals boundary, or dash boundary. These patterns are used
+ * in Unicode data files to separate different sections of content.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line is a boundary line, false otherwise
+ *
+ * @example
+ * ```ts
+ * isBoundaryLine("# #####"); // true (hash boundary)
+ * isBoundaryLine("# ====="); // true (equals boundary)
+ * isBoundaryLine("# -----"); // true (dash boundary)
+ * isBoundaryLine("# Some text"); // false
+ * isBoundaryLine(""); // false
+ * ```
+ */
+export function isBoundaryLine(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  return isHashBoundary(line) || isEqualsBoundary(line) || isDashBoundary(line);
 }
 
 /**
