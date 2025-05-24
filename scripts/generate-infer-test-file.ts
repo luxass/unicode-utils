@@ -69,7 +69,7 @@ async function run() {
     const content = dedent`
     import { describe, expect, it } from "vitest";
     import { mapUCDFiles } from "../__utils";
-    import { inferHeading } from "../src/inference/heading";
+    import { inferHeading } from "../../src/inference/heading";
 
     const ucdFiles = await mapUCDFiles("${formattedVersion}");
 

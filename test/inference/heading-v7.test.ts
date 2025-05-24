@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { inferHeading } from "../../src/inference/heading";
 import { mapUCDFiles } from "../__utils";
-import { inferHeading } from "../src/inference/heading";
 
 const ucdFiles = await mapUCDFiles("v7");
 
