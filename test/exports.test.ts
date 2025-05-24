@@ -10,12 +10,9 @@ it("exports-snapshot", async () => {
 
   expect(manifest.exports).toEqual({
     ".": {
-      DASH_BOUNDARY_REGEX: "object",
-      EQUALS_BOUNDARY_REGEX: "object",
       expandHexRange: "function",
       fromHexToCodepoint: "function",
       getCurrentDraftVersion: "function",
-      HASH_BOUNDARY_REGEX: "object",
       hasSections: "function",
       hasUCDFolderPath: "function",
       inferFileName: "function",
@@ -42,6 +39,12 @@ it("exports-snapshot", async () => {
       UNICODE_TO_UCD_VERSION_MAPPINGS: "object",
       UNICODE_VERSION_METADATA: "object",
     },
+    "./constants": {
+      UCD_PATH_MAPPINGS: "object",
+      UNICODE_DRAFT_VERSION: "string",
+      UNICODE_STABLE_VERSION: "string",
+      UNICODE_VERSION_METADATA: "object",
+    },
     "./data-files": {
       hasSections: "function",
       parseDataFileHeading: "function",
@@ -49,9 +52,6 @@ it("exports-snapshot", async () => {
       RawDataFile: "function",
     },
     "./line-helpers": {
-      DASH_BOUNDARY_REGEX: "object",
-      EQUALS_BOUNDARY_REGEX: "object",
-      HASH_BOUNDARY_REGEX: "object",
       inferFileName: "function",
       inferVersion: "function",
       isBoundaryLine: "function",

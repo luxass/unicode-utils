@@ -1,6 +1,6 @@
-export const HASH_BOUNDARY_REGEX = /^\s*#\s*#{2,}\s*$/;
-export const EQUALS_BOUNDARY_REGEX = /^\s*#\s*={2,}\s*$/;
-export const DASH_BOUNDARY_REGEX = /^\s*#\s*-{2,}\s*$/;
+const HASH_BOUNDARY_REGEX = /^\s*#\s*#{2,}\s*$/;
+const EQUALS_BOUNDARY_REGEX = /^\s*#\s*={2,}\s*$/;
+const DASH_BOUNDARY_REGEX = /^\s*#\s*-{2,}\s*$/;
 
 /**
  * Determines if a line is an End-of-File (EOF) marker.
