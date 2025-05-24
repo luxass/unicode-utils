@@ -1,0 +1,28 @@
+# NamedSequences-6.0.0.txt
+# Date: 2010-05-18, 10:48:00 PDT [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2010 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Code point sequences in the UCD use spaces as delimiters.
+# The corresponding format for a USI in ISO/IEC 10646 uses
+# comma delimitation and angle brackets. Thus, a named sequence
+# of the form:
+#
+# EXAMPLE NAME;1000 1001 1002
+#
+# in this data file, would correspond to a 10646 USI as follows:
+#
+# <1000, 1001, 1002> 
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+
+# ================================================
