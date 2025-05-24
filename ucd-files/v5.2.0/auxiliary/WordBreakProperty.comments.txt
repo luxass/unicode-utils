@@ -1,0 +1,15 @@
+# WordBreakProperty-5.2.0.txt
+# Date: 2009-07-12, 04:17:35 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2009 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Property:	Word_Break
+
+#  All code points not explicitly listed for Word_Break
+#  have the value Other (XX).
+
