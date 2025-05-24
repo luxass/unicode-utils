@@ -6,7 +6,7 @@ import { openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
 
-const UCD_VERSION = "v5.1.0";
+const UCD_VERSION = "v7.0.0";
 const MAX_LINES = 150;
 const DEFAULT_EXCLUDED_FILES = [".comments.txt"];
 const ADDITIONAL_EXCLUDED_FILES: string[] = [
