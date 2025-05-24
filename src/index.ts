@@ -13,6 +13,7 @@ export {
   hasSections,
   inferFileName,
   inferVersion,
+  isBoundaryLine,
   isCommentLine,
   isDashBoundary,
   isEmptyLine,
