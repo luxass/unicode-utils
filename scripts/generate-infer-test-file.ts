@@ -1,12 +1,8 @@
 /* eslint-disable node/prefer-global/process */
-import { exec } from "node:child_process";
 import { existsSync, readdirSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { promisify } from "node:util";
 import { dedent } from "@luxass/utils";
-
-const execAsync = promisify(exec);
 
 async function run() {
   const ucdFilesDir = join(process.cwd(), "ucd-files");
@@ -54,29 +50,32 @@ async function run() {
 
     const files = readFiles(versionDir);
 
-    const cases = files.filter((file) => !file.endsWith(".comments.txt")).map((filePath) => {
-      const fileName = filePath.replace(`${versionDir}/`, "");
-      return dedent`
-        it("inferHeading(${fileName})", () => {
-          const content = ucdFiles.file("${fileName}");
-          const expected = ucdFiles.expected("${fileName}.comments.txt");
+    const cases = files
+      .filter((file) => !file.endsWith(".comments.txt"))
+      .map((filePath) => {
+        const fileName = filePath.replace(`${versionDir}/`, "");
+        return dedent`
+          it("inferHeading(${fileName})", () => {
+              const content = ucdFiles.file("${fileName}");
+              const expected = ucdFiles.expected("${fileName}.comments.txt");
 
-          expect(inferHeading(content)).toBe(expected);
-        });
-    `;
-    }).join("\n\n");
+              expect(inferHeading(content)).toBe(expected);
+          });
+        `;
+      })
+      .join("\n\n");
 
     const content = dedent`
-    import { describe, expect, it } from "vitest";
-    import { mapUCDFiles } from "../__utils";
-    import { inferHeading } from "../src/inference/heading";
+      import { describe, expect, it } from "vitest";
+      import { inferHeading } from "../../src/inference/heading";
+      import { mapUCDFiles } from "../__utils";
 
-    const ucdFiles = await mapUCDFiles("${formattedVersion}");
+      const ucdFiles = await mapUCDFiles("${formattedVersion}");
 
-    describe("heading inference ${formattedVersion}", async () => {
-      ${cases}
-    });
-  `;
+      describe("heading inference ${formattedVersion}", async () => {
+        %CASES%
+      });
+    `.replace("%CASES%", dedent(cases));
 
     console.log(`Test file generated: heading-${formattedVersion}.test.ts`);
     writeFile(`./test/inference/heading-${formattedVersion}.test.ts`, content, "utf-8");
@@ -84,9 +83,6 @@ async function run() {
 
   await Promise.all(promises);
   console.log("All test files generated successfully.");
-
-  // format the generated test files
-  await execAsync("pnpm eslint --fix ./test/inference/**/*.test.ts");
 }
 
 run().catch((err) => {
