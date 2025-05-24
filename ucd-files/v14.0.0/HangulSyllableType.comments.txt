@@ -1,0 +1,19 @@
+# HangulSyllableType-14.0.0.txt
+# Date: 2021-03-08, 19:35:46 GMT
+# © 2021 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Property:	Hangul_Syllable_Type
+
+#  All code points not explicitly listed for Hangul_Syllable_Type
+#  have the value Not_Applicable (NA).
+
+# @missing: 0000..10FFFF; Not_Applicable
+
+# ================================================
