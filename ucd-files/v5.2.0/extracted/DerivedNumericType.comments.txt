@@ -1,0 +1,18 @@
+# DerivedNumericType-5.2.0.txt
+# Date: 2009-05-28, 20:37:44 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2009 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Numeric Type (from UnicodeData.txt, field 6/7/8 plus Unihan Database: see UAX #44: http://www.unicode.org/reports/tr44/)
+
+#  All code points not explicitly listed for Numeric_Type
+#  have the value None.
+
+# @missing: 0000..10FFFF; None
+
+# ================================================
