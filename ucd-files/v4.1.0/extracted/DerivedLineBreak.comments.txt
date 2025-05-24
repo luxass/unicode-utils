@@ -7,10 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Property:	Line_Break
-
-#  All code points not explicitly listed for Line_Break
-#  have the value Unknown (XX).
-
-# ================================================
