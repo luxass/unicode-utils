@@ -8,7 +8,7 @@ import { describe, expect, it } from "vitest";
 import { inferHeading } from "../../src/inference/heading";
 import { mapUCDFiles } from "../__utils";
 
-const ucdFiles = await mapUCDFiles("v12.1");
+const ucdFiles = await mapUCDFiles("v12.1.0");
 
 describe("heading inference v12.1", async () => {
   it("inferHeading(ArabicShaping.txt)", () => {

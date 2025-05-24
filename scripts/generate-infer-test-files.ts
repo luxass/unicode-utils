@@ -64,7 +64,7 @@ import { describe, expect, it } from "vitest";
 import { inferHeading } from "../../src/inference/heading";
 import { mapUCDFiles } from "../__utils";
 
-const ucdFiles = await mapUCDFiles("${formattedVersion}");
+const ucdFiles = await mapUCDFiles("${version}");
 
 describe("heading inference ${formattedVersion}", async () => {
   ${files
