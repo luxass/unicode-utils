@@ -11,6 +11,7 @@ it("exports-snapshot", async () => {
   expect(manifest.exports).toMatchInlineSnapshot(`
       {
         ".": {
+          "DASH_BOUNDARY_REGEX": "object",
           "EQUALS_BOUNDARY_REGEX": "object",
           "HASH_BOUNDARY_REGEX": "object",
           "RawDataFile": "function",
@@ -27,6 +28,7 @@ it("exports-snapshot", async () => {
           "inferFileName": "function",
           "inferVersion": "function",
           "isCommentLine": "function",
+          "isDashBoundary": "function",
           "isEmptyLine": "function",
           "isEqualsBoundary": "function",
           "isHashBoundary": "function",
@@ -39,6 +41,7 @@ it("exports-snapshot", async () => {
           "stripHex": "function",
         },
         "./data-files": {
+          "DASH_BOUNDARY_REGEX": "object",
           "EQUALS_BOUNDARY_REGEX": "object",
           "HASH_BOUNDARY_REGEX": "object",
           "RawDataFile": "function",
@@ -46,6 +49,7 @@ it("exports-snapshot", async () => {
           "inferFileName": "function",
           "inferVersion": "function",
           "isCommentLine": "function",
+          "isDashBoundary": "function",
           "isEmptyLine": "function",
           "isEqualsBoundary": "function",
           "isHashBoundary": "function",

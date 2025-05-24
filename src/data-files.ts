@@ -2,6 +2,7 @@ import type { UCDSectionWithLines } from "./types";
 
 export const HASH_BOUNDARY_REGEX = /^\s*#\s*#{2,}\s*$/;
 export const EQUALS_BOUNDARY_REGEX = /^\s*#\s*={2,}\s*$/;
+export const DASH_BOUNDARY_REGEX = /^\s*#\s*-{2,}\s*$/;
 
 /**
  * Represents a raw Unicode data file with methods to access its content.
@@ -351,6 +352,30 @@ export function isEqualsBoundary(line: string): boolean {
   }
 
   return EQUALS_BOUNDARY_REGEX.test(line);
+}
+
+/**
+ * Determines if a line contains a dash boundary pattern.
+ *
+ * A dash boundary is a line containing a pattern like "# ---" (# followed by multiple -).
+ * These patterns are used in Unicode data files to separate different sections of content.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line contains a dash boundary pattern, false otherwise
+ *
+ * @example
+ * ```ts
+ * isDashBoundary("# -----"); // true
+ * isDashBoundary("# Some text"); // false
+ * isDashBoundary(""); // false
+ * ```
+ */
+export function isDashBoundary(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  return DASH_BOUNDARY_REGEX.test(line);
 }
 
 /**
