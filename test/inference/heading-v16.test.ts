@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { inferHeading } from "../../src/inference/heading";
 import { mapUCDFiles } from "../__utils";
 
-const ucdFiles = await mapUCDFiles("v16");
+const ucdFiles = await mapUCDFiles("v16.0.0");
 
 describe("heading inference v16", async () => {
   it("inferHeading(ArabicShaping.txt)", () => {
@@ -402,5 +402,10 @@ describe("heading inference v16", async () => {
     const expected = ucdFiles.expected("extracted/DerivedNumericValues.txt.comments.txt");
 
     expect(inferHeading(content)).toBe(expected);
+  });
+
+  it("ensure that all files have been tested", () => {
+    expect(ucdFiles.files).toEqual([]);
+    expect(ucdFiles.files.length).toBe(0);
   });
 });

@@ -71,10 +71,16 @@ async function run() {
     import { mapUCDFiles } from "../__utils";
     import { inferHeading } from "../../src/inference/heading";
 
-    const ucdFiles = await mapUCDFiles("${formattedVersion}");
+    const ucdFiles = await mapUCDFiles("${version}");
 
     describe("heading inference ${formattedVersion}", async () => {
       ${cases}
+
+
+      it("ensure that all files have been tested", () => {
+        expect(ucdFiles.files).toEqual([]);
+        expect(ucdFiles.files.length).toBe(0);
+      });
     });
   `;
 
