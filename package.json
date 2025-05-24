@@ -22,7 +22,9 @@
   ],
   "exports": {
     ".": "./dist/index.js",
+    "./constants": "./dist/constants.js",
     "./data-files": "./dist/data-files.js",
+    "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -53,7 +55,7 @@
     "eslint-plugin-format": "^1.0.1",
     "msw": "^2.8.4",
     "publint": "^0.3.12",
-    "tsdown": "^0.12.1",
+    "tsdown": "^0.12.3",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "vitest": "^3.1.4",
