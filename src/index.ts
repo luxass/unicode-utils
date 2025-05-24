@@ -7,12 +7,14 @@ export {
   type UnicodeVersionMetadata,
 } from "./constants";
 export {
+  DASH_BOUNDARY_REGEX,
   EQUALS_BOUNDARY_REGEX,
   HASH_BOUNDARY_REGEX,
   hasSections,
   inferFileName,
   inferVersion,
   isCommentLine,
+  isDashBoundary,
   isEmptyLine,
   isEqualsBoundary,
   isHashBoundary,
