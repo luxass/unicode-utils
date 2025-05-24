@@ -1,0 +1,23 @@
+# DerivedNumericType-10.0.0.txt
+# Date: 2017-02-14, 04:26:10 GMT
+# © 2017 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Derived Property:   Numeric_Type
+#  The values are based on fields 6-8 of UnicodeData.txt, plus the fields
+#  kAccountingNumeric, kOtherNumeric, kPrimaryNumeric in the Unicode Han Database (Unihan).
+#  The derivations for these values are as follows.
+#   Numeric_Type=Decimal: When there is a value in field 6.
+#   Numeric_Type=Digit:   When there is a value in field 7, but not in field 6.
+#   Numeric_Type=Numeric: When there are values for kAccountingNumeric, kOtherNumeric, kPrimaryNumeric,
+#                         or there is a value in field 8, but not in field 7.
+#   Numeric_Type=None:    Otherwise
+
+#  All code points not explicitly listed for Numeric_Type
+#  have the value None.
