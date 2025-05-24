@@ -40,7 +40,7 @@ async function run() {
     }
 
     function trimVersionString(version: string): string {
-    // remove trailing zeros and dots
+      // remove trailing zeros and dots
       const trimmed = version.replace(/(\.0+)+$/, "").replace(/\.0+$/, "");
       // remove leading zeros
       return trimmed.replace(/^0+(\d)/, "$1");
@@ -50,11 +50,19 @@ async function run() {
 
     const files = readFiles(versionDir);
 
-    const cases = files
-      .filter((file) => !file.endsWith(".comments.txt"))
-      .map((filePath) => {
-        const fileName = filePath.replace(`${versionDir}/`, "");
-        return dedent`
+    const content = `
+import { describe, expect, it } from "vitest";
+import { inferHeading } from "../../src/inference/heading";
+import { mapUCDFiles } from "../__utils";
+
+const ucdFiles = await mapUCDFiles("${formattedVersion}");
+
+describe("heading inference ${formattedVersion}", async () => {
+  ${files
+    .filter((file) => !file.endsWith(".comments.txt"))
+    .map((filePath) => {
+      const fileName = filePath.replace(`${versionDir}/`, "");
+      return `
           it("inferHeading(${fileName})", () => {
               const content = ucdFiles.file("${fileName}");
               const expected = ucdFiles.expected("${fileName}.comments.txt");
@@ -62,20 +70,10 @@ async function run() {
               expect(inferHeading(content)).toBe(expected);
           });
         `;
-      })
-      .join("\n\n");
-
-    const content = dedent`
-      import { describe, expect, it } from "vitest";
-      import { inferHeading } from "../../src/inference/heading";
-      import { mapUCDFiles } from "../__utils";
-
-      const ucdFiles = await mapUCDFiles("${formattedVersion}");
-
-      describe("heading inference ${formattedVersion}", async () => {
-        %CASES%
-      });
-    `.replace("%CASES%", dedent(cases));
+    })
+    .join("\n\n")}
+});
+    `;
 
     console.log(`Test file generated: heading-${formattedVersion}.test.ts`);
     writeFile(`./test/inference/heading-${formattedVersion}.test.ts`, content, "utf-8");
