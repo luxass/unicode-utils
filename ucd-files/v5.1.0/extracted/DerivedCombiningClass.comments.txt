@@ -1,0 +1,14 @@
+# DerivedCombiningClass-5.1.0.txt
+# Date: 2008-03-20, 17:54:45 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+
+# ================================================
+
+# Combining Class (listing UnicodeData.txt, field 3: see UCD.html)
+
+#  All code points not explicitly listed for Canonical_Combining_Class
+#  have the value Not_Reordered (0).
