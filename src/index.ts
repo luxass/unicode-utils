@@ -23,6 +23,8 @@ export {
   isMissingAnnotation,
   type MissingAnnotation,
   parseDataFileHeading,
+  type ParsedFileName,
+  parseFileNameLine,
   parseMissingAnnotation,
   parseSections,
   RawDataFile,

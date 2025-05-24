@@ -551,7 +551,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
  * @returns {string | undefined} The inferred file name, or undefined if it can't be determined
  */
 export function inferFileName(line: string): string | undefined {
-  return internal_parseFileNameLine(line)?.fileName;
+  return parseFileNameLine(line)?.fileName;
 }
 
 /**
@@ -569,18 +569,39 @@ export function inferFileName(line: string): string | undefined {
  * @returns {string | undefined} The inferred version number, or undefined if it can't be determined
  */
 export function inferVersion(line: string): string | undefined {
-  return internal_parseFileNameLine(line)?.version;
+  return parseFileNameLine(line)?.version;
 }
 
-interface ParsedFileName {
+export interface ParsedFileName {
   fileName: string;
   version: string;
 }
 
 /**
- * @internal
+ * Parses a line from a Unicode data file to extract the file name and version information.
+ *
+ * This function tries to extract file name and version information from a line that
+ * typically appears at the beginning of Unicode data files. It handles various formats:
+ * - "FileName-1.2.3.txt"
+ * - "FileName-1.2.3"
+ * - "FileName.txt"
+ *
+ * The function also properly handles comment markers at the beginning of the line.
+ *
+ * @param {string} line - The line to parse, typically the first line of a Unicode data file
+ * @returns {ParsedFileName | undefined} An object containing the file name and version if
+ *                                      successfully parsed, or undefined if parsing fails
+ *
+ * @example
+ * ```ts
+ * parseFileNameLine("# UnicodeData-14.0.0.txt");
+ * // Returns { fileName: "UnicodeData", version: "14.0.0" }
+ *
+ * parseFileNameLine("# ArabicShaping.txt");
+ * // Returns { fileName: "ArabicShaping", version: undefined }
+ * ```
  */
-function internal_parseFileNameLine(line: string): ParsedFileName | undefined {
+export function parseFileNameLine(line: string): ParsedFileName | undefined {
   if (!line) {
     return;
   }
