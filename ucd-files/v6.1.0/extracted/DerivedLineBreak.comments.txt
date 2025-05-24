@@ -1,0 +1,9 @@
+# DerivedLineBreak-6.1.0.txt
+# Date: 2011-11-27, 05:10:24 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2011 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
