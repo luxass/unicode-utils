@@ -11,7 +11,7 @@ export function dataFileFixture(version: string, file: string) {
 
 export function ucdFiles(version: string, file: string) {
   return readFileSync(
-    join(__dirname, "../ucd-files", `v${version}`, file),
+    join(__dirname, "../ucd-files", version, file),
     "utf-8",
   );
 }
@@ -21,7 +21,7 @@ export async function mapUCDFiles(version: string) {
   const globbedFiles = glob([
     "**/*.txt",
   ], {
-    cwd: join(__dirname, "../ucd-files", `v${version}`),
+    cwd: join(__dirname, "../ucd-files", version),
     exclude(fileName) {
       // exclude files that end with .comments.txt
       return fileName.endsWith(".comments.txt");
@@ -38,11 +38,11 @@ export async function mapUCDFiles(version: string) {
       if (!file.endsWith(".comments.txt")) {
         throw new Error(`File ${file} is not a comment file`);
       }
-      const filePath = join(__dirname, "../ucd-files", `v${version}`, file);
+      const filePath = join(__dirname, "../ucd-files", version, file);
       return readFileSync(filePath, "utf-8") || null;
     },
     file(file: string) {
-      const filePath = join(__dirname, "../ucd-files", `v${version}`, file);
+      const filePath = join(__dirname, "../ucd-files", version, file);
 
       // if the file is not in the list, throw an error.
       // if the file is in the list, read the file and remove the file from the list
