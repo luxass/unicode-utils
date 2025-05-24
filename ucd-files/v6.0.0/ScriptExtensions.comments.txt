@@ -1,0 +1,18 @@
+# ScriptExtensions-6.0.0.txt
+# Date: 2010-08-30, 01:48:36 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2010 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# The Script Extensions contain data about characters that belong to multiple scripts.
+# This data is provisional, and expected to change over time, as more information becomes available.
+# The script values are space-delimited short values, such as Hang for Hangul.
+# For more information, see UAX #24: http://www.unicode.org/reports/tr24/.
+
+# ================================================
+
+# Property:	Script_Extensions
+
+# ================================================
