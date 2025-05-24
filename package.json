@@ -23,6 +23,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./data-files": "./dist/data-files.js",
+    "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
