@@ -1,0 +1,24 @@
+# Blocks-4.1.0.txt
+# Date: 2005-1-31, 16:50 [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2005 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+#
+# Note:   The casing of block names is not normative.
+#         For example, "Basic Latin" and "BASIC LATIN" are equivalent.
+#
+# Format:
+# Start Code..End Code; Block Name
+
+# ================================================
+
+# Note:   When comparing block names, casing, whitespace, hyphens,
+#         and underbars are ignored.
+#         For example, "Latin Extended-A" and "latin extended a" are equivalent.
+#         For more information on the comparison of property values, 
+#            see UCD.html.
+#
+#  All code points not explicitly listed for Block
+#  have the value No_Block.

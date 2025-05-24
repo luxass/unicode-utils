@@ -1,0 +1,19 @@
+@@@\tThe Unicode Standard 4.1
+@@@+\tU41M050317.lst
+\tDraft Unicode 4.1 names list.
+\tMajor merger of post-Unicode 4.0 additions with Amd1 name file (xia050208.lst).
+\tAccumulation of fixes post-Unicode 4.0. (5th collection)
+\tAdd alias for 2D53.
+\tCorrected alias for 2697.
+\tSubdivided headers for Modifier Tone Letters.
+\tAdd xrefs for 1DC0 and 1DC3.
+\tUpdated annotation for 301C.
+\tAdd xref to 2026 and 22EE for FE19.
+\tThis file is semi-automatically derived from UnicodeData.txt and
+\ta set of manually created annotations using a script to select
+\tor suppress information from the data file. The rules used
+\tfor this process are aimed at readability for the human reader,
+\tat the expense of some details; therefore, this file should not
+\tbe parsed for machine-readable information.
+@+\t\tCopyright (c) 1991-2005 Unicode, Inc.
+\tFor terms of use, see http://www.unicode.org/terms_of_use.html
