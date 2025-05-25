@@ -1,5 +1,6 @@
 import type { DataFileRootNode } from "./datafile/ast";
 import type { UCDSectionWithLines } from "./types";
+import { parseDataFile } from "./datafile/parser";
 import {
   inferFileName,
   inferVersion,
@@ -77,6 +78,8 @@ export class RawDataFile {
     if (content == null || content.trim() === "") {
       throw new Error("content is empty");
     }
+
+    this.ast = parseDataFile(content);
 
     this.rawContent = this.content = content;
     this.heading = parseDataFileHeading(content);
