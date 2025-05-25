@@ -1,7 +1,7 @@
 import type { RootNode } from "./datafile/ast";
 import type { UCDSectionWithLines } from "./types";
 import { parseDataFileIntoAst } from "./datafile/parser";
-import { inferHeadingFromAST } from "./inference/ast-heading";
+import { inferHeadingFromAST } from "./inference/heading";
 import {
   inferFileName,
   inferVersion,
