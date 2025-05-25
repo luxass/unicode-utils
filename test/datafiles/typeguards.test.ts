@@ -113,15 +113,24 @@ describe("ast type guards", () => {
   });
 
   describe("invalid node", () => {
-    it("should return false for non-node objects", () => {
-      const invalidNode = { type: "invalid", value: "Invalid data" };
-      expect(isDataFileNode(invalidNode)).toBe(false);
-      expect(isDataFileCommentNode(invalidNode)).toBe(false);
-      expect(isDataFileBoundaryNode(invalidNode)).toBe(false);
-      expect(isDataFileDataNode(invalidNode)).toBe(false);
-      expect(isDataFileEmptyNode(invalidNode)).toBe(false);
-      expect(isDataFileUnknownNode(invalidNode)).toBe(false);
-      expect(isDataFileRootNode(invalidNode)).toBe(false);
+    it.each([
+      { case: "missing raw property", value: { type: "invalid", value: "Invalid data" } },
+      { case: "null value", value: null },
+      { case: "undefined value", value: undefined },
+      { case: "primitive string", value: "not an object" },
+      { case: "primitive number", value: 42 },
+      { case: "array", value: [] },
+      { case: "missing type property", value: { raw: "some raw data" } },
+      { case: "non-string type", value: { type: 123, raw: "some raw data" } },
+      { case: "non-string raw", value: { type: "data", raw: 123 } },
+    ])("should return false for $case", ({ value }) => {
+      expect(isDataFileNode(value)).toBe(false);
+      expect(isDataFileCommentNode(value)).toBe(false);
+      expect(isDataFileBoundaryNode(value)).toBe(false);
+      expect(isDataFileDataNode(value)).toBe(false);
+      expect(isDataFileEmptyNode(value)).toBe(false);
+      expect(isDataFileUnknownNode(value)).toBe(false);
+      expect(isDataFileRootNode(value)).toBe(false);
     });
   });
 });
