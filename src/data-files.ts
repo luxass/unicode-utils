@@ -1,3 +1,4 @@
+import type { DataFileRootNode } from "./datafile/ast";
 import type { UCDSectionWithLines } from "./types";
 import {
   inferFileName,
@@ -43,6 +44,13 @@ export class RawDataFile {
   /** The lines of the content, will not include the heading */
   readonly lines: string[] = [];
   readonly heading: string | undefined = undefined;
+
+  /**
+   * The AST representation of the data file.
+   * This is typically used for further processing or analysis of the file structure.
+   * If the file is not parsed into an AST, this will be undefined.
+   */
+  readonly ast: DataFileRootNode | undefined = undefined;
 
   readonly sections: Map<string, UCDSectionWithLines> = new Map();
 

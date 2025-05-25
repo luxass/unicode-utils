@@ -1,3 +1,5 @@
+import { invariant } from "@luxass/utils";
+
 const HASH_BOUNDARY_REGEX = /^\s*#\s*#{2,}\s*$/;
 const EQUALS_BOUNDARY_REGEX = /^\s*#\s*={2,}\s*$/;
 const DASH_BOUNDARY_REGEX = /^\s*#\s*-{2,}\s*$/;
@@ -120,6 +122,42 @@ export function isBoundaryLine(line: string): boolean {
   }
 
   return isHashBoundary(line) || isEqualsBoundary(line) || isDashBoundary(line);
+}
+
+export type BoundaryStyle = "#" | "=" | "-";
+
+/**
+ * Extracts the style character from a boundary line.
+ *
+ * This function determines which type of boundary character is used in the line:
+ * '#', '=', or '-'. It checks the line against each boundary pattern and returns
+ * the corresponding character.
+ *
+ * @param {string} line - The boundary line to analyze
+ * @returns {BoundaryStyle} The boundary style character ('#', '=', or '-')
+ * @throws {Error} If the line is not a valid boundary line
+ *
+ * @example
+ * ```ts
+ * getBoundaryLineStyle("# #####"); // returns "#"
+ * getBoundaryLineStyle("# ====="); // returns "="
+ * getBoundaryLineStyle("# -----"); // returns "-"
+ * ```
+ */
+export function getBoundaryLineStyle(line: string): BoundaryStyle {
+  if (isHashBoundary(line)) {
+    return "#";
+  }
+
+  if (isEqualsBoundary(line)) {
+    return "=";
+  }
+
+  if (isDashBoundary(line)) {
+    return "-";
+  }
+
+  throw new Error(`invalid boundary style for line: ${line}`);
 }
 
 /**
