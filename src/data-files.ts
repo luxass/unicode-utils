@@ -1,6 +1,7 @@
 import type { RootNode } from "./datafile/ast";
 import type { UCDSectionWithLines } from "./types";
 import { parseDataFileIntoAst } from "./datafile/parser";
+import { inferHeadingFromAST } from "./inference/ast-heading";
 import {
   inferFileName,
   inferVersion,
@@ -44,7 +45,7 @@ export class RawDataFile {
 
   /** The lines of the content, will not include the heading */
   readonly lines: string[] = [];
-  readonly heading: string | undefined = undefined;
+  readonly heading: string | null = null;
 
   /**
    * The AST representation of the data file.
@@ -82,7 +83,7 @@ export class RawDataFile {
     this.ast = parseDataFileIntoAst(content);
 
     this.rawContent = this.content = content;
-    this.heading = parseDataFileHeading(content);
+    this.heading = inferHeadingFromAST(this.ast);
 
     if (this.heading != null) {
       this.content = content.replace(this.heading, "").trim();

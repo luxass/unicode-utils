@@ -24,7 +24,7 @@ import type {
  * }
  * ```
  */
-export function isDataFileNode(node: unknown): node is Node {
+export function isNode(node: unknown): node is Node {
   return (
     typeof node === "object"
     && node !== null
@@ -51,8 +51,8 @@ export function isDataFileNode(node: unknown): node is Node {
  * }
  * ```
  */
-export function isDataFileCommentNode(node: unknown): node is CommentNode {
-  return isDataFileNode(node) && node.type === "comment";
+export function isCommentNode(node: unknown): node is CommentNode {
+  return isNode(node) && node.type === "comment";
 }
 
 /**
@@ -71,8 +71,8 @@ export function isDataFileCommentNode(node: unknown): node is CommentNode {
  * }
  * ```
  */
-export function isDataFileBoundaryNode(node: unknown): node is BoundaryNode {
-  return isDataFileNode(node) && node.type === "boundary";
+export function isBoundaryNode(node: unknown): node is BoundaryNode {
+  return isNode(node) && node.type === "boundary";
 }
 
 /**
@@ -91,8 +91,8 @@ export function isDataFileBoundaryNode(node: unknown): node is BoundaryNode {
  * }
  * ```
  */
-export function isDataFileDataNode(node: unknown): node is DataNode {
-  return isDataFileNode(node) && node.type === "data";
+export function isDataNode(node: unknown): node is DataNode {
+  return isNode(node) && node.type === "data";
 }
 
 /**
@@ -111,8 +111,8 @@ export function isDataFileDataNode(node: unknown): node is DataNode {
  * }
  * ```
  */
-export function isDataFileEmptyNode(node: unknown): node is EmptyNode {
-  return isDataFileNode(node) && node.type === "empty";
+export function isEmptyNode(node: unknown): node is EmptyNode {
+  return isNode(node) && node.type === "empty";
 }
 
 /**
@@ -131,8 +131,8 @@ export function isDataFileEmptyNode(node: unknown): node is EmptyNode {
  * }
  * ```
  */
-export function isDataFileRootNode(node: unknown): node is RootNode {
-  return isDataFileNode(node) && node.type === "root";
+export function isRootNode(node: unknown): node is RootNode {
+  return isNode(node) && node.type === "root";
 }
 
 /**
@@ -151,6 +151,6 @@ export function isDataFileRootNode(node: unknown): node is RootNode {
  * }
  * ```
  */
-export function isDataFileUnknownNode(node: unknown): node is UnknownNode {
-  return isDataFileNode(node) && node.type === "unknown";
+export function isUnknownNode(node: unknown): node is UnknownNode {
+  return isNode(node) && node.type === "unknown";
 }
