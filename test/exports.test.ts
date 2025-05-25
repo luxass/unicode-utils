@@ -12,6 +12,7 @@ it("exports-snapshot", async () => {
     ".": {
       expandHexRange: "function",
       fromHexToCodepoint: "function",
+      getBoundaryLineStyle: "function",
       getCurrentDraftVersion: "function",
       hasSections: "function",
       hasUCDFolderPath: "function",
@@ -52,6 +53,7 @@ it("exports-snapshot", async () => {
       RawDataFile: "function",
     },
     "./line-helpers": {
+      getBoundaryLineStyle: "function",
       inferFileName: "function",
       inferVersion: "function",
       isBoundaryLine: "function",
