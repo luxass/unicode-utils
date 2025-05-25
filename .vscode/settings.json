@@ -3,6 +3,10 @@
     "*.txt": "${capture}.comments.txt"
   },
   "[plaintext]": {
-    "editor.trimAutoWhitespace": false
+    "editor.trimAutoWhitespace": false,
+    "files.trimTrailingWhitespace": false
+  },
+  "files.watcherExclude": {
+    "ucd-files/**": true
   }
 }
