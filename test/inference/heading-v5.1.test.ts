@@ -5,290 +5,331 @@
  *  pnpm run generate:infer-test-files
  */
 import { describe, expect, it } from "vitest";
-import { inferHeading } from "../../src/inference/heading";
+import { parseDataFileIntoAst } from "../../src/datafile/parser";
+import { inferHeadingFromAST } from "../../src/inference/heading";
 import { mapUCDFiles } from "../__utils";
 
 const ucdFiles = await mapUCDFiles("v5.1.0");
 
 describe.todo("heading inference v5.1", async () => {
-  it("inferHeading(ArabicShaping.txt)", () => {
+  it("inferHeadingFromAST(ArabicShaping.txt)", () => {
     const content = ucdFiles.file("ArabicShaping.txt");
     const expected = ucdFiles.expected("/ArabicShaping.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(BidiMirroring.txt)", () => {
+  it("inferHeadingFromAST(BidiMirroring.txt)", () => {
     const content = ucdFiles.file("BidiMirroring.txt");
     const expected = ucdFiles.expected("/BidiMirroring.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(Blocks.txt)", () => {
+  it("inferHeadingFromAST(Blocks.txt)", () => {
     const content = ucdFiles.file("Blocks.txt");
     const expected = ucdFiles.expected("/Blocks.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(CaseFolding.txt)", () => {
+  it("inferHeadingFromAST(CaseFolding.txt)", () => {
     const content = ucdFiles.file("CaseFolding.txt");
     const expected = ucdFiles.expected("/CaseFolding.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(CompositionExclusions.txt)", () => {
+  it("inferHeadingFromAST(CompositionExclusions.txt)", () => {
     const content = ucdFiles.file("CompositionExclusions.txt");
     const expected = ucdFiles.expected("/CompositionExclusions.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(DerivedAge.txt)", () => {
+  it("inferHeadingFromAST(DerivedAge.txt)", () => {
     const content = ucdFiles.file("DerivedAge.txt");
     const expected = ucdFiles.expected("/DerivedAge.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(DerivedCoreProperties.txt)", () => {
+  it("inferHeadingFromAST(DerivedCoreProperties.txt)", () => {
     const content = ucdFiles.file("DerivedCoreProperties.txt");
     const expected = ucdFiles.expected("/DerivedCoreProperties.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(DerivedNormalizationProps.txt)", () => {
+  it("inferHeadingFromAST(DerivedNormalizationProps.txt)", () => {
     const content = ucdFiles.file("DerivedNormalizationProps.txt");
     const expected = ucdFiles.expected("/DerivedNormalizationProps.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(EastAsianWidth.txt)", () => {
+  it("inferHeadingFromAST(EastAsianWidth.txt)", () => {
     const content = ucdFiles.file("EastAsianWidth.txt");
     const expected = ucdFiles.expected("/EastAsianWidth.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(HangulSyllableType.txt)", () => {
+  it("inferHeadingFromAST(HangulSyllableType.txt)", () => {
     const content = ucdFiles.file("HangulSyllableType.txt");
     const expected = ucdFiles.expected("/HangulSyllableType.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(Index.txt)", () => {
+  it("inferHeadingFromAST(Index.txt)", () => {
     const content = ucdFiles.file("Index.txt");
     const expected = ucdFiles.expected("/Index.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(Jamo.txt)", () => {
+  it("inferHeadingFromAST(Jamo.txt)", () => {
     const content = ucdFiles.file("Jamo.txt");
     const expected = ucdFiles.expected("/Jamo.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(LineBreak.txt)", () => {
+  it("inferHeadingFromAST(LineBreak.txt)", () => {
     const content = ucdFiles.file("LineBreak.txt");
     const expected = ucdFiles.expected("/LineBreak.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(NameAliases.txt)", () => {
+  it("inferHeadingFromAST(NameAliases.txt)", () => {
     const content = ucdFiles.file("NameAliases.txt");
     const expected = ucdFiles.expected("/NameAliases.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(NamedSequences.txt)", () => {
+  it("inferHeadingFromAST(NamedSequences.txt)", () => {
     const content = ucdFiles.file("NamedSequences.txt");
     const expected = ucdFiles.expected("/NamedSequences.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(NamedSequencesProv.txt)", () => {
+  it("inferHeadingFromAST(NamedSequencesProv.txt)", () => {
     const content = ucdFiles.file("NamedSequencesProv.txt");
     const expected = ucdFiles.expected("/NamedSequencesProv.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(NamesList.txt)", () => {
+  it("inferHeadingFromAST(NamesList.txt)", () => {
     const content = ucdFiles.file("NamesList.txt");
     const expected = ucdFiles.expected("/NamesList.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(NormalizationCorrections.txt)", () => {
+  it("inferHeadingFromAST(NormalizationCorrections.txt)", () => {
     const content = ucdFiles.file("NormalizationCorrections.txt");
     const expected = ucdFiles.expected("/NormalizationCorrections.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(PropList.txt)", () => {
+  it("inferHeadingFromAST(PropList.txt)", () => {
     const content = ucdFiles.file("PropList.txt");
     const expected = ucdFiles.expected("/PropList.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(PropertyAliases.txt)", () => {
+  it("inferHeadingFromAST(PropertyAliases.txt)", () => {
     const content = ucdFiles.file("PropertyAliases.txt");
     const expected = ucdFiles.expected("/PropertyAliases.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(PropertyValueAliases.txt)", () => {
+  it("inferHeadingFromAST(PropertyValueAliases.txt)", () => {
     const content = ucdFiles.file("PropertyValueAliases.txt");
     const expected = ucdFiles.expected("/PropertyValueAliases.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(ReadMe.txt)", () => {
+  it("inferHeadingFromAST(ReadMe.txt)", () => {
     const content = ucdFiles.file("ReadMe.txt");
     const expected = ucdFiles.expected("/ReadMe.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(Scripts.txt)", () => {
+  it("inferHeadingFromAST(Scripts.txt)", () => {
     const content = ucdFiles.file("Scripts.txt");
     const expected = ucdFiles.expected("/Scripts.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(SpecialCasing.txt)", () => {
+  it("inferHeadingFromAST(SpecialCasing.txt)", () => {
     const content = ucdFiles.file("SpecialCasing.txt");
     const expected = ucdFiles.expected("/SpecialCasing.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(StandardizedVariants.txt)", () => {
+  it("inferHeadingFromAST(StandardizedVariants.txt)", () => {
     const content = ucdFiles.file("StandardizedVariants.txt");
     const expected = ucdFiles.expected("/StandardizedVariants.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(UnicodeData.txt)", () => {
+  it("inferHeadingFromAST(UnicodeData.txt)", () => {
     const content = ucdFiles.file("UnicodeData.txt");
     const expected = ucdFiles.expected("/UnicodeData.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(auxiliary/GraphemeBreakProperty.txt)", () => {
+  it("inferHeadingFromAST(auxiliary/GraphemeBreakProperty.txt)", () => {
     const content = ucdFiles.file("auxiliary/GraphemeBreakProperty.txt");
     const expected = ucdFiles.expected("auxiliary/GraphemeBreakProperty.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(auxiliary/SentenceBreakProperty.txt)", () => {
+  it("inferHeadingFromAST(auxiliary/SentenceBreakProperty.txt)", () => {
     const content = ucdFiles.file("auxiliary/SentenceBreakProperty.txt");
     const expected = ucdFiles.expected("auxiliary/SentenceBreakProperty.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(auxiliary/WordBreakProperty.txt)", () => {
+  it("inferHeadingFromAST(auxiliary/WordBreakProperty.txt)", () => {
     const content = ucdFiles.file("auxiliary/WordBreakProperty.txt");
     const expected = ucdFiles.expected("auxiliary/WordBreakProperty.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedBidiClass.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedBidiClass.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedBidiClass.txt");
     const expected = ucdFiles.expected("extracted/DerivedBidiClass.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedBinaryProperties.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedBinaryProperties.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedBinaryProperties.txt");
     const expected = ucdFiles.expected("extracted/DerivedBinaryProperties.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedCombiningClass.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedCombiningClass.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedCombiningClass.txt");
     const expected = ucdFiles.expected("extracted/DerivedCombiningClass.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedDecompositionType.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedDecompositionType.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedDecompositionType.txt");
     const expected = ucdFiles.expected("extracted/DerivedDecompositionType.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedEastAsianWidth.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedEastAsianWidth.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedEastAsianWidth.txt");
     const expected = ucdFiles.expected("extracted/DerivedEastAsianWidth.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedGeneralCategory.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedGeneralCategory.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedGeneralCategory.txt");
     const expected = ucdFiles.expected("extracted/DerivedGeneralCategory.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedJoiningGroup.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedJoiningGroup.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedJoiningGroup.txt");
     const expected = ucdFiles.expected("extracted/DerivedJoiningGroup.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedJoiningType.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedJoiningType.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedJoiningType.txt");
     const expected = ucdFiles.expected("extracted/DerivedJoiningType.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedLineBreak.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedLineBreak.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedLineBreak.txt");
     const expected = ucdFiles.expected("extracted/DerivedLineBreak.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedNumericType.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedNumericType.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedNumericType.txt");
     const expected = ucdFiles.expected("extracted/DerivedNumericType.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
-  it("inferHeading(extracted/DerivedNumericValues.txt)", () => {
+  it("inferHeadingFromAST(extracted/DerivedNumericValues.txt)", () => {
     const content = ucdFiles.file("extracted/DerivedNumericValues.txt");
     const expected = ucdFiles.expected("extracted/DerivedNumericValues.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });
 
   it("ensure that all files have been tested", () => {

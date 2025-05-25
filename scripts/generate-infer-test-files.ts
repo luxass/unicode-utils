@@ -61,7 +61,8 @@ async function run() {
 
     const content = `${COMMENT}
 import { describe, expect, it } from "vitest";
-import { inferHeading } from "../../src/inference/heading";
+import { parseDataFileIntoAst } from "../../src/datafile/parser";
+import { inferHeadingFromAST } from "../../src/inference/heading";
 import { mapUCDFiles } from "../__utils";
 
 const ucdFiles = await mapUCDFiles("${version}");
@@ -72,11 +73,12 @@ describe("heading inference ${formattedVersion}", async () => {
     .map((filePath) => {
       const fileName = filePath.replace(`${versionDir}/`, "");
       const parsed = path.parse(fileName);
-      return `it("inferHeading(${fileName})", () => {
+      return `it("inferHeadingFromAST(${fileName})", () => {
     const content = ucdFiles.file("${fileName}");
     const expected = ucdFiles.expected("${parsed.dir}/${parsed.name}.comments.txt");
+    const ast = parseDataFileIntoAst(content);
 
-    expect(inferHeading(content)).toBe(expected);
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });`;
     })
     .join("\n\n  ")}
