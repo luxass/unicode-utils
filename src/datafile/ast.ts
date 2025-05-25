@@ -1,60 +1,59 @@
 import type { BoundaryStyle } from "../line-helpers";
 
-export const DataFileNodeTypes = {
-  Root: "root",
-  Comment: "comment",
-  Boundary: "boundary",
-  Data: "data",
-  Empty: "empty",
-  Unknown: "unknown",
+export const NodeTypes = {
+  ROOT: "root",
+  COMMENT: "comment",
+  BOUNDARY: "boundary",
+  DATA: "data",
+  EMPTY: "empty",
+  UNKNOWN: "unknown",
 } as const;
 
-export type DataFileNodeType = typeof DataFileNodeTypes[keyof typeof DataFileNodeTypes];
+export type NodeType = typeof NodeTypes[keyof typeof NodeTypes];
 
-export interface DataFileBaseNode {
-  type: DataFileNodeType;
+export interface BaseNode {
+  type: NodeType;
   value: string;
   raw: string;
   line: number;
 }
 
-export interface DataFileRootNode extends DataFileBaseNode {
+export interface RootNode extends BaseNode {
   type: "root";
-  children: DataFileChildNode[];
+  children: ChildNode[];
   fileName?: string;
   version?: string;
 }
 
-export interface DataFileCommentNode extends DataFileBaseNode {
+export interface CommentNode extends BaseNode {
   type: "comment";
 }
 
-export interface DataFileBoundaryNode extends DataFileBaseNode {
+export interface BoundaryNode extends BaseNode {
   type: "boundary";
   style: BoundaryStyle;
 }
 
-export interface DataFileDataNode extends DataFileBaseNode {
+export interface DataNode extends BaseNode {
   type: "data";
 }
 
-export interface DataFileEmptyNode extends DataFileBaseNode {
+export interface EmptyNode extends BaseNode {
   type: "empty";
 }
 
-export interface DataFileUnknownNode extends DataFileBaseNode {
+export interface UnknownNode extends BaseNode {
   type: "unknown";
   // This can be used for nodes that don't fit any known type
   // or for future extensions
   [key: string]: unknown;
 }
 
-// All node types except root
-export type DataFileChildNode =
-  | DataFileCommentNode
-  | DataFileBoundaryNode
-  | DataFileDataNode
-  | DataFileEmptyNode
-  | DataFileUnknownNode;
+export type ChildNode =
+  | CommentNode
+  | BoundaryNode
+  | DataNode
+  | EmptyNode
+  | UnknownNode;
 
-export type DataFileNode = DataFileRootNode | DataFileChildNode;
+export type Node = RootNode | ChildNode;
