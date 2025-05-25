@@ -80,7 +80,15 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
 }
 
 /**
- * Parses a string content into a DataFileRootNode
+ * Parses a data file content string into a structured DataFileRootNode object.
+ *
+ * This function splits the content by line breaks, processes each line into
+ * appropriate node types (Empty, Boundary, Comment, Data, or Unknown), and
+ * assembles them into a root node with metadata.
+ *
+ * @param {string} content - The full content of the data file to parse
+ * @param {string} [fileName] - Optional explicit file name. If not provided, will be inferred from content
+ * @returns {DataFileRootNode} A structured representation of the data file
  */
 export function parseDataFile(content: string, fileName?: string): DataFileRootNode {
   const children = content
@@ -100,6 +108,9 @@ export function parseDataFile(content: string, fileName?: string): DataFileRootN
 
 /**
  * Creates a text representation of a DataFileNode
+ *
+ * @param {DataFileNode} node - The DataFileNode to convert to string
+ * @returns {string} The raw string representation of the node
  */
 export function stringifyNode(node: DataFileNode): string {
   if (node.type === DataFileNodeTypes.Root) {
@@ -110,6 +121,9 @@ export function stringifyNode(node: DataFileNode): string {
 
 /**
  * Creates a text representation of multiple DataFileNodes
+ *
+ * @param {DataFileChildNode[]} nodes - An array of DataFileChildNode objects to stringify
+ * @returns {string} A string containing the raw representation of all nodes joined by newline characters
  */
 export function stringifyNodes(nodes: DataFileChildNode[]): string {
   return nodes.map((node) => node.raw).join("\n");
