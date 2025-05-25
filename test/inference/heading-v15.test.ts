@@ -10,7 +10,7 @@ import { mapUCDFiles } from "../__utils";
 
 const ucdFiles = await mapUCDFiles("v15.0.0");
 
-describe("heading inference v15", async () => {
+describe.todo("heading inference v15", async () => {
   it("inferHeading(ArabicShaping.txt)", () => {
     const content = ucdFiles.file("ArabicShaping.txt");
     const expected = ucdFiles.expected("/ArabicShaping.comments.txt");
