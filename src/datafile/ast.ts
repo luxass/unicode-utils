@@ -61,18 +61,17 @@ export type DataFileNode = DataFileRootNode | DataFileChildNode;
 
 /**
  * Type guard function that checks if an unknown value is a DataFileNode.
- * A DataFileNode must be an object with a string `type` property and a string `raw` property.
+ * A DataFileNode must be an object with both 'type' and 'raw' properties of the correct types.
  *
- * @param node - The unknown value to check
- * @returns True if the node is a valid DataFileNode, false otherwise
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is DataFileNode} True if the node is a valid DataFileNode, false otherwise
  *
  * @example
  * ```typescript
- * const unknownData = getDataFromSomewhere();
- * if (isDataFileNode(unknownData)) {
- *   // TypeScript now knows unknownData is a DataFileNode
- *   console.log(unknownData.type); // Safe to access
- *   console.log(unknownData.raw);  // Safe to access
+ * const unknownValue = getSomeData();
+ * if (isDataFileNode(unknownValue)) {
+ *   // TypeScript now knows this is a DataFileNode
+ *   console.log(`Node type: ${unknownValue.type}`);
  * }
  * ```
  */
@@ -89,17 +88,17 @@ export function isDataFileNode(node: unknown): node is DataFileNode {
 
 /**
  * Type guard function that checks if an unknown value is a DataFileCommentNode.
- * A DataFileCommentNode is a DataFileNode with type property equal to "comment".
+ * A DataFileCommentNode must be a valid DataFileNode with the type property set to "comment".
  *
- * @param node - The unknown value to check
- * @returns True if the node is a valid DataFileCommentNode, false otherwise
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is DataFileCommentNode} True if the node is a valid DataFileCommentNode, false otherwise
  *
  * @example
  * ```typescript
- * const unknownNode = parseDataFile();
- * if (isDataFileCommentNode(unknownNode)) {
- *   // TypeScript now knows this is a comment node
- *   console.log(`Comment: ${unknownNode.raw}`);
+ * const unknownValue = getSomeData();
+ * if (isDataFileCommentNode(unknownValue)) {
+ *   // TypeScript now knows this is a DataFileCommentNode
+ *   console.log(`Comment node value: ${unknownValue.value}`);
  * }
  * ```
  */
@@ -109,17 +108,17 @@ export function isDataFileCommentNode(node: unknown): node is DataFileCommentNod
 
 /**
  * Type guard function that checks if an unknown value is a DataFileBoundaryNode.
- * A DataFileBoundaryNode is a DataFileNode with type property equal to "boundary".
+ * A DataFileBoundaryNode must be a valid DataFileNode with the type property set to "boundary".
  *
- * @param node - The unknown value to check
- * @returns True if the node is a valid DataFileBoundaryNode, false otherwise
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is DataFileBoundaryNode} True if the node is a valid DataFileBoundaryNode, false otherwise
  *
  * @example
  * ```typescript
- * const unknownNode = parseDataFile();
- * if (isDataFileBoundaryNode(unknownNode)) {
- *   // TypeScript now knows this is a boundary node
- *   console.log(`Boundary: ${unknownNode.raw}`);
+ * const unknownValue = getSomeData();
+ * if (isDataFileBoundaryNode(unknownValue)) {
+ *   // TypeScript now knows this is a DataFileBoundaryNode
+ *   console.log(`Boundary style: ${unknownValue.style}`);
  * }
  * ```
  */
@@ -129,17 +128,17 @@ export function isDataFileBoundaryNode(node: unknown): node is DataFileBoundaryN
 
 /**
  * Type guard function that checks if an unknown value is a DataFileDataNode.
- * A DataFileDataNode is a DataFileNode with type property equal to "data".
+ * A DataFileDataNode must be a valid DataFileNode with the type property set to "data".
  *
- * @param node - The unknown value to check
- * @returns True if the node is a valid DataFileDataNode, false otherwise
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is DataFileDataNode} True if the node is a valid DataFileDataNode, false otherwise
  *
  * @example
  * ```typescript
- * const unknownNode = parseDataFile();
- * if (isDataFileDataNode(unknownNode)) {
- *   // TypeScript now knows this is a data node
- *   processDataContent(unknownNode.raw);
+ * const unknownValue = getSomeData();
+ * if (isDataFileDataNode(unknownValue)) {
+ *   // TypeScript now knows this is a DataFileDataNode
+ *   console.log(`Data node value: ${unknownValue.value}`);
  * }
  * ```
  */
@@ -149,17 +148,17 @@ export function isDataFileDataNode(node: unknown): node is DataFileDataNode {
 
 /**
  * Type guard function that checks if an unknown value is a DataFileEmptyNode.
- * A DataFileEmptyNode is a DataFileNode with type property equal to "empty".
+ * A DataFileEmptyNode must be a valid DataFileNode with the type property set to "empty".
  *
- * @param node - The unknown value to check
- * @returns True if the node is a valid DataFileEmptyNode, false otherwise
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is DataFileEmptyNode} True if the node is a valid DataFileEmptyNode, false otherwise
  *
  * @example
  * ```typescript
- * const unknownNode = parseDataFile();
- * if (isDataFileEmptyNode(unknownNode)) {
- *   // TypeScript now knows this is an empty node
- *   console.log("Found empty line");
+ * const unknownValue = getSomeData();
+ * if (isDataFileEmptyNode(unknownValue)) {
+ *   // TypeScript now knows this is a DataFileEmptyNode
+ *   console.log(`Found empty node: ${unknownValue.raw}`);
  * }
  * ```
  */
@@ -169,17 +168,17 @@ export function isDataFileEmptyNode(node: unknown): node is DataFileEmptyNode {
 
 /**
  * Type guard function that checks if an unknown value is a DataFileRootNode.
- * A DataFileRootNode is a DataFileNode with type property equal to "root".
+ * A DataFileRootNode must be a valid DataFileNode with the type property set to "root".
  *
- * @param node - The unknown value to check
- * @returns True if the node is a valid DataFileRootNode, false otherwise
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is DataFileRootNode} True if the node is a valid DataFileRootNode, false otherwise
  *
  * @example
  * ```typescript
- * const unknownNode = parseDataFile();
- * if (isDataFileRootNode(unknownNode)) {
- *   // TypeScript now knows this is a root node
- *   console.log(`File name: ${unknownNode.fileName}`);
+ * const unknownValue = getSomeData();
+ * if (isDataFileRootNode(unknownValue)) {
+ *   // TypeScript now knows this is a DataFileRootNode
+ *   console.log(`Root node has ${unknownValue.children.length} children`);
  * }
  * ```
  */
