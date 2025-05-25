@@ -4,7 +4,6 @@ import {
   isCommentLine,
   isEmptyLine,
   isEOFMarker,
-  parseFileNameLine,
 } from "../line-helpers";
 
 export function inferHeading(content: string): string | null {
