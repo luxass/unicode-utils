@@ -4,7 +4,29 @@ import { invariant } from "@luxass/utils";
 import { isBoundaryNode, isCommentNode, isEmptyNode } from "../datafile/typeguards";
 import { isEOFMarker } from "../line-helpers";
 
-export function inferHeadingFromAST(root: RootNode): string | null {
+interface HeadingInferenceConfig {
+  /**
+   * Whether to allow empty lines between heading lines.
+   * When false, any empty line will mark the end of the heading.
+   * @default true
+   */
+  allowEmptyLines?: boolean;
+
+  /**
+   * Whether to allow multiple boundary lines in the heading.
+   * When false, only the last boundary line will be included.
+   * @default true
+   */
+  allowMultipleBoundaries?: boolean;
+}
+
+export function inferHeadingFromAST(
+  root: RootNode,
+  config: HeadingInferenceConfig = {
+    allowEmptyLines: true,
+    allowMultipleBoundaries: true,
+  },
+): string | null {
   if (!root || !root.children || root.children.length === 0) {
     return null;
   }
@@ -14,6 +36,7 @@ export function inferHeadingFromAST(root: RootNode): string | null {
   let headingEndNodeIndex: number = -1;
 
   const nodes = root.children;
+  const { allowEmptyLines = true, allowMultipleBoundaries = true } = config;
 
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i];
@@ -49,6 +72,21 @@ export function inferHeadingFromAST(root: RootNode): string | null {
 
       // Before adding this line, check if it marks the end
       if (isBoundaryNode(node)) {
+        if (!allowMultipleBoundaries) {
+          // Look for any previous boundary lines
+          let hasPreviousBoundary = false;
+          for (let k = 0; k < i; k++) {
+            if (isBoundaryNode(nodes[k])) {
+              hasPreviousBoundary = true;
+              break;
+            }
+          }
+          if (hasPreviousBoundary) {
+            headingEndNodeIndex = i;
+            break;
+          }
+        }
+
         // Look ahead to the next non-empty node
         let j = i + 1;
         let foundDataLine = false;
@@ -86,10 +124,19 @@ export function inferHeadingFromAST(root: RootNode): string | null {
       // Add the line to the heading
       heading = `${heading}${node.raw}\n`;
     } else if (isEmptyNode(node)) {
-      // For empty nodes in between comments, preserve them
+      // For empty nodes between comments, preserve them based on config
       if (heading && nextNode && isCommentNode(nextNode)) {
-        heading = `${heading}${node.raw}\n`;
+        if (allowEmptyLines) {
+          heading = `${heading}${node.raw}\n`;
+        } else {
+          headingEndNodeIndex = i;
+          break;
+        }
       } else if (isInHeading) {
+        if (!allowEmptyLines) {
+          headingEndNodeIndex = i;
+          break;
+        }
         // Look ahead for more comment nodes
         let hasMoreComments = false;
 
@@ -129,26 +176,30 @@ export function inferHeadingFromAST(root: RootNode): string | null {
   if (headingEndNodeIndex !== -1) {
     let endNodesWithoutEmpty = headingEndNodeIndex;
 
-    // Keep looking for the last boundary line
-    let lastBoundaryNodeIndex = -1;
-    for (let i = 0; i <= endNodesWithoutEmpty; i++) {
-      if (isBoundaryNode(nodes[i])) {
-        lastBoundaryNodeIndex = i;
+    // Keep looking for the last boundary line if we allow multiple boundaries
+    if (allowMultipleBoundaries) {
+      let lastBoundaryNodeIndex = -1;
+      for (let i = 0; i <= endNodesWithoutEmpty; i++) {
+        if (isBoundaryNode(nodes[i])) {
+          lastBoundaryNodeIndex = i;
+        }
+      }
+
+      if (lastBoundaryNodeIndex !== -1) {
+        endNodesWithoutEmpty = lastBoundaryNodeIndex + 1;
       }
     }
 
-    if (lastBoundaryNodeIndex !== -1) {
-      endNodesWithoutEmpty = lastBoundaryNodeIndex + 1;
-    }
-
-    // Trim empty nodes and bare # nodes at the end
-    while (endNodesWithoutEmpty > 0) {
-      const prevNode = nodes[endNodesWithoutEmpty - 1];
-      const prevValue = prevNode.value.trim();
-      if (prevValue !== "" && prevValue !== "#") {
-        break;
+    // Trim empty nodes and bare # nodes at the end if configured
+    if (allowEmptyLines) {
+      while (endNodesWithoutEmpty > 0) {
+        const prevNode = nodes[endNodesWithoutEmpty - 1];
+        const prevValue = prevNode.value.trim();
+        if (prevValue !== "" && prevValue !== "#") {
+          break;
+        }
+        endNodesWithoutEmpty--;
       }
-      endNodesWithoutEmpty--;
     }
 
     heading = `${nodes
