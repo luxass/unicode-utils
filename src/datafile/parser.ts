@@ -1,9 +1,11 @@
+import type { BoundaryStyle } from "../line-helpers";
 import type {
   DataFileChildNode,
   DataFileNode,
   DataFileRootNode,
 } from "./ast";
 import {
+
   getBoundaryLineStyle,
   inferFileName,
   inferVersion,
@@ -36,12 +38,24 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
   }
 
   if (isBoundaryLine(line)) {
+    let style: BoundaryStyle;
+    try {
+      style = getBoundaryLineStyle(line);
+    } catch {
+      return {
+        type: DataFileNodeTypes.Unknown,
+        value: trimmedLine,
+        raw: line,
+        line: lineNumber,
+      };
+    }
+
     return {
       type: DataFileNodeTypes.Boundary,
       value: trimmedLine,
       raw: line,
       line: lineNumber,
-      style: getBoundaryLineStyle(line),
+      style,
     };
   }
 

@@ -1,5 +1,3 @@
-import { invariant } from "@luxass/utils";
-
 const HASH_BOUNDARY_REGEX = /^\s*#\s*#{2,}\s*$/;
 const EQUALS_BOUNDARY_REGEX = /^\s*#\s*={2,}\s*$/;
 const DASH_BOUNDARY_REGEX = /^\s*#\s*-{2,}\s*$/;
