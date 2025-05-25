@@ -15,7 +15,13 @@ import {
 import { DataFileNodeTypes } from "./ast";
 
 /**
- * Converts a line of text into a DataFileNode
+ * Converts a single line of text into a corresponding AST node for the custom data file format.
+ *
+ * The function classifies the line as empty, boundary, comment, data, or unknown, and returns a node object containing the parsed value, original line, and line number.
+ *
+ * @param line - The line of text to convert.
+ * @param lineNumber - The line number in the source file.
+ * @returns A {@link DataFileChildNode} representing the parsed line.
  */
 function createNode(line: string, lineNumber: number): DataFileChildNode {
   const trimmedLine = line.trim();
@@ -66,7 +72,13 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
 }
 
 /**
- * Parses a string content into a DataFileRootNode
+ * Parses the content of a custom data file into a root AST node.
+ *
+ * Splits the input string into lines, converts each line into a typed child node, and returns a root node containing all children and inferred metadata such as file name and version.
+ *
+ * @param content - The full text content of the data file to parse.
+ * @param fileName - Optional file name to associate with the parsed root node.
+ * @returns A {@link DataFileRootNode} representing the parsed abstract syntax tree of the file.
  */
 export function parseDataFile(content: string, fileName?: string): DataFileRootNode {
   const children = content
@@ -85,7 +97,12 @@ export function parseDataFile(content: string, fileName?: string): DataFileRootN
 }
 
 /**
- * Creates a text representation of a DataFileNode
+ * Converts a {@link DataFileNode} into its text representation.
+ *
+ * If the node is a root node, all child nodes are stringified and joined; otherwise, the node's raw line is returned.
+ *
+ * @param node - The AST node to stringify.
+ * @returns The string representation of the node or its subtree.
  */
 export function stringifyNode(node: DataFileNode): string {
   if (node.type === DataFileNodeTypes.Root) {
@@ -95,7 +112,12 @@ export function stringifyNode(node: DataFileNode): string {
 }
 
 /**
- * Creates a text representation of multiple DataFileNodes
+ * Converts an array of data file AST child nodes into their original text representation.
+ *
+ * Joins the raw line content of each node with newline characters to reconstruct the file segment.
+ *
+ * @param nodes - The array of data file child nodes to stringify.
+ * @returns The combined string representation of the nodes.
  */
 export function stringifyNodes(nodes: DataFileChildNode[]): string {
   return nodes.map((node) => node.raw).join("\n");

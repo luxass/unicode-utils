@@ -98,23 +98,12 @@ export function isDashBoundary(line: string): boolean {
 }
 
 /**
- * Determines if a line is any type of boundary line.
+ * Returns `true` if the line matches any recognized boundary pattern (hash, equals, or dash), otherwise `false`.
  *
- * A boundary line is any line that matches one of the boundary patterns:
- * hash boundary, equals boundary, or dash boundary. These patterns are used
- * in Unicode data files to separate different sections of content.
+ * Boundary lines are used in Unicode data files to separate sections and are identified by lines starting with `#` followed by multiple `#`, `=`, or `-` characters.
  *
- * @param {string} line - The line to check
- * @returns {boolean} True if the line is a boundary line, false otherwise
- *
- * @example
- * ```ts
- * isBoundaryLine("# #####"); // true (hash boundary)
- * isBoundaryLine("# ====="); // true (equals boundary)
- * isBoundaryLine("# -----"); // true (dash boundary)
- * isBoundaryLine("# Some text"); // false
- * isBoundaryLine(""); // false
- * ```
+ * @param line - The line to check.
+ * @returns Whether the line is a boundary line.
  */
 export function isBoundaryLine(line: string): boolean {
   if (!line) {
@@ -127,22 +116,13 @@ export function isBoundaryLine(line: string): boolean {
 export type BoundaryStyle = "#" | "=" | "-";
 
 /**
- * Extracts the style character from a boundary line.
+ * Determines the boundary style character used in a boundary line.
  *
- * This function determines which type of boundary character is used in the line:
- * '#', '=', or '-'. It checks the line against each boundary pattern and returns
- * the corresponding character.
+ * Checks if the given line matches a hash, equals, or dash boundary pattern and returns the corresponding style character.
  *
- * @param {string} line - The boundary line to analyze
- * @returns {BoundaryStyle} The boundary style character ('#', '=', or '-')
- * @throws {Error} If the line is not a valid boundary line
- *
- * @example
- * ```ts
- * getBoundaryLineStyle("# #####"); // returns "#"
- * getBoundaryLineStyle("# ====="); // returns "="
- * getBoundaryLineStyle("# -----"); // returns "-"
- * ```
+ * @param line - The boundary line to analyze.
+ * @returns The boundary style character: `"#"`, `"="`, or `"-"`.
+ * @throws {Error} If the line does not match any recognized boundary pattern.
  */
 export function getBoundaryLineStyle(line: string): BoundaryStyle {
   if (isHashBoundary(line)) {
