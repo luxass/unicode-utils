@@ -18,5 +18,3 @@
 
 
 # ================================================
-
-# All omitted code points have Emoji=No
