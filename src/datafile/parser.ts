@@ -15,6 +15,17 @@ import {
 } from "../line-helpers";
 import { DataFileNodeTypes } from "./ast";
 
+/**
+ * Creates a node object from a single line of a data file.
+ *
+ * This function analyzes the given line and converts it to the appropriate
+ * DataFileChildNode type (Empty, Boundary, Comment, Data, or Unknown)
+ * based on the line's content and structure.
+ *
+ * @param {string} line - The text line to parse into a node
+ * @param {number} lineNumber - The line number in the original file (0-based index)
+ * @returns {DataFileChildNode} A node object representing the parsed line
+ */
 function createNode(line: string, lineNumber: number): DataFileChildNode {
   const trimmedLine = line.trim();
 
