@@ -12,6 +12,7 @@ it("exports-snapshot", async () => {
     ".": {
       expandHexRange: "function",
       fromHexToCodepoint: "function",
+      getBoundaryLineStyle: "function",
       getCurrentDraftVersion: "function",
       hasSections: "function",
       hasUCDFolderPath: "function",
@@ -51,7 +52,18 @@ it("exports-snapshot", async () => {
       parseSections: "function",
       RawDataFile: "function",
     },
+    "./datafile": {
+      DataFileNodeTypes: "object",
+      isDataFileBoundaryNode: "function",
+      isDataFileCommentNode: "function",
+      isDataFileDataNode: "function",
+      isDataFileEmptyNode: "function",
+      isDataFileNode: "function",
+      isDataFileRootNode: "function",
+      isDataFileUnknownNode: "function",
+    },
     "./line-helpers": {
+      getBoundaryLineStyle: "function",
       inferFileName: "function",
       inferVersion: "function",
       isBoundaryLine: "function",

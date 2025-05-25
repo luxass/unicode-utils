@@ -1,4 +1,6 @@
+import type { DataFileRootNode } from "./datafile/ast";
 import type { UCDSectionWithLines } from "./types";
+import { parseDataFileIntoAst } from "./datafile/parser";
 import {
   inferFileName,
   inferVersion,
@@ -44,6 +46,13 @@ export class RawDataFile {
   readonly lines: string[] = [];
   readonly heading: string | undefined = undefined;
 
+  /**
+   * The AST representation of the data file.
+   * This is typically used for further processing or analysis of the file structure.
+   * If the file is not parsed into an AST, this will be undefined.
+   */
+  readonly ast: DataFileRootNode | undefined = undefined;
+
   readonly sections: Map<string, UCDSectionWithLines> = new Map();
 
   /**
@@ -69,6 +78,8 @@ export class RawDataFile {
     if (content == null || content.trim() === "") {
       throw new Error("content is empty");
     }
+
+    this.ast = parseDataFileIntoAst(content);
 
     this.rawContent = this.content = content;
     this.heading = parseDataFileHeading(content);
