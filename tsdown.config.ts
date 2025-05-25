@@ -6,6 +6,7 @@ export default defineConfig({
     "./src/constants.ts",
     "./src/data-files.ts",
     "./src/line-helpers.ts",
+    "./src/datafile.ts",
   ],
   exports: true,
   format: ["esm"],
