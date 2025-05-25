@@ -82,11 +82,11 @@ describe("heading inference ${formattedVersion}", async () => {
       return acc;
     }, {} as Record<string, string[]>))
     .map(([dirPath, fileNames]) => {
-      // Split directory path into segments for nested describes
+      // split directory path into segments for nested describes
       const dirSegments = dirPath.split("/").filter(Boolean);
 
       if (dirSegments.length === 0) {
-        // For root level files
+        // for root level files
         return fileNames
           .map((fileName, idx) => {
             const parsed = path.parse(fileName);
@@ -101,7 +101,7 @@ describe("heading inference ${formattedVersion}", async () => {
           .join("\n\n");
       }
 
-      // Create test cases for files in this directory
+      // create test cases for files in this directory
       const testContent = fileNames
         .map((fileName) => {
           const parsed = path.parse(fileName);
@@ -115,7 +115,7 @@ describe("heading inference ${formattedVersion}", async () => {
         })
         .join("\n\n");
 
-      // Wrap in describe blocks for each directory level
+      // wrap in describe blocks for each directory level
       return dirSegments.reduceRight((content, segment) => {
         return `describe("${segment}", () => {
 ${content}
