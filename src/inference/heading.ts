@@ -1,5 +1,4 @@
 import type { RootNode } from "../datafile/ast";
-
 import { invariant } from "@luxass/utils";
 import { isBoundaryNode, isCommentNode, isEmptyNode } from "../datafile/typeguards";
 import { isEOFMarker } from "../line-helpers";
