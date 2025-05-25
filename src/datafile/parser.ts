@@ -5,7 +5,6 @@ import type {
   DataFileRootNode,
 } from "./ast";
 import {
-
   getBoundaryLineStyle,
   inferFileName,
   inferVersion,
@@ -16,9 +15,6 @@ import {
 } from "../line-helpers";
 import { DataFileNodeTypes } from "./ast";
 
-/**
- * Converts a line of text into a DataFileNode
- */
 function createNode(line: string, lineNumber: number): DataFileChildNode {
   const trimmedLine = line.trim();
 
@@ -90,7 +86,7 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
  * @param {string} [fileName] - Optional explicit file name. If not provided, will be inferred from content
  * @returns {DataFileRootNode} A structured representation of the data file
  */
-export function parseDataFile(content: string, fileName?: string): DataFileRootNode {
+export function parseDataFileIntoAst(content: string, fileName?: string): DataFileRootNode {
   const children = content
     .split(/\r?\n/)
     .map((line, index) => createNode(line, index));
