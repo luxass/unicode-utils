@@ -1,0 +1,38 @@
+# NamedSequencesProv-5.1.0.txt
+# Date: 2008-02-14, 12:17 PST [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+#
+# Provisional Named Sequences
+# Note: This data file contains those named
+#   sequences which have been designated to be provisional,
+#   rather than fully approved.
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries currently in the list.
+
+# ================================================
+
+# Provisional entries for NamedSequences.txt.
+
+# Proposed additions for Tamil. 2007-10-19
+#
+# These Tamil named sequences have been accepted for a future
+# version of the Unicode Standard. 2008-02-08
+#
+# All of the Tamil named sequences will be moved to
+# the approved NamedSequences.txt, once the required
+# synchronization with the normative clause of ISO/IEC 10646
+# has been completed, through the ISO ballotting process.
+#
+# A visual display of the Tamil named sequences is available
+# in the documentation for Unicode 5.1. See:
+# http://www.unicode.org/versions/Unicode5.1.0/

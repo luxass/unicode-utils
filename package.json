@@ -42,7 +42,8 @@
     "test": "vitest --run",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "generate:constants": "tsx scripts/generate-constants.ts"
+    "generate:constants": "tsx scripts/generate-constants.ts",
+    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
   },
   "dependencies": {
     "@luxass/utils": "^2.2.1"

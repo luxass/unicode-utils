@@ -1,0 +1,12 @@
+; charset=UTF-8
+@@@ The Unicode Standard 7.0.0
+@@@+ U70M140523.lst
+	Unicode 7.0.0 final names list.
+	This file is semi-automatically derived from UnicodeData.txt and
+	a set of manually created annotations using a script to select
+	or suppress information from the data file. The rules used
+	for this process are aimed at readability for the human reader,
+	at the expense of some details; therefore, this file should not
+	be parsed for machine-readable information.
+@+ 	Copyright (c) 1991-2014 Unicode, Inc.
+	For terms of use, see http://www.unicode.org/terms_of_use.html

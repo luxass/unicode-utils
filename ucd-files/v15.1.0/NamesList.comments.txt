@@ -1,0 +1,12 @@
+; charset=UTF-8
+@@@ The Unicode Standard 15.1.0
+@@@+ U15M230728.lst
+	Unicode 15.1.0 final names list.
+	This file is semi-automatically derived from UnicodeData.txt and
+	a set of manually created annotations using a script to select
+	or suppress information from the data file. The rules used
+	for this process are aimed at readability for the human reader,
+	at the expense of some details; therefore, this file should not
+	be parsed for machine-readable information.
+@+ 		© 2023 Unicode®, Inc.
+	For terms of use, see https://www.unicode.org/terms_of_use.html

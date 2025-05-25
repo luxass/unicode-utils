@@ -1,0 +1,16 @@
+; charset=UTF-8
+# The Unicode Standard 6.2
+# U62M120808.lst
+# 
+# Unicode 6.2 names list, third delta (converted to UTF-8).
+# Updated more annotations in the Bengali block.
+# Added clarifying annotations for 0342.
+# Updated alias for 1110E.
+# This file is semi-automatically derived from UnicodeData.txt and
+# a set of manually created annotations using a script to select
+# or suppress information from the data file. The rules used
+# for this process are aimed at readability for the human reader,
+# at the expense of some details; therefore, this file should not
+# be parsed for machine-readable information.
+# Copyright (c) 1991-2012 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html

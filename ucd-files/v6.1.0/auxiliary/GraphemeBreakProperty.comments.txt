@@ -1,0 +1,18 @@
+# GraphemeBreakProperty-6.1.0.txt
+# Date: 2011-12-05, 16:44:15 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2011 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Property:	Grapheme_Cluster_Break
+
+#  All code points not explicitly listed for Grapheme_Cluster_Break
+#  have the value Other (XX).
+
+# @missing: 0000..10FFFF; Other
+
+# ================================================

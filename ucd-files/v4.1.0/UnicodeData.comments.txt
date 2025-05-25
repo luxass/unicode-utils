@@ -1,0 +1,13 @@
+# Unicode Character Database
+# Version: 15.0.0
+# Date: 2022-09-13
+# This file contains Unicode character data.
+# For more information, see http://www.unicode.org/ucd/
+#
+# The data is organized in the following format:
+# Code;Name;Category;Combining;Bidirectional;Decomposition;Decimal;Digit;Numeric;Mirrored;Unicode 1.0;ISO 10646;Comment
+#
+# The following lines are comments and do not affect the data.
+#
+# This is a sample comment line.
+# Another comment line.

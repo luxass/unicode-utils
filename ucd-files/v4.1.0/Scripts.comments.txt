@@ -1,0 +1,14 @@
+# Scripts-4.1.0.txt
+# Date: 2005-03-10, 01:56:19 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2005 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+
+# ================================================
+
+# Property:	Script
+
+#  All code points not explicitly listed for Script
+#  have the value Common (Zyyy).

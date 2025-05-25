@@ -1,0 +1,6 @@
+# 8859-1 (Latin-1), Based on ISO
+# 8859-2, -3, -4, -9 (European Latin), Based on ISO
+# 8859-5 (Cyrillic), Based on ISO
+# 8859-6 (Arabic), Based on ISO
+# 8859-7 (Greek), Based on ISO
+# 8859-8 (Hebrew), Based on ISO

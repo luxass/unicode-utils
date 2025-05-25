@@ -1,0 +1,17 @@
+# NamedSequences-5.1.0.txt
+# Date: 2008-03-20, 17:43:00 PDT [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+
+# ================================================

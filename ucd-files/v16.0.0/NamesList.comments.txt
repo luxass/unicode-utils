@@ -1,0 +1,12 @@
+; charset=UTF-8
+@@@\tThe Unicode Standard 16.0.0
+@@@+\tNamesList-16.0.0.txt
+\tUnicode 16.0.0 final names list.
+\tThis file is semi-automatically derived from UnicodeData.txt and
+\ta set of manually created annotations using a script to select
+\tor suppress information from the data file. The rules used
+\tfor this process are aimed at readability for the human reader,
+\tat the expense of some details; therefore, this file should not
+\tbe parsed for machine-readable information.
+@+\t\t© 2024 Unicode®, Inc.
+\tFor terms of use and license, see https://www.unicode.org/terms_of_use.html

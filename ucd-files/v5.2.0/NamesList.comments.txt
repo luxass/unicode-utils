@@ -1,0 +1,11 @@
+@@@\tThe Unicode Standard 5.2
+@@@+\tU52M090904.lst
+\tFinal Unicode 5.2 names list. (Amd 5 & Amd 6)
+\tThis file is semi-automatically derived from UnicodeData.txt and
+\ta set of manually created annotations using a script to select
+\tor suppress information from the data file. The rules used
+\tfor this process are aimed at readability for the human reader,
+\tat the expense of some details; therefore, this file should not
+\tbe parsed for machine-readable information.
+@+\t\tCopyright (c) 1991-2009 Unicode, Inc.
+\tFor terms of use, see http://www.unicode.org/terms_of_use.html

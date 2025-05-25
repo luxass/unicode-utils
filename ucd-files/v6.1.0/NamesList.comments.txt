@@ -1,0 +1,11 @@
+@@@\tThe Unicode Standard 6.1
+@@@+\tU61M111117.lst
+\tFinal Unicode 6.1 names list.
+\tThis file is semi-automatically derived from UnicodeData.txt and
+\ta set of manually created annotations using a script to select
+\tor suppress information from the data file. The rules used
+\tfor this process are aimed at readability for the human reader,
+\tat the expense of some details; therefore, this file should not
+\tbe parsed for machine-readable information.
+@+\t\tCopyright (c) 1991-2012 Unicode, Inc.
+\tFor terms of use, see http://www.unicode.org/terms_of_use.html

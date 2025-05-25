@@ -1,0 +1,43 @@
+# NamedSequences-14.0.0.txt
+# Date: 2021-08-03, 23:04:00 GMT [KW]
+# © 2021 Unicode®, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+# For documentation, see https://www.unicode.org/reports/tr44/
+#
+# Unicode Named Character Sequences
+#
+# This file is a normative contributory data file in the Unicode
+# Character Database.
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Code point sequences in the Unicode Character Database
+# use spaces as delimiters. The corresponding format for a
+# UCS Sequence Identifier (USI) in ISO/IEC 10646 uses
+# comma delimitation and angle brackets. Thus, a Unicode
+# named character sequence of the form:
+#
+# EXAMPLE NAME;1000 1001 1002
+#
+# in this data file, would correspond to an ISO/IEC 10646 USI
+# as follows:
+#
+# <1000, 1001, 1002>
+#
+# For more information, see UAX #34: Unicode Named Character
+# Sequences, at https://www.unicode.org/reports/tr34/
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+
+# ================================================
+
+# Named keycap sequences for telephone keypad (used for emoji)
+# Provisional, 2015-05-05
+# FE0F added to the sequences, 2016-05-11
+# Approved 2017-05-12

@@ -1,0 +1,11 @@
+# DerivedBinaryProperties-6.1.0.txt
+# Date: 2011-07-25, 00:54:10 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2011 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Bidi_Mirrored (listing UnicodeData.txt, field 9: see UAX #44: http://www.unicode.org/reports/tr44/)

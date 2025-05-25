@@ -1,0 +1,41 @@
+# NamedSequencesProv-5.0.0.txt
+# Date: 2006-05-23, 11:33 PST [KW]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2006 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+#
+# Provisional Named Sequences
+# Note: This data file contains those named
+#   sequences which have been designated to be provisional,
+#   rather than fully approved.
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries in the list.
+
+# ================================================
+
+# Entries from Unicode 4.1.0 version of NamedSequences.txt,
+# subsequently disapproved because of potential errors in
+# representation.
+
+# Entry removed 2006-05-18:
+# 
+# LATIN SMALL LETTER A WITH ACUTE AND OGONEK;00E1 0328
+#
+# This entry was removed because the sequence was not in NFC,
+# as required. It will be replaced with the NFC version of
+# the sequence, based on the Lithuanian additions proposed
+# here for a future version of the standard.
+
+# ================================================
+
+# Provisional entries for NamedSequences.txt.
+
+# Proposed additions for Lithuanian. 2006-05-18

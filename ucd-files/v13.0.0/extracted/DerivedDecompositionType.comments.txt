@@ -1,0 +1,15 @@
+# DerivedDecompositionType-13.0.0.txt
+# Date: 2019-09-08, 23:31:06 GMT
+# © 2019 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Decomposition_Type (from UnicodeData.txt, field 5: see UAX #44: http://www.unicode.org/reports/tr44/)
+
+#  All code points not explicitly listed for Decomposition_Type
+#  have the value None.

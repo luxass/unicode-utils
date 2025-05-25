@@ -1,0 +1,22 @@
+# ScriptExtensions-6.1.0.txt
+# Date: 2011-12-05, 22:51:22 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2011 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# The Script_Extensions property indicates which characters are commonly used
+# with a limited number of scripts, but with more than one.
+# The property is provisional: values are expected to change over time as more information becomes available.
+# For each code point, there is one or more property values.  Each such value is a Script property value.
+# For more information, see:
+#   UAX #24: http://www.unicode.org/reports/tr24/ and
+#   UAX #44: http://www.unicode.org/reports/tr44/
+#
+#  All code points not explicitly listed for Script_Extensions
+#  have as their value the corresponding Script property value
+#
+# @missing: 0000..10FFFF; <script>
+
+# ================================================
+

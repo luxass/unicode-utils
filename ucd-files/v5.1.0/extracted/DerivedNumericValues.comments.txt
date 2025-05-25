@@ -1,0 +1,23 @@
+# DerivedNumericValues-5.1.0.txt
+# Date: 2008-03-03, 21:57:46 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2008 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+
+# ================================================
+
+# Numeric Values (from UnicodeData.txt, field 6/7/8)
+# WARNING: Certain values, such as 0.16666667, are repeating fractions
+# Although they are only printed with a limited number of decimal places
+# in this file, they should be expressed to the limits of the precision
+# available when used.
+# The third field is empty; it used to be a copy of the numeric type.
+# A fourth field was added to this extracted data as of
+# Unicode 5.1.0, expressing the same numeric value either as
+# a whole integer where possible or as a rational fraction, e.g. "1/6".
+#
+# @missing: 0000..10FFFF; ; NaN
+
+# ================================================

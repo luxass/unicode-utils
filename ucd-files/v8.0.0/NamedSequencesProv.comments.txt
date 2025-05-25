@@ -1,0 +1,42 @@
+# NamedSequencesProv-8.0.0.txt
+# Date: 2015-05-11, 23:40:00 GMT [KW, LI]
+#
+# Provisional Unicode Named Character Sequences
+#
+# Note: This data file contains those named character
+#   sequences which have been designated to be provisional,
+#   rather than fully approved.
+#
+# Copyright (c) 1991-2015 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Format:
+# Name of Sequence; Code Point Sequence for USI
+#
+# Code point sequences in the Unicode Character Database
+# use spaces as delimiters. The corresponding format for a
+# UCS Sequence Identifier (USI) in ISO/IEC 10646 uses
+# comma delimitation and angle brackets. Thus, a Unicode
+# named character sequence of the form:
+#
+# EXAMPLE NAME;1000 1001 1002
+#
+# in this data file, would correspond to an ISO/IEC 10646 USI
+# as follows:
+#
+# <1000, 1001, 1002> 
+#
+# For more information, see UAX #34: Unicode Named Character
+# Sequences, at http://www.unicode.org/unicode/reports/tr34/
+#
+# Note: The order of entries in this file is not significant.
+# However, entries are generally in script order corresponding
+# to block order in the Unicode Standard, to make it easier
+# to find entries currently in the list.
+
+# ================================================
+
+# Provisional entries for NamedSequences.txt.
+
+# Named keycap sequences for telephone keypad (used for emoji)
+# Added to provisional named sequences, 2015-05-05

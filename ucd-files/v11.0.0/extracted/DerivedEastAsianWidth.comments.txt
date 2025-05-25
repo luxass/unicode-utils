@@ -1,0 +1,21 @@
+# DerivedEastAsianWidth-11.0.0.txt
+# Date: 2018-05-15, 06:52:54 GMT
+# © 2018 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# East_Asian_Width (listing EastAsianWidth.txt, field 1)
+
+#  All code points not explicitly listed for East_Asian_Width
+#  have the value Neutral (N).
+
+# @missing: 0000..10FFFF; Neutral
+
+# ================================================
+
+# East_Asian_Width=Neutral

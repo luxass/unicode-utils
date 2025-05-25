@@ -1,0 +1,14 @@
+# Scripts-8.0.0.txt
+# Date: 2015-03-11, 22:29:42 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2015 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+# For more information, see:
+#   UAX #24, Unicode Script Property: http://www.unicode.org/reports/tr24/
+#     Especially the sections:
+#       http://www.unicode.org/reports/tr24/#Assignment_Script_Values
+#       http://www.unicode.org/reports/tr24/#Assignment_ScriptX_Values
+#
+# ================================================

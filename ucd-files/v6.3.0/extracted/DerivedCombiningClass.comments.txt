@@ -1,0 +1,14 @@
+# DerivedCombiningClass-6.3.0.txt
+# Date: 2013-07-05, 14:08:44 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2013 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Combining Class (listing UnicodeData.txt, field 3: see UAX #44: http://www.unicode.org/reports/tr44/)
+
+#  All code points not explicitly listed for Canonical_Combining_Class
+#  have the value Not_Reordered (0).

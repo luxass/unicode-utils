@@ -1,0 +1,37 @@
+# USourceData-6.3.0.txt
+# Date: 2013-02-21, 21:51:00 GMT [JHJ]
+#
+# Copyright (c) 2008-2013 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see http://www.unicode.org/reports/tr45/
+#
+# This file contains basic data for U-source ideographs
+#
+# Each line contains seven fields:
+#
+# Field 0: The U-source ID
+# Field 1: Text indicating the ideograph's status
+#      C: Included in Extension C
+#      D: Included in Extension D
+#      E: Included for Extension E
+#      F: Submitted for Extension F
+#      N: Planned to be submitted for a future extension
+#      U: Encoded
+#      UNC-2013: Included in the UTC's 2013 "Urgently Needed Characters" proposal
+#      V: Variant of an encoded character
+#      W: Not to encode
+#      X: No action taken
+# Field 2: A Unicode code point
+#      Status == C, the code point of the character
+#      Status == D, the code point of the character
+#      Status == E, the proposed code point of the character
+#      Status == U, the code point of the character
+#      Status == V, the code point of the character for which this is a variant
+#      Empty otherwise
+# Field 3: Radical-stroke count
+# Field 4: Virtual KangXi dictionary position
+# Field 5: Ideographic Description Sequence (IDS), if possible
+# Field 6: Source(s)
+#
+# The full format for this file and information on parsing the source
+# field are available at <http://www.unicode.org/reports/tr45/>.

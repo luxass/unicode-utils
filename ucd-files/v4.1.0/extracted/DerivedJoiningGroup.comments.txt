@@ -1,0 +1,16 @@
+# DerivedJoiningGroup-4.1.0.txt
+# Date: 2004-12-15, 02:14:58 GMT [MD]
+#
+# Unicode Character Database
+# Copyright (c) 1991-2005 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+# For documentation, see UCD.html
+
+# ================================================
+
+# Joining Group (listing ArabicShaping.txt, field 3)
+
+#  All code points not explicitly listed for Joining_Group
+#  have the value No_Joining_Group.
+
+# ================================================

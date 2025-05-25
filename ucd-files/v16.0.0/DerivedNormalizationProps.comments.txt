@@ -1,0 +1,16 @@
+# DerivedNormalizationProps-16.0.0.txt
+# Date: 2024-04-30, 21:48:18 GMT
+# © 2024 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use and license, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Derived Property: FC_NFKC_Closure  (DEPRECATED as of Unicode 6.0.0)
+#  Generated from computing: b = NFKC(Fold(a)); c = NFKC(Fold(b));
+#  Then if (c != b) add the mapping from a to c to the set of
+#  mappings that constitute the FC_NFKC_Closure list
+#  Uses the full case folding from CaseFolding.txt, without the T option.

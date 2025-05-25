@@ -1,0 +1,52 @@
+# IndicSyllabicCategory-11.0.0.txt
+# Date: 2018-05-21, 18:33:00 GMT [KW, RP]
+# © 2018 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# For documentation, see UAX #44: Unicode Character Database,
+# at http://www.unicode.org/reports/tr44/
+#
+# This file defines the following property:
+#
+#    Indic_Syllabic_Category     enumerated property
+#
+# Scope: This property is aimed at two general problem
+# areas involving the analysis and processing of Indic scripts:
+#
+#   1. Specification of syllabic structure.
+#   2. Specification of segmentation rules.
+#
+# Both of these problem areas may benefit from having defined subtypes
+# of Indic script characters which are relevant to how Indic
+# syllables (or aksaras) are constructed. Note that rules for
+# syllabic structure in Indic scripts may differ significantly
+# from how phonological syllables are defined.
+#
+# Format:
+#    Field 0  Unicode code point value or range of code point values
+#    Field 1  Indic_Syllabic_Category property value
+#
+# Field 1 is followed by a comment field, starting with the number sign '#',
+# which shows the General_Category property value, the Unicode character name
+# or names, and, in lines with ranges of code points, the code point count in
+# square brackets.
+#
+# The scripts assessed as Indic in the structural sense used for the
+# Indic_Syllabic_Category are the following:
+#
+# Ahom, Balinese, Batak, Bengali, Bhaiksuki, Brahmi, Buginese, Buhid,
+# Chakma, Cham, Devanagari, Dogra, Grantha, Gujarati, Gunjala Gondi,
+# Gurmukhi, Hanunoo, Javanese, Kaithi, Kannada, Kayah Li, Kharoshthi,
+# Khmer, Khojki, Khudawadi, Lao, Lepcha, Limbu, Mahajani, Makasar,
+# Malayalam, Marchen, Masaram Gondi, Meetei Mayek, Modi, Multani,
+# Myanmar, Newa, New Tai Lue, Oriya, Phags-pa, Rejang, Saurashtra,
+# Sharada, Siddham, Sinhala, Soyombo, Sundanese, Syloti Nagri,
+# Tagalog, Tagbanwa, Tai Le, Tai Tham, Tai Viet, Takri, Tamil,
+# Telugu, Thai, Tibetan, Tirhuta, and Zanabazar Square.
+#
+# All characters for all other scripts not in that list
+# take the default value for this property, unless they
+# are individually listed in this data file.
+#
+# ================================================
