@@ -1,4 +1,4 @@
-import type { ChildNode, Node, RootNode } from "./ast";
+import type { ChildNode, RootNode } from "./ast";
 import {
   isDataFileBoundaryNode,
   isDataFileCommentNode,
