@@ -4,7 +4,6 @@ export default defineConfig({
   entry: [
     "./src/index.ts",
     "./src/constants.ts",
-    "./src/data-files.ts",
     "./src/line-helpers.ts",
     "./src/datafile.ts",
   ],
