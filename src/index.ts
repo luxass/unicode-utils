@@ -7,11 +7,8 @@ export {
   type UnicodeVersionMetadata,
 } from "./constants";
 export {
-  hasSections,
-  parseDataFileHeading,
-  parseSections,
   RawDataFile,
-} from "./data-files";
+} from "./datafile";
 export { getCurrentDraftVersion, type GetCurrentDraftVersionOptions } from "./draft";
 export {
   expandHexRange,
