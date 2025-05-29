@@ -1,8 +1,8 @@
 import type { BoundaryStyle } from "../line-helpers";
 import type {
-  DataFileChildNode,
-  DataFileNode,
-  DataFileRootNode,
+  ChildNode,
+  Node,
+  RootNode,
 } from "./ast";
 import {
   getBoundaryLineStyle,
@@ -13,7 +13,7 @@ import {
   isEmptyLine,
   isLineWithData,
 } from "../line-helpers";
-import { DataFileNodeTypes } from "./ast";
+import { NodeTypes } from "./ast";
 
 /**
  * Creates a node object from a single line of a data file.
@@ -24,14 +24,14 @@ import { DataFileNodeTypes } from "./ast";
  *
  * @param {string} line - The text line to parse into a node
  * @param {number} lineNumber - The line number in the original file (0-based index)
- * @returns {DataFileChildNode} A node object representing the parsed line
+ * @returns {ChildNode} A node object representing the parsed line
  */
-function createNode(line: string, lineNumber: number): DataFileChildNode {
+function createNode(line: string, lineNumber: number): ChildNode {
   const trimmedLine = line.trim();
 
   if (isEmptyLine(line)) {
     return {
-      type: DataFileNodeTypes.Empty,
+      type: NodeTypes.EMPTY,
       value: "",
       raw: line,
       line: lineNumber,
@@ -44,7 +44,7 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
       style = getBoundaryLineStyle(line);
     } catch {
       return {
-        type: DataFileNodeTypes.Unknown,
+        type: NodeTypes.UNKNOWN,
         value: trimmedLine,
         raw: line,
         line: lineNumber,
@@ -52,7 +52,7 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
     }
 
     return {
-      type: DataFileNodeTypes.Boundary,
+      type: NodeTypes.BOUNDARY,
       value: trimmedLine,
       raw: line,
       line: lineNumber,
@@ -62,7 +62,7 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
 
   if (isCommentLine(line)) {
     return {
-      type: DataFileNodeTypes.Comment,
+      type: NodeTypes.COMMENT,
       value: trimmedLine.substring(1).trim(),
       raw: line,
       line: lineNumber,
@@ -71,7 +71,7 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
 
   if (isLineWithData(line)) {
     return {
-      type: DataFileNodeTypes.Data,
+      type: NodeTypes.DATA,
       value: trimmedLine,
       raw: line,
       line: lineNumber,
@@ -79,7 +79,7 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
   }
 
   return {
-    type: DataFileNodeTypes.Unknown,
+    type: NodeTypes.UNKNOWN,
     value: trimmedLine,
     raw: line,
     line: lineNumber,
@@ -95,15 +95,15 @@ function createNode(line: string, lineNumber: number): DataFileChildNode {
  *
  * @param {string} content - The full content of the data file to parse
  * @param {string} [fileName] - Optional explicit file name. If not provided, will be inferred from content
- * @returns {DataFileRootNode} A structured representation of the data file
+ * @returns {RootNode} A structured representation of the data file
  */
-export function parseDataFileIntoAst(content: string, fileName?: string): DataFileRootNode {
+export function parseDataFileIntoAst(content: string, fileName?: string): RootNode {
   const children = content
     .split(/\r?\n/)
     .map((line, index) => createNode(line, index));
 
   return {
-    type: DataFileNodeTypes.Root,
+    type: NodeTypes.ROOT,
     value: "",
     raw: content,
     line: 0,
@@ -116,11 +116,11 @@ export function parseDataFileIntoAst(content: string, fileName?: string): DataFi
 /**
  * Creates a text representation of a DataFileNode
  *
- * @param {DataFileNode} node - The DataFileNode to convert to string
+ * @param {Node} node - The DataFileNode to convert to string
  * @returns {string} The raw string representation of the node
  */
-export function stringifyNode(node: DataFileNode): string {
-  if (node.type === DataFileNodeTypes.Root) {
+export function stringifyNode(node: Node): string {
+  if (node.type === NodeTypes.ROOT) {
     return stringifyNodes(node.children);
   }
   return node.raw;
@@ -129,9 +129,9 @@ export function stringifyNode(node: DataFileNode): string {
 /**
  * Creates a text representation of multiple DataFileNodes
  *
- * @param {DataFileChildNode[]} nodes - An array of DataFileChildNode objects to stringify
+ * @param {ChildNode[]} nodes - An array of DataFileChildNode objects to stringify
  * @returns {string} A string containing the raw representation of all nodes joined by newline characters
  */
-export function stringifyNodes(nodes: DataFileChildNode[]): string {
+export function stringifyNodes(nodes: ChildNode[]): string {
   return nodes.map((node) => node.raw).join("\n");
 }
