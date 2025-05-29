@@ -1,11 +1,11 @@
 import type {
-  DataFileBoundaryNode,
-  DataFileCommentNode,
-  DataFileDataNode,
-  DataFileEmptyNode,
-  DataFileNode,
-  DataFileRootNode,
-  DataFileUnknownNode,
+  BoundaryNode,
+  CommentNode,
+  DataNode,
+  EmptyNode,
+  Node,
+  RootNode,
+  UnknownNode,
 } from "./ast";
 
 /**
@@ -13,7 +13,7 @@ import type {
  * A DataFileNode must be an object with both 'type' and 'raw' properties of the correct types.
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileNode} True if the node is a valid DataFileNode, false otherwise
+ * @returns {node is Node} True if the node is a valid DataFileNode, false otherwise
  *
  * @example
  * ```typescript
@@ -24,14 +24,14 @@ import type {
  * }
  * ```
  */
-export function isDataFileNode(node: unknown): node is DataFileNode {
+export function isDataFileNode(node: unknown): node is Node {
   return (
     typeof node === "object"
     && node !== null
     && "type" in node
-    && typeof (node as DataFileNode).type === "string"
+    && typeof (node as Node).type === "string"
     && "raw" in node
-    && typeof (node as DataFileNode).raw === "string"
+    && typeof (node as Node).raw === "string"
   );
 }
 
@@ -40,7 +40,7 @@ export function isDataFileNode(node: unknown): node is DataFileNode {
  * A DataFileCommentNode must be a valid DataFileNode with the type property set to "comment".
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileCommentNode} True if the node is a valid DataFileCommentNode, false otherwise
+ * @returns {node is CommentNode} True if the node is a valid DataFileCommentNode, false otherwise
  *
  * @example
  * ```typescript
@@ -51,7 +51,7 @@ export function isDataFileNode(node: unknown): node is DataFileNode {
  * }
  * ```
  */
-export function isDataFileCommentNode(node: unknown): node is DataFileCommentNode {
+export function isDataFileCommentNode(node: unknown): node is CommentNode {
   return isDataFileNode(node) && node.type === "comment";
 }
 
@@ -60,7 +60,7 @@ export function isDataFileCommentNode(node: unknown): node is DataFileCommentNod
  * A DataFileBoundaryNode must be a valid DataFileNode with the type property set to "boundary".
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileBoundaryNode} True if the node is a valid DataFileBoundaryNode, false otherwise
+ * @returns {node is BoundaryNode} True if the node is a valid DataFileBoundaryNode, false otherwise
  *
  * @example
  * ```typescript
@@ -71,7 +71,7 @@ export function isDataFileCommentNode(node: unknown): node is DataFileCommentNod
  * }
  * ```
  */
-export function isDataFileBoundaryNode(node: unknown): node is DataFileBoundaryNode {
+export function isDataFileBoundaryNode(node: unknown): node is BoundaryNode {
   return isDataFileNode(node) && node.type === "boundary";
 }
 
@@ -80,7 +80,7 @@ export function isDataFileBoundaryNode(node: unknown): node is DataFileBoundaryN
  * A DataFileDataNode must be a valid DataFileNode with the type property set to "data".
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileDataNode} True if the node is a valid DataFileDataNode, false otherwise
+ * @returns {node is DataNode} True if the node is a valid DataFileDataNode, false otherwise
  *
  * @example
  * ```typescript
@@ -91,7 +91,7 @@ export function isDataFileBoundaryNode(node: unknown): node is DataFileBoundaryN
  * }
  * ```
  */
-export function isDataFileDataNode(node: unknown): node is DataFileDataNode {
+export function isDataFileDataNode(node: unknown): node is DataNode {
   return isDataFileNode(node) && node.type === "data";
 }
 
@@ -100,7 +100,7 @@ export function isDataFileDataNode(node: unknown): node is DataFileDataNode {
  * A DataFileEmptyNode must be a valid DataFileNode with the type property set to "empty".
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileEmptyNode} True if the node is a valid DataFileEmptyNode, false otherwise
+ * @returns {node is EmptyNode} True if the node is a valid DataFileEmptyNode, false otherwise
  *
  * @example
  * ```typescript
@@ -111,7 +111,7 @@ export function isDataFileDataNode(node: unknown): node is DataFileDataNode {
  * }
  * ```
  */
-export function isDataFileEmptyNode(node: unknown): node is DataFileEmptyNode {
+export function isDataFileEmptyNode(node: unknown): node is EmptyNode {
   return isDataFileNode(node) && node.type === "empty";
 }
 
@@ -120,7 +120,7 @@ export function isDataFileEmptyNode(node: unknown): node is DataFileEmptyNode {
  * A DataFileRootNode must be a valid DataFileNode with the type property set to "root".
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileRootNode} True if the node is a valid DataFileRootNode, false otherwise
+ * @returns {node is RootNode} True if the node is a valid DataFileRootNode, false otherwise
  *
  * @example
  * ```typescript
@@ -131,7 +131,7 @@ export function isDataFileEmptyNode(node: unknown): node is DataFileEmptyNode {
  * }
  * ```
  */
-export function isDataFileRootNode(node: unknown): node is DataFileRootNode {
+export function isDataFileRootNode(node: unknown): node is RootNode {
   return isDataFileNode(node) && node.type === "root";
 }
 
@@ -140,7 +140,7 @@ export function isDataFileRootNode(node: unknown): node is DataFileRootNode {
  * A DataFileUnknownNode must be a valid DataFileNode with the type property set to "unknown".
  *
  * @param {unknown} node - The unknown value to check
- * @returns {node is DataFileUnknownNode} True if the node is a valid DataFileUnknownNode, false otherwise
+ * @returns {node is UnknownNode} True if the node is a valid DataFileUnknownNode, false otherwise
  *
  * @example
  * ```typescript
@@ -151,6 +151,6 @@ export function isDataFileRootNode(node: unknown): node is DataFileRootNode {
  * }
  * ```
  */
-export function isDataFileUnknownNode(node: unknown): node is DataFileUnknownNode {
+export function isDataFileUnknownNode(node: unknown): node is UnknownNode {
   return isDataFileNode(node) && node.type === "unknown";
 }

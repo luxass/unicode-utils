@@ -1,4 +1,4 @@
-import type { DataFileRootNode } from "./datafile/ast";
+import type { RootNode } from "./datafile/ast";
 import type { UCDSectionWithLines } from "./types";
 import { parseDataFileIntoAst } from "./datafile/parser";
 import {
@@ -51,7 +51,7 @@ export class RawDataFile {
    * This is typically used for further processing or analysis of the file structure.
    * If the file is not parsed into an AST, this will be undefined.
    */
-  readonly ast: DataFileRootNode | undefined = undefined;
+  readonly ast: RootNode | undefined = undefined;
 
   readonly sections: Map<string, UCDSectionWithLines> = new Map();
 

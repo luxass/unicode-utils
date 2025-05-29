@@ -1,6 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
-import { DataFileNodeTypes } from "../../src/datafile/ast";
+import { NodeTypes } from "../../src/datafile/ast";
 import { parseDataFileIntoAst, stringifyNode, stringifyNodes } from "../../src/datafile/parser";
 
 describe("parseDataFileIntoAst", () => {
@@ -8,37 +8,37 @@ describe("parseDataFileIntoAst", () => {
     {
       description: "empty line",
       content: "",
-      expectedChildTypes: [DataFileNodeTypes.Empty],
+      expectedChildTypes: [NodeTypes.EMPTY],
     },
     {
       description: "whitespace only",
       content: "   \t  ",
-      expectedChildTypes: [DataFileNodeTypes.Empty],
+      expectedChildTypes: [NodeTypes.EMPTY],
     },
     {
       description: "comment line",
       content: "# This is a comment",
-      expectedChildTypes: [DataFileNodeTypes.Comment],
+      expectedChildTypes: [NodeTypes.COMMENT],
     },
     {
       description: "data line with semicolons",
       content: "0600; ARABIC NUMBER SIGN; U; No_Joining_Group",
-      expectedChildTypes: [DataFileNodeTypes.Data],
+      expectedChildTypes: [NodeTypes.DATA],
     },
     {
       description: "multiple lines mixed",
       content: "# Header\n\n0600; DATA; U; Group\n# Footer",
       expectedChildTypes: [
-        DataFileNodeTypes.Comment,
-        DataFileNodeTypes.Empty,
-        DataFileNodeTypes.Data,
-        DataFileNodeTypes.Comment,
+        NodeTypes.COMMENT,
+        NodeTypes.EMPTY,
+        NodeTypes.DATA,
+        NodeTypes.COMMENT,
       ],
     },
   ])("should correctly parse $description", ({ content, expectedChildTypes }) => {
     const result = parseDataFileIntoAst(content);
 
-    expect(result.type).toBe(DataFileNodeTypes.Root);
+    expect(result.type).toBe(NodeTypes.ROOT);
     expect(result.children.map((child) => child.type)).toEqual(expectedChildTypes);
   });
 
@@ -62,14 +62,14 @@ describe("parseDataFileIntoAst", () => {
 
     const result = parseDataFileIntoAst(content);
 
-    expect(result.type).toBe(DataFileNodeTypes.Root);
+    expect(result.type).toBe(NodeTypes.ROOT);
     expect(result.children).toHaveLength(14);
 
     // check specific nodes
-    expect(result.children[0].type).toBe(DataFileNodeTypes.Comment);
+    expect(result.children[0].type).toBe(NodeTypes.COMMENT);
     expect(result.children[0].value).toBe("ArabicShaping-16.0.0.txt");
 
-    expect(result.children[6].type).toBe(DataFileNodeTypes.Data);
+    expect(result.children[6].type).toBe(NodeTypes.DATA);
     expect(result.children[6].value).toBe("0600; ARABIC NUMBER SIGN; U; No_Joining_Group");
 
     // check line numbers are correct
@@ -106,8 +106,8 @@ describe("parseDataFileIntoAst", () => {
 
     expect(resultCRLF.children).toHaveLength(2);
     expect(resultLF.children).toHaveLength(2);
-    expect(resultCRLF.children[0].type).toBe(DataFileNodeTypes.Comment);
-    expect(resultLF.children[0].type).toBe(DataFileNodeTypes.Comment);
+    expect(resultCRLF.children[0].type).toBe(NodeTypes.COMMENT);
+    expect(resultLF.children[0].type).toBe(NodeTypes.COMMENT);
   });
 });
 
@@ -116,25 +116,25 @@ describe("node content validation", () => {
     {
       description: "comment node extracts content correctly",
       line: "# Unicode Character Database",
-      expectedType: DataFileNodeTypes.Comment,
+      expectedType: NodeTypes.COMMENT,
       expectedValue: "Unicode Character Database",
     },
     {
       description: "comment with extra whitespace",
       line: "#   Spaced Comment   ",
-      expectedType: DataFileNodeTypes.Comment,
+      expectedType: NodeTypes.COMMENT,
       expectedValue: "Spaced Comment",
     },
     {
       description: "data line preserves content",
       line: "0600; ARABIC NUMBER SIGN; U; No_Joining_Group",
-      expectedType: DataFileNodeTypes.Data,
+      expectedType: NodeTypes.DATA,
       expectedValue: "0600; ARABIC NUMBER SIGN; U; No_Joining_Group",
     },
     {
       description: "data line with whitespace",
       line: "  0621; HAMZA; U; No_Joining_Group  ",
-      expectedType: DataFileNodeTypes.Data,
+      expectedType: NodeTypes.DATA,
       expectedValue: "0621; HAMZA; U; No_Joining_Group",
     },
   ])("should handle $description", ({ line, expectedType, expectedValue }) => {
@@ -228,7 +228,7 @@ describe("edge cases", () => {
     const content = "06FF; KNOTTED HEH WITH INVERTED V ABOVE; D; KNOTTED HEH";
     const result = parseDataFileIntoAst(content);
 
-    expect(result.children[0].type).toBe(DataFileNodeTypes.Data);
+    expect(result.children[0].type).toBe(NodeTypes.DATA);
     expect(result.children[0].value).toBe(content);
   });
 
@@ -236,7 +236,7 @@ describe("edge cases", () => {
     const result = parseDataFileIntoAst("");
 
     expect(result.children).toHaveLength(1);
-    expect(result.children[0].type).toBe(DataFileNodeTypes.Empty);
+    expect(result.children[0].type).toBe(NodeTypes.EMPTY);
   });
 });
 
@@ -252,7 +252,7 @@ describe("real Unicode file examples", () => {
 
     expect(result.children).toHaveLength(5);
     result.children.forEach((child) => {
-      expect(child.type).toBe(DataFileNodeTypes.Data);
+      expect(child.type).toBe(NodeTypes.DATA);
     });
 
     expect(result.children[0].value).toBe("0620; KASHMIRI YEH; D; KASHMIRI YEH");
@@ -276,14 +276,14 @@ describe("real Unicode file examples", () => {
 
     const types = result.children.map((c) => c.type);
     expect(types).toEqual([
-      DataFileNodeTypes.Comment,
-      DataFileNodeTypes.Empty,
-      DataFileNodeTypes.Data,
-      DataFileNodeTypes.Data,
-      DataFileNodeTypes.Empty,
-      DataFileNodeTypes.Comment,
-      DataFileNodeTypes.Empty,
-      DataFileNodeTypes.Data,
+      NodeTypes.COMMENT,
+      NodeTypes.EMPTY,
+      NodeTypes.DATA,
+      NodeTypes.DATA,
+      NodeTypes.EMPTY,
+      NodeTypes.COMMENT,
+      NodeTypes.EMPTY,
+      NodeTypes.DATA,
     ]);
   });
 });
