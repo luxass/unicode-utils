@@ -53,7 +53,8 @@ it("exports-snapshot", async () => {
       RawDataFile: "function",
     },
     "./datafile": {
-      DataFileNodeTypes: "object",
+      NodeTypes: "object",
+      astUtils: "object",
       isDataFileBoundaryNode: "function",
       isDataFileCommentNode: "function",
       isDataFileDataNode: "function",
