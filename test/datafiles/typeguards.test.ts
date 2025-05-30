@@ -193,7 +193,7 @@ describe("ast type guards", () => {
   });
 
   it("property node", () => {
-    const propertyNode = { type: "property", value: "Property value", raw: "Property value", line: 1 };
+    const propertyNode = { type: "property", value: "Property: value", raw: "# Property: value", line: 1, propertyValue: "value" };
 
     expect(isPropertyNode(propertyNode)).toBe(true);
     expect(isNode(propertyNode)).toBe(true);

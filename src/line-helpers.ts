@@ -428,3 +428,44 @@ export function parseFileNameLine(line: string): ParsedFileName | undefined {
     version,
   };
 }
+
+/**
+ * Determines if a line represents a property definition in Unicode data files.
+ *
+ * In Unicode data files, properties are typically defined in comment lines that
+ * start with "# Property:" followed by the property name.
+ *
+ * @param {string} line - The line to check
+ * @returns {boolean} True if the line is a property definition, false otherwise
+ *
+ * @example
+ * ```ts
+ * isPropertyLine("# Property: Age"); // true
+ * isPropertyLine("# Some other comment"); // false
+ * isPropertyLine(""); // false
+ * ```
+ */
+export function isPropertyLine(line: string): boolean {
+  if (!line) {
+    return false;
+  }
+
+  if (!isCommentLine(line)) {
+    return false;
+  }
+
+  const trimmedComment = trimCommentLine(line).trim();
+  if (trimmedComment === "") {
+    return false;
+  }
+
+  // A property line starts with "Property:" followed by the property name
+  // If nothing follows "Property:", it is not considered a property line
+  if (!trimmedComment.startsWith("Property:")) {
+    return false;
+  }
+
+  // Check if there is at least one character after "Property:"
+  const propertyName = trimmedComment.slice("Property:".length).trim();
+  return propertyName.length > 0;
+}
