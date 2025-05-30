@@ -23,7 +23,7 @@ export const UNICODE_TO_UCD_VERSION_MAPPINGS: Record<string, string> = {
   // https://www.unicode.org/versions/Unicode2.1.0/
   "2.1.0": "2.1-Update4",
   "2.1.1": "2.1-Update",
-  "2.1.2": "2.1-Update1",
+  "2.1.2": "2.1-Update",
   "2.1.5": "2.1-Update2",
   "2.1.8": "2.1-Update3",
   "2.1.9": "2.1-Update4",
