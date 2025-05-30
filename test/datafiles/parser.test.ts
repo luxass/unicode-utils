@@ -1,3 +1,4 @@
+import type { PropertyNode } from "../../src/datafile/ast";
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
 import { NodeTypes } from "../../src/datafile/ast";
@@ -167,12 +168,30 @@ describe("node content validation", () => {
       expectedType: NodeTypes.EOF,
       expectedValue: "# EOF",
     },
+    {
+      description: "property line with value",
+      line: "# Property: ExampleProperty",
+      expectedType: NodeTypes.PROPERTY,
+      expectedValue: "ExampleProperty",
+    },
+    {
+      description: "property line without value",
+      line: "# Property:",
+      expectedType: NodeTypes.COMMENT,
+      expectedValue: "Property:",
+    },
   ])("should handle $description", ({ line, expectedType, expectedValue }) => {
     const result = parseDataFileIntoAst(line);
     const node = result.children[0];
 
     expect(node.type).toBe(expectedType);
-    expect(node.value).toBe(expectedValue);
+
+    if (expectedType === NodeTypes.PROPERTY) {
+      expect((node as PropertyNode).propertyValue).toBe(expectedValue);
+    } else {
+      expect(node.value).toBe(expectedValue);
+    }
+
     expect(node.raw).toBe(line);
   });
 });
