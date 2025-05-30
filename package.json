@@ -46,7 +46,8 @@
     "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
   },
   "dependencies": {
-    "@luxass/utils": "^2.2.1"
+    "@luxass/utils": "^2.2.1",
+    "defu": "^6.1.4"
   },
   "devDependencies": {
     "@luxass/eslint-config": "^4.18.1",

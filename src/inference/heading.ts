@@ -1,13 +1,15 @@
 import type { RootNode } from "../datafile/ast";
 import { invariant } from "@luxass/utils";
+import defu from "defu";
 import {
   isBoundaryNode,
   isCommentNode,
   isEmptyNode,
 } from "../datafile/typeguards";
 import { isEOFMarker } from "../line-helpers";
+import { getHeadingSettings } from "./heading-settings";
 
-interface InferHeadingSettings {
+export interface InferHeadingSettings {
   /**
    * Whether to allow empty lines between heading lines.
    * When false, any empty line will mark the end of the heading.
@@ -25,10 +27,7 @@ interface InferHeadingSettings {
 
 export function inferHeadingFromAST(
   root: RootNode,
-  settings: InferHeadingSettings = {
-    allowEmptyLines: true,
-    allowMultipleBoundaries: true,
-  },
+  settings?: InferHeadingSettings,
 ): string | null {
   if (!root || !root.children || root.children.length === 0) {
     return null;
@@ -37,12 +36,14 @@ export function inferHeadingFromAST(
   let heading: string | null = null;
   let isInHeading = false;
   let headingEndNodeIndex: number = -1;
-
   const nodes = root.children;
   const {
-    allowEmptyLines = true,
-    allowMultipleBoundaries = true,
-  } = settings;
+    allowEmptyLines,
+    allowMultipleBoundaries,
+  } = defu(getHeadingSettings(root.fileName, root.version) || {}, settings, {
+    allowEmptyLines: true,
+    allowMultipleBoundaries: true,
+  });
 
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i];
