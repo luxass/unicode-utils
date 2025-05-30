@@ -546,8 +546,37 @@ describe("visit", () => {
 
     visit(root, ({ currentNode }) => {
       expect(currentNode).toBeDefined();
-
       expect(currentNode.type).toBeOneOf(["comment", "data", "boundary", "empty"]);
     });
+  });
+
+  it("should provide correct context with sibling nodes", () => {
+    const root = createRoot(["comment", "data", "boundary"]);
+    const visitedNodes: { current: string; prev?: string; next?: string }[] = [];
+
+    visit(root, ({ currentNode, nextNode, prevNode }) => {
+      visitedNodes.push({
+        current: currentNode.type,
+        prev: prevNode?.type,
+        next: nextNode?.type,
+      });
+    });
+
+    expect(visitedNodes).toEqual([
+      { current: "comment", prev: undefined, next: "data" },
+      { current: "data", prev: "comment", next: "boundary" },
+      { current: "boundary", prev: "data", next: undefined },
+    ]);
+  });
+
+  it("should handle empty root gracefully", () => {
+    const root = createRoot([]);
+    let visitCount = 0;
+
+    visit(root, () => {
+      visitCount++;
+    });
+
+    expect(visitCount).toBe(0);
   });
 });
