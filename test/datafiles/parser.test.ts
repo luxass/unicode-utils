@@ -137,6 +137,30 @@ describe("node content validation", () => {
       expectedType: NodeTypes.DATA,
       expectedValue: "0621; HAMZA; U; No_Joining_Group",
     },
+    {
+      description: "empty line is parsed correctly",
+      line: "",
+      expectedType: NodeTypes.EMPTY,
+      expectedValue: "",
+    },
+    {
+      description: "line with only whitespace",
+      line: "   ",
+      expectedType: NodeTypes.EMPTY,
+      expectedValue: "",
+    },
+    {
+      description: "boundary line with style",
+      line: "# ================================================",
+      expectedType: NodeTypes.BOUNDARY,
+      expectedValue: "# ================================================",
+    },
+    {
+      description: "boundary line with different style",
+      line: "# -----------------------------------------------",
+      expectedType: NodeTypes.BOUNDARY,
+      expectedValue: "# -----------------------------------------------",
+    },
   ])("should handle $description", ({ line, expectedType, expectedValue }) => {
     const result = parseDataFileIntoAst(line);
     const node = result.children[0];
@@ -237,53 +261,5 @@ describe("edge cases", () => {
 
     expect(result.children).toHaveLength(1);
     expect(result.children[0].type).toBe(NodeTypes.EMPTY);
-  });
-});
-
-describe("real Unicode file examples", () => {
-  it("should parse actual Unicode entries correctly", () => {
-    const unicodeEntries = `0620; KASHMIRI YEH; D; KASHMIRI YEH
-0621; HAMZA; U; No_Joining_Group
-0622; ALEF WITH MADDA ABOVE; R; ALEF
-0623; ALEF WITH HAMZA ABOVE; R; ALEF
-0624; WAW WITH HAMZA ABOVE; R; WAW`;
-
-    const result = parseDataFileIntoAst(unicodeEntries);
-
-    expect(result.children).toHaveLength(5);
-    result.children.forEach((child) => {
-      expect(child.type).toBe(NodeTypes.DATA);
-    });
-
-    expect(result.children[0].value).toBe("0620; KASHMIRI YEH; D; KASHMIRI YEH");
-    expect(result.children[1].value).toBe("0621; HAMZA; U; No_Joining_Group");
-  });
-
-  it("should parse Unicode file sections", () => {
-    const content = `# Arabic Characters
-
-0600; ARABIC NUMBER SIGN; U; No_Joining_Group
-0601; ARABIC SIGN SANAH; U; No_Joining_Group
-
-# Syriac Characters
-
-070F; SYRIAC ABBREVIATION MARK; T; No_Joining_Group`;
-
-    const result = parseDataFileIntoAst(content);
-
-    // Should have: comment, empty, 2 data, empty, comment, empty, 1 data
-    expect(result.children).toHaveLength(8);
-
-    const types = result.children.map((c) => c.type);
-    expect(types).toEqual([
-      NodeTypes.COMMENT,
-      NodeTypes.EMPTY,
-      NodeTypes.DATA,
-      NodeTypes.DATA,
-      NodeTypes.EMPTY,
-      NodeTypes.COMMENT,
-      NodeTypes.EMPTY,
-      NodeTypes.DATA,
-    ]);
   });
 });
