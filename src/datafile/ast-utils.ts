@@ -271,3 +271,29 @@ export function hasBoundaryWithinRange(
   }
   return false;
 }
+
+export interface VisitContext {
+  settings: any;
+  currentNode: ChildNode;
+  nextNode?: ChildNode;
+  prevNode?: ChildNode;
+}
+
+export type VisitCallback = (ctx: VisitContext) => void;
+
+export function visit(root: RootNode, callback: VisitCallback): void {
+  if (!root || !root.children) return;
+
+  for (let i = 0; i < root.children.length; i++) {
+    const currentNode = root.children[i];
+    const nextNode = root.children[i + 1];
+    const prevNode = root.children[i - 1];
+
+    callback({
+      settings: null, // TODO: set this to the settings used for the file
+      currentNode,
+      nextNode,
+      prevNode,
+    });
+  }
+}

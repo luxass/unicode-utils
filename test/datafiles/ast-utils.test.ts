@@ -13,6 +13,7 @@ import {
   hasPrevNCommentsFrom,
   isCommentOnlyDocument,
   startsWithSequence,
+  visit,
 } from "../../src/datafile/ast-utils";
 
 function createNode(type: ChildNode["type"], value = "test", line = 1): ChildNode {
@@ -535,6 +536,18 @@ describe("ast-utils", () => {
       expect(allNodesAreOfType(root, "comment")).toBe(false);
       expect(hasMinNodesOfType(root, "comment", 1)).toBe(false);
       expect(isCommentOnlyDocument(root)).toBe(true);
+    });
+  });
+});
+
+describe("visit", () => {
+  it("should visit all nodes in the root", () => {
+    const root = createRoot(["comment", "data", "boundary", "empty"]);
+
+    visit(root, ({ currentNode }) => {
+      expect(currentNode).toBeDefined();
+
+      expect(currentNode.type).toBeOneOf(["comment", "data", "boundary", "empty"]);
     });
   });
 });

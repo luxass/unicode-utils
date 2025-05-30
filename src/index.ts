@@ -21,5 +21,3 @@ export {
   resolveUCDVersion,
   UNICODE_TO_UCD_VERSION_MAPPINGS,
 } from "./mappings";
-
-export type { UCDSectionWithLines } from "./types";
