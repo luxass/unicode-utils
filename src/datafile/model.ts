@@ -1,5 +1,5 @@
-import type { UCDSectionWithLines } from "../types";
 import type { RootNode } from "./ast";
+import type { UCDSectionWithLines } from "./sections";
 import { inferHeadingFromAST } from "../inference/heading";
 import { inferFileName, inferVersion, isEOFMarker } from "../line-helpers";
 import { parseDataFileIntoAst } from "./parser";

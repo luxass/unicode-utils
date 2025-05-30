@@ -1,5 +1,9 @@
-import type { UCDSectionWithLines } from "../types";
 import { isBoundaryLine, isCommentLine, isEmptyLine } from "../line-helpers";
+
+export interface UCDSectionWithLines {
+  description: string;
+  lines: string[];
+}
 
 /**
  * Determines whether the given Unicode data file content contains sections.

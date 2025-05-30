@@ -13,6 +13,7 @@ import {
   hasPrevNCommentsFrom,
   isCommentOnlyDocument,
   startsWithSequence,
+  visit,
 } from "../../src/datafile/ast-utils";
 
 function createNode(type: ChildNode["type"], value = "test", line = 1): ChildNode {
@@ -536,5 +537,46 @@ describe("ast-utils", () => {
       expect(hasMinNodesOfType(root, "comment", 1)).toBe(false);
       expect(isCommentOnlyDocument(root)).toBe(true);
     });
+  });
+});
+
+describe("visit", () => {
+  it("should visit all nodes in the root", () => {
+    const root = createRoot(["comment", "data", "boundary", "empty"]);
+
+    visit(root, ({ currentNode }) => {
+      expect(currentNode).toBeDefined();
+      expect(currentNode.type).toBeOneOf(["comment", "data", "boundary", "empty"]);
+    });
+  });
+
+  it("should provide correct context with sibling nodes", () => {
+    const root = createRoot(["comment", "data", "boundary"]);
+    const visitedNodes: { current: string; prev?: string; next?: string }[] = [];
+
+    visit(root, ({ currentNode, nextNode, prevNode }) => {
+      visitedNodes.push({
+        current: currentNode.type,
+        prev: prevNode?.type,
+        next: nextNode?.type,
+      });
+    });
+
+    expect(visitedNodes).toEqual([
+      { current: "comment", prev: undefined, next: "data" },
+      { current: "data", prev: "comment", next: "boundary" },
+      { current: "boundary", prev: "data", next: undefined },
+    ]);
+  });
+
+  it("should handle empty root gracefully", () => {
+    const root = createRoot([]);
+    let visitCount = 0;
+
+    visit(root, () => {
+      visitCount++;
+    });
+
+    expect(visitCount).toBe(0);
   });
 });
