@@ -176,6 +176,32 @@ export function isCommentLine(line: string): boolean {
 }
 
 /**
+ * Removes the comment marker ('#') and any following whitespace from a line.
+ *
+ * This function is designed to extract the actual content from comment lines
+ * in Unicode data files by removing the leading '#' character and any whitespace
+ * that follows it.
+ *
+ * @param {string} line - The comment line to trim
+ * @returns {string} The content of the comment line without the comment marker
+ *
+ * @example
+ * ```ts
+ * trimCommentLine("# Some comment"); // returns "Some comment"
+ * trimCommentLine("#\tTabbed comment"); // returns "Tabbed comment"
+ * trimCommentLine(""); // returns ""
+ * ```
+ */
+export function trimCommentLine(line: string): string {
+  if (!line) {
+    return "";
+  }
+
+  // remove leading '#' and any whitespace after it
+  return line.trim().replace(/^#\s*/, "");
+}
+
+/**
  * Checks if a string line is empty after trimming whitespace.
  *
  * @param {string} line - The string to check for emptiness
