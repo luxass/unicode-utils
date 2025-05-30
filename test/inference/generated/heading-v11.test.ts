@@ -11,7 +11,7 @@ import { mapUCDFiles } from "../../__utils";
 
 const ucdFiles = await mapUCDFiles("v11.0.0");
 
-describe("heading inference v11", async () => {
+describe.only("heading inference v11", async () => {
   it("inferHeadingFromAST(ArabicShaping.txt)", () => {
     const content = ucdFiles.file("ArabicShaping.txt");
     const expected = ucdFiles.expected("ArabicShaping.comments.txt");
