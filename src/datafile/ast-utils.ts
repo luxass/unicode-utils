@@ -3,9 +3,19 @@ import {
   isBoundaryNode,
   isCommentNode,
   isDataNode,
+  isEmptyCommentNode,
   isEmptyNode,
   isUnknownNode,
 } from "./typeguards";
+
+const NODE_TYPE_CHECKERS = {
+  "comment": isCommentNode,
+  "empty-comment": isEmptyCommentNode,
+  "boundary": isBoundaryNode,
+  "data": isDataNode,
+  "empty": isEmptyNode,
+  "unknown": isUnknownNode,
+};
 
 /**
  * Checks if the next N nodes from a given index are all comment nodes
@@ -88,13 +98,7 @@ export function hasConsecutiveNodesOfType(
   if (startIndex < 0 || count <= 0) return false;
   if (startIndex + count > root.children.length) return false;
 
-  const typeCheckers = {
-    comment: isCommentNode,
-    boundary: isBoundaryNode,
-    data: isDataNode,
-    empty: isEmptyNode,
-    unknown: isUnknownNode,
-  };
+  const typeCheckers = NODE_TYPE_CHECKERS;
 
   const checker = typeCheckers[nodeType];
   if (!checker) return false;
@@ -124,18 +128,10 @@ export function hasNodePattern(
     return false;
   }
 
-  const typeCheckers = {
-    comment: isCommentNode,
-    boundary: isBoundaryNode,
-    data: isDataNode,
-    empty: isEmptyNode,
-    unknown: isUnknownNode,
-  };
-
   for (let i = 0; i < pattern.length; i++) {
     const nodeIndex = startIndex + i;
     const expectedType = pattern[i];
-    const checker = typeCheckers[expectedType];
+    const checker = NODE_TYPE_CHECKERS[expectedType];
 
     if (!checker || !checker(root.children[nodeIndex])) {
       return false;
@@ -206,15 +202,7 @@ export function hasMinNodesOfType(
   nodeType: ChildNode["type"],
   minCount: number,
 ): boolean {
-  const typeCheckers = {
-    comment: isCommentNode,
-    boundary: isBoundaryNode,
-    data: isDataNode,
-    empty: isEmptyNode,
-    unknown: isUnknownNode,
-  };
-
-  const checker = typeCheckers[nodeType];
+  const checker = NODE_TYPE_CHECKERS[nodeType];
   if (!checker) return false;
 
   let count = 0;
@@ -239,15 +227,7 @@ export function allNodesAreOfType(
 ): boolean {
   if (root.children.length === 0) return false;
 
-  const typeCheckers = {
-    comment: isCommentNode,
-    boundary: isBoundaryNode,
-    data: isDataNode,
-    empty: isEmptyNode,
-    unknown: isUnknownNode,
-  };
-
-  const checker = typeCheckers[nodeType];
+  const checker = NODE_TYPE_CHECKERS[nodeType];
   if (!checker) return false;
 
   return root.children.every((child) => checker(child));

@@ -3,6 +3,7 @@ import {
   isBoundaryNode,
   isCommentNode,
   isDataNode,
+  isEmptyCommentNode,
   isEmptyNode,
   isNode,
   isRootNode,
@@ -16,6 +17,23 @@ describe("ast type guards", () => {
       { type: "comment", value: "Another comment", raw: "# Another comment", line: 2 },
     ])("should identify comment nodes", (node) => {
       expect(isCommentNode(node)).toBe(true);
+      expect(isEmptyCommentNode(node)).toBe(false);
+      expect(isNode(node)).toBe(true);
+      expect(isBoundaryNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(false);
+    });
+  });
+
+  describe("empty comment node", () => {
+    it.each([
+      { type: "empty-comment", value: "", raw: "#", line: 1 },
+      { type: "empty-comment", value: "", raw: "# ", line: 2 },
+    ])("should identify empty comment nodes", (node) => {
+      expect(isEmptyCommentNode(node)).toBe(true);
+      expect(isCommentNode(node)).toBe(false);
       expect(isNode(node)).toBe(true);
       expect(isBoundaryNode(node)).toBe(false);
       expect(isDataNode(node)).toBe(false);
@@ -34,6 +52,7 @@ describe("ast type guards", () => {
       expect(isBoundaryNode(node)).toBe(true);
       expect(isNode(node)).toBe(true);
       expect(isCommentNode(node)).toBe(false);
+      expect(isEmptyCommentNode(node)).toBe(false);
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
@@ -49,6 +68,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(true);
       expect(isNode(node)).toBe(true);
       expect(isCommentNode(node)).toBe(false);
+      expect(isEmptyCommentNode(node)).toBe(false);
       expect(isBoundaryNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
@@ -64,6 +84,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(true);
       expect(isNode(node)).toBe(true);
       expect(isCommentNode(node)).toBe(false);
+      expect(isEmptyCommentNode(node)).toBe(false);
       expect(isBoundaryNode(node)).toBe(false);
       expect(isDataNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
@@ -79,6 +100,7 @@ describe("ast type guards", () => {
       expect(isUnknownNode(node)).toBe(true);
       expect(isNode(node)).toBe(true);
       expect(isCommentNode(node)).toBe(false);
+      expect(isEmptyCommentNode(node)).toBe(false);
       expect(isBoundaryNode(node)).toBe(false);
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
@@ -105,6 +127,7 @@ describe("ast type guards", () => {
       expect(isRootNode(node)).toBe(true);
       expect(isNode(node)).toBe(true);
       expect(isCommentNode(node)).toBe(false);
+      expect(isEmptyCommentNode(node)).toBe(false);
       expect(isBoundaryNode(node)).toBe(false);
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
@@ -126,6 +149,7 @@ describe("ast type guards", () => {
     ])("should return false for $case", ({ value }) => {
       expect(isNode(value)).toBe(false);
       expect(isCommentNode(value)).toBe(false);
+      expect(isEmptyCommentNode(value)).toBe(false);
       expect(isBoundaryNode(value)).toBe(false);
       expect(isDataNode(value)).toBe(false);
       expect(isEmptyNode(value)).toBe(false);
