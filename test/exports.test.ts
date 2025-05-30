@@ -50,6 +50,7 @@ it("exports-snapshot", async () => {
       hasSections: "function",
       isBoundaryNode: "function",
       isCommentNode: "function",
+      isEmptyCommentNode: "function",
       isDataNode: "function",
       isEmptyNode: "function",
       isNode: "function",

@@ -3,6 +3,7 @@ import type { BoundaryStyle } from "../line-helpers";
 export const NodeTypes = {
   ROOT: "root",
   COMMENT: "comment",
+  EMPTY_COMMENT: "empty-comment",
   BOUNDARY: "boundary",
   DATA: "data",
   EMPTY: "empty",
@@ -29,6 +30,10 @@ export interface CommentNode extends BaseNode {
   type: "comment";
 }
 
+export interface EmptyCommentNode extends BaseNode {
+  type: "empty-comment";
+}
+
 export interface BoundaryNode extends BaseNode {
   type: "boundary";
   style: BoundaryStyle;
@@ -52,6 +57,7 @@ export interface UnknownNode extends BaseNode {
 // All node types except root
 export type ChildNode =
   | CommentNode
+  | EmptyCommentNode
   | BoundaryNode
   | DataNode
   | EmptyNode
