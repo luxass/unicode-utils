@@ -61,23 +61,66 @@ async function run() {
 
     const content = `${COMMENT}
 import { describe, expect, it } from "vitest";
-import { inferHeading } from "../../src/inference/heading";
-import { mapUCDFiles } from "../__utils";
+import { parseDataFileIntoAst } from "../../../src/datafile/parser";
+import { inferHeadingFromAST } from "../../../src/inference/heading";
+import { mapUCDFiles } from "../../__utils";
 
 const ucdFiles = await mapUCDFiles("${version}");
 
 describe("heading inference ${formattedVersion}", async () => {
-  ${files
+  ${Object.entries(files
     .filter((file) => !file.endsWith(".comments.txt"))
-    .map((filePath) => {
+    .reduce((acc, filePath) => {
       const fileName = filePath.replace(`${versionDir}/`, "");
       const parsed = path.parse(fileName);
-      return `it("inferHeading(${fileName})", () => {
-    const content = ucdFiles.file("${fileName}");
-    const expected = ucdFiles.expected("${parsed.dir}/${parsed.name}.comments.txt");
+      const dirPath = parsed.dir;
 
-    expect(inferHeading(content)).toBe(expected);
+      if (!acc[dirPath]) {
+        acc[dirPath] = [];
+      }
+      acc[dirPath].push(fileName);
+      return acc;
+    }, {} as Record<string, string[]>))
+    .map(([dirPath, fileNames]) => {
+      // split directory path into segments for nested describes
+      const dirSegments = dirPath.split("/").filter(Boolean);
+
+      if (dirSegments.length === 0) {
+        // for root level files
+        return fileNames
+          .map((fileName, idx) => {
+            const parsed = path.parse(fileName);
+            return `${idx === 0 ? "" : "  "}it("inferHeadingFromAST(${fileName})", () => {
+    const content = ucdFiles.file("${fileName}");
+    const expected = ucdFiles.expected("${parsed.name}.comments.txt");
+    const ast = parseDataFileIntoAst(content);
+
+    expect(inferHeadingFromAST(ast)).toBe(expected);
   });`;
+          })
+          .join("\n\n");
+      }
+
+      // create test cases for files in this directory
+      const testContent = fileNames
+        .map((fileName) => {
+          const parsed = path.parse(fileName);
+          return `    it("inferHeadingFromAST(${parsed.base})", () => {
+      const content = ucdFiles.file("${fileName}");
+      const expected = ucdFiles.expected("${fileName.replace(".txt", ".comments.txt")}");
+      const ast = parseDataFileIntoAst(content);
+
+      expect(inferHeadingFromAST(ast)).toBe(expected);
+    });`;
+        })
+        .join("\n\n");
+
+      // wrap in describe blocks for each directory level
+      return dirSegments.reduceRight((content, segment) => {
+        return `describe("${segment}", () => {
+${content}
+  });`;
+      }, testContent);
     })
     .join("\n\n  ")}
 
@@ -88,7 +131,7 @@ describe("heading inference ${formattedVersion}", async () => {
 });\n`;
 
     console.log(`Test file generated: heading-${formattedVersion}.test.ts`);
-    writeFile(`./test/inference/heading-${formattedVersion}.test.ts`, content, "utf-8");
+    writeFile(`./test/inference/generated/heading-${formattedVersion}.test.ts`, content, "utf-8");
   });
 
   await Promise.all(promises);
