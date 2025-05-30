@@ -5,6 +5,7 @@ import {
   isDataNode,
   isEmptyCommentNode,
   isEmptyNode,
+  isEOFNode,
   isUnknownNode,
 } from "./typeguards";
 
@@ -15,7 +16,8 @@ const NODE_TYPE_CHECKERS = {
   "data": isDataNode,
   "empty": isEmptyNode,
   "unknown": isUnknownNode,
-};
+  "eof": isEOFNode,
+} satisfies Record<ChildNode["type"], (node: ChildNode) => boolean>;
 
 /**
  * Checks if the next N nodes from a given index are all comment nodes

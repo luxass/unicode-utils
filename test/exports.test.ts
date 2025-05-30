@@ -53,6 +53,7 @@ it("exports-snapshot", async () => {
       isCommentNode: "function",
       isEmptyCommentNode: "function",
       isDataNode: "function",
+      isEOFNode: "function",
       isEmptyNode: "function",
       isNode: "function",
       isRootNode: "function",

@@ -5,6 +5,7 @@ import {
   isDataNode,
   isEmptyCommentNode,
   isEmptyNode,
+  isEOFNode,
   isNode,
   isRootNode,
   isUnknownNode,
@@ -24,6 +25,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -40,6 +42,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -57,6 +60,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -73,6 +77,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -89,6 +94,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -105,6 +111,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -132,6 +139,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -155,6 +163,21 @@ describe("ast type guards", () => {
       expect(isEmptyNode(value)).toBe(false);
       expect(isUnknownNode(value)).toBe(false);
       expect(isRootNode(value)).toBe(false);
+      expect(isEOFNode(value)).toBe(false);
     });
+  });
+
+  // eslint-disable-next-line test/prefer-lowercase-title
+  it("EOF node", () => {
+    const eofNode = { type: "eof", value: "", raw: "", line: 1 };
+    expect(isEOFNode(eofNode)).toBe(true);
+    expect(isNode(eofNode)).toBe(true);
+    expect(isCommentNode(eofNode)).toBe(false);
+    expect(isEmptyCommentNode(eofNode)).toBe(false);
+    expect(isBoundaryNode(eofNode)).toBe(false);
+    expect(isDataNode(eofNode)).toBe(false);
+    expect(isEmptyNode(eofNode)).toBe(false);
+    expect(isUnknownNode(eofNode)).toBe(false);
+    expect(isRootNode(eofNode)).toBe(false);
   });
 });

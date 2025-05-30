@@ -11,6 +11,7 @@ import {
   isBoundaryLine,
   isCommentLine,
   isEmptyLine,
+  isEOFMarker,
   isLineWithData,
   trimCommentLine,
 } from "../line-helpers";
@@ -61,6 +62,15 @@ function createNode(line: string, lineNumber: number): ChildNode {
       raw: line,
       line: lineNumber,
       style,
+    };
+  }
+
+  if (isEOFMarker(line)) {
+    return {
+      type: NodeTypes.EOF,
+      value: trimmedLine,
+      raw: line,
+      line: lineNumber,
     };
   }
 
