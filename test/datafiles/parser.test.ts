@@ -161,6 +161,12 @@ describe("node content validation", () => {
       expectedType: NodeTypes.BOUNDARY,
       expectedValue: "# -----------------------------------------------",
     },
+    {
+      description: "EOF marker line",
+      line: "# EOF",
+      expectedType: NodeTypes.EOF,
+      expectedValue: "# EOF",
+    },
   ])("should handle $description", ({ line, expectedType, expectedValue }) => {
     const result = parseDataFileIntoAst(line);
     const node = result.children[0];
