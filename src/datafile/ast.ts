@@ -8,6 +8,7 @@ export const NodeTypes = {
   DATA: "data",
   EMPTY: "empty",
   EOF: "eof",
+  PROPERTY: "property",
   UNKNOWN: "unknown",
 } as const;
 
@@ -25,6 +26,11 @@ export interface RootNode extends BaseNode {
   children: ChildNode[];
   fileName?: string;
   version?: string;
+}
+
+export interface PropertyNode extends BaseNode {
+  type: "property";
+  propertyValue: string;
 }
 
 export interface CommentNode extends BaseNode {
@@ -67,6 +73,7 @@ export type ChildNode =
   | DataNode
   | EmptyNode
   | EOFNode
+  | PropertyNode
   | UnknownNode;
 
 export type Node = RootNode | ChildNode;

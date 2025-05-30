@@ -8,6 +8,7 @@ import {
   isHashBoundary,
   isLineWithData,
   isMissingAnnotation,
+  isPropertyLine,
   parseMissingAnnotation,
   trimCommentLine,
 } from "../src/line-helpers";
@@ -178,6 +179,19 @@ describe("trimCommentLine", () => {
     ["", ""],
   ])("should trim comment line '%s' to '%s'", (line, expected) => {
     expect(trimCommentLine(line)).toBe(expected);
+  });
+});
+
+describe("isPropertyLine", () => {
+  it.each([
+    ["# Property: UnicodeVersion", true],
+    ["# Property: Script", true],
+    ["# ", false],
+    ["# Property:", false],
+    ["# Property: ", false],
+    ["", false],
+  ])("should correctly identify '%s' as %s", (line, expected) => {
+    expect(isPropertyLine(line)).toBe(expected);
   });
 });
 
