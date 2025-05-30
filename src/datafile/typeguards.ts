@@ -4,6 +4,7 @@ import type {
   DataNode,
   EmptyCommentNode,
   EmptyNode,
+  EOFNode,
   Node,
   RootNode,
   UnknownNode,
@@ -211,4 +212,28 @@ export function isRootNode(node: unknown): node is RootNode {
  */
 export function isUnknownNode(node: unknown): node is UnknownNode {
   return isNode(node) && node.type === "unknown";
+}
+
+/**
+ * Type guard function that checks if an unknown value is an EOFNode.
+ * An EOFNode must be a valid Node with the type property set to "eof".
+ *
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is EOFNode} True if the node is a valid EOFNode, false otherwise
+ *
+ * @example
+ * ```typescript
+ * import { parseDataFile } from './parser';
+ *
+ * const parsedData = parseDataFile('0000; NULL');
+ * const lastNode = parsedData.children[parsedData.children.length - 1];
+ *
+ * if (isEOFNode(lastNode)) {
+ *   console.log(`EOF node detected at line: ${lastNode.line}`);
+ *   console.log(`EOF raw value: ${lastNode.raw}`); // Empty string
+ * }
+ * ```
+ */
+export function isEOFNode(node: unknown): node is EOFNode {
+  return isNode(node) && node.type === "eof";
 }

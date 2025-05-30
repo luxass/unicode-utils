@@ -7,6 +7,7 @@ export const NodeTypes = {
   BOUNDARY: "boundary",
   DATA: "data",
   EMPTY: "empty",
+  EOF: "eof",
   UNKNOWN: "unknown",
 } as const;
 
@@ -47,6 +48,10 @@ export interface EmptyNode extends BaseNode {
   type: "empty";
 }
 
+export interface EOFNode extends BaseNode {
+  type: "eof";
+}
+
 export interface UnknownNode extends BaseNode {
   type: "unknown";
   // This can be used for nodes that don't fit any known type
@@ -61,6 +66,7 @@ export type ChildNode =
   | BoundaryNode
   | DataNode
   | EmptyNode
+  | EOFNode
   | UnknownNode;
 
 export type Node = RootNode | ChildNode;
