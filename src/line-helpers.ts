@@ -454,7 +454,8 @@ export function isPropertyLine(line: string): boolean {
     return false;
   }
 
-  return getPropertyValue(line) !== undefined;
+  const val = getPropertyValue(line);
+  return val !== undefined && val.trim() !== "";
 }
 
 /**

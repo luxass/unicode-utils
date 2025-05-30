@@ -14,6 +14,7 @@ it("exports-snapshot", async () => {
       fromHexToCodepoint: "function",
       getBoundaryLineStyle: "function",
       getCurrentDraftVersion: "function",
+      getPropertyValue: "function",
       hasUCDFolderPath: "function",
       inferFileName: "function",
       inferVersion: "function",
@@ -64,6 +65,7 @@ it("exports-snapshot", async () => {
     },
     "./line-helpers": {
       getBoundaryLineStyle: "function",
+      getPropertyValue: "function",
       inferFileName: "function",
       inferVersion: "function",
       isBoundaryLine: "function",
