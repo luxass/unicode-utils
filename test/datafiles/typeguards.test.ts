@@ -166,4 +166,18 @@ describe("ast type guards", () => {
       expect(isEOFNode(value)).toBe(false);
     });
   });
+
+  // eslint-disable-next-line test/prefer-lowercase-title
+  it("EOF node", () => {
+    const eofNode = { type: "eof", value: "", raw: "", line: 1 };
+    expect(isEOFNode(eofNode)).toBe(true);
+    expect(isNode(eofNode)).toBe(true);
+    expect(isCommentNode(eofNode)).toBe(false);
+    expect(isEmptyCommentNode(eofNode)).toBe(false);
+    expect(isBoundaryNode(eofNode)).toBe(false);
+    expect(isDataNode(eofNode)).toBe(false);
+    expect(isEmptyNode(eofNode)).toBe(false);
+    expect(isUnknownNode(eofNode)).toBe(false);
+    expect(isRootNode(eofNode)).toBe(false);
+  });
 });
