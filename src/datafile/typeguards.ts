@@ -18,13 +18,13 @@ import type {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileNode(unknownValue)) {
+ * if (isNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileNode
  *   console.log(`Node type: ${unknownValue.type}`);
  * }
  * ```
  */
-export function isDataFileNode(node: unknown): node is Node {
+export function isNode(node: unknown): node is Node {
   return (
     typeof node === "object"
     && node !== null
@@ -45,14 +45,14 @@ export function isDataFileNode(node: unknown): node is Node {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileCommentNode(unknownValue)) {
+ * if (isCommentNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileCommentNode
  *   console.log(`Comment node value: ${unknownValue.value}`);
  * }
  * ```
  */
-export function isDataFileCommentNode(node: unknown): node is CommentNode {
-  return isDataFileNode(node) && node.type === "comment";
+export function isCommentNode(node: unknown): node is CommentNode {
+  return isNode(node) && node.type === "comment";
 }
 
 /**
@@ -65,14 +65,14 @@ export function isDataFileCommentNode(node: unknown): node is CommentNode {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileBoundaryNode(unknownValue)) {
+ * if (isBoundaryNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileBoundaryNode
  *   console.log(`Boundary style: ${unknownValue.style}`);
  * }
  * ```
  */
-export function isDataFileBoundaryNode(node: unknown): node is BoundaryNode {
-  return isDataFileNode(node) && node.type === "boundary";
+export function isBoundaryNode(node: unknown): node is BoundaryNode {
+  return isNode(node) && node.type === "boundary";
 }
 
 /**
@@ -85,14 +85,14 @@ export function isDataFileBoundaryNode(node: unknown): node is BoundaryNode {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileDataNode(unknownValue)) {
+ * if (isDataNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileDataNode
  *   console.log(`Data node value: ${unknownValue.value}`);
  * }
  * ```
  */
-export function isDataFileDataNode(node: unknown): node is DataNode {
-  return isDataFileNode(node) && node.type === "data";
+export function isDataNode(node: unknown): node is DataNode {
+  return isNode(node) && node.type === "data";
 }
 
 /**
@@ -105,14 +105,14 @@ export function isDataFileDataNode(node: unknown): node is DataNode {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileEmptyNode(unknownValue)) {
+ * if (isEmptyNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileEmptyNode
  *   console.log(`Found empty node: ${unknownValue.raw}`);
  * }
  * ```
  */
-export function isDataFileEmptyNode(node: unknown): node is EmptyNode {
-  return isDataFileNode(node) && node.type === "empty";
+export function isEmptyNode(node: unknown): node is EmptyNode {
+  return isNode(node) && node.type === "empty";
 }
 
 /**
@@ -125,14 +125,14 @@ export function isDataFileEmptyNode(node: unknown): node is EmptyNode {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileRootNode(unknownValue)) {
+ * if (isRootNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileRootNode
  *   console.log(`Root node has ${unknownValue.children.length} children`);
  * }
  * ```
  */
-export function isDataFileRootNode(node: unknown): node is RootNode {
-  return isDataFileNode(node) && node.type === "root";
+export function isRootNode(node: unknown): node is RootNode {
+  return isNode(node) && node.type === "root";
 }
 
 /**
@@ -145,12 +145,12 @@ export function isDataFileRootNode(node: unknown): node is RootNode {
  * @example
  * ```typescript
  * const unknownValue = getSomeData();
- * if (isDataFileUnknownNode(unknownValue)) {
+ * if (isUnknownNode(unknownValue)) {
  *   // TypeScript now knows this is a DataFileUnknownNode
  *   console.log(`Found unknown node: ${unknownValue.raw}`);
  * }
  * ```
  */
-export function isDataFileUnknownNode(node: unknown): node is UnknownNode {
-  return isDataFileNode(node) && node.type === "unknown";
+export function isUnknownNode(node: unknown): node is UnknownNode {
+  return isNode(node) && node.type === "unknown";
 }

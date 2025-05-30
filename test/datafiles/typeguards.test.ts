@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import {
-  isDataFileBoundaryNode,
-  isDataFileCommentNode,
-  isDataFileDataNode,
-  isDataFileEmptyNode,
-  isDataFileNode,
-  isDataFileRootNode,
-  isDataFileUnknownNode,
+  isBoundaryNode,
+  isCommentNode,
+  isDataNode,
+  isEmptyNode,
+  isNode,
+  isRootNode,
+  isUnknownNode,
 } from "../../src/datafile/typeguards";
 
 describe("ast type guards", () => {
@@ -15,13 +15,13 @@ describe("ast type guards", () => {
       { type: "comment", value: "This is a comment", raw: "# This is a comment", line: 1 },
       { type: "comment", value: "Another comment", raw: "# Another comment", line: 2 },
     ])("should identify comment nodes", (node) => {
-      expect(isDataFileCommentNode(node)).toBe(true);
-      expect(isDataFileNode(node)).toBe(true);
-      expect(isDataFileBoundaryNode(node)).toBe(false);
-      expect(isDataFileDataNode(node)).toBe(false);
-      expect(isDataFileEmptyNode(node)).toBe(false);
-      expect(isDataFileUnknownNode(node)).toBe(false);
-      expect(isDataFileRootNode(node)).toBe(false);
+      expect(isCommentNode(node)).toBe(true);
+      expect(isNode(node)).toBe(true);
+      expect(isBoundaryNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(false);
     });
   });
 
@@ -31,13 +31,13 @@ describe("ast type guards", () => {
       { type: "boundary", value: "Another boundary", raw: "=====", line: 2, style: "=" },
       { type: "boundary", value: "Hash boundary", raw: "#####", line: 3, style: "#" },
     ])("should identify boundary nodes", (node) => {
-      expect(isDataFileBoundaryNode(node)).toBe(true);
-      expect(isDataFileNode(node)).toBe(true);
-      expect(isDataFileCommentNode(node)).toBe(false);
-      expect(isDataFileDataNode(node)).toBe(false);
-      expect(isDataFileEmptyNode(node)).toBe(false);
-      expect(isDataFileUnknownNode(node)).toBe(false);
-      expect(isDataFileRootNode(node)).toBe(false);
+      expect(isBoundaryNode(node)).toBe(true);
+      expect(isNode(node)).toBe(true);
+      expect(isCommentNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(false);
     });
   });
 
@@ -46,13 +46,13 @@ describe("ast type guards", () => {
       { type: "data", value: "Some data here", raw: "Some data here", line: 1 },
       { type: "data", value: "More data", raw: "More data", line: 2 },
     ])("should identify data nodes", (node) => {
-      expect(isDataFileDataNode(node)).toBe(true);
-      expect(isDataFileNode(node)).toBe(true);
-      expect(isDataFileCommentNode(node)).toBe(false);
-      expect(isDataFileBoundaryNode(node)).toBe(false);
-      expect(isDataFileEmptyNode(node)).toBe(false);
-      expect(isDataFileUnknownNode(node)).toBe(false);
-      expect(isDataFileRootNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(true);
+      expect(isNode(node)).toBe(true);
+      expect(isCommentNode(node)).toBe(false);
+      expect(isBoundaryNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(false);
     });
   });
 
@@ -61,13 +61,13 @@ describe("ast type guards", () => {
       { type: "empty", value: "", raw: "", line: 1 },
       { type: "empty", value: "", raw: "", line: 2 },
     ])("should identify empty nodes", (node) => {
-      expect(isDataFileEmptyNode(node)).toBe(true);
-      expect(isDataFileNode(node)).toBe(true);
-      expect(isDataFileCommentNode(node)).toBe(false);
-      expect(isDataFileBoundaryNode(node)).toBe(false);
-      expect(isDataFileDataNode(node)).toBe(false);
-      expect(isDataFileUnknownNode(node)).toBe(false);
-      expect(isDataFileRootNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(true);
+      expect(isNode(node)).toBe(true);
+      expect(isCommentNode(node)).toBe(false);
+      expect(isBoundaryNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(false);
     });
   });
 
@@ -76,13 +76,13 @@ describe("ast type guards", () => {
       { type: "unknown", value: "Unknown type", raw: "Unknown type", line: 1, extra: "data" },
       { type: "unknown", value: "Another unknown", raw: "Another unknown", line: 2, extra: "info" },
     ])("should identify unknown nodes", (node) => {
-      expect(isDataFileUnknownNode(node)).toBe(true);
-      expect(isDataFileNode(node)).toBe(true);
-      expect(isDataFileCommentNode(node)).toBe(false);
-      expect(isDataFileBoundaryNode(node)).toBe(false);
-      expect(isDataFileDataNode(node)).toBe(false);
-      expect(isDataFileEmptyNode(node)).toBe(false);
-      expect(isDataFileRootNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(true);
+      expect(isNode(node)).toBe(true);
+      expect(isCommentNode(node)).toBe(false);
+      expect(isBoundaryNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(false);
     });
   });
 
@@ -102,13 +102,13 @@ describe("ast type guards", () => {
         }],
       },
     ])("should identify root nodes", (node) => {
-      expect(isDataFileRootNode(node)).toBe(true);
-      expect(isDataFileNode(node)).toBe(true);
-      expect(isDataFileCommentNode(node)).toBe(false);
-      expect(isDataFileBoundaryNode(node)).toBe(false);
-      expect(isDataFileDataNode(node)).toBe(false);
-      expect(isDataFileEmptyNode(node)).toBe(false);
-      expect(isDataFileUnknownNode(node)).toBe(false);
+      expect(isRootNode(node)).toBe(true);
+      expect(isNode(node)).toBe(true);
+      expect(isCommentNode(node)).toBe(false);
+      expect(isBoundaryNode(node)).toBe(false);
+      expect(isDataNode(node)).toBe(false);
+      expect(isEmptyNode(node)).toBe(false);
+      expect(isUnknownNode(node)).toBe(false);
     });
   });
 
@@ -124,13 +124,13 @@ describe("ast type guards", () => {
       { case: "non-string type", value: { type: 123, raw: "some raw data" } },
       { case: "non-string raw", value: { type: "data", raw: 123 } },
     ])("should return false for $case", ({ value }) => {
-      expect(isDataFileNode(value)).toBe(false);
-      expect(isDataFileCommentNode(value)).toBe(false);
-      expect(isDataFileBoundaryNode(value)).toBe(false);
-      expect(isDataFileDataNode(value)).toBe(false);
-      expect(isDataFileEmptyNode(value)).toBe(false);
-      expect(isDataFileUnknownNode(value)).toBe(false);
-      expect(isDataFileRootNode(value)).toBe(false);
+      expect(isNode(value)).toBe(false);
+      expect(isCommentNode(value)).toBe(false);
+      expect(isBoundaryNode(value)).toBe(false);
+      expect(isDataNode(value)).toBe(false);
+      expect(isEmptyNode(value)).toBe(false);
+      expect(isUnknownNode(value)).toBe(false);
+      expect(isRootNode(value)).toBe(false);
     });
   });
 });
