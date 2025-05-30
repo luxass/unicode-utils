@@ -30,7 +30,7 @@ export interface RootNode extends BaseNode {
 
 export interface PropertyNode extends BaseNode {
   type: "property";
-  propertyValue: string;
+  propertyValue: string | undefined;
 }
 
 export interface CommentNode extends BaseNode {

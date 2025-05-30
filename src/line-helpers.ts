@@ -454,18 +454,39 @@ export function isPropertyLine(line: string): boolean {
     return false;
   }
 
+  return getPropertyValue(line) !== undefined;
+}
+
+/**
+ * Extracts the property value from a property definition line in Unicode data files.
+ *
+ * This function parses a line that follows the format '# Property: [PropertyValue]'
+ * and returns the PropertyValue part. It is used internally by isPropertyLine
+ * to parse property definitions in Unicode data files.
+ *
+ * @param {string} line - The line to extract the property value from
+ * @returns {string | undefined} The extracted property value, or undefined if
+ *                              the line is not a valid property definition
+ *
+ * @example
+ * ```ts
+ * getPropertyValue("# Property: Age"); // returns "Age"
+ * getPropertyValue("# Property: "); // returns undefined
+ * getPropertyValue("# Not a property line"); // returns undefined
+ * ```
+ */
+export function getPropertyValue(line: string): string | undefined {
   const trimmedComment = trimCommentLine(line).trim();
   if (trimmedComment === "") {
-    return false;
+    return;
   }
 
   // A property line starts with "Property:" followed by the property name
   // If nothing follows "Property:", it is not considered a property line
   if (!trimmedComment.startsWith("Property:")) {
-    return false;
+    return;
   }
 
   // Check if there is at least one character after "Property:"
-  const propertyName = trimmedComment.slice("Property:".length).trim();
-  return propertyName.length > 0;
+  return trimmedComment.slice("Property:".length).trim();
 }
