@@ -5,6 +5,7 @@ import {
   isDataNode,
   isEmptyCommentNode,
   isEmptyNode,
+  isEOFNode,
   isNode,
   isRootNode,
   isUnknownNode,
@@ -24,6 +25,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -40,6 +42,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -57,6 +60,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -73,6 +77,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -89,6 +94,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -105,6 +111,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -132,6 +139,7 @@ describe("ast type guards", () => {
       expect(isDataNode(node)).toBe(false);
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
+      expect(isEOFNode(node)).toBe(false);
     });
   });
 
@@ -155,6 +163,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(value)).toBe(false);
       expect(isUnknownNode(value)).toBe(false);
       expect(isRootNode(value)).toBe(false);
+      expect(isEOFNode(value)).toBe(false);
     });
   });
 });
