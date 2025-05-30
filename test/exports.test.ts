@@ -56,6 +56,7 @@ it("exports-snapshot", async () => {
       isEOFNode: "function",
       isEmptyNode: "function",
       isNode: "function",
+      isPropertyNode: "function",
       isRootNode: "function",
       isUnknownNode: "function",
       parseSections: "function",

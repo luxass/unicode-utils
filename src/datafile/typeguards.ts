@@ -6,6 +6,7 @@ import type {
   EmptyNode,
   EOFNode,
   Node,
+  PropertyNode,
   RootNode,
   UnknownNode,
 } from "./ast";
@@ -236,4 +237,29 @@ export function isUnknownNode(node: unknown): node is UnknownNode {
  */
 export function isEOFNode(node: unknown): node is EOFNode {
   return isNode(node) && node.type === "eof";
+}
+
+/**
+ * Type guard function that checks if an unknown value is a PropertyNode.
+ * A PropertyNode must be a valid Node with the type property set to "property" and have a defined propertyValue.
+ *
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is PropertyNode} True if the node is a valid PropertyNode, false otherwise
+ *
+ * @example
+ * ```typescript
+ * import { parseDataFile } from './parser';
+ *
+ * const parsedData = parseDataFile('# @key=value\n0000; NULL');
+ * const propertyNode = parsedData.children[0];
+ *
+ * if (isPropertyNode(propertyNode)) {
+ *   console.log(`Property key: ${propertyNode.propertyKey}`); // "key"
+ *   console.log(`Property value: ${propertyNode.propertyValue}`); // "value"
+ *   console.log(`Raw content: ${propertyNode.raw}`); // "# @key=value"
+ * }
+ * ```
+ */
+export function isPropertyNode(node: unknown): node is PropertyNode {
+  return isNode(node) && node.type === "property" && node.propertyValue !== undefined;
 }

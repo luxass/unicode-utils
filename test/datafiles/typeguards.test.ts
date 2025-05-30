@@ -7,6 +7,7 @@ import {
   isEmptyNode,
   isEOFNode,
   isNode,
+  isPropertyNode,
   isRootNode,
   isUnknownNode,
 } from "../../src/datafile/typeguards";
@@ -26,6 +27,7 @@ describe("ast type guards", () => {
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -43,6 +45,7 @@ describe("ast type guards", () => {
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -61,6 +64,7 @@ describe("ast type guards", () => {
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -78,6 +82,7 @@ describe("ast type guards", () => {
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -95,6 +100,7 @@ describe("ast type guards", () => {
       expect(isUnknownNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -112,6 +118,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isRootNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -140,6 +147,7 @@ describe("ast type guards", () => {
       expect(isEmptyNode(node)).toBe(false);
       expect(isUnknownNode(node)).toBe(false);
       expect(isEOFNode(node)).toBe(false);
+      expect(isPropertyNode(node)).toBe(false);
     });
   });
 
@@ -164,12 +172,14 @@ describe("ast type guards", () => {
       expect(isUnknownNode(value)).toBe(false);
       expect(isRootNode(value)).toBe(false);
       expect(isEOFNode(value)).toBe(false);
+      expect(isPropertyNode(value)).toBe(false);
     });
   });
 
   // eslint-disable-next-line test/prefer-lowercase-title
   it("EOF node", () => {
     const eofNode = { type: "eof", value: "", raw: "", line: 1 };
+
     expect(isEOFNode(eofNode)).toBe(true);
     expect(isNode(eofNode)).toBe(true);
     expect(isCommentNode(eofNode)).toBe(false);
@@ -179,5 +189,21 @@ describe("ast type guards", () => {
     expect(isEmptyNode(eofNode)).toBe(false);
     expect(isUnknownNode(eofNode)).toBe(false);
     expect(isRootNode(eofNode)).toBe(false);
+    expect(isPropertyNode(eofNode)).toBe(false);
+  });
+
+  it("property node", () => {
+    const propertyNode = { type: "property", value: "Property value", raw: "Property value", line: 1 };
+
+    expect(isPropertyNode(propertyNode)).toBe(true);
+    expect(isNode(propertyNode)).toBe(true);
+    expect(isCommentNode(propertyNode)).toBe(false);
+    expect(isEmptyCommentNode(propertyNode)).toBe(false);
+    expect(isBoundaryNode(propertyNode)).toBe(false);
+    expect(isDataNode(propertyNode)).toBe(false);
+    expect(isEmptyNode(propertyNode)).toBe(false);
+    expect(isUnknownNode(propertyNode)).toBe(false);
+    expect(isRootNode(propertyNode)).toBe(false);
+    expect(isEOFNode(propertyNode)).toBe(false);
   });
 });

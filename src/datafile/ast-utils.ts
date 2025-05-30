@@ -6,6 +6,7 @@ import {
   isEmptyCommentNode,
   isEmptyNode,
   isEOFNode,
+  isPropertyNode,
   isUnknownNode,
 } from "./typeguards";
 
@@ -17,6 +18,7 @@ const NODE_TYPE_CHECKERS = {
   "empty": isEmptyNode,
   "unknown": isUnknownNode,
   "eof": isEOFNode,
+  "property": isPropertyNode,
 } satisfies Record<ChildNode["type"], (node: ChildNode) => boolean>;
 
 /**
