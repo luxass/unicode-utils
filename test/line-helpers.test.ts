@@ -9,6 +9,7 @@ import {
   isLineWithData,
   isMissingAnnotation,
   parseMissingAnnotation,
+  trimCommentLine,
 } from "../src/line-helpers";
 
 describe("missing annotation", () => {
@@ -157,6 +158,26 @@ describe("isLineWithData", () => {
     ["special chars !@#", true],
   ])("should correctly identify '%s' as %s", (line, expected) => {
     expect(isLineWithData(line)).toBe(expected);
+  });
+});
+
+describe("trimCommentLine", () => {
+  it.each([
+    ["# This is a comment", "This is a comment"],
+    ["# Another comment line", "Another comment line"],
+    ["#   Leading and trailing spaces   ", "Leading and trailing spaces"],
+    ["#  ", ""],
+    ["#\tTabbed comment", "Tabbed comment"],
+    ["#\nNewline in comment", "Newline in comment"],
+    ["# Special characters !@#$%^&*()", "Special characters !@#$%^&*()"],
+    ["# 1234567890", "1234567890"],
+    ["# ", ""],
+    ["#\t", ""],
+    ["#\n", ""],
+    ["#", ""],
+    ["", ""],
+  ])("should trim comment line '%s' to '%s'", (line, expected) => {
+    expect(trimCommentLine(line)).toBe(expected);
   });
 });
 

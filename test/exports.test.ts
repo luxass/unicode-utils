@@ -31,6 +31,7 @@ it("exports-snapshot", async () => {
       RawDataFile: "function",
       resolveUCDVersion: "function",
       stripHex: "function",
+      trimCommentLine: "function",
       UCD_PATH_MAPPINGS: "object",
       UNICODE_DRAFT_VERSION: "string",
       UNICODE_STABLE_VERSION: "string",
@@ -73,6 +74,7 @@ it("exports-snapshot", async () => {
       isMissingAnnotation: "function",
       parseFileNameLine: "function",
       parseMissingAnnotation: "function",
+      trimCommentLine: "function",
     },
   });
 });

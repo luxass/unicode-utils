@@ -12,6 +12,7 @@ import {
   isCommentLine,
   isEmptyLine,
   isLineWithData,
+  trimCommentLine,
 } from "../line-helpers";
 import { NodeTypes } from "./ast";
 
@@ -61,9 +62,10 @@ function createNode(line: string, lineNumber: number): ChildNode {
   }
 
   if (isCommentLine(line)) {
+    const trimmedComment = trimCommentLine(line);
     return {
-      type: NodeTypes.COMMENT,
-      value: trimmedLine.substring(1).trim(),
+      type: trimmedComment === "" ? NodeTypes.EMPTY_COMMENT : NodeTypes.COMMENT,
+      value: trimmedComment,
       raw: line,
       line: lineNumber,
     };
