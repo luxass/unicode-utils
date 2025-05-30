@@ -1,6 +1,6 @@
 import type { UCDSectionWithLines } from "../types";
 import type { RootNode } from "./ast";
-import { inferHeading } from "../inference/heading";
+import { inferHeadingFromAST } from "../inference/heading";
 import { inferFileName, inferVersion, isEOFMarker } from "../line-helpers";
 import { parseDataFileIntoAst } from "./parser";
 import { parseSections } from "./sections";
@@ -77,7 +77,7 @@ export class RawDataFile {
     this.ast = parseDataFileIntoAst(content);
 
     this.rawContent = this.content = content;
-    this.heading = inferHeading(this.content);
+    this.heading = inferHeadingFromAST(this.ast);
 
     if (this.heading != null) {
       this.content = content.replace(this.heading, "").trim();
