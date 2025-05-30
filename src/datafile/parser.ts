@@ -6,6 +6,7 @@ import type {
 } from "./ast";
 import {
   getBoundaryLineStyle,
+  getPropertyValue,
   inferFileName,
   inferVersion,
   isBoundaryLine,
@@ -13,6 +14,7 @@ import {
   isEmptyLine,
   isEOFMarker,
   isLineWithData,
+  isPropertyLine,
   trimCommentLine,
 } from "../line-helpers";
 import { NodeTypes } from "./ast";
@@ -71,6 +73,16 @@ function createNode(line: string, lineNumber: number): ChildNode {
       value: trimmedLine,
       raw: line,
       line: lineNumber,
+    };
+  }
+
+  if (isPropertyLine(line)) {
+    return {
+      type: NodeTypes.PROPERTY,
+      value: trimmedLine,
+      raw: line,
+      line: lineNumber,
+      propertyValue: getPropertyValue(trimmedLine),
     };
   }
 
