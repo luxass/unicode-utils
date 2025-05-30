@@ -1,10 +1,10 @@
 import type { ChildNode, RootNode } from "./ast";
 import {
-  isDataFileBoundaryNode,
-  isDataFileCommentNode,
-  isDataFileDataNode,
-  isDataFileEmptyNode,
-  isDataFileUnknownNode,
+  isBoundaryNode,
+  isCommentNode,
+  isDataNode,
+  isEmptyNode,
+  isUnknownNode,
 } from "./typeguards";
 
 /**
@@ -23,7 +23,7 @@ export function hasNextNCommentsFrom(
   if (startIndex + count > root.children.length) return false;
 
   for (let i = startIndex; i < startIndex + count; i++) {
-    if (!isDataFileCommentNode(root.children[i])) {
+    if (!isCommentNode(root.children[i])) {
       return false;
     }
   }
@@ -64,7 +64,7 @@ export function hasPrevNCommentsFrom(
   if (startIndex - count + 1 < 0) return false;
 
   for (let i = startIndex - count + 1; i <= startIndex; i++) {
-    if (!isDataFileCommentNode(root.children[i])) {
+    if (!isCommentNode(root.children[i])) {
       return false;
     }
   }
@@ -89,11 +89,11 @@ export function hasConsecutiveNodesOfType(
   if (startIndex + count > root.children.length) return false;
 
   const typeCheckers = {
-    comment: isDataFileCommentNode,
-    boundary: isDataFileBoundaryNode,
-    data: isDataFileDataNode,
-    empty: isDataFileEmptyNode,
-    unknown: isDataFileUnknownNode,
+    comment: isCommentNode,
+    boundary: isBoundaryNode,
+    data: isDataNode,
+    empty: isEmptyNode,
+    unknown: isUnknownNode,
   };
 
   const checker = typeCheckers[nodeType];
@@ -125,11 +125,11 @@ export function hasNodePattern(
   }
 
   const typeCheckers = {
-    comment: isDataFileCommentNode,
-    boundary: isDataFileBoundaryNode,
-    data: isDataFileDataNode,
-    empty: isDataFileEmptyNode,
-    unknown: isDataFileUnknownNode,
+    comment: isCommentNode,
+    boundary: isBoundaryNode,
+    data: isDataNode,
+    empty: isEmptyNode,
+    unknown: isUnknownNode,
   };
 
   for (let i = 0; i < pattern.length; i++) {
@@ -207,11 +207,11 @@ export function hasMinNodesOfType(
   minCount: number,
 ): boolean {
   const typeCheckers = {
-    comment: isDataFileCommentNode,
-    boundary: isDataFileBoundaryNode,
-    data: isDataFileDataNode,
-    empty: isDataFileEmptyNode,
-    unknown: isDataFileUnknownNode,
+    comment: isCommentNode,
+    boundary: isBoundaryNode,
+    data: isDataNode,
+    empty: isEmptyNode,
+    unknown: isUnknownNode,
   };
 
   const checker = typeCheckers[nodeType];
@@ -240,11 +240,11 @@ export function allNodesAreOfType(
   if (root.children.length === 0) return false;
 
   const typeCheckers = {
-    comment: isDataFileCommentNode,
-    boundary: isDataFileBoundaryNode,
-    data: isDataFileDataNode,
-    empty: isDataFileEmptyNode,
-    unknown: isDataFileUnknownNode,
+    comment: isCommentNode,
+    boundary: isBoundaryNode,
+    data: isDataNode,
+    empty: isEmptyNode,
+    unknown: isUnknownNode,
   };
 
   const checker = typeCheckers[nodeType];
@@ -260,7 +260,7 @@ export function allNodesAreOfType(
  */
 export function isCommentOnlyDocument(root: RootNode): boolean {
   return root.children.every((child) =>
-    isDataFileCommentNode(child) || isDataFileEmptyNode(child),
+    isCommentNode(child) || isEmptyNode(child),
   );
 }
 
@@ -281,7 +281,7 @@ export function hasBoundaryWithinRange(
   const endIndex = Math.min(startIndex + lookAhead, root.children.length);
 
   for (let i = startIndex; i < endIndex; i++) {
-    if (isDataFileBoundaryNode(root.children[i])) {
+    if (isBoundaryNode(root.children[i])) {
       return true;
     }
   }
