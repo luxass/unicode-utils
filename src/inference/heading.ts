@@ -39,7 +39,10 @@ export function inferHeadingFromAST(
   let headingEndNodeIndex: number = -1;
 
   const nodes = root.children;
-  const { allowEmptyLines = true, allowMultipleBoundaries = true } = settings;
+  const {
+    allowEmptyLines = true,
+    allowMultipleBoundaries = true,
+  } = settings;
 
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i];
