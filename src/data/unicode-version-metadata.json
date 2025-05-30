@@ -42,17 +42,17 @@
     "status": "stable"
   },
   {
-    "version": "12.0.0",
-    "documentationUrl": "https://www.unicode.org/versions/Unicode12.0.0/",
-    "date": "2019",
-    "ucdUrl": "https://www.unicode.org/Public/12.0.0/ucd",
-    "status": "stable"
-  },
-  {
     "version": "12.1.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode12.1.0/",
     "date": "2019",
     "ucdUrl": "https://www.unicode.org/Public/12.1.0/ucd",
+    "status": "stable"
+  },
+  {
+    "version": "12.0.0",
+    "documentationUrl": "https://www.unicode.org/versions/Unicode12.0.0/",
+    "date": "2019",
+    "ucdUrl": "https://www.unicode.org/Public/12.0.0/ucd",
     "status": "stable"
   },
   {
@@ -98,17 +98,17 @@
     "status": "stable"
   },
   {
-    "version": "6.1.0",
-    "documentationUrl": "https://www.unicode.org/versions/Unicode6.1.0/",
-    "date": "2012",
-    "ucdUrl": "https://www.unicode.org/Public/6.1.0/ucd",
-    "status": "stable"
-  },
-  {
     "version": "6.2.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode6.2.0/",
     "date": "2012",
     "ucdUrl": "https://www.unicode.org/Public/6.2.0/ucd",
+    "status": "stable"
+  },
+  {
+    "version": "6.1.0",
+    "documentationUrl": "https://www.unicode.org/versions/Unicode6.1.0/",
+    "date": "2012",
+    "ucdUrl": "https://www.unicode.org/Public/6.1.0/ucd",
     "status": "stable"
   },
   {
@@ -168,17 +168,17 @@
     "status": "stable"
   },
   {
-    "version": "3.1.0",
-    "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.0/",
-    "date": "2001",
-    "ucdUrl": "https://www.unicode.org/Public/3.1-Update/",
-    "status": "stable"
-  },
-  {
     "version": "3.1.1",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.1/",
     "date": "2001",
     "ucdUrl": "https://www.unicode.org/Public/3.1-Update1/",
+    "status": "stable"
+  },
+  {
+    "version": "3.1.0",
+    "documentationUrl": "https://www.unicode.org/versions/Unicode3.1.0/",
+    "date": "2001",
+    "ucdUrl": "https://www.unicode.org/Public/3.1-Update/",
     "status": "stable"
   },
   {
@@ -189,13 +189,6 @@
     "status": "stable"
   },
   {
-    "version": "2.1.9",
-    "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
-    "date": "1999",
-    "ucdUrl": "https://www.unicode.org/Public/2.1-Update4/",
-    "status": "stable"
-  },
-  {
     "version": "3.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode3.0.0/",
     "date": "1999",
@@ -203,10 +196,17 @@
     "status": "stable"
   },
   {
-    "version": "2.1.2",
+    "version": "2.1.9",
+    "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
+    "date": "1999",
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update4/",
+    "status": "stable"
+  },
+  {
+    "version": "2.1.8",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1-Update1/",
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update3/",
     "status": "stable"
   },
   {
@@ -217,10 +217,10 @@
     "status": "stable"
   },
   {
-    "version": "2.1.8",
+    "version": "2.1.2",
     "documentationUrl": "https://www.unicode.org/versions/Unicode2.1.0/",
     "date": "1998",
-    "ucdUrl": "https://www.unicode.org/Public/2.1-Update3/",
+    "ucdUrl": "https://www.unicode.org/Public/2.1-Update1/",
     "status": "stable"
   },
   {
