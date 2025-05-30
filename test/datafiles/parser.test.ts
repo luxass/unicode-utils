@@ -137,6 +137,30 @@ describe("node content validation", () => {
       expectedType: NodeTypes.DATA,
       expectedValue: "0621; HAMZA; U; No_Joining_Group",
     },
+    {
+      description: "empty line is parsed correctly",
+      line: "",
+      expectedType: NodeTypes.EMPTY,
+      expectedValue: "",
+    },
+    {
+      description: "line with only whitespace",
+      line: "   ",
+      expectedType: NodeTypes.EMPTY,
+      expectedValue: "",
+    },
+    {
+      description: "boundary line with style",
+      line: "# ================================================",
+      expectedType: NodeTypes.BOUNDARY,
+      expectedValue: "# ================================================",
+    },
+    {
+      description: "boundary line with different style",
+      line: "# -----------------------------------------------",
+      expectedType: NodeTypes.BOUNDARY,
+      expectedValue: "# -----------------------------------------------",
+    },
   ])("should handle $description", ({ line, expectedType, expectedValue }) => {
     const result = parseDataFileIntoAst(line);
     const node = result.children[0];

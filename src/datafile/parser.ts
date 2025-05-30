@@ -44,6 +44,9 @@ function createNode(line: string, lineNumber: number): ChildNode {
     try {
       style = getBoundaryLineStyle(line);
     } catch {
+      // This can also not happen, in the current implementation, since we does a precheck
+      // for boundary lines in the `isBoundaryLine` function.
+      // If the line is a boundary line, it should always have a valid style.
       return {
         type: NodeTypes.UNKNOWN,
         value: trimmedLine,
@@ -80,6 +83,11 @@ function createNode(line: string, lineNumber: number): ChildNode {
     };
   }
 
+  // In the current implementation, we can't run into a line that doesn't match any of the above
+  // conditions, since the `isLineWithData` function checks for valid data lines.
+  // And at the moment, all lines that isn't a comment line or empty line is considered a data line.
+  // However, we still handle it gracefully by returning an UnknownNode.
+  /* v8 ignore next 7 */
   return {
     type: NodeTypes.UNKNOWN,
     value: trimmedLine,
