@@ -1,4 +1,8 @@
-[
+/**
+ * Complete list of Unicode versions with their metadata.
+ * Generated automatically - do not edit manually.
+ */
+export const UNICODE_VERSION_METADATA = [
   {
     "version": "17.0.0",
     "documentationUrl": "https://www.unicode.org/versions/Unicode17.0.0/",
@@ -258,4 +262,6 @@
     "ucdUrl": "https://www.unicode.org/Public/1.1-Update/",
     "status": "stable"
   }
-]
+] as const;
+
+export type UnicodeVersionMetadata = typeof UNICODE_VERSION_METADATA[number];

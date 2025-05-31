@@ -1,4 +1,8 @@
-[
+/**
+ * Mapping between Unicode versions and their corresponding UCD paths.
+ * Generated automatically - do not edit manually.
+ */
+export const UCD_PATH_MAPPINGS = [
   {
     "unicodeVersion": "1.0.0",
     "ucdPath": "1.1-Update"
@@ -131,4 +135,6 @@
     "unicodeVersion": "16.0.0",
     "ucdPath": "16.0.0"
   }
-]
+] as const;
+
+export type UCDPathMapping = typeof UCD_PATH_MAPPINGS[number];
