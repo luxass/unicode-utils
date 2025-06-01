@@ -56,6 +56,10 @@ jobs:
         run: |
           npx tsx ./scripts/generate-constants.ts
 
+      - name: format
+        run: |
+          npx eslint --fix ./src/constants.ts ./src/data/ucd-path-mappings.ts ./src/data/unicode-version-metadata.ts
+
       - name: generate diff
         id: generate-diff
         run: |
