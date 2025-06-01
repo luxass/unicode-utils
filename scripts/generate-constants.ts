@@ -59,7 +59,7 @@ async function run() {
     export const UNICODE_VERSION_METADATA = ${JSON.stringify(versions, null, 2)} as const;
 
     export type UnicodeVersionMetadata = typeof UNICODE_VERSION_METADATA[number];
-`;
+  `;
 
   await writeFile(
     join(dataDir, "unicode-version-metadata.ts"),
@@ -77,7 +77,7 @@ async function run() {
     export const UCD_PATH_MAPPINGS = ${JSON.stringify(ucdPathMappingsData, null, 2)} as const;
 
     export type UCDPathMapping = typeof UCD_PATH_MAPPINGS[number];
-`;
+  `;
 
   await writeFile(
     join(dataDir, "ucd-path-mappings.ts"),
