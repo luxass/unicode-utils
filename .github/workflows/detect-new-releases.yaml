@@ -40,6 +40,17 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+
+      - name: setup node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: lts/*
+
+      - name: install dependencies
+        run: pnpm install
+
       - name: check unicode releases
         uses: luxass/unicode-releases-action@55920d174f30748a87314ff16f82b0ab9b50374f # v0.5.0
         id: unicode
@@ -104,8 +115,8 @@ jobs:
           branch: update-generated-files
           add-paths: |
             src/constants.ts
-            src/data/unicode-version-metadata.json
-            src/data/ucd-path-mappings.json
+            src/data/unicode-version-metadata.ts
+            src/data/ucd-path-mappings.ts
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
