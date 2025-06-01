@@ -56,7 +56,6 @@ async function run() {
 
   // generate unicode-version-metadata.ts
   const unicodeVersionMetadataContent = dedent`
-    ${COMMENT}
     export const UNICODE_VERSION_METADATA = ${JSON.stringify(versions, null, 2)} as const;
 
     export type UnicodeVersionMetadata = typeof UNICODE_VERSION_METADATA[number];
@@ -64,7 +63,7 @@ async function run() {
 
   await writeFile(
     join(dataDir, "unicode-version-metadata.ts"),
-    unicodeVersionMetadataContent,
+    `${COMMENT}\n${unicodeVersionMetadataContent}`,
     "utf-8",
   );
 
@@ -75,7 +74,6 @@ async function run() {
   }));
 
   const ucdPathMappingsContent = dedent`
-    ${COMMENT}
     export const UCD_PATH_MAPPINGS = ${JSON.stringify(ucdPathMappingsData, null, 2)} as const;
 
     export type UCDPathMapping = typeof UCD_PATH_MAPPINGS[number];
@@ -83,7 +81,7 @@ async function run() {
 
   await writeFile(
     join(dataDir, "ucd-path-mappings.ts"),
-    ucdPathMappingsContent,
+    `${COMMENT}\n${ucdPathMappingsContent}`,
     "utf-8",
   );
 
