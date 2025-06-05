@@ -8,5 +8,6 @@
   },
   "files.watcherExclude": {
     "ucd-files/**": true
-  }
+  },
+  "ucd.local-data-files-store": "./ucd-files"
 }
