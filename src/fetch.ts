@@ -1,5 +1,5 @@
 import type { paths } from "./.generated/api";
-import { type Client, default as OpenApiCreateClient } from "openapi-fetch";
+import OpenApiCreateClient, { type Client } from "openapi-fetch";
 
 /**
  * Creates a configured API client for making requests to Unicode API endpoints
