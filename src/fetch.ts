@@ -1,7 +1,13 @@
 import type { paths } from "./.generated/api";
-import { default as OpenApiCreateClient } from "openapi-fetch";
+import { type Client, default as OpenApiCreateClient } from "openapi-fetch";
 
-export function createClient(baseUrl: string) {
+/**
+ * Creates a configured API client for making requests to Unicode API endpoints
+ *
+ * @param {string} baseUrl - The base URL for the API server
+ * @returns {Client<paths, `${string}/${string}`>} A configured client instance with predefined headers
+ */
+export function createClient(baseUrl: string): Client<paths, `${string}/${string}`> {
   return OpenApiCreateClient<paths>({
     baseUrl,
     headers: {
