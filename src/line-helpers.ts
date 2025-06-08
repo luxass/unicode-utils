@@ -306,13 +306,21 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
   const [_, start, end, defaultPropValueOrPropertyName, defaultPropertyValue] = match;
 
   const defaultProperty = defaultPropertyValue == null ? defaultPropValueOrPropertyName : defaultPropertyValue;
-  const specialTag: SpecialTag | undefined = MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty] ?? undefined;
+  // check if defaultProperty is a valid key before using it as an index
+  const specialTag: SpecialTag | undefined
+    = defaultProperty && defaultProperty in MISSING_ANNOTATION_SPECIAL_TAGS
+      ? MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty as keyof typeof MISSING_ANNOTATION_SPECIAL_TAGS]
+      : undefined;
+
+  if (start == null || end == null || defaultPropValueOrPropertyName == null) {
+    return null;
+  }
 
   return {
     start,
     end,
     propertyName: defaultPropertyValue == null ? undefined : defaultPropValueOrPropertyName,
-    defaultPropertyValue: defaultProperty,
+    defaultPropertyValue: defaultProperty || "",
     specialTag,
   };
 }
@@ -354,7 +362,7 @@ export function inferVersion(line: string): string | undefined {
 
 export interface ParsedFileName {
   fileName: string;
-  version: string;
+  version: string | undefined;
 }
 
 /**
@@ -387,7 +395,7 @@ export function parseFileNameLine(line: string): ParsedFileName | undefined {
   }
 
   // if there is multiple lines, we only care about the first one
-  line = line.split("\n")[0].trim();
+  line = line.split("\n")[0]!.trim();
 
   // check if the first line is a comment line
   if (!isCommentLine(line)) {

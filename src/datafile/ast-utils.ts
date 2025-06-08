@@ -135,6 +135,13 @@ export function hasNodePattern(
   for (let i = 0; i < pattern.length; i++) {
     const nodeIndex = startIndex + i;
     const expectedType = pattern[i];
+
+    if (expectedType == null) {
+      throw new Error(
+        `Invalid node type at index ${i} in pattern: ${JSON.stringify(pattern)}`,
+      );
+    }
+
     const checker = NODE_TYPE_CHECKERS[expectedType];
 
     if (!checker || !checker(root.children[nodeIndex])) {
@@ -288,6 +295,10 @@ export function visit(root: RootNode, callback: VisitCallback): void {
     const currentNode = root.children[i];
     const nextNode = root.children[i + 1];
     const prevNode = root.children[i - 1];
+
+    if (currentNode == null) {
+      throw new Error(`Node at index ${i} is null or undefined`);
+    }
 
     callback({
       settings: null, // TODO: set this to the settings used for the file

@@ -77,13 +77,22 @@ export function parseSections(content: string): Map<string, UCDSectionWithLines>
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
+    if (line == null) {
+      continue; // skip null or undefined lines
+    }
+
     if (isEmptyLine(line)) {
       // look ahead to see if the next non-empty line is data
       let nextNonEmptyIsData = false;
       for (let j = i + 1; j < lines.length; j++) {
-        if (!isEmptyLine(lines[j])) {
+        const lineJ = lines[j];
+        if (lineJ == null) {
+          continue; // skip null or undefined lines
+        }
+
+        if (!isEmptyLine(lineJ)) {
           // found the next non-empty line
-          nextNonEmptyIsData = !isCommentLine(lines[j]);
+          nextNonEmptyIsData = !isCommentLine(lineJ);
           break;
         }
       }
@@ -118,7 +127,7 @@ export function parseSections(content: string): Map<string, UCDSectionWithLines>
 
         // first line of the comments is the section name
         // rest is the description
-        currentSection = pendingComments[0];
+        currentSection = pendingComments[0]!;
         currentDescription = pendingComments.slice(1).join("\n");
         currentLines = [line];
 
