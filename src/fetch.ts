@@ -16,4 +16,16 @@ export function createClient(baseUrl: string): Client<paths, `${string}/${string
   });
 }
 
+/**
+ * A pre-configured API client instance for the Unicode API
+ * Uses the default base URL: https://unicode-api.luxass.dev
+ *
+ * @example
+ * ```ts
+ * import { client } from "@luxass/unicode-utils/fetch";
+ *
+ * // Make a request using the pre-configured client
+ * const response = await client.GET("/path/to/endpoint");
+ * ```
+ */
 export const client = createClient("https://unicode-api.luxass.dev");
