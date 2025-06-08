@@ -24,6 +24,7 @@
     ".": "./dist/index.js",
     "./constants": "./dist/constants.js",
     "./datafile": "./dist/datafile.js",
+    "./fetch": "./dist/fetch.js",
     "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
@@ -37,17 +38,20 @@
     "dist"
   ],
   "scripts": {
+    "prebuild": "pnpm run generate:client",
     "build": "tsdown",
     "dev": "tsdown --watch",
     "test": "vitest --run",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "generate:constants": "tsx scripts/generate-constants.ts",
-    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
+    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts",
+    "generate:client": "npx openapi-typescript https://unicode-api.luxass.dev/openapi.json -o ./src/.generated/api.d.ts"
   },
   "dependencies": {
     "@luxass/utils": "^2.3.0",
-    "defu": "^6.1.4"
+    "defu": "^6.1.4",
+    "openapi-fetch": "^0.14.0"
   },
   "devDependencies": {
     "@luxass/eslint-config": "^4.19.0",
@@ -56,6 +60,7 @@
     "eslint": "^9.28.0",
     "eslint-plugin-format": "^1.0.1",
     "msw": "^2.10.1",
+    "openapi-typescript": "^7.8.0",
     "publint": "^0.3.12",
     "tsdown": "^0.12.7",
     "tsx": "^4.19.4",

@@ -175,7 +175,7 @@ export function inferHeadingFromAST(
           // Look ahead a few nodes to determine what comes next
           for (let j = currentIndex + 1; j < nodes.length && j < currentIndex + 5; j++) {
             const lookAheadNode = nodes[j];
-            const nextValue = lookAheadNode.value.trim();
+            const nextValue = lookAheadNode?.value.trim();
             if (nextValue !== "" && !isAnyCommentNode(lookAheadNode)) {
               headingEndNodeIndex = currentIndex;
               shouldStop = true;
@@ -183,7 +183,7 @@ export function inferHeadingFromAST(
             }
             if (isAnyCommentNode(lookAheadNode) && nextValue !== "#") {
               // Don't count property lines as comments for this purpose
-              if (nextValue.startsWith("# Property:")) {
+              if (nextValue?.startsWith("# Property:")) {
                 break;
               }
               hasMoreComments = true;
@@ -230,7 +230,7 @@ export function inferHeadingFromAST(
     if (allowEmptyLines) {
       while (endNodesWithoutEmpty > 0) {
         const prevNode = nodes[endNodesWithoutEmpty - 1];
-        const prevValue = prevNode.value.trim();
+        const prevValue = prevNode?.value.trim();
 
         // Trim if it's an empty node, bare "#" comment, or empty comment node
         if (prevValue !== "" && prevValue !== "#" && !isEmptyCommentNode(prevNode)) {

@@ -63,6 +63,10 @@ it("exports-snapshot", async () => {
       isUnknownNode: "function",
       parseSections: "function",
     },
+    "./fetch": {
+      client: "object",
+      createClient: "function",
+    },
     "./line-helpers": {
       getBoundaryLineStyle: "function",
       getPropertyValue: "function",
