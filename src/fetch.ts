@@ -1,4 +1,4 @@
-import type { paths } from "./.generated/api";
+import type { components, paths } from "./.generated/api";
 import OpenApiCreateClient, { type Client } from "openapi-fetch";
 
 /**
@@ -29,3 +29,9 @@ export function createClient(baseUrl: string): Client<paths, `${string}/${string
  * ```
  */
 export const client = createClient("https://unicode-api.luxass.dev");
+
+export type UnicodeVersion = components["schemas"]["UnicodeVersion"];
+export type UnicodeVersions = components["schemas"]["UnicodeVersions"];
+export type UnicodeVersionMappings = components["schemas"]["UnicodeVersionMappings"];
+export type UnicodeVersionFile = components["schemas"]["UnicodeVersionFile"];
+export type UnicodeVersionFiles = components["schemas"]["UnicodeVersionFiles"];
