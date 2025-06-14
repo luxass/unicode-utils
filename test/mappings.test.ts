@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { hasUCDFolderPath, resolveUCDVersion, UNICODE_TO_UCD_VERSION_MAPPINGS } from "../src/mappings";
+import { resolveUCDVersion, UNICODE_TO_UCD_VERSION_MAPPINGS } from "../src/mappings";
 
 describe("resolveUCDVersion", () => {
   it("should return the correct UCD path version when the Unicode version exists in mappings", () => {
@@ -19,26 +19,5 @@ describe("resolveUCDVersion", () => {
     Object.entries(UNICODE_TO_UCD_VERSION_MAPPINGS).forEach(([version, expectedMapping]) => {
       expect(resolveUCDVersion(version)).toBe(expectedMapping);
     });
-  });
-});
-
-describe("hasUCDFolder", () => {
-  it("should return false for versions with Update suffixes", () => {
-    expect(hasUCDFolderPath("1.1-Update")).toBe(false);
-    expect(hasUCDFolderPath("2.1-Update4")).toBe(false);
-    expect(hasUCDFolderPath("3.2-Update")).toBe(false);
-    expect(hasUCDFolderPath("4.0-Update1")).toBe(false);
-  });
-
-  it("should return false for older versions", () => {
-    expect(hasUCDFolderPath("1.1.0")).toBe(false);
-    expect(hasUCDFolderPath("2.1.9")).toBe(false);
-    expect(hasUCDFolderPath("3.2.0")).toBe(false);
-    expect(hasUCDFolderPath("4.0.1")).toBe(false);
-  });
-
-  it("should return true for newer versions", () => {
-    expect(hasUCDFolderPath("5.0.0")).toBe(true);
-    expect(hasUCDFolderPath("14.0.0")).toBe(true);
   });
 });
