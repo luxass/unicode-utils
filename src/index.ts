@@ -17,7 +17,7 @@ export {
 } from "./hexcodes";
 export * from "./line-helpers";
 export {
-  hasUCDFolderPath,
   resolveUCDVersion,
   UNICODE_TO_UCD_VERSION_MAPPINGS,
 } from "./mappings";
+export { buildUCDPath, hasUCDFolderPath } from "./path";
