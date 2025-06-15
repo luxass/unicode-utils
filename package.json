@@ -16,6 +16,10 @@
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm eslint ."
   },
   "devDependencies": {
     "@luxass/eslint-config": "^4.19.0",
