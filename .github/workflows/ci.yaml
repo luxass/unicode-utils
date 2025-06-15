@@ -89,4 +89,4 @@ jobs:
       - name: build
         run: pnpm build
 
-      - run: pnpm dlx pkg-pr-new publish --compact './' --pnpm
+      - run: pnpm dlx pkg-pr-new publish --compact './packages/unicode-utils' --pnpm
