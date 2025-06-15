@@ -1,8 +1,7 @@
 {
-  "name": "@luxass/unicode-utils",
-  "version": "0.12.0-beta.8",
-  "description": "Utilities for working with Unicode",
+  "name": "unicode-utils-monorepo",
   "type": "module",
+  "private": true,
   "author": {
     "name": "Lucas Nørgård",
     "email": "lucasnrgaard@gmail.com",
@@ -16,42 +15,12 @@
     "url": "git+https://github.com/luxass/unicode-utils.git"
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
-  "keywords": [
-    "unicode",
-    "utils"
-  ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./constants": "./dist/constants.js",
-    "./datafile": "./dist/datafile.js",
-    "./fetch": "./dist/fetch.js",
-    "./line-helpers": "./dist/line-helpers.js",
-    "./package.json": "./package.json"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "prebuild": "pnpm run generate:client",
-    "build": "tsdown",
-    "dev": "tsdown --watch",
-    "test": "vitest --run",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "generate:constants": "tsx scripts/generate-constants.ts",
-    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts",
-    "generate:client": "npx openapi-typescript https://unicode-api.luxass.dev/openapi.json -o ./src/.generated/api.d.ts"
-  },
-  "dependencies": {
-    "@luxass/utils": "^2.3.0",
-    "defu": "^6.1.4",
-    "openapi-fetch": "^0.14.0"
+    "build": "pnpm -r build",
+    "dev:api": "pnpm --filter unicode-api dev",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
   },
   "devDependencies": {
     "@luxass/eslint-config": "^4.19.0",

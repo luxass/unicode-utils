@@ -7,6 +7,48 @@ settings:
 importers:
 
   .:
+    devDependencies:
+      '@luxass/eslint-config':
+        specifier: ^4.19.0
+        version: 4.19.0(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.1(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
+      '@types/node':
+        specifier: ^22.10.9
+        version: 22.15.31
+      '@vitest/coverage-v8':
+        specifier: 3.2.2
+        version: 3.2.2(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
+      eslint:
+        specifier: ^9.28.0
+        version: 9.28.0(jiti@2.4.2)
+      eslint-plugin-format:
+        specifier: ^1.0.1
+        version: 1.0.1(eslint@9.28.0(jiti@2.4.2))
+      msw:
+        specifier: ^2.10.1
+        version: 2.10.2(@types/node@22.15.31)(typescript@5.8.3)
+      openapi-typescript:
+        specifier: ^7.8.0
+        version: 7.8.0(typescript@5.8.3)
+      publint:
+        specifier: ^0.3.12
+        version: 0.3.12
+      tsdown:
+        specifier: ^0.12.7
+        version: 0.12.7(publint@0.3.12)(typescript@5.8.3)
+      tsx:
+        specifier: ^4.19.4
+        version: 4.20.3
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: ^3.2.2
+        version: 3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1)
+      vitest-package-exports:
+        specifier: ^0.1.1
+        version: 0.1.1
+
+  packages/unicode-utils:
     dependencies:
       '@luxass/utils':
         specifier: ^2.3.0
