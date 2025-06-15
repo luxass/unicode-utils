@@ -1,0 +1,72 @@
+{
+  "name": "@luxass/unicode-utils",
+  "version": "0.12.0-beta.8",
+  "description": "Utilities for working with Unicode",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/unicode-utils#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/unicode-utils.git",
+    "directory": "packages/unicode-utils"
+  },
+  "bugs": "https://github.com/luxass/unicode-utils/issues",
+  "keywords": [
+    "unicode",
+    "utils"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./constants": "./dist/constants.js",
+    "./datafile": "./dist/datafile.js",
+    "./fetch": "./dist/fetch.js",
+    "./line-helpers": "./dist/line-helpers.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "pnpm run generate:client",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest --run",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "generate:constants": "tsx scripts/generate-constants.ts",
+    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts",
+    "generate:client": "npx openapi-typescript https://unicode-api.luxass.dev/openapi.json -o ./src/.generated/api.d.ts"
+  },
+  "dependencies": {
+    "@luxass/utils": "^2.3.0",
+    "defu": "^6.1.4",
+    "openapi-fetch": "^0.14.0"
+  },
+  "devDependencies": {
+    "@luxass/eslint-config": "^4.19.0",
+    "@types/node": "^22.10.9",
+    "@vitest/coverage-v8": "3.2.2",
+    "eslint": "^9.28.0",
+    "eslint-plugin-format": "^1.0.1",
+    "msw": "^2.10.1",
+    "openapi-typescript": "^7.8.0",
+    "publint": "^0.3.12",
+    "tsdown": "^0.12.7",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.2",
+    "vitest-package-exports": "^0.1.1"
+  }
+}
