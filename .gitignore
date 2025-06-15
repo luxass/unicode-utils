@@ -1,4 +1,6 @@
 node_modules
 dist
 coverage
-src/.generated
+**/.generated
+.wrangler
+.dev.vars
