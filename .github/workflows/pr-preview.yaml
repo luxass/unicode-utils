@@ -62,7 +62,6 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            dist/
             packages/*/dist/
             .wrangler/
           retention-days: 1
