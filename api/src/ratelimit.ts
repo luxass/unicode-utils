@@ -3,7 +3,10 @@ import { createMiddleware } from "hono/factory";
 import { HTTPException } from "hono/http-exception";
 
 export const ratelimitMiddleware = createMiddleware<HonoEnv>(async (c, next) => {
-  const key = c.req.header("cf-connecting-ip") ?? "";
+  const key
+    = c.req.header("cf-connecting-ip")
+      ?? c.req.raw.headers.get("x-forwarded-for")
+      ?? crypto.randomUUID(); // last-resort unique key
   const { success } = await c.env.RATE_LIMITER.limit({ key });
 
   if (!success) {

@@ -9,7 +9,5 @@ export function createError<TCtx extends Context, TStatus extends ContentfulStat
     message,
     status,
     timestamp: new Date().toISOString(),
-  } satisfies ApiError, status, {
-    "Content-Type": "application/json",
-  });
+  } satisfies ApiError, status);
 }
