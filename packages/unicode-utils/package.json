@@ -50,23 +50,23 @@
     "generate:client": "npx openapi-typescript https://unicode-api.luxass.dev/openapi.json -o ./src/.generated/api.d.ts"
   },
   "dependencies": {
-    "@luxass/utils": "^2.3.0",
-    "defu": "^6.1.4",
-    "openapi-fetch": "^0.14.0"
+    "@luxass/utils": "catalog:build",
+    "defu": "catalog:build",
+    "openapi-fetch": "catalog:build"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "^4.19.0",
-    "@types/node": "^22.10.9",
-    "@vitest/coverage-v8": "3.2.2",
-    "eslint": "^9.28.0",
-    "eslint-plugin-format": "^1.0.1",
-    "msw": "^2.10.1",
-    "openapi-typescript": "^7.8.0",
-    "publint": "^0.3.12",
-    "tsdown": "^0.12.7",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.2",
-    "vitest-package-exports": "^0.1.1"
+    "@luxass/eslint-config": "catalog:linting",
+    "@types/node": "catalog:types",
+    "@vitest/coverage-v8": "catalog:testing",
+    "eslint": "catalog:linting",
+    "eslint-plugin-format": "catalog:linting",
+    "msw": "catalog:testing",
+    "openapi-typescript": "catalog:dev",
+    "publint": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:testing",
+    "vitest-package-exports": "catalog:testing"
   }
 }

@@ -4,158 +4,234 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  build:
+    '@hono/zod-openapi':
+      specifier: ^0.19.8
+      version: 0.19.8
+    '@luxass/utils':
+      specifier: ^2.3.0
+      version: 2.3.0
+    '@scalar/hono-api-reference':
+      specifier: ^0.9.1
+      version: 0.9.4
+    defu:
+      specifier: ^6.1.4
+      version: 6.1.4
+    hono:
+      specifier: ^4.7.10
+      version: 4.7.11
+    openapi-fetch:
+      specifier: ^0.14.0
+      version: 0.14.0
+    picomatch:
+      specifier: ^4.0.2
+      version: 4.0.2
+    zod:
+      specifier: ^3.25.42
+      version: 3.25.64
+  dev:
+    openapi-typescript:
+      specifier: ^7.8.0
+      version: 7.8.0
+    publint:
+      specifier: ^0.3.12
+      version: 0.3.12
+    tsdown:
+      specifier: ^0.12.7
+      version: 0.12.7
+    tsx:
+      specifier: ^4.19.4
+      version: 4.20.3
+    typescript:
+      specifier: ^5.8.3
+      version: 5.8.3
+    wrangler:
+      specifier: ^4.18.0
+      version: 4.20.0
+  linting:
+    '@luxass/eslint-config':
+      specifier: ^4.18.1
+      version: 4.19.0
+    '@luxass/spectral-ruleset':
+      specifier: ^0.0.5
+      version: 0.0.5
+    '@stoplight/spectral-cli':
+      specifier: ^6.15.0
+      version: 6.15.0
+    eslint:
+      specifier: ^9.27.0
+      version: 9.28.0
+    eslint-plugin-format:
+      specifier: ^1.0.1
+      version: 1.0.1
+  testing:
+    '@cloudflare/vitest-pool-workers':
+      specifier: ^0.8.34
+      version: 0.8.38
+    '@vitest/coverage-v8':
+      specifier: ^3.2.2
+      version: 3.2.2
+    msw:
+      specifier: ^2.10.1
+      version: 2.10.2
+    vitest:
+      specifier: ^3.1.4
+      version: 3.2.2
+    vitest-package-exports:
+      specifier: ^0.1.1
+      version: 0.1.1
+  types:
+    '@types/node':
+      specifier: ^22.10.9
+      version: 22.15.31
+    '@types/picomatch':
+      specifier: ^4.0.0
+      version: 4.0.0
+
 importers:
 
   .:
     devDependencies:
       '@luxass/eslint-config':
-        specifier: ^4.19.0
+        specifier: catalog:linting
         version: 4.19.0(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.1(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
       '@types/node':
-        specifier: ^22.10.9
+        specifier: catalog:types
         version: 22.15.31
       '@vitest/coverage-v8':
-        specifier: 3.2.2
+        specifier: catalog:testing
         version: 3.2.2(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
       eslint:
-        specifier: ^9.28.0
+        specifier: catalog:linting
         version: 9.28.0(jiti@2.4.2)
       eslint-plugin-format:
-        specifier: ^1.0.1
+        specifier: catalog:linting
         version: 1.0.1(eslint@9.28.0(jiti@2.4.2))
       msw:
-        specifier: ^2.10.1
+        specifier: catalog:testing
         version: 2.10.2(@types/node@22.15.31)(typescript@5.8.3)
       openapi-typescript:
-        specifier: ^7.8.0
+        specifier: catalog:dev
         version: 7.8.0(typescript@5.8.3)
       publint:
-        specifier: ^0.3.12
+        specifier: catalog:dev
         version: 0.3.12
       tsdown:
-        specifier: ^0.12.7
+        specifier: catalog:dev
         version: 0.12.7(publint@0.3.12)(typescript@5.8.3)
       tsx:
-        specifier: ^4.19.4
+        specifier: catalog:dev
         version: 4.20.3
       typescript:
-        specifier: ^5.8.3
+        specifier: catalog:dev
         version: 5.8.3
-      vitest:
-        specifier: ^3.2.2
-        version: 3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1)
-      vitest-package-exports:
-        specifier: ^0.1.1
-        version: 0.1.1
 
   api:
     dependencies:
       '@hono/zod-openapi':
-        specifier: ^0.19.8
+        specifier: catalog:build
         version: 0.19.8(hono@4.7.11)(zod@3.25.64)
       '@luxass/unicode-utils':
-        specifier: ^0.12.0-beta.5
-        version: 0.12.0-beta.8
+        specifier: workspace:*
+        version: link:../packages/unicode-utils
       '@scalar/hono-api-reference':
-        specifier: ^0.9.1
+        specifier: catalog:build
         version: 0.9.4(hono@4.7.11)
       hono:
-        specifier: ^4.7.10
+        specifier: catalog:build
         version: 4.7.11
       picomatch:
-        specifier: ^4.0.2
+        specifier: catalog:build
         version: 4.0.2
       zod:
-        specifier: ^3.25.42
+        specifier: catalog:build
         version: 3.25.64
     devDependencies:
       '@cloudflare/vitest-pool-workers':
-        specifier: ^0.8.34
+        specifier: catalog:testing
         version: 0.8.38(@vitest/runner@3.2.2)(@vitest/snapshot@3.2.2)(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
       '@luxass/eslint-config':
-        specifier: ^4.18.1
+        specifier: catalog:linting
         version: 4.19.0(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.1(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
       '@luxass/spectral-ruleset':
-        specifier: ^0.0.5
+        specifier: catalog:linting
         version: 0.0.5
       '@stoplight/spectral-cli':
-        specifier: ^6.15.0
+        specifier: catalog:linting
         version: 6.15.0
       '@types/picomatch':
-        specifier: ^4.0.0
+        specifier: catalog:types
         version: 4.0.0
       eslint:
-        specifier: ^9.27.0
+        specifier: catalog:linting
         version: 9.28.0(jiti@2.4.2)
       eslint-plugin-format:
-        specifier: ^1.0.1
+        specifier: catalog:linting
         version: 1.0.1(eslint@9.28.0(jiti@2.4.2))
-      nanotar:
-        specifier: ^0.2.0
-        version: 0.2.0
       tsx:
-        specifier: ^4.19.4
+        specifier: catalog:dev
         version: 4.20.3
       typescript:
-        specifier: ^5.8.3
+        specifier: catalog:dev
         version: 5.8.3
       vitest:
-        specifier: ^3.1.4
+        specifier: catalog:testing
         version: 3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1)
       wrangler:
-        specifier: ^4.18.0
+        specifier: catalog:dev
         version: 4.20.0
 
   packages/unicode-utils:
     dependencies:
       '@luxass/utils':
-        specifier: ^2.3.0
+        specifier: catalog:build
         version: 2.3.0
       defu:
-        specifier: ^6.1.4
+        specifier: catalog:build
         version: 6.1.4
       openapi-fetch:
-        specifier: ^0.14.0
+        specifier: catalog:build
         version: 0.14.0
     devDependencies:
       '@luxass/eslint-config':
-        specifier: ^4.19.0
+        specifier: catalog:linting
         version: 4.19.0(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.1(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
       '@types/node':
-        specifier: ^22.10.9
+        specifier: catalog:types
         version: 22.15.31
       '@vitest/coverage-v8':
-        specifier: 3.2.2
+        specifier: catalog:testing
         version: 3.2.2(vitest@3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1))
       eslint:
-        specifier: ^9.28.0
+        specifier: catalog:linting
         version: 9.28.0(jiti@2.4.2)
       eslint-plugin-format:
-        specifier: ^1.0.1
+        specifier: catalog:linting
         version: 1.0.1(eslint@9.28.0(jiti@2.4.2))
       msw:
-        specifier: ^2.10.1
+        specifier: catalog:testing
         version: 2.10.2(@types/node@22.15.31)(typescript@5.8.3)
       openapi-typescript:
-        specifier: ^7.8.0
+        specifier: catalog:dev
         version: 7.8.0(typescript@5.8.3)
       publint:
-        specifier: ^0.3.12
+        specifier: catalog:dev
         version: 0.3.12
       tsdown:
-        specifier: ^0.12.7
+        specifier: catalog:dev
         version: 0.12.7(publint@0.3.12)(typescript@5.8.3)
       tsx:
-        specifier: ^4.19.4
+        specifier: catalog:dev
         version: 4.20.3
       typescript:
-        specifier: ^5.8.3
+        specifier: catalog:dev
         version: 5.8.3
       vitest:
-        specifier: ^3.2.2
+        specifier: catalog:testing
         version: 3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1)
       vitest-package-exports:
-        specifier: ^0.1.1
+        specifier: catalog:testing
         version: 0.1.1
 
 packages:
@@ -916,9 +992,6 @@ packages:
 
   '@luxass/spectral-ruleset@0.0.5':
     resolution: {integrity: sha512-eRxcMSofTBZvBkTw5Faw5cvU0bbqV1pFXcYRFIQWp/R33v/YHirLlKwLec+ryKp65axylCTIxULIr7UjyFeNoA==}
-
-  '@luxass/unicode-utils@0.12.0-beta.8':
-    resolution: {integrity: sha512-2aydH0oGG/I+3tdzcm/yKYtGyuk4TcT7FQmdrMCNC3vfgW/C1+C34ToNBObmYjyrxZjfr4wLVQo5rqf8gcMV3Q==}
 
   '@luxass/utils@2.3.0':
     resolution: {integrity: sha512-xzrw331cVMJ3yYLSXF15bPl6VDNlp+KudJ0h7wMJ1V30i0Ti+qnfWchwwetypEwifZitZ9XrydSq1XrEMi7d7Q==}
@@ -2907,9 +2980,6 @@ packages:
     engines: {node: ^18 || >=20}
     hasBin: true
 
-  nanotar@0.2.0:
-    resolution: {integrity: sha512-9ca1h0Xjvo9bEkE4UOxgAzLV0jHKe6LMaxo37ND2DAhhAtd0j8pR1Wxz+/goMrZO8AEZTWCmyaOsFI/W5AdpCQ==}
-
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -4407,12 +4477,6 @@ snapshots:
       - vitest
 
   '@luxass/spectral-ruleset@0.0.5': {}
-
-  '@luxass/unicode-utils@0.12.0-beta.8':
-    dependencies:
-      '@luxass/utils': 2.3.0
-      defu: 6.1.4
-      openapi-fetch: 0.14.0
 
   '@luxass/utils@2.3.0':
     dependencies:
@@ -6886,8 +6950,6 @@ snapshots:
   nanoid@3.3.11: {}
 
   nanoid@5.1.5: {}
-
-  nanotar@0.2.0: {}
 
   natural-compare@1.4.0: {}
 

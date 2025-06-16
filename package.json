@@ -23,18 +23,16 @@
     "lint": "pnpm -r lint"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "^4.19.0",
-    "@types/node": "^22.10.9",
-    "@vitest/coverage-v8": "3.2.2",
-    "eslint": "^9.28.0",
-    "eslint-plugin-format": "^1.0.1",
-    "msw": "^2.10.1",
-    "openapi-typescript": "^7.8.0",
-    "publint": "^0.3.12",
-    "tsdown": "^0.12.7",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.2",
-    "vitest-package-exports": "^0.1.1"
+    "@luxass/eslint-config": "catalog:linting",
+    "@types/node": "catalog:types",
+    "@vitest/coverage-v8": "catalog:testing",
+    "eslint": "catalog:linting",
+    "eslint-plugin-format": "catalog:linting",
+    "msw": "catalog:testing",
+    "openapi-typescript": "catalog:dev",
+    "publint": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev"
   }
 }
