@@ -46,7 +46,7 @@ jobs:
         run: pnpm build
 
       - name: validate openapi
-        run: pnpm run lint:openapi
+        run: pnpm --filter "@unicode-utils/api" run lint:openapi
 
       - name: lint
         run: pnpm run lint
