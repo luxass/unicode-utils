@@ -1,0 +1,86 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "unicode-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-13",
+  "observability": {
+    "logs": {
+      "enabled": true
+    },
+    "enabled": true
+  },
+  "placement": { "mode": "smart" },
+  "vars": {
+    "API_VERSION": "x.y.z",
+    "PROXY_URL": "https://unicode-proxy.ucdjs.dev"
+  },
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "RATE_LIMITER",
+        "type": "ratelimit",
+        "namespace_id": "1000",
+        "simple": {
+          "limit": 100,
+          "period": 60
+        }
+      }
+    ]
+  },
+  "env": {
+    "preview": {
+      "name": "unicode-api-preview",
+      "preview_urls": false,
+      "vars": {
+        "ENVIRONMENT": "preview",
+        "PROXY_URL": "https://preview.unicode-proxy.ucdjs.dev"
+      },
+      "routes": [
+        {
+          "custom_domain": true,
+          "pattern": "preview.unicode-api.luxass.dev"
+        }
+      ],
+      "unsafe": {
+        "bindings": [
+          {
+            "name": "RATE_LIMITER",
+            "type": "ratelimit",
+            "namespace_id": "1000",
+            "simple": {
+              "limit": 100,
+              "period": 60
+            }
+          }
+        ]
+      }
+    },
+    "production": {
+      "name": "unicode-api",
+      "preview_urls": false,
+      "vars": {
+        "ENVIRONMENT": "production",
+        "PROXY_URL": "https://unicode-proxy.ucdjs.dev"
+      },
+      "routes": [
+        {
+          "custom_domain": true,
+          "pattern": "unicode-api.luxass.dev"
+        }
+      ],
+      "unsafe": {
+        "bindings": [
+          {
+            "name": "RATE_LIMITER",
+            "type": "ratelimit",
+            "namespace_id": "1000",
+            "simple": {
+              "limit": 100,
+              "period": 60
+            }
+          }
+        ]
+      }
+    }
+  }
+}
