@@ -24,64 +24,10 @@ jobs:
       pull-requests: write
     name: verify build and tests
     timeout-minutes: 10
-    outputs:
-      api-version: ${{ steps.api-version.outputs.version }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-
-      - name: setup pnpm
-        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-
-      - name: setup node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: lts/*
-
-      - name: install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: build
-        run: pnpm build
-
-      - name: validate openapi
-        run: pnpm --filter "@unicode-utils/api" run lint:openapi
-
-      - name: lint
-        run: pnpm run lint
-
-      - name: typecheck
-        run: pnpm run typecheck
-
-      - name: test
-        run: pnpm run test
-
-      - name: upload build artifacts
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-        with:
-          name: build-artifacts
-          path: |
-            packages/*/dist/
-            .wrangler/
-          retention-days: 1
-
-      - name: generate api version
-        id: api-version
-        env:
-          HEAD_REF: ${{ github.head_ref }}
-          REF_NAME: ${{ github.ref_name }}
-        run: |
-          BRANCH_NAME="${HEAD_REF:-$REF_NAME}"
-
-          # replace forward slashes and special characters with hyphens
-          CLEAN_BRANCH=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9]/-/g')
-
-          # get short SHA (first 7 characters)
-          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-
-          # combine
-          echo "version=$CLEAN_BRANCH-$SHORT_SHA" >> "$GITHUB_OUTPUT"
 
       - name: remove preview label
         if: always()
@@ -101,15 +47,53 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: download build artifacts
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
+      - name: setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+
+      - name: setup node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          name: build-artifacts
+          node-version: lts/*
+
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: build
+        run: pnpm --filter "@unicode-utils/api" run build
+
+      - name: lint
+        run: pnpm --filter "@unicode-utils/api" run lint
+
+      - name: typecheck
+        run: pnpm --filter "@unicode-utils/api" run typecheck
+
+      - name: test
+        run: pnpm --filter "@unicode-utils/api" run test
+
+      - name: validate openapi
+        run: pnpm --filter "@unicode-utils/api" run lint:openapi
+
+      - name: generate api version
+        id: api-version
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          BRANCH_NAME="${HEAD_REF:-$REF_NAME}"
+
+          # replace forward slashes and special characters with hyphens
+          CLEAN_BRANCH=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9]/-/g')
+
+          # get short SHA (first 7 characters)
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+
+          # combine
+          echo "version=$CLEAN_BRANCH-$SHORT_SHA" >> "$GITHUB_OUTPUT"
 
       - name: deploy
         id: deploy
         env:
-          API_VERSION: ${{ needs.verify.outputs.api-version }}
+          API_VERSION: ${{ steps.api-version.outputs.version }}
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
@@ -182,10 +166,17 @@ jobs:
       - name: install dependencies
         run: pnpm install
 
-      - name: download build artifacts
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
-        with:
-          name: build-artifacts
+      - name: build
+        run: pnpm --filter "@luxass/unicode-utils" run build
+
+      - name: lint
+        run: pnpm --filter "@luxass/unicode-utils" run lint
+
+      - name: typecheck
+        run: pnpm --filter "@luxass/unicode-utils" run typecheck
+
+      - name: test
+        run: pnpm --filter "@luxass/unicode-utils" run test
 
       - name: publish packages
         run: |
