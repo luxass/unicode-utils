@@ -1,5 +1,5 @@
 {
-  "name": "unicode-api",
+  "name": "@unicode-utils/api",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@10.11.0",
@@ -15,25 +15,25 @@
     "typecheck": "pnpm run cf-typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@hono/zod-openapi": "^0.19.8",
-    "@luxass/unicode-utils": "^0.12.0-beta.5",
-    "@scalar/hono-api-reference": "^0.9.1",
-    "hono": "^4.7.10",
-    "picomatch": "^4.0.2",
-    "zod": "^3.25.42"
+    "@hono/zod-openapi": "catalog:build",
+    "@luxass/unicode-utils": "workspace:*",
+    "@scalar/hono-api-reference": "catalog:build",
+    "hono": "catalog:build",
+    "picomatch": "catalog:build",
+    "zod": "catalog:build"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.8.34",
-    "@luxass/eslint-config": "^4.18.1",
-    "@luxass/spectral-ruleset": "^0.0.5",
-    "@stoplight/spectral-cli": "^6.15.0",
-    "@types/picomatch": "^4.0.0",
-    "eslint": "^9.27.0",
-    "eslint-plugin-format": "^1.0.1",
-    "nanotar": "^0.2.0",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "vitest": "^3.1.4",
-    "wrangler": "^4.18.0"
+    "@cloudflare/vitest-pool-workers": "catalog:testing",
+    "@luxass/eslint-config": "catalog:linting",
+    "@luxass/spectral-ruleset": "catalog:linting",
+    "@stoplight/spectral-cli": "catalog:linting",
+    "@types/picomatch": "catalog:types",
+    "eslint": "catalog:linting",
+    "eslint-plugin-format": "catalog:linting",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vite-tsconfig-paths": "catalog:dev",
+    "vitest": "catalog:testing",
+    "wrangler": "catalog:dev"
   }
 }

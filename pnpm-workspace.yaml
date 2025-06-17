@@ -2,5 +2,44 @@ packages:
   - "packages/*"
   - "api"
 
+catalogs:
+  types:
+    "@types/node": ^22.10.9
+    "@types/picomatch": ^4.0.0
+
+  build:
+    "@hono/zod-openapi": ^0.19.8
+    "@scalar/hono-api-reference": ^0.9.1
+    hono: ^4.7.10
+    picomatch: ^4.0.2
+    zod: ^3.25.42
+    "@luxass/utils": ^2.3.0
+    defu: ^6.1.4
+    openapi-fetch: ^0.14.0
+
+  linting:
+    eslint: ^9.27.0
+    "@luxass/eslint-config": ^4.18.1
+    eslint-plugin-format: ^1.0.1
+    "@luxass/spectral-ruleset": ^0.0.5
+    "@stoplight/spectral-cli": ^6.15.0
+
+  testing:
+    "@vitest/coverage-istanbul": ^3.2.3
+    "@cloudflare/vitest-pool-workers": ^0.8.34
+    msw: ^2.10.1
+    vitest: ^3.2.3
+    vitest-package-exports: ^0.1.1
+
+  dev:
+    tsx: ^4.19.4
+    typescript: ^5.8.3
+    wrangler: ^4.18.0
+    tsdown: ^0.12.7
+    publint: ^0.3.12
+    openapi-typescript: ^7.8.0
+    vite-tsconfig-paths: ^5.1.4
+    turbo: ^2.5.4
+
 onlyBuiltDependencies:
   - "workerd"

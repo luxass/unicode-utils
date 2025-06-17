@@ -2,8 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext"],
+    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "paths": {
+      "@luxass/unicode-utils": ["../packages/unicode-utils/src"]
+    },
     "resolveJsonModule": true,
     "types": [
       "./worker-configuration.d.ts",
