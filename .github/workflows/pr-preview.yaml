@@ -173,7 +173,7 @@ jobs:
         run: pnpm --filter "@luxass/unicode-utils" run typecheck
 
       - name: test
-        run: pnpm --filter "@luxass/unicode-utils" run test
+        run: pnpm run test
 
       - name: publish packages
         run: |
