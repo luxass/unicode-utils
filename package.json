@@ -16,23 +16,17 @@
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "scripts": {
-    "build": "pnpm -r build",
-    "dev:api": "pnpm --filter unicode-api dev",
-    "test": "pnpm -r test",
-    "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r lint"
+    "build": "turbo run build --filter \"./packages/*\" --filter \"./api\" --concurrency=15",
+    "clean": "turbo run clean && git clean -xdf node_modules",
+    "dev": "turbo watch dev --filter \"./packages/*\" --filter \"./api\"",
+    "lint": "turbo run lint",
+    "test": "vitest run",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
-    "@vitest/coverage-v8": "catalog:testing",
-    "eslint": "catalog:linting",
-    "eslint-plugin-format": "catalog:linting",
-    "msw": "catalog:testing",
-    "openapi-typescript": "catalog:dev",
-    "publint": "catalog:dev",
-    "tsdown": "catalog:dev",
-    "tsx": "catalog:dev",
-    "typescript": "catalog:dev"
+    "typescript": "catalog:dev",
+    "turbo": "catalog:dev",
+    "vitest": "catalog:testing"
   }
 }

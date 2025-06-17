@@ -39,6 +39,7 @@ catalogs:
     publint: ^0.3.12
     openapi-typescript: ^7.8.0
     vite-tsconfig-paths: ^5.1.4
+    turbo: ^2.5.4
 
 onlyBuiltDependencies:
   - "workerd"

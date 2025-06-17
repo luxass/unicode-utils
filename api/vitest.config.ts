@@ -3,7 +3,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineWorkersProject({
   test: {
-    name: "unicode.luxass.dev",
+    name: "@unicode-utils/api",
     poolOptions: {
       workers: {
         singleWorker: true,
