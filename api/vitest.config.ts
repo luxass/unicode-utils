@@ -19,5 +19,11 @@ export default defineWorkersProject({
         },
       },
     },
+    alias: {},
+  },
+  resolve: {
+    alias: {
+      "@luxass/unicode-utils": "../packages/unicode-utils/src",
+    },
   },
 });
