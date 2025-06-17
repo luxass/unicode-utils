@@ -16,13 +16,9 @@ const aliases = readdirSync(new URL("./packages", import.meta.url).pathname)
     },
     {});
 
-console.log("Aliases:", aliases);
-
 const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
   .filter((dir) => existsSync(pkgRoot(dir) + "/package.json"))
   .map((dir) => {
-    let extra: Record<string, any> = {};
-
     return {
       extends: true,
       test: {
@@ -40,7 +36,7 @@ const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
 export default defineConfig({
   test: {
     coverage: {
-      provider: "v8",
+      provider: "istanbul",
       include: ["**/src/**"],
     },
     environment: "node",

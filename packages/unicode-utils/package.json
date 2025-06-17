@@ -57,7 +57,6 @@
   "devDependencies": {
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
-    "@vitest/coverage-v8": "catalog:testing",
     "eslint": "catalog:linting",
     "eslint-plugin-format": "catalog:linting",
     "msw": "catalog:testing",
@@ -66,7 +65,6 @@
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
-    "vitest": "catalog:testing",
     "vitest-package-exports": "catalog:testing"
   }
 }
