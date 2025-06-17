@@ -59,7 +59,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: build
-        run: pnpm --filter "@unicode-utils/api" run build
+        run: pnpm run build
 
       - name: lint
         run: pnpm --filter "@unicode-utils/api" run lint
