@@ -104,7 +104,7 @@ app.notFound(async (c) => {
 
 export const getOpenAPIDocument = app.getOpenAPIDocument;
 
-export default class extends WorkerEntrypoint<HonoEnv> {
+export default class extends WorkerEntrypoint<HonoEnv["Bindings"]> {
   fetch(request: Request): Response | Promise<Response> {
     return app.fetch(request, this.env, this.ctx);
   }
