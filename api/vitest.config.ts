@@ -1,4 +1,5 @@
 import { defineWorkersProject } from "@cloudflare/vitest-pool-workers/config";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineWorkersProject({
   test: {
@@ -19,11 +20,8 @@ export default defineWorkersProject({
         },
       },
     },
-    alias: {},
   },
-  resolve: {
-    alias: {
-      "@luxass/unicode-utils": "../packages/unicode-utils/src",
-    },
-  },
+  plugins: [
+    tsconfigPaths(),
+  ],
 });

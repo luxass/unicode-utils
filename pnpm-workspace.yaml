@@ -38,6 +38,7 @@ catalogs:
     tsdown: ^0.12.7
     publint: ^0.3.12
     openapi-typescript: ^7.8.0
+    vite-tsconfig-paths: ^5.1.4
 
 onlyBuiltDependencies:
   - "workerd"
