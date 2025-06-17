@@ -46,6 +46,9 @@ catalogs:
     typescript:
       specifier: ^5.8.3
       version: 5.8.3
+    vite-tsconfig-paths:
+      specifier: ^5.1.4
+      version: 5.1.4
     wrangler:
       specifier: ^4.18.0
       version: 4.20.0
@@ -126,9 +129,6 @@ importers:
       typescript:
         specifier: catalog:dev
         version: 5.8.3
-      vite-tsconfig-paths:
-        specifier: ^5.1.4
-        version: 5.1.4(typescript@5.8.3)(vite@6.3.3(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.20.3)(yaml@2.7.1))
 
   api:
     dependencies:
@@ -178,6 +178,9 @@ importers:
       typescript:
         specifier: catalog:dev
         version: 5.8.3
+      vite-tsconfig-paths:
+        specifier: catalog:dev
+        version: 5.1.4(typescript@5.8.3)(vite@6.3.3(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.20.3)(yaml@2.7.1))
       vitest:
         specifier: catalog:testing
         version: 3.2.2(@types/debug@4.1.12)(@types/node@22.15.31)(jiti@2.4.2)(lightningcss@1.29.3)(msw@2.10.2(@types/node@22.15.31)(typescript@5.8.3))(tsx@4.20.3)(yaml@2.7.1)
