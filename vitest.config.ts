@@ -22,19 +22,15 @@ const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
   .filter((dir) => existsSync(pkgRoot(dir) + "/package.json"))
   .map((dir) => {
     let extra: Record<string, any> = {};
-    if (dir === "unicode-utils") {
-      extra.test = {
+
+    return {
+      extends: true,
+      test: {
         server: {
           deps: {
             inline: ["vitest-package-exports"],
           },
         },
-      }
-    }
-    return {
-      extends: true,
-      test: {
-        ...extra.test,
         include: [`./packages/${dir}/**/*.{test,spec}.?(c|m)[jt]s?(x)`],
         name: dir,
       }
