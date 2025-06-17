@@ -105,7 +105,7 @@ jobs:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
         run: |
           CLEANED_URL=$(echo "$DEPLOYMENT_URL" | sed 's/ (custom domain)//')
-          echo "deployment-url=$CLEANED_URL" >> "$GITHUB_OUTPUT"
+          echo "deployment-url=https://$CLEANED_URL" >> "$GITHUB_OUTPUT"
 
       - name: find existing comment
         id: find-comment
