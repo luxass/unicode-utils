@@ -9,9 +9,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-  actions: write
+permissions: {}
 
 jobs:
   verify:
@@ -19,8 +17,6 @@ jobs:
     if: ${{ github.repository_owner == 'luxass' && github.event.action == 'labeled' && github.event.label.name == 'preview' }}
     permissions:
       contents: read
-      id-token: write
-      issues: write
       pull-requests: write
     name: verify build and tests
     timeout-minutes: 10
@@ -40,6 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: write
     name: deploy worker preview
     timeout-minutes: 5
     steps:
