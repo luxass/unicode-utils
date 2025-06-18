@@ -1,17 +1,17 @@
-import type { UnicodeVersion } from "./routes/v1_unicode-versions.schemas";
 import type { ApiError, HonoEnv } from "./types";
-import { WorkerEntrypoint } from "cloudflare:workers";
+import { OpenAPIHono } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
-import { createApp } from "./app";
-import { listUnicodeVersions } from "./lib/unicode-versions";
 import { registerOpenAPIEndpoints } from "./openapi";
 import { ratelimitMiddleware } from "./ratelimit";
+import { V1_UNICODE_FILES_ROUTER } from "./routes/v1_unicode-files";
+import { V1_UNICODE_VERSIONS_ROUTER } from "./routes/v1_unicode-versions";
 
-// Create the app instance using the shared function
-const app = createApp();
+const app = new OpenAPIHono<HonoEnv>();
 
-// Add middleware and additional endpoints
 app.use("*", ratelimitMiddleware);
+app.route("/", V1_UNICODE_VERSIONS_ROUTER);
+app.route("/", V1_UNICODE_FILES_ROUTER);
+
 registerOpenAPIEndpoints(app);
 
 app.onError(async (err, c) => {
@@ -46,12 +46,4 @@ app.notFound(async (c) => {
 
 export const getOpenAPIDocument = app.getOpenAPIDocument;
 
-export default class extends WorkerEntrypoint<HonoEnv["Bindings"]> {
-  fetch(request: Request): Response | Promise<Response> {
-    return app.fetch(request, this.env, this.ctx);
-  }
-
-  listUnicodeVersions(): Promise<UnicodeVersion[]> {
-    return listUnicodeVersions();
-  }
-}
+export default app;
