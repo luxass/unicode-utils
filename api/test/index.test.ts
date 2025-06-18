@@ -9,7 +9,7 @@ import worker from "../src";
 it("respond with a 404", async () => {
   const request = new Request("https://unicode-api.luxass.dev/not-found");
   const ctx = createExecutionContext();
-  const response = await worker.fetch(request);
+  const response = await worker.fetch(request, env, ctx);
   await waitOnExecutionContext(ctx);
 
   expect(response.status).toBe(404);

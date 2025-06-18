@@ -1,9 +1,7 @@
 import type { ApiError, HonoEnv } from "./types";
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { Scalar } from "@scalar/hono-api-reference";
-import { env } from "hono/adapter";
 import { HTTPException } from "hono/http-exception";
-import { buildOpenApiConfig, registerOpenAPIEndpoints } from "./openapi";
+import { registerOpenAPIEndpoints } from "./openapi";
 import { ratelimitMiddleware } from "./ratelimit";
 import { V1_UNICODE_FILES_ROUTER } from "./routes/v1_unicode-files";
 import { V1_UNICODE_VERSIONS_ROUTER } from "./routes/v1_unicode-versions";
