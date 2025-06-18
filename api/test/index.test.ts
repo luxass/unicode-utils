@@ -4,12 +4,12 @@ import {
   waitOnExecutionContext,
 } from "cloudflare:test";
 import { expect, it } from "vitest";
-import Worker from "../src";
+import worker from "../src";
 
 it("respond with a 404", async () => {
   const request = new Request("https://unicode-api.luxass.dev/not-found");
   const ctx = createExecutionContext();
-  const response = await new Worker(ctx, env).fetch(request);
+  const response = await worker.fetch(request);
   await waitOnExecutionContext(ctx);
 
   expect(response.status).toBe(404);

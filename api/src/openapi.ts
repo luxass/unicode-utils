@@ -39,7 +39,6 @@ export function buildOpenApiConfig(version: string, servers: NonNullable<OpenAPI
 
 export function registerOpenAPIEndpoints(
   app: OpenAPIHono<HonoEnv>,
-  apiVersion?: string,
 ) {
   app.get(
     "/",
@@ -91,7 +90,7 @@ export function registerOpenAPIEndpoints(
       server.description = "Preview Environment";
     }
 
-    return buildOpenApiConfig(env(c).API_VERSION || apiVersion || "x.y.z", [
+    return buildOpenApiConfig(env(c).API_VERSION || "x.y.z", [
       server,
     ]);
   });
