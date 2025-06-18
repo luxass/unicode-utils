@@ -1,8 +1,11 @@
+import type { UnicodeVersion } from "./routes/v1_unicode-versions.schemas";
 import type { ApiError, HonoEnv } from "./types";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { Scalar } from "@scalar/hono-api-reference";
+import { WorkerEntrypoint } from "cloudflare:workers";
 import { env } from "hono/adapter";
 import { HTTPException } from "hono/http-exception";
+import { listUnicodeVersions } from "./lib/unicode-versions";
 import { buildOpenApiConfig } from "./openapi";
 import { ratelimitMiddleware } from "./ratelimit";
 import { V1_UNICODE_FILES_ROUTER } from "./routes/v1_unicode-files";
@@ -101,4 +104,12 @@ app.notFound(async (c) => {
 
 export const getOpenAPIDocument = app.getOpenAPIDocument;
 
-export default app;
+export default class extends WorkerEntrypoint<HonoEnv["Bindings"]> {
+  fetch(request: Request): Response | Promise<Response> {
+    return app.fetch(request, this.env, this.ctx);
+  }
+
+  listUnicodeVersions(): Promise<UnicodeVersion[]> {
+    return listUnicodeVersions();
+  }
+}
