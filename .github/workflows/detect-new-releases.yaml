@@ -54,11 +54,11 @@ jobs:
           UNICODE_LATEST_VERSION: ${{ steps.unicode.outputs.latest_release }}
           UNICODE_UCD_VERSIONS: ${{ steps.unicode.outputs.ucd_releases }}
         run: |
-          npx tsx ./scripts/generate-constants.ts
+          npx tsx ./packages/unicode-utils/scripts/generate-constants.ts
 
       - name: format
         run: |
-          npx prettier --write ./src/constants.ts ./src/data/ucd-path-mappings.ts ./src/data/unicode-version-metadata.ts
+          npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/ucd-path-mappings.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
@@ -66,9 +66,9 @@ jobs:
           # Create a combined diff of constants.ts and data files
           {
             echo "=== Changes in src/constants.ts ==="
-            git diff ./src/constants.ts
+            git diff ./packages/unicode-utils/src/constants.ts
             echo -e "\n=== Changes in src/data/ ==="
-            git diff ./src/data/
+            git diff ./packages/unicode-utils/src/data/
           } > combined.diff
 
           # if the diff is empty
@@ -107,9 +107,9 @@ jobs:
             I will be waiting for your approval 👋.
           branch: update-generated-files
           add-paths: |
-            src/constants.ts
-            src/data/unicode-version-metadata.ts
-            src/data/ucd-path-mappings.ts
+            packages/unicode-utils/src/constants.ts
+            packages/unicode-utils/src/data/unicode-version-metadata.ts
+            packages/unicode-utils/src/data/ucd-path-mappings.ts
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
