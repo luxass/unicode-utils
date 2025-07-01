@@ -36,15 +36,12 @@ const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
 export default defineConfig({
   test: {
     coverage: {
-      provider: "istanbul",
+      provider: "v8",
       include: ["**/src/**"],
     },
     environment: "node",
     mockReset: true,
-    projects: [
-      ...workspaces,
-      "./api"
-    ]
+    projects: workspaces
   },
   esbuild: { target: "es2022" },
   resolve: { alias: aliases },

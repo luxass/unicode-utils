@@ -16,16 +16,16 @@
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "scripts": {
-    "build": "turbo run build --filter \"./packages/*\" --filter \"./api\" --concurrency=15",
+    "build": "turbo run build --filter \"./packages/*\" --concurrency=15",
     "clean": "turbo run clean && git clean -xdf node_modules",
-    "dev": "turbo watch dev --filter \"./packages/*\" --filter \"./api\"",
+    "dev": "turbo watch dev --filter \"./packages/*\"",
     "lint": "turbo run lint",
     "test": "vitest run",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@types/node": "catalog:types",
-    "@vitest/coverage-istanbul": "catalog:testing",
+    "@vitest/coverage-v8": "catalog:testing",
     "typescript": "catalog:dev",
     "turbo": "catalog:dev",
     "vitest": "catalog:testing"
