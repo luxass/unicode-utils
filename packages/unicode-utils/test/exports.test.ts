@@ -34,7 +34,6 @@ it("exports-snapshot", async () => {
       resolveUCDVersion: "function",
       stripHex: "function",
       trimCommentLine: "function",
-      UCD_PATH_MAPPINGS: "object",
       UNICODE_DRAFT_VERSION: "string",
       UNICODE_STABLE_VERSION: "string",
       UNICODE_TO_UCD_VERSION_MAPPINGS: "object",
@@ -42,7 +41,6 @@ it("exports-snapshot", async () => {
       buildUCDPath: "function",
     },
     "./constants": {
-      UCD_PATH_MAPPINGS: "object",
       UNICODE_DRAFT_VERSION: "string",
       UNICODE_STABLE_VERSION: "string",
       UNICODE_VERSION_METADATA: "object",

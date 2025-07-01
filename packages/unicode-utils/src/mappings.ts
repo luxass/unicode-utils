@@ -7,6 +7,9 @@
  * For example:
  * - Unicode 4.0.1 corresponds to UCD version "4.0-Update1"
  * - Unicode 2.1.9 corresponds to UCD version "2.1-Update4"
+ *
+ * Note: Only versions with special UCD paths are included here.
+ * Versions 4.1.0 and later use their version number directly as the UCD path.
  */
 export const UNICODE_TO_UCD_VERSION_MAPPINGS: Record<string, string> = {
   // Unicode 1.x files are available under 1.1-Update

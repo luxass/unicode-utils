@@ -24,7 +24,6 @@ async function run() {
 
   // get required environment variables
   const versions = JSON.parse(getRequiredEnvVar("UNICODE_VERSIONS"));
-  const ucdVersions = JSON.parse(getRequiredEnvVar("UNICODE_UCD_VERSIONS"));
   const latestVersion = getRequiredEnvVar("UNICODE_LATEST_VERSION");
   const draftVersion = process.env.UNICODE_DRAFT_VERSION || latestVersion.replace(/\d+/, (n) => String(Number(n) + 1));
 
@@ -43,11 +42,6 @@ async function run() {
   } catch {
     // File doesn't exist, which is fine
   }
-  try {
-    await unlink(join(dataDir, "ucd-path-mappings.json"));
-  } catch {
-    // File doesn't exist, which is fine
-  }
 
   // generate unicode-version-metadata.ts
   const unicodeVersionMetadataContent = `${COMMENT}
@@ -58,23 +52,6 @@ export type UnicodeVersionMetadata = typeof UNICODE_VERSION_METADATA[number];
   await writeFile(
     join(dataDir, "unicode-version-metadata.ts"),
     unicodeVersionMetadataContent,
-    "utf-8",
-  );
-
-  // Generate ucd-path-mappings.ts
-  const ucdPathMappingsData = ucdVersions.map(({ version, mappedVersion }) => ({
-    unicodeVersion: version,
-    ucdPath: mappedVersion,
-  }));
-
-  const ucdPathMappingsContent = `${COMMENT}
-export const UCD_PATH_MAPPINGS = ${JSON.stringify(ucdPathMappingsData, null, 2)} as const;
-export type UCDPathMapping = typeof UCD_PATH_MAPPINGS[number];
-`;
-
-  await writeFile(
-    join(dataDir, "ucd-path-mappings.ts"),
-    ucdPathMappingsContent,
     "utf-8",
   );
 
@@ -96,7 +73,6 @@ export type UCDPathMapping = typeof UCD_PATH_MAPPINGS[number];
   await writeFile(constantsPath, content, "utf-8");
   console.log("✅ Successfully generated TypeScript data files with strict typing!");
   console.log("📁 Created: unicode-version-metadata.ts");
-  console.log("📁 Created: ucd-path-mappings.ts");
   console.log("🔢 Updated version numbers in constants.ts");
 }
 
