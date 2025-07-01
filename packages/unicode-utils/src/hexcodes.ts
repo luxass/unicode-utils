@@ -3,16 +3,56 @@
  *
  * @param {string} hex - The hexadecimal string to convert
  * @param {string} joiner - The string that separates the hex values
+ * @param {boolean} strict - If true, throws errors for invalid input. If false, returns NaN for invalid parts.
  * @returns {number[]} An array of numbers representing unicode codepoints
  *
  * @example
  * ```ts
  * fromHexToCodepoint('1F600-1F64F', '-') // [128512, 128591]
  * fromHexToCodepoint('1F600,1F64F', ',') // [128512, 128591]
+ * fromHexToCodepoint('1F600-', '-', true) // throws Error
+ * fromHexToCodepoint('1F600-', '-', false) // [128512, NaN]
  * ```
  */
-export function fromHexToCodepoint(hex: string, joiner: string): number[] {
-  return hex.split(joiner).map((point) => Number.parseInt(point, 16));
+export function fromHexToCodepoint(hex: string, joiner: string, strict: boolean = false): number[] {
+  if (strict) {
+    if (typeof hex !== "string" || typeof joiner !== "string") {
+      throw new TypeError("Both hex and joiner must be strings");
+    }
+
+    if (hex.trim() === "") {
+      throw new Error("Hex string cannot be empty");
+    }
+  }
+
+  const hexParts = hex.split(joiner);
+  const codepoints: number[] = [];
+
+  for (const part of hexParts) {
+    const trimmedPart = part.trim();
+
+    if (strict && trimmedPart === "") {
+      throw new Error("Empty hex part found");
+    }
+
+    if (strict && !/^[0-9a-f]+$/i.test(trimmedPart)) {
+      throw new Error(`Invalid hex format: "${trimmedPart}"`);
+    }
+
+    const codepoint = Number.parseInt(trimmedPart, 16);
+
+    if (strict && Number.isNaN(codepoint)) {
+      throw new Error(`Failed to parse hex value: "${trimmedPart}"`);
+    }
+
+    if (strict && codepoint > 0x10FFFF) {
+      throw new Error(`Invalid Unicode codepoint: ${codepoint.toString(16).toUpperCase()} (exceeds U+10FFFF)`);
+    }
+
+    codepoints.push(codepoint);
+  }
+
+  return codepoints;
 }
 
 /**

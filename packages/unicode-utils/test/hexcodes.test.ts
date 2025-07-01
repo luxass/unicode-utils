@@ -17,6 +17,49 @@ describe("convert hex to codepoint", () => {
   it("should convert multiple hex values", () => {
     expect(fromHexToCodepoint("1F600-1F601-1F602", "-")).toEqual([128512, 128513, 128514]);
   });
+
+  describe("strict mode validation", () => {
+    it("should throw error for non-string hex input", () => {
+      expect(() => fromHexToCodepoint(123 as any, "-", true)).toThrow("Both hex and joiner must be strings");
+    });
+
+    it("should throw error for non-string joiner input", () => {
+      expect(() => fromHexToCodepoint("1F600", 123 as any, true)).toThrow("Both hex and joiner must be strings");
+    });
+
+    it("should throw error for empty hex string", () => {
+      expect(() => fromHexToCodepoint("", "-", true)).toThrow("Hex string cannot be empty");
+      expect(() => fromHexToCodepoint("   ", "-", true)).toThrow("Hex string cannot be empty");
+    });
+
+    it("should throw error for empty hex parts", () => {
+      expect(() => fromHexToCodepoint("1F600--1F601", "-", true)).toThrow("Empty hex part found");
+    });
+
+    it("should throw error for invalid hex format", () => {
+      expect(() => fromHexToCodepoint("1F600-INVALID", "-", true)).toThrow("Invalid hex format: \"INVALID\"");
+      expect(() => fromHexToCodepoint("1F600-123G", "-", true)).toThrow("Invalid hex format: \"123G\"");
+    });
+
+    it("should throw error for Unicode codepoints exceeding valid range", () => {
+      expect(() => fromHexToCodepoint("110000", "-", true)).toThrow("Invalid Unicode codepoint: 110000 (exceeds U+10FFFF)");
+    });
+
+    it("should work correctly with valid input in strict mode", () => {
+      expect(fromHexToCodepoint("1F600-1F601", "-", true)).toEqual([128512, 128513]);
+    });
+  });
+
+  describe("non-strict mode (default)", () => {
+    it("should return NaN for invalid hex parts", () => {
+      expect(fromHexToCodepoint("1F600-", "-")).toEqual([128512, Number.NaN]);
+      expect(fromHexToCodepoint("1F600-INVALID", "-")).toEqual([128512, Number.NaN]);
+    });
+
+    it("should handle empty parts gracefully", () => {
+      expect(fromHexToCodepoint("1F600--1F601", "-")).toEqual([128512, Number.NaN, 128513]);
+    });
+  });
 });
 
 describe("expand hexcode range", () => {
