@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "catalog:types",
-    "@vitest/coverage-istanbul": "catalog:testing",
+    "@vitest/coverage-v8": "catalog:testing",
     "typescript": "catalog:dev",
     "turbo": "catalog:dev",
     "vitest": "catalog:testing"
