@@ -14,10 +14,10 @@ on:
         type: choice
         description: the base URL of the ucdjs API
         required: false
-        default: "https://unicode-api.luxass.dev"
+        default: "https://api.ucdjs.dev"
         options:
-          - "https://unicode-api.luxass.dev"
-          - "https://preview.unicode-api.luxass.dev"
+          - "https://api.ucdjs.dev"
+          - "https://preview.api.ucdjs.dev"
       proxy-base-url:
         type: choice
         description: the base URL of the unicode proxy
@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@55920d174f30748a87314ff16f82b0ab9b50374f # v0.5.0
+        uses: luxass/unicode-releases-action@bbc6f9226dc71a0130e3d2d6d86c0ad8503b10c7 # v0.6.1
         id: unicode
         with:
           api_base_url: ${{ github.event.inputs.api-base-url }}
@@ -58,7 +58,7 @@ jobs:
 
       - name: format
         run: |
-          npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/ucd-path-mappings.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
+          npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
@@ -109,7 +109,6 @@ jobs:
           add-paths: |
             packages/unicode-utils/src/constants.ts
             packages/unicode-utils/src/data/unicode-version-metadata.ts
-            packages/unicode-utils/src/data/ucd-path-mappings.ts
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
