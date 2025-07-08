@@ -66,14 +66,14 @@ export interface UnknownNode extends BaseNode {
 }
 
 // All node types except root
-export type ChildNode =
-  | CommentNode
-  | EmptyCommentNode
-  | BoundaryNode
-  | DataNode
-  | EmptyNode
-  | EOFNode
-  | PropertyNode
-  | UnknownNode;
+export type ChildNode
+  = | CommentNode
+    | EmptyCommentNode
+    | BoundaryNode
+    | DataNode
+    | EmptyNode
+    | EOFNode
+    | PropertyNode
+    | UnknownNode;
 
 export type Node = RootNode | ChildNode;
