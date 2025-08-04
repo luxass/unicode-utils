@@ -10,22 +10,14 @@ on:
         description: Run the workflow without creating a pull request
         required: false
         default: false
-      api-base-url:
+      base-url:
         type: choice
-        description: the base URL of the ucdjs API
+        description: the base URL of the ucdjs api
         required: false
         default: "https://api.ucdjs.dev"
         options:
           - "https://api.ucdjs.dev"
           - "https://preview.api.ucdjs.dev"
-      proxy-base-url:
-        type: choice
-        description: the base URL of the unicode proxy
-        required: false
-        default: "https://unicode-proxy.ucdjs.dev"
-        options:
-          - "https://unicode-proxy.ucdjs.dev"
-          - "https://preview.unicode-proxy.ucdjs.dev"
 
 jobs:
   check-releases:
@@ -41,75 +33,75 @@ jobs:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@bbc6f9226dc71a0130e3d2d6d86c0ad8503b10c7 # v0.6.1
+        uses: luxass/unicode-releases-action@7233bd9611ad3cf60b8b1e63c8fbdd3fefdc1972 # v0.7.3
         id: unicode
         with:
-          api_base_url: ${{ github.event.inputs.api-base-url }}
-          proxy_base_url: ${{ github.event.inputs.proxy-base-url }}
+          api_base_url: ${{ github.event.inputs.base-url }}
 
       - name: generate constants
         env:
-          UNICODE_DRAFT_VERSION: ${{ steps.unicode.outputs.current_draft}}
-          UNICODE_VERSIONS: ${{ steps.unicode.outputs.all_releases }}
-          UNICODE_LATEST_VERSION: ${{ steps.unicode.outputs.latest_release }}
-          UNICODE_UCD_VERSIONS: ${{ steps.unicode.outputs.ucd_releases }}
+          ALL_RELEASES: ${{ steps.unicode.outputs.all_releases }}
+          LATEST_RELEASE: ${{ steps.unicode.outputs.latest_release }}
+          CURRENT_DRAFT: ${{ steps.unicode.outputs.current_draft }}
         run: |
-          npx tsx ./packages/unicode-utils/scripts/generate-constants.ts
+          echo "$ALL_RELEASES"
+          echo "$LATEST_RELEASE"
+          echo "$CURRENT_DRAFT"
 
-      - name: format
-        run: |
-          npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
+      # - name: format
+      #   run: |
+      #     npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
 
-      - name: generate diff
-        id: generate-diff
-        run: |
-          # Create a combined diff of constants.ts and data files
-          {
-            echo "=== Changes in src/constants.ts ==="
-            git diff ./packages/unicode-utils/src/constants.ts
-            echo -e "\n=== Changes in src/data/ ==="
-            git diff ./packages/unicode-utils/src/data/
-          } > combined.diff
+      # - name: generate diff
+      #   id: generate-diff
+      #   run: |
+      #     # Create a combined diff of constants.ts and data files
+      #     {
+      #       echo "=== Changes in src/constants.ts ==="
+      #       git diff ./packages/unicode-utils/src/constants.ts
+      #       echo -e "\n=== Changes in src/data/ ==="
+      #       git diff ./packages/unicode-utils/src/data/
+      #     } > combined.diff
 
-          # if the diff is empty
-          if [ ! -s combined.diff ]; then
-            echo "No changes found in the files."
-            exit 0
-          fi
+      #     # if the diff is empty
+      #     if [ ! -s combined.diff ]; then
+      #       echo "No changes found in the files."
+      #       exit 0
+      #     fi
 
-          echo "Changes found in the files:"
-          {
-            echo 'DIFF<<EOF'
-            cat combined.diff
-            echo EOF
-          } >> "$GITHUB_OUTPUT"
+      #     echo "Changes found in the files:"
+      #     {
+      #       echo 'DIFF<<EOF'
+      #       cat combined.diff
+      #       echo EOF
+      #     } >> "$GITHUB_OUTPUT"
 
-      - name: create pull request
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
-        if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
-        env:
-          DIFF: ${{ steps.generate-diff.outputs.DIFF }}
-        with:
-          commit-message: "feat: updated generated files"
-          title: "feat: updated generated files"
-          body: |
-            This is an automated PR to update the auto-generated files in the repository.
+      # - name: create pull request
+      #   uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+      #   if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
+      #   env:
+      #     DIFF: ${{ steps.generate-diff.outputs.DIFF }}
+      #   with:
+      #     commit-message: "feat: updated generated files"
+      #     title: "feat: updated generated files"
+      #     body: |
+      #       This is an automated PR to update the auto-generated files in the repository.
 
-            <details>
-            <summary>📚 Diff</summary><br/>
+      #       <details>
+      #       <summary>📚 Diff</summary><br/>
 
-            ```diff
-            ${{ env.DIFF }}
-            ```
+      #       ```diff
+      #       ${{ env.DIFF }}
+      #       ```
 
-            <br/></details>
+      #       <br/></details>
 
-            I will be waiting for your approval 👋.
-          branch: update-generated-files
-          add-paths: |
-            packages/unicode-utils/src/constants.ts
-            packages/unicode-utils/src/data/unicode-version-metadata.ts
-          base: main
-          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          reviewers: luxass
+      #       I will be waiting for your approval 👋.
+      #     branch: update-generated-files
+      #     add-paths: |
+      #       packages/unicode-utils/src/constants.ts
+      #       packages/unicode-utils/src/data/unicode-version-metadata.ts
+      #     base: main
+      #     committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+      #     author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+      #     reviewers: luxass
