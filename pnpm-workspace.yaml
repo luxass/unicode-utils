@@ -8,7 +8,7 @@ catalogs:
 
   build:
     picomatch: ^4.0.2
-    zod: ^3.25.76
+    zod: ^4.0.0
     "@luxass/utils": ^2.6.0
     defu: ^6.1.4
 
