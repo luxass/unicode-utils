@@ -44,64 +44,62 @@ jobs:
           LATEST_RELEASE: ${{ steps.unicode.outputs.latest_release }}
           CURRENT_DRAFT: ${{ steps.unicode.outputs.current_draft }}
         run: |
-          echo "$ALL_RELEASES"
-          echo "$LATEST_RELEASE"
-          echo "$CURRENT_DRAFT"
+          npx tsx ./packages/unicode-utils/scripts/generate-constants.ts
 
-      # - name: format
-      #   run: |
-      #     npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
+      - name: format
+        run: |
+          npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
 
-      # - name: generate diff
-      #   id: generate-diff
-      #   run: |
-      #     # Create a combined diff of constants.ts and data files
-      #     {
-      #       echo "=== Changes in src/constants.ts ==="
-      #       git diff ./packages/unicode-utils/src/constants.ts
-      #       echo -e "\n=== Changes in src/data/ ==="
-      #       git diff ./packages/unicode-utils/src/data/
-      #     } > combined.diff
+      - name: generate diff
+        id: generate-diff
+        run: |
+          # Create a combined diff of constants.ts and data files
+          {
+            echo "=== Changes in src/constants.ts ==="
+            git diff ./packages/unicode-utils/src/constants.ts
+            echo -e "\n=== Changes in src/data/ ==="
+            git diff ./packages/unicode-utils/src/data/
+          } > combined.diff
 
-      #     # if the diff is empty
-      #     if [ ! -s combined.diff ]; then
-      #       echo "No changes found in the files."
-      #       exit 0
-      #     fi
+          # if the diff is empty
+          if [ ! -s combined.diff ]; then
+            echo "No changes found in the files."
+            exit 0
+          fi
 
-      #     echo "Changes found in the files:"
-      #     {
-      #       echo 'DIFF<<EOF'
-      #       cat combined.diff
-      #       echo EOF
-      #     } >> "$GITHUB_OUTPUT"
+          echo "Changes found in the files:"
+          {
+            echo 'DIFF<<EOF'
+            cat combined.diff
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
 
-      # - name: create pull request
-      #   uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
-      #   if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
-      #   env:
-      #     DIFF: ${{ steps.generate-diff.outputs.DIFF }}
-      #   with:
-      #     commit-message: "feat: updated generated files"
-      #     title: "feat: updated generated files"
-      #     body: |
-      #       This is an automated PR to update the auto-generated files in the repository.
+      - name: create pull request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
+        env:
+          DIFF: ${{ steps.generate-diff.outputs.DIFF }}
+        with:
+          commit-message: "feat: updated generated files"
+          title: "feat: updated generated files"
+          body: |
+            This is an automated PR to update the auto-generated files in the repository.
 
-      #       <details>
-      #       <summary>📚 Diff</summary><br/>
+            <details>
+            <summary>📚 Diff</summary><br/>
 
-      #       ```diff
-      #       ${{ env.DIFF }}
-      #       ```
+            ```diff
+            ${{ env.DIFF }}
+            ```
 
-      #       <br/></details>
+            <br/></details>
 
-      #       I will be waiting for your approval 👋.
-      #     branch: update-generated-files
-      #     add-paths: |
-      #       packages/unicode-utils/src/constants.ts
-      #       packages/unicode-utils/src/data/unicode-version-metadata.ts
-      #     base: main
-      #     committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-      #     author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-      #     reviewers: luxass
+            I will be waiting for your approval 👋.
+          branch: update-generated-files
+          add-paths: |
+            packages/unicode-utils/src/constants.ts
+            packages/unicode-utils/src/data/unicode-version-metadata.ts
+          base: main
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          reviewers: luxass

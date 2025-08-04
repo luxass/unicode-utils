@@ -23,14 +23,14 @@ async function run() {
   const dir = new URL("..", import.meta.url).pathname;
 
   // get required environment variables
-  const versions = JSON.parse(getRequiredEnvVar("UNICODE_VERSIONS"));
-  const latestVersion = getRequiredEnvVar("UNICODE_LATEST_VERSION");
-  const draftVersion = process.env.UNICODE_DRAFT_VERSION || latestVersion.replace(/\d+/, (n) => String(Number(n) + 1));
+  const ALL_RELEASES = JSON.parse(getRequiredEnvVar("ALL_RELEASES"));
+  const LATEST_RELEASE = getRequiredEnvVar("LATEST_RELEASE");
+  const CURRENT_DRAFT = getRequiredEnvVar("CURRENT_DRAFT");
 
   // validate that latest version is in versions array
-  const isInVersions = versions.find(({ version }) => version === latestVersion);
+  const isInVersions = ALL_RELEASES.find(({ version }) => version === LATEST_RELEASE);
   if (!isInVersions) {
-    throw new Error(`Latest version ${latestVersion} not found in versions array`);
+    throw new Error(`Latest version ${LATEST_RELEASE} not found in versions array`);
   }
 
   const dataDir = join(dir, "src", "data");
@@ -45,7 +45,7 @@ async function run() {
 
   // generate unicode-version-metadata.ts
   const unicodeVersionMetadataContent = `${COMMENT}
-export const UNICODE_VERSION_METADATA = ${JSON.stringify(versions, null, 2)} as const;
+export const UNICODE_VERSION_METADATA = ${JSON.stringify(ALL_RELEASES, null, 2)} as const;
 export type UnicodeVersionMetadata = typeof UNICODE_VERSION_METADATA[number];
 `;
 
@@ -62,11 +62,11 @@ export type UnicodeVersionMetadata = typeof UNICODE_VERSION_METADATA[number];
   // replace the version numbers
   content = content.replace(
     /export const UNICODE_DRAFT_VERSION = "[\d.]+" as const;/,
-    `export const UNICODE_DRAFT_VERSION = "${draftVersion}" as const;`,
+    `export const UNICODE_DRAFT_VERSION = "${CURRENT_DRAFT}" as const;`,
   );
   content = content.replace(
     /export const UNICODE_STABLE_VERSION = "[\d.]+" as const;/,
-    `export const UNICODE_STABLE_VERSION = "${latestVersion}" as const;`,
+    `export const UNICODE_STABLE_VERSION = "${LATEST_RELEASE}" as const;`,
   );
 
   // write the updated constants file
