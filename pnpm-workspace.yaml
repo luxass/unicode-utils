@@ -26,6 +26,6 @@ catalogs:
   dev:
     tsx: ^4.20.3
     typescript: ^5.8.3
-    tsdown: ^0.12.9
+    tsdown: ^0.13.0
     publint: ^0.3.12
     turbo: ^2.5.4
