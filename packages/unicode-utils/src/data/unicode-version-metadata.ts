@@ -9,7 +9,7 @@ export const UNICODE_VERSION_METADATA = [
   {
     version: "17.0.0",
     documentationUrl: "https://www.unicode.org/versions/Unicode17.0.0/",
-    date: null,
+    date: "2025",
     url: "https://www.unicode.org/Public/17.0.0",
     mappedUcdVersion: null,
     type: "draft",

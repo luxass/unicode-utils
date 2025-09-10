@@ -6,7 +6,7 @@ export const UNICODE_DRAFT_VERSION = "17.0.0" as const;
 /**
  * The latest stable version of the Unicode standard
  */
-export const UNICODE_STABLE_VERSION = "16.0.0" as const;
+export const UNICODE_STABLE_VERSION = "17.0.0" as const;
 
 /**
  * Complete list of Unicode versions with their metadata.
