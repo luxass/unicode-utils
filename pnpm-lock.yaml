@@ -40,13 +40,13 @@ catalogs:
       version: 1.0.1
   testing:
     '@vitest/coverage-v8':
-      specifier: ^3.2.4
+      specifier: 3.2.4
       version: 3.2.4
     msw:
       specifier: ^2.10.3
       version: 2.10.4
     vitest:
-      specifier: ^3.2.4
+      specifier: 3.2.4
       version: 3.2.4
     vitest-package-exports:
       specifier: ^0.1.1
