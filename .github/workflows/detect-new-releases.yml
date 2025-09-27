@@ -28,12 +28,12 @@ jobs:
       pull-requests: write
     if: github.repository_owner == 'luxass'
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@7233bd9611ad3cf60b8b1e63c8fbdd3fefdc1972 # v0.7.3
+        uses: luxass/unicode-releases-action@5f69f1aa427dda9bf28eb2d545810220fddd4039 # v0.7.5
         id: unicode
         with:
           api_base_url: ${{ github.event.inputs.base-url }}
