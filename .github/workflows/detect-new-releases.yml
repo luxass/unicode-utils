@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@488061680431c4bad180817e5dead156abaa18d3 # v0.7.4
+        uses: luxass/unicode-releases-action@5f69f1aa427dda9bf28eb2d545810220fddd4039 # v0.7.5
         id: unicode
         with:
           api_base_url: ${{ github.event.inputs.base-url }}
