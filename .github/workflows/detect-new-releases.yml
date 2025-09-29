@@ -26,7 +26,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    if: github.repository_owner == 'luxass'
+      models: read
+    if: github.repository == 'luxass/unicode-utils'
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
@@ -74,14 +75,22 @@ jobs:
             echo EOF
           } >> "$GITHUB_OUTPUT"
 
+      - name: generate pr metadata (ai)
+        id: pr-metadata
+        if: ${{ steps.generate-diff.outputs.DIFF != '' && github.event.inputs.dry-run != 'true' }}
+        run: node ./scripts/generate-pr-title.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: create pull request
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
         env:
           DIFF: ${{ steps.generate-diff.outputs.DIFF }}
+          COMMIT_MESSAGE: "${{ steps.pr-metadata.outputs.title || 'feat: updated generated files' }}"
         with:
-          commit-message: "feat: updated generated files"
-          title: "feat: updated generated files"
+          commit-message: ${{ env.COMMIT_MESSAGE }}
+          title: ${{ env.COMMIT_MESSAGE }}
           body: |
             This is an automated PR to update the auto-generated files in the repository.
 
