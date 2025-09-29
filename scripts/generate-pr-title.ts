@@ -5,7 +5,7 @@ const SYSTEM_PROMPT = `You are an expert at analyzing code changes and generatin
 
 Your task is to analyze the provided git diff and generate a JSON object with the following properties:
 - type: The conventional commit type (feat, fix, chore, docs, style, refactor)
-- scope: Optional scope of the change (e.g., component or section name). Use empty string if no specific scope.
+- scope: The scope of the change (e.g., component or section name). Use empty string if no specific scope.
 - message: A concise description of the change, under 72 characters total for the full title.
 
 Guidelines for the message:
@@ -77,6 +77,7 @@ async function run() {
             additionalProperties: false,
             required: [
               "type",
+              "scope",
               "message",
             ],
           },
@@ -108,7 +109,7 @@ async function run() {
   const content = data.choices[0].message.content.trim();
   const parsed = JSON.parse(content) as {
     type: string;
-    scope?: string;
+    scope: string;
     message: string;
   };
 
