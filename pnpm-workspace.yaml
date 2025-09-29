@@ -3,29 +3,29 @@ packages:
 
 catalogs:
   types:
-    "@types/node": 22.16.5
+    "@types/node": 22.18.6
     "@types/picomatch": 4.0.2
 
   build:
     picomatch: 4.0.3
     zod: 4.1.11
-    "@luxass/utils": 2.6.0
+    "@luxass/utils": 2.7.2
     defu: 6.1.4
 
   linting:
     eslint: ^9.30.1
-    "@luxass/eslint-config": 5.1.1
+    "@luxass/eslint-config": 5.3.2
     eslint-plugin-format: ^1.0.1
 
   testing:
     "@vitest/coverage-v8": 3.2.4
-    msw: 2.10.4
+    msw: 2.11.3
     vitest: 3.2.4
     vitest-package-exports: 0.1.1
 
   dev:
-    tsx: 4.20.3
-    typescript: 5.8.3
-    tsdown: 0.13.0
-    publint: 0.3.12
-    turbo: 2.5.5
+    tsx: 4.20.5
+    typescript: 5.9.2
+    tsdown: 0.15.4
+    publint: 0.3.13
+    turbo: 2.5.6
