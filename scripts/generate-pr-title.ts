@@ -102,6 +102,10 @@ async function run() {
     }[];
   };
 
+  console.log("✅ Parsing completed");
+  console.log("🤖 Validating response...");
+  console.log(JSON.stringify(data, null, 2));
+
   if (!data.choices || data.choices.length === 0) {
     throw new Error("No response received from GitHub Models API");
   }
