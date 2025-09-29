@@ -12,7 +12,7 @@ export const UNICODE_VERSION_METADATA = [
     date: "2025",
     url: "https://www.unicode.org/Public/17.0.0",
     mappedUcdVersion: null,
-    type: "draft",
+    type: "stable",
   },
   {
     version: "16.0.0",

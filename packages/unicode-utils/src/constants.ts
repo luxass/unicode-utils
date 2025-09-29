@@ -1,7 +1,7 @@
 /**
  * The current draft version of the Unicode standard
  */
-export const UNICODE_DRAFT_VERSION = "17.0.0" as const;
+export const UNICODE_DRAFT_VERSION = "" as const;
 
 /**
  * The latest stable version of the Unicode standard
