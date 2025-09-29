@@ -4,7 +4,7 @@ import process from "node:process";
 
 function getRequiredEnvVar(name: string): string {
   const value = process.env[name];
-  if (!value) {
+  if (value != null) {
     throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
