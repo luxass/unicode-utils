@@ -55,7 +55,7 @@ jobs:
           LATEST_RELEASE: ${{ steps.unicode.outputs.latest_release }}
           CURRENT_DRAFT: ${{ steps.unicode.outputs.current_draft }}
         run: |
-          npx tsx ./packages/unicode-utils/scripts/generate-constants.ts
+          node ./packages/unicode-utils/scripts/generate-constants.ts
 
       - name: format
         run: |
