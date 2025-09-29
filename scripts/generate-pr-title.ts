@@ -23,11 +23,11 @@ Analyze the diff and respond with ONLY the PR title, no additional text or expla
 `;
 
 async function run() {
-  console.log("📖 Reading git diff from github-schema.diff...");
-  const diff = readFileSync("github-schema.diff", "utf8");
+  console.log("📖 Reading git diff from combined.diff...");
+  const diff = readFileSync("combined.diff", "utf8");
 
   if (!diff.trim()) {
-    console.error("❌ No changes detected in github-schema.diff");
+    console.error("❌ No changes detected in combined.diff");
     process.exit(1);
   }
 
