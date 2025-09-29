@@ -65,10 +65,6 @@ async function run() {
                 enum: ["feat", "fix", "chore", "docs", "style", "refactor"],
                 description: "The type of change being made",
               },
-              scope: {
-                type: "string",
-                description: "The optional scope of the change (e.g., component or section name). Can be empty string.",
-              },
               message: {
                 type: "string",
                 description: "A concise description of the change, under 72 characters",
@@ -77,7 +73,6 @@ async function run() {
             additionalProperties: false,
             required: [
               "type",
-              "scope",
               "message",
             ],
           },
@@ -91,9 +86,6 @@ async function run() {
     throw new Error(`GitHub Models API request failed: ${response.status} ${response.statusText}\n${errorText}`);
   }
 
-  console.log("✅ Received response from GitHub Models API");
-  console.log("🤖 Parsing response...");
-
   const data = await response.json() as {
     choices: {
       message: {
@@ -102,10 +94,6 @@ async function run() {
     }[];
   };
 
-  console.log("✅ Parsing completed");
-  console.log("🤖 Validating response...");
-  console.log(JSON.stringify(data, null, 2));
-
   if (!data.choices || data.choices.length === 0) {
     throw new Error("No response received from GitHub Models API");
   }
@@ -113,11 +101,10 @@ async function run() {
   const content = data.choices[0].message.content.trim();
   const parsed = JSON.parse(content) as {
     type: string;
-    scope: string;
     message: string;
   };
 
-  const title = `${parsed.type}${parsed.scope ? `(${parsed.scope})` : ''}: ${parsed.message}`;
+  const title = `${parsed.type}: ${parsed.message}`;
 
   // write to github_output
   if (process.env.GITHUB_OUTPUT) {
