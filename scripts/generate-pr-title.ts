@@ -5,7 +5,6 @@ const SYSTEM_PROMPT = `You are an expert at analyzing code changes and generatin
 
 Your task is to analyze the provided git diff and generate a JSON object with the following properties:
 - type: The conventional commit type (feat, fix, chore, docs, style, refactor)
-- scope: The scope of the change (e.g., component or section name). Use empty string if no specific scope.
 - message: A concise description of the change, under 72 characters total for the full title.
 
 Guidelines for the message:
@@ -15,10 +14,10 @@ Guidelines for the message:
 - Keep the full formatted title (type(scope): message) under 72 characters
 
 Examples:
-- {"type": "feat", "scope": "auth", "message": "add user authentication with JWT tokens"}
-- {"type": "fix", "scope": "", "message": "resolve memory leak in data processing pipeline"}
-- {"type": "chore", "scope": "deps", "message": "update dependencies to latest versions"}
-- {"type": "docs", "scope": "api", "message": "add API documentation for webhook endpoints"}
+- {"type": "feat", "message": "add user authentication with JWT tokens"}
+- {"type": "fix", "message": "resolve memory leak in data processing pipeline"}
+- {"type": "chore", "message": "update dependencies to latest versions"}
+- {"type": "docs", "message": "add API documentation for webhook endpoints"}
 
 Analyze the diff and respond with ONLY a valid JSON object matching this schema, no additional text or explanation.
 `;
