@@ -33,6 +33,16 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+
+      - name: setup node
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          registry-url: "https://registry.npmjs.org"
+          node-version: lts/*
+          cache: pnpm
+
       - name: check unicode releases
         uses: luxass/unicode-releases-action@5f69f1aa427dda9bf28eb2d545810220fddd4039 # v0.7.5
         id: unicode
