@@ -3,7 +3,7 @@ packages:
 
 catalogs:
   types:
-    "@types/node": 22.18.6
+    "@types/node": 22.18.12
     "@types/picomatch": 4.0.2
 
   build:
