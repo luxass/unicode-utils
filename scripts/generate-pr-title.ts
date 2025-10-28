@@ -11,7 +11,7 @@ Guidelines for the message:
 - Be specific about what was added/changed/fixed
 - Focus on the user-facing impact or technical improvement
 - Use present tense, imperative mood
-- Keep the full formatted title (type(scope): message) under 72 characters
+- Keep the full formatted title (type: message) under 72 characters
 
 Examples:
 - {"type": "feat", "message": "add user authentication with JWT tokens"}
