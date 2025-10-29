@@ -82,6 +82,15 @@ async function run() {
       if (typeof value === "string") {
         if (key === "type") {
           prop.types.add(`"${value}"`);
+
+          // Ensure that both "stable" and "draft" are in the type union
+          // Since we are inferring types from data, we need to add both possible values
+          if (!prop.types.has("\"stable\"")) {
+            prop.types.add("\"stable\"");
+          }
+          if (!prop.types.has("\"draft\"")) {
+            prop.types.add("\"draft\"");
+          }
           continue;
         }
 
