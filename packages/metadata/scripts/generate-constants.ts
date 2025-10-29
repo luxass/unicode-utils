@@ -60,16 +60,12 @@ async function run() {
     throw new Error(`Latest version ${LATEST_RELEASE} not found in versions array`);
   }
 
-  // Write to the metadata package
-  const metadataPackageDir = join(dir, "..");
-  const dataDir = join(metadataPackageDir, "src", "data");
+  const dataDir = join(dir, "src", "data");
   await mkdir(dataDir, { recursive: true });
 
-  // Clean up any old JSON files (migration to TypeScript)
   try {
     await unlink(join(dataDir, "unicode-version-metadata.json"));
   } catch {
-    // File doesn't exist, which is fine
   }
 
   for (const releaseObj of ALL_RELEASES) {
@@ -178,7 +174,7 @@ async function run() {
   );
 
   // update version numbers in metadata package index.ts
-  const metadataIndexPath = join(metadataPackageDir, "src", "index.ts");
+  const metadataIndexPath = join(dir, "src", "index.ts");
   let content = await readFile(metadataIndexPath, "utf-8");
 
   // replace the version numbers
