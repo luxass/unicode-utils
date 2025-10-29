@@ -118,8 +118,8 @@ jobs:
             I will be waiting for your approval 👋.
           branch: update-generated-files
           add-paths: |
-            packages/unicode-utils/src/constants.ts
-            packages/unicode-utils/src/data/unicode-version-metadata.ts
+            packages/metadata/src/constants.ts
+            packages/metadata/src/data/unicode-version-metadata.ts
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
