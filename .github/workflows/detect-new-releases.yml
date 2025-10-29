@@ -57,11 +57,11 @@ jobs:
           LATEST_RELEASE: ${{ steps.unicode.outputs.latest_release }}
           CURRENT_DRAFT: ${{ steps.unicode.outputs.current_draft }}
         run: |
-          node ./packages/unicode-utils/scripts/generate-constants.ts
+          node ./packages/metadata/scripts/generate-constants.ts
 
       - name: format
         run: |
-          pnpm dlx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
+          pnpm dlx prettier --write ./packages/metadata/src/constants.ts ./packages/metadata/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
@@ -69,9 +69,9 @@ jobs:
           # Create a combined diff of constants.ts and data files
           {
             echo "=== Changes in src/constants.ts ==="
-            git diff ./packages/unicode-utils/src/constants.ts
+            git diff ./packages/metadata/src/constants.ts
             echo -e "\n=== Changes in src/data/ ==="
-            git diff ./packages/unicode-utils/src/data/
+            git diff ./packages/metadata/src/data/
           } > combined.diff
 
           # if the diff is empty
