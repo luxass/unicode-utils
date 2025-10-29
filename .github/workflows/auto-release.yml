@@ -1,0 +1,72 @@
+name: Auto Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      # this will limit the github actions a bit.
+      - main
+
+jobs:
+  auto-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    if:
+      (
+        github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'update-generated-files'
+        && github.repository == 'luxass/unicode-utils' && github.event.pull_request.user.login == 'luxass'
+      )
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+          # needed by the npx bumpp -r cmd to create a tag
+          token: ${{ secrets.AUTO_RELEASE_TOKEN }}
+          persist-credentials: true
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+
+      - name: setup node
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: lts/*
+          package-manager-cache: false
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: build
+        run: pnpm run build
+
+      - name: create tag and release
+        run: |
+
+          CURRENT_VERSION=$(cat packages/unicode-utils/package.json | jq -r '.version')
+          echo "Current version: $CURRENT_VERSION"
+
+          NEXT_VERSION=""
+
+          # If we are using beta or alpha versions, we should auto-release those
+          if [[ "$CURRENT_VERSION" == *"-beta"* || "$CURRENT_VERSION" == *"-alpha"* ]]; then
+            NEXT_VERSION=$(echo $CURRENT_VERSION | awk -F'[.-]' '{printf "%d.%d.%d-%s.%d", $1, $2, $3, $4, $5+1}')
+          else
+            NEXT_VERSION=$(echo $CURRENT_VERSION | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
+          fi
+
+          if [ -z "$NEXT_VERSION" ]; then
+            echo "Could not determine next version"
+            exit 1
+          fi
+
+          echo "Next version: $NEXT_VERSION"
+
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          npx bumpp -r $NEXT_VERSION --commit --tag --push --yes
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTO_RELEASE_TOKEN }}
