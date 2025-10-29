@@ -6,74 +6,301 @@
  */
 
 export const UNICODE_VERSION_METADATA = [
-  { version: "17.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode17.0.0/", date: "2025", url: "https://www.unicode.org/Public/17.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "16.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode16.0.0/", date: "2024", url: "https://www.unicode.org/Public/16.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "15.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode15.1.0/", date: "2023", url: "https://www.unicode.org/Public/15.1.0", mappedUcdVersion: null, type: "stable" },
-  { version: "15.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode15.0.0/", date: "2022", url: "https://www.unicode.org/Public/15.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "14.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode14.0.0/", date: "2021", url: "https://www.unicode.org/Public/14.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "13.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode13.0.0/", date: "2020", url: "https://www.unicode.org/Public/13.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "12.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode12.1.0/", date: "2019", url: "https://www.unicode.org/Public/12.1.0", mappedUcdVersion: null, type: "stable" },
-  { version: "12.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode12.0.0/", date: "2019", url: "https://www.unicode.org/Public/12.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "11.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode11.0.0/", date: "2018", url: "https://www.unicode.org/Public/11.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "10.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode10.0.0/", date: "2017", url: "https://www.unicode.org/Public/10.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "9.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode9.0.0/", date: "2016", url: "https://www.unicode.org/Public/9.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "8.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode8.0.0/", date: "2015", url: "https://www.unicode.org/Public/8.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "7.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode7.0.0/", date: "2014", url: "https://www.unicode.org/Public/7.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "6.3.0", documentationUrl: "https://www.unicode.org/versions/Unicode6.3.0/", date: "2013", url: "https://www.unicode.org/Public/6.3.0", mappedUcdVersion: null, type: "stable" },
-  { version: "6.2.0", documentationUrl: "https://www.unicode.org/versions/Unicode6.2.0/", date: "2012", url: "https://www.unicode.org/Public/6.2.0", mappedUcdVersion: null, type: "stable" },
-  { version: "6.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode6.1.0/", date: "2012", url: "https://www.unicode.org/Public/6.1.0", mappedUcdVersion: null, type: "stable" },
-  { version: "6.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode6.0.0/", date: "2010", url: "https://www.unicode.org/Public/6.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "5.2.0", documentationUrl: "https://www.unicode.org/versions/Unicode5.2.0/", date: "2009", url: "https://www.unicode.org/Public/5.2.0", mappedUcdVersion: null, type: "stable" },
-  { version: "5.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode5.1.0/", date: "2008", url: "https://www.unicode.org/Public/5.1.0", mappedUcdVersion: null, type: "stable" },
-  { version: "5.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode5.0.0/", date: "2006", url: "https://www.unicode.org/Public/5.0.0", mappedUcdVersion: null, type: "stable" },
-  { version: "4.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode4.1.0/", date: "2005", url: "https://www.unicode.org/Public/4.1.0", mappedUcdVersion: null, type: "stable" },
-  { version: "4.0.1", documentationUrl: "https://www.unicode.org/versions/Unicode4.0.1/", date: "2004", url: "https://www.unicode.org/Public/4.0-Update1", mappedUcdVersion: "4.0-Update1", type: "stable" },
-  { version: "4.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode4.0.0/", date: "2003", url: "https://www.unicode.org/Public/4.0-Update", mappedUcdVersion: "4.0-Update", type: "stable" },
-  { version: "3.2.0", documentationUrl: "https://www.unicode.org/versions/Unicode3.2.0/", date: "2002", url: "https://www.unicode.org/Public/3.2-Update", mappedUcdVersion: "3.2-Update", type: "stable" },
-  { version: "3.1.1", documentationUrl: "https://www.unicode.org/versions/Unicode3.1.1/", date: "2001", url: "https://www.unicode.org/Public/3.1-Update1", mappedUcdVersion: "3.1-Update1", type: "stable" },
-  { version: "3.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode3.1.0/", date: "2001", url: "https://www.unicode.org/Public/3.1-Update", mappedUcdVersion: "3.1-Update", type: "stable" },
-  { version: "3.0.1", documentationUrl: "https://www.unicode.org/versions/Unicode3.0.1/", date: "2000", url: "https://www.unicode.org/Public/3.0-Update1", mappedUcdVersion: "3.0-Update1", type: "stable" },
-  { version: "3.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode3.0.0/", date: "1999", url: "https://www.unicode.org/Public/3.0-Update", mappedUcdVersion: "3.0-Update", type: "stable" },
-  { version: "2.1.9", documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/", date: "1999", url: "https://www.unicode.org/Public/2.1-Update4", mappedUcdVersion: "2.1-Update4", type: "stable" },
-  { version: "2.1.8", documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/", date: "1998", url: "https://www.unicode.org/Public/2.1-Update3", mappedUcdVersion: "2.1-Update3", type: "stable" },
-  { version: "2.1.5", documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/", date: "1998", url: "https://www.unicode.org/Public/2.1-Update2", mappedUcdVersion: "2.1-Update2", type: "stable" },
-  { version: "2.1.2", documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/", date: "1998", url: "https://www.unicode.org/Public/2.1-Update", mappedUcdVersion: "2.1-Update", type: "stable" },
-  { version: "2.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode2.0.0/", date: "1996", url: "https://www.unicode.org/Public/2.0-Update", mappedUcdVersion: "2.0-Update", type: "stable" },
-  { version: "1.1.5", documentationUrl: "https://www.unicode.org/versions/Unicode1.1.0/", date: "1995", url: "https://www.unicode.org/Public/1.1-Update", mappedUcdVersion: "1.1-Update", type: "stable" },
-  { version: "1.1.0", documentationUrl: "https://www.unicode.org/versions/Unicode1.1.0/", date: "1993", url: "https://www.unicode.org/Public/1.1-Update", mappedUcdVersion: "1.1-Update", type: "stable" },
-  { version: "1.0.1", documentationUrl: "https://www.unicode.org/versions/Unicode1.0.0/", date: "1992", url: "https://www.unicode.org/Public/1.1-Update", mappedUcdVersion: "1.1-Update", type: "stable" },
-  { version: "1.0.0", documentationUrl: "https://www.unicode.org/versions/Unicode1.0.0/", date: "1991", url: "https://www.unicode.org/Public/1.1-Update", mappedUcdVersion: "1.1-Update", type: "stable" }
-] satisfies UnicodeVersionMetadata[];
-
-export interface UnicodeVersionMetadata {
-  /**
-   * The Unicode version number.
-   * For example, "17.0.0".
-   */
-  version: string;
-
-  /**
-   * The URL to the official Unicode documentation for this version.
-   */
-  documentationUrl: string;
-
-  /**
-   * The release date of this version.
-   */
-  date: string;
-
-  /**
-   * The URL to the official Unicode data files for this version.
-   */
-  url: string;
-
-  /**
-   * The mapped UCD version for this Unicode version, if any.
-   */
-  mappedUcdVersion: string | null;
-
-  /**
-   * The stability type of this version.
-   */
-  type: "stable";
-};
+  {
+    version: "17.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode17.0.0/",
+    date: "2025",
+    url: "https://www.unicode.org/Public/17.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "16.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode16.0.0/",
+    date: "2024",
+    url: "https://www.unicode.org/Public/16.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "15.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode15.1.0/",
+    date: "2023",
+    url: "https://www.unicode.org/Public/15.1.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "15.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode15.0.0/",
+    date: "2022",
+    url: "https://www.unicode.org/Public/15.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "14.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode14.0.0/",
+    date: "2021",
+    url: "https://www.unicode.org/Public/14.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "13.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode13.0.0/",
+    date: "2020",
+    url: "https://www.unicode.org/Public/13.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "12.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode12.1.0/",
+    date: "2019",
+    url: "https://www.unicode.org/Public/12.1.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "12.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode12.0.0/",
+    date: "2019",
+    url: "https://www.unicode.org/Public/12.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "11.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode11.0.0/",
+    date: "2018",
+    url: "https://www.unicode.org/Public/11.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "10.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode10.0.0/",
+    date: "2017",
+    url: "https://www.unicode.org/Public/10.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "9.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode9.0.0/",
+    date: "2016",
+    url: "https://www.unicode.org/Public/9.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "8.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode8.0.0/",
+    date: "2015",
+    url: "https://www.unicode.org/Public/8.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "7.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode7.0.0/",
+    date: "2014",
+    url: "https://www.unicode.org/Public/7.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "6.3.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode6.3.0/",
+    date: "2013",
+    url: "https://www.unicode.org/Public/6.3.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "6.2.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode6.2.0/",
+    date: "2012",
+    url: "https://www.unicode.org/Public/6.2.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "6.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode6.1.0/",
+    date: "2012",
+    url: "https://www.unicode.org/Public/6.1.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "6.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode6.0.0/",
+    date: "2010",
+    url: "https://www.unicode.org/Public/6.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "5.2.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode5.2.0/",
+    date: "2009",
+    url: "https://www.unicode.org/Public/5.2.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "5.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode5.1.0/",
+    date: "2008",
+    url: "https://www.unicode.org/Public/5.1.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "5.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode5.0.0/",
+    date: "2006",
+    url: "https://www.unicode.org/Public/5.0.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "4.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode4.1.0/",
+    date: "2005",
+    url: "https://www.unicode.org/Public/4.1.0",
+    mappedUcdVersion: null,
+    type: "stable",
+  },
+  {
+    version: "4.0.1",
+    documentationUrl: "https://www.unicode.org/versions/Unicode4.0.1/",
+    date: "2004",
+    url: "https://www.unicode.org/Public/4.0-Update1",
+    mappedUcdVersion: "4.0-Update1",
+    type: "stable",
+  },
+  {
+    version: "4.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode4.0.0/",
+    date: "2003",
+    url: "https://www.unicode.org/Public/4.0-Update",
+    mappedUcdVersion: "4.0-Update",
+    type: "stable",
+  },
+  {
+    version: "3.2.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode3.2.0/",
+    date: "2002",
+    url: "https://www.unicode.org/Public/3.2-Update",
+    mappedUcdVersion: "3.2-Update",
+    type: "stable",
+  },
+  {
+    version: "3.1.1",
+    documentationUrl: "https://www.unicode.org/versions/Unicode3.1.1/",
+    date: "2001",
+    url: "https://www.unicode.org/Public/3.1-Update1",
+    mappedUcdVersion: "3.1-Update1",
+    type: "stable",
+  },
+  {
+    version: "3.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode3.1.0/",
+    date: "2001",
+    url: "https://www.unicode.org/Public/3.1-Update",
+    mappedUcdVersion: "3.1-Update",
+    type: "stable",
+  },
+  {
+    version: "3.0.1",
+    documentationUrl: "https://www.unicode.org/versions/Unicode3.0.1/",
+    date: "2000",
+    url: "https://www.unicode.org/Public/3.0-Update1",
+    mappedUcdVersion: "3.0-Update1",
+    type: "stable",
+  },
+  {
+    version: "3.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode3.0.0/",
+    date: "1999",
+    url: "https://www.unicode.org/Public/3.0-Update",
+    mappedUcdVersion: "3.0-Update",
+    type: "stable",
+  },
+  {
+    version: "2.1.9",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    date: "1999",
+    url: "https://www.unicode.org/Public/2.1-Update4",
+    mappedUcdVersion: "2.1-Update4",
+    type: "stable",
+  },
+  {
+    version: "2.1.8",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    date: "1998",
+    url: "https://www.unicode.org/Public/2.1-Update3",
+    mappedUcdVersion: "2.1-Update3",
+    type: "stable",
+  },
+  {
+    version: "2.1.5",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    date: "1998",
+    url: "https://www.unicode.org/Public/2.1-Update2",
+    mappedUcdVersion: "2.1-Update2",
+    type: "stable",
+  },
+  {
+    version: "2.1.2",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    date: "1998",
+    url: "https://www.unicode.org/Public/2.1-Update",
+    mappedUcdVersion: "2.1-Update",
+    type: "stable",
+  },
+  {
+    version: "2.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.0.0/",
+    date: "1996",
+    url: "https://www.unicode.org/Public/2.0-Update",
+    mappedUcdVersion: "2.0-Update",
+    type: "stable",
+  },
+  {
+    version: "1.1.5",
+    documentationUrl: "https://www.unicode.org/versions/Unicode1.1.0/",
+    date: "1995",
+    url: "https://www.unicode.org/Public/1.1-Update",
+    mappedUcdVersion: "1.1-Update",
+    type: "stable",
+  },
+  {
+    version: "1.1.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode1.1.0/",
+    date: "1993",
+    url: "https://www.unicode.org/Public/1.1-Update",
+    mappedUcdVersion: "1.1-Update",
+    type: "stable",
+  },
+  {
+    version: "1.0.1",
+    documentationUrl: "https://www.unicode.org/versions/Unicode1.0.0/",
+    date: "1992",
+    url: "https://www.unicode.org/Public/1.1-Update",
+    mappedUcdVersion: "1.1-Update",
+    type: "stable",
+  },
+  {
+    version: "1.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode1.0.0/",
+    date: "1991",
+    url: "https://www.unicode.org/Public/1.1-Update",
+    mappedUcdVersion: "1.1-Update",
+    type: "stable",
+  },
+] as const;
+export type UnicodeVersionMetadata = (typeof UNICODE_VERSION_METADATA)[number];
