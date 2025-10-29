@@ -136,7 +136,7 @@ async function run() {
        *  pnpm run generate:constants
        */
 
-      export const UNICODE_VERSION_METADATA = [
+      export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
         ${ALL_RELEASES.map((releaseObj) => {
           if (typeof releaseObj !== "object" || releaseObj == null) {
             throw new Error("Invalid release object in ALL_RELEASES");
@@ -144,7 +144,7 @@ async function run() {
 
           return mapReleaseObject(releaseObj as Record<string, unknown>);
         }).join(",\n        ")}
-      ] satisfies UnicodeVersionMetadata[];
+      ];
 
       export interface UnicodeVersionMetadata {
         ${interfaceProps}
