@@ -36,7 +36,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
     "dev": "tsdown --watch",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
@@ -51,6 +51,8 @@
     "@types/node": "catalog:types",
     "eslint": "catalog:linting",
     "eslint-plugin-format": "catalog:linting",
+    "@unicode-utils-tooling/tsconfig": "workspace:*",
+    "@unicode-utils-tooling/tsdown-config": "workspace:*",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",

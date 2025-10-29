@@ -1,13 +1,3 @@
-import { defineConfig } from "tsdown";
+import { createTsdownConfig } from "@unicode-utils-tooling/tsdown-config";
 
-export default defineConfig({
-  entry: [
-    "./src/index.ts",
-  ],
-  exports: true,
-  format: ["esm"],
-  clean: true,
-  dts: true,
-  treeshake: true,
-  publint: true,
-});
+export default createTsdownConfig({});
