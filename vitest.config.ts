@@ -11,7 +11,7 @@ const aliases = readdirSync(new URL("./packages", import.meta.url).pathname)
   .filter((dir) => existsSync(pkgRoot(dir) + "/package.json"))
   .reduce<Record<string, string>>(
     (acc, pkg) => {
-      acc[`@luxass/${pkg}`] = alias(pkg);
+      acc[`@unicode-utils/${pkg}`] = alias(pkg);
       return acc;
     },
     {});
