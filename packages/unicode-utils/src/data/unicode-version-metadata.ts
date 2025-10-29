@@ -334,5 +334,5 @@ export interface UnicodeVersionMetadata {
   /**
    * The stability type of this version.
    */
-  type: "stable";
+  type: "stable" | "draft";
 }
