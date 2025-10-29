@@ -61,15 +61,15 @@ jobs:
 
       - name: format
         run: |
-          pnpm dlx prettier --write ./packages/metadata/src/constants.ts ./packages/metadata/src/data/unicode-version-metadata.ts
+          pnpm dlx prettier --write ./packages/metadata/src/index.ts ./packages/metadata/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
         run: |
-          # Create a combined diff of constants.ts and data files
+          # Create a combined diff of index.ts and data files
           {
-            echo "=== Changes in src/constants.ts ==="
-            git diff ./packages/metadata/src/constants.ts
+            echo "=== Changes in src/index.ts ==="
+            git diff ./packages/metadata/src/index.ts
             echo -e "\n=== Changes in src/data/ ==="
             git diff ./packages/metadata/src/data/
           } > combined.diff
@@ -118,7 +118,7 @@ jobs:
             I will be waiting for your approval 👋.
           branch: update-generated-files
           add-paths: |
-            packages/metadata/src/constants.ts
+            packages/metadata/src/index.ts
             packages/metadata/src/data/unicode-version-metadata.ts
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
