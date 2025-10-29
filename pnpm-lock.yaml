@@ -94,6 +94,12 @@ importers:
       '@types/node':
         specifier: catalog:types
         version: 24.9.1
+      '@unicode-utils-tooling/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
+      '@unicode-utils-tooling/tsdown-config':
+        specifier: workspace:*
+        version: link:../../tooling/tsdown-config
       eslint:
         specifier: catalog:linting
         version: 9.38.0(jiti@2.6.0)

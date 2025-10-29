@@ -1,16 +1,10 @@
-import { defineConfig } from "tsdown";
+import { createTsdownConfig } from "@unicode-utils-tooling/tsdown-config";
 
-export default defineConfig({
+export default createTsdownConfig({
   entry: [
     "./src/index.ts",
     "./src/constants.ts",
     "./src/line-helpers.ts",
     "./src/datafile.ts",
   ],
-  exports: true,
-  format: ["esm"],
-  clean: true,
-  dts: true,
-  treeshake: true,
-  publint: true,
 });

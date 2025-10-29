@@ -53,6 +53,8 @@
   "devDependencies": {
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
+    "@unicode-utils-tooling/tsconfig": "workspace:*",
+    "@unicode-utils-tooling/tsdown-config": "workspace:*",
     "eslint": "catalog:linting",
     "eslint-plugin-format": "catalog:linting",
     "msw": "catalog:testing",
