@@ -19,8 +19,8 @@ describe("parser fixtures", () => {
       expect(child.type).toBe(NodeTypes.DATA);
     });
 
-    expect(result.children[0].value).toBe("0620; KASHMIRI YEH; D; KASHMIRI YEH");
-    expect(result.children[1].value).toBe("0621; HAMZA; U; No_Joining_Group");
+    expect(result.children[0]?.value).toBe("0620; KASHMIRI YEH; D; KASHMIRI YEH");
+    expect(result.children[1]?.value).toBe("0621; HAMZA; U; No_Joining_Group");
   });
 
   it("should parse advanced data file", () => {
