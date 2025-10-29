@@ -1,0 +1,13 @@
+# See https://github.com/actions/labeler
+
+"pkg: metadata":
+  - changed-files:
+      - any-glob-to-any-file: packages/unicode-metadata/**
+
+"pkg: utils":
+  - changed-files:
+      - any-glob-to-any-file: packages/unicode-utils/**
+
+"🚨 ci":
+  - changed-files:
+      - any-glob-to-any-file: .github/workflows/**
