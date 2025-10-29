@@ -56,6 +56,9 @@ catalogs:
       specifier: 24.9.1
       version: 24.9.1
 
+overrides:
+  rolldown: 1.0.0-beta.45
+
 importers:
 
   .:
@@ -115,6 +118,37 @@ importers:
       vitest-package-exports:
         specifier: catalog:testing
         version: 0.1.1
+
+  tooling/tsconfig:
+    dependencies:
+      '@luxass/eslint-config':
+        specifier: catalog:linting
+        version: 6.0.1(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.2(eslint@9.38.0(jiti@2.6.0)))(eslint@9.38.0(jiti@2.6.0))(typescript@5.9.3)(vitest@4.0.4(@types/debug@4.1.12)(@types/node@24.9.1)(jiti@2.6.0)(lightningcss@1.29.3)(msw@2.11.6(@types/node@24.9.1)(typescript@5.9.3))(tsx@4.20.6)(yaml@2.8.1))
+      eslint:
+        specifier: catalog:linting
+        version: 9.38.0(jiti@2.6.0)
+      typescript:
+        specifier: catalog:dev
+        version: 5.9.3
+
+  tooling/tsdown-config:
+    dependencies:
+      tsdown:
+        specifier: catalog:dev
+        version: 0.15.11(publint@0.3.15)(typescript@5.9.3)
+    devDependencies:
+      '@luxass/eslint-config':
+        specifier: catalog:linting
+        version: 6.0.1(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.2(eslint@9.38.0(jiti@2.6.0)))(eslint@9.38.0(jiti@2.6.0))(typescript@5.9.3)(vitest@4.0.4(@types/debug@4.1.12)(@types/node@24.9.1)(jiti@2.6.0)(lightningcss@1.29.3)(msw@2.11.6(@types/node@24.9.1)(typescript@5.9.3))(tsx@4.20.6)(yaml@2.8.1))
+      '@unicode-utils-tooling/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      eslint:
+        specifier: catalog:linting
+        version: 9.38.0(jiti@2.6.0)
+      typescript:
+        specifier: catalog:dev
+        version: 5.9.3
 
 packages:
 
@@ -2037,7 +2071,7 @@ packages:
     peerDependencies:
       '@ts-macro/tsc': ^0.3.6
       '@typescript/native-preview': '>=7.0.0-dev.20250601.1'
-      rolldown: ^1.0.0-beta.44
+      rolldown: 1.0.0-beta.45
       typescript: ^5.0.0
       vue-tsc: ~3.1.0
     peerDependenciesMeta:
