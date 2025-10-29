@@ -302,5 +302,37 @@ export const UNICODE_VERSION_METADATA = [
     mappedUcdVersion: "1.1-Update",
     type: "stable",
   },
-] as const;
-export type UnicodeVersionMetadata = (typeof UNICODE_VERSION_METADATA)[number];
+] satisfies UnicodeVersionMetadata[];
+
+export interface UnicodeVersionMetadata {
+  /**
+   * The Unicode version number.
+   * For example, "17.0.0".
+   */
+  version: string;
+
+  /**
+   * The URL to the official Unicode documentation for this version.
+   */
+  documentationUrl: string;
+
+  /**
+   * The release date of this version.
+   */
+  date: string;
+
+  /**
+   * The URL to the official Unicode data files for this version.
+   */
+  url: string;
+
+  /**
+   * The mapped UCD version for this Unicode version, if any.
+   */
+  mappedUcdVersion: string | null;
+
+  /**
+   * The stability type of this version.
+   */
+  type: "stable";
+}
