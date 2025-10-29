@@ -16,8 +16,6 @@ const aliases = readdirSync(new URL("./packages", import.meta.url).pathname)
     },
     {});
 
-console.log("Aliases:", aliases);
-
 const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
   .filter((dir) => existsSync(pkgRoot(dir) + "/package.json"))
   .map((dir) => {
