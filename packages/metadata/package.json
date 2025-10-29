@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
-    "directory": "packages/unicode-metadata"
+    "directory": "packages/metadata"
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "keywords": [

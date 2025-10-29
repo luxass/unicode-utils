@@ -2,11 +2,11 @@
 
 "pkg: metadata":
   - changed-files:
-      - any-glob-to-any-file: packages/unicode-metadata/**
+      - any-glob-to-any-file: packages/metadata/**
 
-"pkg: utils":
+"pkg: core":
   - changed-files:
-      - any-glob-to-any-file: packages/unicode-utils/**
+      - any-glob-to-any-file: packages/core/**
 
 "🚨 ci":
   - changed-files:

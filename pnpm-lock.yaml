@@ -82,51 +82,14 @@ importers:
         specifier: catalog:testing
         version: 4.0.5(@types/debug@4.1.12)(@types/node@24.9.1)(jiti@2.6.0)(lightningcss@1.29.3)(msw@2.11.6(@types/node@24.9.1)(typescript@5.9.3))(tsx@4.20.6)(yaml@2.8.1)
 
-  packages/unicode-metadata:
-    dependencies:
-      '@luxass/utils':
-        specifier: catalog:build
-        version: 2.7.2
-    devDependencies:
-      '@luxass/eslint-config':
-        specifier: catalog:linting
-        version: 6.0.1(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.2(eslint@9.38.0(jiti@2.6.0)))(eslint@9.38.0(jiti@2.6.0))(typescript@5.9.3)(vitest@4.0.5(@types/debug@4.1.12)(@types/node@24.9.1)(jiti@2.6.0)(lightningcss@1.29.3)(msw@2.11.6(@types/node@24.9.1)(typescript@5.9.3))(tsx@4.20.6)(yaml@2.8.1))
-      '@types/node':
-        specifier: catalog:types
-        version: 24.9.1
-      '@unicode-utils-tooling/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/tsconfig
-      '@unicode-utils-tooling/tsdown-config':
-        specifier: workspace:*
-        version: link:../../tooling/tsdown-config
-      eslint:
-        specifier: catalog:linting
-        version: 9.38.0(jiti@2.6.0)
-      eslint-plugin-format:
-        specifier: catalog:linting
-        version: 1.0.2(eslint@9.38.0(jiti@2.6.0))
-      publint:
-        specifier: catalog:dev
-        version: 0.3.15
-      tsdown:
-        specifier: catalog:dev
-        version: 0.15.11(publint@0.3.15)(typescript@5.9.3)
-      tsx:
-        specifier: catalog:dev
-        version: 4.20.6
-      typescript:
-        specifier: catalog:dev
-        version: 5.9.3
-
-  packages/unicode-utils:
+  packages/core:
     dependencies:
       '@luxass/utils':
         specifier: catalog:build
         version: 2.7.2
       '@unicode-utils/metadata':
         specifier: workspace:*
-        version: link:../unicode-metadata
+        version: link:../metadata
       defu:
         specifier: catalog:build
         version: 6.1.4
@@ -167,6 +130,43 @@ importers:
       vitest-package-exports:
         specifier: catalog:testing
         version: 0.1.1
+
+  packages/metadata:
+    dependencies:
+      '@luxass/utils':
+        specifier: catalog:build
+        version: 2.7.2
+    devDependencies:
+      '@luxass/eslint-config':
+        specifier: catalog:linting
+        version: 6.0.1(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.0.2(eslint@9.38.0(jiti@2.6.0)))(eslint@9.38.0(jiti@2.6.0))(typescript@5.9.3)(vitest@4.0.5(@types/debug@4.1.12)(@types/node@24.9.1)(jiti@2.6.0)(lightningcss@1.29.3)(msw@2.11.6(@types/node@24.9.1)(typescript@5.9.3))(tsx@4.20.6)(yaml@2.8.1))
+      '@types/node':
+        specifier: catalog:types
+        version: 24.9.1
+      '@unicode-utils-tooling/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
+      '@unicode-utils-tooling/tsdown-config':
+        specifier: workspace:*
+        version: link:../../tooling/tsdown-config
+      eslint:
+        specifier: catalog:linting
+        version: 9.38.0(jiti@2.6.0)
+      eslint-plugin-format:
+        specifier: catalog:linting
+        version: 1.0.2(eslint@9.38.0(jiti@2.6.0))
+      publint:
+        specifier: catalog:dev
+        version: 0.3.15
+      tsdown:
+        specifier: catalog:dev
+        version: 0.15.11(publint@0.3.15)(typescript@5.9.3)
+      tsx:
+        specifier: catalog:dev
+        version: 4.20.6
+      typescript:
+        specifier: catalog:dev
+        version: 5.9.3
 
   tooling/tsconfig:
     dependencies:
