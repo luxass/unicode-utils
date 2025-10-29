@@ -1,7 +1,7 @@
 {
-  "name": "@luxass/unicode-utils",
-  "version": "0.12.0-beta.14",
-  "description": "Utilities for working with Unicode",
+  "name": "@unicode-utils/metadata",
+  "version": "0.1.0",
+  "description": "Unicode version metadata and constants",
   "type": "module",
   "author": {
     "name": "Lucas Nørgård",
@@ -14,18 +14,16 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
-    "directory": "packages/unicode-utils"
+    "directory": "packages/unicode-metadata"
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "keywords": [
     "unicode",
-    "utils"
+    "metadata",
+    "version"
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./constants": "./dist/constants.js",
-    "./datafile": "./dist/datafile.js",
-    "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -42,23 +40,20 @@
     "dev": "tsdown --watch",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:constants": "tsx scripts/generate-constants.ts"
   },
   "dependencies": {
-    "@luxass/utils": "catalog:build",
-    "@unicode-utils/metadata": "workspace:*",
-    "defu": "catalog:build"
+    "@luxass/utils": "catalog:build"
   },
   "devDependencies": {
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
     "eslint": "catalog:linting",
     "eslint-plugin-format": "catalog:linting",
-    "msw": "catalog:testing",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
-    "typescript": "catalog:dev",
-    "vitest-package-exports": "catalog:testing"
+    "typescript": "catalog:dev"
   }
 }
