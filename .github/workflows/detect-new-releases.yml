@@ -61,7 +61,7 @@ jobs:
 
       - name: format
         run: |
-          npx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
+          pnpm dlx prettier --write ./packages/unicode-utils/src/constants.ts ./packages/unicode-utils/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
