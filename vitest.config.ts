@@ -24,7 +24,9 @@ const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
       test: {
         server: {
           deps: {
-            inline: ["vitest-package-exports"],
+            inline: [
+              "vitest-package-exports",
+            ],
           },
         },
         include: [`./packages/${dir}/**/*.{test,spec}.?(c|m)[jt]s?(x)`],
