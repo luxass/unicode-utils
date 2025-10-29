@@ -49,10 +49,10 @@
   "devDependencies": {
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
-    "eslint": "catalog:linting",
-    "eslint-plugin-format": "catalog:linting",
     "@unicode-utils-tooling/tsconfig": "workspace:*",
     "@unicode-utils-tooling/tsdown-config": "workspace:*",
+    "eslint": "catalog:linting",
+    "eslint-plugin-format": "catalog:linting",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
