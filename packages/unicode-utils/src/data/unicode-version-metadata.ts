@@ -5,7 +5,7 @@
  *  pnpm run generate:constants
  */
 
-export const UNICODE_VERSION_METADATA = [
+export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   {
     version: "17.0.0",
     documentationUrl: "https://www.unicode.org/versions/Unicode17.0.0/",
@@ -302,7 +302,7 @@ export const UNICODE_VERSION_METADATA = [
     mappedUcdVersion: "1.1-Update",
     type: "stable",
   },
-] satisfies UnicodeVersionMetadata[];
+];
 
 export interface UnicodeVersionMetadata {
   /**
