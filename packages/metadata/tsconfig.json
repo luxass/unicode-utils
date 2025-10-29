@@ -1,5 +1,5 @@
 {
   "extends": "@unicode-utils-tooling/tsconfig/base",
-  "include": ["src"],
+  "include": ["src", "test"],
   "exclude": ["dist"]
 }

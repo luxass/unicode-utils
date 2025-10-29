@@ -1,31 +1,29 @@
 {
-  "name": "@luxass/unicode-utils",
-  "version": "0.12.0-beta.14",
-  "description": "Utilities for working with Unicode",
+  "name": "@unicode-utils/metadata",
+  "version": "0.1.0",
+  "description": "Unicode version metadata and constants",
   "type": "module",
   "author": {
     "name": "Lucas Nørgård",
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.19.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/unicode-utils#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
-    "directory": "packages/unicode-utils"
+    "directory": "packages/metadata"
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "keywords": [
     "unicode",
-    "utils"
+    "metadata",
+    "version"
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./constants": "./dist/constants.js",
-    "./datafile": "./dist/datafile.js",
-    "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -38,17 +36,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
     "dev": "tsdown --watch",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "generate:constants": "tsx scripts/generate-constants.ts",
-    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
+    "generate:constants": "tsx scripts/generate-constants.ts"
   },
   "dependencies": {
-    "@luxass/utils": "catalog:build",
-    "defu": "catalog:build"
+    "@luxass/utils": "catalog:build"
   },
   "devDependencies": {
     "@luxass/eslint-config": "catalog:linting",
@@ -57,11 +53,9 @@
     "@unicode-utils-tooling/tsdown-config": "workspace:*",
     "eslint": "catalog:linting",
     "eslint-plugin-format": "catalog:linting",
-    "msw": "catalog:testing",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
-    "typescript": "catalog:dev",
-    "vitest-package-exports": "catalog:testing"
+    "typescript": "catalog:dev"
   }
 }

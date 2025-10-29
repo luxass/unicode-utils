@@ -1,0 +1,15 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["generate:constants"],
+      "outputs": ["dist/**"]
+    },
+    "generate:constants": {
+      "cache": false,
+      "outputs": ["src/data/**", "src/index.ts"],
+      "env": ["ALL_RELEASES", "LATEST_RELEASE", "CURRENT_DRAFT"]
+    }
+  }
+}

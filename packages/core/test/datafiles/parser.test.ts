@@ -67,14 +67,14 @@ describe("parseDataFileIntoAst", () => {
     expect(result.children).toHaveLength(14);
 
     // check specific nodes
-    expect(result.children[0].type).toBe(NodeTypes.COMMENT);
-    expect(result.children[0].value).toBe("ArabicShaping-16.0.0.txt");
+    expect(result.children[0]?.type).toBe(NodeTypes.COMMENT);
+    expect(result.children[0]?.value).toBe("ArabicShaping-16.0.0.txt");
 
-    expect(result.children[6].type).toBe(NodeTypes.DATA);
-    expect(result.children[6].value).toBe("0600; ARABIC NUMBER SIGN; U; No_Joining_Group");
+    expect(result.children[6]?.type).toBe(NodeTypes.DATA);
+    expect(result.children[6]?.value).toBe("0600; ARABIC NUMBER SIGN; U; No_Joining_Group");
 
     // check line numbers are correct
-    result.children.forEach((child, index) => {
+    result.children?.forEach((child, index) => {
       expect(child.line).toBe(index);
     });
   });
@@ -107,8 +107,8 @@ describe("parseDataFileIntoAst", () => {
 
     expect(resultCRLF.children).toHaveLength(2);
     expect(resultLF.children).toHaveLength(2);
-    expect(resultCRLF.children[0].type).toBe(NodeTypes.COMMENT);
-    expect(resultLF.children[0].type).toBe(NodeTypes.COMMENT);
+    expect(resultCRLF.children[0]?.type).toBe(NodeTypes.COMMENT);
+    expect(resultLF.children[0]?.type).toBe(NodeTypes.COMMENT);
   });
 });
 
@@ -184,15 +184,15 @@ describe("node content validation", () => {
     const result = parseDataFileIntoAst(line);
     const node = result.children[0];
 
-    expect(node.type).toBe(expectedType);
+    expect(node?.type).toBe(expectedType);
 
     if (expectedType === NodeTypes.PROPERTY) {
       expect((node as PropertyNode).propertyValue).toBe(expectedValue);
     } else {
-      expect(node.value).toBe(expectedValue);
+      expect(node?.value).toBe(expectedValue);
     }
 
-    expect(node.raw).toBe(line);
+    expect(node?.raw).toBe(line);
   });
 });
 
@@ -202,7 +202,7 @@ describe("stringifyNode", () => {
     const parsed = parseDataFileIntoAst(content);
     const node = parsed.children[0];
 
-    expect(stringifyNode(node)).toBe(content);
+    expect(stringifyNode(node!)).toBe(content);
   });
 
   it("should stringify root node correctly", () => {
@@ -262,7 +262,7 @@ describe("edge cases", () => {
     const content = "# Unicode: 你好 العالم 🌍";
     const result = parseDataFileIntoAst(content);
 
-    expect(result.children[0].value).toBe("Unicode: 你好 العالم 🌍");
+    expect(result.children[0]?.value).toBe("Unicode: 你好 العالم 🌍");
   });
 
   it("should handle very long lines", () => {
@@ -270,21 +270,21 @@ describe("edge cases", () => {
     const content = `# ${longValue}`;
     const result = parseDataFileIntoAst(content);
 
-    expect(result.children[0].value).toBe(longValue);
+    expect(result.children[0]?.value).toBe(longValue);
   });
 
   it("should handle special characters in data", () => {
     const content = "06FF; KNOTTED HEH WITH INVERTED V ABOVE; D; KNOTTED HEH";
     const result = parseDataFileIntoAst(content);
 
-    expect(result.children[0].type).toBe(NodeTypes.DATA);
-    expect(result.children[0].value).toBe(content);
+    expect(result.children[0]?.type).toBe(NodeTypes.DATA);
+    expect(result.children[0]?.value).toBe(content);
   });
 
   it("should handle empty content", () => {
     const result = parseDataFileIntoAst("");
 
     expect(result.children).toHaveLength(1);
-    expect(result.children[0].type).toBe(NodeTypes.EMPTY);
+    expect(result.children[0]?.type).toBe(NodeTypes.EMPTY);
   });
 });

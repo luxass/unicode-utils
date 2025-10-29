@@ -11,10 +11,12 @@ const aliases = readdirSync(new URL("./packages", import.meta.url).pathname)
   .filter((dir) => existsSync(pkgRoot(dir) + "/package.json"))
   .reduce<Record<string, string>>(
     (acc, pkg) => {
-      acc[`@luxass/${pkg}`] = alias(pkg);
+      acc[`@unicode-utils/${pkg}`] = alias(pkg);
       return acc;
     },
     {});
+
+console.log("Aliases:", aliases);
 
 const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
   .filter((dir) => existsSync(pkgRoot(dir) + "/package.json"))
@@ -24,7 +26,9 @@ const workspaces = readdirSync(new URL("./packages", import.meta.url).pathname)
       test: {
         server: {
           deps: {
-            inline: ["vitest-package-exports"],
+            inline: [
+              "vitest-package-exports",
+            ],
           },
         },
         include: [`./packages/${dir}/**/*.{test,spec}.?(c|m)[jt]s?(x)`],

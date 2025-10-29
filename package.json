@@ -21,11 +21,13 @@
     "dev": "turbo watch dev --filter \"./packages/*\"",
     "lint": "turbo run lint",
     "test": "vitest run",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
   },
   "devDependencies": {
     "@types/node": "catalog:types",
     "@vitest/coverage-v8": "catalog:testing",
+    "tsx": "catalog:dev",
     "turbo": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:testing"
