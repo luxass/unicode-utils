@@ -16,5 +16,26 @@ export {
   resolveUCDVersion,
   UNICODE_TO_UCD_VERSION_MAPPINGS,
 } from "./mappings";
+
 export { buildUCDPath, hasUCDFolderPath } from "./path";
-export * from "@unicode-utils/parser";
+
+export {
+  getBoundaryLineStyle,
+  getPropertyValue,
+  inferFileName,
+  inferVersion,
+  isBoundaryLine,
+  isCommentLine,
+  isDashBoundary,
+  isEmptyLine,
+  isEOFMarker,
+  isEqualsBoundary,
+  isHashBoundary,
+  isLineWithData,
+  isMissingAnnotation,
+  isPropertyLine,
+  parseFileNameLine,
+  parseMissingAnnotation,
+  RawDataFile,
+  trimCommentLine,
+} from "@unicode-utils/parser";

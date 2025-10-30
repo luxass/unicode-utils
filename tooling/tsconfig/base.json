@@ -4,7 +4,9 @@
   "compilerOptions": {
     "baseUrl": "../..",
     "paths": {
-      "@unicode-utils/metadata": ["./packages/unicode-metadata/src/index.ts"]
+      "@unicode-utils/metadata": ["./packages/unicode-metadata/src/index.ts"],
+      "@unicode-utils/parser": ["./packages/parser/src/index.ts"],
+      "@unicode-utils/core": ["./packages/core/src/index.ts"]
     }
   }
 }
