@@ -56,17 +56,17 @@ jobs:
         run: pnpm install
 
       - name: build
-        run: pnpm --filter "@luxass/unicode-utils" run build
+        run: pnpm run build
 
       - name: lint
-        run: pnpm --filter "@luxass/unicode-utils" run lint
+        run: pnpm run lint
 
       - name: typecheck
-        run: pnpm --filter "@luxass/unicode-utils" run typecheck
+        run: pnpm run typecheck
 
       - name: test
         run: pnpm run test
 
       - name: publish packages
         run: |
-          pnpm dlx pkg-pr-new publish --pnpm --compact 'packages/unicode-utils'
+          pnpm dlx pkg-pr-new publish --pnpm --compact 'packages/'
