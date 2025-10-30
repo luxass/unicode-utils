@@ -62,7 +62,7 @@ export interface UnknownNode extends BaseNode {
   type: "unknown";
   // This can be used for nodes that don't fit any known type
   // or for future extensions
-  [key: string]: unknown;
+  [key: Exclude<string, keyof BaseNode | "type">]: unknown;
 }
 
 // All node types except root

@@ -52,10 +52,14 @@ export function inferHeadingFromAST(
   const {
     allowEmptyLines,
     allowMultipleBoundaries,
-  } = defu(getHeadingSettings(root.fileName, root.version) || {}, settings, {
-    allowEmptyLines: true,
-    allowMultipleBoundaries: true,
-  });
+  } = defu(
+    settings ?? {},
+    getHeadingSettings(root.fileName, root.version) ?? {},
+    {
+      allowEmptyLines: true,
+      allowMultipleBoundaries: true,
+    },
+  );
 
   visit(root, (ctx) => {
     const { currentNode, nextNode, prevNode } = ctx;

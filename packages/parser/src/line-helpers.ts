@@ -172,7 +172,8 @@ export function isCommentLine(line: string): boolean {
     return false;
   }
 
-  return line.startsWith("# ") || line.startsWith("#\t\t") || line.trim() === "#";
+  const trimmed = line.trimStart();
+  return trimmed.startsWith("#") && trimmed.length > 0;
 }
 
 /**
