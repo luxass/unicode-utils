@@ -32,7 +32,7 @@ export interface InferHeadingSettings {
  * Helper function to check if a node is a comment node or empty comment node
  */
 function isAnyCommentNode(node: unknown): boolean {
-  return isCommentNode(node) || isEmptyCommentNode(node);
+  return isCommentNode(node) || isEmptyCommentNode(node) || isBoundaryNode(node);
 }
 
 export function inferHeadingFromAST(
@@ -52,10 +52,14 @@ export function inferHeadingFromAST(
   const {
     allowEmptyLines,
     allowMultipleBoundaries,
-  } = defu(getHeadingSettings(root.fileName, root.version) || {}, settings, {
-    allowEmptyLines: true,
-    allowMultipleBoundaries: true,
-  });
+  } = defu(
+    settings ?? {},
+    getHeadingSettings(root.fileName, root.version) ?? {},
+    {
+      allowEmptyLines: true,
+      allowMultipleBoundaries: true,
+    },
+  );
 
   visit(root, (ctx) => {
     const { currentNode, nextNode, prevNode } = ctx;

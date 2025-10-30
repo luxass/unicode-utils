@@ -1,7 +1,7 @@
 import type { RootNode } from "./ast";
 import type { UCDSectionWithLines } from "./sections";
 import { inferHeadingFromAST } from "../inference/heading";
-import { inferFileName, inferVersion, isEOFMarker } from "../line-helpers";
+import { isEOFMarker } from "../line-helpers";
 import { parseDataFileIntoAst } from "./parser";
 import { parseSections } from "./sections";
 
@@ -74,7 +74,7 @@ export class RawDataFile {
       throw new Error("content is empty");
     }
 
-    this.ast = parseDataFileIntoAst(content);
+    this.ast = parseDataFileIntoAst(content, fileName);
 
     this.rawContent = this.content = content;
     this.heading = inferHeadingFromAST(this.ast);
@@ -84,8 +84,8 @@ export class RawDataFile {
     }
 
     this.lines = this.content.split("\n");
-    this.fileName = fileName ?? inferFileName(content);
-    this.version = inferVersion(content);
+    this.fileName = fileName ?? this.ast.fileName;
+    this.version = this.ast.version;
     this.hasEOF = isEOFMarker(this.lines.at(-1));
     this.sections = parseSections(this.content);
   }

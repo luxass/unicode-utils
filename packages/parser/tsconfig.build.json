@@ -1,0 +1,4 @@
+{
+  "extends": "@unicode-utils-tooling/tsconfig/base.build",
+  "exclude": ["test", "dist"]
+}

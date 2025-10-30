@@ -1,7 +1,7 @@
 {
-  "name": "@unicode-utils/core",
-  "version": "0.12.0-beta.16",
-  "description": "Utilities for working with Unicode",
+  "name": "@unicode-utils/parser",
+  "version": "0.1.0",
+  "description": "Unicode data file parser with AST support",
   "type": "module",
   "author": {
     "name": "Lucas Nørgård",
@@ -14,16 +14,19 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
-    "directory": "packages/core"
+    "directory": "packages/parser"
   },
   "bugs": "https://github.com/luxass/unicode-utils/issues",
   "keywords": [
     "unicode",
-    "utils"
+    "parser",
+    "ast",
+    "datafile"
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./constants": "./dist/constants.js",
+    "./datafile": "./dist/datafile.js",
+    "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -44,8 +47,6 @@
   },
   "dependencies": {
     "@luxass/utils": "catalog:build",
-    "@unicode-utils/metadata": "workspace:*",
-    "@unicode-utils/parser": "workspace:*",
     "defu": "catalog:build"
   },
   "devDependencies": {
@@ -55,11 +56,8 @@
     "@unicode-utils-tooling/tsdown-config": "workspace:*",
     "eslint": "catalog:linting",
     "eslint-plugin-format": "catalog:linting",
-    "msw": "catalog:testing",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
-    "tsx": "catalog:dev",
-    "typescript": "catalog:dev",
-    "vitest-package-exports": "catalog:testing"
+    "typescript": "catalog:dev"
   }
 }

@@ -4,18 +4,38 @@ export {
   UNICODE_VERSION_METADATA,
   type UnicodeVersionMetadata,
 } from "./constants";
-export {
-  RawDataFile,
-} from "./datafile";
+
 export { getCurrentDraftVersion, type GetCurrentDraftVersionOptions } from "./draft";
+
 export {
   expandHexRange,
   fromHexToCodepoint,
   stripHex,
 } from "./hexcodes";
-export * from "./line-helpers";
 export {
   resolveUCDVersion,
   UNICODE_TO_UCD_VERSION_MAPPINGS,
 } from "./mappings";
+
 export { buildUCDPath, hasUCDFolderPath } from "./path";
+
+export {
+  getBoundaryLineStyle,
+  getPropertyValue,
+  inferFileName,
+  inferVersion,
+  isBoundaryLine,
+  isCommentLine,
+  isDashBoundary,
+  isEmptyLine,
+  isEOFMarker,
+  isEqualsBoundary,
+  isHashBoundary,
+  isLineWithData,
+  isMissingAnnotation,
+  isPropertyLine,
+  parseFileNameLine,
+  parseMissingAnnotation,
+  RawDataFile,
+  trimCommentLine,
+} from "@unicode-utils/parser";
