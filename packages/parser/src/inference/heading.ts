@@ -32,7 +32,7 @@ export interface InferHeadingSettings {
  * Helper function to check if a node is a comment node or empty comment node
  */
 function isAnyCommentNode(node: unknown): boolean {
-  return isCommentNode(node) || isEmptyCommentNode(node);
+  return isCommentNode(node) || isEmptyCommentNode(node) || isBoundaryNode(node);
 }
 
 export function inferHeadingFromAST(
