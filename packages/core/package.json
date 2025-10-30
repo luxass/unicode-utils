@@ -24,8 +24,6 @@
   "exports": {
     ".": "./dist/index.js",
     "./constants": "./dist/constants.js",
-    "./datafile": "./dist/datafile.js",
-    "./line-helpers": "./dist/line-helpers.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
