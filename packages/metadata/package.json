@@ -1,6 +1,6 @@
 {
   "name": "@unicode-utils/metadata",
-  "version": "0.12.0-beta.17",
+  "version": "0.12.0-beta.18",
   "description": "Unicode version metadata and constants",
   "type": "module",
   "author": {
