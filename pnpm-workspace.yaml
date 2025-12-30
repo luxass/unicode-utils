@@ -9,28 +9,28 @@ catalogs:
 
   build:
     picomatch: 4.0.3
-    zod: 4.1.12
+    zod: 4.2.1
     "@luxass/utils": 2.7.2
     defu: 6.1.4
 
   linting:
-    eslint: 9.38.0
-    "@luxass/eslint-config": 6.0.1
-    eslint-plugin-format: 1.0.2
+    eslint: 9.39.2
+    "@luxass/eslint-config": 6.0.3
+    eslint-plugin-format: 1.1.0
 
   testing:
-    "@vitest/coverage-v8": 4.0.5
-    msw: 2.11.6
-    vitest: 4.0.5
-    vitest-package-exports: 0.1.1
+    "@vitest/coverage-v8": 4.0.16
+    msw: 2.12.7
+    vitest: 4.0.16
+    vitest-package-exports: 1.1.1
 
   dev:
-    tsx: 4.20.6
+    tsx: 4.21.0
     typescript: 5.9.3
-    tsdown: 0.15.11
-    publint: 0.3.15
-    turbo: 2.5.8
-    rolldown: 1.0.0-beta.45
+    tsdown: 0.18.3
+    publint: 0.3.16
+    turbo: 2.7.2
+    rolldown: 1.0.0-beta.57
 
 overrides:
   rolldown: catalog:dev
