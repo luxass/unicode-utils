@@ -24,14 +24,14 @@
     "datafile"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./datafile": "./dist/datafile.js",
-    "./line-helpers": "./dist/line-helpers.js",
+    ".": "./dist/index.mjs",
+    "./datafile": "./dist/datafile.mjs",
+    "./line-helpers": "./dist/line-helpers.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "publishConfig": {
     "access": "public"
   },
