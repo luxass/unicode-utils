@@ -3,7 +3,7 @@ import { setupServer } from "msw/node";
 import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
 import { getCurrentDraftVersion } from "../src/draft";
 
-const DEFAULT_URL = "https://unicode-proxy.ucdjs.dev/draft/ReadMe.txt";
+const DEFAULT_URL = "https://api.ucdjs.dev/api/v1/files/draft/ReadMe.txt";
 const server = setupServer();
 
 beforeAll(() => server.listen({ onUnhandledRequest: "error" }));

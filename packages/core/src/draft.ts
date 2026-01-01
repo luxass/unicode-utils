@@ -1,7 +1,7 @@
 export interface GetCurrentDraftVersionOptions {
   /**
    * Custom URL to fetch the Unicode draft ReadMe from
-   * @default "https://unicode-proxy.ucdjs.dev/draft/ReadMe.txt"
+   * @default "https://api.ucdjs.dev/api/v1/files/draft/ReadMe.txt"
    */
   url?: string;
 
@@ -47,7 +47,7 @@ export interface GetCurrentDraftVersionOptions {
  */
 export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOptions = {}): Promise<string | null> {
   const {
-    url = "https://unicode-proxy.ucdjs.dev/draft/ReadMe.txt",
+    url = "https://api.ucdjs.dev/api/v1/files/draft/ReadMe.txt",
     fetchOptions = {},
     patterns = [
       /Version (\d+\.\d+(?:\.\d+)?) of the Unicode Standard/, // Most explicit
