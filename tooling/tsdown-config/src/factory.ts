@@ -1,4 +1,4 @@
-import type { Options as TSDownOptions } from "tsdown";
+import type { UserConfig as TSDownOptions } from "tsdown";
 import { defineConfig } from "tsdown";
 
 export const baseConfig = {
