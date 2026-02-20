@@ -204,4 +204,30 @@ describe("getCurrentDraftVersion", () => {
     expect(version).toBe("15.1.0");
     expect(onSuccess).toHaveBeenCalledWith("15.1.0");
   });
+
+  it("should use provided text instead of fetching", async () => {
+    const providedText = `Version 16.0.0 of the Unicode Standard`;
+    const onSuccess = vi.fn();
+
+    const version = await getCurrentDraftVersion({
+      text: providedText,
+      onSuccess,
+    });
+
+    expect(version).toBe("16.0.0");
+    expect(onSuccess).toHaveBeenCalledWith("16.0.0");
+  });
+
+  it("should call onNotFound when provided text has no version", async () => {
+    const providedText = `No version information here`;
+    const onNotFound = vi.fn();
+
+    const version = await getCurrentDraftVersion({
+      text: providedText,
+      onNotFound,
+    });
+
+    expect(version).toBeNull();
+    expect(onNotFound).toHaveBeenCalledWith(providedText);
+  });
 });

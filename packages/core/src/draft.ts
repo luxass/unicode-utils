@@ -17,6 +17,11 @@ export interface GetCurrentDraftVersionOptions {
   patterns?: RegExp[];
 
   /**
+   * Optional text to use instead of fetching. If provided, skips the fetch and uses this text for pattern matching.
+   */
+  text?: string;
+
+  /**
    * Called when a version is successfully extracted
    * @param {string} version - The extracted Unicode draft version.
    * @returns {void}
@@ -75,36 +80,43 @@ export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOpti
       /Unicode(\d+\.\d+(?:\.\d+)?)/, // From URLs
       /Version (\d+\.\d+)(?!\.\d)/, // Bare major.minor format
     ],
+    text,
     onSuccess,
     onNotFound,
     onError,
   } = options;
 
-  try {
-    const res = await fetch(url, fetchOptions);
+  let responseText: string;
 
-    if (!res.ok) {
-      const error = new Error(`Failed to fetch the Unicode draft ReadMe: ${res.status} ${res.statusText}`);
-      onError?.(error);
+  if (text != null) {
+    responseText = text;
+  } else {
+    try {
+      const res = await fetch(url, fetchOptions);
+
+      if (!res.ok) {
+        const error = new Error(`Failed to fetch the Unicode draft ReadMe: ${res.status} ${res.statusText}`);
+        onError?.(error);
+        return null;
+      }
+
+      responseText = await res.text();
+    } catch (err) {
+      onError?.(err);
       return null;
     }
-
-    const text = await res.text();
-
-    for (const pattern of patterns) {
-      const match = text.match(pattern);
-
-      if (match == null || match[1] == null) continue;
-
-      const version = match[1].trim();
-      onSuccess?.(version);
-      return version;
-    }
-
-    onNotFound?.(text);
-    return null;
-  } catch (err) {
-    onError?.(err);
-    return null;
   }
+
+  for (const pattern of patterns) {
+    const match = responseText.match(pattern);
+
+    if (match == null || match[1] == null) continue;
+
+    const version = match[1].trim();
+    onSuccess?.(version);
+    return version;
+  }
+
+  onNotFound?.(responseText);
+  return null;
 }
