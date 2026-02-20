@@ -84,7 +84,9 @@ export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOpti
     const res = await fetch(url, fetchOptions);
 
     if (!res.ok) {
-      throw new Error("failed to fetch draft ReadMe");
+      const error = new Error(`Failed to fetch the Unicode draft ReadMe: ${res.status} ${res.statusText}`);
+      onError?.(error);
+      return null;
     }
 
     const text = await res.text();
