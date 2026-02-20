@@ -1,6 +1,6 @@
 {
   "name": "@unicode-utils-tooling/tsdown-config",
-  "version": "0.12.0-beta.20",
+  "version": "0.12.0-beta.21",
   "type": "module",
   "private": true,
   "exports": {
