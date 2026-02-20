@@ -15,6 +15,27 @@ export interface GetCurrentDraftVersionOptions {
    * Each pattern must include exactly one capturing group that matches the version
    */
   patterns?: RegExp[];
+
+  /**
+   * Called when a version is successfully extracted
+   * @param {string} version - The extracted Unicode draft version.
+   * @returns {void}
+   */
+  onSuccess?: (version: string) => void;
+
+  /**
+   * Called when no version could be extracted from the response body
+   * @param {string} text - The fetched ReadMe response text.
+   * @returns {void}
+   */
+  onNotFound?: (text: string) => void;
+
+  /**
+   * Called only when an error is caught in the catch block
+   * @param {unknown} error - The caught error value.
+   * @returns {void}
+   */
+  onError?: (error: unknown) => void;
 }
 
 /**
@@ -54,6 +75,9 @@ export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOpti
       /Unicode(\d+\.\d+(?:\.\d+)?)/, // From URLs
       /Version (\d+\.\d+)(?!\.\d)/, // Bare major.minor format
     ],
+    onSuccess,
+    onNotFound,
+    onError,
   } = options;
 
   try {
@@ -70,11 +94,15 @@ export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOpti
 
       if (match == null || match[1] == null) continue;
 
-      return match[1];
+      const version = match[1].trim();
+      onSuccess?.(version);
+      return version;
     }
 
+    onNotFound?.(text);
     return null;
-  } catch {
+  } catch (err) {
+    onError?.(err);
     return null;
   }
 }

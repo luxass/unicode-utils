@@ -5,7 +5,10 @@ export {
   type UnicodeVersionMetadata,
 } from "./constants";
 
-export { getCurrentDraftVersion, type GetCurrentDraftVersionOptions } from "./draft";
+export {
+  getCurrentDraftVersion,
+  type GetCurrentDraftVersionOptions,
+} from "./draft";
 
 export {
   expandHexRange,

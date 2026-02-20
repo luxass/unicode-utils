@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
-import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { getCurrentDraftVersion } from "../src/draft";
 
 const DEFAULT_URL = "https://api.ucdjs.dev/api/v1/files/draft/ReadMe.txt";
@@ -138,5 +138,70 @@ describe("getCurrentDraftVersion", () => {
 
     const version = await getCurrentDraftVersion();
     expect(version).toBeNull();
+  });
+
+  it("should call onSuccess with the found version", async () => {
+    const onSuccess = vi.fn();
+
+    server.use(
+      http.get(DEFAULT_URL, () => {
+        return HttpResponse.text(`Version 16.0.0 of the Unicode Standard`);
+      }),
+    );
+
+    const version = await getCurrentDraftVersion({ onSuccess });
+
+    expect(version).toBe("16.0.0");
+    expect(onSuccess).toHaveBeenCalledTimes(1);
+    expect(onSuccess).toHaveBeenCalledWith("16.0.0");
+  });
+
+  it("should call onNotFound with text when no version is found", async () => {
+    const onNotFound = vi.fn();
+
+    server.use(
+      http.get(DEFAULT_URL, () => {
+        return HttpResponse.text(`No version information here`);
+      }),
+    );
+
+    const version = await getCurrentDraftVersion({ onNotFound });
+
+    expect(version).toBeNull();
+    expect(onNotFound).toHaveBeenCalledTimes(1);
+    expect(onNotFound).toHaveBeenCalledWith("No version information here");
+  });
+
+  it("should call onError only when error is caught", async () => {
+    const onError = vi.fn();
+
+    server.use(
+      http.get(DEFAULT_URL, () => {
+        throw new Error("Network error");
+      }),
+    );
+
+    const version = await getCurrentDraftVersion({ onError });
+
+    expect(version).toBeNull();
+    expect(onError).toHaveBeenCalledTimes(1);
+    expect(onError).toHaveBeenCalledWith(expect.any(Error));
+  });
+
+  it("should still return version when onSuccess is provided", async () => {
+    server.use(
+      http.get(DEFAULT_URL, () => {
+        return HttpResponse.text(`Version 15.1.0 of the Unicode Standard`);
+      }),
+    );
+
+    const onSuccess = vi.fn();
+
+    const version = await getCurrentDraftVersion({
+      onSuccess,
+    });
+
+    expect(version).toBe("15.1.0");
+    expect(onSuccess).toHaveBeenCalledWith("15.1.0");
   });
 });
