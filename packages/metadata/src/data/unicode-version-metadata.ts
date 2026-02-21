@@ -7,6 +7,14 @@
 
 export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   {
+    version: "18.0.0",
+    documentationUrl: "https://www.unicode.org/versions/Unicode18.0.0/",
+    date: null,
+    url: "https://www.unicode.org/Public/18.0.0",
+    mappedUcdVersion: null,
+    type: "draft",
+  },
+  {
     version: "17.0.0",
     documentationUrl: "https://www.unicode.org/versions/Unicode17.0.0/",
     date: "2025",
@@ -319,7 +327,7 @@ export interface UnicodeVersionMetadata {
   /**
    * The release date of this version.
    */
-  date: string;
+  date: string | null;
 
   /**
    * The URL to the official Unicode data files for this version.
@@ -334,5 +342,5 @@ export interface UnicodeVersionMetadata {
   /**
    * The stability type of this version.
    */
-  type: "stable" | "draft";
+  type: "draft" | "stable";
 }
