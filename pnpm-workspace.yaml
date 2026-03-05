@@ -4,7 +4,7 @@ packages:
 
 catalogs:
   types:
-    "@types/node": 24.9.1
+    "@types/node": 24.10.14
     "@types/picomatch": 4.0.2
 
   build:
@@ -15,7 +15,7 @@ catalogs:
 
   linting:
     eslint: 10.0.0
-    "@luxass/eslint-config": 7.2.0
+    "@luxass/eslint-config": 7.2.1
     eslint-plugin-format: 1.4.0
 
   testing:
@@ -29,7 +29,7 @@ catalogs:
     typescript: 5.9.3
     tsdown: 0.20.3
     publint: 0.3.17
-    turbo: 2.8.10
+    turbo: 2.8.11
     rolldown: 1.0.0-rc.5
 
 overrides:
