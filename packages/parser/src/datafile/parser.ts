@@ -272,6 +272,12 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     const node = root.children[i]!;
 
     if (isEmptyNode(node) || isEmptyCommentNode(node) || isBoundaryNode(node)) {
+      // If we're inside an active section, consume these structural nodes
+      // so they don't litter root.children
+      if (currentName !== null && currentRecords.length > 0) {
+        consumed.add(i);
+      }
+
       // Look ahead: if the next non-empty child is a DataNode keep pending comments
       let nextIsData = false;
       for (let j = i + 1; j < root.children.length; j++) {
