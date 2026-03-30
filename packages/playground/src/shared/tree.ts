@@ -147,40 +147,43 @@ function formatSectionNode(
   header += ")";
   lines.push(`${prefix}${connector}${header}`);
 
-  // Collect section children
-  const children: string[] = [];
+  // Collect display items
+  const items: string[] = [];
 
-  // Field names
+  // Field names (metadata line)
   if (section.fieldNames && section.fieldNames.length > 0) {
-    children.push(`${c.dim("fields:")} ${section.fieldNames.map((n) => c.blue(n)).join(", ")}`);
+    items.push(`${c.dim("fields:")} ${section.fieldNames.map((n) => c.blue(n)).join(", ")}`);
   }
 
-  // @missing annotations
+  // @missing annotations (metadata)
   for (const ann of section.missingAnnotations) {
-    children.push(`${c.yellow("@missing:")} ${ann.start}..${ann.end} ${c.dim("→")} ${ann.defaultPropertyValue}`);
+    items.push(`${c.yellow("@missing:")} ${ann.start}..${ann.end} ${c.dim("→")} ${ann.defaultPropertyValue}`);
   }
 
-  // Records
+  // ALL children in original order — nothing hidden
+  let dataCount = 0;
   const maxRecords = options.maxRecords;
-  const shownRecords = maxRecords < recordCount ? maxRecords : recordCount;
-  for (let i = 0; i < shownRecords; i++) {
-    children.push(formatDataNode(section.records[i]!, c, options.showRaw));
-  }
-  if (shownRecords < recordCount) {
-    children.push(c.dim(`... ${recordCount - shownRecords} more records`));
-  }
-
-  // Trailing comments
-  if (section.trailingComments && section.trailingComments.length > 0) {
-    for (const comment of section.trailingComments) {
-      children.push(`${c.dim("trailing:")} ${c.dim(`"${comment}"`)}`);
+  for (const child of section.children) {
+    if (child.type === "data") {
+      dataCount++;
+      if (dataCount <= maxRecords) {
+        items.push(formatDataNode(child, c, options.showRaw));
+      } else if (dataCount === maxRecords + 1) {
+        // Will show "... N more records" at the end
+      }
+    } else {
+      // Show every non-data child: boundaries, empty lines, comments, etc.
+      items.push(formatChildNode(child, c));
     }
   }
+  if (dataCount > maxRecords) {
+    items.push(c.dim(`... ${dataCount - maxRecords} more data records (${dataCount} total)`));
+  }
 
-  // Draw children with tree connectors
-  for (let i = 0; i < children.length; i++) {
-    const childConnector = i === children.length - 1 ? ELBOW : TEE;
-    lines.push(`${childPrefix}${childConnector}${children[i]}`);
+  // Draw items with tree connectors
+  for (let i = 0; i < items.length; i++) {
+    const childConnector = i === items.length - 1 ? ELBOW : TEE;
+    lines.push(`${childPrefix}${childConnector}${items[i]}`);
   }
 
   return lines;

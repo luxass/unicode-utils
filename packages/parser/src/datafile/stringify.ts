@@ -64,22 +64,22 @@ function stringifySectionNode(
     }
   }
 
-  for (const record of section.records) {
-    if (record.parsedFields && record.parsedFields.length > 0) {
-      lines.push(
-        record.parsedFields
-          .map((f) => fieldToString(f.value, f.rawValue))
-          .join(sep),
-      );
+  // Emit all children in original order
+  for (const child of section.children) {
+    if (child.type === "data") {
+      const record = child;
+      if (record.parsedFields && record.parsedFields.length > 0) {
+        lines.push(
+          record.parsedFields
+            .map((f) => fieldToString(f.value, f.rawValue))
+            .join(sep),
+        );
+      } else {
+        lines.push(record.raw);
+      }
     } else {
-      lines.push(record.raw);
-    }
-  }
-
-  // Emit trailing comments (e.g. "# Total code points: 9053")
-  if (section.trailingComments) {
-    for (const comment of section.trailingComments) {
-      lines.push(comment ? `# ${comment}` : "#");
+      // Boundaries, empty lines, comments, etc. — emit raw
+      lines.push(child.raw);
     }
   }
 

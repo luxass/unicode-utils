@@ -4,6 +4,7 @@ import type {
   DataNode,
   Node,
   RootNode,
+  SectionChildNode,
   SectionNode,
 } from "./ast";
 import {
@@ -194,9 +195,9 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
 
   let currentName: string | null = null;
   let currentDesc = "";
+  let currentChildren: SectionChildNode[] = [];
   let currentRecords: DataNode[] = [];
   let currentMissing: MissingAnnotation[] = [];
-  let currentTrailingComments: string[] = [];
   let currentStartIndex = -1;
   let separator: string | null = null;
 
@@ -214,9 +215,9 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
       line: currentStartIndex >= 0 ? (root.children[currentStartIndex]?.line ?? 0) : 0,
       name: currentName,
       description: currentDesc,
+      children: currentChildren,
       records: currentRecords,
       missingAnnotations: currentMissing,
-      trailingComments: currentTrailingComments,
       fieldNames: undefined,
     };
 
@@ -224,9 +225,9 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
 
     currentName = null;
     currentDesc = "";
+    currentChildren = [];
     currentRecords = [];
     currentMissing = [];
-    currentTrailingComments = [];
     currentStartIndex = -1;
   }
 
@@ -272,14 +273,13 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     const node = root.children[i]!;
 
     if (isEmptyNode(node) || isEmptyCommentNode(node) || isBoundaryNode(node)) {
-      // If we're inside an active section, consume these structural nodes
-      // (empty lines, empty comments, boundaries) — they belong to the section.
+      // If we're inside an active section with records, consume into section children
       if (currentName !== null && currentRecords.length > 0) {
+        currentChildren.push(node as SectionChildNode);
         consumed.add(i);
       }
 
       // Look ahead: if the next non-empty/non-boundary child is a DataNode keep pending state
-      // Boundaries are visual separators — skip them when deciding if data follows
       let nextIsData = false;
       for (let j = i + 1; j < root.children.length; j++) {
         const next = root.children[j]!;
@@ -289,12 +289,12 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
         }
       }
       if (!nextIsData) {
-        // If we have an active section, attach pending comments as trailing
+        // Pending comments that didn't lead to data — consume into section if active
         if (currentName !== null && pendingComments.length > 0) {
-          for (const comment of pendingComments) {
-            currentTrailingComments.push(comment);
+          for (const idx of pendingCommentIndices) {
+            currentChildren.push(root.children[idx]! as SectionChildNode);
+            consumed.add(idx);
           }
-          for (const idx of pendingCommentIndices) consumed.add(idx);
         }
         pendingComments.length = 0;
         pendingMissing.length = 0;
@@ -305,33 +305,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     }
 
     if (node.type === "comment") {
-      // Check if this comment is a trailing comment: it sits between data and a boundary.
-      // Pattern: we have an active section with records, and the next non-empty/non-comment
-      // node is a boundary (not data). That means this comment belongs to the current section.
-      if (currentName !== null && currentRecords.length > 0) {
-        let nextSignificant: "boundary" | "data" | "other" = "other";
-        for (let j = i + 1; j < root.children.length; j++) {
-          const next = root.children[j]!;
-          if (isEmptyNode(next) || isEmptyCommentNode(next)) continue;
-          if (isBoundaryNode(next)) { nextSignificant = "boundary"; break; }
-          if (isDataNode(next)) { nextSignificant = "data"; break; }
-          break;
-        }
-        if (nextSignificant === "boundary") {
-          // This is a trailing comment — attach to current section
-          const commentText = trimCommentLine(node.raw);
-          if (collectMissing && isMissingAnnotation(node.raw)) {
-            // Rare but handle: trailing @missing
-            const parsed = parseMissingAnnotation(node.raw);
-            if (parsed) currentMissing.push(parsed);
-          } else {
-            currentTrailingComments.push(commentText);
-          }
-          consumed.add(i);
-          continue;
-        }
-      }
-
       if (collectMissing && isMissingAnnotation(node.raw)) {
         const parsed = parseMissingAnnotation(node.raw);
         if (parsed) {
@@ -375,6 +348,7 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
       }
 
       splitAndPopulateFields(node);
+      currentChildren.push(node);
       currentRecords.push(node);
       consumed.add(i);
     }

@@ -40,9 +40,9 @@ export class DataFile {
     // Extract and freeze sections
     const sections = root.children.filter(isSectionNode);
     for (const section of sections) {
+      Object.freeze(section.children);
       Object.freeze(section.records);
       Object.freeze(section.missingAnnotations);
-      Object.freeze(section.trailingComments);
       Object.freeze(section);
     }
     this.sections = Object.freeze(sections);

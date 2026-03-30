@@ -82,11 +82,26 @@ export interface EOFNode extends BaseNode {
 // ─── Section node ─────────────────────────────────────────────────────────────
 
 /**
+ * Nodes that can appear inside a SectionNode's children array.
+ * This is every ChildNode type except SectionNode itself.
+ */
+export type SectionChildNode
+  = | CommentNode
+    | EmptyCommentNode
+    | BoundaryNode
+    | DataNode
+    | EmptyNode
+    | EOFNode
+    | PropertyNode
+    | UnknownNode;
+
+/**
  * A first-class AST node representing a named section of data records.
  *
  * Emitted by parseDataFileIntoAst() during the section-grouping pass.
- * DataNodes inside records are removed from root.children — they live
- * exclusively inside SectionNode.records.
+ * All nodes between the section header and the next section are consumed
+ * from root.children and stored in this section's `children` array.
+ * Nothing is hidden — every consumed node is visible.
  */
 export interface SectionNode extends BaseNode {
   type: "section";
@@ -94,16 +109,17 @@ export interface SectionNode extends BaseNode {
   name: string;
   /** Remaining comment lines joined with \n (empty string if none) */
   description: string;
-  /** DataNodes belonging to this section */
+  /**
+   * ALL nodes consumed into this section, in original document order.
+   * Includes DataNodes, BoundaryNodes, EmptyNodes, CommentNodes (trailing), etc.
+   * Nothing is hidden — every node that was between the section header
+   * and the next section is here.
+   */
+  children: SectionChildNode[];
+  /** DataNodes only (filtered view of children). Convenience for data access. */
   records: DataNode[];
   /** @missing: annotations collected before section data */
   missingAnnotations: MissingAnnotation[];
-  /**
-   * Comments that appear after the last data line of this section,
-   * before the next boundary or section header.
-   * e.g. "# Total code points: 9053" in Scripts.txt
-   */
-  trailingComments: string[];
   /**
    * Field names in order.
    * undefined when generic parsing was used (field_0, field_1, ...).
