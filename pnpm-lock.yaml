@@ -208,6 +208,37 @@ importers:
         specifier: catalog:dev
         version: 5.9.3
 
+  packages/playground:
+    dependencies:
+      '@unicode-utils/parser':
+        specifier: workspace:*
+        version: link:../parser
+    devDependencies:
+      '@luxass/eslint-config':
+        specifier: catalog:linting
+        version: 7.2.1(@typescript-eslint/rule-tester@8.56.1(eslint@10.0.0(jiti@2.6.0))(typescript@5.9.3))(@typescript-eslint/typescript-estree@8.56.1(typescript@5.9.3))(@typescript-eslint/utils@8.56.1(eslint@10.0.0(jiti@2.6.0))(typescript@5.9.3))(@vue/compiler-sfc@3.5.13)(eslint-plugin-format@1.4.0(eslint@10.0.0(jiti@2.6.0)))(eslint@10.0.0(jiti@2.6.0))(typescript@5.9.3)(vitest@4.0.18(@types/node@24.10.14)(jiti@2.6.0)(lightningcss@1.29.3)(msw@2.12.10(@types/node@24.10.14)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2))
+      '@luxass/utils':
+        specifier: catalog:build
+        version: 2.7.3
+      '@types/node':
+        specifier: catalog:types
+        version: 24.10.14
+      '@unicode-utils-tooling/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
+      eslint:
+        specifier: catalog:linting
+        version: 10.0.0(jiti@2.6.0)
+      eslint-plugin-format:
+        specifier: catalog:linting
+        version: 1.4.0(eslint@10.0.0(jiti@2.6.0))
+      tsx:
+        specifier: catalog:dev
+        version: 4.21.0
+      typescript:
+        specifier: catalog:dev
+        version: 5.9.3
+
   tooling/tsconfig:
     dependencies:
       '@luxass/eslint-config':

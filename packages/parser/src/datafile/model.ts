@@ -1,92 +1,110 @@
 import type { RootNode } from "./ast";
-import type { UCDSectionWithLines } from "./sections";
+import type { StringifySectionsOptions } from "./stringify";
 import { inferHeadingFromAST } from "../inference/heading";
 import { isEOFMarker } from "../line-helpers";
 import { parseDataFileIntoAst } from "./parser";
-import { parseSections } from "./sections";
+import { stringifyAst as stringifyAstImpl } from "./stringify";
+import { DataFile } from "./data-file";
 
 /**
- * Represents a raw Unicode data file with methods to access its content.
+ * Holds the raw text and the parsed AST of a Unicode data file.
  *
- * This class parses and provides access to various components of Unicode data files,
- * including the raw content, individual lines, file metadata (like heading, version),
- * and determines if the file has an EOF marker.
+ * Use `toDataFile()` to get an immutable query view with section accessors.
+ * Use `stringify()` to serialise the AST back to UCD text.
  *
  * @example
  * ```ts
- * // Create a RawDataFile from a string content
- * const content = "# UnicodeData-14.0.0.txt\n# Some Unicode data\n\nU+0020;SPACE\n# EOF";
- * const dataFile = new RawDataFile(content);
+ * const raw = new RawDataFile(content);
+ * console.log(raw.fileName);  // "Scripts"
+ * console.log(raw.version);   // "16.0.0"
  *
- * // Access file properties
- * console.log(dataFile.fileName); // "UnicodeData"
- * console.log(dataFile.version);  // "14.0.0"
- * console.log(dataFile.hasEOF);   // true
- * console.log(dataFile.heading);  // "# UnicodeData-14.0.0.txt\n# Some Unicode data"
+ * const file = raw.toDataFile();
+ * const section = file.findSection("Basic Latin");
+ *
+ * const output = raw.stringify();
  * ```
  */
 export class RawDataFile {
-  /** The content includes everything */
-  readonly rawContent: string = "";
+  /** Parsed AST — includes SectionNodes in root.children */
+  readonly ast: RootNode;
 
-  /**
-   * The content without the heading section.
-   *
-   * NOTE:
-   * If we couldn't find a heading, this will be the same as `rawContent`.
-   */
-  readonly content: string = "";
+  /** Raw text exactly as received */
+  readonly rawContent: string;
 
-  /** The lines of the content, will not include the heading */
-  readonly lines: string[] = [];
-  readonly heading: string | null = null;
+  /** Inferred file name (e.g. "Scripts") */
+  readonly fileName: string | undefined;
 
-  /**
-   * The AST representation of the data file.
-   * This is typically used for further processing or analysis of the file structure.
-   * If the file is not parsed into an AST, this will be undefined.
-   */
-  readonly ast: RootNode | undefined = undefined;
+  /** Inferred Unicode version (e.g. "16.0.0") */
+  readonly version: string | undefined;
 
-  readonly sections: Map<string, UCDSectionWithLines> = new Map();
+  /** Whether the file ends with a "# EOF" marker */
+  readonly hasEOF: boolean;
 
-  /**
-   * The name of the file, if available.
-   * This is typically extracted from the first line of the file.
-   * It may not always be present, especially if the file is empty or malformed.
-   */
-  readonly fileName: string | undefined = undefined;
-
-  /**
-   * The version of the file, if available.
-   * This is typically extracted from the first line of the file.
-   */
-  readonly version: string | undefined = undefined;
-
-  /**
-   * Indicates if the file has an EOF marker.
-   * This is typically used to indicate the end of the file in Unicode data files.
-   */
-  readonly hasEOF: boolean = false;
-
-  constructor(content: string, fileName?: string) {
+  constructor(content: string, options?: { fileName?: string }) {
     if (content == null || content.trim() === "") {
       throw new Error("content is empty");
     }
 
-    this.ast = parseDataFileIntoAst(content, fileName);
-
-    this.rawContent = this.content = content;
-    this.heading = inferHeadingFromAST(this.ast);
-
-    if (this.heading != null) {
-      this.content = content.replace(this.heading, "").trim();
-    }
-
-    this.lines = this.content.split("\n");
+    const fileName = options?.fileName;
+    this.ast = parseDataFileIntoAst(content, { fileName });
+    this.rawContent = content;
     this.fileName = fileName ?? this.ast.fileName;
     this.version = this.ast.version;
-    this.hasEOF = isEOFMarker(this.lines.at(-1));
-    this.sections = parseSections(this.content);
+
+    const lines = content.split("\n");
+    this.hasEOF = isEOFMarker(lines.at(-1));
+  }
+
+  /**
+   * Fetch a UCD file from a URL and construct from its text content.
+   *
+   * @example
+   * ```ts
+   * const raw = await RawDataFile.from("https://unicode.org/Public/16.0.0/ucd/Scripts.txt");
+   * const file = raw.toDataFile();
+   * ```
+   */
+  static async from(
+    url: string | URL,
+    options?: {
+      fileName?: string;
+      /** Custom fetch implementation. Defaults to globalThis.fetch */
+      fetch?: typeof globalThis.fetch;
+    },
+  ): Promise<RawDataFile> {
+    const fetchFn = options?.fetch ?? globalThis.fetch;
+    const response = await fetchFn(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
+    }
+    const content = await response.text();
+
+    // Infer fileName from URL path if not provided
+    let fileName = options?.fileName;
+    if (!fileName) {
+      const urlStr = typeof url === "string" ? url : url.toString();
+      const lastSegment = urlStr.split("/").pop();
+      if (lastSegment?.endsWith(".txt")) {
+        fileName = lastSegment.replace(/\.txt$/, "");
+      }
+    }
+
+    return new RawDataFile(content, { fileName });
+  }
+
+  /**
+   * Produce an immutable DataFile from this RawDataFile.
+   * The DataFile is a read-only query view — it cannot be mutated.
+   */
+  toDataFile(): DataFile {
+    return new DataFile(this.ast);
+  }
+
+  /**
+   * Stringify the AST back to UCD text.
+   * Uses SectionNode data with fieldToString() fallback to rawValue.
+   */
+  stringify(options?: StringifySectionsOptions): string {
+    return stringifyAstImpl(this.ast, options);
   }
 }

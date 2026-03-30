@@ -8,6 +8,7 @@ import type {
   Node,
   PropertyNode,
   RootNode,
+  SectionNode,
   UnknownNode,
 } from "./ast";
 
@@ -266,4 +267,22 @@ export function isEOFNode(node: unknown): node is EOFNode {
  */
 export function isPropertyNode(node: unknown): node is PropertyNode {
   return isNode(node) && node.type === "property" && node.propertyValue !== undefined;
+}
+
+/**
+ * Type guard function that checks if an unknown value is a SectionNode.
+ * A SectionNode must be a valid Node with the type property set to "section".
+ *
+ * @param {unknown} node - The unknown value to check
+ * @returns {node is SectionNode} True if the node is a valid SectionNode, false otherwise
+ *
+ * @example
+ * ```typescript
+ * if (isSectionNode(node)) {
+ *   console.log(node.name, node.records.length);
+ * }
+ * ```
+ */
+export function isSectionNode(node: unknown): node is SectionNode {
+  return isNode(node) && node.type === "section";
 }

@@ -11,7 +11,7 @@ describe("parser fixtures", () => {
       0622; ALEF WITH MADDA ABOVE; R; ALEF
       0623; ALEF WITH HAMZA ABOVE; R; ALEF
       0624; WAW WITH HAMZA ABOVE; R; WAW
-    `);
+    `, { groupSections: false });
 
     expect(result.children).toHaveLength(5);
 
@@ -42,7 +42,7 @@ describe("parser fixtures", () => {
 
       0710; ALAPH; R; ALAPH
       0712; BETH; D; BETH
-    `);
+    `, { groupSections: false });
 
     expect(result.children).toHaveLength(17);
 

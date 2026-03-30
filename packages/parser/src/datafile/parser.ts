@@ -1,8 +1,10 @@
-import type { BoundaryStyle } from "../line-helpers";
+import type { BoundaryStyle, MissingAnnotation } from "../line-helpers";
 import type {
   ChildNode,
+  DataNode,
   Node,
   RootNode,
+  SectionNode,
 } from "./ast";
 import {
   getBoundaryLineStyle,
@@ -14,17 +16,67 @@ import {
   isEmptyLine,
   isEOFMarker,
   isLineWithData,
+  isMissingAnnotation,
   isPropertyLine,
+  parseMissingAnnotation,
   trimCommentLine,
 } from "../line-helpers";
 import { NodeTypes } from "./ast";
+import {
+  isBoundaryNode,
+  isDataNode,
+  isEmptyCommentNode,
+  isEmptyNode,
+  isSectionNode,
+} from "./typeguards";
+import { resolve } from "../file-parsers/route";
+import { applyFileParser } from "../file-parsers/coerce";
+
+// ─── Parse options ────────────────────────────────────────────────────────────
+
+export interface ParseAstOptions {
+  /** Explicit file name override. If not provided, will be inferred from content */
+  fileName?: string;
+  /** Whether to group DataNodes into SectionNodes. Default: true */
+  groupSections?: boolean;
+  /** Candidate separators for field splitting. Default: [";", "\t"] */
+  separators?: string[];
+  /** Auto-coerce raw field strings. Default: true */
+  autoCoerce?: boolean;
+  /** Strip inline comments before field splitting. Default: true */
+  stripInlineComments?: boolean;
+  /** Collect @missing: annotations. Default: true */
+  collectMissingAnnotations?: boolean;
+}
+
+// ─── Field value auto-coercion ────────────────────────────────────────────────
+
+const HEX_RANGE_RE = /^[0-9A-Fa-f]{4,6}\.\.[0-9A-Fa-f]{4,6}$/;
+const HEX_POINT_RE = /^[0-9A-Fa-f]{4,6}$/;
+const INT_RE = /^[0-9]+$/;
+
+function inferFieldValue(raw: string): unknown {
+  const trimmed = raw.trim();
+  if (HEX_RANGE_RE.test(trimmed)) {
+    const [start, end] = trimmed.split("..");
+    return { start: start!.toUpperCase(), end: end!.toUpperCase() };
+  }
+  if (HEX_POINT_RE.test(trimmed)) {
+    return trimmed.toUpperCase();
+  }
+  if (INT_RE.test(trimmed)) {
+    return Number(trimmed);
+  }
+  return trimmed;
+}
+
+// ─── Line → ChildNode ─────────────────────────────────────────────────────────
 
 /**
  * Creates a node object from a single line of a data file.
  *
  * This function analyzes the given line and converts it to the appropriate
- * DataFileChildNode type (Empty, Boundary, Comment, Data, or Unknown)
- * based on the line's content and structure.
+ * ChildNode type based on the line's content and structure.
  *
  * @param {string} line - The text line to parse into a node
  * @param {number} lineNumber - The line number in the original file (0-based index)
@@ -118,31 +170,290 @@ function createNode(line: string, lineNumber: number): ChildNode {
   };
 }
 
+// ─── Section grouping pass ────────────────────────────────────────────────────
+
 /**
- * Parses a data file content string into a structured DataFileRootNode object.
+ * Groups flat ChildNode[] into SectionNode[]s.
  *
- * This function splits the content by line breaks, processes each line into
- * appropriate node types (Empty, Boundary, Comment, Data, or Unknown), and
- * assembles them into a root node with metadata.
+ * After this pass, DataNodes consumed by sections are removed from root.children
+ * and live exclusively inside SectionNode.records. Non-section nodes (heading
+ * comments, empty lines, EOF) remain as direct children of root.
+ */
+function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
+  const separators = options?.separators ?? [";", "\t"];
+  const autoCoerce = options?.autoCoerce ?? true;
+  const stripInlineComments = options?.stripInlineComments ?? true;
+  const collectMissing = options?.collectMissingAnnotations ?? true;
+
+  const pendingComments: string[] = [];
+  const pendingMissing: MissingAnnotation[] = [];
+
+  // Indices of children consumed by sections (to be removed from root.children)
+  const consumed = new Set<number>();
+  const sectionInsertions: Array<{ beforeIndex: number; section: SectionNode }> = [];
+
+  let currentName: string | null = null;
+  let currentDesc = "";
+  let currentRecords: DataNode[] = [];
+  let currentMissing: MissingAnnotation[] = [];
+  let currentTrailingComments: string[] = [];
+  let currentStartIndex = -1;
+  let separator: string | null = null;
+
+  // Track which comment indices belong to the current section header
+  let pendingCommentIndices: number[] = [];
+  let pendingMissingIndices: number[] = [];
+
+  function flushSection(): void {
+    if (currentName === null) return;
+
+    const section: SectionNode = {
+      type: NodeTypes.SECTION as "section",
+      value: "",
+      raw: "",
+      line: currentStartIndex >= 0 ? (root.children[currentStartIndex]?.line ?? 0) : 0,
+      name: currentName,
+      description: currentDesc,
+      records: currentRecords,
+      missingAnnotations: currentMissing,
+      trailingComments: currentTrailingComments,
+      fieldNames: undefined,
+    };
+
+    sectionInsertions.push({ beforeIndex: currentStartIndex, section });
+
+    currentName = null;
+    currentDesc = "";
+    currentRecords = [];
+    currentMissing = [];
+    currentTrailingComments = [];
+    currentStartIndex = -1;
+  }
+
+  function splitAndPopulateFields(node: DataNode): void {
+    let line = node.value;
+
+    // Strip inline comment
+    if (stripInlineComments) {
+      const hashIdx = line.indexOf("#");
+      if (hashIdx !== -1) {
+        line = line.slice(0, hashIdx);
+      }
+    }
+
+    // Detect separator once
+    if (separator === null) {
+      for (const candidate of separators) {
+        if (line.includes(candidate)) {
+          separator = candidate;
+          break;
+        }
+      }
+    }
+
+    // Split into raw field strings
+    const rawParts = separator !== null
+      ? line.split(separator).map((p) => p.trim())
+      : [line.trim()];
+
+    // Remove trailing empty field
+    if (rawParts.length > 1 && rawParts[rawParts.length - 1] === "") {
+      rawParts.pop();
+    }
+
+    node.parsedFields = rawParts.map((rawValue, idx) => ({
+      name: `field_${idx}`,
+      rawValue,
+      value: autoCoerce ? inferFieldValue(rawValue) : rawValue,
+    }));
+  }
+
+  for (let i = 0; i < root.children.length; i++) {
+    const node = root.children[i]!;
+
+    if (isEmptyNode(node) || isEmptyCommentNode(node) || isBoundaryNode(node)) {
+      // Look ahead: if the next non-empty child is a DataNode keep pending comments
+      let nextIsData = false;
+      for (let j = i + 1; j < root.children.length; j++) {
+        const next = root.children[j]!;
+        if (!isEmptyNode(next) && !isEmptyCommentNode(next)) {
+          nextIsData = isDataNode(next);
+          break;
+        }
+      }
+      if (!nextIsData) {
+        // If we have an active section, attach pending comments as trailing
+        if (currentName !== null && pendingComments.length > 0) {
+          for (const comment of pendingComments) {
+            currentTrailingComments.push(comment);
+          }
+          for (const idx of pendingCommentIndices) consumed.add(idx);
+        }
+        pendingComments.length = 0;
+        pendingMissing.length = 0;
+        pendingCommentIndices.length = 0;
+        pendingMissingIndices.length = 0;
+      }
+      continue;
+    }
+
+    if (node.type === "comment") {
+      // Check if this comment is a trailing comment: it sits between data and a boundary.
+      // Pattern: we have an active section with records, and the next non-empty/non-comment
+      // node is a boundary (not data). That means this comment belongs to the current section.
+      if (currentName !== null && currentRecords.length > 0) {
+        let nextSignificant: "boundary" | "data" | "other" = "other";
+        for (let j = i + 1; j < root.children.length; j++) {
+          const next = root.children[j]!;
+          if (isEmptyNode(next) || isEmptyCommentNode(next)) continue;
+          if (isBoundaryNode(next)) { nextSignificant = "boundary"; break; }
+          if (isDataNode(next)) { nextSignificant = "data"; break; }
+          break;
+        }
+        if (nextSignificant === "boundary") {
+          // This is a trailing comment — attach to current section
+          const commentText = trimCommentLine(node.raw);
+          if (collectMissing && isMissingAnnotation(node.raw)) {
+            // Rare but handle: trailing @missing
+            const parsed = parseMissingAnnotation(node.raw);
+            if (parsed) currentMissing.push(parsed);
+          } else {
+            currentTrailingComments.push(commentText);
+          }
+          consumed.add(i);
+          continue;
+        }
+      }
+
+      if (collectMissing && isMissingAnnotation(node.raw)) {
+        const parsed = parseMissingAnnotation(node.raw);
+        if (parsed) {
+          pendingMissing.push(parsed);
+          pendingMissingIndices.push(i);
+        }
+      } else {
+        pendingComments.push(trimCommentLine(node.raw));
+        pendingCommentIndices.push(i);
+      }
+      continue;
+    }
+
+    if (node.type === "property" || node.type === "eof") {
+      continue;
+    }
+
+    if (isDataNode(node)) {
+      if (pendingComments.length > 0) {
+        flushSection();
+        currentName = pendingComments[0]!;
+        currentDesc = pendingComments.slice(1).join("\n");
+        currentMissing = [...pendingMissing];
+        currentStartIndex = pendingCommentIndices[0] ?? i;
+        // Mark section header comments as consumed
+        for (const idx of pendingCommentIndices) consumed.add(idx);
+        for (const idx of pendingMissingIndices) consumed.add(idx);
+        pendingComments.length = 0;
+        pendingMissing.length = 0;
+        pendingCommentIndices.length = 0;
+        pendingMissingIndices.length = 0;
+      } else if (currentName === null) {
+        // Data with no preceding comment block — anonymous default section
+        currentName = root.fileName ?? "default";
+        currentDesc = "";
+        currentMissing = [...pendingMissing];
+        currentStartIndex = i;
+        for (const idx of pendingMissingIndices) consumed.add(idx);
+        pendingMissing.length = 0;
+        pendingMissingIndices.length = 0;
+      }
+
+      splitAndPopulateFields(node);
+      currentRecords.push(node);
+      consumed.add(i);
+    }
+  }
+
+  flushSection();
+
+  // Rebuild root.children: remove consumed nodes, insert SectionNodes
+  const newChildren: ChildNode[] = [];
+  let insertionIdx = 0;
+
+  for (let i = 0; i < root.children.length; i++) {
+    // Insert any sections that should appear before this index
+    while (insertionIdx < sectionInsertions.length && sectionInsertions[insertionIdx]!.beforeIndex <= i) {
+      newChildren.push(sectionInsertions[insertionIdx]!.section);
+      insertionIdx++;
+    }
+
+    if (!consumed.has(i)) {
+      newChildren.push(root.children[i]!);
+    }
+  }
+
+  // Insert any remaining sections
+  while (insertionIdx < sectionInsertions.length) {
+    newChildren.push(sectionInsertions[insertionIdx]!.section);
+    insertionIdx++;
+  }
+
+  root.children = newChildren;
+}
+
+// ─── Main entry points ────────────────────────────────────────────────────────
+
+/**
+ * Parses a data file content string into a structured RootNode.
+ *
+ * By default (groupSections: true), also runs a section-grouping pass that
+ * creates SectionNode children with populated DataNode.parsedFields.
+ * Pass groupSections: false to get the old flat line-per-node behaviour.
  *
  * @param {string} content - The full content of the data file to parse
- * @param {string} [fileName] - Optional explicit file name. If not provided, will be inferred from content
+ * @param {string | ParseAstOptions} [optionsOrFileName] - Options or explicit file name
  * @returns {RootNode} A structured representation of the data file
  */
-export function parseDataFileIntoAst(content: string, fileName?: string): RootNode {
+export function parseDataFileIntoAst(
+  content: string,
+  optionsOrFileName?: string | ParseAstOptions,
+): RootNode {
+  const options: ParseAstOptions | undefined =
+    typeof optionsOrFileName === "string"
+      ? { fileName: optionsOrFileName }
+      : optionsOrFileName;
+
   const children = content
     .split(/\r?\n/)
     .map((line, index) => createNode(line, index));
 
-  return {
+  const root: RootNode = {
     type: NodeTypes.ROOT,
     value: "",
     raw: content,
     line: 0,
     children,
-    fileName: fileName ?? inferFileName(content),
+    fileName: options?.fileName ?? inferFileName(content),
     version: inferVersion(content),
   };
+
+  if (options?.groupSections !== false) {
+    groupSectionsIntoAst(root, options);
+
+    // Resolve a file-specific parser and apply named+typed fields
+    const fileParser = resolve(root.fileName, root.version);
+    if (fileParser) {
+      const sections = root.children.filter(isSectionNode);
+      applyFileParser(sections, fileParser.fields, fileParser.separator, {
+        trimFields: fileParser.trimFields,
+        stripInlineComments: fileParser.stripInlineComments,
+      });
+      if (fileParser.postProcess) {
+        fileParser.postProcess(sections);
+      }
+    }
+  }
+
+  return root;
 }
 
 /**
@@ -161,9 +472,10 @@ export function stringifyNode(node: Node): string {
 /**
  * Creates a text representation of multiple DataFileNodes
  *
- * @param {ChildNode[]} nodes - An array of DataFileChildNode objects to stringify
+ * @param {ChildNode[]} nodes - An array of ChildNode objects to stringify
  * @returns {string} A string containing the raw representation of all nodes joined by newline characters
  */
 export function stringifyNodes(nodes: ChildNode[]): string {
   return nodes.map((node) => node.raw).join("\n");
 }
+

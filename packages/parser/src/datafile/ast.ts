@@ -1,4 +1,4 @@
-import type { BoundaryStyle } from "../line-helpers";
+import type { BoundaryStyle, MissingAnnotation } from "../line-helpers";
 
 export const NodeTypes = {
   ROOT: "root",
@@ -9,6 +9,7 @@ export const NodeTypes = {
   EMPTY: "empty",
   EOF: "eof",
   PROPERTY: "property",
+  SECTION: "section",
   UNKNOWN: "unknown",
 } as const;
 
@@ -46,8 +47,28 @@ export interface BoundaryNode extends BaseNode {
   style: BoundaryStyle;
 }
 
+// ─── Parsed field ─────────────────────────────────────────────────────────────
+//
+// One interpreted value extracted from a DataNode's raw line.
+// rawValue is the untouched string after splitting by separator.
+// value is auto-coerced by the grouping pass or typed by a FileParser.
+// name is "field_0", "field_1", ... when generic parsing is used, or a
+// named field like "range"/"name"/"script" when a FileParser is applied.
+
+export interface ParsedField {
+  name:     string | undefined;
+  rawValue: string;
+  value:    unknown;
+}
+
 export interface DataNode extends BaseNode {
   type: "data";
+  /**
+   * Populated during the section grouping pass in parseDataFileIntoAst()
+   * or overwritten by a FileParser.
+   * undefined until field parsing has been run on this node.
+   */
+  parsedFields?: ParsedField[];
 }
 
 export interface EmptyNode extends BaseNode {
@@ -56,6 +77,39 @@ export interface EmptyNode extends BaseNode {
 
 export interface EOFNode extends BaseNode {
   type: "eof";
+}
+
+// ─── Section node ─────────────────────────────────────────────────────────────
+
+/**
+ * A first-class AST node representing a named section of data records.
+ *
+ * Emitted by parseDataFileIntoAst() during the section-grouping pass.
+ * DataNodes inside records are removed from root.children — they live
+ * exclusively inside SectionNode.records.
+ */
+export interface SectionNode extends BaseNode {
+  type: "section";
+  /** First comment line of the section header */
+  name: string;
+  /** Remaining comment lines joined with \n (empty string if none) */
+  description: string;
+  /** DataNodes belonging to this section */
+  records: DataNode[];
+  /** @missing: annotations collected before section data */
+  missingAnnotations: MissingAnnotation[];
+  /**
+   * Comments that appear after the last data line of this section,
+   * before the next boundary or section header.
+   * e.g. "# Total code points: 9053" in Scripts.txt
+   */
+  trailingComments: string[];
+  /**
+   * Field names in order.
+   * undefined when generic parsing was used (field_0, field_1, ...).
+   * Set when a FileParser is applied.
+   */
+  fieldNames: string[] | undefined;
 }
 
 export interface UnknownNode extends BaseNode {
@@ -74,6 +128,7 @@ export type ChildNode
     | EmptyNode
     | EOFNode
     | PropertyNode
+    | SectionNode
     | UnknownNode;
 
 export type Node = RootNode | ChildNode;

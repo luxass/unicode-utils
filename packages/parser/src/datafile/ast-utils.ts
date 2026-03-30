@@ -1,4 +1,4 @@
-import type { ChildNode, RootNode } from "./ast";
+import type { ChildNode, DataNode, RootNode, SectionNode } from "./ast";
 import {
   isBoundaryNode,
   isCommentNode,
@@ -7,6 +7,7 @@ import {
   isEmptyNode,
   isEOFNode,
   isPropertyNode,
+  isSectionNode,
   isUnknownNode,
 } from "./typeguards";
 
@@ -19,6 +20,7 @@ const NODE_TYPE_CHECKERS = {
   "unknown": isUnknownNode,
   "eof": isEOFNode,
   "property": isPropertyNode,
+  "section": isSectionNode,
 } satisfies Record<ChildNode["type"], (node: ChildNode) => boolean>;
 
 /**
@@ -307,4 +309,51 @@ export function visit(root: RootNode, callback: VisitCallback): void {
       prevNode,
     });
   }
+}
+
+/**
+ * Get a parsed field value by name from a DataNode.
+ * Requires parsedFields to be populated.
+ * Returns undefined when field is not found or parsedFields is absent.
+ */
+export function getFieldValue(
+  record: DataNode,
+  fieldName: string,
+): unknown | undefined {
+  return record.parsedFields?.find((f) => f.name === fieldName)?.value;
+}
+
+/**
+ * Update a field value on a DataNode.
+ * Does NOT change rawValue — stringify uses value when present, rawValue as fallback.
+ */
+export function setFieldValue(
+  record: DataNode,
+  fieldIndex: number,
+  newValue: unknown,
+): void {
+  if (!record.parsedFields || fieldIndex >= record.parsedFields.length) return;
+  record.parsedFields[fieldIndex]!.value = newValue;
+}
+
+// ─── SectionNode query (operates on RootNode directly) ───────────────────────
+
+/** Get all SectionNodes from a RootNode. */
+export function getSections(root: RootNode): SectionNode[] {
+  return root.children.filter(isSectionNode);
+}
+
+/** Find a SectionNode by exact name. */
+export function findSection(root: RootNode, name: string): SectionNode | undefined {
+  return root.children.find((c): c is SectionNode => isSectionNode(c) && c.name === name);
+}
+
+/** Find SectionNodes whose name contains a substring (case-sensitive). */
+export function findSectionsByName(root: RootNode, substring: string): SectionNode[] {
+  return root.children.filter((c): c is SectionNode => isSectionNode(c) && c.name.includes(substring));
+}
+
+/** Total record count across all SectionNodes. */
+export function getTotalRecords(root: RootNode): number {
+  return getSections(root).reduce((sum, s) => sum + s.records.length, 0);
 }

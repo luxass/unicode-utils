@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { NodeTypes } from "../../src/datafile/ast";
 import { parseDataFileIntoAst, stringifyNode, stringifyNodes } from "../../src/datafile/parser";
 
-describe("parseDataFileIntoAst", () => {
+describe("parseDataFileIntoAst (flat mode)", () => {
   it.each([
     {
       description: "empty line",
@@ -37,7 +37,7 @@ describe("parseDataFileIntoAst", () => {
       ],
     },
   ])("should correctly parse $description", ({ content, expectedChildTypes }) => {
-    const result = parseDataFileIntoAst(content);
+    const result = parseDataFileIntoAst(content, { groupSections: false });
 
     expect(result.type).toBe(NodeTypes.ROOT);
     expect(result.children.map((child) => child.type)).toEqual(expectedChildTypes);
@@ -61,7 +61,7 @@ describe("parseDataFileIntoAst", () => {
       0710; ALAPH; R; ALAPH
     `;
 
-    const result = parseDataFileIntoAst(content);
+    const result = parseDataFileIntoAst(content, { groupSections: false });
 
     expect(result.type).toBe(NodeTypes.ROOT);
     expect(result.children).toHaveLength(14);
@@ -94,7 +94,7 @@ describe("parseDataFileIntoAst", () => {
       expectedFileName: expect.any(String),
     },
   ])("should handle fileName $description", ({ content, fileName, expectedFileName }) => {
-    const result = parseDataFileIntoAst(content, fileName);
+    const result = parseDataFileIntoAst(content, { fileName, groupSections: false });
     expect(result.fileName).toEqual(expectedFileName);
   });
 
@@ -102,8 +102,8 @@ describe("parseDataFileIntoAst", () => {
     const contentCRLF = "# Comment\r\n0600; DATA; U; Group";
     const contentLF = "# Comment\n0600; DATA; U; Group";
 
-    const resultCRLF = parseDataFileIntoAst(contentCRLF);
-    const resultLF = parseDataFileIntoAst(contentLF);
+    const resultCRLF = parseDataFileIntoAst(contentCRLF, { groupSections: false });
+    const resultLF = parseDataFileIntoAst(contentLF, { groupSections: false });
 
     expect(resultCRLF.children).toHaveLength(2);
     expect(resultLF.children).toHaveLength(2);
@@ -181,7 +181,7 @@ describe("node content validation", () => {
       expectedValue: "Property:",
     },
   ])("should handle $description", ({ line, expectedType, expectedValue }) => {
-    const result = parseDataFileIntoAst(line);
+    const result = parseDataFileIntoAst(line, { groupSections: false });
     const node = result.children[0];
 
     expect(node?.type).toBe(expectedType);
@@ -199,7 +199,7 @@ describe("node content validation", () => {
 describe("stringifyNode", () => {
   it("should preserve original raw content", () => {
     const content = "  # Comment with spaces  ";
-    const parsed = parseDataFileIntoAst(content);
+    const parsed = parseDataFileIntoAst(content, { groupSections: false });
     const node = parsed.children[0];
 
     expect(stringifyNode(node!)).toBe(content);
@@ -207,7 +207,7 @@ describe("stringifyNode", () => {
 
   it("should stringify root node correctly", () => {
     const content = "# Header\n0600; DATA; U; Group\n# Footer";
-    const parsed = parseDataFileIntoAst(content);
+    const parsed = parseDataFileIntoAst(content, { groupSections: false });
 
     expect(stringifyNode(parsed)).toBe(content);
   });
@@ -216,7 +216,7 @@ describe("stringifyNode", () => {
 describe("stringifyNodes", () => {
   it("should join multiple nodes with newlines", () => {
     const content = "# Comment\n\n0600; DATA; U; Group";
-    const parsed = parseDataFileIntoAst(content);
+    const parsed = parseDataFileIntoAst(content, { groupSections: false });
 
     const result = stringifyNodes(parsed.children);
     expect(result).toBe(content);
@@ -227,7 +227,7 @@ describe("stringifyNodes", () => {
   });
 });
 
-describe("round-trip integrity", () => {
+describe("round-trip integrity (flat mode)", () => {
   it.each([
     {
       description: "simple Unicode data",
@@ -250,7 +250,7 @@ describe("round-trip integrity", () => {
       content: "# Comment 1\n# Comment 2\n# Comment 3",
     },
   ])("should maintain integrity for $description", ({ content }) => {
-    const parsed = parseDataFileIntoAst(content);
+    const parsed = parseDataFileIntoAst(content, { groupSections: false });
     const stringified = stringifyNode(parsed);
 
     expect(stringified).toBe(content);
@@ -260,7 +260,7 @@ describe("round-trip integrity", () => {
 describe("edge cases", () => {
   it("should handle Unicode characters", () => {
     const content = "# Unicode: 你好 العالم 🌍";
-    const result = parseDataFileIntoAst(content);
+    const result = parseDataFileIntoAst(content, { groupSections: false });
 
     expect(result.children[0]?.value).toBe("Unicode: 你好 العالم 🌍");
   });
@@ -268,21 +268,21 @@ describe("edge cases", () => {
   it("should handle very long lines", () => {
     const longValue = "A".repeat(1000);
     const content = `# ${longValue}`;
-    const result = parseDataFileIntoAst(content);
+    const result = parseDataFileIntoAst(content, { groupSections: false });
 
     expect(result.children[0]?.value).toBe(longValue);
   });
 
   it("should handle special characters in data", () => {
     const content = "06FF; KNOTTED HEH WITH INVERTED V ABOVE; D; KNOTTED HEH";
-    const result = parseDataFileIntoAst(content);
+    const result = parseDataFileIntoAst(content, { groupSections: false });
 
     expect(result.children[0]?.type).toBe(NodeTypes.DATA);
     expect(result.children[0]?.value).toBe(content);
   });
 
   it("should handle empty content", () => {
-    const result = parseDataFileIntoAst("");
+    const result = parseDataFileIntoAst("", { groupSections: false });
 
     expect(result.children).toHaveLength(1);
     expect(result.children[0]?.type).toBe(NodeTypes.EMPTY);
