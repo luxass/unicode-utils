@@ -272,9 +272,9 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     const node = root.children[i]!;
 
     if (isEmptyNode(node) || isEmptyCommentNode(node) || isBoundaryNode(node)) {
-      // If we're inside an active section, consume empty/emptyComment nodes
-      // so they don't litter root.children. Boundaries are kept as root children.
-      if (currentName !== null && currentRecords.length > 0 && !isBoundaryNode(node)) {
+      // If we're inside an active section, consume these structural nodes
+      // (empty lines, empty comments, boundaries) — they belong to the section.
+      if (currentName !== null && currentRecords.length > 0) {
         consumed.add(i);
       }
 
