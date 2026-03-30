@@ -278,11 +278,12 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
         consumed.add(i);
       }
 
-      // Look ahead: if the next non-empty child is a DataNode keep pending comments
+      // Look ahead: if the next non-empty/non-boundary child is a DataNode keep pending state
+      // Boundaries are visual separators — skip them when deciding if data follows
       let nextIsData = false;
       for (let j = i + 1; j < root.children.length; j++) {
         const next = root.children[j]!;
-        if (!isEmptyNode(next) && !isEmptyCommentNode(next)) {
+        if (!isEmptyNode(next) && !isEmptyCommentNode(next) && !isBoundaryNode(next)) {
           nextIsData = isDataNode(next);
           break;
         }
