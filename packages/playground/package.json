@@ -1,0 +1,27 @@
+{
+  "name": "@unicode-utils/playground",
+  "version": "0.12.0-beta.23",
+  "description": "Dev playground for visualizing Unicode parser AST",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./shared": "./src/shared/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@unicode-utils/parser": "workspace:*"
+  },
+  "devDependencies": {
+    "@luxass/eslint-config": "catalog:linting",
+    "@luxass/utils": "catalog:build",
+    "@types/node": "catalog:types",
+    "@unicode-utils-tooling/tsconfig": "workspace:*",
+    "eslint": "catalog:linting",
+    "eslint-plugin-format": "catalog:linting",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev"
+  }
+}
