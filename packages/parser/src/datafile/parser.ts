@@ -204,6 +204,9 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
   // Track which comment indices belong to the current section header
   let pendingCommentIndices: number[] = [];
   let pendingMissingIndices: number[] = [];
+  // True if a boundary was seen since the last data node — means pending
+  // comments are within the same section, not a new section header
+  let sawBoundarySinceLastData = false;
 
   function flushSection(): void {
     if (currentName === null) return;
@@ -277,6 +280,9 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
       if (currentName !== null && currentRecords.length > 0) {
         currentChildren.push(node as SectionChildNode);
         consumed.add(i);
+        if (isBoundaryNode(node)) {
+          sawBoundarySinceLastData = true;
+        }
       }
 
       // Look ahead: if the next non-empty/non-boundary child is a DataNode keep pending state
@@ -324,14 +330,27 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
 
     if (isDataNode(node)) {
       if (pendingComments.length > 0) {
-        flushSection();
-        currentName = pendingComments[0]!;
-        currentDesc = pendingComments.slice(1).join("\n");
-        currentMissing = [...pendingMissing];
-        currentStartIndex = pendingCommentIndices[0] ?? i;
-        // Mark section header comments as consumed
-        for (const idx of pendingCommentIndices) consumed.add(idx);
-        for (const idx of pendingMissingIndices) consumed.add(idx);
+        if (currentName !== null && currentRecords.length > 0 && sawBoundarySinceLastData) {
+          // We're inside an active section and a boundary separated the last data
+          // from these comments — absorb them into the current section, not a new one
+          for (const idx of pendingCommentIndices) {
+            currentChildren.push(root.children[idx]! as SectionChildNode);
+            consumed.add(idx);
+          }
+          for (const idx of pendingMissingIndices) {
+            currentChildren.push(root.children[idx]! as SectionChildNode);
+            consumed.add(idx);
+          }
+        } else {
+          // Start a new section
+          flushSection();
+          currentName = pendingComments[0]!;
+          currentDesc = pendingComments.slice(1).join("\n");
+          currentMissing = [...pendingMissing];
+          currentStartIndex = pendingCommentIndices[0] ?? i;
+          for (const idx of pendingCommentIndices) consumed.add(idx);
+          for (const idx of pendingMissingIndices) consumed.add(idx);
+        }
         pendingComments.length = 0;
         pendingMissing.length = 0;
         pendingCommentIndices.length = 0;
@@ -347,6 +366,7 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
         pendingMissingIndices.length = 0;
       }
 
+      sawBoundarySinceLastData = false;
       splitAndPopulateFields(node);
       currentChildren.push(node);
       currentRecords.push(node);

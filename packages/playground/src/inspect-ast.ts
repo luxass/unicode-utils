@@ -19,4 +19,4 @@ const url = `https://unicode.org/Public/${VERSION}/ucd/${FILE}`;
 console.log(`Fetching ${url}...\n`);
 
 const raw = await RawDataFile.from(url);
-console.log(formatAst(raw.ast, { maxRecords: MAX_RECORDS }));
+console.log(formatAst(raw.ast, { maxRecords: 50000 }));
