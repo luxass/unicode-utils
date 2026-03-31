@@ -51,9 +51,9 @@ const reparsedCounts = {
 };
 
 const match =
-  originalCounts.comment === reparsedCounts.comment
-  && originalCounts.empty === reparsedCounts.empty
-  && originalCounts.unknown === reparsedCounts.unknown;
+  originalCounts.comment === reparsedCounts.comment &&
+  originalCounts.empty === reparsedCounts.empty &&
+  originalCounts.unknown === reparsedCounts.unknown;
 
 if (match) {
   console.log("\n✓ Round-trip preserved all nodes.");

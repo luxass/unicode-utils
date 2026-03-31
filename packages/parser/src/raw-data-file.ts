@@ -11,12 +11,12 @@ export class RawDataFile {
     this.ast = null as any;
   }
 
-  static async from(
-    url: string | URL,
-  ): Promise<RawDataFile> {
+  static async from(url: string | URL): Promise<RawDataFile> {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Failed to fetch data file from ${url}: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch data file from ${url}: ${response.status} ${response.statusText}`,
+      );
     }
     const content = await response.text();
     return new RawDataFile(content);

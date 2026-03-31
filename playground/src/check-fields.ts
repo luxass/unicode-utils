@@ -6,8 +6,8 @@
 //   pnpm tsx playground/src/list-nodes.ts <file-path-or-url>
 
 console.error(
-  "check-fields.ts is no longer applicable. The parser no longer produces sections or fields.\n"
-  + "Use list-nodes.ts instead:\n\n"
-  + "  pnpm tsx playground/src/list-nodes.ts <file-path-or-url>",
+  "check-fields.ts is no longer applicable. The parser no longer produces sections or fields.\n" +
+    "Use list-nodes.ts instead:\n\n" +
+    "  pnpm tsx playground/src/list-nodes.ts <file-path-or-url>",
 );
 process.exit(1);

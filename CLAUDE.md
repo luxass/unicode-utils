@@ -8,6 +8,7 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 
 - **Monorepo** with packages (`packages/`) and shared tooling (`tooling/`)
   > The monorepo is managed with pnpm workspaces and Turborepo for efficient builds and dependency management.
+  >
   > ```
   > packages/ - core libraries published to npm
   > tooling/ - internal development tools (tsconfig, tsdown-config)

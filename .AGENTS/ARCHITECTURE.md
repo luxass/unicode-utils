@@ -39,15 +39,15 @@ All of this happens inside a single `parseDataFileIntoAst()` call.
 
 Key files:
 
-| File                       | Responsibility                                                          |
-| -------------------------- | ----------------------------------------------------------------------- |
-| `src/line-helpers.ts`      | Low-level line classification and regex utilities                       |
-| `src/ast/node.ts`          | Node type definitions (`NodeTypes` const, interfaces, unions)           |
-| `src/ast/typeguards.ts`    | Type guards for all node types                                          |
-| `src/ast/index.ts`         | Re-exports from `node.ts` and `typeguards.ts`                           |
-| `src/parser.ts`            | `parseDataFileIntoAst`, `stringifyNode`, `stringifyNodes`               |
-| `src/raw-data-file.ts`     | `RawDataFile` class — wraps AST + raw content                           |
-| `src/data-file.ts`         | `DataFile` class — immutable frozen wrapper                             |
+| File                    | Responsibility                                                |
+| ----------------------- | ------------------------------------------------------------- |
+| `src/line-helpers.ts`   | Low-level line classification and regex utilities             |
+| `src/ast/node.ts`       | Node type definitions (`NodeTypes` const, interfaces, unions) |
+| `src/ast/typeguards.ts` | Type guards for all node types                                |
+| `src/ast/index.ts`      | Re-exports from `node.ts` and `typeguards.ts`                 |
+| `src/parser.ts`         | `parseDataFileIntoAst`, `stringifyNode`, `stringifyNodes`     |
+| `src/raw-data-file.ts`  | `RawDataFile` class — wraps AST + raw content                 |
+| `src/data-file.ts`      | `DataFile` class — immutable frozen wrapper                   |
 
 ---
 
@@ -71,11 +71,11 @@ Each package has:
 
 Root `vitest.config.ts` dynamically reads `packages/` to create one test project per package. Each project gets a `resolve.alias` map so workspace packages resolve to local `src/` without a build step.
 
-| Test type   | Location                                | What it tests                                  |
-| ----------- | --------------------------------------- | ---------------------------------------------- |
-| Unit        | `packages/parser/test/*.test.ts`        | Individual line-helper functions               |
-| Datafiles   | `packages/parser/test/datafiles/`       | AST node types, typeguards, parser             |
-| Integration | `packages/parser/test/ast/`             | Full pipeline with real UCD v16 files          |
+| Test type   | Location                          | What it tests                         |
+| ----------- | --------------------------------- | ------------------------------------- |
+| Unit        | `packages/parser/test/*.test.ts`  | Individual line-helper functions      |
+| Datafiles   | `packages/parser/test/datafiles/` | AST node types, typeguards, parser    |
+| Integration | `packages/parser/test/ast/`       | Full pipeline with real UCD v16 files |
 
 Fixture helper in `packages/parser/test/__utils.ts`:
 

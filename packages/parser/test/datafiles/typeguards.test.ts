@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { isCommentNode, isEmptyNode, isNode, isRootNode, isUnknownNode, NodeTypes } from "../../src/ast";
+import {
+  isCommentNode,
+  isEmptyNode,
+  isNode,
+  isRootNode,
+  isUnknownNode,
+  NodeTypes,
+} from "../../src/ast";
 
 describe("typeguards", () => {
   describe("isNode", () => {
@@ -17,7 +24,9 @@ describe("typeguards", () => {
 
   describe("isRootNode", () => {
     it("returns true for a root node", () => {
-      expect(isRootNode({ type: NodeTypes.ROOT, value: "", raw: "", line: 0, children: [] })).toBe(true);
+      expect(isRootNode({ type: NodeTypes.ROOT, value: "", raw: "", line: 0, children: [] })).toBe(
+        true,
+      );
     });
     it("returns false for a non-root node", () => {
       expect(isRootNode({ type: NodeTypes.COMMENT, value: "", raw: "", line: 0 })).toBe(false);
@@ -26,7 +35,9 @@ describe("typeguards", () => {
 
   describe("isCommentNode", () => {
     it("returns true for a comment node", () => {
-      expect(isCommentNode({ type: NodeTypes.COMMENT, value: "hello", raw: "# hello", line: 1 })).toBe(true);
+      expect(
+        isCommentNode({ type: NodeTypes.COMMENT, value: "hello", raw: "# hello", line: 1 }),
+      ).toBe(true);
     });
     it("returns false for an empty node", () => {
       expect(isCommentNode({ type: NodeTypes.EMPTY, value: "", raw: "", line: 0 })).toBe(false);
@@ -44,10 +55,14 @@ describe("typeguards", () => {
 
   describe("isUnknownNode", () => {
     it("returns true for an unknown node", () => {
-      expect(isUnknownNode({ type: NodeTypes.UNKNOWN, value: "abc", raw: "abc", line: 5 })).toBe(true);
+      expect(isUnknownNode({ type: NodeTypes.UNKNOWN, value: "abc", raw: "abc", line: 5 })).toBe(
+        true,
+      );
     });
     it("returns false for a comment node", () => {
-      expect(isUnknownNode({ type: NodeTypes.COMMENT, value: "", raw: "# x", line: 0 })).toBe(false);
+      expect(isUnknownNode({ type: NodeTypes.COMMENT, value: "", raw: "# x", line: 0 })).toBe(
+        false,
+      );
     });
   });
 });

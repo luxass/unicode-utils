@@ -2,12 +2,12 @@ import type { ChildNode, CommentNode, EmptyNode, Node, RootNode, UnknownNode } f
 
 export function isNode(node: unknown): node is Node {
   return (
-    typeof node === "object"
-    && node !== null
-    && "type" in node
-    && "value" in node
-    && "raw" in node
-    && "line" in node
+    typeof node === "object" &&
+    node !== null &&
+    "type" in node &&
+    "value" in node &&
+    "raw" in node &&
+    "line" in node
   );
 }
 

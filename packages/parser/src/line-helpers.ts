@@ -311,9 +311,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
   // check if defaultProperty is a valid key before using it as an index
   const specialTag: SpecialTag | undefined =
     defaultProperty && defaultProperty in MISSING_ANNOTATION_SPECIAL_TAGS
-      ? MISSING_ANNOTATION_SPECIAL_TAGS[
-          defaultProperty
-        ]
+      ? MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty]
       : undefined;
 
   if (start == null || end == null || defaultPropValueOrPropertyName == null) {

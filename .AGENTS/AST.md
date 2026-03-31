@@ -17,7 +17,7 @@ interface RootNode extends BaseNode {
   type: "root";
   children: ChildNode[];
   fileName?: string; // inferred from heading comment (e.g. "Scripts")
-  version?: string;  // inferred from heading comment (e.g. "16.0.0")
+  version?: string; // inferred from heading comment (e.g. "16.0.0")
 }
 ```
 
@@ -45,8 +45,8 @@ All nodes share these fields:
 interface BaseNode {
   type: NodeType;
   value: string; // semantically meaningful content (hash stripped for comments, trimmed for unknown)
-  raw: string;   // exact original line, never modified
-  line: number;  // 0-based line index in the source file
+  raw: string; // exact original line, never modified
+  line: number; // 0-based line index in the source file
 }
 ```
 
@@ -67,12 +67,12 @@ type ChildNode = CommentNode | EmptyNode | UnknownNode;
 All guards are in `packages/parser/src/ast/typeguards.ts`:
 
 ```ts
-isNode(node)        // any Node (RootNode | ChildNode)
-isRootNode(node)
-isCommentNode(node)
-isEmptyNode(node)
-isUnknownNode(node)
-isChildNode(node)   // CommentNode | EmptyNode | UnknownNode
+isNode(node); // any Node (RootNode | ChildNode)
+isRootNode(node);
+isCommentNode(node);
+isEmptyNode(node);
+isUnknownNode(node);
+isChildNode(node); // CommentNode | EmptyNode | UnknownNode
 ```
 
 ---

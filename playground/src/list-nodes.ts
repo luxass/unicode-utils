@@ -1,7 +1,12 @@
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 
-import { isCommentNode, isEmptyNode, isUnknownNode, parseDataFileIntoAst } from "@unicode-utils/parser";
+import {
+  isCommentNode,
+  isEmptyNode,
+  isUnknownNode,
+  parseDataFileIntoAst,
+} from "@unicode-utils/parser";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,

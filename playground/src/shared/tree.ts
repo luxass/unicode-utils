@@ -1,12 +1,6 @@
-import type {
-  ChildNode,
-  RootNode,
-} from "@unicode-utils/parser";
-import {
-  isCommentNode,
-  isEmptyNode,
-  isUnknownNode,
-} from "@unicode-utils/parser";
+import type { ChildNode, RootNode } from "@unicode-utils/parser";
+import { isCommentNode, isEmptyNode, isUnknownNode } from "@unicode-utils/parser";
+
 import { type Colors, makeColor } from "./colors";
 
 export interface FormatOptions {
