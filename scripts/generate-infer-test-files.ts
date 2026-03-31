@@ -1,4 +1,3 @@
-/* eslint-disable node/prefer-global/process */
 import { existsSync, readdirSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path, { join } from "node:path";

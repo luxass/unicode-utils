@@ -1,4 +1,3 @@
-/* eslint-disable node/prefer-global/process */
 import { readFileSync, writeFileSync } from "node:fs";
 
 const SYSTEM_PROMPT = `You are an expert at analyzing code changes and generating structured data for pull request titles.

@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import { RawDataFile } from "../../src/datafile/model";
 
-// eslint-disable-next-line test/prefer-lowercase-title
 describe("RawDataFile", () => {
   it("should split content into lines", () => {
     const content = "line1\nline2\nline3";
@@ -13,9 +12,8 @@ describe("RawDataFile", () => {
 
   it("should throw error if content is empty", () => {
     expect(() => {
-      // eslint-disable-next-line no-new
       new RawDataFile("");
-    }).toThrowError("content is empty");
+    }).toThrow("content is empty");
   });
 
   it("should use provided fileName when specified", () => {

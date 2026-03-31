@@ -114,12 +114,11 @@ Required for all exported public APIs. Must include `@param`, `@returns`, and at
 
 ---
 
-## Linting
+## Linting and formatting
 
-- `@luxass/eslint-config` (Anthony Fu's opinionated preset) with `formatters: true`
-- ESLint 9 flat config format (`eslint.config.mjs` per package)
-- `pnpm: true` enabled in root config for workspace-aware rules
-- Run via `pnpm run lint` from the root (turbo handles all packages)
+- **Linter**: `oxlint` — run `pnpm run lint` to check, `pnpm run lint:fix` to auto-fix
+- **Formatter**: `oxfmt` — run `pnpm run fmt` to format, `pnpm run fmt:check` to verify without writing
+- All commands run from the repo root
 
 ---
 

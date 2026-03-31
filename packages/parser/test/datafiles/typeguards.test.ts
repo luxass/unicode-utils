@@ -179,7 +179,6 @@ describe("ast type guards", () => {
     });
   });
 
-  // eslint-disable-next-line test/prefer-lowercase-title
   it("EOF node", () => {
     const eofNode = { type: "eof", value: "", raw: "", line: 1 };
 

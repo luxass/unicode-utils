@@ -114,7 +114,9 @@ export async function getCurrentDraftVersion(
   for (const pattern of patterns) {
     const match = responseText.match(pattern);
 
-    if (match == null || match[1] == null) continue;
+    if (match == null || match[1] == null) {
+      continue;
+    }
 
     const version = match[1].trim();
     onSuccess?.(version);
