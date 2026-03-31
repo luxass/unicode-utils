@@ -198,7 +198,7 @@ describe("stringifyNode", () => {
     const parsed = parseDataFileIntoAst(content, { groupSections: false });
     const node = parsed.children[0];
 
-    expect(stringifyNode(node!)).toBe(content);
+    expect(stringifyNode(node)).toBe(content);
   });
 
   it("should stringify root node correctly", () => {

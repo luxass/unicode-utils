@@ -9,7 +9,6 @@ const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     "max-records": { type: "string", short: "m", default: "5" },
-    raw: { type: "boolean", short: "r", default: false },
     "no-color": { type: "boolean", default: false },
     help: { type: "boolean", short: "h", default: false },
   },
@@ -23,7 +22,6 @@ Arguments:
 
 Options:
   -m, --max-records  Max records per section (default: 5)
-  -r, --raw          Show raw lines instead of parsed fields
       --no-color     Disable ANSI colors
   -h, --help         Show this help`);
   process.exit(0);
@@ -31,7 +29,6 @@ Options:
 
 const input = positionals[0]!;
 const maxRecords = Number(values["max-records"]);
-const showRaw = values.raw!;
 const colorize = !values["no-color"];
 
 let raw: RawDataFile;
@@ -43,4 +40,4 @@ if (input.startsWith("http://") || input.startsWith("https://")) {
   raw = new RawDataFile(content);
 }
 
-console.log(formatAst(raw.ast, { maxRecords, showRaw, colorize }));
+console.log(formatAst(raw.ast, { maxRecords, colorize }));

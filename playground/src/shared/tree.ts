@@ -1,7 +1,6 @@
 import type {
   ChildNode,
   DataNode,
-  ParsedField,
   RootNode,
   SectionChildNode,
   SectionNode,
@@ -9,7 +8,6 @@ import type {
 import {
   isBoundaryNode,
   isCommentNode,
-  isDataNode,
   isEmptyCommentNode,
   isEmptyNode,
   isEOFNode,
@@ -22,7 +20,6 @@ import { type Colors, makeColor } from "./colors";
 
 export interface FormatOptions {
   maxRecords?: number;
-  showRaw?: boolean;
   colorize?: boolean;
 }
 
@@ -36,26 +33,8 @@ function truncate(s: string, max: number): string {
   return `${s.slice(0, max - 3)}...`;
 }
 
-function formatFieldValue(field: ParsedField): string {
-  const val = field.value;
-  if (val === undefined) return "undefined";
-  if (val === null) return "null";
-  if (typeof val === "object" && !Array.isArray(val) && "start" in val && "end" in val) {
-    const r = val as { start: string; end: string };
-    return `${r.start}..${r.end}`;
-  }
-  if (Array.isArray(val)) return val.join(" ");
-  return String(val);
-}
-
-function formatDataNode(node: DataNode, c: Colors, showRaw: boolean): string {
-  if (showRaw || !node.parsedFields || node.parsedFields.length === 0) {
-    return `${c.green("DataNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 80))}`;
-  }
-  const fields = node.parsedFields
-    .map((f) => `${c.blue(f.name ?? "?")}=${formatFieldValue(f)}`)
-    .join(" ");
-  return `${c.green("DataNode")} ${c.dim(`L${node.line}`)}: ${fields}`;
+function formatDataNode(node: DataNode, c: Colors): string {
+  return `${c.green("DataNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 80))}`;
 }
 
 function formatChildNode(node: SectionChildNode, c: Colors): string {
@@ -83,7 +62,7 @@ function formatChildNode(node: SectionChildNode, c: Colors): string {
   if (isMissingAnnotationNode(node)) {
     return `${c.yellow("MissingAnnotationNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
   }
-  return formatDataNode(node, c, false);
+  return formatDataNode(node, c);
 }
 
 function formatSectionNode(
@@ -103,17 +82,13 @@ function formatSectionNode(
 
   const items: string[] = [];
 
-  if (section.fieldNames && section.fieldNames.length > 0) {
-    items.push(`${c.dim("fields:")} ${section.fieldNames.map((n) => c.blue(n)).join(", ")}`);
-  }
-
   let dataCount = 0;
   const maxRecords = options.maxRecords;
   for (const child of section.children) {
     if (child.type === "data") {
       dataCount++;
       if (dataCount <= maxRecords) {
-        items.push(formatDataNode(child, c, options.showRaw));
+        items.push(formatDataNode(child, c));
       }
     } else {
       items.push(formatChildNode(child, c));
@@ -136,7 +111,6 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
     options?.colorize ?? (typeof process !== "undefined" && process.stdout?.isTTY === true);
   const resolved: Required<FormatOptions> = {
     maxRecords: options?.maxRecords ?? 10,
-    showRaw: options?.showRaw ?? false,
     colorize,
   };
 
@@ -160,7 +134,7 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
       lines.push(...formatSectionNode(child, c, "", isLast, resolved));
     } else if (!isSectionNode(child)) {
       const connector = isLast ? ELBOW : TEE;
-      lines.push(`${connector}${formatChildNode(child, c)}`);
+      lines.push(`${connector}${formatChildNode(child as SectionChildNode, c)}`);
     }
   }
 

@@ -128,7 +128,7 @@ describe("ast-utils", () => {
       const root = createRoot(childTypes);
       const currentNode =
         currentNodeIndex >= 0 ? root.children[currentNodeIndex] : createNode("data", "not_in_root");
-      expect(hasNextNComments(root, currentNode!, count)).toBe(expected);
+      expect(hasNextNComments(root, currentNode, count)).toBe(expected);
     });
   });
 

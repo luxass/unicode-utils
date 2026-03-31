@@ -51,7 +51,7 @@ describe("dataFile", () => {
 
   it("records array is frozen — push throws", () => {
     const file = new RawDataFile(CONTENT).toDataFile();
-    const section = file.sections[0]!;
+    const section = file.sections[0];
     expect(() => {
       (section.records as any).push({});
     }).toThrow();

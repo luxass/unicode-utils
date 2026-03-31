@@ -312,7 +312,7 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
   const specialTag: SpecialTag | undefined =
     defaultProperty && defaultProperty in MISSING_ANNOTATION_SPECIAL_TAGS
       ? MISSING_ANNOTATION_SPECIAL_TAGS[
-          defaultProperty as keyof typeof MISSING_ANNOTATION_SPECIAL_TAGS
+          defaultProperty
         ]
       : undefined;
 

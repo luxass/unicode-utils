@@ -41,15 +41,15 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     const root = parseDataFileIntoAst(SIMPLE);
     const sections = root.children.filter(isSectionNode);
     expect(sections).toHaveLength(2);
-    expect(sections[0]!.name).toBe("Basic Latin");
-    expect(sections[1]!.name).toBe("Greek");
+    expect(sections[0].name).toBe("Basic Latin");
+    expect(sections[1].name).toBe("Greek");
   });
 
   it("section records contain the DataNodes", () => {
     const root = parseDataFileIntoAst(SIMPLE);
     const sections = root.children.filter(isSectionNode);
-    expect(sections[0]!.records).toHaveLength(2);
-    expect(sections[1]!.records).toHaveLength(1);
+    expect(sections[0].records).toHaveLength(2);
+    expect(sections[1].records).toHaveLength(1);
   });
 
   it("dataNodes inside sections are removed from root.children", () => {
@@ -75,7 +75,7 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     expect(sections).toHaveLength(1);
     // The heading comment "Blocks-16.0.0.txt" becomes the section name
     // because no boundary separates it from the data
-    expect(sections[0]!.name).toBe("Blocks-16.0.0.txt");
+    expect(sections[0].name).toBe("Blocks-16.0.0.txt");
   });
 
   it("comment-only file produces no SectionNodes", () => {
@@ -91,8 +91,8 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
 
   it("parsedFields are populated with named fields when a FileParser matches", () => {
     const root = parseDataFileIntoAst(SIMPLE);
-    const section = root.children.filter(isSectionNode)[0]!;
-    const fields = section.records[0]!.parsedFields!;
+    const section = root.children.filter(isSectionNode)[0];
+    const fields = section.records[0].parsedFields!;
     // Scripts-16.0.0.txt resolves to SCRIPTS_PARSER → named fields
     expect(fields[0]!.name).toBe("range");
     expect(fields[1]!.name).toBe("script");
@@ -101,8 +101,8 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
   it("parsedFields use generic names for unknown files", () => {
     const content = "# UnknownFile-1.0.0.txt\n#\n# Section\n0041; Value";
     const root = parseDataFileIntoAst(content);
-    const section = root.children.filter(isSectionNode)[0]!;
-    const fields = section.records[0]!.parsedFields!;
+    const section = root.children.filter(isSectionNode)[0];
+    const fields = section.records[0].parsedFields!;
     expect(fields[0]!.name).toBe("field_0");
     expect(fields[1]!.name).toBe("field_1");
   });
@@ -116,7 +116,7 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
       0041; 1.1
     `;
     const root = parseDataFileIntoAst(content);
-    const section = root.children.filter(isSectionNode)[0]!;
+    const section = root.children.filter(isSectionNode)[0];
     const missingNodes = section.children.filter((c) => c.type === "missing-annotation");
     expect(missingNodes).toHaveLength(1);
     expect((missingNodes[0] as { annotation: { defaultPropertyValue: string } }).annotation.defaultPropertyValue).toBe("Unassigned");
@@ -124,8 +124,8 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
 
   it("auto-coerces hex ranges in parsedFields", () => {
     const root = parseDataFileIntoAst(FLAT);
-    const section = root.children.filter(isSectionNode)[0]!;
-    const field0 = section.records[0]!.parsedFields![0]!;
+    const section = root.children.filter(isSectionNode)[0];
+    const field0 = section.records[0].parsedFields![0]!;
     expect(field0.value).toEqual({ start: "0000", end: "007F" });
     expect(field0.rawValue).toBe("0000..007F");
   });

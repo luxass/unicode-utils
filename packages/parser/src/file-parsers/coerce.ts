@@ -39,7 +39,7 @@ function extractCoveredRanges(section: SectionNode): Range[] {
 
 function mergeRanges(ranges: Range[]): Range[] {
   if (ranges.length === 0) return [];
-  const sorted = [...ranges].sort((a, b) => a.start - b.start);
+  const sorted = [...ranges].toSorted((a, b) => a.start - b.start);
   const merged: Range[] = [sorted[0]!];
   for (let i = 1; i < sorted.length; i++) {
     const current = sorted[i]!;

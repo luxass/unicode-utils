@@ -39,8 +39,8 @@ describe("stringifyAst", () => {
     const reparsed = parseDataFileIntoAst(output);
     const sections = reparsed.children.filter(isSectionNode);
     expect(sections).toHaveLength(2);
-    expect(sections[0]!.name).toBe("Basic Latin");
-    expect(sections[1]!.name).toBe("Greek");
+    expect(sections[0].name).toBe("Basic Latin");
+    expect(sections[1].name).toBe("Greek");
   });
 
   it("preserves heading comment nodes verbatim", () => {
@@ -79,7 +79,7 @@ describe("stringifyAst", () => {
   it("uses modified field value, not rawValue, when value has been changed", () => {
     const root = parseDataFileIntoAst(HEADING_AND_SECTIONS);
     const section = root.children.find(isSectionNode) as SectionNode;
-    section.records[0]!.parsedFields![1]!.value = "Coptic";
+    section.records[0].parsedFields![1]!.value = "Coptic";
     const output = stringifyAst(root);
     expect(output).toContain("Coptic");
   });
