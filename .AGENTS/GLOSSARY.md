@@ -55,9 +55,9 @@ One field on a `DataNode`, produced after field splitting and optional coercion.
 
 ```ts
 interface ParsedField {
-  name: string | undefined; // "field_0" (generic) or "range" (FileParser-named)
+  name: string | undefined; // "field_0", "field_1", etc. (auto-generated)
   rawValue: string; // untouched string from splitting the line by separator
-  value: unknown; // auto-coerced or FileParser-typed value
+  value: unknown; // auto-coerced value
 }
 ```
 
@@ -68,64 +68,9 @@ interface ParsedField {
 ## rawValue vs value
 
 - **`rawValue`**: The exact string slice after splitting the raw data line by the detected separator. Never modified.
-- **`value`**: The coerced/typed interpretation of `rawValue`. Set by `inferFieldValue()` (auto-coerce) or by `applyFileParser()` (typed coercion from a `FileParser`).
+- **`value`**: The coerced/typed interpretation of `rawValue`. Set by `inferFieldValue()` during section grouping.
 
 Stringify prefers `value`; falls back to `rawValue` if value cannot be serialized. Nodes without `parsedFields` emit `node.raw` unchanged (lossless round-trip).
-
----
-
-## FileParser
-
-A per-file definition that tells the parser how to type and name fields for a specific UCD file. Defined in `packages/parser/src/file-parsers/types.ts`.
-
-```ts
-interface FileParser {
-  fileName: string;
-  separator: string;
-  trimFields?: boolean;
-  stripInlineComments?: boolean;
-  fields: FieldDef[];
-  postProcess?: (sections: SectionNode[]) => void;
-}
-```
-
-Resolved automatically from `root.fileName` by `resolve()` in `src/file-parsers/route.ts`. Currently 20 definitions in `src/file-parsers/definitions/`.
-
----
-
-## FieldDef
-
-One field declaration inside a `FileParser.fields` array.
-
-```ts
-interface FieldDef {
-  name: string;
-  type: FieldType;
-  enumValues?: string[];
-  nullable?: boolean;
-  optional?: boolean;
-  isMultiValue?: boolean;
-  delimiter?: string;
-}
-```
-
----
-
-## FieldType
-
-The type a field can be declared as in a `FieldDef`. Drives typed coercion in `coerceField()`.
-
-```
-"codepoint"          → single hex codepoint string, e.g. "0041"
-"codepoint-range"    → { start: "0000", end: "007F" }
-"codepoint-or-range" → either of the above
-"string"             → raw string (untrimmed)
-"string-trimmed"     → trimmed string
-"number"             → integer
-"enum"               → one of a declared set of string values
-"optional-string"    → string or undefined
-"multi-codepoint"    → space-separated list of codepoints
-```
 
 ---
 
@@ -156,7 +101,7 @@ Collected per `SectionNode` in `SectionNode.missingAnnotations`.
 
 ## Separator
 
-The field delimiter used in a UCD data line. Detected automatically from the first data line. Default candidates: `[";", "\t"]`. Can be overridden via `ParseAstOptions.separators` or `FileParser.separator`.
+The field delimiter used in a UCD data line. Detected automatically from the first data line. Default candidates: `[";", "\t"]`. Can be overridden via `ParseAstOptions.separators`.
 
 ---
 

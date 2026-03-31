@@ -1,4 +1,3 @@
-import { resolve } from "../file-parsers/route";
 import type { BoundaryStyle } from "../line-helpers";
 import {
   getBoundaryLineStyle,
@@ -22,7 +21,6 @@ import {
   isDataNode,
   isEmptyCommentNode,
   isEmptyNode,
-  isSectionNode,
 } from "./typeguards";
 
 // ─── Parse options ────────────────────────────────────────────────────────────
@@ -343,9 +341,9 @@ function groupSectionsIntoAst(root: RootNode): void {
 /**
  * Parses a data file content string into a structured RootNode.
  *
- * By default (groupSections: true), also runs a section-grouping pass that
- * creates SectionNode children with populated DataNode.parsedFields.
- * Pass groupSections: false to get the old flat line-per-node behaviour.
+ * By default (groupSections: true), runs a section-grouping pass that
+ * groups DataNodes into SectionNodes based on preceding comment headers.
+ * Pass groupSections: false to get a flat list of nodes.
  *
  * @param {string} content - The full content of the data file to parse
  * @param {string | ParseAstOptions} [optionsOrFileName] - Options or explicit file name
@@ -372,11 +370,6 @@ export function parseDataFileIntoAst(
 
   if (options?.groupSections !== false) {
     groupSectionsIntoAst(root);
-
-    const fileParser = resolve(root.fileName, root.version);
-    if (fileParser?.postProcess) {
-      fileParser.postProcess(root.children.filter(isSectionNode));
-    }
   }
 
   return root;

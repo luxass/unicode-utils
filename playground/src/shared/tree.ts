@@ -117,7 +117,7 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
   const c = makeColor(resolved.colorize);
   const lines: string[] = [];
 
-  let rootHeader = `${c.bold("RootNode")}`;
+  let rootHeader = c.bold("RootNode");
   if (root.fileName || root.version) {
     const parts: string[] = [];
     if (root.fileName) parts.push(root.fileName);

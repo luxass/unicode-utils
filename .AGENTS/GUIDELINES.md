@@ -12,7 +12,6 @@ This includes:
 
 - `packages/parser/src/datafile/` — all files (`ast.ts`, `parser.ts`, `model.ts`, `data-file.ts`, `stringify.ts`, `ast-utils.ts`, `typeguards.ts`)
 - `packages/parser/src/inference/` — all files
-- `packages/parser/src/file-parsers/` — types, route, coerce, all definitions
 - `packages/core/` — re-exports, API surface, dependencies
 - Test files — rewrite, delete, restructure as needed
 

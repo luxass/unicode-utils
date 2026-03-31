@@ -89,15 +89,6 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     expect(root.children.some((c) => c.type === "data")).toBe(true);
   });
 
-  it("parsedFields are populated with named fields when a FileParser matches", () => {
-    const root = parseDataFileIntoAst(SIMPLE);
-    const section = root.children.filter(isSectionNode)[0];
-    const fields = section.records[0].parsedFields!;
-    // Scripts-16.0.0.txt resolves to SCRIPTS_PARSER → named fields
-    expect(fields[0]!.name).toBe("range");
-    expect(fields[1]!.name).toBe("script");
-  });
-
   it("parsedFields use generic names for unknown files", () => {
     const content = "# UnknownFile-1.0.0.txt\n#\n# Section\n0041; Value";
     const root = parseDataFileIntoAst(content);

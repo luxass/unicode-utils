@@ -71,17 +71,12 @@ const output = raw.stringify();
 
 ---
 
-## 4. File-parser routing and named fields
+## 4. Generic field names
 
-`parseDataFileIntoAst()` automatically resolves a `FileParser` for known UCD files. After resolution:
+`parseDataFileIntoAst()` uses generic names for all fields during section grouping:
 
-- `parsedField.name` matches `FieldDef.name` (e.g. `"range"`, `"script"`)
-- `parsedField.value` is typed according to `FieldDef.type`
-- `section.fieldNames` is set to the array of field names
-
-When no `FileParser` matches, generic names are used: `"field_0"`, `"field_1"`, etc.
-
-To see which files have parsers, check `packages/parser/src/file-parsers/route.ts`.
+- `parsedField.name` is `"field_0"`, `"field_1"`, etc.
+- `parsedField.value` is auto-coerced (hex ranges become `{ start, end }` objects; numbers become integers)
 
 ---
 
@@ -119,7 +114,7 @@ If data lines appear before any comment block (common in flat UCD files like `Bl
 
 `# @missing:` lines are collected into `section.missingAnnotations[]` during the grouping pass. They are not part of `section.description`.
 
-`expandMissingAnnotations(section, fields)` in `src/file-parsers/coerce.ts` can fill codepoint gaps with synthetic `DataNode`s. Some `FileParser` definitions call this in their `postProcess` hook.
+`# @missing:` lines are collected into `section.missingAnnotations[]` but are not automatically expanded into synthetic `DataNode`s.
 
 ---
 

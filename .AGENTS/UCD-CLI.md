@@ -70,4 +70,4 @@ npx @ucdjs/cli@beta files get 6.1.0/ucd/NameAliases.txt | head -40
 npx @ucdjs/cli@beta files list 17.0.0/ucd/ | grep -i alias
 ```
 
-Then write the `FileParser` definition and tests based on what you actually see.
+Then write your parser logic and tests based on what you actually see.

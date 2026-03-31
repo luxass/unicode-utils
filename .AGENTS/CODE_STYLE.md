@@ -15,7 +15,7 @@
 
 | Thing              | Convention                               | Example                                    |
 | ------------------ | ---------------------------------------- | ------------------------------------------ |
-| Types / interfaces | PascalCase                               | `SectionNode`, `DataNode`, `FileParser`    |
+| Types / interfaces | PascalCase                               | `SectionNode`, `DataNode`, `ParsedField`   |
 | Functions          | camelCase, verb-first                    | `parseDataFileIntoAst`, `findSection`      |
 | Constants          | ALL_CAPS                                 | `NodeTypes`, `HEX_RANGE_RE`                |
 | Parameters         | Full descriptive names, no abbreviations | `startIndex` not `si`, `nodeType` not `nt` |
@@ -72,8 +72,8 @@ if (node.type === "data") { ... }
 
 ## Interfaces vs types
 
-- **Interfaces** for object shapes: `SectionNode`, `BaseNode`, `FileParser`, `FieldDef`, options objects
-- **Types** for unions and aliases: `ChildNode`, `SectionChildNode`, `FieldType`, `BoundaryStyle`
+- **Interfaces** for object shapes: `SectionNode`, `BaseNode`, `ParsedField`, options objects
+- **Types** for unions and aliases: `ChildNode`, `SectionChildNode`, `BoundaryStyle`
 - No dedicated `types.ts` file — types live alongside their implementation
 
 ---
@@ -89,7 +89,6 @@ if (node.type === "data") { ... }
 
 ## Error handling
 
-- `FieldCoercionError` in `src/file-parsers/coerce.ts` for field coercion failures
 - Callback-based error reporting where appropriate
 - `throw new Error(...)` only for invariant violations
 - Return `undefined` (not throw) for "not found" lookups

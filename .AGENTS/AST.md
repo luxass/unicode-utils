@@ -33,7 +33,7 @@ interface SectionNode extends BaseNode {
   children: SectionChildNode[]; // ALL consumed nodes in document order
   records: DataNode[]; // convenience: DataNodes only (filtered view)
   missingAnnotations: MissingAnnotation[]; // @missing: annotations before section data
-  fieldNames: string[] | undefined; // set when a FileParser is applied
+  fieldNames: string[] | undefined; // set during section grouping
 }
 ```
 
@@ -41,7 +41,7 @@ interface SectionNode extends BaseNode {
 
 `records` is a convenience filter — only `DataNode`s from `children`.
 
-`fieldNames` is `undefined` when generic parsing was used (`field_0`, `field_1`). Set to `["range", "name", ...]` when a `FileParser` is applied.
+`fieldNames` is `undefined` when no fields are populated. Set to `["field_0", "field_1", ...]` during section grouping with auto-coercion.
 
 ### `CommentNode`
 
@@ -75,7 +75,7 @@ interface DataNode extends BaseNode {
 }
 ```
 
-`parsedFields` is populated during the section-grouping pass. After generic parsing, `parsedFields[i].name` is `"field_0"`, `"field_1"`, etc. After a `FileParser` is applied, names match the definition (e.g. `"range"`, `"name"`, `"script"`).
+`parsedFields` is populated during the section-grouping pass. `parsedFields[i].name` is `"field_0"`, `"field_1"`, etc. (auto-generated generic names).
 
 ### `EmptyNode`
 
