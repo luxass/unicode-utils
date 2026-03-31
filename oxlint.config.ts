@@ -17,7 +17,7 @@ export default defineConfig({
     "no-shadow": "off",
     "typescript/no-unnecessary-boolean-literal-compare": "off",
     "typescript/no-unsafe-type-assertion": "off",
-    curly: "error",
+    curly: "off",
   },
   overrides: [
     {

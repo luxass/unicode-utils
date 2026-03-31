@@ -48,28 +48,8 @@ export interface BoundaryNode extends BaseNode {
   style: BoundaryStyle;
 }
 
-// ─── Parsed field ─────────────────────────────────────────────────────────────
-//
-// One interpreted value extracted from a DataNode's raw line.
-// rawValue is the untouched string after splitting by separator.
-// value is auto-coerced by the grouping pass or typed by a FileParser.
-// name is "field_0", "field_1", ... when generic parsing is used, or a
-// named field like "range"/"name"/"script" when a FileParser is applied.
-
-export interface ParsedField {
-  name: string | undefined;
-  rawValue: string;
-  value: unknown;
-}
-
 export interface DataNode extends BaseNode {
   type: "data";
-  /**
-   * Populated during the section grouping pass in parseDataFileIntoAst()
-   * or overwritten by a FileParser.
-   * undefined until field parsing has been run on this node.
-   */
-  parsedFields?: ParsedField[];
 }
 
 export interface EmptyNode extends BaseNode {
@@ -113,12 +93,6 @@ export interface SectionNode extends BaseNode {
   children: SectionChildNode[];
   /** DataNodes only (filtered view of children). Convenience for data access. */
   records: DataNode[];
-  /**
-   * Field names in order.
-   * undefined when generic parsing was used (field_0, field_1, ...).
-   * Set when a FileParser is applied.
-   */
-  fieldNames: string[] | undefined;
 }
 
 export interface UnknownNode extends BaseNode {

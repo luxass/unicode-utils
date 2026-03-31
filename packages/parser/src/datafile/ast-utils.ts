@@ -1,4 +1,4 @@
-import type { ChildNode, DataNode, RootNode, SectionNode } from "./ast";
+import type { ChildNode, RootNode, SectionNode } from "./ast";
 import {
   isBoundaryNode,
   isCommentNode,
@@ -6,6 +6,7 @@ import {
   isEmptyCommentNode,
   isEmptyNode,
   isEOFNode,
+  isMissingAnnotationNode,
   isPropertyNode,
   isSectionNode,
   isUnknownNode,
@@ -19,6 +20,7 @@ const NODE_TYPE_CHECKERS = {
   empty: isEmptyNode,
   unknown: isUnknownNode,
   eof: isEOFNode,
+  "missing-annotation": isMissingAnnotationNode,
   property: isPropertyNode,
   section: isSectionNode,
 } satisfies Record<ChildNode["type"], (node: ChildNode) => boolean>;
@@ -281,24 +283,6 @@ export function visit(root: RootNode, callback: VisitCallback): void {
       prevNode,
     });
   }
-}
-
-/**
- * Get a parsed field value by name from a DataNode.
- * Requires parsedFields to be populated.
- * Returns undefined when field is not found or parsedFields is absent.
- */
-export function getFieldValue(record: DataNode, fieldName: string): unknown | undefined {
-  return record.parsedFields?.find((f) => f.name === fieldName)?.value;
-}
-
-/**
- * Update a field value on a DataNode.
- * Does NOT change rawValue — stringify uses value when present, rawValue as fallback.
- */
-export function setFieldValue(record: DataNode, fieldIndex: number, newValue: unknown): void {
-  if (!record.parsedFields || fieldIndex >= record.parsedFields.length) return;
-  record.parsedFields[fieldIndex]!.value = newValue;
 }
 
 // ─── SectionNode query (operates on RootNode directly) ───────────────────────

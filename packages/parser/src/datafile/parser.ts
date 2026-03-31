@@ -1,4 +1,3 @@
-import { applyFileParser } from "../file-parsers/coerce";
 import { resolve } from "../file-parsers/route";
 import type { BoundaryStyle } from "../line-helpers";
 import {
@@ -33,33 +32,6 @@ export interface ParseAstOptions {
   fileName?: string;
   /** Whether to group DataNodes into SectionNodes. Default: true */
   groupSections?: boolean;
-  /** Candidate separators for field splitting. Default: [";", "\t"] */
-  separators?: string[];
-  /** Auto-coerce raw field strings. Default: true */
-  autoCoerce?: boolean;
-  /** Strip inline comments before field splitting. Default: true */
-  stripInlineComments?: boolean;
-}
-
-// ─── Field value auto-coercion ────────────────────────────────────────────────
-
-const HEX_RANGE_RE = /^[0-9A-F]{4,6}\.\.[0-9A-F]{4,6}$/i;
-const HEX_POINT_RE = /^[0-9A-F]{4,6}$/i;
-const INT_RE = /^\d+$/;
-
-function inferFieldValue(raw: string): unknown {
-  const trimmed = raw.trim();
-  if (HEX_RANGE_RE.test(trimmed)) {
-    const [start, end] = trimmed.split("..");
-    return { start: start!.toUpperCase(), end: end!.toUpperCase() };
-  }
-  if (HEX_POINT_RE.test(trimmed)) {
-    return trimmed.toUpperCase();
-  }
-  if (INT_RE.test(trimmed)) {
-    return Number(trimmed);
-  }
-  return trimmed;
 }
 
 // ─── Line → ChildNode ─────────────────────────────────────────────────────────
@@ -184,11 +156,7 @@ function createNode(line: string, lineNumber: number): ChildNode {
  * and live exclusively inside SectionNode.records. Non-section nodes (heading
  * comments, empty lines, EOF) remain as direct children of root.
  */
-function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
-  const separators = options?.separators ?? [";", "\t"];
-  const autoCoerce = options?.autoCoerce ?? true;
-  const stripInlineComments = options?.stripInlineComments ?? true;
-
+function groupSectionsIntoAst(root: RootNode): void {
   const pendingComments: string[] = [];
 
   // Indices of children consumed by sections (to be removed from root.children)
@@ -200,7 +168,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
   let currentChildren: SectionChildNode[] = [];
   let currentRecords: DataNode[] = [];
   let currentStartIndex = -1;
-  let separator: string | null = null;
 
   // Indices for comment nodes that form section headers (name/description)
   const pendingCommentIndices: number[] = [];
@@ -222,7 +189,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
       description: currentDesc,
       children: currentChildren,
       records: currentRecords,
-      fieldNames: undefined,
     };
 
     sectionInsertions.push({ beforeIndex: currentStartIndex, section });
@@ -232,43 +198,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     currentChildren = [];
     currentRecords = [];
     currentStartIndex = -1;
-  }
-
-  function splitAndPopulateFields(node: DataNode): void {
-    let line = node.value;
-
-    // Strip inline comment
-    if (stripInlineComments) {
-      const hashIdx = line.indexOf("#");
-      if (hashIdx !== -1) {
-        line = line.slice(0, hashIdx);
-      }
-    }
-
-    // Detect separator once
-    if (separator === null) {
-      for (const candidate of separators) {
-        if (line.includes(candidate)) {
-          separator = candidate;
-          break;
-        }
-      }
-    }
-
-    // Split into raw field strings
-    const rawParts =
-      separator !== null ? line.split(separator).map((p) => p.trim()) : [line.trim()];
-
-    // Remove trailing empty field
-    if (rawParts.length > 1 && rawParts[rawParts.length - 1] === "") {
-      rawParts.pop();
-    }
-
-    node.parsedFields = rawParts.map((rawValue, idx) => ({
-      name: `field_${idx}`,
-      rawValue,
-      value: autoCoerce ? inferFieldValue(rawValue) : rawValue,
-    }));
   }
 
   for (let i = 0; i < root.children.length; i++) {
@@ -373,7 +302,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
       }
 
       sawBoundarySinceLastData = false;
-      splitAndPopulateFields(node);
       currentChildren.push(node);
       currentRecords.push(node);
       consumed.add(i);
@@ -443,19 +371,11 @@ export function parseDataFileIntoAst(
   };
 
   if (options?.groupSections !== false) {
-    groupSectionsIntoAst(root, options);
+    groupSectionsIntoAst(root);
 
-    // Resolve a file-specific parser and apply named+typed fields
     const fileParser = resolve(root.fileName, root.version);
-    if (fileParser) {
-      const sections = root.children.filter(isSectionNode);
-      applyFileParser(sections, fileParser.fields, fileParser.separator, {
-        trimFields: fileParser.trimFields,
-        stripInlineComments: fileParser.stripInlineComments,
-      });
-      if (fileParser.postProcess) {
-        fileParser.postProcess(sections);
-      }
+    if (fileParser?.postProcess) {
+      fileParser.postProcess(root.children.filter(isSectionNode));
     }
   }
 

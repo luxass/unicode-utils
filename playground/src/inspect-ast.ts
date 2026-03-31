@@ -3,7 +3,7 @@ import { parseArgs } from "node:util";
 
 import { RawDataFile } from "@unicode-utils/parser";
 
-import { formatAst } from "./shared";
+import { formatAst } from "./shared/tree";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,

@@ -43,7 +43,7 @@ console.log(`${"─".repeat(maxNameLen)}  ───────  ─────
 for (const section of sections) {
   const name = section.name.padEnd(maxNameLen);
   const records = String(section.records.length).padStart(7);
-  const missing = String(section.missingAnnotations.length).padStart(8);
+  const missing = String(section.children.filter((c) => c.type === "missing-annotation").length).padStart(8);
   const fields = section.fieldNames?.join(", ") ?? "(generic)";
   console.log(`${name}  ${records}  ${missing}  ${fields}`);
 }

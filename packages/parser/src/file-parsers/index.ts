@@ -1,9 +1,3 @@
-export {
-  applyFileParser,
-  coerceField,
-  expandMissingAnnotations,
-  FieldCoercionError,
-} from "./coerce";
-export * from "./definitions/index";
+export { expandMissingAnnotations } from "./coerce";
 export { resolve } from "./route";
-export type { FieldDef, FieldType, FileParser } from "./types";
+export type { FileParser } from "./types";

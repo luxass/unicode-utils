@@ -3,6 +3,7 @@ import type {
   DataNode,
   ParsedField,
   RootNode,
+  SectionChildNode,
   SectionNode,
 } from "@unicode-utils/parser";
 import {
@@ -12,10 +13,12 @@ import {
   isEmptyCommentNode,
   isEmptyNode,
   isEOFNode,
+  isMissingAnnotationNode,
   isPropertyNode,
   isSectionNode,
   isUnknownNode,
 } from "@unicode-utils/parser";
+import { type Colors, makeColor } from "./colors";
 
 export interface FormatOptions {
   maxRecords?: number;
@@ -23,45 +26,15 @@ export interface FormatOptions {
   colorize?: boolean;
 }
 
-const RESET = "\x1B[0m";
-const DIM = "\x1B[2m";
-const BOLD = "\x1B[1m";
-const CYAN = "\x1B[36m";
-const GREEN = "\x1B[32m";
-const YELLOW = "\x1B[33m";
-const MAGENTA = "\x1B[35m";
-const BLUE = "\x1B[34m";
-const RED = "\x1B[31m";
-
-function makeColor(enabled: boolean) {
-  if (!enabled) {
-    return {
-      dim: (s: string) => s,
-      bold: (s: string) => s,
-      cyan: (s: string) => s,
-      green: (s: string) => s,
-      yellow: (s: string) => s,
-      magenta: (s: string) => s,
-      blue: (s: string) => s,
-      red: (s: string) => s,
-    };
-  }
-  return {
-    dim: (s: string) => `${DIM}${s}${RESET}`,
-    bold: (s: string) => `${BOLD}${s}${RESET}`,
-    cyan: (s: string) => `${CYAN}${s}${RESET}`,
-    green: (s: string) => `${GREEN}${s}${RESET}`,
-    yellow: (s: string) => `${YELLOW}${s}${RESET}`,
-    magenta: (s: string) => `${MAGENTA}${s}${RESET}`,
-    blue: (s: string) => `${BLUE}${s}${RESET}`,
-    red: (s: string) => `${RED}${s}${RESET}`,
-  };
-}
-
 const PIPE = "│   ";
 const TEE = "├── ";
 const ELBOW = "└── ";
 const BLANK = "    ";
+
+function truncate(s: string, max: number): string {
+  if (s.length <= max) return s;
+  return `${s.slice(0, max - 3)}...`;
+}
 
 function formatFieldValue(field: ParsedField): string {
   const val = field.value;
@@ -75,7 +48,7 @@ function formatFieldValue(field: ParsedField): string {
   return String(val);
 }
 
-function formatDataNode(node: DataNode, c: ReturnType<typeof makeColor>, showRaw: boolean): string {
+function formatDataNode(node: DataNode, c: Colors, showRaw: boolean): string {
   if (showRaw || !node.parsedFields || node.parsedFields.length === 0) {
     return `${c.green("DataNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 80))}`;
   }
@@ -85,7 +58,7 @@ function formatDataNode(node: DataNode, c: ReturnType<typeof makeColor>, showRaw
   return `${c.green("DataNode")} ${c.dim(`L${node.line}`)}: ${fields}`;
 }
 
-function formatChildNode(node: ChildNode, c: ReturnType<typeof makeColor>): string {
+function formatChildNode(node: SectionChildNode, c: Colors): string {
   if (isCommentNode(node)) {
     return `${c.cyan("CommentNode")} ${c.dim(`L${node.line}`)}: ${c.dim(`"${truncate(node.value, 60)}"`)}`;
   }
@@ -107,20 +80,15 @@ function formatChildNode(node: ChildNode, c: ReturnType<typeof makeColor>): stri
   if (isUnknownNode(node)) {
     return `${c.red("UnknownNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
   }
-  if (isDataNode(node)) {
-    return formatDataNode(node, c, false);
+  if (isMissingAnnotationNode(node)) {
+    return `${c.yellow("MissingAnnotationNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
   }
-  return `${node.type} ${c.dim(`L${node.line}`)}`;
-}
-
-function truncate(s: string, max: number): string {
-  if (s.length <= max) return s;
-  return `${s.slice(0, max - 3)}...`;
+  return formatDataNode(node, c, false);
 }
 
 function formatSectionNode(
   section: SectionNode,
-  c: ReturnType<typeof makeColor>,
+  c: Colors,
   prefix: string,
   isLast: boolean,
   options: Required<FormatOptions>,
@@ -130,24 +98,13 @@ function formatSectionNode(
   const childPrefix = prefix + (isLast ? BLANK : PIPE);
 
   const recordCount = section.records.length;
-  const missingCount = section.missingAnnotations.length;
-  let header = `${c.bold(c.magenta("SectionNode"))} ${c.bold(`"${section.name}"`)} (${recordCount} record${recordCount !== 1 ? "s" : ""}`;
-  if (missingCount > 0) {
-    header += `, ${missingCount} @missing`;
-  }
-  header += ")";
+  const header = `${c.bold(c.magenta("SectionNode"))} ${c.bold(`"${section.name}"`)} (${recordCount} record${recordCount !== 1 ? "s" : ""})`;
   lines.push(`${prefix}${connector}${header}`);
 
   const items: string[] = [];
 
   if (section.fieldNames && section.fieldNames.length > 0) {
     items.push(`${c.dim("fields:")} ${section.fieldNames.map((n) => c.blue(n)).join(", ")}`);
-  }
-
-  for (const ann of section.missingAnnotations) {
-    items.push(
-      `${c.yellow("@missing:")} ${ann.start}..${ann.end} ${c.dim("→")} ${ann.defaultPropertyValue}`,
-    );
   }
 
   let dataCount = 0;
@@ -201,7 +158,7 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
 
     if (isSectionNode(child)) {
       lines.push(...formatSectionNode(child, c, "", isLast, resolved));
-    } else {
+    } else if (!isSectionNode(child)) {
       const connector = isLast ? ELBOW : TEE;
       lines.push(`${connector}${formatChildNode(child, c)}`);
     }
