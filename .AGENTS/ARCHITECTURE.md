@@ -10,16 +10,12 @@
 
 @unicode-utils/parser
   └─ @luxass/utils
-  └─ defu
 
 @unicode-utils/core
   └─ @unicode-utils/parser
   └─ @unicode-utils/metadata
   └─ @luxass/utils
-  └─ defu
 ```
-
-There is no `@unicode-utils/schemas` package. Field typing and naming is handled by file-parser definitions inside `@unicode-utils/parser`.
 
 ---
 
