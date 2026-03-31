@@ -16,8 +16,8 @@ The document root. Never appears as a child.
 interface RootNode extends BaseNode {
   type: "root";
   children: ChildNode[]; // SectionNodes + non-consumed structural nodes
-  fileName?: string;     // inferred from heading (e.g. "Scripts")
-  version?:  string;     // inferred from heading (e.g. "16.0.0")
+  fileName?: string; // inferred from heading (e.g. "Scripts")
+  version?: string; // inferred from heading (e.g. "16.0.0")
 }
 ```
 
@@ -27,13 +27,13 @@ A first-class AST node representing a named section of data records. Emitted by 
 
 ```ts
 interface SectionNode extends BaseNode {
-  type:               "section";
-  name:               string;              // first comment line of the section header
-  description:        string;              // remaining header comment lines joined with \n
-  children:           SectionChildNode[];  // ALL consumed nodes in document order
-  records:            DataNode[];          // convenience: DataNodes only (filtered view)
+  type: "section";
+  name: string; // first comment line of the section header
+  description: string; // remaining header comment lines joined with \n
+  children: SectionChildNode[]; // ALL consumed nodes in document order
+  records: DataNode[]; // convenience: DataNodes only (filtered view)
   missingAnnotations: MissingAnnotation[]; // @missing: annotations before section data
-  fieldNames:         string[] | undefined; // set when a FileParser is applied
+  fieldNames: string[] | undefined; // set when a FileParser is applied
 }
 ```
 
@@ -59,7 +59,7 @@ A line composed entirely of repeated `#`, `=`, or `-` characters. Used as visual
 
 ```ts
 interface BoundaryNode extends BaseNode {
-  type:  "boundary";
+  type: "boundary";
   style: BoundaryStyle; // "hash" | "equals" | "dash"
 }
 ```
@@ -70,7 +70,7 @@ A line containing actual Unicode data, with fields separated by `;` or `\t`.
 
 ```ts
 interface DataNode extends BaseNode {
-  type:          "data";
+  type: "data";
   parsedFields?: ParsedField[];
 }
 ```
@@ -91,7 +91,7 @@ A `@<property>: value` line. Rare in practice.
 
 ```ts
 interface PropertyNode extends BaseNode {
-  type:          "property";
+  type: "property";
   propertyValue: string | undefined;
 }
 ```
@@ -108,10 +108,10 @@ All nodes share these fields:
 
 ```ts
 interface BaseNode {
-  type:  NodeType;
-  value: string;   // semantically meaningful content
-  raw:   string;   // exact original line, never modified
-  line:  number;   // 0-based line index in the source file
+  type: NodeType;
+  value: string; // semantically meaningful content
+  raw: string; // exact original line, never modified
+  line: number; // 0-based line index in the source file
 }
 ```
 
@@ -122,8 +122,8 @@ interface BaseNode {
 Nodes that can appear inside a `SectionNode.children` array. Every `ChildNode` type except `SectionNode` itself:
 
 ```ts
-type SectionChildNode
-  = CommentNode
+type SectionChildNode =
+  | CommentNode
   | EmptyCommentNode
   | BoundaryNode
   | DataNode
@@ -138,8 +138,8 @@ type SectionChildNode
 ## ChildNode union
 
 ```ts
-type ChildNode
-  = CommentNode
+type ChildNode =
+  | CommentNode
   | EmptyCommentNode
   | BoundaryNode
   | DataNode
@@ -159,16 +159,16 @@ type ChildNode
 Every node type has a corresponding type guard in `packages/parser/src/datafile/typeguards.ts`:
 
 ```ts
-isCommentNode(node)
-isEmptyCommentNode(node)
-isBoundaryNode(node)
-isDataNode(node)
-isEmptyNode(node)
-isEOFNode(node)
-isPropertyNode(node)
-isUnknownNode(node)
-isRootNode(node)
-isSectionNode(node)
+isCommentNode(node);
+isEmptyCommentNode(node);
+isBoundaryNode(node);
+isDataNode(node);
+isEmptyNode(node);
+isEOFNode(node);
+isPropertyNode(node);
+isUnknownNode(node);
+isRootNode(node);
+isSectionNode(node);
 ```
 
 ---
@@ -177,16 +177,16 @@ isSectionNode(node)
 
 ```ts
 const NodeTypes = {
-  ROOT:          "root",
-  COMMENT:       "comment",
+  ROOT: "root",
+  COMMENT: "comment",
   EMPTY_COMMENT: "empty-comment",
-  BOUNDARY:      "boundary",
-  DATA:          "data",
-  EMPTY:         "empty",
-  EOF:           "eof",
-  PROPERTY:      "property",
-  SECTION:       "section",
-  UNKNOWN:       "unknown",
+  BOUNDARY: "boundary",
+  DATA: "data",
+  EMPTY: "empty",
+  EOF: "eof",
+  PROPERTY: "property",
+  SECTION: "section",
+  UNKNOWN: "unknown",
 } as const;
 ```
 

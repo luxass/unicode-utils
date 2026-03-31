@@ -1,17 +1,21 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
+
 import { NodeTypes } from "../../src/datafile/ast";
 import { parseDataFileIntoAst } from "../../src/datafile/parser";
 
 describe("parser fixtures", () => {
   it("should parse data lines correctly", () => {
-    const result = parseDataFileIntoAst(dedent`
+    const result = parseDataFileIntoAst(
+      dedent`
       0620; KASHMIRI YEH; D; KASHMIRI YEH
       0621; HAMZA; U; No_Joining_Group
       0622; ALEF WITH MADDA ABOVE; R; ALEF
       0623; ALEF WITH HAMZA ABOVE; R; ALEF
       0624; WAW WITH HAMZA ABOVE; R; WAW
-    `, { groupSections: false });
+    `,
+      { groupSections: false },
+    );
 
     expect(result.children).toHaveLength(5);
 
@@ -24,7 +28,8 @@ describe("parser fixtures", () => {
   });
 
   it("should parse advanced data file", () => {
-    const result = parseDataFileIntoAst(dedent`
+    const result = parseDataFileIntoAst(
+      dedent`
       # ArabicShaping-4.1.0.txt
       # Date: 2005-03-17, 15:21:00 PST [KW]
       #
@@ -42,7 +47,9 @@ describe("parser fixtures", () => {
 
       0710; ALAPH; R; ALAPH
       0712; BETH; D; BETH
-    `, { groupSections: false });
+    `,
+      { groupSections: false },
+    );
 
     expect(result.children).toHaveLength(17);
 

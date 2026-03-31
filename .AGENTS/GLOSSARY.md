@@ -15,6 +15,7 @@ Domain terms used throughout `unicode-utils`.
 The comment block at the **top** of a UCD file, before any data. Contains the file name and Unicode version. `inferFileName()` and `inferVersion()` in `packages/parser/src/line-helpers.ts` extract these values from the first comment line and attach them to `RootNode.fileName` and `RootNode.version`.
 
 Example:
+
 ```
 # Scripts-16.0.0.txt
 # Date: 2024-01-01, 00:00:00 GMT [KW]
@@ -26,11 +27,11 @@ Example:
 
 The visual style of a separator line in a UCD file. Detected by `getBoundaryLineStyle()` in `line-helpers.ts`.
 
-| Value | Example line |
-|---|---|
-| `"hash"` | `################` |
+| Value      | Example line       |
+| ---------- | ------------------ |
+| `"hash"`   | `################` |
 | `"equals"` | `================` |
-| `"dash"` | `----------------` |
+| `"dash"`   | `----------------` |
 
 Boundary lines delimit sections within a UCD file.
 
@@ -54,9 +55,9 @@ One field on a `DataNode`, produced after field splitting and optional coercion.
 
 ```ts
 interface ParsedField {
-  name:     string | undefined; // "field_0" (generic) or "range" (FileParser-named)
-  rawValue: string;             // untouched string from splitting the line by separator
-  value:    unknown;            // auto-coerced or FileParser-typed value
+  name: string | undefined; // "field_0" (generic) or "range" (FileParser-named)
+  rawValue: string; // untouched string from splitting the line by separator
+  value: unknown; // auto-coerced or FileParser-typed value
 }
 ```
 
@@ -79,12 +80,12 @@ A per-file definition that tells the parser how to type and name fields for a sp
 
 ```ts
 interface FileParser {
-  fileName:             string;
-  separator:            string;
-  trimFields?:          boolean;
+  fileName: string;
+  separator: string;
+  trimFields?: boolean;
   stripInlineComments?: boolean;
-  fields:               FieldDef[];
-  postProcess?:         (sections: SectionNode[]) => void;
+  fields: FieldDef[];
+  postProcess?: (sections: SectionNode[]) => void;
 }
 ```
 
@@ -98,13 +99,13 @@ One field declaration inside a `FileParser.fields` array.
 
 ```ts
 interface FieldDef {
-  name:           string;
-  type:           FieldType;
-  enumValues?:    string[];
-  nullable?:      boolean;
-  optional?:      boolean;
-  isMultiValue?:  boolean;
-  delimiter?:     string;
+  name: string;
+  type: FieldType;
+  enumValues?: string[];
+  nullable?: boolean;
+  optional?: boolean;
+  isMultiValue?: boolean;
+  delimiter?: string;
 }
 ```
 
@@ -133,16 +134,18 @@ The type a field can be declared as in a `FieldDef`. Drives typed coercion in `c
 A `# @missing:` line in a UCD file that declares the default property value for codepoints not otherwise listed in the file.
 
 Example:
+
 ```
 # @missing: 0000..10FFFF; Unknown
 ```
 
 Parsed into:
+
 ```ts
 interface MissingAnnotation {
-  start:                string; // "0000"
-  end:                  string; // "10FFFF"
-  propertyName?:        string;
+  start: string; // "0000"
+  end: string; // "10FFFF"
+  propertyName?: string;
   defaultPropertyValue: string; // "Unknown"
 }
 ```
@@ -167,7 +170,7 @@ The literal line `# EOF` that appears at the end of some UCD files. Detected by 
 
 High-level wrapper class in `packages/parser/src/datafile/model.ts`. Holds the raw text and parsed AST. Provides `toDataFile()` for an immutable query view and `stringify()` for round-trip serialisation. Can be constructed from a string or fetched from a URL via `RawDataFile.from()`.
 
-**When to use:** When you need to *do things* with the file — parse it, mutate the AST, or stringify it back to UCD text. `RawDataFile` is the mutable owner of the AST.
+**When to use:** When you need to _do things_ with the file — parse it, mutate the AST, or stringify it back to UCD text. `RawDataFile` is the mutable owner of the AST.
 
 ---
 
@@ -175,6 +178,6 @@ High-level wrapper class in `packages/parser/src/datafile/model.ts`. Holds the r
 
 Immutable frozen query view in `packages/parser/src/datafile/data-file.ts`. Created via `rawDataFile.toDataFile()`. Sections and records are frozen. Provides `findSection()`, `findSectionsByName()`, and `recordCount`.
 
-**When to use:** When you only need to *query* the file — read sections and records without any risk of accidental mutation. All arrays are `Object.freeze()`d; attempting to mutate throws at runtime.
+**When to use:** When you only need to _query_ the file — read sections and records without any risk of accidental mutation. All arrays are `Object.freeze()`d; attempting to mutate throws at runtime.
 
 **Choosing between the two:** Use `RawDataFile` when you need to mutate the AST or re-serialize. Convert to `DataFile` once you're done mutating and want a safe, read-only view to pass around.

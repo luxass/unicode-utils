@@ -1,5 +1,5 @@
-import type { FileParser } from "../types";
 import { expandMissingAnnotations } from "../coerce";
+import type { FileParser } from "../types";
 
 export const EAST_ASIAN_WIDTH_PARSER: FileParser = {
   fileName: "EastAsianWidth",

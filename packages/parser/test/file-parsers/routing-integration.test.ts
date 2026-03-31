@@ -1,5 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
+
 import { parseDataFileIntoAst } from "../../src/datafile/parser";
 import { isSectionNode } from "../../src/datafile/typeguards";
 
@@ -95,10 +96,14 @@ describe("routing — named fields via custom data", () => {
     const root = parseDataFileIntoAst(content);
     const section = root.children.filter(isSectionNode)[0]!;
     // First record has no condition_list
-    const firstCondition = section.records[0]!.parsedFields!.find((f) => f.name === "condition_list");
+    const firstCondition = section.records[0]!.parsedFields!.find(
+      (f) => f.name === "condition_list",
+    );
     expect(firstCondition?.value).toBeUndefined();
     // Second record has a condition_list
-    const secondCondition = section.records[1]!.parsedFields!.find((f) => f.name === "condition_list");
+    const secondCondition = section.records[1]!.parsedFields!.find(
+      (f) => f.name === "condition_list",
+    );
     expect(secondCondition?.value).toBe("tr");
   });
 

@@ -1,5 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it, vi } from "vitest";
+
 import { RawDataFile } from "../../src/datafile/model";
 import { isSectionNode } from "../../src/datafile/typeguards";
 
@@ -40,7 +41,9 @@ describe("rawDataFile constructor", () => {
   });
 
   it("accepts an explicit fileName override", () => {
-    const raw = new RawDataFile("# Blocks-16.0.0.txt\n# S\n0000..007F; Basic Latin", { fileName: "Blocks" });
+    const raw = new RawDataFile("# Blocks-16.0.0.txt\n# S\n0000..007F; Basic Latin", {
+      fileName: "Blocks",
+    });
     expect(raw.fileName).toBe("Blocks");
   });
 });
@@ -51,7 +54,9 @@ describe("rawDataFile.from()", () => {
       ok: true,
       text: async () => SCRIPTS_CONTENT,
     });
-    const raw = await RawDataFile.from("https://example.com/Scripts.txt", { fetch: mockFetch as any });
+    const raw = await RawDataFile.from("https://example.com/Scripts.txt", {
+      fetch: mockFetch as any,
+    });
     expect(mockFetch).toHaveBeenCalledOnce();
     expect(raw.fileName).toBe("Scripts");
     expect(raw.version).toBe("16.0.0");
@@ -62,12 +67,16 @@ describe("rawDataFile.from()", () => {
       ok: true,
       text: async () => SCRIPTS_CONTENT,
     });
-    const raw = await RawDataFile.from("https://unicode.org/Public/16.0.0/ucd/Scripts.txt", { fetch: mockFetch as any });
+    const raw = await RawDataFile.from("https://unicode.org/Public/16.0.0/ucd/Scripts.txt", {
+      fetch: mockFetch as any,
+    });
     expect(raw.fileName).toBe("Scripts");
   });
 
   it("throws when the response is not ok", async () => {
-    const mockFetch = vi.fn().mockResolvedValue({ ok: false, status: 404, statusText: "Not Found" });
+    const mockFetch = vi
+      .fn()
+      .mockResolvedValue({ ok: false, status: 404, statusText: "Not Found" });
     await expect(
       RawDataFile.from("https://example.com/Missing.txt", { fetch: mockFetch as any }),
     ).rejects.toThrow("404");

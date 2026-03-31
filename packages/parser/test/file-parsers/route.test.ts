@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { resolve } from "../../src/file-parsers/route";
 
 describe("resolve()", () => {

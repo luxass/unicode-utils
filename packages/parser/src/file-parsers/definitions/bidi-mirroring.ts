@@ -1,5 +1,5 @@
-import type { FileParser } from "../types";
 import { expandMissingAnnotations } from "../coerce";
+import type { FileParser } from "../types";
 
 export const BIDI_MIRRORING_PARSER: FileParser = {
   fileName: "BidiMirroring",

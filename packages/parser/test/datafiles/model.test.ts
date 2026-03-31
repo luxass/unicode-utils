@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { RawDataFile } from "../../src/datafile/model";
 
 // eslint-disable-next-line test/prefer-lowercase-title

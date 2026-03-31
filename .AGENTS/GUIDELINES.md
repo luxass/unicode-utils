@@ -9,6 +9,7 @@ General rules for any AI working on this codebase.
 **Everything is fair game.** File names, directory structure, interfaces, function signatures, class shapes, exports, package layouts — none of it is sacred. If a better design requires renaming, moving, splitting, or deleting existing code, do it.
 
 This includes:
+
 - `packages/parser/src/datafile/` — all files (`ast.ts`, `parser.ts`, `model.ts`, `data-file.ts`, `stringify.ts`, `ast-utils.ts`, `typeguards.ts`)
 - `packages/parser/src/inference/` — all files
 - `packages/parser/src/file-parsers/` — types, route, coerce, all definitions

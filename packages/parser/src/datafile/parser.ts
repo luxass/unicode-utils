@@ -1,14 +1,6 @@
-import type { BoundaryStyle, MissingAnnotation } from "../line-helpers";
-import type {
-  ChildNode,
-  DataNode,
-  Node,
-  RootNode,
-  SectionChildNode,
-  SectionNode,
-} from "./ast";
 import { applyFileParser } from "../file-parsers/coerce";
 import { resolve } from "../file-parsers/route";
+import type { BoundaryStyle, MissingAnnotation } from "../line-helpers";
 import {
   getBoundaryLineStyle,
   getPropertyValue,
@@ -24,6 +16,7 @@ import {
   parseMissingAnnotation,
   trimCommentLine,
 } from "../line-helpers";
+import type { ChildNode, DataNode, Node, RootNode, SectionChildNode, SectionNode } from "./ast";
 import { NodeTypes } from "./ast";
 import {
   isBoundaryNode,
@@ -256,9 +249,8 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     }
 
     // Split into raw field strings
-    const rawParts = separator !== null
-      ? line.split(separator).map((p) => p.trim())
-      : [line.trim()];
+    const rawParts =
+      separator !== null ? line.split(separator).map((p) => p.trim()) : [line.trim()];
 
     // Remove trailing empty field
     if (rawParts.length > 1 && rawParts[rawParts.length - 1] === "") {
@@ -382,7 +374,10 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
 
   for (let i = 0; i < root.children.length; i++) {
     // Insert any sections that should appear before this index
-    while (insertionIdx < sectionInsertions.length && sectionInsertions[insertionIdx]!.beforeIndex <= i) {
+    while (
+      insertionIdx < sectionInsertions.length &&
+      sectionInsertions[insertionIdx]!.beforeIndex <= i
+    ) {
       newChildren.push(sectionInsertions[insertionIdx]!.section);
       insertionIdx++;
     }
@@ -418,14 +413,10 @@ export function parseDataFileIntoAst(
   content: string,
   optionsOrFileName?: string | ParseAstOptions,
 ): RootNode {
-  const options: ParseAstOptions | undefined
-    = typeof optionsOrFileName === "string"
-      ? { fileName: optionsOrFileName }
-      : optionsOrFileName;
+  const options: ParseAstOptions | undefined =
+    typeof optionsOrFileName === "string" ? { fileName: optionsOrFileName } : optionsOrFileName;
 
-  const children = content
-    .split(/\r?\n/)
-    .map((line, index) => createNode(line, index));
+  const children = content.split(/\r?\n/).map((line, index) => createNode(line, index));
 
   const root: RootNode = {
     type: NodeTypes.ROOT,

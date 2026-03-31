@@ -1,8 +1,5 @@
 import { createTsdownConfig } from "@unicode-utils-tooling/tsdown-config";
 
 export default createTsdownConfig({
-  entry: [
-    "./src/index.ts",
-    "./src/constants.ts",
-  ],
+  entry: ["./src/index.ts"],
 });

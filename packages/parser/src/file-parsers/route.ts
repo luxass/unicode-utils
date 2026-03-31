@@ -1,4 +1,3 @@
-import type { FileParser } from "./types";
 import {
   ARABIC_SHAPING_PARSER,
   BIDI_BRACKETS_PARSER,
@@ -21,6 +20,7 @@ import {
   SPECIAL_CASING_PARSER,
   UNICODE_DATA_PARSER,
 } from "./definitions/index";
+import type { FileParser } from "./types";
 
 /**
  * Lookup map from normalised fileName to FileParser.

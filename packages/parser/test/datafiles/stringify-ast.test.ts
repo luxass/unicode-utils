@@ -1,6 +1,7 @@
-import type { SectionNode } from "../../src/datafile/ast";
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
+
+import type { SectionNode } from "../../src/datafile/ast";
 import { parseDataFileIntoAst } from "../../src/datafile/parser";
 import { stringifyAst } from "../../src/datafile/stringify";
 import { isSectionNode } from "../../src/datafile/typeguards";

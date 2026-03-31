@@ -65,19 +65,24 @@ import { mapUCDFiles } from "../../__utils";
 const ucdFiles = await mapUCDFiles("${version}");
 
 describe("heading inference ${formattedVersion}", async () => {
-  ${Object.entries(files
-    .filter((file) => !file.endsWith(".comments.txt"))
-    .reduce((acc, filePath) => {
-      const fileName = filePath.replace(`${versionDir}/`, "");
-      const parsed = path.parse(fileName);
-      const dirPath = parsed.dir;
+  ${Object.entries(
+    files
+      .filter((file) => !file.endsWith(".comments.txt"))
+      .reduce(
+        (acc, filePath) => {
+          const fileName = filePath.replace(`${versionDir}/`, "");
+          const parsed = path.parse(fileName);
+          const dirPath = parsed.dir;
 
-      if (!acc[dirPath]) {
-        acc[dirPath] = [];
-      }
-      acc[dirPath].push(fileName);
-      return acc;
-    }, {} as Record<string, string[]>))
+          if (!acc[dirPath]) {
+            acc[dirPath] = [];
+          }
+          acc[dirPath].push(fileName);
+          return acc;
+        },
+        {} as Record<string, string[]>,
+      ),
+  )
     .map(([dirPath, fileNames]) => {
       // split directory path into segments for nested describes
       const dirSegments = dirPath.split("/").filter(Boolean);
@@ -127,7 +132,11 @@ ${content}
   });
 });\n`;
 
-    const outputPath = join(process.cwd(), "packages/parser/test/inference/generated", `heading-${formattedVersion}.test.ts`);
+    const outputPath = join(
+      process.cwd(),
+      "packages/parser/test/inference/generated",
+      `heading-${formattedVersion}.test.ts`,
+    );
     console.log(`Test file generated: heading-${formattedVersion}.test.ts`);
     writeFile(outputPath, content, "utf-8");
   });

@@ -1,5 +1,5 @@
-import type { FileParser } from "../types";
 import { expandMissingAnnotations } from "../coerce";
+import type { FileParser } from "../types";
 
 export const HANGUL_SYLLABLE_TYPE_PARSER: FileParser = {
   fileName: "HangulSyllableType",

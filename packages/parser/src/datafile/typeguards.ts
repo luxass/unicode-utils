@@ -35,16 +35,16 @@ import type {
  */
 export function isNode(node: unknown): node is Node {
   return (
-    typeof node === "object"
-    && node !== null
-    && "type" in node
-    && typeof (node as Node).type === "string"
-    && "raw" in node
-    && typeof (node as Node).raw === "string"
-    && "line" in node
-    && typeof (node as Node).line === "number"
-    && "value" in node
-    && typeof (node as Node).value === "string"
+    typeof node === "object" &&
+    node !== null &&
+    "type" in node &&
+    typeof (node as Node).type === "string" &&
+    "raw" in node &&
+    typeof (node as Node).raw === "string" &&
+    "line" in node &&
+    typeof (node as Node).line === "number" &&
+    "value" in node &&
+    typeof (node as Node).value === "string"
   );
 }
 

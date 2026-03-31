@@ -13,7 +13,7 @@ export const NodeTypes = {
   UNKNOWN: "unknown",
 } as const;
 
-export type NodeType = typeof NodeTypes[keyof typeof NodeTypes];
+export type NodeType = (typeof NodeTypes)[keyof typeof NodeTypes];
 
 export interface BaseNode {
   type: NodeType;
@@ -85,15 +85,15 @@ export interface EOFNode extends BaseNode {
  * Nodes that can appear inside a SectionNode's children array.
  * This is every ChildNode type except SectionNode itself.
  */
-export type SectionChildNode
-  = | CommentNode
-    | EmptyCommentNode
-    | BoundaryNode
-    | DataNode
-    | EmptyNode
-    | EOFNode
-    | PropertyNode
-    | UnknownNode;
+export type SectionChildNode =
+  | CommentNode
+  | EmptyCommentNode
+  | BoundaryNode
+  | DataNode
+  | EmptyNode
+  | EOFNode
+  | PropertyNode
+  | UnknownNode;
 
 /**
  * A first-class AST node representing a named section of data records.
@@ -136,15 +136,15 @@ export interface UnknownNode extends BaseNode {
 }
 
 // All node types except root
-export type ChildNode
-  = | CommentNode
-    | EmptyCommentNode
-    | BoundaryNode
-    | DataNode
-    | EmptyNode
-    | EOFNode
-    | PropertyNode
-    | SectionNode
-    | UnknownNode;
+export type ChildNode =
+  | CommentNode
+  | EmptyCommentNode
+  | BoundaryNode
+  | DataNode
+  | EmptyNode
+  | EOFNode
+  | PropertyNode
+  | SectionNode
+  | UnknownNode;
 
 export type Node = RootNode | ChildNode;

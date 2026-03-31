@@ -11,10 +11,7 @@ export {
 export { DataFile } from "./datafile/data-file";
 export { RawDataFile } from "./datafile/model";
 export { type ParseAstOptions, parseDataFileIntoAst } from "./datafile/parser";
-export {
-  stringifyAst,
-  type StringifySectionsOptions,
-} from "./datafile/stringify";
+export { stringifyAst, type StringifySectionsOptions } from "./datafile/stringify";
 export * from "./datafile/typeguards";
 export { coerceField, FieldCoercionError } from "./file-parsers/coerce";
 export { resolve as resolveFileParser } from "./file-parsers/route";

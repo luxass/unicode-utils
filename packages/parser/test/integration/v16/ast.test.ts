@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { parseDataFileIntoAst } from "../../../src/datafile/parser";
 import { isSectionNode } from "../../../src/datafile/typeguards";
 import { ucdFiles } from "../../__utils";
@@ -44,9 +45,7 @@ const DATA_FILES = [
   "VerticalOrientation.txt",
 ];
 
-const COMMENT_ONLY_FILES = [
-  "NamedSequencesProv.txt",
-];
+const COMMENT_ONLY_FILES = ["NamedSequencesProv.txt"];
 
 describe("v16.0.0 — parse without throwing", () => {
   it.each([...DATA_FILES, ...COMMENT_ONLY_FILES])("%s", (file) => {

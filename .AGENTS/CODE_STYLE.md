@@ -13,13 +13,13 @@
 
 ## Naming conventions
 
-| Thing | Convention | Example |
-|---|---|---|
-| Types / interfaces | PascalCase | `SectionNode`, `DataNode`, `FileParser` |
-| Functions | camelCase, verb-first | `parseDataFileIntoAst`, `findSection` |
-| Constants | ALL_CAPS | `NodeTypes`, `HEX_RANGE_RE` |
-| Parameters | Full descriptive names, no abbreviations | `startIndex` not `si`, `nodeType` not `nt` |
-| Files | kebab-case | `ast-utils.ts`, `line-helpers.ts` |
+| Thing              | Convention                               | Example                                    |
+| ------------------ | ---------------------------------------- | ------------------------------------------ |
+| Types / interfaces | PascalCase                               | `SectionNode`, `DataNode`, `FileParser`    |
+| Functions          | camelCase, verb-first                    | `parseDataFileIntoAst`, `findSection`      |
+| Constants          | ALL_CAPS                                 | `NodeTypes`, `HEX_RANGE_RE`                |
+| Parameters         | Full descriptive names, no abbreviations | `startIndex` not `si`, `nodeType` not `nt` |
+| Files              | kebab-case                               | `ast-utils.ts`, `line-helpers.ts`          |
 
 ---
 
@@ -29,13 +29,13 @@ Use `as const` objects to define string-literal sets, then derive the union type
 
 ```ts
 export const NodeTypes = {
-  ROOT:    "root",
+  ROOT: "root",
   COMMENT: "comment",
   SECTION: "section",
   // ...
 } as const;
 
-export type NodeType = typeof NodeTypes[keyof typeof NodeTypes];
+export type NodeType = (typeof NodeTypes)[keyof typeof NodeTypes];
 ```
 
 ---
@@ -46,9 +46,9 @@ Use `satisfies` when you want TypeScript to validate an object's shape against a
 
 ```ts
 const NODE_TYPE_CHECKERS = {
-  "comment":       isCommentNode,
+  comment: isCommentNode,
   "empty-comment": isEmptyCommentNode,
-  "section":       isSectionNode,
+  section: isSectionNode,
   // ...
 } satisfies Record<ChildNode["type"], (node: ChildNode) => boolean>;
 ```

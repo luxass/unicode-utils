@@ -1,5 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
+
 import { parseDataFileIntoAst } from "../../src/datafile/parser";
 import { isCommentNode, isEOFNode, isSectionNode } from "../../src/datafile/typeguards";
 

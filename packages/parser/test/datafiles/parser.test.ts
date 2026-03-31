@@ -1,6 +1,7 @@
-import type { PropertyNode } from "../../src/datafile/ast";
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
+
+import type { PropertyNode } from "../../src/datafile/ast";
 import { NodeTypes } from "../../src/datafile/ast";
 import { parseDataFileIntoAst, stringifyNode, stringifyNodes } from "../../src/datafile/parser";
 
@@ -29,12 +30,7 @@ describe("parseDataFileIntoAst (flat mode)", () => {
     {
       description: "multiple lines mixed",
       content: "# Header\n\n0600; DATA; U; Group\n# Footer",
-      expectedChildTypes: [
-        NodeTypes.COMMENT,
-        NodeTypes.EMPTY,
-        NodeTypes.DATA,
-        NodeTypes.COMMENT,
-      ],
+      expectedChildTypes: [NodeTypes.COMMENT, NodeTypes.EMPTY, NodeTypes.DATA, NodeTypes.COMMENT],
     },
   ])("should correctly parse $description", ({ content, expectedChildTypes }) => {
     const result = parseDataFileIntoAst(content, { groupSections: false });

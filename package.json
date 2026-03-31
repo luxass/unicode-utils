@@ -1,35 +1,40 @@
 {
   "name": "unicode-utils-monorepo",
-  "type": "module",
   "private": true,
+  "homepage": "https://github.com/luxass/unicode-utils#readme",
+  "bugs": "https://github.com/luxass/unicode-utils/issues",
+  "license": "MIT",
   "author": {
     "name": "Lucas Nørgård",
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.30.2",
-  "license": "MIT",
-  "homepage": "https://github.com/luxass/unicode-utils#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git"
   },
-  "bugs": "https://github.com/luxass/unicode-utils/issues",
+  "type": "module",
   "scripts": {
     "build": "turbo run build --filter \"./packages/*\" --concurrency=15",
     "clean": "turbo run clean && git clean -xdf node_modules",
     "dev": "turbo watch dev --filter \"./packages/*\"",
-    "lint": "turbo run lint",
-    "test": "vitest run",
     "typecheck": "turbo run typecheck",
+    "test": "vitest run",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
   },
   "devDependencies": {
     "@types/node": "catalog:types",
-    "@vitest/coverage-v8": "catalog:testing",
+    "oxfmt": "catalog:dev",
+    "oxlint": "catalog:dev",
     "tsx": "catalog:dev",
     "turbo": "catalog:dev",
     "typescript": "catalog:dev",
-    "vitest": "catalog:testing"
-  }
+    "vitest": "catalog:testing",
+    "oxlint-tsgolint": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.33.0"
 }

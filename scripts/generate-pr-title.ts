@@ -36,7 +36,7 @@ async function run() {
   const response = await fetch("https://models.github.ai/inference/chat/completions", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${process.env.GITHUB_TOKEN}`,
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -70,10 +70,7 @@ async function run() {
               },
             },
             additionalProperties: false,
-            required: [
-              "type",
-              "message",
-            ],
+            required: ["type", "message"],
           },
         },
       },
@@ -82,10 +79,12 @@ async function run() {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`GitHub Models API request failed: ${response.status} ${response.statusText}\n${errorText}`);
+    throw new Error(
+      `GitHub Models API request failed: ${response.status} ${response.statusText}\n${errorText}`,
+    );
   }
 
-  const data = await response.json() as {
+  const data = (await response.json()) as {
     choices: {
       message: {
         content: string;

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { coerceField, FieldCoercionError } from "../../src/file-parsers/coerce";
 
 describe("coerceField", () => {
@@ -11,8 +12,9 @@ describe("coerceField", () => {
   });
 
   it("throws FieldCoercionError for invalid codepoint", () => {
-    expect(() => coerceField("ZZZZ", { name: "cp", type: "codepoint" }))
-      .toThrow(FieldCoercionError);
+    expect(() => coerceField("ZZZZ", { name: "cp", type: "codepoint" })).toThrow(
+      FieldCoercionError,
+    );
   });
 
   it("coerces a hex range to { start, end }", () => {
@@ -25,8 +27,10 @@ describe("coerceField", () => {
   });
 
   it("coerces codepoint-or-range: range", () => {
-    expect(coerceField("0000..007F", { name: "r", type: "codepoint-or-range" }))
-      .toEqual({ start: "0000", end: "007F" });
+    expect(coerceField("0000..007F", { name: "r", type: "codepoint-or-range" })).toEqual({
+      start: "0000",
+      end: "007F",
+    });
   });
 
   it("coerces string-trimmed", () => {
@@ -38,8 +42,7 @@ describe("coerceField", () => {
   });
 
   it("throws for empty number", () => {
-    expect(() => coerceField("", { name: "n", type: "number" }))
-      .toThrow(FieldCoercionError);
+    expect(() => coerceField("", { name: "n", type: "number" })).toThrow(FieldCoercionError);
   });
 
   it("coerces valid enum value", () => {
@@ -47,8 +50,9 @@ describe("coerceField", () => {
   });
 
   it("throws FieldCoercionError for invalid enum value", () => {
-    expect(() => coerceField("x", { name: "bt", type: "enum", enumValues: ["o", "c", "n"] }))
-      .toThrow(FieldCoercionError);
+    expect(() =>
+      coerceField("x", { name: "bt", type: "enum", enumValues: ["o", "c", "n"] }),
+    ).toThrow(FieldCoercionError);
   });
 
   it("coerces optional-string: non-empty", () => {
@@ -60,18 +64,26 @@ describe("coerceField", () => {
   });
 
   it("coerces multi-codepoint as space-delimited array", () => {
-    expect(coerceField("0041 0042 0043", { name: "m", type: "multi-codepoint" }))
-      .toEqual(["0041", "0042", "0043"]);
+    expect(coerceField("0041 0042 0043", { name: "m", type: "multi-codepoint" })).toEqual([
+      "0041",
+      "0042",
+      "0043",
+    ]);
   });
 
   it("handles nullable: empty string → undefined", () => {
-    expect(coerceField("", { name: "s", type: "string-trimmed", nullable: true }))
-      .toBeUndefined();
+    expect(coerceField("", { name: "s", type: "string-trimmed", nullable: true })).toBeUndefined();
   });
 
   it("handles isMultiValue flag", () => {
-    expect(coerceField("0041 0042", { name: "m", type: "codepoint", isMultiValue: true, delimiter: " " }))
-      .toEqual(["0041", "0042"]);
+    expect(
+      coerceField("0041 0042", {
+        name: "m",
+        type: "codepoint",
+        isMultiValue: true,
+        delimiter: " ",
+      }),
+    ).toEqual(["0041", "0042"]);
   });
 
   it("string type returns raw (untrimmed)", () => {

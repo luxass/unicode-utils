@@ -1,6 +1,7 @@
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
+
 import { dedent } from "@luxass/utils";
 
 function getEnvVar(name: string): string | undefined {
@@ -8,7 +9,7 @@ function getEnvVar(name: string): string | undefined {
 }
 
 const propertyDocs: Record<string, string> = {
-  version: "The Unicode version number.\nFor example, \"17.0.0\".",
+  version: 'The Unicode version number.\nFor example, "17.0.0".',
   documentationUrl: "The URL to the official Unicode documentation for this version.",
   date: "The release date of this version.",
   url: "The URL to the official Unicode data files for this version.",
@@ -17,11 +18,14 @@ const propertyDocs: Record<string, string> = {
 };
 
 const propertyKeys: string[] = [];
-const interfaceProperties = new Map<string, {
-  types: Set<string>;
-  hasNull: boolean;
-  comment?: string;
-}>();
+const interfaceProperties = new Map<
+  string,
+  {
+    types: Set<string>;
+    hasNull: boolean;
+    comment?: string;
+  }
+>();
 
 async function run() {
   const dir = new URL("..", import.meta.url).pathname;
@@ -65,8 +69,7 @@ async function run() {
 
   try {
     await unlink(join(dataDir, "unicode-version-metadata.json"));
-  } catch {
-  }
+  } catch {}
 
   for (const releaseObj of ALL_RELEASES) {
     if (typeof releaseObj !== "object" || releaseObj == null) {
@@ -75,7 +78,11 @@ async function run() {
 
     for (const [key, value] of Object.entries(releaseObj)) {
       if (!interfaceProperties.has(key)) {
-        interfaceProperties.set(key, { types: new Set(), hasNull: false, comment: propertyDocs[key] });
+        interfaceProperties.set(key, {
+          types: new Set(),
+          hasNull: false,
+          comment: propertyDocs[key],
+        });
         propertyKeys.push(key);
       }
 
@@ -92,11 +99,11 @@ async function run() {
 
           // Ensure that both "stable" and "draft" are in the type union
           // Since we are inferring types from data, we need to add both possible values
-          if (!prop.types.has("\"stable\"")) {
-            prop.types.add("\"stable\"");
+          if (!prop.types.has('"stable"')) {
+            prop.types.add('"stable"');
           }
-          if (!prop.types.has("\"draft\"")) {
-            prop.types.add("\"draft\"");
+          if (!prop.types.has('"draft"')) {
+            prop.types.add('"draft"');
           }
           continue;
         }
@@ -126,9 +133,7 @@ async function run() {
   }
 
   function mapReleaseObject(releaseObj: Record<string, unknown>): string {
-    const entries = propertyKeys
-      .map((key) => `${key}: ${formatValue(releaseObj[key])}`)
-      .join(", ");
+    const entries = propertyKeys.map((key) => `${key}: ${formatValue(releaseObj[key])}`).join(", ");
     return `{ ${entries} }`;
   }
 

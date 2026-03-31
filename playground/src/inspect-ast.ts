@@ -1,15 +1,17 @@
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
+
 import { RawDataFile } from "@unicode-utils/parser";
+
 import { formatAst } from "./shared";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     "max-records": { type: "string", short: "m", default: "5" },
-    "raw": { type: "boolean", short: "r", default: false },
+    raw: { type: "boolean", short: "r", default: false },
     "no-color": { type: "boolean", default: false },
-    "help": { type: "boolean", short: "h", default: false },
+    help: { type: "boolean", short: "h", default: false },
   },
 });
 

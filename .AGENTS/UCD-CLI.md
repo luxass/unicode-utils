@@ -42,6 +42,7 @@ npx @ucdjs/cli@beta files list .
 ## When to use this
 
 **Before writing a new parser definition** — fetch the actual file and read the first 30–50 lines. Confirm:
+
 - The exact separator (`;` vs `\t`)
 - Whether fields are trimmed or not
 - Whether the file has `# @missing:` annotations

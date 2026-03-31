@@ -1,5 +1,5 @@
-import type { FileParser } from "../types";
 import { expandMissingAnnotations } from "../coerce";
+import type { FileParser } from "../types";
 
 export const SCRIPT_EXTENSIONS_PARSER: FileParser = {
   fileName: "ScriptExtensions",

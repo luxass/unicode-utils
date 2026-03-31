@@ -7,10 +7,7 @@ import { UNICODE_TO_UCD_VERSION_MAPPINGS } from "./mappings";
  * @param {string} path - The filename to access (e.g., "PropList.txt", "DerivedLineBreak.txt")
  * @returns {string} The complete file path for the UCD file
  */
-export function buildUCDPath(
-  version: string,
-  path: string,
-): string {
+export function buildUCDPath(version: string, path: string): string {
   const url = new URL(
     `${version}/${hasUCDFolderPath(version) ? "ucd/" : ""}${path}`,
     "https://www.unicode.org/",

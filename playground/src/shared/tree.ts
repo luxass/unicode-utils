@@ -145,7 +145,9 @@ function formatSectionNode(
   }
 
   for (const ann of section.missingAnnotations) {
-    items.push(`${c.yellow("@missing:")} ${ann.start}..${ann.end} ${c.dim("→")} ${ann.defaultPropertyValue}`);
+    items.push(
+      `${c.yellow("@missing:")} ${ann.start}..${ann.end} ${c.dim("→")} ${ann.defaultPropertyValue}`,
+    );
   }
 
   let dataCount = 0;
@@ -173,7 +175,8 @@ function formatSectionNode(
 }
 
 export function formatAst(root: RootNode, options?: FormatOptions): string {
-  const colorize = options?.colorize ?? (typeof process !== "undefined" && process.stdout?.isTTY === true);
+  const colorize =
+    options?.colorize ?? (typeof process !== "undefined" && process.stdout?.isTTY === true);
   const resolved: Required<FormatOptions> = {
     maxRecords: options?.maxRecords ?? 10,
     showRaw: options?.showRaw ?? false,

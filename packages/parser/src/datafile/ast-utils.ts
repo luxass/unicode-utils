@@ -12,15 +12,15 @@ import {
 } from "./typeguards";
 
 const NODE_TYPE_CHECKERS = {
-  "comment": isCommentNode,
+  comment: isCommentNode,
   "empty-comment": isEmptyCommentNode,
-  "boundary": isBoundaryNode,
-  "data": isDataNode,
-  "empty": isEmptyNode,
-  "unknown": isUnknownNode,
-  "eof": isEOFNode,
-  "property": isPropertyNode,
-  "section": isSectionNode,
+  boundary: isBoundaryNode,
+  data: isDataNode,
+  empty: isEmptyNode,
+  unknown: isUnknownNode,
+  eof: isEOFNode,
+  property: isPropertyNode,
+  section: isSectionNode,
 } satisfies Record<ChildNode["type"], (node: ChildNode) => boolean>;
 
 /**
@@ -30,11 +30,7 @@ const NODE_TYPE_CHECKERS = {
  * @param {number} count - Number of nodes to check
  * @returns {boolean} true if the next N nodes are all comment nodes, false otherwise
  */
-export function hasNextNCommentsFrom(
-  root: RootNode,
-  startIndex: number,
-  count: number,
-): boolean {
+export function hasNextNCommentsFrom(root: RootNode, startIndex: number, count: number): boolean {
   if (startIndex < 0 || count <= 0) return false;
   if (startIndex + count > root.children.length) return false;
 
@@ -53,11 +49,7 @@ export function hasNextNCommentsFrom(
  * @param {number} count - Number of nodes to check after the current node
  * @returns {boolean} true if the next N nodes are all comment nodes, false otherwise
  */
-export function hasNextNComments(
-  root: RootNode,
-  currentNode: ChildNode,
-  count: number,
-): boolean {
+export function hasNextNComments(root: RootNode, currentNode: ChildNode, count: number): boolean {
   const currentIndex = root.children.indexOf(currentNode);
   if (currentIndex === -1) return false;
 
@@ -71,11 +63,7 @@ export function hasNextNComments(
  * @param {number} count - Number of nodes to check backwards
  * @returns {boolean} true if the previous N nodes are all comment nodes, false otherwise
  */
-export function hasPrevNCommentsFrom(
-  root: RootNode,
-  startIndex: number,
-  count: number,
-): boolean {
+export function hasPrevNCommentsFrom(root: RootNode, startIndex: number, count: number): boolean {
   if (startIndex >= root.children.length || count <= 0) return false;
   if (startIndex - count + 1 < 0) return false;
 
@@ -139,9 +127,7 @@ export function hasNodePattern(
     const expectedType = pattern[i];
 
     if (expectedType == null) {
-      throw new Error(
-        `Invalid node type at index ${i} in pattern: ${JSON.stringify(pattern)}`,
-      );
+      throw new Error(`Invalid node type at index ${i} in pattern: ${JSON.stringify(pattern)}`);
     }
 
     const checker = NODE_TYPE_CHECKERS[expectedType];
@@ -159,10 +145,7 @@ export function hasNodePattern(
  * @param {ChildNode["type"][]} pattern - Array of node types to search for
  * @returns {number} The index of the first occurrence, or -1 if not found
  */
-export function findNodePattern(
-  root: RootNode,
-  pattern: ChildNode["type"][],
-): number {
+export function findNodePattern(root: RootNode, pattern: ChildNode["type"][]): number {
   if (pattern.length === 0) return 0;
 
   for (let i = 0; i <= root.children.length - pattern.length; i++) {
@@ -179,10 +162,7 @@ export function findNodePattern(
  * @param {ChildNode["type"][]} sequence - Array of node types that should appear at the beginning
  * @returns {boolean} true if the root starts with the sequence, false otherwise
  */
-export function startsWithSequence(
-  root: RootNode,
-  sequence: ChildNode["type"][],
-): boolean {
+export function startsWithSequence(root: RootNode, sequence: ChildNode["type"][]): boolean {
   return hasNodePattern(root, sequence, 0);
 }
 
@@ -192,10 +172,7 @@ export function startsWithSequence(
  * @param {ChildNode["type"][]} sequence - Array of node types that should appear at the end
  * @returns {boolean} true if the root ends with the sequence, false otherwise
  */
-export function endsWithSequence(
-  root: RootNode,
-  sequence: ChildNode["type"][],
-): boolean {
+export function endsWithSequence(root: RootNode, sequence: ChildNode["type"][]): boolean {
   if (sequence.length === 0) return true;
   if (sequence.length > root.children.length) return false;
 
@@ -234,10 +211,7 @@ export function hasMinNodesOfType(
  * @param {ChildNode["type"]} nodeType - The type of node to check for
  * @returns {boolean} true if all nodes are of the specified type, false otherwise
  */
-export function allNodesAreOfType(
-  root: RootNode,
-  nodeType: ChildNode["type"],
-): boolean {
+export function allNodesAreOfType(root: RootNode, nodeType: ChildNode["type"]): boolean {
   if (root.children.length === 0) return false;
 
   const checker = NODE_TYPE_CHECKERS[nodeType];
@@ -252,9 +226,7 @@ export function allNodesAreOfType(
  * @returns {boolean} true if the root contains only comments and empty nodes
  */
 export function isCommentOnlyDocument(root: RootNode): boolean {
-  return root.children.every((child) =>
-    isCommentNode(child) || isEmptyNode(child),
-  );
+  return root.children.every((child) => isCommentNode(child) || isEmptyNode(child));
 }
 
 /**
@@ -316,10 +288,7 @@ export function visit(root: RootNode, callback: VisitCallback): void {
  * Requires parsedFields to be populated.
  * Returns undefined when field is not found or parsedFields is absent.
  */
-export function getFieldValue(
-  record: DataNode,
-  fieldName: string,
-): unknown | undefined {
+export function getFieldValue(record: DataNode, fieldName: string): unknown | undefined {
   return record.parsedFields?.find((f) => f.name === fieldName)?.value;
 }
 
@@ -327,11 +296,7 @@ export function getFieldValue(
  * Update a field value on a DataNode.
  * Does NOT change rawValue — stringify uses value when present, rawValue as fallback.
  */
-export function setFieldValue(
-  record: DataNode,
-  fieldIndex: number,
-  newValue: unknown,
-): void {
+export function setFieldValue(record: DataNode, fieldIndex: number, newValue: unknown): void {
   if (!record.parsedFields || fieldIndex >= record.parsedFields.length) return;
   record.parsedFields[fieldIndex]!.value = newValue;
 }
@@ -350,7 +315,9 @@ export function findSection(root: RootNode, name: string): SectionNode | undefin
 
 /** Find SectionNodes whose name contains a substring (case-sensitive). */
 export function findSectionsByName(root: RootNode, substring: string): SectionNode[] {
-  return root.children.filter((c): c is SectionNode => isSectionNode(c) && c.name.includes(substring));
+  return root.children.filter(
+    (c): c is SectionNode => isSectionNode(c) && c.name.includes(substring),
+  );
 }
 
 /** Total record count across all SectionNodes. */

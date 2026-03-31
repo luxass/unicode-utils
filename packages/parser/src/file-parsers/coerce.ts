@@ -6,12 +6,7 @@ export class FieldCoercionError extends Error {
   readonly rawValue: string;
   readonly expectedType: string;
 
-  constructor(
-    fieldName: string,
-    rawValue: string,
-    expectedType: string,
-    message: string,
-  ) {
+  constructor(fieldName: string, rawValue: string, expectedType: string, message: string) {
     super(message);
     this.name = "FieldCoercionError";
     this.fieldName = fieldName;
@@ -36,7 +31,12 @@ function coerceSingle(raw: string, def: FieldDef): unknown {
 
     case "codepoint-range": {
       if (!HEX_RANGE_RE.test(trimmed)) {
-        throw new FieldCoercionError(def.name, raw, "codepoint-range", `Invalid codepoint range: "${trimmed}"`);
+        throw new FieldCoercionError(
+          def.name,
+          raw,
+          "codepoint-range",
+          `Invalid codepoint range: "${trimmed}"`,
+        );
       }
       const [start, end] = trimmed.split("..");
       return { start: start!.toUpperCase(), end: end!.toUpperCase() };
@@ -50,7 +50,12 @@ function coerceSingle(raw: string, def: FieldDef): unknown {
       if (HEX_RE.test(trimmed)) {
         return trimmed.toUpperCase();
       }
-      throw new FieldCoercionError(def.name, raw, "codepoint-or-range", `Invalid codepoint or range: "${trimmed}"`);
+      throw new FieldCoercionError(
+        def.name,
+        raw,
+        "codepoint-or-range",
+        `Invalid codepoint or range: "${trimmed}"`,
+      );
     }
 
     case "string":
@@ -93,7 +98,12 @@ function coerceSingle(raw: string, def: FieldDef): unknown {
       return parts.map((part) => {
         const p = part.trim();
         if (!HEX_RE.test(p)) {
-          throw new FieldCoercionError(def.name, raw, "multi-codepoint", `Invalid codepoint in multi-value: "${p}"`);
+          throw new FieldCoercionError(
+            def.name,
+            raw,
+            "multi-codepoint",
+            `Invalid codepoint in multi-value: "${p}"`,
+          );
         }
         return p.toUpperCase();
       });
@@ -112,7 +122,10 @@ function coerceSingle(raw: string, def: FieldDef): unknown {
 export function coerceField(raw: string, def: FieldDef): unknown {
   if (def.isMultiValue) {
     const delimiter = def.delimiter ?? " ";
-    const parts = raw.trim().split(delimiter).filter((p) => p.length > 0);
+    const parts = raw
+      .trim()
+      .split(delimiter)
+      .filter((p) => p.length > 0);
     return parts.map((part) => coerceSingle(part.trim(), { ...def, isMultiValue: false }));
   }
 
@@ -278,10 +291,7 @@ function getStartCodepoint(value: unknown): number {
  * Expands @missing annotations into synthetic DataNodes to fill codepoint gaps.
  * Mutates the section in place.
  */
-export function expandMissingAnnotations(
-  section: SectionNode,
-  fields: FieldDef[],
-): void {
+export function expandMissingAnnotations(section: SectionNode, fields: FieldDef[]): void {
   if (section.missingAnnotations.length === 0) return;
 
   const covered = mergeRanges(extractCoveredRanges(section));

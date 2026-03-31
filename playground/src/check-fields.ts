@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
+
 import { isSectionNode, RawDataFile } from "@unicode-utils/parser";
 
 const { values, positionals } = parseArgs({
@@ -46,9 +47,10 @@ for (const section of sections) {
   if (first?.parsedFields) {
     console.log("   example:");
     for (const field of first.parsedFields) {
-      const val = typeof field.value === "object" && field.value !== null
-        ? JSON.stringify(field.value)
-        : String(field.value);
+      const val =
+        typeof field.value === "object" && field.value !== null
+          ? JSON.stringify(field.value)
+          : String(field.value);
       console.log(`     ${field.name}: ${val} (raw: "${field.rawValue}")`);
     }
   }

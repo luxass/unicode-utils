@@ -1,5 +1,6 @@
-import type { ChildNode, RootNode } from "../../src/datafile/ast";
 import { describe, expect, it } from "vitest";
+
+import type { ChildNode, RootNode } from "../../src/datafile/ast";
 import {
   allNodesAreOfType,
   endsWithSequence,
@@ -125,7 +126,8 @@ describe("ast-utils", () => {
       },
     ])("$description", ({ childTypes, currentNodeIndex, count, expected }) => {
       const root = createRoot(childTypes);
-      const currentNode = currentNodeIndex >= 0 ? root.children[currentNodeIndex] : createNode("data", "not_in_root");
+      const currentNode =
+        currentNodeIndex >= 0 ? root.children[currentNodeIndex] : createNode("data", "not_in_root");
       expect(hasNextNComments(root, currentNode!, count)).toBe(expected);
     });
   });
@@ -512,13 +514,7 @@ describe("ast-utils", () => {
     });
 
     it("should handle comment-only file", () => {
-      const root = createRoot([
-        "comment",
-        "empty",
-        "comment",
-        "comment",
-        "empty",
-      ]);
+      const root = createRoot(["comment", "empty", "comment", "comment", "empty"]);
 
       expect(isCommentOnlyDocument(root)).toBe(true);
       expect(allNodesAreOfType(root, "comment")).toBe(false);

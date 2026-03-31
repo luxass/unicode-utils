@@ -5,7 +5,5 @@ export const COMPOSITION_EXCLUSIONS_PARSER: FileParser = {
   separator: ";",
   trimFields: true,
   stripInlineComments: true,
-  fields: [
-    { name: "codepoint", type: "codepoint" },
-  ],
+  fields: [{ name: "codepoint", type: "codepoint" }],
 };

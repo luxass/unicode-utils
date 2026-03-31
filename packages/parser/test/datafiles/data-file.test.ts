@@ -1,5 +1,6 @@
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
+
 import { RawDataFile } from "../../src/datafile/model";
 
 const CONTENT = dedent`

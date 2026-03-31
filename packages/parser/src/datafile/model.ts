@@ -1,8 +1,8 @@
-import type { RootNode } from "./ast";
-import type { StringifySectionsOptions } from "./stringify";
 import { isEOFMarker } from "../line-helpers";
+import type { RootNode } from "./ast";
 import { DataFile } from "./data-file";
 import { parseDataFileIntoAst } from "./parser";
+import type { StringifySectionsOptions } from "./stringify";
 import { stringifyAst as stringifyAstImpl } from "./stringify";
 
 /**

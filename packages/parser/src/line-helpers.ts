@@ -306,11 +306,14 @@ export function parseMissingAnnotation(line: string): MissingAnnotation | null {
 
   const [_, start, end, defaultPropValueOrPropertyName, defaultPropertyValue] = match;
 
-  const defaultProperty = defaultPropertyValue == null ? defaultPropValueOrPropertyName : defaultPropertyValue;
+  const defaultProperty =
+    defaultPropertyValue == null ? defaultPropValueOrPropertyName : defaultPropertyValue;
   // check if defaultProperty is a valid key before using it as an index
-  const specialTag: SpecialTag | undefined
-    = defaultProperty && defaultProperty in MISSING_ANNOTATION_SPECIAL_TAGS
-      ? MISSING_ANNOTATION_SPECIAL_TAGS[defaultProperty as keyof typeof MISSING_ANNOTATION_SPECIAL_TAGS]
+  const specialTag: SpecialTag | undefined =
+    defaultProperty && defaultProperty in MISSING_ANNOTATION_SPECIAL_TAGS
+      ? MISSING_ANNOTATION_SPECIAL_TAGS[
+          defaultProperty as keyof typeof MISSING_ANNOTATION_SPECIAL_TAGS
+        ]
       : undefined;
 
   if (start == null || end == null || defaultPropValueOrPropertyName == null) {

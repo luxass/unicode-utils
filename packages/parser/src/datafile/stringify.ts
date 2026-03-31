@@ -42,10 +42,7 @@ function fieldToString(value: unknown, rawValue: string): string {
   return rawValue;
 }
 
-function stringifySectionNode(
-  section: SectionNode,
-  options?: StringifySectionsOptions,
-): string {
+function stringifySectionNode(section: SectionNode, options?: StringifySectionsOptions): string {
   const sep = options?.separator ?? "; ";
   const emitMissing = options?.emitMissingAnnotations ?? true;
   const lineEnding = options?.lineEnding ?? "\n";
@@ -69,11 +66,7 @@ function stringifySectionNode(
     if (child.type === "data") {
       const record = child;
       if (record.parsedFields && record.parsedFields.length > 0) {
-        lines.push(
-          record.parsedFields
-            .map((f) => fieldToString(f.value, f.rawValue))
-            .join(sep),
-        );
+        lines.push(record.parsedFields.map((f) => fieldToString(f.value, f.rawValue)).join(sep));
       } else {
         lines.push(record.raw);
       }
@@ -95,10 +88,7 @@ function stringifySectionNode(
  *
  * This is the preferred stringify path when working with the AST directly.
  */
-export function stringifyAst(
-  root: RootNode,
-  options?: StringifySectionsOptions,
-): string {
+export function stringifyAst(root: RootNode, options?: StringifySectionsOptions): string {
   const lineEnding = options?.lineEnding ?? "\n";
   const lines: string[] = [];
 

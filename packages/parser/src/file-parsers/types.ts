@@ -1,15 +1,15 @@
 import type { SectionNode } from "../datafile/ast";
 
-export type FieldType
-  = | "codepoint"
-    | "codepoint-range"
-    | "codepoint-or-range"
-    | "string"
-    | "string-trimmed"
-    | "number"
-    | "enum"
-    | "optional-string"
-    | "multi-codepoint";
+export type FieldType =
+  | "codepoint"
+  | "codepoint-range"
+  | "codepoint-or-range"
+  | "string"
+  | "string-trimmed"
+  | "number"
+  | "enum"
+  | "optional-string"
+  | "multi-codepoint";
 
 export interface FieldDef {
   name: string;

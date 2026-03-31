@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import {
   isBoundaryNode,
   isCommentNode,
@@ -130,12 +131,14 @@ describe("ast type guards", () => {
         value: "Another root node",
         raw: "Another root node",
         line: 2,
-        children: [{
-          type: "data",
-          value: "Child data",
-          raw: "Child data",
-          line: 3,
-        }],
+        children: [
+          {
+            type: "data",
+            value: "Child data",
+            raw: "Child data",
+            line: 3,
+          },
+        ],
       },
     ])("should identify root nodes", (node) => {
       expect(isRootNode(node)).toBe(true);
@@ -193,7 +196,13 @@ describe("ast type guards", () => {
   });
 
   it("property node", () => {
-    const propertyNode = { type: "property", value: "Property: value", raw: "# Property: value", line: 1, propertyValue: "value" };
+    const propertyNode = {
+      type: "property",
+      value: "Property: value",
+      raw: "# Property: value",
+      line: 1,
+      propertyValue: "value",
+    };
 
     expect(isPropertyNode(propertyNode)).toBe(true);
     expect(isNode(propertyNode)).toBe(true);

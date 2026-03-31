@@ -94,10 +94,12 @@ const output = stringifyAst(root);
 ```
 
 `stringifyAst` walks `root.children`:
+
 - `SectionNode`: emits header comment + `@missing` annotations + data records (using `fieldToString` for each field, falling back to `rawValue`)
 - Other nodes: emits `node.raw` unchanged
 
 For data nodes with `parsedFields`, the fallback chain in `fieldToString` is:
+
 1. `{ start, end }` object -> `"0000..007F"`
 2. Array -> elements joined with `" "`
 3. String or number -> emit directly

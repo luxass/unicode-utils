@@ -28,7 +28,7 @@ export class DataFile {
   /** All sections in document order (frozen) */
   readonly sections: readonly SectionNode[];
 
-     * @internal
+  /** @internal — use RawDataFile.toDataFile() instead */
   constructor(root: RootNode) {
     this.fileName = root.fileName;
     this.version = root.version;

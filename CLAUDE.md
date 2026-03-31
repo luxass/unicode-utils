@@ -8,11 +8,11 @@ See `.AGENTS/` for detailed docs on architecture, code style, patterns, and guid
 
 ## Packages
 
-| Package | Purpose |
-|---|---|
-| `@unicode-utils/parser` | Core UCD file parsing — AST with SectionNode grouping, file-parser routing |
-| `@unicode-utils/core` | High-level public API, re-exports, version constants |
-| `@unicode-utils/metadata` | Unicode version constants and UCD URL mappings |
+| Package                   | Purpose                                                                    |
+| ------------------------- | -------------------------------------------------------------------------- |
+| `@unicode-utils/parser`   | Core UCD file parsing — AST with SectionNode grouping, file-parser routing |
+| `@unicode-utils/core`     | High-level public API, re-exports, version constants                       |
+| `@unicode-utils/metadata` | Unicode version constants and UCD URL mappings                             |
 
 Shared tooling in `tooling/` (TypeScript config, tsdown config factory).
 
@@ -50,12 +50,12 @@ Do **not** run `tsc --noEmit` per-package directly — always use `pnpm run type
 
 ## .AGENTS/ docs
 
-| File | What it covers |
-|---|---|
-| `GLOSSARY.md` | Domain terms: UCD, Heading, SectionNode, FileParser, FieldDef, ParsedField, etc. |
-| `ARCHITECTURE.md` | Package graph, parser internals, file-parser routing, build system, test infrastructure |
-| `AST.md` | All AST node types including SectionNode, ChildNode/SectionChildNode unions |
-| `CODE_STYLE.md` | TypeScript conventions, naming, exports, error handling, linting |
-| `COMMON_PATTERNS.md` | Recurring patterns, gotchas, and non-obvious behaviors |
-| `GUIDELINES.md` | Rules for AI agents: what can be changed, what must be kept |
-| `UCD-CLI.md` | How to fetch real UCD files with `@ucdjs/cli` |
+| File                 | What it covers                                                                          |
+| -------------------- | --------------------------------------------------------------------------------------- |
+| `GLOSSARY.md`        | Domain terms: UCD, Heading, SectionNode, FileParser, FieldDef, ParsedField, etc.        |
+| `ARCHITECTURE.md`    | Package graph, parser internals, file-parser routing, build system, test infrastructure |
+| `AST.md`             | All AST node types including SectionNode, ChildNode/SectionChildNode unions             |
+| `CODE_STYLE.md`      | TypeScript conventions, naming, exports, error handling, linting                        |
+| `COMMON_PATTERNS.md` | Recurring patterns, gotchas, and non-obvious behaviors                                  |
+| `GUIDELINES.md`      | Rules for AI agents: what can be changed, what must be kept                             |
+| `UCD-CLI.md`         | How to fetch real UCD files with `@ucdjs/cli`                                           |

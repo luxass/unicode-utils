@@ -1,35 +1,32 @@
 {
   "name": "@unicode-utils-tooling/tsconfig",
   "version": "0.12.0-beta.23",
-  "type": "module",
   "private": true,
+  "homepage": "https://github.com/luxass/unicode-utils",
+  "bugs": {
+    "url": "https://github.com/luxass/unicode-utils/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Lucas Nørgård",
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.30.2",
-  "license": "MIT",
-  "homepage": "https://github.com/luxass/unicode-utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
     "directory": "tooling/tsconfig"
   },
-  "bugs": {
-    "url": "https://github.com/luxass/unicode-utils/issues"
-  },
   "files": [
     "base.build.json",
     "base.json"
   ],
+  "type": "module",
   "scripts": {
-    "clean": "git clean -xdf dist node_modules",
-    "lint": "eslint ."
+    "clean": "git clean -xdf dist node_modules"
   },
   "dependencies": {
-    "@luxass/eslint-config": "catalog:linting",
-    "eslint": "catalog:linting",
     "typescript": "catalog:dev"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

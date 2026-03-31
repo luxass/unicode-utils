@@ -2,58 +2,54 @@
   "name": "@unicode-utils/metadata",
   "version": "0.12.0-beta.23",
   "description": "Unicode version metadata and constants",
-  "type": "module",
+  "keywords": [
+    "metadata",
+    "unicode",
+    "version"
+  ],
+  "homepage": "https://github.com/luxass/unicode-utils#readme",
+  "bugs": "https://github.com/luxass/unicode-utils/issues",
+  "license": "MIT",
   "author": {
     "name": "Lucas Nørgård",
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.30.2",
-  "license": "MIT",
-  "homepage": "https://github.com/luxass/unicode-utils#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
     "directory": "packages/metadata"
   },
-  "bugs": "https://github.com/luxass/unicode-utils/issues",
-  "keywords": [
-    "unicode",
-    "metadata",
-    "version"
+  "files": [
+    "dist"
   ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "types": "./dist/index.d.mts",
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "tsdown --tsconfig=./tsconfig.build.json",
     "dev": "tsdown --watch",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
     "generate:constants": "tsx scripts/generate-constants.ts"
   },
   "dependencies": {
     "@luxass/utils": "catalog:build"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
     "@unicode-utils-tooling/tsconfig": "workspace:*",
     "@unicode-utils-tooling/tsdown-config": "workspace:*",
-    "eslint": "catalog:linting",
-    "eslint-plugin-format": "catalog:linting",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }
