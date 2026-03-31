@@ -1,6 +1,6 @@
 import { applyFileParser } from "../file-parsers/coerce";
 import { resolve } from "../file-parsers/route";
-import type { BoundaryStyle, MissingAnnotation } from "../line-helpers";
+import type { BoundaryStyle } from "../line-helpers";
 import {
   getBoundaryLineStyle,
   getPropertyValue,
@@ -16,7 +16,7 @@ import {
   parseMissingAnnotation,
   trimCommentLine,
 } from "../line-helpers";
-import type { ChildNode, DataNode, Node, RootNode, SectionChildNode, SectionNode } from "./ast";
+import type { ChildNode, DataNode, MissingAnnotationNode, Node, RootNode, SectionChildNode, SectionNode } from "./ast";
 import { NodeTypes } from "./ast";
 import {
   isBoundaryNode,
@@ -39,8 +39,6 @@ export interface ParseAstOptions {
   autoCoerce?: boolean;
   /** Strip inline comments before field splitting. Default: true */
   stripInlineComments?: boolean;
-  /** Collect @missing: annotations. Default: true */
-  collectMissingAnnotations?: boolean;
 }
 
 // ─── Field value auto-coercion ────────────────────────────────────────────────
@@ -132,6 +130,19 @@ function createNode(line: string, lineNumber: number): ChildNode {
     };
   }
 
+  if (isMissingAnnotation(line)) {
+    const annotation = parseMissingAnnotation(line);
+    if (annotation) {
+      return {
+        type: NodeTypes.MISSING_ANNOTATION,
+        value: trimCommentLine(line),
+        raw: line,
+        line: lineNumber,
+        annotation,
+      } satisfies MissingAnnotationNode;
+    }
+  }
+
   if (isCommentLine(line)) {
     const trimmedComment = trimCommentLine(line);
     return {
@@ -177,10 +188,8 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
   const separators = options?.separators ?? [";", "\t"];
   const autoCoerce = options?.autoCoerce ?? true;
   const stripInlineComments = options?.stripInlineComments ?? true;
-  const collectMissing = options?.collectMissingAnnotations ?? true;
 
   const pendingComments: string[] = [];
-  const pendingMissing: MissingAnnotation[] = [];
 
   // Indices of children consumed by sections (to be removed from root.children)
   const consumed = new Set<number>();
@@ -190,12 +199,12 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
   let currentDesc = "";
   let currentChildren: SectionChildNode[] = [];
   let currentRecords: DataNode[] = [];
-  let currentMissing: MissingAnnotation[] = [];
   let currentStartIndex = -1;
   let separator: string | null = null;
 
-  // Track which comment indices belong to the current section header
+  // Indices for comment nodes that form section headers (name/description)
   const pendingCommentIndices: number[] = [];
+  // Indices for MissingAnnotationNodes queued before a section starts
   const pendingMissingIndices: number[] = [];
   // True if a boundary was seen since the last data node — means pending
   // comments are within the same section, not a new section header
@@ -213,7 +222,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
       description: currentDesc,
       children: currentChildren,
       records: currentRecords,
-      missingAnnotations: currentMissing,
       fieldNames: undefined,
     };
 
@@ -223,7 +231,6 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
     currentDesc = "";
     currentChildren = [];
     currentRecords = [];
-    currentMissing = [];
     currentStartIndex = -1;
   }
 
@@ -294,25 +301,29 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
             consumed.add(idx);
           }
         }
+        // Pending missing annotation nodes — consume into section if active
+        if (currentName !== null) {
+          for (const idx of pendingMissingIndices) {
+            currentChildren.push(root.children[idx]! as SectionChildNode);
+            consumed.add(idx);
+          }
+        }
         pendingComments.length = 0;
-        pendingMissing.length = 0;
         pendingCommentIndices.length = 0;
         pendingMissingIndices.length = 0;
       }
       continue;
     }
 
+    if (node.type === "missing-annotation") {
+      // MissingAnnotationNode: queue as a pending child (does not start a section)
+      pendingMissingIndices.push(i);
+      continue;
+    }
+
     if (node.type === "comment") {
-      if (collectMissing && isMissingAnnotation(node.raw)) {
-        const parsed = parseMissingAnnotation(node.raw);
-        if (parsed) {
-          pendingMissing.push(parsed);
-          pendingMissingIndices.push(i);
-        }
-      } else {
-        pendingComments.push(trimCommentLine(node.raw));
-        pendingCommentIndices.push(i);
-      }
+      pendingComments.push(trimCommentLine(node.raw));
+      pendingCommentIndices.push(i);
       continue;
     }
 
@@ -334,27 +345,30 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
             consumed.add(idx);
           }
         } else {
-          // Start a new section
+          // Start a new section — consume header comments and pending missing annotations
           flushSection();
           currentName = pendingComments[0]!;
           currentDesc = pendingComments.slice(1).join("\n");
-          currentMissing = [...pendingMissing];
-          currentStartIndex = pendingCommentIndices[0] ?? i;
+          currentStartIndex = pendingMissingIndices[0] ?? pendingCommentIndices[0] ?? i;
           for (const idx of pendingCommentIndices) consumed.add(idx);
-          for (const idx of pendingMissingIndices) consumed.add(idx);
+          // Missing annotation nodes go into the section's children
+          for (const idx of pendingMissingIndices) {
+            currentChildren.push(root.children[idx]! as SectionChildNode);
+            consumed.add(idx);
+          }
         }
         pendingComments.length = 0;
-        pendingMissing.length = 0;
         pendingCommentIndices.length = 0;
         pendingMissingIndices.length = 0;
       } else if (currentName === null) {
         // Data with no preceding comment block — anonymous default section
         currentName = root.fileName ?? "default";
         currentDesc = "";
-        currentMissing = [...pendingMissing];
-        currentStartIndex = i;
-        for (const idx of pendingMissingIndices) consumed.add(idx);
-        pendingMissing.length = 0;
+        currentStartIndex = pendingMissingIndices[0] ?? i;
+        for (const idx of pendingMissingIndices) {
+          currentChildren.push(root.children[idx]! as SectionChildNode);
+          consumed.add(idx);
+        }
         pendingMissingIndices.length = 0;
       }
 

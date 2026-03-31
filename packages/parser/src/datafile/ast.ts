@@ -8,6 +8,7 @@ export const NodeTypes = {
   DATA: "data",
   EMPTY: "empty",
   EOF: "eof",
+  MISSING_ANNOTATION: "missing-annotation",
   PROPERTY: "property",
   SECTION: "section",
   UNKNOWN: "unknown",
@@ -79,7 +80,10 @@ export interface EOFNode extends BaseNode {
   type: "eof";
 }
 
-// ─── Section node ─────────────────────────────────────────────────────────────
+export interface MissingAnnotationNode extends BaseNode {
+  type: "missing-annotation";
+  annotation: MissingAnnotation;
+}
 
 /**
  * Nodes that can appear inside a SectionNode's children array.
@@ -92,34 +96,23 @@ export type SectionChildNode =
   | DataNode
   | EmptyNode
   | EOFNode
+  | MissingAnnotationNode
   | PropertyNode
   | UnknownNode;
 
-/**
- * A first-class AST node representing a named section of data records.
- *
- * Emitted by parseDataFileIntoAst() during the section-grouping pass.
- * All nodes between the section header and the next section are consumed
- * from root.children and stored in this section's `children` array.
- * Nothing is hidden — every consumed node is visible.
- */
 export interface SectionNode extends BaseNode {
   type: "section";
-  /** First comment line of the section header */
   name: string;
-  /** Remaining comment lines joined with \n (empty string if none) */
   description: string;
   /**
    * ALL nodes consumed into this section, in original document order.
-   * Includes DataNodes, BoundaryNodes, EmptyNodes, CommentNodes (trailing), etc.
+   * Includes DataNodes, BoundaryNodes, EmptyNodes, CommentNodes, MissingAnnotationNodes, etc.
    * Nothing is hidden — every node that was between the section header
    * and the next section is here.
    */
   children: SectionChildNode[];
   /** DataNodes only (filtered view of children). Convenience for data access. */
   records: DataNode[];
-  /** @missing: annotations collected before section data */
-  missingAnnotations: MissingAnnotation[];
   /**
    * Field names in order.
    * undefined when generic parsing was used (field_0, field_1, ...).
@@ -143,6 +136,7 @@ export type ChildNode =
   | DataNode
   | EmptyNode
   | EOFNode
+  | MissingAnnotationNode
   | PropertyNode
   | SectionNode
   | UnknownNode;

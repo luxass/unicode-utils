@@ -1,4 +1,3 @@
-import type { MissingAnnotation } from "../line-helpers";
 import type { RootNode, SectionNode } from "./ast";
 import { isSectionNode } from "./typeguards";
 
@@ -8,23 +7,10 @@ export interface StringifySectionsOptions {
    * Default: "; "
    */
   separator?: string;
-  /**
-   * Emit "# @missing:" lines before each section's data when
-   * the section has missingAnnotations. Default: true
-   */
-  emitMissingAnnotations?: boolean;
   /** Append "# EOF" at the end of the output. Default: false */
   emitEOF?: boolean;
   /** Line ending style. Default: "\n" */
   lineEnding?: "\n" | "\r\n";
-}
-
-function reconstructMissingLine(annotation: MissingAnnotation): string {
-  const range = `${annotation.start}..${annotation.end}`;
-  if (annotation.propertyName) {
-    return `# @missing: ${range}; ${annotation.propertyName}; ${annotation.defaultPropertyValue}`;
-  }
-  return `# @missing: ${range}; ${annotation.defaultPropertyValue}`;
 }
 
 function fieldToString(value: unknown, rawValue: string): string {
@@ -44,7 +30,6 @@ function fieldToString(value: unknown, rawValue: string): string {
 
 function stringifySectionNode(section: SectionNode, options?: StringifySectionsOptions): string {
   const sep = options?.separator ?? "; ";
-  const emitMissing = options?.emitMissingAnnotations ?? true;
   const lineEnding = options?.lineEnding ?? "\n";
   const lines: string[] = [];
 
@@ -52,12 +37,6 @@ function stringifySectionNode(section: SectionNode, options?: StringifySectionsO
   if (section.description) {
     for (const descLine of section.description.split("\n")) {
       if (descLine) lines.push(`# ${descLine}`);
-    }
-  }
-
-  if (emitMissing) {
-    for (const annotation of section.missingAnnotations) {
-      lines.push(reconstructMissingLine(annotation));
     }
   }
 
@@ -71,7 +50,7 @@ function stringifySectionNode(section: SectionNode, options?: StringifySectionsO
         lines.push(record.raw);
       }
     } else {
-      // Boundaries, empty lines, comments, etc. — emit raw
+      // Boundaries, empty lines, comments, missing-annotation, etc. — emit raw
       lines.push(child.raw);
     }
   }

@@ -107,7 +107,7 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     expect(fields[1]!.name).toBe("field_1");
   });
 
-  it("section.missingAnnotations collects @missing lines", () => {
+  it("@missing lines appear as MissingAnnotationNode in section.children", () => {
     const content = dedent`
       # DerivedAge-16.0.0.txt
       #
@@ -117,8 +117,9 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     `;
     const root = parseDataFileIntoAst(content);
     const section = root.children.filter(isSectionNode)[0]!;
-    expect(section.missingAnnotations).toHaveLength(1);
-    expect(section.missingAnnotations[0]!.defaultPropertyValue).toBe("Unassigned");
+    const missingNodes = section.children.filter((c) => c.type === "missing-annotation");
+    expect(missingNodes).toHaveLength(1);
+    expect((missingNodes[0] as { annotation: { defaultPropertyValue: string } }).annotation.defaultPropertyValue).toBe("Unassigned");
   });
 
   it("auto-coerces hex ranges in parsedFields", () => {

@@ -1,4 +1,4 @@
-import type { DataNode, ParsedField, SectionNode } from "../datafile/ast";
+import type { DataNode, MissingAnnotationNode, ParsedField, SectionNode } from "../datafile/ast";
 import type { FieldDef } from "./types";
 
 export class FieldCoercionError extends Error {
@@ -292,11 +292,14 @@ function getStartCodepoint(value: unknown): number {
  * Mutates the section in place.
  */
 export function expandMissingAnnotations(section: SectionNode, fields: FieldDef[]): void {
-  if (section.missingAnnotations.length === 0) return;
+  const missingNodes = section.children.filter(
+    (c): c is MissingAnnotationNode => c.type === "missing-annotation",
+  );
+  if (missingNodes.length === 0) return;
 
   const covered = mergeRanges(extractCoveredRanges(section));
 
-  for (const annotation of section.missingAnnotations) {
+  for (const { annotation } of missingNodes) {
     const fullStart = hexToNum(annotation.start);
     const fullEnd = hexToNum(annotation.end);
     const gaps = findGaps(covered, fullStart, fullEnd);

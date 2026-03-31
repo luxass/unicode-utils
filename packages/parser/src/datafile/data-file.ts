@@ -42,7 +42,6 @@ export class DataFile {
     for (const section of sections) {
       Object.freeze(section.children);
       Object.freeze(section.records);
-      Object.freeze(section.missingAnnotations);
       Object.freeze(section);
     }
     this.sections = Object.freeze(sections);

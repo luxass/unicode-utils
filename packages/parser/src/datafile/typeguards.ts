@@ -5,6 +5,7 @@ import type {
   EmptyCommentNode,
   EmptyNode,
   EOFNode,
+  MissingAnnotationNode,
   Node,
   PropertyNode,
   RootNode,
@@ -285,4 +286,8 @@ export function isPropertyNode(node: unknown): node is PropertyNode {
  */
 export function isSectionNode(node: unknown): node is SectionNode {
   return isNode(node) && node.type === "section";
+}
+
+export function isMissingAnnotationNode(node: unknown): node is MissingAnnotationNode {
+  return isNode(node) && node.type === "missing-annotation";
 }
