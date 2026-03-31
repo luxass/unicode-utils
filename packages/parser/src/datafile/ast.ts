@@ -56,9 +56,9 @@ export interface BoundaryNode extends BaseNode {
 // named field like "range"/"name"/"script" when a FileParser is applied.
 
 export interface ParsedField {
-  name:     string | undefined;
+  name: string | undefined;
   rawValue: string;
-  value:    unknown;
+  value: unknown;
 }
 
 export interface DataNode extends BaseNode {

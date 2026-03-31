@@ -24,11 +24,26 @@ describe("resolve()", () => {
 
   it("resolves all 20 known file names", () => {
     const knownFiles = [
-      "Blocks", "Scripts", "UnicodeData", "DerivedAge", "LineBreak",
-      "NameAliases", "CaseFolding", "PropertyAliases", "PropertyValueAliases",
-      "NamesList", "EastAsianWidth", "ArabicShaping", "BidiBrackets",
-      "HangulSyllableType", "ScriptExtensions", "DerivedCoreProperties",
-      "PropList", "SpecialCasing", "CompositionExclusions", "BidiMirroring",
+      "Blocks",
+      "Scripts",
+      "UnicodeData",
+      "DerivedAge",
+      "LineBreak",
+      "NameAliases",
+      "CaseFolding",
+      "PropertyAliases",
+      "PropertyValueAliases",
+      "NamesList",
+      "EastAsianWidth",
+      "ArabicShaping",
+      "BidiBrackets",
+      "HangulSyllableType",
+      "ScriptExtensions",
+      "DerivedCoreProperties",
+      "PropList",
+      "SpecialCasing",
+      "CompositionExclusions",
+      "BidiMirroring",
     ];
     for (const name of knownFiles) {
       expect(resolve(name, "16.0.0"), `${name} should resolve`).toBeDefined();

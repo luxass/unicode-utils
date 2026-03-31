@@ -51,7 +51,7 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     expect(sections[1]!.records).toHaveLength(1);
   });
 
-  it("DataNodes inside sections are removed from root.children", () => {
+  it("dataNodes inside sections are removed from root.children", () => {
     const root = parseDataFileIntoAst(SIMPLE);
     const hasLooseData = root.children.some((c) => c.type === "data");
     expect(hasLooseData).toBe(false);
@@ -63,7 +63,7 @@ describe("parseDataFileIntoAst — SectionNode grouping", () => {
     expect(headingComments.length).toBeGreaterThan(0);
   });
 
-  it("EOFNode remains as a direct child of root", () => {
+  it("eOFNode remains as a direct child of root", () => {
     const root = parseDataFileIntoAst(WITH_EOF);
     expect(root.children.some(isEOFNode)).toBe(true);
   });

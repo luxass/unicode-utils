@@ -1,10 +1,9 @@
 import type { RootNode } from "./ast";
 import type { StringifySectionsOptions } from "./stringify";
-import { inferHeadingFromAST } from "../inference/heading";
 import { isEOFMarker } from "../line-helpers";
+import { DataFile } from "./data-file";
 import { parseDataFileIntoAst } from "./parser";
 import { stringifyAst as stringifyAstImpl } from "./stringify";
-import { DataFile } from "./data-file";
 
 /**
  * Holds the raw text and the parsed AST of a Unicode data file.

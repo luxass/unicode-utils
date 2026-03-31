@@ -20,8 +20,8 @@ export class FieldCoercionError extends Error {
   }
 }
 
-const HEX_RE = /^[0-9A-Fa-f]{4,6}$/;
-const HEX_RANGE_RE = /^[0-9A-Fa-f]{4,6}\.\.[0-9A-Fa-f]{4,6}$/;
+const HEX_RE = /^[0-9A-F]{4,6}$/i;
+const HEX_RANGE_RE = /^[0-9A-F]{4,6}\.\.[0-9A-F]{4,6}$/i;
 
 function coerceSingle(raw: string, def: FieldDef): unknown {
   const trimmed = raw.trim();

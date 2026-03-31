@@ -1,11 +1,11 @@
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
-import { RawDataFile, isSectionNode, stringifyAst } from "@unicode-utils/parser";
+import { isSectionNode, RawDataFile, stringifyAst } from "@unicode-utils/parser";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: {
-    "help": { type: "boolean", short: "h", default: false },
+    help: { type: "boolean", short: "h", default: false },
   },
 });
 

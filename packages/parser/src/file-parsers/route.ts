@@ -1,3 +1,4 @@
+import type { FileParser } from "./types";
 import {
   ARABIC_SHAPING_PARSER,
   BIDI_BRACKETS_PARSER,
@@ -20,33 +21,32 @@ import {
   SPECIAL_CASING_PARSER,
   UNICODE_DATA_PARSER,
 } from "./definitions/index";
-import type { FileParser } from "./types";
 
 /**
  * Lookup map from normalised fileName to FileParser.
  * Keys are lowercase with spaces, hyphens, and underscores removed.
  */
 const PARSERS: Record<string, FileParser> = {
-  "blocks": BLOCKS_PARSER,
-  "scripts": SCRIPTS_PARSER,
-  "unicodedata": UNICODE_DATA_PARSER,
-  "derivedage": DERIVED_AGE_PARSER,
-  "linebreak": LINE_BREAK_PARSER,
-  "namealiases": NAME_ALIASES_PARSER,
-  "casefolding": CASE_FOLDING_PARSER,
-  "propertyaliases": PROPERTY_ALIASES_PARSER,
-  "propertyvaluealiases": PROPERTY_VALUE_ALIASES_PARSER,
-  "nameslist": NAMES_LIST_PARSER,
-  "eastasianwidth": EAST_ASIAN_WIDTH_PARSER,
-  "arabicshaping": ARABIC_SHAPING_PARSER,
-  "bidibrackets": BIDI_BRACKETS_PARSER,
-  "hangulsyllabletype": HANGUL_SYLLABLE_TYPE_PARSER,
-  "scriptextensions": SCRIPT_EXTENSIONS_PARSER,
-  "derivedcoreproperties": DERIVED_CORE_PROPERTIES_PARSER,
-  "proplist": PROP_LIST_PARSER,
-  "specialcasing": SPECIAL_CASING_PARSER,
-  "compositionexclusions": COMPOSITION_EXCLUSIONS_PARSER,
-  "bidimirroring": BIDI_MIRRORING_PARSER,
+  blocks: BLOCKS_PARSER,
+  scripts: SCRIPTS_PARSER,
+  unicodedata: UNICODE_DATA_PARSER,
+  derivedage: DERIVED_AGE_PARSER,
+  linebreak: LINE_BREAK_PARSER,
+  namealiases: NAME_ALIASES_PARSER,
+  casefolding: CASE_FOLDING_PARSER,
+  propertyaliases: PROPERTY_ALIASES_PARSER,
+  propertyvaluealiases: PROPERTY_VALUE_ALIASES_PARSER,
+  nameslist: NAMES_LIST_PARSER,
+  eastasianwidth: EAST_ASIAN_WIDTH_PARSER,
+  arabicshaping: ARABIC_SHAPING_PARSER,
+  bidibrackets: BIDI_BRACKETS_PARSER,
+  hangulsyllabletype: HANGUL_SYLLABLE_TYPE_PARSER,
+  scriptextensions: SCRIPT_EXTENSIONS_PARSER,
+  derivedcoreproperties: DERIVED_CORE_PROPERTIES_PARSER,
+  proplist: PROP_LIST_PARSER,
+  specialcasing: SPECIAL_CASING_PARSER,
+  compositionexclusions: COMPOSITION_EXCLUSIONS_PARSER,
+  bidimirroring: BIDI_MIRRORING_PARSER,
 };
 
 /**

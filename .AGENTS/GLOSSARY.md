@@ -12,7 +12,7 @@ Domain terms used throughout `unicode-utils`.
 
 ## Heading
 
-The comment block at the **top** of a UCD file, before any data. Contains the file name and Unicode version. Extracted by `inferHeadingFromAST()` in `packages/parser/src/inference/heading.ts`.
+The comment block at the **top** of a UCD file, before any data. Contains the file name and Unicode version. `inferFileName()` and `inferVersion()` in `packages/parser/src/line-helpers.ts` extract these values from the first comment line and attach them to `RootNode.fileName` and `RootNode.version`.
 
 Example:
 ```
@@ -167,8 +167,14 @@ The literal line `# EOF` that appears at the end of some UCD files. Detected by 
 
 High-level wrapper class in `packages/parser/src/datafile/model.ts`. Holds the raw text and parsed AST. Provides `toDataFile()` for an immutable query view and `stringify()` for round-trip serialisation. Can be constructed from a string or fetched from a URL via `RawDataFile.from()`.
 
+**When to use:** When you need to *do things* with the file — parse it, mutate the AST, or stringify it back to UCD text. `RawDataFile` is the mutable owner of the AST.
+
 ---
 
 ## DataFile
 
 Immutable frozen query view in `packages/parser/src/datafile/data-file.ts`. Created via `rawDataFile.toDataFile()`. Sections and records are frozen. Provides `findSection()`, `findSectionsByName()`, and `recordCount`.
+
+**When to use:** When you only need to *query* the file — read sections and records without any risk of accidental mutation. All arrays are `Object.freeze()`d; attempting to mutate throws at runtime.
+
+**Choosing between the two:** Use `RawDataFile` when you need to mutate the AST or re-serialize. Convert to `DataFile` once you're done mutating and want a safe, read-only view to pass around.

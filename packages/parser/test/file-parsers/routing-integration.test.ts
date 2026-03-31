@@ -4,7 +4,7 @@ import { parseDataFileIntoAst } from "../../src/datafile/parser";
 import { isSectionNode } from "../../src/datafile/typeguards";
 
 describe("routing — named fields via custom data", () => {
-  it("Scripts.txt: fields are named 'range' and 'script'", () => {
+  it("scripts.txt: fields are named 'range' and 'script'", () => {
     const content = dedent`
       # Scripts-16.0.0.txt
       #
@@ -18,7 +18,7 @@ describe("routing — named fields via custom data", () => {
     expect(section.records[0]!.parsedFields![1]!.name).toBe("script");
   });
 
-  it("BidiBrackets.txt: fields are named 'codepoint', 'paired_bracket', 'bracket_type'", () => {
+  it("bidiBrackets.txt: fields are named 'codepoint', 'paired_bracket', 'bracket_type'", () => {
     const content = dedent`
       # BidiBrackets-16.0.0.txt
       #
@@ -47,7 +47,7 @@ describe("routing — named fields via custom data", () => {
     expect(section.records[0]!.parsedFields![0]!.name).toBe("field_0");
   });
 
-  it("Blocks.txt: fields are named 'range' and 'name'", () => {
+  it("blocks.txt: fields are named 'range' and 'name'", () => {
     const content = dedent`
       # Blocks-16.0.0.txt
       #
@@ -60,7 +60,7 @@ describe("routing — named fields via custom data", () => {
     expect(section.records[0]!.parsedFields![1]!.name).toBe("name");
   });
 
-  it("UnicodeData.txt: first field is 'codepoint', has 15 fields", () => {
+  it("unicodeData.txt: first field is 'codepoint', has 15 fields", () => {
     const content = "0000;NULL;Cc;0;BN;;;;;N;;;;;";
     const root = parseDataFileIntoAst(content, { fileName: "UnicodeData" });
     const section = root.children.filter(isSectionNode)[0]!;
@@ -70,7 +70,7 @@ describe("routing — named fields via custom data", () => {
     expect(fields.length).toBe(15);
   });
 
-  it("CaseFolding.txt: mapping field is multi-codepoint", () => {
+  it("caseFolding.txt: mapping field is multi-codepoint", () => {
     const content = dedent`
       # CaseFolding-16.0.0.txt
       #
@@ -84,7 +84,7 @@ describe("routing — named fields via custom data", () => {
     expect(mapping.value).toEqual(["0073", "0073"]);
   });
 
-  it("SpecialCasing.txt: optional condition_list field may be absent", () => {
+  it("specialCasing.txt: optional condition_list field may be absent", () => {
     const content = dedent`
       # SpecialCasing-16.0.0.txt
       #
@@ -102,7 +102,7 @@ describe("routing — named fields via custom data", () => {
     expect(secondCondition?.value).toBe("tr");
   });
 
-  it("PropertyAliases.txt: optional additional_alias field", () => {
+  it("propertyAliases.txt: optional additional_alias field", () => {
     const content = dedent`
       # PropertyAliases-16.0.0.txt
       #

@@ -7,6 +7,8 @@ import type {
   SectionChildNode,
   SectionNode,
 } from "./ast";
+import { applyFileParser } from "../file-parsers/coerce";
+import { resolve } from "../file-parsers/route";
 import {
   getBoundaryLineStyle,
   getPropertyValue,
@@ -30,8 +32,6 @@ import {
   isEmptyNode,
   isSectionNode,
 } from "./typeguards";
-import { resolve } from "../file-parsers/route";
-import { applyFileParser } from "../file-parsers/coerce";
 
 // ─── Parse options ────────────────────────────────────────────────────────────
 
@@ -52,9 +52,9 @@ export interface ParseAstOptions {
 
 // ─── Field value auto-coercion ────────────────────────────────────────────────
 
-const HEX_RANGE_RE = /^[0-9A-Fa-f]{4,6}\.\.[0-9A-Fa-f]{4,6}$/;
-const HEX_POINT_RE = /^[0-9A-Fa-f]{4,6}$/;
-const INT_RE = /^[0-9]+$/;
+const HEX_RANGE_RE = /^[0-9A-F]{4,6}\.\.[0-9A-F]{4,6}$/i;
+const HEX_POINT_RE = /^[0-9A-F]{4,6}$/i;
+const INT_RE = /^\d+$/;
 
 function inferFieldValue(raw: string): unknown {
   const trimmed = raw.trim();
@@ -202,8 +202,8 @@ function groupSectionsIntoAst(root: RootNode, options?: ParseAstOptions): void {
   let separator: string | null = null;
 
   // Track which comment indices belong to the current section header
-  let pendingCommentIndices: number[] = [];
-  let pendingMissingIndices: number[] = [];
+  const pendingCommentIndices: number[] = [];
+  const pendingMissingIndices: number[] = [];
   // True if a boundary was seen since the last data node — means pending
   // comments are within the same section, not a new section header
   let sawBoundarySinceLastData = false;
@@ -418,8 +418,8 @@ export function parseDataFileIntoAst(
   content: string,
   optionsOrFileName?: string | ParseAstOptions,
 ): RootNode {
-  const options: ParseAstOptions | undefined =
-    typeof optionsOrFileName === "string"
+  const options: ParseAstOptions | undefined
+    = typeof optionsOrFileName === "string"
       ? { fileName: optionsOrFileName }
       : optionsOrFileName;
 
@@ -479,4 +479,3 @@ export function stringifyNode(node: Node): string {
 export function stringifyNodes(nodes: ChildNode[]): string {
   return nodes.map((node) => node.raw).join("\n");
 }
-

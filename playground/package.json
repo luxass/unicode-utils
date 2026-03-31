@@ -1,8 +1,8 @@
 {
   "name": "@unicode-utils/playground",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

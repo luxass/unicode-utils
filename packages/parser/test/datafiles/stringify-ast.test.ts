@@ -1,9 +1,9 @@
+import type { SectionNode } from "../../src/datafile/ast";
 import { dedent } from "@luxass/utils";
 import { describe, expect, it } from "vitest";
 import { parseDataFileIntoAst } from "../../src/datafile/parser";
 import { stringifyAst } from "../../src/datafile/stringify";
 import { isSectionNode } from "../../src/datafile/typeguards";
-import type { SectionNode } from "../../src/datafile/ast";
 
 const HEADING_AND_SECTIONS = dedent`
   # Scripts-16.0.0.txt

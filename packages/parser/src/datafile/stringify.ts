@@ -30,8 +30,8 @@ function reconstructMissingLine(annotation: MissingAnnotation): string {
 function fieldToString(value: unknown, rawValue: string): string {
   if (value !== null && typeof value === "object" && !Array.isArray(value)) {
     const r = value as Record<string, unknown>;
-    if (typeof r["start"] === "string" && typeof r["end"] === "string") {
-      return `${r["start"]}..${r["end"]}`;
+    if (typeof r.start === "string" && typeof r.end === "string") {
+      return `${r.start}..${r.end}`;
     }
   }
   if (Array.isArray(value)) {
@@ -113,7 +113,7 @@ export function stringifyAst(
   let output = lines.join(lineEnding);
 
   if (options?.emitEOF && !output.trimEnd().endsWith("# EOF")) {
-    output = output + lineEnding + "# EOF";
+    output = `${output + lineEnding}# EOF`;
   }
 
   return output;

@@ -64,8 +64,6 @@ Key files:
 | `src/file-parsers/route.ts` | `resolve()` — map fileName to a FileParser definition |
 | `src/file-parsers/coerce.ts` | `applyFileParser()`, `coerceField()`, `expandMissingAnnotations()` |
 | `src/file-parsers/definitions/` | 20 per-file parser definitions (blocks, scripts, etc.) |
-| `src/inference/heading.ts` | `inferHeadingFromAST` — extract fileName/version from header comments |
-| `src/inference/heading-settings.ts` | Configuration table for per-file heading inference overrides |
 
 ---
 
@@ -100,12 +98,6 @@ After parsing, `root.children` contains a mix of:
 - `postProcess` — optional hook for special handling (e.g. `expandMissingAnnotations`)
 
 When `resolve()` returns a parser, `applyFileParser()` re-processes every `DataNode.parsedFields` with typed coercion and named fields. When no parser matches, generic `field_0`/`field_1` names and auto-coercion are used.
-
----
-
-## Inference layer
-
-`src/inference/heading.ts` scans backwards from the first `DataNode` to collect the preceding comment block. `inferFileName()` and `inferVersion()` use regexes against the first comment line (e.g. `# Scripts-16.0.0.txt`). Results are attached to `RootNode.fileName` and `RootNode.version`.
 
 ---
 

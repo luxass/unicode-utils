@@ -14,7 +14,7 @@ const SCRIPTS_CONTENT = dedent`
   # EOF
 `;
 
-describe("RawDataFile constructor", () => {
+describe("rawDataFile constructor", () => {
   it("parses content and exposes fileName and version", () => {
     const raw = new RawDataFile(SCRIPTS_CONTENT);
     expect(raw.fileName).toBe("Scripts");
@@ -45,7 +45,7 @@ describe("RawDataFile constructor", () => {
   });
 });
 
-describe("RawDataFile.from()", () => {
+describe("rawDataFile.from()", () => {
   it("fetches content from a URL using a custom fetch", async () => {
     const mockFetch = vi.fn().mockResolvedValue({
       ok: true,
@@ -74,7 +74,7 @@ describe("RawDataFile.from()", () => {
   });
 });
 
-describe("RawDataFile.stringify()", () => {
+describe("rawDataFile.stringify()", () => {
   it("round-trips content through parse and stringify", () => {
     const raw = new RawDataFile(SCRIPTS_CONTENT);
     const output = raw.stringify();
@@ -84,7 +84,7 @@ describe("RawDataFile.stringify()", () => {
   });
 });
 
-describe("RawDataFile.toDataFile()", () => {
+describe("rawDataFile.toDataFile()", () => {
   it("produces a DataFile", () => {
     const raw = new RawDataFile(SCRIPTS_CONTENT);
     const file = raw.toDataFile();

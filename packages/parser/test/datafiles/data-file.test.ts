@@ -12,7 +12,7 @@ const CONTENT = dedent`
   0370..03FF; Greek
 `;
 
-describe("DataFile", () => {
+describe("dataFile", () => {
   it("toDataFile() returns a DataFile with sections", () => {
     const file = new RawDataFile(CONTENT).toDataFile();
     expect(file.sections).toHaveLength(2);
@@ -62,7 +62,7 @@ describe("DataFile", () => {
   });
 
   it("hasEOF is true when EOF marker present", () => {
-    const content = CONTENT + "\n# EOF";
+    const content = `${CONTENT}\n# EOF`;
     const file = new RawDataFile(content).toDataFile();
     expect(file.hasEOF).toBe(true);
   });

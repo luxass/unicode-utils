@@ -208,11 +208,11 @@ importers:
         specifier: catalog:dev
         version: 5.9.3
 
-  packages/playground:
+  playground:
     dependencies:
       '@unicode-utils/parser':
         specifier: workspace:*
-        version: link:../parser
+        version: link:../packages/parser
     devDependencies:
       '@luxass/eslint-config':
         specifier: catalog:linting
@@ -225,7 +225,7 @@ importers:
         version: 24.10.14
       '@unicode-utils-tooling/tsconfig':
         specifier: workspace:*
-        version: link:../../tooling/tsconfig
+        version: link:../tooling/tsconfig
       eslint:
         specifier: catalog:linting
         version: 10.0.0(jiti@2.6.0)
