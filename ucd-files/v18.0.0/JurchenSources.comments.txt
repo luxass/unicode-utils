@@ -1,0 +1,56 @@
+# JurchenSources-18.0.0.txt
+# Date: 2026-02-03 [AW]
+# © 2026 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use and license, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+# For documentation, see https://www.unicode.org/reports/tr44/
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+#
+#	Data values match those for ISO/IEC 10646:2024 10646 7th Edition (CD)
+#	Original Date: 2024-06-25
+#
+#	Format information:
+#
+#	Each line of this file consists of three tab-separated fields.
+#
+#	Field 0: the Jurchen code point value in U+ format
+#	Field 1: a tag indicating the type of information in the third field
+#	Field 2: the value (in UTF-8)
+#
+#	Note that this tagged format is identical to that used
+#	in the Unihan database files, so that it can be parsed
+#	by the same tools.
+#
+#	Current tag list:
+#
+#	Radical-Stroke indexes: kJURC_RSUnicode
+#	Jurchen source: kJURC_Src
+#	Nǚzhēnwén Cídiǎn Reading: kJURC_NCReading
+#	Numeric value: kJURC_Numeric
+#
+# Radical/stroke index is expressed as a dot-separated string of two numbers,
+# where the first number is the radical number, and the second number is the
+# total stroke count.
+#
+# The Jurchen sources consist of four categories:
+# 1- Nǚzhēnwén Cídiǎn source is expressed as an entry in Jīn Qǐzōng 金啓孮,
+#    Nǚzhēnwén Cídiǎn 女真文辞典 (Beijing: Wenwu chubanshe, 1984). They are prefixed by 'NC:' followed
+#    by a dot-separated string of two numbers, where the first number is the page number in Nǚzhēnwén
+#    Cídiǎn, and the second number is the order of the entry on that page. NB There are multiple entries for
+#    some characters in the NC source, but this document only references a single entry for each character.
+# 2- Berlin copy of the Sino-Jurchen Vocabulary. They are prefixed by 'SJ-B:' followed by a dot-separated
+#    string of two values, where the first number is the folio, and the second number is the position in
+#    the folio.
+# 3- Jin Guangping 金光平 and  Jīn Qǐzōng 金啓孮, "Nüzhen Yuyan Wenzi Yanjiu" 真语言文字研究
+#    (Beijing: Wenwu chubanshe, 1980). They are prefixed by 'JJ:' followed by a number indicating the page
+#    reference.
+# 4- Sun Bojun, Nie Hongyin, Jing Yongshi, "A Supplementary Proposal to Encode the Jurchen Characters in UCS"
+#    (WG2 N5131). They are prefixed by 'N5131:' followed by a sequence number prefixed by 'X-'.
+#
+#	For more information, see Section 18.xx (TBD), Jurchen, of the
+#	core specification.
+#

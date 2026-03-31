@@ -41,7 +41,7 @@ async function run() {
   const versions = readdirSync(UCD_FILES_DIR, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
-    .sort();
+    .toSorted();
 
   if (versions.length === 0) {
     throw new Error("No version directories found in ucd-files");

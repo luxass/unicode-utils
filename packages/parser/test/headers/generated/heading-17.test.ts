@@ -19,7 +19,23 @@ describe("inferHeaderFromAst - 17", () => {
     expect(header.text).toBe(expectedText);
   });
 
+  ucdTest("BidiCharacterTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("BidiMirroring.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("BidiTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
   ucdTest("Blocks.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("CJKRadicals.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
 
@@ -27,7 +43,55 @@ describe("inferHeaderFromAst - 17", () => {
     expect(header.text).toBe(expectedText);
   });
 
+  ucdTest("CompositionExclusions.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
   ucdTest("DerivedAge.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("DerivedCoreProperties.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("DerivedNormalizationProps.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("DoNotEmit.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("EastAsianWidth.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("EmojiSources.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("EquivalentUnifiedIdeograph.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("HangulSyllableType.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("Index.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("IndicPositionalCategory.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("IndicSyllabicCategory.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("Jamo.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
 
@@ -39,11 +103,173 @@ describe("inferHeaderFromAst - 17", () => {
     expect(header.text).toBe(expectedText);
   });
 
+  ucdTest("NamedSequences.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("NamedSequencesProv.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("NamesList.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("NormalizationCorrections.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("NormalizationTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("NushuSources.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("PropList.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("PropertyAliases.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
   ucdTest("PropertyValueAliases.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("ReadMe.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("ScriptExtensions.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
 
   ucdTest("Scripts.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("SpecialCasing.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("StandardizedVariants.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("TangutSources.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("USourceData.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("UnicodeData.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("Unikemet.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("VerticalOrientation.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  describe("auxiliary", () => {
+  ucdTest("auxiliary/GraphemeBreakProperty.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("auxiliary/GraphemeBreakTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("auxiliary/LineBreakTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("auxiliary/SentenceBreakProperty.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("auxiliary/SentenceBreakTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("auxiliary/WordBreakProperty.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("auxiliary/WordBreakTest.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+  });
+
+  describe("emoji", () => {
+  ucdTest("emoji/ReadMe.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("emoji/emoji-data.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("emoji/emoji-variation-sequences.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+  });
+
+  describe("extracted", () => {
+  ucdTest("extracted/DerivedBidiClass.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedBinaryProperties.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedCombiningClass.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedDecompositionType.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedEastAsianWidth.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedGeneralCategory.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedJoiningGroup.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedJoiningType.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedLineBreak.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedName.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedNumericType.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
+
+  ucdTest("extracted/DerivedNumericValues.txt")(({ header, expectedText }) => {
+    expect(header.text).toBe(expectedText);
+  });
   });
 });

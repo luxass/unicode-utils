@@ -1,0 +1,16 @@
+# SealSources-18.0.0.txt
+# Date 2025-10-07
+# Small Seal Database
+#
+#
+# kSEAL_THXSrc corresponds to the unified THX source, takes values in the form TH-ddddd, TH-Xddd, or TH-Yddd
+# kSEAL_CCZSrc corresponds to the CCZ source, takes values in the form C-ddddd
+# kSEAL_QJZSrc corresponds to the QJZ source, takes values in the form K-ddddd
+# kSEAL_DYCSrc corresponds to the DYC source, takes values in the form D-ddddd
+# kSEAL_MCJK corresponding to the modern CJK equivalent in hexadecimal format,
+# kSEAL_Rad radical made of the number followed by a dot and its encoded value.
+#  As such, a radical entry is detected by the fact that its code point is the same as its radical value.
+#  It is also the first member of its group. In some rare cases, there may be several space-separated
+#  radical values.
+#
+#
