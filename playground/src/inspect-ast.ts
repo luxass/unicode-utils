@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 
 import { parseDataFileIntoAst } from "@unicode-utils/parser";
@@ -14,32 +13,48 @@ const { values, positionals } = parseArgs({
 });
 
 if (values.help || positionals.length === 0) {
-  console.log(`Usage: pnpm tsx playground/src/inspect-ast.ts <file-path-or-url> [options]
+  console.log(`Usage: pnpm tsx playground/src/inspect-ast.ts <file-path> [options]
 
 Arguments:
-  file-path-or-url   Local file path or URL to a UCD file
+  file-path   UCD file path (e.g. 16.0.0/Scripts.txt)
+              Fetched from https://ucd-store.ucdjs.dev/<file-path>
 
 Options:
       --no-color     Disable ANSI colors
-  -h, --help         Show this help`);
+  -h, --help         Show this help
+
+Examples:
+  # Simple file — one boundary, one section of data
+  pnpm tsx playground/src/inspect-ast.ts 16.0.0/Blocks.txt
+
+  # Multiple subsections with @missing annotations
+  pnpm tsx playground/src/inspect-ast.ts 16.0.0/DerivedAge.txt
+
+  # Multi-field data with inline comments
+  pnpm tsx playground/src/inspect-ast.ts 16.0.0/CaseFolding.txt
+
+  # Bracket pairs — compact file with @missing default
+  pnpm tsx playground/src/inspect-ast.ts 16.0.0/BidiBrackets.txt
+
+  # Many sections, property aliases for all UCD properties
+  pnpm tsx playground/src/inspect-ast.ts 16.0.0/PropertyValueAliases.txt
+
+  # Older version for comparison
+  pnpm tsx playground/src/inspect-ast.ts 5.0.0/Scripts.txt`);
   process.exit(0);
 }
 
 const input = positionals[0]!;
 const colorize = !values["no-color"];
 
-let content: string;
-if (input.startsWith("http://") || input.startsWith("https://")) {
-  console.log(`Fetching ${input}...\n`);
-  const response = await fetch(input);
-  if (!response.ok) {
-    console.error(`Failed to fetch: ${response.status} ${response.statusText}`);
-    process.exit(1);
-  }
-  content = await response.text();
-} else {
-  content = readFileSync(input, "utf-8");
+const url = `https://ucd-store.ucdjs.dev/${input}`;
+console.log(`Fetching ${url}...\n`);
+const response = await fetch(url);
+if (!response.ok) {
+  console.error(`Failed to fetch: ${response.status} ${response.statusText}`);
+  process.exit(1);
 }
+const content = await response.text();
 
 const ast = parseDataFileIntoAst(content);
 
