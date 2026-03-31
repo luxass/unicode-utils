@@ -1,0 +1,40 @@
+# DerivedEastAsianWidth-15.0.0.txt
+# Date: 2022-07-08, 23:49:26 GMT
+# © 2022 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see https://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# East_Asian_Width (listing EastAsianWidth.txt, field 1)
+
+#  All code points not explicitly listed for East_Asian_Width
+#  have the value Neutral (N).
+
+# @missing: 0000..10FFFF; Neutral
+
+# 3400..4DBF CJK_Unified_Ideographs_Extension_A
+# @missing: 3400..4DBF; Wide
+
+# 4E00..9FFF CJK_Unified_Ideographs
+# @missing: 4E00..9FFF; Wide
+
+# F900..FAFF CJK_Compatibility_Ideographs
+# @missing: F900..FAFF; Wide
+
+# 20000..2A6DF CJK_Unified_Ideographs_Extension_B
+# 2A700..2B73F CJK_Unified_Ideographs_Extension_C
+# 2B740..2B81F CJK_Unified_Ideographs_Extension_D
+# 2B820..2CEAF CJK_Unified_Ideographs_Extension_E
+# 2CEB0..2EBEF CJK_Unified_Ideographs_Extension_F
+# 2F800..2FA1F CJK_Compatibility_Ideographs_Supplement
+# @missing: 20000..2FFFD; Wide
+
+# 30000..3134F CJK_Unified_Ideographs_Extension_G
+# 31350..323AF CJK_Unified_Ideographs_Extension_H
+# @missing: 30000..3FFFD; Wide
+
+# ================================================

@@ -1,0 +1,19 @@
+# DerivedLineBreak-11.0.0.txt
+# Date: 2018-03-23, 05:50:46 GMT
+# © 2018 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+# Property:	Line_Break
+
+#  All code points not explicitly listed for Line_Break
+#  have the value Unknown (XX).
+
+# @missing: 0000..10FFFF; Unknown
+
+# ================================================

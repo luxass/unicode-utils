@@ -13,6 +13,8 @@ export {
 } from "@unicode-utils/metadata";
 
 export {
+  type InferredHeader,
+  inferHeaderFromAst,
   getBoundaryLineStyle,
   getPropertyValue,
   inferFileName,

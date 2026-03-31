@@ -1,0 +1,35 @@
+# StandardizedVariants-6.2.0.txt
+# Date: 2012-05-15, 21:53:00 GMT [KW, LI]
+#
+# Specification of the variation sequences that are defined in the
+# Unicode Standard.
+#
+# This file is a normative contributory data file in the
+# Unicode Character Database.
+#
+# Copyright (c) 1991-2012 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Standardized variation sequences are defined in this file.
+# Ideographic variation sequences are defined according to the registration
+# process specified in UTS #37, and are listed in the Ideographic
+# Variation Database. Only those two types of variation sequences
+# are sanctioned for use by conformant implementations.
+# In all other cases, use of a variation selector character does
+# not change the visual appearance of the preceding base character
+# from what it would have had in the absence of the variation selector.
+#
+# For more information on standardized variation sequences, 
+# see Section 16.4, Variation Selectors, 
+# in The Unicode Standard, Version 6.2.
+#
+# For more information on the Ideographic Variation Database,
+# see http://www.unicode.org/ivd/
+#
+# Format:
+#   Field 0: the variation sequence
+#   Field 1: the description of the desired appearance
+#   Field 2: where the appearance is only different in particular shaping environments
+#	this field lists them. The possible values are: isolate, initial, medial, final.
+#	If more than one is present, there are spaces between them.
+# =============================
