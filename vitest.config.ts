@@ -2,8 +2,6 @@ import { existsSync, readdirSync } from "node:fs";
 
 import { defineConfig, type TestProjectConfiguration } from "vitest/config";
 
-const root = new URL("./", import.meta.url).pathname;
-
 const pkgRoot = (pkg: string) => new URL(`./packages/${pkg}`, import.meta.url).pathname;
 const alias = (pkg: string) => `${pkgRoot(pkg)}/src`;
 

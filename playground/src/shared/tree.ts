@@ -1,120 +1,43 @@
 import type {
   ChildNode,
-  DataNode,
   RootNode,
-  SectionChildNode,
-  SectionNode,
 } from "@unicode-utils/parser";
 import {
-  isBoundaryNode,
   isCommentNode,
-  isEmptyCommentNode,
   isEmptyNode,
-  isEOFNode,
-  isMissingAnnotationNode,
-  isPropertyNode,
-  isSectionNode,
   isUnknownNode,
 } from "@unicode-utils/parser";
 import { type Colors, makeColor } from "./colors";
 
 export interface FormatOptions {
-  maxRecords?: number;
   colorize?: boolean;
 }
 
-const PIPE = "│   ";
 const TEE = "├── ";
 const ELBOW = "└── ";
-const BLANK = "    ";
 
 function truncate(s: string, max: number): string {
   if (s.length <= max) return s;
   return `${s.slice(0, max - 3)}...`;
 }
 
-function formatDataNode(node: DataNode, c: Colors): string {
-  return `${c.green("DataNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 80))}`;
-}
-
-function formatChildNode(node: SectionChildNode, c: Colors): string {
+function formatChildNode(node: ChildNode, c: Colors): string {
   if (isCommentNode(node)) {
     return `${c.cyan("CommentNode")} ${c.dim(`L${node.line}`)}: ${c.dim(`"${truncate(node.value, 60)}"`)}`;
-  }
-  if (isEmptyCommentNode(node)) {
-    return `${c.cyan("EmptyCommentNode")} ${c.dim(`L${node.line}`)}`;
-  }
-  if (isBoundaryNode(node)) {
-    return `${c.yellow("BoundaryNode")} ${c.dim(`L${node.line}`)} [${node.style}]`;
   }
   if (isEmptyNode(node)) {
     return `${c.dim("EmptyNode")} ${c.dim(`L${node.line}`)}`;
   }
-  if (isEOFNode(node)) {
-    return `${c.red("EOFNode")} ${c.dim(`L${node.line}`)}`;
-  }
-  if (isPropertyNode(node)) {
-    return `${c.magenta("PropertyNode")} ${c.dim(`L${node.line}`)}: ${node.propertyValue ?? ""}`;
-  }
   if (isUnknownNode(node)) {
-    return `${c.red("UnknownNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
+    return `${c.yellow("UnknownNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
   }
-  if (isMissingAnnotationNode(node)) {
-    return `${c.yellow("MissingAnnotationNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
-  }
-  return formatDataNode(node, c);
-}
-
-function formatSectionNode(
-  section: SectionNode,
-  c: Colors,
-  prefix: string,
-  isLast: boolean,
-  options: Required<FormatOptions>,
-): string[] {
-  const lines: string[] = [];
-  const connector = isLast ? ELBOW : TEE;
-  const childPrefix = prefix + (isLast ? BLANK : PIPE);
-
-  const recordCount = section.records.length;
-  const header = `${c.bold(c.magenta("SectionNode"))} ${c.bold(`"${section.name}"`)} (${recordCount} record${recordCount !== 1 ? "s" : ""})`;
-  lines.push(`${prefix}${connector}${header}`);
-
-  const items: string[] = [];
-
-  let dataCount = 0;
-  const maxRecords = options.maxRecords;
-  for (const child of section.children) {
-    if (child.type === "data") {
-      dataCount++;
-      if (dataCount <= maxRecords) {
-        items.push(formatDataNode(child, c));
-      }
-    } else {
-      items.push(formatChildNode(child, c));
-    }
-  }
-  if (dataCount > maxRecords) {
-    items.push(c.dim(`... ${dataCount - maxRecords} more data records (${dataCount} total)`));
-  }
-
-  for (let i = 0; i < items.length; i++) {
-    const childConnector = i === items.length - 1 ? ELBOW : TEE;
-    lines.push(`${childPrefix}${childConnector}${items[i]}`);
-  }
-
-  return lines;
+  return `${c.dim("Node")} ${c.dim(`L${(node as ChildNode).line}`)}`;
 }
 
 export function formatAst(root: RootNode, options?: FormatOptions): string {
   const colorize =
     options?.colorize ?? (typeof process !== "undefined" && process.stdout?.isTTY === true);
-  const resolved: Required<FormatOptions> = {
-    maxRecords: options?.maxRecords ?? 10,
-    colorize,
-  };
-
-  const c = makeColor(resolved.colorize);
+  const c = makeColor(colorize);
   const lines: string[] = [];
 
   let rootHeader = c.bold("RootNode");
@@ -124,18 +47,14 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
     if (root.version) parts.push(`v${root.version}`);
     rootHeader += ` ${c.dim(`[${parts.join(" ")}]`)}`;
   }
+  rootHeader += ` ${c.dim(`(${root.children.length} nodes)`)}`;
   lines.push(rootHeader);
 
   for (let i = 0; i < root.children.length; i++) {
     const child = root.children[i]!;
     const isLast = i === root.children.length - 1;
-
-    if (isSectionNode(child)) {
-      lines.push(...formatSectionNode(child, c, "", isLast, resolved));
-    } else if (!isSectionNode(child)) {
-      const connector = isLast ? ELBOW : TEE;
-      lines.push(`${connector}${formatChildNode(child as SectionChildNode, c)}`);
-    }
+    const connector = isLast ? ELBOW : TEE;
+    lines.push(`${connector}${formatChildNode(child, c)}`);
   }
 
   return lines.join("\n");

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 
-import { isSectionNode, RawDataFile, stringifyAst } from "@unicode-utils/parser";
+import { parseDataFileIntoAst, stringifyNodes } from "@unicode-utils/parser";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
@@ -13,53 +13,55 @@ const { values, positionals } = parseArgs({
 if (values.help || positionals.length === 0) {
   console.log(`Usage: pnpm tsx playground/src/round-trip.ts <file-path-or-url>
 
-Parse a UCD file, stringify it, re-parse, and compare section/record counts.`);
+Parse a UCD file, stringify it, re-parse, and compare node counts.`);
   process.exit(0);
 }
 
 const input = positionals[0]!;
 
-let raw: RawDataFile;
+let content: string;
 if (input.startsWith("http://") || input.startsWith("https://")) {
   console.log(`Fetching ${input}...\n`);
-  raw = await RawDataFile.from(input);
+  const response = await fetch(input);
+  if (!response.ok) {
+    console.error(`Failed to fetch: ${response.status} ${response.statusText}`);
+    process.exit(1);
+  }
+  content = await response.text();
 } else {
-  const content = readFileSync(input, "utf-8");
-  raw = new RawDataFile(content);
+  content = readFileSync(input, "utf-8");
 }
 
-const originalSections = raw.ast.children.filter(isSectionNode);
-const originalRecordCount = originalSections.reduce((sum, s) => sum + s.records.length, 0);
+const original = parseDataFileIntoAst(content);
+console.log(`Original: ${original.children.length} nodes`);
 
-console.log(`Original: ${originalSections.length} sections, ${originalRecordCount} records`);
+const output = stringifyNodes(original.children);
+const reparsed = parseDataFileIntoAst(output);
+console.log(`Reparsed: ${reparsed.children.length} nodes`);
 
-const output = stringifyAst(raw.ast);
+const originalCounts = {
+  comment: original.children.filter((n) => n.type === "comment").length,
+  empty: original.children.filter((n) => n.type === "empty").length,
+  unknown: original.children.filter((n) => n.type === "unknown").length,
+};
+const reparsedCounts = {
+  comment: reparsed.children.filter((n) => n.type === "comment").length,
+  empty: reparsed.children.filter((n) => n.type === "empty").length,
+  unknown: reparsed.children.filter((n) => n.type === "unknown").length,
+};
 
-const reparsed = new RawDataFile(output);
-const reparsedSections = reparsed.ast.children.filter(isSectionNode);
-const reparsedRecordCount = reparsedSections.reduce((sum, s) => sum + s.records.length, 0);
+const match =
+  originalCounts.comment === reparsedCounts.comment
+  && originalCounts.empty === reparsedCounts.empty
+  && originalCounts.unknown === reparsedCounts.unknown;
 
-console.log(`Reparsed: ${reparsedSections.length} sections, ${reparsedRecordCount} records`);
-
-const sectionMatch = originalSections.length === reparsedSections.length;
-const recordMatch = originalRecordCount === reparsedRecordCount;
-
-if (sectionMatch && recordMatch) {
-  console.log("\n✓ Round-trip preserved all sections and records.");
+if (match) {
+  console.log("\n✓ Round-trip preserved all nodes.");
 } else {
   console.log("\n✗ Mismatch detected:");
-  if (!sectionMatch) {
-    console.log(`  Sections: ${originalSections.length} → ${reparsedSections.length}`);
-  }
-  if (!recordMatch) {
-    console.log(`  Records: ${originalRecordCount} → ${reparsedRecordCount}`);
-  }
-}
-
-for (let i = 0; i < Math.max(originalSections.length, reparsedSections.length); i++) {
-  const orig = originalSections[i];
-  const repr = reparsedSections[i];
-  if (orig?.name !== repr?.name) {
-    console.log(`  Section ${i}: "${orig?.name}" → "${repr?.name}"`);
+  for (const type of ["comment", "empty", "unknown"] as const) {
+    if (originalCounts[type] !== reparsedCounts[type]) {
+      console.log(`  ${type}: ${originalCounts[type]} → ${reparsedCounts[type]}`);
+    }
   }
 }

@@ -1,14 +1,13 @@
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 
-import { RawDataFile } from "@unicode-utils/parser";
+import { parseDataFileIntoAst } from "@unicode-utils/parser";
 
 import { formatAst } from "./shared/tree";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: {
-    "max-records": { type: "string", short: "m", default: "5" },
     "no-color": { type: "boolean", default: false },
     help: { type: "boolean", short: "h", default: false },
   },
@@ -21,23 +20,27 @@ Arguments:
   file-path-or-url   Local file path or URL to a UCD file
 
 Options:
-  -m, --max-records  Max records per section (default: 5)
       --no-color     Disable ANSI colors
   -h, --help         Show this help`);
   process.exit(0);
 }
 
 const input = positionals[0]!;
-const maxRecords = Number(values["max-records"]);
 const colorize = !values["no-color"];
 
-let raw: RawDataFile;
+let content: string;
 if (input.startsWith("http://") || input.startsWith("https://")) {
   console.log(`Fetching ${input}...\n`);
-  raw = await RawDataFile.from(input);
+  const response = await fetch(input);
+  if (!response.ok) {
+    console.error(`Failed to fetch: ${response.status} ${response.statusText}`);
+    process.exit(1);
+  }
+  content = await response.text();
 } else {
-  const content = readFileSync(input, "utf-8");
-  raw = new RawDataFile(content);
+  content = readFileSync(input, "utf-8");
 }
 
-console.log(formatAst(raw.ast, { maxRecords, colorize }));
+const ast = parseDataFileIntoAst(content);
+
+console.log(formatAst(ast, { colorize }));

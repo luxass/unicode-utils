@@ -17,6 +17,13 @@ const propertyDocs: Record<string, string> = {
   type: "The stability type of this version.",
 };
 
+function formatValue(value: unknown): string {
+  if (value === null) return "null";
+  if (typeof value === "string") return `"${value}"`;
+  if (typeof value === "number" || typeof value === "boolean") return String(value);
+  return JSON.stringify(value);
+}
+
 const propertyKeys: string[] = [];
 const interfaceProperties = new Map<
   string,
@@ -124,12 +131,6 @@ async function run() {
 
       throw new Error(`Unsupported property type for key "${key}": ${typeof value}`);
     }
-  }
-
-  function formatValue(value: unknown): string {
-    if (value === null) return "null";
-    if (typeof value === "string") return `"${value}"`;
-    return String(value);
   }
 
   function mapReleaseObject(releaseObj: Record<string, unknown>): string {

@@ -21,7 +21,7 @@ export default defineConfig({
   },
   overrides: [
     {
-      files: [".github/**/*", "playground/**/*"],
+      files: [".github/**/*", "playground/**/*", "**/scripts/**/*"],
       rules: {
         "no-console": "off",
       },

@@ -23,57 +23,6 @@ Example:
 
 ---
 
-## BoundaryStyle
-
-The visual style of a separator line in a UCD file. Detected by `getBoundaryLineStyle()` in `line-helpers.ts`.
-
-| Value      | Example line       |
-| ---------- | ------------------ |
-| `"hash"`   | `################` |
-| `"equals"` | `================` |
-| `"dash"`   | `----------------` |
-
-Boundary lines delimit sections within a UCD file.
-
----
-
-## SectionNode
-
-A first-class AST node emitted by `parseDataFileIntoAst()` during section grouping. Holds all consumed nodes in its `children` array and provides a `records` convenience filter for `DataNode`s only. See `AST.md` for the full interface.
-
----
-
-## SectionChildNode
-
-The union of node types that can appear inside `SectionNode.children`. Every `ChildNode` type except `SectionNode` itself.
-
----
-
-## ParsedField
-
-One field on a `DataNode`, produced after field splitting and optional coercion.
-
-```ts
-interface ParsedField {
-  name: string | undefined; // "field_0", "field_1", etc. (auto-generated)
-  rawValue: string; // untouched string from splitting the line by separator
-  value: unknown; // auto-coerced value
-}
-```
-
-`parsedFields` is `undefined` on a `DataNode` until section grouping runs.
-
----
-
-## rawValue vs value
-
-- **`rawValue`**: The exact string slice after splitting the raw data line by the detected separator. Never modified.
-- **`value`**: The coerced/typed interpretation of `rawValue`. Set by `inferFieldValue()` during section grouping.
-
-Stringify prefers `value`; falls back to `rawValue` if value cannot be serialized. Nodes without `parsedFields` emit `node.raw` unchanged (lossless round-trip).
-
----
-
 ## MissingAnnotation
 
 A `# @missing:` line in a UCD file that declares the default property value for codepoints not otherwise listed in the file.
@@ -88,41 +37,35 @@ Parsed into:
 
 ```ts
 interface MissingAnnotation {
-  start: string; // "0000"
-  end: string; // "10FFFF"
+  start: string;
+  end: string;
   propertyName?: string;
-  defaultPropertyValue: string; // "Unknown"
+  defaultPropertyValue: string;
 }
 ```
 
-Collected per `SectionNode` in `SectionNode.missingAnnotations`.
-
----
-
-## Separator
-
-The field delimiter used in a UCD data line. Detected automatically from the first data line. Default candidates: `[";", "\t"]`. Can be overridden via `ParseAstOptions.separators`.
-
----
-
-## EOF marker
-
-The literal line `# EOF` that appears at the end of some UCD files. Detected by `isEOFMarker()` in `line-helpers.ts`. Reflected in `RawDataFile.hasEOF`.
+Detected by `isMissingAnnotation()` in `line-helpers.ts`. Currently lands as an `UnknownNode` in the AST — will become its own node type in a future pass.
 
 ---
 
 ## RawDataFile
 
-High-level wrapper class in `packages/parser/src/datafile/model.ts`. Holds the raw text and parsed AST. Provides `toDataFile()` for an immutable query view and `stringify()` for round-trip serialisation. Can be constructed from a string or fetched from a URL via `RawDataFile.from()`.
+Class in `packages/parser/src/raw-data-file.ts`. Holds the raw content string and a parsed `RootNode`. Can be constructed from a content string or fetched from a URL via `RawDataFile.from()`. Provides `toDataFile()` to get an immutable query view.
 
-**When to use:** When you need to _do things_ with the file — parse it, mutate the AST, or stringify it back to UCD text. `RawDataFile` is the mutable owner of the AST.
+**When to use:** When you need to work directly with the AST — inspect nodes, mutate the tree, or stringify back to text.
 
 ---
 
 ## DataFile
 
-Immutable frozen query view in `packages/parser/src/datafile/data-file.ts`. Created via `rawDataFile.toDataFile()`. Sections and records are frozen. Provides `findSection()`, `findSectionsByName()`, and `recordCount`.
+Immutable frozen wrapper in `packages/parser/src/data-file.ts`. Created via `rawDataFile.toDataFile()`. Holds a frozen `RootNode`.
 
-**When to use:** When you only need to _query_ the file — read sections and records without any risk of accidental mutation. All arrays are `Object.freeze()`d; attempting to mutate throws at runtime.
+**When to use:** When you only need a safe, read-only view of the parsed AST to pass around without risk of mutation.
 
-**Choosing between the two:** Use `RawDataFile` when you need to mutate the AST or re-serialize. Convert to `DataFile` once you're done mutating and want a safe, read-only view to pass around.
+**Choosing between the two:** Use `RawDataFile` when you need to work with or mutate the AST. Convert to `DataFile` when you want a frozen snapshot to hand to consumers.
+
+---
+
+## EOF marker
+
+The literal line `# EOF` that appears at the end of some UCD files. Detected by `isEOFMarker()` in `line-helpers.ts`. Currently lands as an `UnknownNode` in the AST.

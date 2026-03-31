@@ -10,8 +10,9 @@ General rules for any AI working on this codebase.
 
 This includes:
 
-- `packages/parser/src/datafile/` — all files (`ast.ts`, `parser.ts`, `model.ts`, `data-file.ts`, `stringify.ts`, `ast-utils.ts`, `typeguards.ts`)
-- `packages/parser/src/inference/` — all files
+- `packages/parser/src/ast/` — node types, typeguards
+- `packages/parser/src/parser.ts` — parsing logic
+- `packages/parser/src/raw-data-file.ts`, `data-file.ts` — class shells
 - `packages/core/` — re-exports, API surface, dependencies
 - Test files — rewrite, delete, restructure as needed
 
@@ -21,9 +22,9 @@ This includes:
 
 Two modules are considered stable utilities. Keep them as-is unless there is a compelling reason to change them, and always discuss before touching:
 
-### `packages/parser/src/datafile/typeguards.ts`
+### `packages/parser/src/ast/typeguards.ts`
 
-Type guard functions (`isDataNode`, `isBoundaryNode`, `isSectionNode`, etc.) are a clean, stable pattern. Add new guards as new node types are introduced. Do not remove or rename existing ones without updating every call site.
+Type guard functions (`isCommentNode`, `isEmptyNode`, `isUnknownNode`, etc.) are a clean, stable pattern. Add new guards as new node types are introduced. Do not remove or rename existing ones without updating every call site.
 
 ### `packages/parser/src/line-helpers.ts`
 
