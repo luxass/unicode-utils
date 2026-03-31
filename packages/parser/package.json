@@ -28,7 +28,7 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
-    "./datafile": "./dist/datafile.mjs",
+    "./data-file": "./dist/data-file.mjs",
     "./line-helpers": "./dist/line-helpers.mjs",
     "./package.json": "./package.json"
   },
