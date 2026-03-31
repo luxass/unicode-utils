@@ -1,40 +1,45 @@
-/**
- * Round-trip test: parse → stringify → re-parse a UCD file.
- *
- * Compares section count and record count to verify no data loss.
- *
- * Edit the VERSION and FILE below, then run:
- *   tsx packages/playground/src/round-trip.ts
- */
+import { readFileSync } from "node:fs";
+import { parseArgs } from "node:util";
 import { RawDataFile, isSectionNode, stringifyAst } from "@unicode-utils/parser";
 
-// ─── Configure here ───────────────────────────────────────────────────────────
+const { values, positionals } = parseArgs({
+  allowPositionals: true,
+  options: {
+    "help": { type: "boolean", short: "h", default: false },
+  },
+});
 
-const VERSION = "16.0.0";
-const FILE = "Scripts.txt";
+if (values.help || positionals.length === 0) {
+  console.log(`Usage: pnpm tsx playground/src/round-trip.ts <file-path-or-url>
 
-// ─── Run ──────────────────────────────────────────────────────────────────────
+Parse a UCD file, stringify it, re-parse, and compare section/record counts.`);
+  process.exit(0);
+}
 
-const url = `https://unicode.org/Public/${VERSION}/ucd/${FILE}`;
-console.log(`Fetching ${url}...\n`);
+const input = positionals[0]!;
 
-const raw = await RawDataFile.from(url);
+let raw: RawDataFile;
+if (input.startsWith("http://") || input.startsWith("https://")) {
+  console.log(`Fetching ${input}...\n`);
+  raw = await RawDataFile.from(input);
+} else {
+  const content = readFileSync(input, "utf-8");
+  raw = new RawDataFile(content);
+}
+
 const originalSections = raw.ast.children.filter(isSectionNode);
 const originalRecordCount = originalSections.reduce((sum, s) => sum + s.records.length, 0);
 
 console.log(`Original: ${originalSections.length} sections, ${originalRecordCount} records`);
 
-// Stringify
 const output = stringifyAst(raw.ast);
 
-// Re-parse
 const reparsed = new RawDataFile(output);
 const reparsedSections = reparsed.ast.children.filter(isSectionNode);
 const reparsedRecordCount = reparsedSections.reduce((sum, s) => sum + s.records.length, 0);
 
 console.log(`Reparsed: ${reparsedSections.length} sections, ${reparsedRecordCount} records`);
 
-// Compare
 const sectionMatch = originalSections.length === reparsedSections.length;
 const recordMatch = originalRecordCount === reparsedRecordCount;
 
@@ -50,7 +55,6 @@ if (sectionMatch && recordMatch) {
   }
 }
 
-// Compare section names
 for (let i = 0; i < Math.max(originalSections.length, reparsedSections.length); i++) {
   const orig = originalSections[i];
   const repr = reparsedSections[i];

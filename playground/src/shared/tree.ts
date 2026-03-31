@@ -18,15 +18,10 @@ import {
 } from "@unicode-utils/parser";
 
 export interface FormatOptions {
-  /** Max records shown per section. Default: 10. Use Infinity for all. */
   maxRecords?: number;
-  /** Show node.raw instead of formatted fields. Default: false */
   showRaw?: boolean;
-  /** ANSI color output. Default: auto-detect TTY */
   colorize?: boolean;
 }
-
-// ─── ANSI helpers ─────────────────────────────────────────────────────────────
 
 const RESET = "\x1B[0m";
 const DIM = "\x1B[2m";
@@ -62,8 +57,6 @@ function makeColor(enabled: boolean) {
     red: (s: string) => `${RED}${s}${RESET}`,
   };
 }
-
-// ─── Tree drawing ─────────────────────────────────────────────────────────────
 
 const PIPE = "│   ";
 const TEE = "├── ";
@@ -114,7 +107,6 @@ function formatChildNode(node: ChildNode, c: ReturnType<typeof makeColor>): stri
   if (isUnknownNode(node)) {
     return `${c.red("UnknownNode")} ${c.dim(`L${node.line}`)}: ${c.dim(truncate(node.raw, 60))}`;
   }
-  // DataNode outside a section (shouldn't happen with groupSections: true, but handle it)
   if (isDataNode(node)) {
     return formatDataNode(node, c, false);
   }
@@ -137,7 +129,6 @@ function formatSectionNode(
   const connector = isLast ? ELBOW : TEE;
   const childPrefix = prefix + (isLast ? BLANK : PIPE);
 
-  // Section header
   const recordCount = section.records.length;
   const missingCount = section.missingAnnotations.length;
   let header = `${c.bold(c.magenta("SectionNode"))} ${c.bold(`"${section.name}"`)} (${recordCount} record${recordCount !== 1 ? "s" : ""}`;
@@ -147,20 +138,16 @@ function formatSectionNode(
   header += ")";
   lines.push(`${prefix}${connector}${header}`);
 
-  // Collect display items
   const items: string[] = [];
 
-  // Field names (metadata line)
   if (section.fieldNames && section.fieldNames.length > 0) {
     items.push(`${c.dim("fields:")} ${section.fieldNames.map((n) => c.blue(n)).join(", ")}`);
   }
 
-  // @missing annotations (metadata)
   for (const ann of section.missingAnnotations) {
     items.push(`${c.yellow("@missing:")} ${ann.start}..${ann.end} ${c.dim("→")} ${ann.defaultPropertyValue}`);
   }
 
-  // ALL children in original order — nothing hidden
   let dataCount = 0;
   const maxRecords = options.maxRecords;
   for (const child of section.children) {
@@ -168,11 +155,8 @@ function formatSectionNode(
       dataCount++;
       if (dataCount <= maxRecords) {
         items.push(formatDataNode(child, c, options.showRaw));
-      } else if (dataCount === maxRecords + 1) {
-        // Will show "... N more records" at the end
       }
     } else {
-      // Show every non-data child: boundaries, empty lines, comments, etc.
       items.push(formatChildNode(child, c));
     }
   }
@@ -180,7 +164,6 @@ function formatSectionNode(
     items.push(c.dim(`... ${dataCount - maxRecords} more data records (${dataCount} total)`));
   }
 
-  // Draw items with tree connectors
   for (let i = 0; i < items.length; i++) {
     const childConnector = i === items.length - 1 ? ELBOW : TEE;
     lines.push(`${childPrefix}${childConnector}${items[i]}`);
@@ -189,15 +172,6 @@ function formatSectionNode(
   return lines;
 }
 
-/**
- * Format a RootNode into a human-readable tree string.
- *
- * @example
- * ```ts
- * const root = parseDataFileIntoAst(content);
- * console.log(formatAst(root));
- * ```
- */
 export function formatAst(root: RootNode, options?: FormatOptions): string {
   const colorize = options?.colorize ?? (typeof process !== "undefined" && process.stdout?.isTTY === true);
   const resolved: Required<FormatOptions> = {
@@ -209,7 +183,6 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
   const c = makeColor(resolved.colorize);
   const lines: string[] = [];
 
-  // Root header
   let rootHeader = `${c.bold("RootNode")}`;
   if (root.fileName || root.version) {
     const parts: string[] = [];
@@ -219,7 +192,6 @@ export function formatAst(root: RootNode, options?: FormatOptions): string {
   }
   lines.push(rootHeader);
 
-  // Children
   for (let i = 0; i < root.children.length; i++) {
     const child = root.children[i]!;
     const isLast = i === root.children.length - 1;

@@ -1,6 +1,7 @@
 packages:
   - "packages/*"
   - "tooling/*"
+  - "playground"
 
 catalogs:
   types:

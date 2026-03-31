@@ -1,22 +1,32 @@
-/**
- * List all sections in a UCD file with their record counts.
- *
- * Edit the VERSION and FILE below, then run:
- *   tsx packages/playground/src/list-sections.ts
- */
+import { readFileSync } from "node:fs";
+import { parseArgs } from "node:util";
 import { RawDataFile, isSectionNode } from "@unicode-utils/parser";
 
-// ─── Configure here ───────────────────────────────────────────────────────────
+const { values, positionals } = parseArgs({
+  allowPositionals: true,
+  options: {
+    "help": { type: "boolean", short: "h", default: false },
+  },
+});
 
-const VERSION = "16.0.0";
-const FILE = "ArabicShaping.txt";
+if (values.help || positionals.length === 0) {
+  console.log(`Usage: pnpm tsx playground/src/list-sections.ts <file-path-or-url>
 
-// ─── Run ──────────────────────────────────────────────────────────────────────
+Lists all sections in a UCD file with record counts, @missing annotations, and field names.`);
+  process.exit(0);
+}
 
-const url = `https://unicode.org/Public/${VERSION}/ucd/${FILE}`;
-console.log(`Fetching ${url}...\n`);
+const input = positionals[0]!;
 
-const raw = await RawDataFile.from(url);
+let raw: RawDataFile;
+if (input.startsWith("http://") || input.startsWith("https://")) {
+  console.log(`Fetching ${input}...\n`);
+  raw = await RawDataFile.from(input);
+} else {
+  const content = readFileSync(input, "utf-8");
+  raw = new RawDataFile(content);
+}
+
 const sections = raw.ast.children.filter(isSectionNode);
 
 console.log(`File: ${raw.fileName} v${raw.version}`);
