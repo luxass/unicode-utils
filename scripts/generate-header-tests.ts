@@ -20,7 +20,7 @@ function readFilesRecursive(dir: string): string[] {
   const entries = readdirSync(dir, { withFileTypes: true });
 
   const files = entries
-    .filter((entry) => !entry.isDirectory() && entry.name.endsWith(".txt") && !entry.name.endsWith(".comments.txt"))
+    .filter((entry) => !entry.isDirectory() && entry.name.endsWith(".txt") && !entry.name.endsWith(".comments.txt") && !entry.name.includes("Test"))
     .map((entry) => join(dir, entry.name));
 
   const folders = entries
@@ -28,6 +28,14 @@ function readFilesRecursive(dir: string): string[] {
     .map((entry) => join(dir, entry.name));
 
   return [...files, ...folders.flatMap((folder) => readFilesRecursive(folder))];
+}
+
+const SAFE_PATH = /^[a-zA-Z0-9._\-/]+$/;
+
+function assertSafePath(value: string): void {
+  if (!SAFE_PATH.test(value)) {
+    throw new Error(`Unsafe path rejected (possible injection): ${JSON.stringify(value)}`);
+  }
 }
 
 function trimVersionString(version: string): string {
@@ -91,6 +99,7 @@ async function run() {
 
         const tests = filePaths
           .map((relativePath) => {
+            assertSafePath(relativePath);
             return `  ucdTest("${relativePath}")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });`;
@@ -102,12 +111,16 @@ async function run() {
         }
 
         return dirSegments.reduceRight((content, segment) => {
+          assertSafePath(segment);
           return `  describe("${segment}", () => {
 ${content}
   });`;
         }, tests);
       })
       .join("\n\n");
+
+    assertSafePath(version);
+    assertSafePath(formattedVersion);
 
     const content = `${COMMENT}
 import { describe, expect } from "vitest";

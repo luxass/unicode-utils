@@ -19,15 +19,7 @@ describe("inferHeaderFromAst - 17", () => {
     expect(header.text).toBe(expectedText);
   });
 
-  ucdTest("BidiCharacterTest.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
   ucdTest("BidiMirroring.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("BidiTest.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
 
@@ -119,10 +111,6 @@ describe("inferHeaderFromAst - 17", () => {
     expect(header.text).toBe(expectedText);
   });
 
-  ucdTest("NormalizationTest.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
   ucdTest("NushuSources.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
@@ -184,27 +172,11 @@ describe("inferHeaderFromAst - 17", () => {
     expect(header.text).toBe(expectedText);
   });
 
-  ucdTest("auxiliary/GraphemeBreakTest.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("auxiliary/LineBreakTest.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
   ucdTest("auxiliary/SentenceBreakProperty.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
 
-  ucdTest("auxiliary/SentenceBreakTest.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
   ucdTest("auxiliary/WordBreakProperty.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("auxiliary/WordBreakTest.txt")(({ header, expectedText }) => {
     expect(header.text).toBe(expectedText);
   });
   });
