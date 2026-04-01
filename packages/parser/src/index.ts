@@ -1,7 +1,7 @@
 export * from "./ast";
-export { DataFile } from "./data-file";
+export { DataFile } from "./models/data-file";
 export { type InferredHeader, inferHeaderFromAst } from "./header";
-export { RawDataFile } from "./raw-data-file";
+export { RawDataFile } from "./models/raw-data-file";
 export {
   type ParseAstOptions,
   parseDataFileIntoAst,

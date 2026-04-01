@@ -1,4 +1,4 @@
-import type { RootNode } from "./ast";
+import type { RootNode } from "../ast";
 import { DataFile } from "./data-file";
 
 export class RawDataFile {

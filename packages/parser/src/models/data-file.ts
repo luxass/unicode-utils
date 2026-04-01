@@ -1,4 +1,4 @@
-import type { RootNode } from "./ast";
+import type { RootNode } from "../ast";
 
 export class DataFile {
   readonly ast: Readonly<RootNode>;
