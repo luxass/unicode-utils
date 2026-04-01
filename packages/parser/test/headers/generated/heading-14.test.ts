@@ -160,80 +160,80 @@ describe("inferHeaderFromAst - 14", () => {
   });
 
   describe("auxiliary", () => {
-  ucdTest("auxiliary/GraphemeBreakProperty.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("auxiliary/GraphemeBreakProperty.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("auxiliary/SentenceBreakProperty.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("auxiliary/SentenceBreakProperty.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("auxiliary/WordBreakProperty.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("auxiliary/WordBreakProperty.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
   });
 
   describe("emoji", () => {
-  ucdTest("emoji/ReadMe.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("emoji/ReadMe.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("emoji/emoji-data.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("emoji/emoji-data.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("emoji/emoji-variation-sequences.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("emoji/emoji-variation-sequences.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
   });
 
   describe("extracted", () => {
-  ucdTest("extracted/DerivedBidiClass.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedBidiClass.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedBinaryProperties.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedBinaryProperties.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedCombiningClass.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedCombiningClass.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedDecompositionType.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedDecompositionType.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedEastAsianWidth.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedEastAsianWidth.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedGeneralCategory.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedGeneralCategory.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedJoiningGroup.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedJoiningGroup.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedJoiningType.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedJoiningType.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedLineBreak.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedLineBreak.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedName.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedName.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedNumericType.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedNumericType.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
 
-  ucdTest("extracted/DerivedNumericValues.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+    ucdTest("extracted/DerivedNumericValues.txt")(({ header, expectedText }) => {
+      expect(header.text).toBe(expectedText);
+    });
   });
 });

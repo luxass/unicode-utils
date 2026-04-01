@@ -70,7 +70,7 @@ async function run() {
     try {
       tree = await fetchFileTree(version);
     } catch (err) {
-      console.warn(`  Skipping ${versionDir}: ${err}`);
+      console.warn(`  Skipping ${versionDir}: ${String(err)}`);
       continue;
     }
 
@@ -98,7 +98,7 @@ async function run() {
         writeFileSync(localPath, content, "utf-8");
         console.log(`  ✓ ${file}`);
       } catch (err) {
-        console.warn(`  ✗ ${file}: ${err}`);
+        console.warn(`  ✗ ${file}: ${String(err)}`);
       }
     }
 

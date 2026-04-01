@@ -38,6 +38,14 @@ function assertSafePath(value: string): void {
   }
 }
 
+function indent(text: string, spaces: number): string {
+  const pad = " ".repeat(spaces);
+  return text
+    .split("\n")
+    .map((line) => (line.trim() === "" ? "" : `${pad}${line}`))
+    .join("\n");
+}
+
 function trimVersionString(version: string): string {
   return version
     .replace(/^v/, "")
@@ -61,7 +69,7 @@ async function run() {
     await mkdir(TEST_OUTPUT_DIR, { recursive: true });
   }
 
-  const promises = versions.map(async (version) => {
+  const promises = versions.map(async (version: string) => {
     const versionDir = join(UCD_FILES_DIR, version);
     const formattedVersion = trimVersionString(version);
     const files = readFilesRecursive(versionDir);
@@ -100,22 +108,22 @@ async function run() {
         const tests = filePaths
           .map((relativePath) => {
             assertSafePath(relativePath);
-            return `  ucdTest("${relativePath}")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });`;
+            return `ucdTest("${relativePath}")(({ header, expectedText }) => {
+  expect(header.text).toBe(expectedText);
+});`;
           })
           .join("\n\n");
 
         if (dirSegments.length === 0) {
-          return tests;
+          return indent(tests, 2);
         }
 
-        return dirSegments.reduceRight((content, segment) => {
+        const wrapped = dirSegments.reduceRight((content, segment) => {
           assertSafePath(segment);
-          return `  describe("${segment}", () => {
-${content}
-  });`;
+          return `describe("${segment}", () => {\n${indent(content, 2)}\n});`;
         }, tests);
+
+        return indent(wrapped, 2);
       })
       .join("\n\n");
 

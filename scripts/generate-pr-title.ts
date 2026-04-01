@@ -95,7 +95,7 @@ async function run() {
     throw new Error("No response received from GitHub Models API");
   }
 
-  const content = data.choices[0].message.content.trim();
+  const content = data.choices[0]!.message.content.trim();
   const parsed = JSON.parse(content) as {
     type: string;
     message: string;
