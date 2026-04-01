@@ -1,6 +1,6 @@
 {
   "explorer.fileNesting.patterns": {
-    "*.txt": "${capture}.comments.txt"
+    "*.txt": "${capture}.header.txt"
   },
   "[plaintext]": {
     "editor.trimAutoWhitespace": false,
