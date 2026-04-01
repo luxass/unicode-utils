@@ -134,4 +134,4 @@ ucdTest("Scripts.txt")(({ header, expectedText }) => {
 });
 ```
 
-The expected text is loaded from `ucd-files/<version>/<name>.comments.txt`.
+The expected text is loaded from `ucd-files/<version>/<name>.header.txt`.

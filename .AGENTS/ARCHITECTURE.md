@@ -80,7 +80,7 @@ The heading region is defined as everything before the first `SectionNode` that 
 | Script                             | Purpose                                                                 |
 | ---------------------------------- | ----------------------------------------------------------------------- |
 | `scripts/fetch-ucd-files.ts`       | Fetch missing UCD `.txt` files from `api.ucdjs.dev` for all versions    |
-| `scripts/generate-header-tests.ts` | Generate `.comments.txt` expected files and test files for header tests |
+| `scripts/generate-header-tests.ts` | Generate `.header.txt` expected files and test files for header tests |
 | `scripts/generate-pr-title.ts`     | Generate PR titles via GitHub Models API (used in CI)                   |
 
 Workflow for adding a new Unicode version:
@@ -88,8 +88,8 @@ Workflow for adding a new Unicode version:
 ```bash
 mkdir ucd-files/v19.0.0
 pnpm tsx scripts/fetch-ucd-files.ts          # fetch all files
-pnpm tsx scripts/generate-header-tests.ts    # generate .comments.txt + test files
-# review .comments.txt files, then fill in test assertions
+pnpm tsx scripts/generate-header-tests.ts    # generate .header.txt + test files
+# review .header.txt files, then fill in test assertions
 ```
 
 ---
