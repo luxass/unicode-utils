@@ -77,11 +77,11 @@ The heading region is defined as everything before the first `SectionNode` that 
 
 ## Scripts
 
-| Script                             | Purpose                                                                 |
-| ---------------------------------- | ----------------------------------------------------------------------- |
-| `scripts/fetch-ucd-files.ts`       | Fetch missing UCD `.txt` files from `api.ucdjs.dev` for all versions    |
+| Script                             | Purpose                                                               |
+| ---------------------------------- | --------------------------------------------------------------------- |
+| `scripts/fetch-ucd-files.ts`       | Fetch missing UCD `.txt` files from `api.ucdjs.dev` for all versions  |
 | `scripts/generate-header-tests.ts` | Generate `.header.txt` expected files and test files for header tests |
-| `scripts/generate-pr-title.ts`     | Generate PR titles via GitHub Models API (used in CI)                   |
+| `scripts/generate-pr-title.ts`     | Generate PR titles via GitHub Models API (used in CI)                 |
 
 Workflow for adding a new Unicode version:
 

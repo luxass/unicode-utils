@@ -19,7 +19,7 @@ export default defineConfig({
     {
       files: ["**/headers/generated/**/*.test.ts"],
       options: {
-        printWidth: 140,
+        printWidth: 200,
       },
     },
   ],
