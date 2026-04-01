@@ -24,7 +24,7 @@ function readFilesRecursive(dir: string): string[] {
       (entry) =>
         !entry.isDirectory() &&
         entry.name.endsWith(".txt") &&
-        !entry.name.endsWith(".comments.txt") &&
+        !entry.name.endsWith(".header.txt") &&
         !entry.name.includes("Test"),
     )
     .map((entry) => join(dir, entry.name));
@@ -92,11 +92,11 @@ async function run() {
       return acc;
     }, {});
 
-    // Generate .comments.txt files
+    // Generate .header.txt files
     for (const filePaths of Object.values(grouped)) {
       for (const relativePath of filePaths) {
         const fullPath = join(versionDir, relativePath);
-        const commentsPath = fullPath.replace(/\.txt$/, ".comments.txt");
+        const commentsPath = fullPath.replace(/\.txt$/, ".header.txt");
 
         const content = readFileSync(fullPath, "utf-8");
         const ast = parseDataFileIntoAst(content);
@@ -115,7 +115,7 @@ async function run() {
           .map((relativePath) => {
             assertSafePath(relativePath);
             const ucdFile = `file://./../../../../../ucd-files/${version}/${relativePath}`;
-            const commentsFile = ucdFile.replace(/\.txt$/, ".comments.txt");
+            const commentsFile = ucdFile.replace(/\.txt$/, ".header.txt");
             return `ucdTest(/* ${ucdFile} */ "${relativePath}")(({ header, expectedText }) => {
   expect(/* ${commentsFile} */ header.text).toBe(expectedText);
 });`;

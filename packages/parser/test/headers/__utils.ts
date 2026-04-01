@@ -17,7 +17,7 @@ export interface UcdTestContext {
 }
 
 function loadExpectedText(version: string, file: string): string | null {
-  const commentsFile = file.replace(/\.txt$/, ".comments.txt");
+  const commentsFile = file.replace(/\.txt$/, ".header.txt");
   const path = join(__dirname, "../../../../ucd-files", version, commentsFile);
 
   if (!existsSync(path)) {
