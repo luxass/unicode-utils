@@ -2,8 +2,8 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path, { join } from "node:path";
 
-import { parseDataFileIntoAst } from "../packages/parser/src/parser";
 import { inferHeaderFromAst } from "../packages/parser/src/header";
+import { parseDataFileIntoAst } from "../packages/parser/src/parser";
 
 const COMMENT = `\
 /**
@@ -20,7 +20,13 @@ function readFilesRecursive(dir: string): string[] {
   const entries = readdirSync(dir, { withFileTypes: true });
 
   const files = entries
-    .filter((entry) => !entry.isDirectory() && entry.name.endsWith(".txt") && !entry.name.endsWith(".comments.txt") && !entry.name.includes("Test"))
+    .filter(
+      (entry) =>
+        !entry.isDirectory() &&
+        entry.name.endsWith(".txt") &&
+        !entry.name.endsWith(".comments.txt") &&
+        !entry.name.includes("Test"),
+    )
     .map((entry) => join(dir, entry.name));
 
   const folders = entries

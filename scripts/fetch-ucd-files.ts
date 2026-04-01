@@ -77,9 +77,7 @@ async function run() {
     const remoteFiles = collectTxtFiles(tree);
     console.log(`  ${remoteFiles.length} .txt files found`);
 
-    const missing = remoteFiles.filter(
-      (file) => !existsSync(join(localDir, file)),
-    );
+    const missing = remoteFiles.filter((file) => !existsSync(join(localDir, file)));
 
     if (missing.length === 0) {
       console.log(`  All files up to date.`);

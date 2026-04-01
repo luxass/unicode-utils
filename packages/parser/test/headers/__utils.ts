@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
+
 import { it } from "vitest";
 
 import type { RootNode } from "../../src/ast";
