@@ -43,7 +43,15 @@ export class RawDataFile {
     this.heading = this.header.text;
 
     const lines = rawContent.split(/\r?\n/);
-    this.hasEOF = isEOFMarker(lines.at(-1)) || isEOFMarker(lines.at(-2));
+
+    let lastNonEmpty: string | undefined;
+    for (let i = lines.length - 1; i >= 0; i--) {
+      if (lines[i]!.trim() !== "") {
+        lastNonEmpty = lines[i];
+        break;
+      }
+    }
+    this.hasEOF = isEOFMarker(lastNonEmpty);
 
     // content = rawContent with header lines stripped
     if (this.header.endLine > 0) {

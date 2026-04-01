@@ -18,12 +18,12 @@ describe("inferHeaderFromAst", () => {
     expect(header.text).toBe("# SomeFile-1.0.0.txt");
   });
 
-  it("extracts header when date/copyright are inside a section before data", () => {
+  it("extracts date and copyright from header comments before boundary", () => {
     const fixture = dedent`
       # TestFile-2.0.0.txt
-      # ================================================
       # Date: 2025-01-01
       # © 2025 Unicode®, Inc.
+      # ================================================
       0041; data
     `;
 
@@ -38,9 +38,9 @@ describe("inferHeaderFromAst", () => {
     expect(header.endLine).toBe(3);
     expect(header.text).toBe(dedent`
       # TestFile-2.0.0.txt
-      # ================================================
       # Date: 2025-01-01
       # © 2025 Unicode®, Inc.
+      # ================================================
     `);
   });
 
