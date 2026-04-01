@@ -28,8 +28,9 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
-    "./data-file": "./dist/data-file.mjs",
     "./line-helpers": "./dist/line-helpers.mjs",
+    "./models/data-file": "./dist/models/data-file.mjs",
+    "./models/raw-data-file": "./dist/models/raw-data-file.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -49,6 +50,7 @@
     "@types/node": "catalog:types",
     "@unicode-utils-tooling/tsconfig": "workspace:*",
     "@unicode-utils-tooling/tsdown-config": "workspace:*",
+    "msw": "catalog:testing",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev"

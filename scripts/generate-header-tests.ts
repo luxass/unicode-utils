@@ -114,8 +114,10 @@ async function run() {
         const tests = filePaths
           .map((relativePath) => {
             assertSafePath(relativePath);
-            return `ucdTest("${relativePath}")(({ header, expectedText }) => {
-  expect(header.text).toBe(expectedText);
+            const ucdFile = `file://./../../../../../ucd-files/${version}/${relativePath}`;
+            const commentsFile = ucdFile.replace(/\.txt$/, ".comments.txt");
+            return `ucdTest(/* ${ucdFile} */ "${relativePath}")(({ header, expectedText }) => {
+  expect(/* ${commentsFile} */ header.text).toBe(expectedText);
 });`;
           })
           .join("\n\n");

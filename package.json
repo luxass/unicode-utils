@@ -24,7 +24,8 @@
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "generate:infer-test-files": "tsx scripts/generate-infer-test-files.ts"
+    "generate:header-files": "tsx scripts/generate-header-tests.ts",
+    "fetch-ucd-files": "node scripts/fetch-ucd-files.ts"
   },
   "devDependencies": {
     "@types/node": "catalog:types",

@@ -40,11 +40,13 @@ Expected header text files stored alongside UCD fixtures in `ucd-files/`. Genera
 
 ### RawDataFile
 
-Class in `packages/parser/src/raw-data-file.ts`. Holds the raw content string and a parsed `RootNode`. Can be constructed from a content string or fetched from a URL via `RawDataFile.from()`. Use this when you need to work directly with the AST — inspect nodes, mutate the tree, or stringify back to text. Provides `toDataFile()` to convert to an immutable view.
+Class in `packages/parser/src/models/raw-data-file.ts`. Parses raw UCD content into an AST and derives convenience properties. Can be constructed from a content string or fetched from a URL via `RawDataFile.from()`.
+
+Properties: `rawContent`, `ast`, `header` (InferredHeader), `fileName`, `version`, `hasEOF`, `heading` (header text), `content` (rawContent minus the header). Provides `toDataFile()` to convert to an immutable query view.
 
 ### DataFile
 
-Immutable frozen wrapper in `packages/parser/src/data-file.ts`. Created via `rawDataFile.toDataFile()`. Holds a frozen `RootNode`. Use this when you only need a safe, read-only view of the parsed AST to pass around without risk of mutation.
+Immutable frozen wrapper in `packages/parser/src/models/data-file.ts`. Created via `rawDataFile.toDataFile()`. Holds a frozen `RootNode` with query methods: `sections()`, `boundaries()`, `dataNodes()`, `missingAnnotations()`. All methods return fresh arrays flattened from the AST.
 
 ### InferredHeader
 

@@ -167,6 +167,9 @@ importers:
       '@unicode-utils-tooling/tsdown-config':
         specifier: workspace:*
         version: link:../../tooling/tsdown-config
+      msw:
+        specifier: catalog:testing
+        version: 2.12.14(@types/node@24.10.14)(typescript@6.0.2)
       publint:
         specifier: catalog:dev
         version: 0.3.18

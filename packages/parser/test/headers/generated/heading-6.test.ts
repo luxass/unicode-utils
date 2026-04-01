@@ -11,187 +11,233 @@ import { createUcdTest } from "../__utils";
 const ucdTest = createUcdTest("v6.0.0");
 
 describe("inferHeaderFromAst - 6", () => {
-  ucdTest("ArabicShaping.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/ArabicShaping.txt */ "ArabicShaping.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/ArabicShaping.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("BidiMirroring.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/BidiMirroring.txt */ "BidiMirroring.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/BidiMirroring.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("Blocks.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/Blocks.txt */ "Blocks.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/Blocks.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("CJKRadicals.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/CJKRadicals.txt */ "CJKRadicals.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/CJKRadicals.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("CaseFolding.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/CaseFolding.txt */ "CaseFolding.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/CaseFolding.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("CompositionExclusions.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/CompositionExclusions.txt */ "CompositionExclusions.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/CompositionExclusions.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
+
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/DerivedAge.txt */ "DerivedAge.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/DerivedAge.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("DerivedAge.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/DerivedCoreProperties.txt */ "DerivedCoreProperties.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/DerivedCoreProperties.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
+
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/DerivedNormalizationProps.txt */ "DerivedNormalizationProps.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/DerivedNormalizationProps.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
+
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/EastAsianWidth.txt */ "EastAsianWidth.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/EastAsianWidth.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("DerivedCoreProperties.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/EmojiSources.txt */ "EmojiSources.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/EmojiSources.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("DerivedNormalizationProps.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/HangulSyllableType.txt */ "HangulSyllableType.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/HangulSyllableType.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("EastAsianWidth.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/Index.txt */ "Index.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/Index.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("EmojiSources.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/IndicMatraCategory.txt */ "IndicMatraCategory.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/IndicMatraCategory.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("HangulSyllableType.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/IndicSyllabicCategory.txt */ "IndicSyllabicCategory.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/IndicSyllabicCategory.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
+
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/Jamo.txt */ "Jamo.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/Jamo.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("Index.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/LineBreak.txt */ "LineBreak.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/LineBreak.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("IndicMatraCategory.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/NameAliases.txt */ "NameAliases.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/NameAliases.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("IndicSyllabicCategory.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/NamedSequences.txt */ "NamedSequences.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/NamedSequences.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("Jamo.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/NamedSequencesProv.txt */ "NamedSequencesProv.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/NamedSequencesProv.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("LineBreak.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/NamesList.txt */ "NamesList.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/NamesList.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("NameAliases.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/NormalizationCorrections.txt */ "NormalizationCorrections.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/NormalizationCorrections.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
+
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/PropList.txt */ "PropList.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/PropList.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("NamedSequences.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/PropertyAliases.txt */ "PropertyAliases.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/PropertyAliases.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("NamedSequencesProv.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/PropertyValueAliases.txt */ "PropertyValueAliases.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/PropertyValueAliases.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
+
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/ReadMe.txt */ "ReadMe.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/ReadMe.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("NamesList.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/ScriptExtensions.txt */ "ScriptExtensions.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/ScriptExtensions.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("NormalizationCorrections.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/Scripts.txt */ "Scripts.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/Scripts.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("PropList.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/SpecialCasing.txt */ "SpecialCasing.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/SpecialCasing.comments.txt */ header.text).toBe(expectedText);
   });
 
-  ucdTest("PropertyAliases.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/StandardizedVariants.txt */ "StandardizedVariants.txt")(
+    ({ header, expectedText }) => {
+      expect(/* file://./../../../../../ucd-files/v6.0.0/StandardizedVariants.comments.txt */ header.text).toBe(expectedText);
+    },
+  );
 
-  ucdTest("PropertyValueAliases.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("ReadMe.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("ScriptExtensions.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("Scripts.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("SpecialCasing.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("StandardizedVariants.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
-  });
-
-  ucdTest("UnicodeData.txt")(({ header, expectedText }) => {
-    expect(header.text).toBe(expectedText);
+  ucdTest(/* file://./../../../../../ucd-files/v6.0.0/UnicodeData.txt */ "UnicodeData.txt")(({ header, expectedText }) => {
+    expect(/* file://./../../../../../ucd-files/v6.0.0/UnicodeData.comments.txt */ header.text).toBe(expectedText);
   });
 
   describe("auxiliary", () => {
-    ucdTest("auxiliary/GraphemeBreakProperty.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/auxiliary/GraphemeBreakProperty.txt */ "auxiliary/GraphemeBreakProperty.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/auxiliary/GraphemeBreakProperty.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("auxiliary/SentenceBreakProperty.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/auxiliary/SentenceBreakProperty.txt */ "auxiliary/SentenceBreakProperty.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/auxiliary/SentenceBreakProperty.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("auxiliary/WordBreakProperty.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/auxiliary/WordBreakProperty.txt */ "auxiliary/WordBreakProperty.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/auxiliary/WordBreakProperty.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
   });
 
   describe("extracted", () => {
-    ucdTest("extracted/DerivedBidiClass.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedBidiClass.txt */ "extracted/DerivedBidiClass.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedBidiClass.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedBinaryProperties.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedBinaryProperties.txt */ "extracted/DerivedBinaryProperties.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedBinaryProperties.comments.txt */ header.text).toBe(
+          expectedText,
+        );
+      },
+    );
 
-    ucdTest("extracted/DerivedCombiningClass.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedCombiningClass.txt */ "extracted/DerivedCombiningClass.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedCombiningClass.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedDecompositionType.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedDecompositionType.txt */ "extracted/DerivedDecompositionType.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedDecompositionType.comments.txt */ header.text).toBe(
+          expectedText,
+        );
+      },
+    );
 
-    ucdTest("extracted/DerivedEastAsianWidth.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedEastAsianWidth.txt */ "extracted/DerivedEastAsianWidth.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedEastAsianWidth.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedGeneralCategory.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedGeneralCategory.txt */ "extracted/DerivedGeneralCategory.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedGeneralCategory.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedJoiningGroup.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedJoiningGroup.txt */ "extracted/DerivedJoiningGroup.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedJoiningGroup.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedJoiningType.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedJoiningType.txt */ "extracted/DerivedJoiningType.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedJoiningType.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedLineBreak.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedLineBreak.txt */ "extracted/DerivedLineBreak.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedLineBreak.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedNumericType.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedNumericType.txt */ "extracted/DerivedNumericType.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedNumericType.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
 
-    ucdTest("extracted/DerivedNumericValues.txt")(({ header, expectedText }) => {
-      expect(header.text).toBe(expectedText);
-    });
+    ucdTest(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedNumericValues.txt */ "extracted/DerivedNumericValues.txt")(
+      ({ header, expectedText }) => {
+        expect(/* file://./../../../../../ucd-files/v6.0.0/extracted/DerivedNumericValues.comments.txt */ header.text).toBe(expectedText);
+      },
+    );
   });
 });

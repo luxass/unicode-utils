@@ -12,7 +12,7 @@ This includes:
 
 - `packages/parser/src/ast/` — node types, typeguards
 - `packages/parser/src/parser.ts` — parsing logic
-- `packages/parser/src/raw-data-file.ts`, `data-file.ts` — class shells
+- `packages/parser/src/models/raw-data-file.ts`, `data-file.ts` — model classes
 - `packages/core/` — re-exports, API surface, dependencies
 - Test files — rewrite, delete, restructure as needed
 

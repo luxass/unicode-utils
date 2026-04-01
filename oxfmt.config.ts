@@ -15,4 +15,12 @@ export default defineConfig({
     newlinesBetween: true,
     order: "asc",
   },
+  overrides: [
+    {
+      files: ["**/headers/generated/**/*.test.ts"],
+      options: {
+        printWidth: 140,
+      },
+    },
+  ],
 });

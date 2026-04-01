@@ -41,17 +41,17 @@ All of this happens inside a single `parseDataFileIntoAst()` call.
 
 Key files:
 
-| File                    | Responsibility                                                       |
-| ----------------------- | -------------------------------------------------------------------- |
-| `src/line-helpers.ts`   | Low-level line classification and regex utilities                    |
-| `src/ast/node.ts`       | Node type definitions (`NodeTypes` const, interfaces, unions)        |
-| `src/ast/typeguards.ts` | Type guards for all node types                                       |
-| `src/ast/visitor.ts`    | `visit()` function and `Visitor` interface for depth-first traversal |
-| `src/ast/index.ts`      | Re-exports from `node.ts`, `typeguards.ts`, and `visitor.ts`         |
-| `src/parser.ts`         | `parseDataFileIntoAst`, `stringifyNode`, `stringifyNodes`            |
-| `src/header.ts`         | `inferHeaderFromAst` — extracts heading metadata from the AST        |
-| `src/raw-data-file.ts`  | `RawDataFile` class — wraps AST + raw content                        |
-| `src/data-file.ts`      | `DataFile` class — immutable frozen wrapper                          |
+| File                          | Responsibility                                                               |
+| ----------------------------- | ---------------------------------------------------------------------------- |
+| `src/line-helpers.ts`         | Low-level line classification and regex utilities                            |
+| `src/ast/node.ts`             | Node type definitions (`NodeTypes` const, interfaces, unions)                |
+| `src/ast/typeguards.ts`       | Type guards for all node types                                               |
+| `src/ast/visitor.ts`          | `visit()` function and `Visitor` interface for depth-first traversal         |
+| `src/ast/index.ts`            | Re-exports from `node.ts`, `typeguards.ts`, and `visitor.ts`                 |
+| `src/parser.ts`               | `parseDataFileIntoAst`, `stringifyNode`, `stringifyNodes`                    |
+| `src/header.ts`               | `inferHeaderFromAst` — extracts heading metadata from the AST                |
+| `src/models/raw-data-file.ts` | `RawDataFile` class — parses content, derives header/fileName/version/hasEOF |
+| `src/models/data-file.ts`     | `DataFile` class — immutable frozen wrapper with query methods               |
 
 ---
 

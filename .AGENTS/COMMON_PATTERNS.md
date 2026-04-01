@@ -59,17 +59,24 @@ The heading is everything before the first section containing data.
 
 ```ts
 import { RawDataFile } from "@unicode-utils/parser";
-import { parseDataFileIntoAst } from "@unicode-utils/parser";
 
-// Parse then wrap
-const ast = parseDataFileIntoAst(content);
-const raw = new RawDataFile(ast, content);
+// Parse from content string
+const raw = new RawDataFile(content);
+console.log(raw.fileName); // "Scripts"
+console.log(raw.version); // "16.0.0"
+console.log(raw.hasEOF); // true
+console.log(raw.heading); // header text
+console.log(raw.content); // rawContent minus the header
 
 // Fetch from URL
 const raw = await RawDataFile.from("https://unicode.org/Public/17.0.0/ucd/Scripts.txt");
 
 // Immutable query view
 const file = raw.toDataFile();
+file.sections(); // SectionNode[]
+file.boundaries(); // BoundaryNode[]
+file.dataNodes(); // DataNode[] (flattened from all sections)
+file.missingAnnotations(); // MissingAnnotationNode[] (flattened from all sections)
 ```
 
 ---
