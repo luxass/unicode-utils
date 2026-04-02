@@ -17,6 +17,6 @@ on:
 
 jobs:
   zizmor:
-    uses: luxass/shared-workflows/.github/workflows/ci-security.yaml@554e26b2e40b5deab8185f0f1f0259ac1b33c252 # v0.2.0
+    uses: luxass/shared-workflows/.github/workflows/ci-security.yaml@8aac9be01e1d8e1f4cc968c966865f8021b47037 # v0.3.0
     with:
       zizmor-version: v1.23.1
