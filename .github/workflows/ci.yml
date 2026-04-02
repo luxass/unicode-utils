@@ -12,50 +12,12 @@ on:
 permissions: {}
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-
-      - name: setup pnpm
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
-
-      - name: setup node
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
-        with:
-          node-version: lts/*
-
-      - name: install dependencies
-        run: pnpm install
-
-      - name: build
-        run: pnpm build
-
-      - name: lint
-        run: pnpm lint
-
-      - name: typecheck
-        run: pnpm typecheck
+  ci:
+    uses: luxass/shared-workflows/.github/workflows/ci.yaml@262ac659334b242eb257cb94bc16bc61ae0e1101 # v0.1.0
+    with:
+      fmt: true
+      fmt-script: "fmt:check"
 
   test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
+    uses: luxass/shared-workflows/.github/workflows/test.yaml@262ac659334b242eb257cb94bc16bc61ae0e1101 # v0.1.0
 
-      - name: setup pnpm
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
-
-      - name: setup node
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
-        with:
-          node-version: lts/*
-
-      - name: install dependencies
-        run: pnpm install
-
-      - name: test
-        run: pnpm test
