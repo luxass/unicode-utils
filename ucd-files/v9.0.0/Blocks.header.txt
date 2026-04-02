@@ -1,0 +1,12 @@
+# Blocks-9.0.0.txt
+# Date: 2016-02-05, 23:48:00 GMT [KW]
+# © 2016 Unicode®, Inc.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+# For documentation, see http://www.unicode.org/reports/tr44/
+#
+# Format:
+# Start Code..End Code; Block Name
+
+# ================================================

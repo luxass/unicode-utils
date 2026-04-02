@@ -45,8 +45,10 @@ export function fromHexToCodepoint(hex: string, joiner: string, strict: boolean 
       throw new Error(`Failed to parse hex value: "${trimmedPart}"`);
     }
 
-    if (strict && codepoint > 0x10FFFF) {
-      throw new Error(`Invalid Unicode codepoint: ${codepoint.toString(16).toUpperCase()} (exceeds U+10FFFF)`);
+    if (strict && codepoint > 0x10ffff) {
+      throw new Error(
+        `Invalid Unicode codepoint: ${codepoint.toString(16).toUpperCase()} (exceeds U+10FFFF)`,
+      );
     }
 
     codepoints.push(codepoint);
@@ -77,7 +79,7 @@ export function expandHexRange(hex: string): string[] {
   if (hex.includes("..")) {
     const [start, end] = fromHexToCodepoint(hex, "..");
 
-    if ((start == null || Number.isNaN(start)) || (end == null || Number.isNaN(end))) {
+    if (start == null || Number.isNaN(start) || end == null || Number.isNaN(end)) {
       return [];
     }
 

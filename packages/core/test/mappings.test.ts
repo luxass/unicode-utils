@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { resolveUCDVersion, UNICODE_TO_UCD_VERSION_MAPPINGS } from "../src/mappings";
 
 describe("resolveUCDVersion", () => {

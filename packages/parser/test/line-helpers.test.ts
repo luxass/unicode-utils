@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import {
   inferFileName,
   inferVersion,
@@ -215,7 +216,7 @@ describe("inferrence", () => {
       ["# File-Name-Complex-1.2.3.txt", "File-Name-Complex"],
       ["# Multi-Part-File-0.0.1.txt", "Multi-Part-File"],
       ["# name-with-hyphens-2.5.7.txt", "name-with-hyphens"],
-    ])("should extract \"%s\" correctly as \"%s\"", (line, expected) => {
+    ])('should extract "%s" correctly as "%s"', (line, expected) => {
       expect(inferFileName(line)).toBe(expected);
     });
 
@@ -236,7 +237,7 @@ describe("inferrence", () => {
       ["# .txt", undefined], // empty fileName should now return undefined
       ["# -1.0.0.txt", undefined], // empty fileName should now return undefined
       ["# File-.txt", "File-"],
-    ])("should return undefined or expected value for invalid input \"%s\"", (line, expected) => {
+    ])('should return undefined or expected value for invalid input "%s"', (line, expected) => {
       expect(inferFileName(line)).toBe(expected);
     });
   });
@@ -260,7 +261,7 @@ describe("inferrence", () => {
       // complex file names with versions
       ["# Multi-Part-File-2.5.7.txt", "2.5.7"],
       ["# File-With-Many-Hyphens-3.1.4.txt", "3.1.4"],
-    ])("should extract version from \"%s\" as \"%s\"", (line, expected) => {
+    ])('should extract version from "%s" as "%s"', (line, expected) => {
       expect(inferVersion(line)).toBe(expected);
     });
 
@@ -288,7 +289,7 @@ describe("inferrence", () => {
       ["# .txt", undefined], // empty fileName
       ["# File-v1.0.0.txt", undefined], // invalid version format
       ["# File-abc.txt", undefined], // non-numeric version
-    ])("should return undefined for no version in \"%s\"", (line, expected) => {
+    ])('should return undefined for no version in "%s"', (line, expected) => {
       expect(inferVersion(line)).toBe(expected);
     });
   });
@@ -313,10 +314,13 @@ describe("inferrence", () => {
       ["# SingleDigit-1.txt", "SingleDigit", "1"],
       ["# VeryLongVersion-1.2.3.4.5.6.7.8.9.txt", "VeryLongVersion", "1.2.3.4.5.6.7.8.9"],
       ["# ZeroVersion-0.0.0.txt", "ZeroVersion", "0.0.0"],
-    ])("should handle \"%s\" correctly, extracting fileName: \"%s\" and version: \"%s\"", (line, expectedFileName, expectedVersion) => {
-      expect(inferFileName(line)).toBe(expectedFileName);
-      expect(inferVersion(line)).toBe(expectedVersion);
-    });
+    ])(
+      'should handle "%s" correctly, extracting fileName: "%s" and version: "%s"',
+      (line, expectedFileName, expectedVersion) => {
+        expect(inferFileName(line)).toBe(expectedFileName);
+        expect(inferVersion(line)).toBe(expectedVersion);
+      },
+    );
 
     it.each([
       // boundary cases
@@ -331,9 +335,12 @@ describe("inferrence", () => {
       ["Not a comment line", undefined, undefined],
       ["# File with spaces-1.0.0.txt", "File with spaces", "1.0.0"],
       ["# File\twith\ttabs-2.0.0.txt", "File\twith\ttabs", "2.0.0"],
-    ])("should handle boundary case \"%s\" with fileName: %s and version: %s", (line, expectedFileName, expectedVersion) => {
-      expect(inferFileName(line)).toBe(expectedFileName);
-      expect(inferVersion(line)).toBe(expectedVersion);
-    });
+    ])(
+      'should handle boundary case "%s" with fileName: %s and version: %s',
+      (line, expectedFileName, expectedVersion) => {
+        expect(inferFileName(line)).toBe(expectedFileName);
+        expect(inferVersion(line)).toBe(expectedVersion);
+      },
+    );
   });
 });

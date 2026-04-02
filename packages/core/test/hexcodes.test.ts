@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { expandHexRange, fromHexToCodepoint, stripHex } from "../src/hexcodes";
 
 describe("convert hex to codepoint", () => {
@@ -20,11 +21,15 @@ describe("convert hex to codepoint", () => {
 
   describe("strict mode validation", () => {
     it("should throw error for non-string hex input", () => {
-      expect(() => fromHexToCodepoint(123 as any, "-", true)).toThrow("Both hex and joiner must be strings");
+      expect(() => fromHexToCodepoint(123 as any, "-", true)).toThrow(
+        "Both hex and joiner must be strings",
+      );
     });
 
     it("should throw error for non-string joiner input", () => {
-      expect(() => fromHexToCodepoint("1F600", 123 as any, true)).toThrow("Both hex and joiner must be strings");
+      expect(() => fromHexToCodepoint("1F600", 123 as any, true)).toThrow(
+        "Both hex and joiner must be strings",
+      );
     });
 
     it("should throw error for empty hex string", () => {
@@ -37,12 +42,18 @@ describe("convert hex to codepoint", () => {
     });
 
     it("should throw error for invalid hex format", () => {
-      expect(() => fromHexToCodepoint("1F600-INVALID", "-", true)).toThrow("Invalid hex format: \"INVALID\"");
-      expect(() => fromHexToCodepoint("1F600-123G", "-", true)).toThrow("Invalid hex format: \"123G\"");
+      expect(() => fromHexToCodepoint("1F600-INVALID", "-", true)).toThrow(
+        'Invalid hex format: "INVALID"',
+      );
+      expect(() => fromHexToCodepoint("1F600-123G", "-", true)).toThrow(
+        'Invalid hex format: "123G"',
+      );
     });
 
     it("should throw error for Unicode codepoints exceeding valid range", () => {
-      expect(() => fromHexToCodepoint("110000", "-", true)).toThrow("Invalid Unicode codepoint: 110000 (exceeds U+10FFFF)");
+      expect(() => fromHexToCodepoint("110000", "-", true)).toThrow(
+        "Invalid Unicode codepoint: 110000 (exceeds U+10FFFF)",
+      );
     });
 
     it("should work correctly with valid input in strict mode", () => {

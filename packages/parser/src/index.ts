@@ -1,4 +1,11 @@
-export * from "./datafile";
-export { inferHeadingFromAST, type InferHeadingSettings } from "./inference/heading";
-export { type DataFileSettingsEntry, getHeadingSettings, HEADING_SETTINGS_CONFIG } from "./inference/heading-settings";
+export * from "./ast";
+export { DataFile } from "./models/data-file";
+export { type InferredHeader, inferHeaderFromAst } from "./header";
+export { RawDataFile } from "./models/raw-data-file";
+export {
+  type ParseAstOptions,
+  parseDataFileIntoAst,
+  stringifyNode,
+  stringifyNodes,
+} from "./parser";
 export * from "./line-helpers";

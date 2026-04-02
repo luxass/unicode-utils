@@ -13,7 +13,7 @@ To use this package, setup your tsconfig by extending one of the base configurat
 {
   "extends": "@unicode-utils-tooling/tsconfig/base",
   "include": ["src", "test"],
-  "exclude": ["dist"]
+  "exclude": ["dist"],
 }
 ```
 
@@ -24,7 +24,7 @@ To use this package, setup your tsconfig by extending one of the base configurat
 {
   "extends": "@unicode-utils-tooling/tsconfig/base.build",
   "include": ["src"],
-  "exclude": ["dist"]
+  "exclude": ["dist"],
 }
 ```
 

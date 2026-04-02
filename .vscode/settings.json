@@ -1,6 +1,6 @@
 {
   "explorer.fileNesting.patterns": {
-    "*.txt": "${capture}.comments.txt"
+    "*.txt": "${capture}.header.txt"
   },
   "[plaintext]": {
     "editor.trimAutoWhitespace": false,
@@ -9,5 +9,12 @@
   "files.watcherExclude": {
     "ucd-files/**": true
   },
-  "ucd.local-data-files-store": "./ucd-files"
+  "ucd.local-data-files-store": "./ucd-files",
+
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.format.oxc": "explicit"
+  }
 }

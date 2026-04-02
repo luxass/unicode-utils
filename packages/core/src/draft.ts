@@ -71,7 +71,9 @@ export interface GetCurrentDraftVersionOptions {
  * });
  * ```
  */
-export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOptions = {}): Promise<string | null> {
+export async function getCurrentDraftVersion(
+  options: GetCurrentDraftVersionOptions = {},
+): Promise<string | null> {
   const {
     url = "https://api.ucdjs.dev/api/v1/files/draft/ReadMe.txt",
     fetchOptions = {},
@@ -95,7 +97,9 @@ export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOpti
       const res = await fetch(url, fetchOptions);
 
       if (!res.ok) {
-        const error = new Error(`Failed to fetch the Unicode draft ReadMe: ${res.status} ${res.statusText}`);
+        const error = new Error(
+          `Failed to fetch the Unicode draft ReadMe: ${res.status} ${res.statusText}`,
+        );
         onError?.(error);
         return null;
       }
@@ -110,7 +114,9 @@ export async function getCurrentDraftVersion(options: GetCurrentDraftVersionOpti
   for (const pattern of patterns) {
     const match = responseText.match(pattern);
 
-    if (match == null || match[1] == null) continue;
+    if (match == null || match[1] == null) {
+      continue;
+    }
 
     const version = match[1].trim();
     onSuccess?.(version);

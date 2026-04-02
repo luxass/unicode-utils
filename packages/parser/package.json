@@ -2,60 +2,58 @@
   "name": "@unicode-utils/parser",
   "version": "0.12.0-beta.23",
   "description": "Unicode data file parser with AST support",
-  "type": "module",
+  "keywords": [
+    "ast",
+    "datafile",
+    "parser",
+    "unicode"
+  ],
+  "homepage": "https://github.com/luxass/unicode-utils#readme",
+  "bugs": "https://github.com/luxass/unicode-utils/issues",
+  "license": "MIT",
   "author": {
     "name": "Lucas Nørgård",
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.30.2",
-  "license": "MIT",
-  "homepage": "https://github.com/luxass/unicode-utils#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/unicode-utils.git",
     "directory": "packages/parser"
   },
-  "bugs": "https://github.com/luxass/unicode-utils/issues",
-  "keywords": [
-    "unicode",
-    "parser",
-    "ast",
-    "datafile"
-  ],
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./datafile": "./dist/datafile.mjs",
-    "./line-helpers": "./dist/line-helpers.mjs",
-    "./package.json": "./package.json"
-  },
-  "types": "./dist/index.d.mts",
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "dist"
   ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./line-helpers": "./dist/line-helpers.mjs",
+    "./models/data-file": "./dist/models/data-file.mjs",
+    "./models/raw-data-file": "./dist/models/raw-data-file.mjs",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown --tsconfig=./tsconfig.build.json",
     "dev": "tsdown --watch",
     "test": "vitest --run",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@luxass/utils": "catalog:build",
     "defu": "catalog:build"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
     "@unicode-utils-tooling/tsconfig": "workspace:*",
     "@unicode-utils-tooling/tsdown-config": "workspace:*",
-    "eslint": "catalog:linting",
-    "eslint-plugin-format": "catalog:linting",
+    "msw": "catalog:testing",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

@@ -1,26 +1,23 @@
 {
   "name": "@unicode-utils-tooling/tsdown-config",
   "version": "0.12.0-beta.23",
-  "type": "module",
   "private": true,
+  "files": [
+    "src"
+  ],
+  "type": "module",
   "exports": {
     ".": "./src/factory.ts",
     "./package.json": "./package.json"
   },
-  "files": [
-    "src"
-  ],
   "scripts": {
-    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "tsdown": "catalog:dev"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "catalog:linting",
     "@unicode-utils-tooling/tsconfig": "workspace:*",
-    "eslint": "catalog:linting",
     "typescript": "catalog:dev"
   }
 }

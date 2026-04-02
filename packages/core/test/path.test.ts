@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { buildUCDPath, hasUCDFolderPath } from "../src/path";
 
 describe("hasUCDFolder", () => {
@@ -28,10 +29,7 @@ describe("buildUCDPath", () => {
     ["14.0.0", "DerivedLineBreak.txt", "/14.0.0/ucd/DerivedLineBreak.txt"],
     ["4.0-Update1", "UnicodeData.txt", "/4.0-Update1/UnicodeData.txt"],
     ["2.1-Update4", "Scripts.txt", "/2.1-Update4/Scripts.txt"],
-  ])(
-    "should build correct UCD path for version %s and file %s",
-    (version, file, expectedPath) => {
-      expect(buildUCDPath(version, file)).toBe(expectedPath);
-    },
-  );
+  ])("should build correct UCD path for version %s and file %s", (version, file, expectedPath) => {
+    expect(buildUCDPath(version, file)).toBe(expectedPath);
+  });
 });

@@ -1,0 +1,56 @@
+name: Update UCD Files
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Monday 6 AM UTC
+  workflow_dispatch: {}
+
+jobs:
+  update-ucd-files:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+    if: github.repository == 'luxass/unicode-utils'
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+
+      - name: setup node
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: fetch missing UCD files
+        run: pnpm tsx scripts/fetch-ucd-files.ts
+
+      - name: generate header tests
+        run: pnpm tsx scripts/generate-header-tests.ts
+
+      - name: create pull request
+        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
+        with:
+          commit-message: "chore: update UCD files and regenerate header tests"
+          title: "chore: update UCD files and regenerate header tests"
+          body: |
+            This is an automated PR to fetch new/missing UCD files and regenerate header inference tests.
+
+            Please review the `.comments.txt` files to verify the inferred headers are correct,
+            then fill in any new test assertions as needed.
+          branch: update-ucd-files
+          add-paths: |
+            ucd-files/
+            packages/parser/test/headers/generated/
+          base: main
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          reviewers: luxass

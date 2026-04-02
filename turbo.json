@@ -1,24 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalPassThroughEnv": [
-    "NODE",
-    "NODE_ENV",
-    "CI"
-  ],
+  "globalPassThroughEnv": ["NODE", "NODE_ENV", "CI"],
   "tasks": {
     "topo": {
       "dependsOn": ["^topo"]
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "dist/**"
-      ]
-    },
-    "lint": {
-      "dependsOn": ["^topo", "^build"],
-      "outputs": []
+      "outputs": ["dist/**"]
     },
     "dev": {
       "cache": false,

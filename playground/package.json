@@ -1,0 +1,19 @@
+{
+  "name": "@unicode-utils/playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@unicode-utils/parser": "workspace:*"
+  },
+  "devDependencies": {
+    "@luxass/utils": "catalog:build",
+    "@types/node": "catalog:types",
+    "@unicode-utils-tooling/tsconfig": "workspace:*",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev"
+  }
+}

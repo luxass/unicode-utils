@@ -1,5 +1,3 @@
 {
-  "extends": "@unicode-utils-tooling/tsconfig/base.build",
-  "include": ["src"],
-  "exclude": ["dist"]
+  "extends": "@unicode-utils-tooling/tsconfig/base.build"
 }
