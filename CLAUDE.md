@@ -39,7 +39,7 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 
 ## Code quality
 
-- **Type checking**: `pnpm run typecheck` — always from the repo root, never `tsc --noEmit` per-package
+- **Type checking**: `pnpm run typecheck` - always from the repo root, never `tsc --noEmit` per-package
 - **Linting**: `pnpm run lint` / `pnpm run lint:fix` (oxlint)
 - **Formatting**: `pnpm run fmt` / `pnpm run fmt:check` (oxfmt)
 
@@ -57,13 +57,13 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 - Integration tests use real UCD fixture files from `ucd-files/`.
 - Use `ucdFiles(version, file)` from `packages/parser/test/__utils.ts` to load fixtures.
 - Header tests use `createUcdTest(version)` from `packages/parser/test/headers/__utils.ts`.
-- Fetch real UCD files with `pnpm tsx scripts/fetch-ucd-files.ts` or `@ucdjs/cli` — see `.AGENTS/UCD-CLI.md`.
+- Fetch real UCD files with `pnpm tsx scripts/fetch-ucd-files.ts` or `@ucdjs/cli` - see `.AGENTS/UCD-CLI.md`.
 
 ### Adding a new Unicode version
 
 1. `mkdir ucd-files/v<version>`
-2. `pnpm tsx scripts/fetch-ucd-files.ts` — fetches all `.txt` files from unicode.org
-3. `pnpm tsx scripts/generate-header-tests.ts` — generates `.comments.txt` + test files
+2. `pnpm tsx scripts/fetch-ucd-files.ts` - fetches all `.txt` files from unicode.org
+3. `pnpm tsx scripts/generate-header-tests.ts` - generates `.comments.txt` + test files
 4. Review `.comments.txt` files and fill in test assertions.
 
 ## Dependency management
@@ -96,10 +96,10 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 
 All AI-friendly documentation is in the `.AGENTS/` directory:
 
-- **[Architecture](.AGENTS/ARCHITECTURE.md)** — Package graph, parser internals, build system, test infrastructure
-- **[AST](.AGENTS/AST.md)** — All AST node types, unions, type guards, visitor pattern
-- **[Code Style](.AGENTS/CODE_STYLE.md)** — TypeScript conventions, naming, exports, error handling, linting
-- **[Common Patterns](.AGENTS/COMMON_PATTERNS.md)** — Parsing, visiting, header inference, test fixtures
-- **[Glossary](.AGENTS/GLOSSARY.md)** — Domain terms: UCD, Heading, Boundary, SectionNode, DataNode, InferredHeader, etc.
-- **[Guidelines](.AGENTS/GUIDELINES.md)** — Rules for AI agents: what can be changed, what must be kept
-- **[UCD CLI](.AGENTS/UCD-CLI.md)** — How to fetch real UCD files with `@ucdjs/cli`
+- **[Architecture](.AGENTS/ARCHITECTURE.md)** - Package graph, parser internals, build system, test infrastructure
+- **[AST](.AGENTS/AST.md)** - All AST node types, unions, type guards, visitor pattern
+- **[Code Style](.AGENTS/CODE_STYLE.md)** - TypeScript conventions, naming, exports, error handling, linting
+- **[Common Patterns](.AGENTS/COMMON_PATTERNS.md)** - Parsing, visiting, header inference, test fixtures
+- **[Glossary](.AGENTS/GLOSSARY.md)** - Domain terms: UCD, Heading, Boundary, SectionNode, DataNode, InferredHeader, etc.
+- **[Guidelines](.AGENTS/GUIDELINES.md)** - Rules for AI agents: what can be changed, what must be kept
+- **[UCD CLI](.AGENTS/UCD-CLI.md)** - How to fetch real UCD files with `@ucdjs/cli`

@@ -1,6 +1,6 @@
 # UCD CLI
 
-Use the `@ucdjs/cli` to fetch and inspect real UCD files directly from unicode.org. Always do this before writing a parser definition or test — do not guess file structure from memory.
+Use the `@ucdjs/cli` to fetch and inspect real UCD files directly from unicode.org. Always do this before writing a parser definition or test - do not guess file structure from memory.
 
 ```sh
 npx @ucdjs/cli@beta files --help
@@ -41,7 +41,7 @@ npx @ucdjs/cli@beta files list .
 
 ## When to use this
 
-**Before writing a new parser definition** — fetch the actual file and read the first 30–50 lines. Confirm:
+**Before writing a new parser definition** - fetch the actual file and read the first 30–50 lines. Confirm:
 
 - The exact separator (`;` vs `\t`)
 - Whether fields are trimmed or not
@@ -49,9 +49,9 @@ npx @ucdjs/cli@beta files list .
 - Whether section headers follow the standard boundary+comment pattern or are flat (no sections)
 - The exact field count and whether optional fields appear on some lines but not others
 
-**Before writing tests** — fetch the file for the specific version under test. Do not assume a file's format is identical across all Unicode versions. Older versions (v4.x, v5.x) sometimes have fewer fields or different separators.
+**Before writing tests** - fetch the file for the specific version under test. Do not assume a file's format is identical across all Unicode versions. Older versions (v4.x, v5.x) sometimes have fewer fields or different separators.
 
-**When a parse fails on a specific version** — fetch that exact version of the file and compare it to the version that works.
+**When a parse fails on a specific version** - fetch that exact version of the file and compare it to the version that works.
 
 ---
 

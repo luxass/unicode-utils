@@ -24,7 +24,7 @@ Options:
   -h, --help         Show this help
 
 Examples:
-  # Simple file — one boundary, one section of data
+  # Simple file - one boundary, one section of data
   pnpm tsx playground/src/inspect-ast.ts 16.0.0/Blocks.txt
 
   # Multiple subsections with @missing annotations
@@ -33,7 +33,7 @@ Examples:
   # Multi-field data with inline comments
   pnpm tsx playground/src/inspect-ast.ts 16.0.0/CaseFolding.txt
 
-  # Bracket pairs — compact file with @missing default
+  # Bracket pairs - compact file with @missing default
   pnpm tsx playground/src/inspect-ast.ts 16.0.0/BidiBrackets.txt
 
   # Many sections, property aliases for all UCD properties

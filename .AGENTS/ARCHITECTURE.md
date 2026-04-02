@@ -19,7 +19,7 @@
 
 ---
 
-## Parser internals — data flow
+## Parser internals - data flow
 
 ```
 raw UCD text
@@ -49,9 +49,9 @@ Key files:
 | `src/ast/visitor.ts`          | `visit()` function and `Visitor` interface for depth-first traversal         |
 | `src/ast/index.ts`            | Re-exports from `node.ts`, `typeguards.ts`, and `visitor.ts`                 |
 | `src/parser.ts`               | `parseDataFileIntoAst`, `stringifyNode`, `stringifyNodes`                    |
-| `src/header.ts`               | `inferHeaderFromAst` — extracts heading metadata from the AST                |
-| `src/models/raw-data-file.ts` | `RawDataFile` class — parses content, derives header/fileName/version/hasEOF |
-| `src/models/data-file.ts`     | `DataFile` class — immutable frozen wrapper with query methods               |
+| `src/header.ts`               | `inferHeaderFromAst` - extracts heading metadata from the AST                |
+| `src/models/raw-data-file.ts` | `RawDataFile` class - parses content, derives header/fileName/version/hasEOF |
+| `src/models/data-file.ts`     | `DataFile` class - immutable frozen wrapper with query methods               |
 
 ---
 
@@ -124,11 +124,11 @@ Root `vitest.config.ts` dynamically reads `packages/` to create one test project
 
 Fixture helper in `packages/parser/test/__utils.ts`:
 
-- `ucdFiles(version, file)` — reads from `ucd-files/<version>/<file>`
+- `ucdFiles(version, file)` - reads from `ucd-files/<version>/<file>`
 
 Header test helper in `packages/parser/test/headers/__utils.ts`:
 
-- `createUcdTest(version)` — returns a curried `ucdTest(file)(({ content, ast, header, expectedText }) => {})` factory
+- `createUcdTest(version)` - returns a curried `ucdTest(file)(({ content, ast, header, expectedText }) => {})` factory
 
 ---
 

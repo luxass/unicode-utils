@@ -6,15 +6,15 @@ General rules for any AI working on this codebase.
 
 ## What can be changed
 
-**Everything is fair game.** File names, directory structure, interfaces, function signatures, class shapes, exports, package layouts — none of it is sacred. If a better design requires renaming, moving, splitting, or deleting existing code, do it.
+**Everything is fair game.** File names, directory structure, interfaces, function signatures, class shapes, exports, package layouts - none of it is sacred. If a better design requires renaming, moving, splitting, or deleting existing code, do it.
 
 This includes:
 
-- `packages/parser/src/ast/` — node types, typeguards
-- `packages/parser/src/parser.ts` — parsing logic
-- `packages/parser/src/models/raw-data-file.ts`, `data-file.ts` — model classes
-- `packages/core/` — re-exports, API surface, dependencies
-- Test files — rewrite, delete, restructure as needed
+- `packages/parser/src/ast/` - node types, typeguards
+- `packages/parser/src/parser.ts` - parsing logic
+- `packages/parser/src/models/raw-data-file.ts`, `data-file.ts` - model classes
+- `packages/core/` - re-exports, API surface, dependencies
+- Test files - rewrite, delete, restructure as needed
 
 ---
 

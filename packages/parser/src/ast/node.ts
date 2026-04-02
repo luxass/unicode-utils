@@ -122,7 +122,7 @@ export interface DataNode extends BaseNode {
  *
  * This is a formally machine-readable convention defined in
  * {@link https://www.unicode.org/reports/tr44/#Missing_Conventions | TR44 §4.2.9}.
- * Only created inside a `SectionNode` — before the first boundary, `@missing`
+ * Only created inside a `SectionNode` - before the first boundary, `@missing`
  * lines are parsed as plain `CommentNode`.
  *
  * @example
@@ -141,7 +141,7 @@ export interface MissingAnnotationNode extends BaseNode {
  *
  * Sections are created by the parser when it encounters `BoundaryNode`s:
  * all lines after a boundary (until the next boundary or EOF) are collected
- * into a `SectionNode`. Sections cannot nest — a `SectionNode` never
+ * into a `SectionNode`. Sections cannot nest - a `SectionNode` never
  * contains another `SectionNode` or a `BoundaryNode`.
  *
  * @example

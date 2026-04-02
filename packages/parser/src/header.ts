@@ -102,27 +102,27 @@ export function inferHeaderFromAst(root: RootNode): InferredHeader {
 
       const next = findNextNonEmpty(children, i + 1);
 
-      // No more children — header ends here
+      // No more children - header ends here
       if (next == null) {
         break;
       }
 
-      // Consecutive boundaries — header ends here
+      // Consecutive boundaries - header ends here
       if (next.type === NodeTypes.BOUNDARY) {
         break;
       }
 
-      // Next is a descriptive section — still part of header, continue
+      // Next is a descriptive section - still part of header, continue
       if (next.type === NodeTypes.SECTION && isDescriptiveSection(next)) {
         continue;
       }
 
-      // Next section has data or @missing — header ends here
+      // Next section has data or @missing - header ends here
       break;
     }
 
     if (child.type === NodeTypes.SECTION) {
-      // Descriptive section between boundaries — walk its children for metadata
+      // Descriptive section between boundaries - walk its children for metadata
       if (isDescriptiveSection(child)) {
         for (const sc of child.children) {
           trackLine(sc.line);
@@ -133,11 +133,11 @@ export function inferHeaderFromAst(root: RootNode): InferredHeader {
         continue;
       }
 
-      // Section with data or @missing — header ended before this
+      // Section with data or @missing - header ended before this
       break;
     }
 
-    // UnknownNode or anything unexpected — stop
+    // UnknownNode or anything unexpected - stop
     break;
   }
 
@@ -145,9 +145,9 @@ export function inferHeaderFromAst(root: RootNode): InferredHeader {
     endLine === -1
       ? ""
       : root.raw
-          .split(/\r?\n/)
-          .slice(startLine, endLine + 1)
-          .join("\n");
+        .split(/\r?\n/)
+        .slice(startLine, endLine + 1)
+        .join("\n");
 
   return {
     fileName: root.fileName,

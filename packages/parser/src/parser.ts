@@ -100,7 +100,7 @@ export function parseDataFileIntoAst(content: string, options?: ParseAstOptions)
       continue;
     }
 
-    // Boundary lines always go to root — they delimit sections
+    // Boundary lines always go to root - they delimit sections
     if (isBoundaryLine(line)) {
       // Flush any accumulated section children
       if (sectionChildren !== null && sectionChildren.length > 0) {
@@ -115,7 +115,7 @@ export function parseDataFileIntoAst(content: string, options?: ParseAstOptions)
         style: getBoundaryLineStyle(line),
       });
 
-      // Enter section mode — start collecting children for the next section
+      // Enter section mode - start collecting children for the next section
       sectionChildren = [];
       continue;
     }

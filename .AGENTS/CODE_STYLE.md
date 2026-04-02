@@ -6,8 +6,8 @@
 
 - **Strict mode** everywhere: `strict: true`, `noUncheckedIndexedAccess: true`
 - **Target**: ES2022, `module: "Preserve"`, `type: "module"` in `package.json`
-- **`erasableSyntaxOnly: true`** — no `enum`, no parameter properties; use `const` objects instead
-- **`isolatedModules: true`** — always use `import type` for type-only imports
+- **`erasableSyntaxOnly: true`** - no `enum`, no parameter properties; use `const` objects instead
+- **`isolatedModules: true`** - always use `import type` for type-only imports
 
 ---
 
@@ -74,7 +74,7 @@ if (node.type === "data") { ... }
 
 - **Interfaces** for object shapes: `SectionNode`, `BaseNode`, `ParsedField`, options objects
 - **Types** for unions and aliases: `ChildNode`, `SectionChildNode`, `BoundaryStyle`
-- No dedicated `types.ts` file — types live alongside their implementation
+- No dedicated `types.ts` file - types live alongside their implementation
 
 ---
 
@@ -83,7 +83,7 @@ if (node.type === "data") { ... }
 - Barrel `index.ts` files aggregate and re-export from sub-modules
 - Namespace exports for grouped utilities: `export * as astUtils from "./datafile/ast-utils"`
 - Selective exports where barrel would leak too much
-- No separate `types.ts` — export `type Foo` inline alongside values
+- No separate `types.ts` - export `type Foo` inline alongside values
 
 ---
 
@@ -115,8 +115,8 @@ Required for all exported public APIs. Must include `@param`, `@returns`, and at
 
 ## Linting and formatting
 
-- **Linter**: `oxlint` — run `pnpm run lint` to check, `pnpm run lint:fix` to auto-fix
-- **Formatter**: `oxfmt` — run `pnpm run fmt` to format, `pnpm run fmt:check` to verify without writing
+- **Linter**: `oxlint` - run `pnpm run lint` to check, `pnpm run lint:fix` to auto-fix
+- **Formatter**: `oxfmt` - run `pnpm run fmt` to format, `pnpm run fmt:check` to verify without writing
 - All commands run from the repo root
 
 ---
@@ -127,7 +127,7 @@ Required for all exported public APIs. Must include `@param`, `@returns`, and at
 - Test files named `*.test.ts` (not `.spec.ts`)
 - Use `it.each([...])` for parametrised tests
 - Use `describe.each(VERSIONS)` for cross-version test suites
-- Use `it.todo(...)` for pending tests — not `it.skip()`
+- Use `it.todo(...)` for pending tests - not `it.skip()`
 - Snapshot tests: `expect(value).toMatchSnapshot()`
 - No mocking of internal functions; use real fixtures
 - `dedent` from `@luxass/utils` for multiline inline fixtures in test files

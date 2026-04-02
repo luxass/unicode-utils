@@ -52,7 +52,7 @@ A semicolon-delimited data line carrying property assignments for code points. O
 interface DataNode extends BaseNode {
   type: "data";
   codepointRaw: string; // e.g. "0041" or "0000..001F"
-  codepoint: [string, string]; // [start, end] — identical for single code points
+  codepoint: [string, string]; // [start, end] - identical for single code points
   fields: string[]; // all semicolon-separated fields (including code point)
   comment?: string; // inline text after #, if present
 }
@@ -60,7 +60,7 @@ interface DataNode extends BaseNode {
 
 ### `MissingAnnotationNode`
 
-A `# @missing:` annotation that defines default property values for code points not explicitly listed. Only created inside a `SectionNode` — before the first boundary, `@missing` lines are parsed as plain `CommentNode`.
+A `# @missing:` annotation that defines default property values for code points not explicitly listed. Only created inside a `SectionNode` - before the first boundary, `@missing` lines are parsed as plain `CommentNode`.
 
 ```ts
 interface MissingAnnotationNode extends BaseNode {
@@ -71,7 +71,7 @@ interface MissingAnnotationNode extends BaseNode {
 
 ### `SectionNode`
 
-A container that groups lines between consecutive boundary markers. Sections cannot nest — a `SectionNode` never contains another `SectionNode` or a `BoundaryNode`.
+A container that groups lines between consecutive boundary markers. Sections cannot nest - a `SectionNode` never contains another `SectionNode` or a `BoundaryNode`.
 
 ```ts
 interface SectionNode extends BaseNode {
@@ -105,7 +105,7 @@ type SectionChildNode = CommentNode | EmptyNode | UnknownNode | DataNode | Missi
 type Node = RootNode | ChildNode | SectionChildNode;
 ```
 
-`RootNode` is not part of `ChildNode` — it is only the top-level container.
+`RootNode` is not part of `ChildNode` - it is only the top-level container.
 
 ---
 

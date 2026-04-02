@@ -65,7 +65,7 @@ const root = parseDataFileIntoAst(content);
 // root.children contains SectionNodes + structural nodes
 // root.fileName and root.version are inferred from the heading
 
-// Flat mode — no section grouping
+// Flat mode - no section grouping
 const flat = parseDataFileIntoAst(content, { groupSections: false });
 ```
 

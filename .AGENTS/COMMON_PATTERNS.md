@@ -10,8 +10,8 @@ Recurring patterns, gotchas, and non-obvious behaviours.
 import { parseDataFileIntoAst } from "@unicode-utils/parser";
 
 const root = parseDataFileIntoAst(content);
-// root.children — BoundaryNode, SectionNode, CommentNode, EmptyNode, UnknownNode
-// root.fileName, root.version — inferred from the heading
+// root.children - BoundaryNode, SectionNode, CommentNode, EmptyNode, UnknownNode
+// root.fileName, root.version - inferred from the heading
 ```
 
 ---
@@ -45,10 +45,10 @@ import { parseDataFileIntoAst, inferHeaderFromAst } from "@unicode-utils/parser"
 
 const root = parseDataFileIntoAst(content);
 const header = inferHeaderFromAst(root);
-// header.fileName, header.version — from RootNode
-// header.date, header.copyright — extracted from heading comments
-// header.text — exact raw text of the heading region
-// header.startLine, header.endLine — line range
+// header.fileName, header.version - from RootNode
+// header.date, header.copyright - extracted from heading comments
+// header.text - exact raw text of the heading region
+// header.startLine, header.endLine - line range
 ```
 
 The heading is everything before the first section containing data.
