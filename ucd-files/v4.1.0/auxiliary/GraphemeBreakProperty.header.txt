@@ -7,10 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Property:	Grapheme_Cluster_Break
-
-#  All code points not explicitly listed for Grapheme_Cluster_Break
-#  have the value Other.
-
-# ================================================

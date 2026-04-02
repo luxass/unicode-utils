@@ -7,10 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Property:	Hangul_Syllable_Type
-
-#  All code points not explicitly listed for Hangul_Syllable_Type
-#  have the value Not_Applicable (NA).
-
-# ================================================

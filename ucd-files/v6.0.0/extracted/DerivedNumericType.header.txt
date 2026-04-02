@@ -7,12 +7,3 @@
 # For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
-
-# Numeric Type (from UnicodeData.txt, field 6/7/8 plus Unihan Database: see UAX #44: http://www.unicode.org/reports/tr44/)
-
-#  All code points not explicitly listed for Numeric_Type
-#  have the value None.
-
-# @missing: 0000..10FFFF; None
-
-# ================================================

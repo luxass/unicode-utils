@@ -7,12 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Decomposition_Type (from UnicodeData.txt, field 5: see UCD.html)
-
-#  All code points not explicitly listed for Decomposition_Type
-#  have the value None.
-
-# @missing: 0000..10FFFF; None
-
-# ================================================

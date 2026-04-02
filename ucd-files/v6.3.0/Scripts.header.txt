@@ -7,12 +7,3 @@
 # For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
-
-# Property:	Script
-
-#  All code points not explicitly listed for Script
-#  have the value Unknown (Zzzz).
-
-# @missing: 0000..10FFFF; Unknown
-
-# ================================================

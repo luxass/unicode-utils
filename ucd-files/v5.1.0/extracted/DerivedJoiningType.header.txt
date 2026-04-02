@@ -7,12 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-#	Type T is derived, as described in ArabicShaping.txt
-
-#  All code points not explicitly listed for Joining_Type
-#  have the value Non_Joining (U).
-
-# @missing: 0000..10FFFF; Non_Joining
-
-# ================================================

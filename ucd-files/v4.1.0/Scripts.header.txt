@@ -7,10 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Property:	Script
-
-#  All code points not explicitly listed for Script
-#  have the value Common (Zyyy).
-
-# ================================================

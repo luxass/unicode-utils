@@ -33,18 +33,3 @@
 #   http://www.unicode.org/versions/enumeratedversions.html.
 
 # ================================================
-
-# Property: Age
-#
-# Note: When using the Age property in regular expressions,
-# an expression such as "\p{age=3.0}" matches all of the code points
-# assigned in Version 3.0--that is, all the code points with a value
-# less than or equal to 3.0 for the Age property.
-# For more information, see [https://www.unicode.org/reports/tr18/].
-
-#  All code points not explicitly listed for Age
-#  have the value Unassigned (NA).
-
-# @missing: 0000..10FFFF; Unassigned
-
-# ================================================

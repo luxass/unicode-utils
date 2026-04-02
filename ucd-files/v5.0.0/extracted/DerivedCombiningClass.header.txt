@@ -7,12 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Combining Class (listing UnicodeData.txt, field 3: see UCD.html)
-
-#  All code points not explicitly listed for Canonical_Combining_Class
-#  have the value Not_Reordered (0).
-
-# @missing: 0000..10FFFF; Not_Reordered
-
-# ================================================

@@ -7,12 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# East_Asian_Width (listing EastAsianWidth.txt, field 1)
-
-#  All code points not explicitly listed for East_Asian_Width
-#  have the value Neutral (N).
-
-# @missing: 0000..10FFFF; Neutral
-
-# ================================================

@@ -7,12 +7,3 @@
 # For documentation, see UCD.html
 
 # ================================================
-
-# Property:	Script
-
-#  All code points not explicitly listed for Script
-#  have the value Unknown (Zzzz).
-
-# @missing: 0000..10FFFF; Unknown
-
-# ================================================

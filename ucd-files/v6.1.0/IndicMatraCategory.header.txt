@@ -76,16 +76,3 @@
 #
 
 # ================================================
-
-# Property: Indic_Matra_Category
-#
-#  All code points not explicitly listed for Indic_Matra_Category
-#  have the value NA (Not_Applicable).
-#
-# @missing: 0000..10FFFF; NA
-
-# Only Indic dependent vowels (Indic_Syllabic_Category=Vowel_Dependent)
-# and viramas (Indic_Syllabic_Category=Virama)
-# have a non-default value for this property.
-
-# ------------------------------------------------

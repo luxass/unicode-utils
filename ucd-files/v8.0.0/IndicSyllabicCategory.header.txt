@@ -50,12 +50,3 @@
 #
 
 # ================================================
-
-# Property: Indic_Syllabic_Category
-#
-#  All code points not explicitly listed for Indic_Syllabic_Category
-#  have the value Other.
-#
-# @missing: 0000..10FFFF; Other
-
-# ================================================

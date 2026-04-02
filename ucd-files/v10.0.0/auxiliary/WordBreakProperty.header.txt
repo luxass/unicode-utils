@@ -8,12 +8,3 @@
 #   For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
-
-# Property:	Word_Break
-
-#  All code points not explicitly listed for Word_Break
-#  have the value Other (XX).
-
-# @missing: 0000..10FFFF; Other
-
-# ================================================

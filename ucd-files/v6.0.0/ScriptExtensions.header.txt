@@ -12,7 +12,3 @@
 # For more information, see UAX #24: http://www.unicode.org/reports/tr24/.
 
 # ================================================
-
-# Property:	Script_Extensions
-
-# ================================================

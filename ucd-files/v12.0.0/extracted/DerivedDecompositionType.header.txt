@@ -8,12 +8,3 @@
 #   For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
-
-# Decomposition_Type (from UnicodeData.txt, field 5: see UAX #44: http://www.unicode.org/reports/tr44/)
-
-#  All code points not explicitly listed for Decomposition_Type
-#  have the value None.
-
-# @missing: 0000..10FFFF; None
-
-# ================================================

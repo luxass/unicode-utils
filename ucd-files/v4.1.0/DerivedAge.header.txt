@@ -36,10 +36,3 @@
 #   http://www.unicode.org/versions/enumeratedversions.html.
 
 # ================================================
-
-# Property:	Age
-
-#  All code points not explicitly listed for Age
-#  have the value unassigned.
-
-# ================================================

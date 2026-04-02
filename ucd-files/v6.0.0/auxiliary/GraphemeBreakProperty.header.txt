@@ -7,12 +7,3 @@
 # For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
-
-# Property:	Grapheme_Cluster_Break
-
-#  All code points not explicitly listed for Grapheme_Cluster_Break
-#  have the value Other (XX).
-
-# @missing: 0000..10FFFF; Other
-
-# ================================================

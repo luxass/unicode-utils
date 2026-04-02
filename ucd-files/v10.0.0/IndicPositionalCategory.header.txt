@@ -84,12 +84,3 @@
 #     contextually variable placement in Grantha.
 
 # ================================================
-
-# Property: Indic_Positional_Category
-#
-#  All code points not explicitly listed for Indic_Positional_Category
-#  have the value NA (not applicable).
-#
-# @missing: 0000..10FFFF; NA
-
-# ------------------------------------------------

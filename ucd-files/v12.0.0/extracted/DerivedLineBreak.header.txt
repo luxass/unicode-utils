@@ -8,12 +8,3 @@
 #   For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
-
-# Property:	Line_Break
-
-#  All code points not explicitly listed for Line_Break
-#  have the value Unknown (XX).
-
-# @missing: 0000..10FFFF; Unknown
-
-# ================================================
