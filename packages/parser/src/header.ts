@@ -145,9 +145,9 @@ export function inferHeaderFromAst(root: RootNode): InferredHeader {
     endLine === -1
       ? ""
       : root.raw
-        .split(/\r?\n/)
-        .slice(startLine, endLine + 1)
-        .join("\n");
+          .split(/\r?\n/)
+          .slice(startLine, endLine + 1)
+          .join("\n");
 
   return {
     fileName: root.fileName,
