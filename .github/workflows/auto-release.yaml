@@ -14,13 +14,13 @@ jobs:
     permissions:
       contents: write
     environment:
-      name: auto-release
+      name: huginn
       deployment: false
     if: >-
       github.event.pull_request.merged == true &&
         github.event.pull_request.head.ref == 'update-ucd-files' &&
         github.repository == 'luxass/unicode-utils' &&
-        github.event.pull_request.user.login == 'luxass'
+        (github.event.pull_request.user.login == 'luxass' || github.event.pull_request.user.login == 'huginn-watch[bot]')
     steps:
       - name: generate token
         uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
@@ -52,26 +52,24 @@ jobs:
         run: pnpm run build
 
       - name: create tag and release
-        run: |
-          CURRENT_VERSION=$(cat packages/unicode-utils/package.json | jq -r '.version')
-          echo "Current version: $CURRENT_VERSION"
-
-          NEXT_VERSION=""
-
-          # If we are using beta or alpha versions, we should auto-release those
-          if [[ "$CURRENT_VERSION" == *"-beta"* || "$CURRENT_VERSION" == *"-alpha"* ]]; then
-            NEXT_VERSION=$(echo $CURRENT_VERSION | awk -F'[.-]' '{printf "%d.%d.%d-%s.%d", $1, $2, $3, $4, $5+1}')
-          else
-            NEXT_VERSION=$(echo $CURRENT_VERSION | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
-          fi
-
-          if [ -z "$NEXT_VERSION" ]; then
-            echo "Could not determine next version"
-            exit 1
-          fi
-
-          echo "Next version: $NEXT_VERSION"
-
-          npx bumpp -r $NEXT_VERSION --commit --tag --push --yes
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$(jq -r '.version' package.json)"
+          NEW_VERSION="$MAJOR.$MINOR.$((PATCH + 1))"
+
+          while IFS= read -r msg; do
+            if [[ "$msg" =~ ^feat ]]; then
+              NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
+              break
+            fi
+          done < <(git log "$BASE_SHA..$HEAD_SHA" --format=%s)
+
+          git config user.email "273299945+huginn-watch[bot]@users.noreply.github.com"
+          git config user.name "huginn-watch[bot]"
+
+          npx bumpp -r "$NEW_VERSION" --commit --tag --push --yes
