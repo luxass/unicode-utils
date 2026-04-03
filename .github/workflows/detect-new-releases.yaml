@@ -61,7 +61,7 @@ jobs:
 
       - name: format
         run: |
-          pnpm dlx prettier --write ./packages/metadata/src/index.ts ./packages/metadata/src/data/unicode-version-metadata.ts
+          pnpm oxfmt --write ./packages/metadata/src/index.ts ./packages/metadata/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
