@@ -115,13 +115,15 @@ jobs:
             This is an automated PR to update the auto-generated files in the repository.
 
             <details>
-            <summary>Diff</summary><br/>
+            <summary>📚 Diff</summary><br/>
 
             ```diff
             ${{ env.DIFF }}
             ```
 
             <br/></details>
+
+            I will be waiting for your approval 👋.
           branch: update-generated-files
           add-paths: |
             packages/metadata/src/index.ts
