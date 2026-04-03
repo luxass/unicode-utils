@@ -134,12 +134,11 @@ Header test helper in `packages/parser/test/headers/__utils.ts`:
 
 ## CI workflows
 
-| Workflow                   | Trigger         | Purpose                                        |
-| -------------------------- | --------------- | ---------------------------------------------- |
-| `ci.yaml`                  | push/PR         | Build, lint, typecheck, test                   |
-| `detect-new-releases.yaml` | daily + manual  | Update metadata when new Unicode versions ship |
-| `update-ucd-files.yaml`    | weekly + manual | Fetch UCD files and regenerate header tests    |
-| `release.yaml`             | manual          | Publish packages                               |
+| Workflow                   | Trigger        | Purpose                                                        |
+| -------------------------- | -------------- | -------------------------------------------------------------- |
+| `ci.yaml`                  | push/PR        | Build, lint, typecheck, test                                   |
+| `detect-new-releases.yaml` | daily + manual | Detect new Unicode versions, fetch UCD files, regenerate tests |
+| `release.yaml`             | tag push       | Publish packages to npm                                        |
 
 ---
 

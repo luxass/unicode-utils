@@ -22,7 +22,7 @@ on:
 jobs:
   check-releases:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     permissions:
       contents: write
       pull-requests: write
@@ -59,6 +59,12 @@ jobs:
         run: |
           node ./packages/metadata/scripts/generate-constants.ts
 
+      - name: fetch missing UCD files
+        run: pnpm tsx scripts/fetch-ucd-files.ts
+
+      - name: generate header tests
+        run: pnpm tsx scripts/generate-header-tests.ts
+
       - name: format
         run: |
           pnpm oxfmt --write ./packages/metadata/src/index.ts ./packages/metadata/src/data/unicode-version-metadata.ts
@@ -66,12 +72,14 @@ jobs:
       - name: generate diff
         id: generate-diff
         run: |
-          # Create a combined diff of index.ts and data files
+          # Create a combined diff of all changed files
           {
-            echo "=== Changes in src/index.ts ==="
-            git diff ./packages/metadata/src/index.ts
-            echo -e "\n=== Changes in src/data/ ==="
-            git diff ./packages/metadata/src/data/
+            echo "=== Changes in metadata ==="
+            git diff ./packages/metadata/src/
+            echo -e "\n=== Changes in UCD files ==="
+            git diff --stat ./ucd-files/
+            echo -e "\n=== Changes in header tests ==="
+            git diff --stat ./packages/parser/test/headers/generated/
           } > combined.diff
 
           # if the diff is empty
@@ -99,7 +107,7 @@ jobs:
         if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
         env:
           DIFF: ${{ steps.generate-diff.outputs.DIFF }}
-          COMMIT_MESSAGE: "${{ steps.pr-metadata.outputs.title || 'feat: updated generated files' }}"
+          COMMIT_MESSAGE: "${{ steps.pr-metadata.outputs.title || 'chore: update unicode data and generated files' }}"
         with:
           commit-message: ${{ env.COMMIT_MESSAGE }}
           title: ${{ env.COMMIT_MESSAGE }}
@@ -107,19 +115,19 @@ jobs:
             This is an automated PR to update the auto-generated files in the repository.
 
             <details>
-            <summary>📚 Diff</summary><br/>
+            <summary>Diff</summary><br/>
 
             ```diff
             ${{ env.DIFF }}
             ```
 
             <br/></details>
-
-            I will be waiting for your approval 👋.
           branch: update-generated-files
           add-paths: |
             packages/metadata/src/index.ts
             packages/metadata/src/data/unicode-version-metadata.ts
+            ucd-files/
+            packages/parser/test/headers/generated/
           base: main
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
