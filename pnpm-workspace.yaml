@@ -38,3 +38,6 @@ catalogs:
 
 overrides:
   rolldown: catalog:dev
+minimumReleaseAgeExclude:
+  # Renovate security update: defu@6.1.5
+  - defu@6.1.5
