@@ -40,8 +40,7 @@
   "dependencies": {
     "@luxass/utils": "catalog:build",
     "@unicode-utils/metadata": "workspace:*",
-    "@unicode-utils/parser": "workspace:*",
-    "defu": "catalog:build"
+    "@unicode-utils/parser": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:types",

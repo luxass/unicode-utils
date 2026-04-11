@@ -43,8 +43,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@luxass/utils": "catalog:build",
-    "defu": "catalog:build"
+    "@luxass/utils": "catalog:build"
   },
   "devDependencies": {
     "@types/node": "catalog:types",

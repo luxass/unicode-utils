@@ -9,9 +9,6 @@ catalogs:
     '@luxass/utils':
       specifier: 2.7.3
       version: 2.7.3
-    defu:
-      specifier: 6.1.4
-      version: 6.1.4
   dev:
     oxfmt:
       specifier: 0.42.0
@@ -92,9 +89,6 @@ importers:
       '@unicode-utils/parser':
         specifier: workspace:*
         version: link:../parser
-      defu:
-        specifier: catalog:build
-        version: 6.1.4
     devDependencies:
       '@types/node':
         specifier: catalog:types
@@ -154,9 +148,6 @@ importers:
       '@luxass/utils':
         specifier: catalog:build
         version: 2.7.3
-      defu:
-        specifier: catalog:build
-        version: 6.1.4
     devDependencies:
       '@types/node':
         specifier: catalog:types

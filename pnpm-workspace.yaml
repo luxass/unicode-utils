@@ -19,7 +19,6 @@ catalogs:
     picomatch: 4.0.4
     zod: 4.3.6
     "@luxass/utils": 2.7.3
-    defu: 6.1.4
 
   testing:
     msw: 2.12.14
