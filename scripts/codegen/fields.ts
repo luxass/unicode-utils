@@ -74,6 +74,7 @@ Top-level: \`{ fields: [{ name, type, description, source }], confidence: number
 ### Types
 Valid TypeScript only: string, number, boolean, string[], number[], Array<string>, Array<number>, Record<string, string>, Record<string, number>, Record<string, unknown>, unknown.
 - String literal unions: each value quoted with pipe separator — "\\"R\\" | \\"L\\" | \\"D\\""
+- If a field has known values but may also accept other strings, use \`(string & {})\` as the last union member — e.g. \`"Comp" | "ExtA" | "Rejected" | (string & {})\`. NEVER use \`| string\` — it erases the literal types at the TypeScript level.
 - Angle-bracket values like <none> → remove brackets and quote: "\\"none\\""
 - Never use: union, object, array, map, list, none (unquoted).
 
