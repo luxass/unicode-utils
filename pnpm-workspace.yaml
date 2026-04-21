@@ -9,6 +9,7 @@ packages:
   - "packages/*"
   - "tooling/*"
   - "playground"
+  - "scripts"
 
 catalogs:
   types:
@@ -19,6 +20,13 @@ catalogs:
     picomatch: 4.0.4
     zod: 4.3.6
     "@luxass/utils": 2.7.3
+
+  codegen:
+    ai: 6.0.158
+    "@ai-sdk/google": 3.0.61
+    "@ai-sdk/openai": 3.0.52
+    "@ai-sdk/xai": 3.0.82
+    "@ucdjs/client": 0.2.0
 
   testing:
     msw: 2.12.14

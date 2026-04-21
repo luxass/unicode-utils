@@ -6,4 +6,4 @@ coverage
 .dev.vars
 .turbo
 .cache
-
+v*.review.json
