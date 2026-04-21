@@ -199,3 +199,6 @@ await Promise.all(versions.map(async (inputVersion) => {
   const lowConf = reviewEntries.filter((e) => e.confidence < confidenceThreshold).length;
   console.log(`[v${short}] wrote ${reviewPath} (${lowConf} low-confidence of ${reviewEntries.length})`);
 }));
+
+await generatePackageExports(outputDir);
+console.log("updated index.ts and package.json exports");
