@@ -1,8 +1,4 @@
 {
   "extends": "@unicode-utils-tooling/tsconfig/base",
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "./scripts/**/*.ts"
-  ]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./scripts/**/*.ts"]
 }
