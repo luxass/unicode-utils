@@ -1,4 +1,7 @@
 {
   "extends": "@unicode-utils-tooling/tsconfig/base",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true
+  },
   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./scripts/**/*.ts"]
 }

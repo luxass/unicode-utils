@@ -3,11 +3,11 @@ import { dirname, join } from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 
-import { loadGenerationInput } from "./generate-constants/input";
+import { loadGenerationInput } from "./generate-constants/input.ts";
 import {
   renderUnicodeVersionConstants,
   renderUnicodeVersionMetadata,
-} from "./generate-constants/render";
+} from "./generate-constants/render.ts";
 
 async function run() {
   const generationInput = loadGenerationInput(process.env);
