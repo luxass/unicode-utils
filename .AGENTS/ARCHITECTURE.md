@@ -82,6 +82,7 @@ The heading region is defined as everything before the first `SectionNode` that 
 | `scripts/fetch-ucd-files.ts`       | Fetch missing UCD `.txt` files from `api.ucdjs.dev` for all versions  |
 | `scripts/generate-header-tests.ts` | Generate `.header.txt` expected files and test files for header tests |
 | `scripts/generate-pr-title.ts`     | Generate PR titles via GitHub Models API (used in CI)                 |
+| `packages/metadata/scripts/generate-constants.ts` | Generate metadata constants and version metadata data files |
 
 Workflow for adding a new Unicode version:
 
@@ -91,6 +92,20 @@ pnpm tsx scripts/fetch-ucd-files.ts          # fetch all files
 pnpm tsx scripts/generate-header-tests.ts    # generate .header.txt + test files
 # review .header.txt files, then fill in test assertions
 ```
+
+Metadata constants generation (usually CI-driven):
+
+```bash
+ALL_RELEASES='[...]' \
+LATEST_RELEASE='17.0.0' \
+CURRENT_DRAFT='18.0.0' \
+pnpm --filter @unicode-utils/metadata generate:constants
+```
+
+Outputs:
+
+- `packages/metadata/src/data/unicode-version-constants.ts`
+- `packages/metadata/src/data/unicode-version-metadata.ts`
 
 ---
 
@@ -106,7 +121,12 @@ Each package has:
 
 - `tsdown.config.ts` using `createTsdownConfig()` from `tooling/tsdown-config`
 - `tsconfig.json` extending `@unicode-utils-tooling/tsconfig/base`
-- `tsconfig.build.json` extending the base, excluding `test/` and `dist/`
+- `tsconfig.build.json` extending `@unicode-utils-tooling/tsconfig/base.build`
+
+Notable include overrides:
+
+- `packages/metadata/tsconfig.json` also includes `scripts/**/*.ts` for metadata generator modules
+- `scripts/tsconfig.json` includes root scripts and `codegen/**/*.ts`
 
 ---
 

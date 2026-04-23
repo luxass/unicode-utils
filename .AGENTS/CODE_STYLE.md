@@ -5,7 +5,7 @@
 ## TypeScript
 
 - **Strict mode** everywhere: `strict: true`, `noUncheckedIndexedAccess: true`
-- **Target**: ES2022, `module: "Preserve"`, `type: "module"` in `package.json`
+- **Target**: ES2024, `module: "Preserve"`, `type: "module"` in `package.json`
 - **`erasableSyntaxOnly: true`** - no `enum`, no parameter properties; use `const` objects instead
 - **`isolatedModules: true`** - always use `import type` for type-only imports
 
@@ -83,7 +83,7 @@ if (node.type === "data") { ... }
 - Barrel `index.ts` files aggregate and re-export from sub-modules
 - Namespace exports for grouped utilities: `export * as astUtils from "./datafile/ast-utils"`
 - Selective exports where barrel would leak too much
-- No separate `types.ts` - export `type Foo` inline alongside values
+- For internal script modules, do not export types unless they are part of a real module contract
 
 ---
 

@@ -17,7 +17,7 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 
 ## Setup
 
-- **Node.js**: >= 24
+- **Node.js**: Active LTS (22.18+ recommended)
 - **pnpm**: Version in `package.json`
 - Run `pnpm install` to install
 
@@ -63,8 +63,17 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 
 1. `mkdir ucd-files/v<version>`
 2. `pnpm tsx scripts/fetch-ucd-files.ts` - fetches all `.txt` files from unicode.org
-3. `pnpm tsx scripts/generate-header-tests.ts` - generates `.comments.txt` + test files
-4. Review `.comments.txt` files and fill in test assertions.
+3. `pnpm tsx scripts/generate-header-tests.ts` - generates `.header.txt` + test files
+4. Review `.header.txt` files and fill in test assertions.
+
+### Regenerating metadata constants
+
+- Source of truth is `ALL_RELEASES`, `LATEST_RELEASE`, and `CURRENT_DRAFT` env vars.
+- Run `pnpm --filter @unicode-utils/metadata generate:constants`.
+- Generated files:
+  - `packages/metadata/src/data/unicode-version-constants.ts`
+  - `packages/metadata/src/data/unicode-version-metadata.ts`
+- `packages/metadata/src/index.ts` is stable and should only re-export from `src/data/`.
 
 ## Dependency management
 
@@ -86,10 +95,11 @@ unicode-utils is a monorepo that provides tools for parsing and working with Uni
 - **Parser**: `packages/parser/src/`
 - **Core API**: `packages/core/src/`
 - **Metadata**: `packages/metadata/src/`
+- **Metadata generator**: `packages/metadata/scripts/generate-constants.ts` + `packages/metadata/scripts/generate-constants/*`
 - **Tests**: `packages/*/test/`
 - **Header tests**: `packages/parser/test/headers/` (generated: `generated/`)
 - **Scripts**: `scripts/` (fetch UCD files, generate header tests, PR titles)
-- **UCD fixtures**: `ucd-files/` (real UCD files + `.comments.txt` expected headers)
+- **UCD fixtures**: `ucd-files/` (real UCD files + `.header.txt` expected headers)
 - **Playground**: `playground/`
 
 ## AI-friendly documentation

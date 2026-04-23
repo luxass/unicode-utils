@@ -135,3 +135,20 @@ ucdTest("Scripts.txt")(({ header, expectedText }) => {
 ```
 
 The expected text is loaded from `ucd-files/<version>/<name>.header.txt`.
+
+---
+
+## 8. Regenerating metadata constants
+
+`@unicode-utils/metadata` keeps generated data under `packages/metadata/src/data/`:
+
+- `unicode-version-constants.ts`
+- `unicode-version-metadata.ts`
+
+Generation is driven by environment variables (`ALL_RELEASES`, `LATEST_RELEASE`, `CURRENT_DRAFT`) and the metadata generator:
+
+```sh
+pnpm --filter @unicode-utils/metadata generate:constants
+```
+
+Do not hand-edit generated files. If values are wrong, fix the generator input or renderer in `packages/metadata/scripts/generate-constants/`.

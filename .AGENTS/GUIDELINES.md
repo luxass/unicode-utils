@@ -38,6 +38,18 @@ Before writing any parser definition or test fixture, fetch the actual file usin
 
 ---
 
+## Generated files
+
+Treat generated artifacts as outputs, not authoring surfaces:
+
+- `packages/metadata/src/data/unicode-version-constants.ts`
+- `packages/metadata/src/data/unicode-version-metadata.ts`
+- `packages/parser/test/headers/generated/*`
+
+When these need to change, update the generator or generator inputs first, then regenerate.
+
+---
+
 ## Tone
 
 Do not preserve existing code out of caution. If a design choice looks wrong, change it. The codebase is in active development and nothing is locked down except the two stable modules listed above.
