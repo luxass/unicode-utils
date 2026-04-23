@@ -1,12 +1,12 @@
 /**
  * The current draft version of the Unicode standard
  */
-export const UNICODE_DRAFT_VERSION = "18.0.0" as const;
+export { UNICODE_DRAFT_VERSION } from "./data/unicode-version-constants";
 
 /**
  * The latest stable version of the Unicode standard
  */
-export const UNICODE_STABLE_VERSION = "17.0.0" as const;
+export { UNICODE_STABLE_VERSION } from "./data/unicode-version-constants";
 
 /**
  * Complete list of Unicode versions with their metadata.

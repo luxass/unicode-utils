@@ -8,7 +8,7 @@
     },
     "generate:constants": {
       "cache": false,
-      "outputs": ["src/data/**", "src/index.ts"],
+      "outputs": ["src/data/**"],
       "env": ["ALL_RELEASES", "LATEST_RELEASE", "CURRENT_DRAFT"]
     }
   }

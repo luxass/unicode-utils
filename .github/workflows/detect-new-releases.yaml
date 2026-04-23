@@ -67,7 +67,7 @@ jobs:
 
       - name: format
         run: |
-          pnpm oxfmt --write ./packages/metadata/src/index.ts ./packages/metadata/src/data/unicode-version-metadata.ts
+          pnpm oxfmt --write ./packages/metadata/src/data/unicode-version-constants.ts ./packages/metadata/src/data/unicode-version-metadata.ts
 
       - name: generate diff
         id: generate-diff
@@ -126,7 +126,7 @@ jobs:
             I will be waiting for your approval 👋.
           branch: update-generated-files
           add-paths: |
-            packages/metadata/src/index.ts
+            packages/metadata/src/data/unicode-version-constants.ts
             packages/metadata/src/data/unicode-version-metadata.ts
             ucd-files/
             packages/parser/test/headers/generated/

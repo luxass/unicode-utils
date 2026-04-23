@@ -4,5 +4,5 @@
     "lib": ["ES2024"],
     "types": ["node"]
   },
-  "include": ["*.ts"]
+  "include": ["./*.ts", "./codegen/**/*.ts"]
 }
