@@ -1,6 +1,9 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
+import { tool } from "ai";
+import { z } from "zod";
+
 interface SkillDefinition {
   name: string;
   description: string;

@@ -2,12 +2,12 @@ import path, { join } from "node:path";
 import process from "node:process";
 import { parseArgs } from "node:util";
 
-import { createUCDClient } from "@ucdjs/client";
+import { createUCDClient, type UCDClient } from "@ucdjs/client";
 
 import { buildModel, PROVIDER_DEFAULTS } from "./generate-fields/model";
 import { generatePackageExports } from "./generate-fields/exports";
 import { processVersion } from "./generate-fields/process-version";
-import type { ProcessVersionOptions } from "./generate-fields/types";
+import type { AiRunContext, ProcessVersionOptions } from "./generate-fields/types";
 import {
   isRateLimitError,
   Limiter,
@@ -59,6 +59,46 @@ function parseConfig() {
   };
 }
 
+function createFetchers(client: UCDClient) {
+  const limit = new Limiter(FILE_FETCH_WORKERS);
+  return {
+    fetchFileTree: (fullVersion: string) =>
+      limit.run(() => unwrap(client.versions.getFileTree(fullVersion))),
+    fetchFile: (apiPath: string) => limit.run(() => unwrap(client.files.get(apiPath))),
+  };
+}
+
+function createAiRunner() {
+  const limit = new Limiter(AI_WORKERS);
+  const cooldown = new RateLimitCooldown(10_000, 60_000);
+
+  return async function runAi<T>(task: () => Promise<T>, context: AiRunContext): Promise<T> {
+    for (let attempt = 1; attempt <= AI_RATE_LIMIT_RETRIES; attempt++) {
+      try {
+        await cooldown.wait();
+        const result = await limit.run(async () => {
+          await cooldown.wait();
+          return task();
+        });
+        cooldown.success();
+        return result;
+      } catch (error) {
+        if (!isRateLimitError(error) || attempt === AI_RATE_LIMIT_RETRIES) {
+          throw error;
+        }
+
+        const delayMs = cooldown.hit();
+        console.warn(
+          `[v${context.shortVersion}] rate limited by ${context.modelId} for ${context.relPath}; retry ${attempt + 1}/${AI_RATE_LIMIT_RETRIES} after ${Math.ceil(delayMs / 1000)}s`,
+        );
+        await sleep(delayMs);
+      }
+    }
+
+    throw new Error(`unreachable rate-limit retry state for ${context.relPath}`);
+  };
+}
+
 async function run() {
   const config = parseConfig();
   const client = await createUCDClient("https://api.ucdjs.dev");
@@ -77,9 +117,7 @@ async function run() {
     `using provider=${config.provider} fast=${config.fastModelId} reasoning=${config.reasoningModelId} threshold=${config.confidenceThreshold}`,
   );
 
-  const fetchLimit = new Limiter(FILE_FETCH_WORKERS);
-  const aiLimit = new Limiter(AI_WORKERS);
-  const aiRateLimitCooldown = new RateLimitCooldown(10_000, 60_000);
+  const fetchers = createFetchers(client);
 
   const versionOptions: ProcessVersionOptions = {
     outputDir: OUTPUT_DIR,
@@ -88,34 +126,8 @@ async function run() {
     reasoningModelId: config.reasoningModelId,
     fastModel: buildModel(config.provider, config.fastModelId),
     reasoningModel: buildModel(config.provider, config.reasoningModelId),
-    fetchFileTree: (fullVersion) =>
-      fetchLimit.run(() => unwrap(client.versions.getFileTree(fullVersion))),
-    fetchFile: (apiPath) => fetchLimit.run(() => unwrap(client.files.get(apiPath))),
-    runAi: async (task, context) => {
-      for (let attempt = 1; attempt <= AI_RATE_LIMIT_RETRIES; attempt++) {
-        try {
-          await aiRateLimitCooldown.wait();
-          const result = await aiLimit.run(async () => {
-            await aiRateLimitCooldown.wait();
-            return task();
-          });
-          aiRateLimitCooldown.success();
-          return result;
-        } catch (error) {
-          if (!isRateLimitError(error) || attempt === AI_RATE_LIMIT_RETRIES) {
-            throw error;
-          }
-
-          const delayMs = aiRateLimitCooldown.hit();
-          console.warn(
-            `[v${context.shortVersion}] rate limited by ${context.modelId} for ${context.relPath}; retry ${attempt + 1}/${AI_RATE_LIMIT_RETRIES} after ${Math.ceil(delayMs / 1000)}s`,
-          );
-          await sleep(delayMs);
-        }
-      }
-
-      throw new Error(`unreachable rate-limit retry state for ${context.relPath}`);
-    },
+    ...fetchers,
+    runAi: createAiRunner(),
   };
 
   const workers = Math.min(VERSION_WORKERS, versions.length);

@@ -1,5 +1,5 @@
 import type { Field } from "./types";
-import { normalizeReportUrl } from "./report-cache";
+import { normalizeReportUrl } from "./reports";
 
 export const HEADER_SOURCE_RE = /^header:L\d+(?:-L\d+)?$/;
 

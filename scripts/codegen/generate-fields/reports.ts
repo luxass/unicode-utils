@@ -1,6 +1,9 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+import { tool } from "ai";
+import { z } from "zod";
+
 const CACHE_DIR = path.resolve(import.meta.dirname, "../.cache");
 
 export function normalizeReportUrl(url: string): string {
