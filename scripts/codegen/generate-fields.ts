@@ -59,7 +59,7 @@ function parseConfig() {
   };
 }
 
-async function processVersions() {
+async function run() {
   const config = parseConfig();
   const client = await createUCDClient("https://api.ucdjs.dev");
   const versions = config.all
@@ -133,4 +133,7 @@ async function processVersions() {
   console.log("updated index.ts and package.json exports");
 }
 
-await processVersions();
+run().catch((err) => {
+  console.error(err);
+  process.exitCode = 1;
+});
