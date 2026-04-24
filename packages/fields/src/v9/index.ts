@@ -76,7 +76,7 @@ export * from "./extracted/DerivedLineBreak";
 export * from "./extracted/DerivedNumericType";
 export * from "./extracted/DerivedNumericValues";
 export * from "./HangulSyllableType";
-export * from "./index.fields";
+export * from "./_Index";
 export * from "./IndicPositionalCategory";
 export * from "./IndicSyllabicCategory";
 export * from "./Jamo";

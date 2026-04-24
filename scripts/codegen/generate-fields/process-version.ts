@@ -6,6 +6,7 @@ import type { ProcessVersionOptions, ReviewEntry } from "./types";
 import { collectTxtPaths, normalizeVersion, type TreeNode } from "./utils";
 
 const FILE_WORKERS = 8;
+const RESERVED_MODULE_BASENAMES = new Set(["index"]);
 
 function renderVersionIndex(
   shortVersion: string,
@@ -27,10 +28,11 @@ ${exports}
 
 function toGeneratedModulePath(relPath: string): string {
   const tsPath = relPath.replace(/\.txt$/i, ".ts");
-  if (basename(tsPath).toLowerCase() !== "index.ts") {
+  const moduleName = basename(tsPath, ".ts");
+  if (!RESERVED_MODULE_BASENAMES.has(moduleName.toLowerCase())) {
     return tsPath;
   }
-  return join(dirname(tsPath), "index.fields.ts");
+  return join(dirname(tsPath), `_${moduleName}.ts`);
 }
 
 export async function processVersion(inputVersion: string, options: ProcessVersionOptions) {
