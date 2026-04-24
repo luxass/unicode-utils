@@ -28,4 +28,7 @@ export interface IndicPositionalCategory {
   indic_positional_category: string;
 }
 
-export const INDIC_POSITIONAL_CATEGORY_FIELDS = ["code_point_or_range", "indic_positional_category"];
+export const INDIC_POSITIONAL_CATEGORY_FIELDS = [
+  "code_point_or_range",
+  "indic_positional_category",
+];

@@ -28,4 +28,7 @@ export interface EquivalentUnifiedIdeograph {
   equivalent_codepoint: string;
 }
 
-export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = ["source_codepoint_or_range", "equivalent_codepoint"];
+export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = [
+  "source_codepoint_or_range",
+  "equivalent_codepoint",
+];

@@ -63,4 +63,12 @@ export interface USourceData {
   sources: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = ["u_source_id", "status", "unicode_code_point", "radical_stroke_count", "virtual_kang_xi_position", "ids", "sources"];
+export const U_SOURCE_DATA_FIELDS = [
+  "u_source_id",
+  "status",
+  "unicode_code_point",
+  "radical_stroke_count",
+  "virtual_kang_xi_position",
+  "ids",
+  "sources",
+];

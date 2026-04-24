@@ -25,7 +25,47 @@ export interface LineBreak {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/LineBreak.txt#L13-L24
    */
-  line_break_property: "BK" | "CR" | "LF" | "CM" | "SG" | "GL" | "CB" | "SP" | "ZW" | "NL" | "WJ" | "JL" | "JV" | "JT" | "H2" | "H3" | "XX" | "OP" | "CL" | "CP" | "QU" | "NS" | "EX" | "SY" | "IS" | "PR" | "PO" | "NU" | "AL" | "ID" | "IN" | "HY" | "BB" | "BA" | "SA" | "AI" | "B2" | "HL" | "CJ" | "RI";
+  line_break_property:
+    | "BK"
+    | "CR"
+    | "LF"
+    | "CM"
+    | "SG"
+    | "GL"
+    | "CB"
+    | "SP"
+    | "ZW"
+    | "NL"
+    | "WJ"
+    | "JL"
+    | "JV"
+    | "JT"
+    | "H2"
+    | "H3"
+    | "XX"
+    | "OP"
+    | "CL"
+    | "CP"
+    | "QU"
+    | "NS"
+    | "EX"
+    | "SY"
+    | "IS"
+    | "PR"
+    | "PO"
+    | "NU"
+    | "AL"
+    | "ID"
+    | "IN"
+    | "HY"
+    | "BB"
+    | "BA"
+    | "SA"
+    | "AI"
+    | "B2"
+    | "HL"
+    | "CJ"
+    | "RI";
 }
 
 export const LINE_BREAK_FIELDS = ["unicode_value", "line_break_property"];

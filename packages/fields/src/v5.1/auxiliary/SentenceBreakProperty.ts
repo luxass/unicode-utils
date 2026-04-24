@@ -26,7 +26,20 @@ export interface AuxiliarySentenceBreakProperty {
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
-  sentence_break: "CR" | "LF" | "Extend" | "Sp" | "Sep" | "STerm" | "ATerm" | "Lower" | "Upper" | "OLetter" | "Numeric" | "Other" | (string & {});
+  sentence_break:
+    | "CR"
+    | "LF"
+    | "Extend"
+    | "Sp"
+    | "Sep"
+    | "STerm"
+    | "ATerm"
+    | "Lower"
+    | "Upper"
+    | "OLetter"
+    | "Numeric"
+    | "Other"
+    | (string & {});
 
   /**
    * Optional machine-readable comment or empty.

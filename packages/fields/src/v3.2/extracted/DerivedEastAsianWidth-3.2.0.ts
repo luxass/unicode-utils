@@ -28,4 +28,7 @@ export interface ExtractedDerivedEastAsianWidth320 {
   east_asian_width: "F" | "H" | "W" | "Na" | "A" | "N" | (string & {});
 }
 
-export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_320_FIELDS = ["code_point_range", "east_asian_width"];
+export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_320_FIELDS = [
+  "code_point_range",
+  "east_asian_width",
+];

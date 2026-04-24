@@ -25,7 +25,31 @@ export interface AuxiliaryWordBreakProperty {
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
-  word_break: "ALetter" | "ATerm" | "CR" | "Double_Quote" | "E_Base" | "E_Base_GAZ" | "E_Modifier" | "Extend" | "ExtendNumLet" | "Hebrew_Letter" | "Katakana" | "LF" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "Numeric" | "Other" | "Perl" | "Regional_Indicator" | "Single_Quote" | "Space" | "WSegmenter" | "ZWJ";
+  word_break:
+    | "ALetter"
+    | "ATerm"
+    | "CR"
+    | "Double_Quote"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
+    | "Extend"
+    | "ExtendNumLet"
+    | "Hebrew_Letter"
+    | "Katakana"
+    | "LF"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "Numeric"
+    | "Other"
+    | "Perl"
+    | "Regional_Indicator"
+    | "Single_Quote"
+    | "Space"
+    | "WSegmenter"
+    | "ZWJ";
 }
 
 export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

@@ -35,4 +35,8 @@ export interface StandardizedVariants400 {
   shaping_environments: string[];
 }
 
-export const STANDARDIZED_VARIANTS_400_FIELDS = ["variation_sequence", "description", "shaping_environments"];
+export const STANDARDIZED_VARIANTS_400_FIELDS = [
+  "variation_sequence",
+  "description",
+  "shaping_environments",
+];

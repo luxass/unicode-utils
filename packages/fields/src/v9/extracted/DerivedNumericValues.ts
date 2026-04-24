@@ -36,4 +36,8 @@ export interface ExtractedDerivedNumericValues {
   numeric_value_fraction: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["numeric_value", "unused", "numeric_value_fraction"];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
+  "numeric_value",
+  "unused",
+  "numeric_value_fraction",
+];

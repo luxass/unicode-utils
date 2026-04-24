@@ -25,7 +25,16 @@ export interface DerivedNormalizationProps {
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  property: "Changes_When_NFKC_Casefold" | "Changes_When_Casefolded" | "Changes_When_Casemapped" | "Changes_When_NFKC_Casefolded" | "NFC_QC" | "NFD_QC" | "NFKC_QC" | "NFKD_QC" | "FC_NFKC_Closure";
+  property:
+    | "Changes_When_NFKC_Casefold"
+    | "Changes_When_Casefolded"
+    | "Changes_When_Casemapped"
+    | "Changes_When_NFKC_Casefolded"
+    | "NFC_QC"
+    | "NFD_QC"
+    | "NFKC_QC"
+    | "NFKD_QC"
+    | "FC_NFKC_Closure";
 
   /**
    * Semicolon-separated property value(s), which may be 'Yes', 'No', 'Maybe', or space-separated code points for closures.

@@ -35,4 +35,8 @@ export interface EmojiEmojiVariationSequences {
   property: "Emoji_Variation_Selector-16" | "Emoji_Variation_Selector-17";
 }
 
-export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = ["base_codepoint", "variation_selector", "property"];
+export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = [
+  "base_codepoint",
+  "variation_selector",
+  "property",
+];

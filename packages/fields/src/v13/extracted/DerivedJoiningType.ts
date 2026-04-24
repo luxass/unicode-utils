@@ -37,4 +37,8 @@ export interface ExtractedDerivedJoiningType {
   default_joining_type: "Non_Joining";
 }
 
-export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point", "joining_type", "default_joining_type"];
+export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = [
+  "code_point",
+  "joining_type",
+  "default_joining_type",
+];

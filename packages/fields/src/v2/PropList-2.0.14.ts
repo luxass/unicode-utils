@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:55:41.559Z
  */
-export interface PropList2014 {
-
-}
+export interface PropList2014 {}
 
 export const PROP_LIST_2014_FIELDS = [];

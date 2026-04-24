@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:55:56.078Z
  */
-export interface ArabicShaping1 {
-
-}
+export interface ArabicShaping1 {}
 
 export const ARABIC_SHAPING_1_FIELDS = [];

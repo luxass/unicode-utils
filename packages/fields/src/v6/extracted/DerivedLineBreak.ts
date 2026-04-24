@@ -26,7 +26,34 @@ export interface ExtractedDerivedLineBreak {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedLineBreak.txt#L11-L14
    */
-  line_break: "BK" | "CR" | "LF" | "CM" | "NL" | "SG" | "WJ" | "ZW" | "GL" | "SP" | "ZWJ" | "B2" | "BA" | "BB" | "HY" | "HH" | "CB" | "EX" | "IN" | "JL" | "JV" | "JT" | "OP" | "CP" | "QU" | "NS" | "XX";
+  line_break:
+    | "BK"
+    | "CR"
+    | "LF"
+    | "CM"
+    | "NL"
+    | "SG"
+    | "WJ"
+    | "ZW"
+    | "GL"
+    | "SP"
+    | "ZWJ"
+    | "B2"
+    | "BA"
+    | "BB"
+    | "HY"
+    | "HH"
+    | "CB"
+    | "EX"
+    | "IN"
+    | "JL"
+    | "JV"
+    | "JT"
+    | "OP"
+    | "CP"
+    | "QU"
+    | "NS"
+    | "XX";
 }
 
 export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point_range", "line_break"];

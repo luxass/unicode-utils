@@ -25,7 +25,12 @@ export interface ExtractedDerivedBidiClass {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/extracted/DerivedBidiClass.txt#L12
    */
-  bidi_class: "Left_To_Right" | "Right_To_Left" | "Arabic_Letter" | "European_Terminator" | (string & {});
+  bidi_class:
+    | "Left_To_Right"
+    | "Right_To_Left"
+    | "Arabic_Letter"
+    | "European_Terminator"
+    | (string & {});
 }
 
 export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["codepoint_range", "bidi_class"];

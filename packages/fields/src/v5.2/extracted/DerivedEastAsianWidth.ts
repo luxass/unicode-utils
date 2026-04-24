@@ -36,4 +36,8 @@ export interface ExtractedDerivedEastAsianWidth {
   comment: string;
 }
 
-export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_FIELDS = ["codepoint_range", "east_asian_width", "comment"];
+export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_FIELDS = [
+  "codepoint_range",
+  "east_asian_width",
+  "comment",
+];

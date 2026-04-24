@@ -28,4 +28,7 @@ export interface ExtractedDerivedDecompositionType {
   decomposition_type: string;
 }
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point_range", "decomposition_type"];
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = [
+  "code_point_range",
+  "decomposition_type",
+];

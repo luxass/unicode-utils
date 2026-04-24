@@ -7,3 +7,5 @@ coverage
 .turbo
 .cache
 v*.review.json
+packages/fields/.codegen-tmp/
+packages/fields/src/.v*.tmp/

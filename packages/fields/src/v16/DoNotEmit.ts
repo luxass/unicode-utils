@@ -32,7 +32,19 @@ export interface DoNotEmit {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L51-L96
    */
-  field_2: "Indic_Atomic_Consonant" | "Indic_Consonant_Conjunct" | "Indic_Vowel_Letter" | "Bengali_Khanda_Ta" | "Malayalam_Chillu" | "Tamil_Shrii" | "Dotless_Form" | "Hamza_Form" | "Precomposed_Form" | "Deprecated" | "Discouraged" | "Preferred_Spelling";
+  field_2:
+    | "Indic_Atomic_Consonant"
+    | "Indic_Consonant_Conjunct"
+    | "Indic_Vowel_Letter"
+    | "Bengali_Khanda_Ta"
+    | "Malayalam_Chillu"
+    | "Tamil_Shrii"
+    | "Dotless_Form"
+    | "Hamza_Form"
+    | "Precomposed_Form"
+    | "Deprecated"
+    | "Discouraged"
+    | "Preferred_Spelling";
 }
 
 export const DO_NOT_EMIT_FIELDS = ["field_0", "field_1", "field_2"];

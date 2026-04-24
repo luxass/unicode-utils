@@ -26,7 +26,30 @@ export interface AuxiliaryWordBreakProperty {
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
-  word_break: "ALetter" | "CR" | "Double_Quote" | "E_Base" | "E_Base_GAZ" | "E_Modifier" | "Extend" | "ExtendNumLet" | "Hebrew_Letter" | "Katakana" | "LF" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "Numeric" | "Other" | "Perl" | "Regional_Indicator" | "Single_Quote" | "WSegSpace" | "ZWJ" | (string & {});
+  word_break:
+    | "ALetter"
+    | "CR"
+    | "Double_Quote"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
+    | "Extend"
+    | "ExtendNumLet"
+    | "Hebrew_Letter"
+    | "Katakana"
+    | "LF"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "Numeric"
+    | "Other"
+    | "Perl"
+    | "Regional_Indicator"
+    | "Single_Quote"
+    | "WSegSpace"
+    | "ZWJ"
+    | (string & {});
 }
 
 export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

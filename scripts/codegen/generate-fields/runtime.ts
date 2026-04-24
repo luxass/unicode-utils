@@ -1,11 +1,13 @@
 import path, { join } from "node:path";
 import process from "node:process";
 import { parseArgs } from "node:util";
+
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
 import { createXai } from "@ai-sdk/xai";
 import { createUCDClient } from "@ucdjs/client";
 import type { LanguageModel } from "ai";
+
 import { Limiter, RateLimitCooldown, unwrap } from "../utils";
 import type { ProviderDefaults, RuntimeContext } from "./types";
 
@@ -27,10 +29,14 @@ function parseConcurrency(name: string, fallback: number): number {
 
 function buildModel(provider: string, modelId: string): LanguageModel {
   switch (provider) {
-    case "openai": return createOpenAI()(modelId);
-    case "google": return createGoogleGenerativeAI()(modelId);
-    case "xai": return createXai()(modelId);
-    default: throw new Error(`unknown --provider: ${provider}`);
+    case "openai":
+      return createOpenAI()(modelId);
+    case "google":
+      return createGoogleGenerativeAI()(modelId);
+    case "xai":
+      return createXai()(modelId);
+    default:
+      throw new Error(`unknown --provider: ${provider}`);
   }
 }
 
@@ -58,7 +64,9 @@ function parseConfig() {
   const reasoningModelId = values["reasoning-model"] ?? defaults.reasoning;
   const confidenceThreshold = Number(values["confidence-threshold"]);
   if (!Number.isFinite(confidenceThreshold) || confidenceThreshold < 0 || confidenceThreshold > 1) {
-    throw new Error(`--confidence-threshold must be a number between 0 and 1 (received: ${values["confidence-threshold"]})`);
+    throw new Error(
+      `--confidence-threshold must be a number between 0 and 1 (received: ${values["confidence-threshold"]})`,
+    );
   }
 
   return {

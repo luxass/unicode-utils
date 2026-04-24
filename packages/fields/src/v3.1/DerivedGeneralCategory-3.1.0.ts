@@ -25,7 +25,32 @@ export interface DerivedGeneralCategory310 {
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  general_category: "L" | "LC" | "Lu" | "Ll" | "Lt" | "Lm" | "Lo" | "M" | "Mn" | "Mc" | "Me" | "N" | "Nd" | "Nl" | "No" | "Z" | "Zl" | "Zp" | "Zs" | "C" | "Cc" | "Cf" | "Cs" | "Co" | "Cn";
+  general_category:
+    | "L"
+    | "LC"
+    | "Lu"
+    | "Ll"
+    | "Lt"
+    | "Lm"
+    | "Lo"
+    | "M"
+    | "Mn"
+    | "Mc"
+    | "Me"
+    | "N"
+    | "Nd"
+    | "Nl"
+    | "No"
+    | "Z"
+    | "Zl"
+    | "Zp"
+    | "Zs"
+    | "C"
+    | "Cc"
+    | "Cf"
+    | "Cs"
+    | "Co"
+    | "Cn";
 }
 
 export const DERIVED_GENERAL_CATEGORY_310_FIELDS = ["code_point_range", "general_category"];

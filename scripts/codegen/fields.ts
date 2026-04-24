@@ -1,5 +1,6 @@
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+
 import { sanitizeIdentifier, toPascalCase, toSnakeCase } from "@luxass/utils";
 import type { LanguageModel } from "ai";
 import { generateText, Output, stepCountIs, tool } from "ai";
@@ -164,8 +165,26 @@ function getHeaderSourceText(source: string, headingLines: ReadonlyMap<number, s
 
 function tokenizeForGrounding(text: string): string[] {
   const STOPWORDS = new Set([
-    "the", "and", "for", "with", "from", "that", "this", "used", "value", "values", "field",
-    "unicode", "code", "point", "points", "line", "lines", "data", "file", "property",
+    "the",
+    "and",
+    "for",
+    "with",
+    "from",
+    "that",
+    "this",
+    "used",
+    "value",
+    "values",
+    "field",
+    "unicode",
+    "code",
+    "point",
+    "points",
+    "line",
+    "lines",
+    "data",
+    "file",
+    "property",
   ]);
   const tokens = text.toLowerCase().match(/[a-z0-9]{3,}/g) ?? [];
   return [...new Set(tokens.filter((token) => !STOPWORDS.has(token)))];
@@ -183,14 +202,11 @@ function descriptionLooksGrounded(description: string, sourceText: string): bool
     if (sourceTokenSet.has(token)) overlap++;
   }
 
-  return (overlap / descTokens.length) >= 0.35;
+  return overlap / descTokens.length >= 0.35;
 }
 
 function buildConservativeDescription(fieldName: string, sourceText: string): string {
-  let text = sourceText
-    .replace(/#/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  let text = sourceText.replace(/#/g, " ").replace(/\s+/g, " ").trim();
 
   text = text.replace(/^Field\s+\d+\s*:\s*/i, "");
 
@@ -249,7 +265,9 @@ function validateAndNormalizeCandidateFields(
   for (const field of fields) {
     const normalizedSource = normalizeFieldSource(field.source);
     if (normalizedSource == null) {
-      violations.push(`field "${field.name}" has invalid source "${field.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`);
+      violations.push(
+        `field "${field.name}" has invalid source "${field.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`,
+      );
       continue;
     }
 
@@ -265,7 +283,9 @@ function validateAndNormalizeCandidateFields(
     if (normalizedSource.startsWith("report:")) {
       const claimed = normalizedSource.slice("report:".length);
       if (!fetchedUrls.has(claimed)) {
-        violations.push(`field "${field.name}" claims report ${claimed} but that URL was not fetched`);
+        violations.push(
+          `field "${field.name}" claims report ${claimed} but that URL was not fetched`,
+        );
         continue;
       }
       normalizedFields.push({
@@ -276,7 +296,9 @@ function validateAndNormalizeCandidateFields(
       continue;
     }
 
-    violations.push(`field "${field.name}" has invalid source "${field.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`);
+    violations.push(
+      `field "${field.name}" has invalid source "${field.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`,
+    );
   }
 
   return { normalizedFields, violations };
@@ -301,9 +323,7 @@ function normalizeFieldSource(source: string): string | null {
       max = Math.max(max, start, end);
     }
 
-    return min === max
-      ? `header:L${min}`
-      : `header:L${min}-L${max}`;
+    return min === max ? `header:L${min}` : `header:L${min}-L${max}`;
   }
 
   if (trimmed.startsWith("report:")) {
@@ -317,7 +337,10 @@ function normalizeFieldSource(source: string): string | null {
   return null;
 }
 
-export async function generateFields(heading: string, model: LanguageModel): Promise<GenerateFieldsResult> {
+export async function generateFields(
+  heading: string,
+  model: LanguageModel,
+): Promise<GenerateFieldsResult> {
   const fetchedUrls = new Set<string>();
   const headingLines = parseNumberedHeadingLines(heading);
   let lastViolations: string[] = [];
@@ -325,9 +348,10 @@ export async function generateFields(heading: string, model: LanguageModel): Pro
   let lastNotes = "";
 
   for (let attempt = 1; attempt <= MAX_VALIDATION_ATTEMPTS; attempt++) {
-    const prompt = attempt === 1
-      ? heading
-      : `${heading}
+    const prompt =
+      attempt === 1
+        ? heading
+        : `${heading}
 
 # Validation feedback from previous attempt
 ${lastViolations.map((violation) => `- ${violation}`).join("\n")}
@@ -343,21 +367,28 @@ Fix the issues above. Call validate_fields before final output and return correc
       stopWhen: stepCountIs(20),
       tools: {
         load_skill: tool({
-          description: "Load the detailed playbook for a specific UCD header pattern. Call this after identifying which pattern the current header matches. You MUST call this before producing a final answer (unless returning an empty fields array).",
+          description:
+            "Load the detailed playbook for a specific UCD header pattern. Call this after identifying which pattern the current header matches. You MUST call this before producing a final answer (unless returning an empty fields array).",
           inputSchema: z.object({
-            name: z.enum((["field-n-pattern", "format-line", "property-only-header"] as const)).describe("The skill to load."),
+            name: z
+              .enum(["field-n-pattern", "format-line", "property-only-header"] as const)
+              .describe("The skill to load."),
           }),
-          execute: async ({ name }) => readFile(path.join(path.join(import.meta.dirname, "skills"), `${name}.md`), "utf-8"),
+          execute: async ({ name }) =>
+            readFile(path.join(path.join(import.meta.dirname, "skills"), `${name}.md`), "utf-8"),
         }),
         validate_fields: tool({
-          description: "Validate and normalize candidate fields. Call this before final output. If issues are returned, fix and call again.",
+          description:
+            "Validate and normalize candidate fields. Call this before final output. If issues are returned, fix and call again.",
           inputSchema: z.object({
-            fields: z.array(z.object({
-              name: z.string(),
-              type: z.string(),
-              description: z.string(),
-              source: z.string(),
-            })),
+            fields: z.array(
+              z.object({
+                name: z.string(),
+                type: z.string(),
+                description: z.string(),
+                source: z.string(),
+              }),
+            ),
           }),
           execute: async ({ fields }) => {
             const { normalizedFields, violations } = validateAndNormalizeCandidateFields(
@@ -379,10 +410,10 @@ Fix the issues above. Call validate_fields before final output and return correc
           }),
           execute: async ({ url }) => {
             if (
-              !url.startsWith("http://www.unicode.org/reports")
-              && !url.startsWith("https://www.unicode.org/reports")
-              && !url.startsWith("http://unicode.org/reports")
-              && !url.startsWith("https://unicode.org/reports")
+              !url.startsWith("http://www.unicode.org/reports") &&
+              !url.startsWith("https://www.unicode.org/reports") &&
+              !url.startsWith("http://unicode.org/reports") &&
+              !url.startsWith("https://unicode.org/reports")
             ) {
               return "Error: Only unicode.org/reports/ URLs are permitted.";
             }
@@ -404,13 +435,23 @@ Fix the issues above. Call validate_fields before final output and return correc
       },
       output: Output.object({
         schema: z.object({
-          fields: z.array(z.object({
-            name: z.string(),
-            type: z.string(),
-            description: z.string(),
-            source: z.string().describe("Origin: 'header:L<n>', 'header:L<start>-L<end>', or 'report:<url>'. No other values permitted."),
-          })),
-          confidence: z.number().min(0).max(1).describe("0-1 certainty score per the rubric in the system prompt."),
+          fields: z.array(
+            z.object({
+              name: z.string(),
+              type: z.string(),
+              description: z.string(),
+              source: z
+                .string()
+                .describe(
+                  "Origin: 'header:L<n>', 'header:L<start>-L<end>', or 'report:<url>'. No other values permitted.",
+                ),
+            }),
+          ),
+          confidence: z
+            .number()
+            .min(0)
+            .max(1)
+            .describe("0-1 certainty score per the rubric in the system prompt."),
           notes: z.string().describe("Brief explanation of reasoning and any uncertainty."),
         }),
       }),
@@ -436,7 +477,9 @@ Fix the issues above. Call validate_fields before final output and return correc
     lastConfidence = result.output.confidence;
     lastNotes = result.output.notes;
     if (attempt < MAX_VALIDATION_ATTEMPTS) {
-      console.warn(`validation failed (attempt ${attempt}/${MAX_VALIDATION_ATTEMPTS}); retrying with feedback`);
+      console.warn(
+        `validation failed (attempt ${attempt}/${MAX_VALIDATION_ATTEMPTS}); retrying with feedback`,
+      );
     }
   }
 
@@ -495,7 +538,7 @@ function collapseSources(sources: string[]): string[] {
     reports.push(source);
   }
 
-  intervals.sort((a, b) => (a[0] - b[0]) || (a[1] - b[1]));
+  intervals.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
 
   const merged: Array<[number, number]> = [];
   for (const interval of intervals) {
@@ -507,7 +550,9 @@ function collapseSources(sources: string[]): string[] {
     last[1] = Math.max(last[1], interval[1]);
   }
 
-  const headerSources = merged.map(([start, end]) => (start === end ? `header:L${start}` : `header:L${start}-L${end}`));
+  const headerSources = merged.map(([start, end]) =>
+    start === end ? `header:L${start}` : `header:L${start}-L${end}`,
+  );
   const reportSources = [...new Set(reports)];
   return [...headerSources, ...reportSources];
 }
@@ -533,41 +578,45 @@ export function renderFile({
 
   const parentDir = path.dirname(relPath);
   const baseName = path.basename(relPath, ".txt");
-  const displayName = parentDir && parentDir !== "."
-    ? `${parentDir.replace(/\//g, "_")}_${baseName}`
-    : baseName;
+  const displayName =
+    parentDir && parentDir !== "." ? `${parentDir.replace(/\//g, "_")}_${baseName}` : baseName;
 
   const interfaceName = sanitizeIdentifier(toPascalCase(displayName));
   const constName = `${sanitizeIdentifier(toSnakeCase(displayName)).toUpperCase()}_FIELDS`;
-  const fieldEntries = Object.entries(props).map(([k, v], i, arr) => {
-    const desc = stripFieldNamePrefix(descriptions[k], k);
-    const src = fieldSources[k];
-    const link = src ? resolveSourceLink(src, fileExplorerUrl) : "";
+  const fieldEntries = Object.entries(props)
+    .map(([k, v], i, arr) => {
+      const desc = stripFieldNamePrefix(descriptions[k], k);
+      const src = fieldSources[k];
+      const link = src ? resolveSourceLink(src, fileExplorerUrl) : "";
 
-    const docLines: string[] = [];
-    if (desc) {
-      docLines.push(desc);
-    }
-    if (link) {
-      if (docLines.length > 0) docLines.push("");
-      docLines.push(`@source ${link}`);
-    }
+      const docLines: string[] = [];
+      if (desc) {
+        docLines.push(desc);
+      }
+      if (link) {
+        if (docLines.length > 0) docLines.push("");
+        docLines.push(`@source ${link}`);
+      }
 
-    const jsdoc = docLines.length > 0
-      ? `  /**\n${docLines.map((l) => (l === "" ? "   *" : `   * ${l}`)).join("\n")}\n   */\n`
-      : "";
+      const jsdoc =
+        docLines.length > 0
+          ? `  /**\n${docLines.map((l) => (l === "" ? "   *" : `   * ${l}`)).join("\n")}\n   */\n`
+          : "";
 
-    const trailingNewline = i < arr.length - 1 ? "\n" : "";
-    return `${jsdoc}  ${k}: ${v};${trailingNewline}`;
-  }).join("\n");
+      const trailingNewline = i < arr.length - 1 ? "\n" : "";
+      return `${jsdoc}  ${k}: ${v};${trailingNewline}`;
+    })
+    .join("\n");
 
-  const array = Object.keys(props).map((v) => `"${v}"`).join(", ");
+  const array = Object.keys(props)
+    .map((v) => `"${v}"`)
+    .join(", ");
   const fieldCount = Object.keys(props).length;
 
   const collapsedSources = collapseSources(Object.values(fieldSources));
-  const uniqueLinks = [...new Set(
-    collapsedSources.map((s) => resolveSourceLink(s, fileExplorerUrl)),
-  )];
+  const uniqueLinks = [
+    ...new Set(collapsedSources.map((s) => resolveSourceLink(s, fileExplorerUrl))),
+  ];
   const sourceLines = uniqueLinks.map((s) => ` * - ${s}`).join("\n");
 
   const interfaceDoc = `/**
@@ -601,7 +650,10 @@ function stripFieldNamePrefix(desc: string | undefined, fieldName: string): stri
   // Model prefixes descriptions with "FieldName: ..." — redundant in JSDoc next to the property.
   const colonIdx = desc.indexOf(":");
   if (colonIdx === -1) return desc;
-  const head = desc.slice(0, colonIdx).toLowerCase().replace(/[^a-z0-9]/g, "");
+  const head = desc
+    .slice(0, colonIdx)
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
   const key = fieldName.toLowerCase().replace(/[^a-z0-9]/g, "");
   if (head === key) return desc.slice(colonIdx + 1).trim();
   return desc;
@@ -666,11 +718,13 @@ export async function generatePackageExports(srcDir: string): Promise<void> {
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
   pkg.exports = {
     ".": "./dist/index.mjs",
-    ...Object.fromEntries(versions.map((v) => {
-      const kind = versionKinds.get(v);
-      const target = kind === "dir" ? `./dist/v${v}/index.mjs` : `./dist/v${v}.mjs`;
-      return [`./v${v}`, target];
-    })),
+    ...Object.fromEntries(
+      versions.map((v) => {
+        const kind = versionKinds.get(v);
+        const target = kind === "dir" ? `./dist/v${v}/index.mjs` : `./dist/v${v}.mjs`;
+        return [`./v${v}`, target];
+      }),
+    ),
     "./package.json": "./package.json",
   };
   await writeFile(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`, "utf-8");

@@ -26,7 +26,18 @@ export interface AuxiliaryGraphemeBreakProperty {
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
    */
-  grapheme_cluster_break: "Other" | "Control" | "CR" | "Extend" | "L" | "LF" | "Prepend" | "Regional_Indicator" | "SpacingMark" | "T" | (string & {});
+  grapheme_cluster_break:
+    | "Other"
+    | "Control"
+    | "CR"
+    | "Extend"
+    | "L"
+    | "LF"
+    | "Prepend"
+    | "Regional_Indicator"
+    | "SpacingMark"
+    | "T"
+    | (string & {});
 }
 
 export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point", "grapheme_cluster_break"];

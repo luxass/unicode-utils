@@ -59,4 +59,11 @@ export interface PropertyValueAliases {
   additional_aliases: string[];
 }
 
-export const PROPERTY_VALUE_ALIASES_FIELDS = ["property", "short_name", "long_name", "ccc_short_name", "ccc_long_name", "additional_aliases"];
+export const PROPERTY_VALUE_ALIASES_FIELDS = [
+  "property",
+  "short_name",
+  "long_name",
+  "ccc_short_name",
+  "ccc_long_name",
+  "additional_aliases",
+];

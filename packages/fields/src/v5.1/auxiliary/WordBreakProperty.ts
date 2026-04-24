@@ -26,7 +26,40 @@ export interface AuxiliaryWordBreakProperty {
    *
    * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
-  word_break: "ALetter" | "ATerm" | "CR" | "Double_Quote" | "E_Base" | "E_Base_GAZ" | "E_Modifier" | "Extend" | "ExtendNumLet" | "FO" | "Format" | "Glue_After_Zwj" | "H2" | "H3" | "Hebrew_Letter" | "Hybrid_Start" | "Katakana" | "LF" | "LE" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "Numeric" | "Other" | "Perl" | "RI" | "Regional_Indicator" | "Single_Quote" | "SP" | "WSegSpace" | "ZWJ" | (string & {});
+  word_break:
+    | "ALetter"
+    | "ATerm"
+    | "CR"
+    | "Double_Quote"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
+    | "Extend"
+    | "ExtendNumLet"
+    | "FO"
+    | "Format"
+    | "Glue_After_Zwj"
+    | "H2"
+    | "H3"
+    | "Hebrew_Letter"
+    | "Hybrid_Start"
+    | "Katakana"
+    | "LF"
+    | "LE"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "Numeric"
+    | "Other"
+    | "Perl"
+    | "RI"
+    | "Regional_Indicator"
+    | "Single_Quote"
+    | "SP"
+    | "WSegSpace"
+    | "ZWJ"
+    | (string & {});
 }
 
 export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

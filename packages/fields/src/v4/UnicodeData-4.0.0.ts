@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:54:28.323Z
  */
-export interface UnicodeData400 {
-
-}
+export interface UnicodeData400 {}
 
 export const UNICODE_DATA_400_FIELDS = [];

@@ -36,4 +36,8 @@ export interface ExtractedDerivedNumericValues {
   numeric_value_rational: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["numeric_value", "numeric_type", "numeric_value_rational"];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
+  "numeric_value",
+  "numeric_type",
+  "numeric_value_rational",
+];

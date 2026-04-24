@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:56:21.896Z
  */
-export interface Diff218V218D1 {
-
-}
+export interface Diff218V218D1 {}
 
 export const DIFF218V218D1_FIELDS = [];

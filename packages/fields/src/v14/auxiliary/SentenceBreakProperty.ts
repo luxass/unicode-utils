@@ -25,7 +25,23 @@ export interface AuxiliarySentenceBreakProperty {
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  sentence_break: "ATerm" | "Buffer" | "Close" | "CR" | "Extend" | "Format" | "LF" | "Lower" | "Numeric" | "OLetter" | "Other" | "Sep" | "Sp" | "STerm" | "Upper" | (string & {});
+  sentence_break:
+    | "ATerm"
+    | "Buffer"
+    | "Close"
+    | "CR"
+    | "Extend"
+    | "Format"
+    | "LF"
+    | "Lower"
+    | "Numeric"
+    | "OLetter"
+    | "Other"
+    | "Sep"
+    | "Sp"
+    | "STerm"
+    | "Upper"
+    | (string & {});
 
   /**
    * Optional comment field.

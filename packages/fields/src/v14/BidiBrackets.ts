@@ -35,4 +35,8 @@ export interface BidiBrackets {
   bidi_paired_bracket_type: "o" | "c" | "n";
 }
 
-export const BIDI_BRACKETS_FIELDS = ["code_point", "bidi_paired_bracket", "bidi_paired_bracket_type"];
+export const BIDI_BRACKETS_FIELDS = [
+  "code_point",
+  "bidi_paired_bracket",
+  "bidi_paired_bracket_type",
+];

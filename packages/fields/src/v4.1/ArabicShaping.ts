@@ -43,4 +43,9 @@ export interface ArabicShaping {
   joining_group: string;
 }
 
-export const ARABIC_SHAPING_FIELDS = ["code_point", "schematic_name", "joining_type", "joining_group"];
+export const ARABIC_SHAPING_FIELDS = [
+  "code_point",
+  "schematic_name",
+  "joining_type",
+  "joining_group",
+];

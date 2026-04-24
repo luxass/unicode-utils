@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:53:01.707Z
  */
-export interface DerivedNormalizationProps {
-
-}
+export interface DerivedNormalizationProps {}
 
 export const DERIVED_NORMALIZATION_PROPS_FIELDS = [];

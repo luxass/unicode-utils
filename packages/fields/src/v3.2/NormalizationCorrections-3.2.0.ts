@@ -42,4 +42,9 @@ export interface NormalizationCorrections320 {
   version: string;
 }
 
-export const NORMALIZATION_CORRECTIONS_320_FIELDS = ["unicode_code_point", "original_decomposition", "corrected_decomposition", "version"];
+export const NORMALIZATION_CORRECTIONS_320_FIELDS = [
+  "unicode_code_point",
+  "original_decomposition",
+  "corrected_decomposition",
+  "version",
+];

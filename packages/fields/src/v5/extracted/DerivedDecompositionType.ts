@@ -25,7 +25,26 @@ export interface ExtractedDerivedDecompositionType {
    *
    * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedDecompositionType.txt#L11
    */
-  decomposition_type: "Can" | "Com" | "Con" | "Control" | "Font" | "Fraction" | "Init_Quote" | "Isol" | "Med" | "Narrow" | "NB" | "NoBreak" | "SQ" | "Square" | "Sub" | "Super" | "Vert" | "Wide" | (string & {});
+  decomposition_type:
+    | "Can"
+    | "Com"
+    | "Con"
+    | "Control"
+    | "Font"
+    | "Fraction"
+    | "Init_Quote"
+    | "Isol"
+    | "Med"
+    | "Narrow"
+    | "NB"
+    | "NoBreak"
+    | "SQ"
+    | "Square"
+    | "Sub"
+    | "Super"
+    | "Vert"
+    | "Wide"
+    | (string & {});
 }
 
 export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

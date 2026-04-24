@@ -26,7 +26,23 @@ export interface AuxiliarySentenceBreakProperty {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/auxiliary/SentenceBreakProperty.txt#L12-L15
    */
-  sentence_break: "ATerm" | "Close" | "CR" | "Extend" | "Format" | "LF" | "Lower" | "Numeric" | "OLetter" | "Other" | "SContinue" | "Sep" | "Sp" | "STerm" | "Upper" | (string & {});
+  sentence_break:
+    | "ATerm"
+    | "Close"
+    | "CR"
+    | "Extend"
+    | "Format"
+    | "LF"
+    | "Lower"
+    | "Numeric"
+    | "OLetter"
+    | "Other"
+    | "SContinue"
+    | "Sep"
+    | "Sp"
+    | "STerm"
+    | "Upper"
+    | (string & {});
 }
 
 export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["codepoint", "sentence_break"];

@@ -26,7 +26,35 @@ export interface AuxiliaryWordBreakProperty {
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
-  word_break: "ALetter" | "ATerm" | "CR" | "Double_Quote" | "E_Base" | "E_Base_GAZ" | "E_Modifier" | "Extend" | "ExtendNumLet" | "Format" | "Glue_After_Zwj" | "Hebrew_Letter" | "Katakana" | "LE" | "Line_Feed" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "Numeric" | "Other" | "Perl" | "Regional_Indicator" | "Single_Quote" | "Space" | "WSegmenter" | "ZWJ" | (string & {});
+  word_break:
+    | "ALetter"
+    | "ATerm"
+    | "CR"
+    | "Double_Quote"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
+    | "Extend"
+    | "ExtendNumLet"
+    | "Format"
+    | "Glue_After_Zwj"
+    | "Hebrew_Letter"
+    | "Katakana"
+    | "LE"
+    | "Line_Feed"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "Numeric"
+    | "Other"
+    | "Perl"
+    | "Regional_Indicator"
+    | "Single_Quote"
+    | "Space"
+    | "WSegmenter"
+    | "ZWJ"
+    | (string & {});
 
   /**
    * Optional comment field.

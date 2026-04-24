@@ -36,4 +36,8 @@ export interface EquivalentUnifiedIdeograph {
   property: "none" | string;
 }
 
-export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = ["source_codepoint_or_range", "equivalent_codepoint", "property"];
+export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = [
+  "source_codepoint_or_range",
+  "equivalent_codepoint",
+  "property",
+];

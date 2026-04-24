@@ -25,7 +25,25 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/USourceData.txt#L13-L31
    */
-  status: "ExtA" | "ExtB" | "ExtC" | "Comp" | "ExtD" | "ExtE" | "ExtF" | "ExtG" | "ExtH" | "N" | "URO" | "UK-2015" | "V" | "W" | "WS-2017" | "WS-2021" | "X" | (string & {});
+  status:
+    | "ExtA"
+    | "ExtB"
+    | "ExtC"
+    | "Comp"
+    | "ExtD"
+    | "ExtE"
+    | "ExtF"
+    | "ExtG"
+    | "ExtH"
+    | "N"
+    | "URO"
+    | "UK-2015"
+    | "V"
+    | "W"
+    | "WS-2017"
+    | "WS-2021"
+    | "X"
+    | (string & {});
 
   /**
    * A Unicode code point specifying the encoded character for this entry, if any, or the related encoded character.
@@ -84,4 +102,15 @@ export interface USourceData {
   first_residual_stroke: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = ["u_source_id", "status", "unicode_code_point", "radical_stroke_count", "virtual_kang_xi_position", "ids", "sources", "comments", "total_strokes", "first_residual_stroke"];
+export const U_SOURCE_DATA_FIELDS = [
+  "u_source_id",
+  "status",
+  "unicode_code_point",
+  "radical_stroke_count",
+  "virtual_kang_xi_position",
+  "ids",
+  "sources",
+  "comments",
+  "total_strokes",
+  "first_residual_stroke",
+];

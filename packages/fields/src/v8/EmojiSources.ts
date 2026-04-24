@@ -42,4 +42,9 @@ export interface EmojiSources {
   softbank_shift_jis_code: string;
 }
 
-export const EMOJI_SOURCES_FIELDS = ["unicode_code_point_or_sequence", "docomo_shift_jis_code", "kddi_shift_jis_code", "softbank_shift_jis_code"];
+export const EMOJI_SOURCES_FIELDS = [
+  "unicode_code_point_or_sequence",
+  "docomo_shift_jis_code",
+  "kddi_shift_jis_code",
+  "softbank_shift_jis_code",
+];

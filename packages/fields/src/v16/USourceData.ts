@@ -25,7 +25,24 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/USourceData.txt#L15-L32
    */
-  status: "Comp" | "ExtA" | "ExtB" | "ExtC" | "ExtD" | "ExtE" | "ExtF" | "ExtG" | "ExtH" | "ExtI" | "FutureWS" | "NoAction" | "Rejected" | "URO" | "Variant" | "WS-2021" | (string & {});
+  status:
+    | "Comp"
+    | "ExtA"
+    | "ExtB"
+    | "ExtC"
+    | "ExtD"
+    | "ExtE"
+    | "ExtF"
+    | "ExtG"
+    | "ExtH"
+    | "ExtI"
+    | "FutureWS"
+    | "NoAction"
+    | "Rejected"
+    | "URO"
+    | "Variant"
+    | "WS-2021"
+    | (string & {});
 
   /**
    * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant
@@ -84,4 +101,15 @@ export interface USourceData {
   first_residual_stroke: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = ["u_source_identifier", "status", "unicode_code_point", "k_rs_unicode", "virtual_kang_xi_position", "ids", "sources", "general_comments", "k_total_strokes", "first_residual_stroke"];
+export const U_SOURCE_DATA_FIELDS = [
+  "u_source_identifier",
+  "status",
+  "unicode_code_point",
+  "k_rs_unicode",
+  "virtual_kang_xi_position",
+  "ids",
+  "sources",
+  "general_comments",
+  "k_total_strokes",
+  "first_residual_stroke",
+];

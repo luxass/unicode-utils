@@ -42,4 +42,9 @@ export interface ExtractedDerivedNumericValues {
   rational_value: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["code_point_range", "decimal_value", "numeric_type", "rational_value"];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
+  "code_point_range",
+  "decimal_value",
+  "numeric_type",
+  "rational_value",
+];

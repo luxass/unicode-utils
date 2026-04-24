@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-non-reasoning
  * @generated 2026-04-23T18:37:46.976Z
  */
-export interface Index {
-
-}
+export interface Index {}
 
 export const INDEX_FIELDS = [];

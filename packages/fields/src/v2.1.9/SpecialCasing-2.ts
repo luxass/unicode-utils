@@ -58,4 +58,11 @@ export interface SpecialCasing2 {
   comment: string;
 }
 
-export const SPECIAL_CASING_2_FIELDS = ["source", "lower", "title", "upper", "condition_list", "comment"];
+export const SPECIAL_CASING_2_FIELDS = [
+  "source",
+  "lower",
+  "title",
+  "upper",
+  "condition_list",
+  "comment",
+];

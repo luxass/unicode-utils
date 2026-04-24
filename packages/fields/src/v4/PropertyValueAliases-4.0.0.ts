@@ -51,4 +51,10 @@ export interface PropertyValueAliases400 {
   long_name_ccc: string;
 }
 
-export const PROPERTY_VALUE_ALIASES_400_FIELDS = ["property", "abbrev_name", "long_name", "abbrev_name_ccc", "long_name_ccc"];
+export const PROPERTY_VALUE_ALIASES_400_FIELDS = [
+  "property",
+  "abbrev_name",
+  "long_name",
+  "abbrev_name_ccc",
+  "long_name_ccc",
+];

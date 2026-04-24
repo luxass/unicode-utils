@@ -3,11 +3,11 @@
   "version": "0.12.0-beta.27",
   "description": "All UCD file fields",
   "keywords": [
-    "unicode",
-    "ucd",
     "character",
     "database",
-    "fields"
+    "fields",
+    "ucd",
+    "unicode"
   ],
   "homepage": "https://github.com/luxass/unicode-utils#readme",
   "bugs": "https://github.com/luxass/unicode-utils/issues",

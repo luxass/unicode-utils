@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:54:16.401Z
  */
-export interface NamesList400 {
-
-}
+export interface NamesList400 {}
 
 export const NAMES_LIST_400_FIELDS = [];

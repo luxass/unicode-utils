@@ -35,4 +35,8 @@ export interface EmojiEmojiVariationSequences {
   sequence_type: "emoji" | "text";
 }
 
-export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = ["base_codepoint", "variation_selector", "sequence_type"];
+export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = [
+  "base_codepoint",
+  "variation_selector",
+  "sequence_type",
+];

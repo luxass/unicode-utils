@@ -35,4 +35,8 @@ export interface EmojiEmojiVariationSequences {
   presentation: "Emoji" | "Text";
 }
 
-export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = ["base_code_point", "variation_selector", "presentation"];
+export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = [
+  "base_code_point",
+  "variation_selector",
+  "presentation",
+];

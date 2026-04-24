@@ -25,7 +25,22 @@ export interface DerivedBidiClass311 {
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/DerivedBidiClass-3.1.1.txt#L13-L14
    */
-  bidi_class: "L" | "R" | "AL" | "EN" | "ES" | "ET" | "AN" | "CS" | "NSM" | "BN" | "B" | "S" | "WS" | "ON" | (string & {});
+  bidi_class:
+    | "L"
+    | "R"
+    | "AL"
+    | "EN"
+    | "ES"
+    | "ET"
+    | "AN"
+    | "CS"
+    | "NSM"
+    | "BN"
+    | "B"
+    | "S"
+    | "WS"
+    | "ON"
+    | (string & {});
 }
 
 export const DERIVED_BIDI_CLASS_311_FIELDS = ["codepoint_range", "bidi_class"];

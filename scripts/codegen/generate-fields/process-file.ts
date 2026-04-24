@@ -97,10 +97,14 @@ export async function processFileForVersion(
     );
   } catch (fastError) {
     if (isRateLimitError(fastError)) {
-      throw new Error(`${runtime.fastModelId} rate limited after ${runtime.aiRateLimitRetries} attempts for ${relPath}: ${String(fastError)}`);
+      throw new Error(
+        `${runtime.fastModelId} rate limited after ${runtime.aiRateLimitRetries} attempts for ${relPath}: ${String(fastError)}`,
+      );
     }
 
-    console.warn(`[v${short}] fast pass failed for ${relPath}; retrying with ${runtime.reasoningModelId}`);
+    console.warn(
+      `[v${short}] fast pass failed for ${relPath}; retrying with ${runtime.reasoningModelId}`,
+    );
     try {
       result = await generateFieldsWithRateLimitRetry(
         numberedHeading,
@@ -119,8 +123,13 @@ export async function processFileForVersion(
     }
   }
 
-  if (!usedReasoningPass && needsReasoningPass(result.fields, result.confidence, runtime.confidenceThreshold)) {
-    console.log(`[v${short}] ↻ ${relPath} conf=${result.confidence.toFixed(2)} — retry with ${runtime.reasoningModelId}`);
+  if (
+    !usedReasoningPass &&
+    needsReasoningPass(result.fields, result.confidence, runtime.confidenceThreshold)
+  ) {
+    console.log(
+      `[v${short}] ↻ ${relPath} conf=${result.confidence.toFixed(2)} — retry with ${runtime.reasoningModelId}`,
+    );
     try {
       const retry = await generateFieldsWithRateLimitRetry(
         numberedHeading,
@@ -136,13 +145,17 @@ export async function processFileForVersion(
         modelId = runtime.reasoningModelId;
       }
     } catch (reasoningError) {
-      console.warn(`[v${short}] reasoning retry failed for ${relPath}; keeping fast result (${String(reasoningError)})`);
+      console.warn(
+        `[v${short}] reasoning retry failed for ${relPath}; keeping fast result (${String(reasoningError)})`,
+      );
     }
   }
 
-  const reportSources = [...new Set(
-    result.fields.map((field) => field.source).filter((source) => source.startsWith("report:")),
-  )];
+  const reportSources = [
+    ...new Set(
+      result.fields.map((field) => field.source).filter((source) => source.startsWith("report:")),
+    ),
+  ];
 
   const marker = reportSources.length > 0 ? ` (via ${reportSources.join(", ")})` : "";
   console.log(`[v${short}] ✓ ${relPath} conf=${result.confidence.toFixed(2)}${marker}`);

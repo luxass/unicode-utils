@@ -56,4 +56,11 @@ export interface SealSources {
   k_seal_rad: string;
 }
 
-export const SEAL_SOURCES_FIELDS = ["k_seal_thx_src", "k_seal_ccz_src", "k_seal_qjz_src", "k_seal_dyc_src", "k_seal_mcjk", "k_seal_rad"];
+export const SEAL_SOURCES_FIELDS = [
+  "k_seal_thx_src",
+  "k_seal_ccz_src",
+  "k_seal_qjz_src",
+  "k_seal_dyc_src",
+  "k_seal_mcjk",
+  "k_seal_rad",
+];

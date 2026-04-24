@@ -25,7 +25,29 @@ export interface ExtractedDerivedDecompositionType320 {
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/extracted/DerivedDecompositionType-3.2.0.txt#L13-L14
    */
-  decomposition_type: "None" | "Canonical" | "Font" | "NoBreak" | "Initial" | "Medial" | "Final" | "Isolated" | "Circle" | "Super" | "Sub" | "Vertical" | "Wide" | "Narrow" | "Small" | "Square" | "Fraction" | "Compat" | (string & {});
+  decomposition_type:
+    | "None"
+    | "Canonical"
+    | "Font"
+    | "NoBreak"
+    | "Initial"
+    | "Medial"
+    | "Final"
+    | "Isolated"
+    | "Circle"
+    | "Super"
+    | "Sub"
+    | "Vertical"
+    | "Wide"
+    | "Narrow"
+    | "Small"
+    | "Square"
+    | "Fraction"
+    | "Compat"
+    | (string & {});
 }
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_320_FIELDS = ["codepoint_range", "decomposition_type"];
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_320_FIELDS = [
+  "codepoint_range",
+  "decomposition_type",
+];

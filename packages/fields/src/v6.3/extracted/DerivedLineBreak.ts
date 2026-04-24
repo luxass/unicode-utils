@@ -25,7 +25,38 @@ export interface ExtractedDerivedLineBreak {
    *
    * @source https://ucdjs.dev/reports/tr14/
    */
-  line_break: "BK" | "CR" | "LF" | "CM" | "NL" | "SG" | "WJ" | "ZW" | "GL" | "SP" | "ZWJ" | "B2" | "BA" | "BB" | "HY" | "HH" | "CB" | "EX" | "IN" | "JI" | "JL" | "JV" | "JT" | "OP" | "PO" | "PR" | "QU" | "SA" | "SY" | "XX" | (string & {});
+  line_break:
+    | "BK"
+    | "CR"
+    | "LF"
+    | "CM"
+    | "NL"
+    | "SG"
+    | "WJ"
+    | "ZW"
+    | "GL"
+    | "SP"
+    | "ZWJ"
+    | "B2"
+    | "BA"
+    | "BB"
+    | "HY"
+    | "HH"
+    | "CB"
+    | "EX"
+    | "IN"
+    | "JI"
+    | "JL"
+    | "JV"
+    | "JT"
+    | "OP"
+    | "PO"
+    | "PR"
+    | "QU"
+    | "SA"
+    | "SY"
+    | "XX"
+    | (string & {});
 }
 
 export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["codepoint", "line_break"];

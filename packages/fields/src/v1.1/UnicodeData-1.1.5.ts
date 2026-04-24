@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:55:03.739Z
  */
-export interface UnicodeData115 {
-
-}
+export interface UnicodeData115 {}
 
 export const UNICODE_DATA_115_FIELDS = [];

@@ -29,4 +29,7 @@ export interface AuxiliaryGraphemeBreakProperty {
   grapheme_cluster_break: "Other" | (string & {});
 }
 
-export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point_range", "grapheme_cluster_break"];
+export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = [
+  "code_point_range",
+  "grapheme_cluster_break",
+];

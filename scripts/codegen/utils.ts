@@ -1,8 +1,8 @@
 import { UNICODE_VERSION_METADATA } from "@unicode-utils/metadata";
 
-export type TreeNode
-  = | { type: "file"; name: string; path: string }
-    | { type: "directory"; name: string; path: string; children: TreeNode[] };
+export type TreeNode =
+  | { type: "file"; name: string; path: string }
+  | { type: "directory"; name: string; path: string; children: TreeNode[] };
 
 export class Limiter {
   readonly maxConcurrent: number;
@@ -49,7 +49,7 @@ export class RateLimitCooldown {
   hit(): number {
     this.consecutiveHits++;
     const exponent = Math.min(this.consecutiveHits - 1, 4);
-    const delayMs = Math.min(this.baseDelayMs * (2 ** exponent), this.maxDelayMs);
+    const delayMs = Math.min(this.baseDelayMs * 2 ** exponent, this.maxDelayMs);
     this.cooldownUntil = Math.max(this.cooldownUntil, Date.now() + delayMs);
     return delayMs;
   }
@@ -108,8 +108,6 @@ export function buildFilePath(fullVersion: string, relativePath: string): string
   }
   return `${fullVersion}/ucd/${relativePath}`;
 }
-
-
 
 export function collectTxtPaths(entries: readonly TreeNode[], prefix = ""): string[] {
   const out: string[] = [];

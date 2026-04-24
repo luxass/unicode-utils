@@ -35,4 +35,8 @@ export interface CjkRadicals {
   cjk_unified_ideograph: string;
 }
 
-export const CJK_RADICALS_FIELDS = ["cjk_radical_number", "cjk_radical_character", "cjk_unified_ideograph"];
+export const CJK_RADICALS_FIELDS = [
+  "cjk_radical_number",
+  "cjk_radical_character",
+  "cjk_unified_ideograph",
+];

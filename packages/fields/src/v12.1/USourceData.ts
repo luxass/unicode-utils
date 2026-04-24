@@ -25,7 +25,24 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L13-L30
    */
-  status: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "N" | "U" | "UNC-2013" | "UNC-2015" | "UK-2015" | "V" | "W" | "WS-2017" | "X" | (string & {});
+  status:
+    | "A"
+    | "B"
+    | "C"
+    | "D"
+    | "E"
+    | "F"
+    | "G"
+    | "N"
+    | "U"
+    | "UNC-2013"
+    | "UNC-2015"
+    | "UK-2015"
+    | "V"
+    | "W"
+    | "WS-2017"
+    | "X"
+    | (string & {});
 
   /**
    * A Unicode code point
@@ -70,4 +87,13 @@ export interface USourceData {
   comments: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = ["u_source_id", "status", "code_point", "radical_stroke_count", "virtual_kang_xi_position", "ids", "sources", "comments"];
+export const U_SOURCE_DATA_FIELDS = [
+  "u_source_id",
+  "status",
+  "code_point",
+  "radical_stroke_count",
+  "virtual_kang_xi_position",
+  "ids",
+  "sources",
+  "comments",
+];

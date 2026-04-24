@@ -25,7 +25,51 @@ export interface AuxiliaryWordBreakProperty {
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
-  word_break: "ALetter" | "ATerm" | "B2" | "CR" | "Double_Quote" | "E_Base" | "E_Base_GAZ" | "E_Modifier" | "Extend" | "ExtendNumLet" | "FO" | "Format" | "Glue_After_Zwj" | "H2" | "H3" | "Hebrew_Letter" | "HY" | "Ideographic" | "JL" | "JT" | "JV" | "Katakana" | "LE" | "LF" | "Link" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "Numeric" | "Other" | "Perl" | "PO" | "Prefix" | "PRHangul" | "Regional_Indicator" | "RI" | "Single_Quote" | "Space" | "STerm" | "WSegSpace" | "ZWJ" | "ZwjEB" | (string & {});
+  word_break:
+    | "ALetter"
+    | "ATerm"
+    | "B2"
+    | "CR"
+    | "Double_Quote"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
+    | "Extend"
+    | "ExtendNumLet"
+    | "FO"
+    | "Format"
+    | "Glue_After_Zwj"
+    | "H2"
+    | "H3"
+    | "Hebrew_Letter"
+    | "HY"
+    | "Ideographic"
+    | "JL"
+    | "JT"
+    | "JV"
+    | "Katakana"
+    | "LE"
+    | "LF"
+    | "Link"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "Numeric"
+    | "Other"
+    | "Perl"
+    | "PO"
+    | "Prefix"
+    | "PRHangul"
+    | "Regional_Indicator"
+    | "RI"
+    | "Single_Quote"
+    | "Space"
+    | "STerm"
+    | "WSegSpace"
+    | "ZWJ"
+    | "ZwjEB"
+    | (string & {});
 }
 
 export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

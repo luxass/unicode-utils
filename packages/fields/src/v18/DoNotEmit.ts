@@ -32,7 +32,20 @@ export interface DoNotEmit {
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/DoNotEmit.txt#L67-L109
    */
-  do_not_emit_type: "Indic_Atomic_Consonant" | "Indic_Consonant_Conjunct" | "Indic_Vowel_Letter" | "Bengali_Khanda_Ta" | "Malayalam_Chillu" | "Tamil_Shrii" | "Dotless_Form" | "Arabic_Tashkil" | "Hamza_Form" | "Precomposed_Form" | "Deprecated" | "Discouraged" | "Preferred_Spelling";
+  do_not_emit_type:
+    | "Indic_Atomic_Consonant"
+    | "Indic_Consonant_Conjunct"
+    | "Indic_Vowel_Letter"
+    | "Bengali_Khanda_Ta"
+    | "Malayalam_Chillu"
+    | "Tamil_Shrii"
+    | "Dotless_Form"
+    | "Arabic_Tashkil"
+    | "Hamza_Form"
+    | "Precomposed_Form"
+    | "Deprecated"
+    | "Discouraged"
+    | "Preferred_Spelling";
 }
 
 export const DO_NOT_EMIT_FIELDS = ["sequence", "replacement_sequence", "do_not_emit_type"];

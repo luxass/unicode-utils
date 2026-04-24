@@ -25,7 +25,19 @@ export interface DerivedAge {
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/DerivedAge.txt#L36
    */
-  age: "1.1" | "2.0" | "2.1" | "3.0" | "3.1" | "3.2" | "4.0" | "4.1" | "5.0" | "5.1" | "5.2" | (string & {});
+  age:
+    | "1.1"
+    | "2.0"
+    | "2.1"
+    | "3.0"
+    | "3.1"
+    | "3.2"
+    | "4.0"
+    | "4.1"
+    | "5.0"
+    | "5.1"
+    | "5.2"
+    | (string & {});
 }
 
 export const DERIVED_AGE_FIELDS = ["code_point_range", "age"];

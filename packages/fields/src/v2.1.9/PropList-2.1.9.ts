@@ -12,8 +12,6 @@
  * @model grok-4-1-fast-reasoning
  * @generated 2026-04-23T18:54:41.111Z
  */
-export interface PropList219 {
-
-}
+export interface PropList219 {}
 
 export const PROP_LIST_219_FIELDS = [];

@@ -28,4 +28,7 @@ export interface ExtractedDerivedCombiningClass {
   canonical_combining_class: "Not_Reordered" | number | (string & {});
 }
 
-export const EXTRACTED_DERIVED_COMBINING_CLASS_FIELDS = ["code_point_range", "canonical_combining_class"];
+export const EXTRACTED_DERIVED_COMBINING_CLASS_FIELDS = [
+  "code_point_range",
+  "canonical_combining_class",
+];

@@ -25,7 +25,42 @@ export interface ExtractedDerivedLineBreak320 {
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/extracted/DerivedLineBreak-3.2.0.txt#L13-L14
    */
-  line_break: "AL" | "B2" | "BA" | "BB" | "BK" | "CB" | "CM" | "CR" | "EX" | "GL" | "HY" | "H2" | "H3" | "HL" | "ID" | "IN" | "JL" | "JT" | "JV" | "LF" | "NL" | "NS" | "NU" | "OP" | "PO" | "PR" | "QU" | "RI" | "SA" | "SG" | "SP" | "SY" | "WJ" | "ZW" | (string & {});
+  line_break:
+    | "AL"
+    | "B2"
+    | "BA"
+    | "BB"
+    | "BK"
+    | "CB"
+    | "CM"
+    | "CR"
+    | "EX"
+    | "GL"
+    | "HY"
+    | "H2"
+    | "H3"
+    | "HL"
+    | "ID"
+    | "IN"
+    | "JL"
+    | "JT"
+    | "JV"
+    | "LF"
+    | "NL"
+    | "NS"
+    | "NU"
+    | "OP"
+    | "PO"
+    | "PR"
+    | "QU"
+    | "RI"
+    | "SA"
+    | "SG"
+    | "SP"
+    | "SY"
+    | "WJ"
+    | "ZW"
+    | (string & {});
 }
 
 export const EXTRACTED_DERIVED_LINE_BREAK_320_FIELDS = ["code_point", "line_break"];

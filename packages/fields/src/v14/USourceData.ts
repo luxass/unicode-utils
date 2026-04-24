@@ -25,7 +25,23 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/USourceData.txt#L13-L29
    */
-  status: "A" | "B" | "C" | "Comp" | "D" | "E" | "F" | "G" | "N" | "U" | "UK-2015" | "V" | "W" | "WS-2017" | "X" | (string & {});
+  status:
+    | "A"
+    | "B"
+    | "C"
+    | "Comp"
+    | "D"
+    | "E"
+    | "F"
+    | "G"
+    | "N"
+    | "U"
+    | "UK-2015"
+    | "V"
+    | "W"
+    | "WS-2017"
+    | "X"
+    | (string & {});
 
   /**
    * A Unicode code point. If the status is V (Field 1), the code point in Field 2 specifies the encoded character for which this entry is a variant. Otherwise, the code point specifies the encoded character for this entry.
@@ -84,4 +100,15 @@ export interface USourceData {
   first_residual_stroke: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = ["u_source_id", "status", "code_point", "radical_stroke_count", "virtual_kang_xi_position", "ids", "sources", "comments", "total_strokes", "first_residual_stroke"];
+export const U_SOURCE_DATA_FIELDS = [
+  "u_source_id",
+  "status",
+  "code_point",
+  "radical_stroke_count",
+  "virtual_kang_xi_position",
+  "ids",
+  "sources",
+  "comments",
+  "total_strokes",
+  "first_residual_stroke",
+];

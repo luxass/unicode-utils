@@ -25,7 +25,25 @@ export interface AuxiliaryGraphemeBreakProperty {
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
-  grapheme_cluster_break: "Other" | "Control" | "CR" | "Extend" | "ExtendNumLet" | "E_Base" | "E_Base_GAZ" | "E_Modifier" | "ZWJ" | "RI" | "L" | "V" | "T" | "LV" | "LVT" | "Prepend" | "E_Base_Ext" | (string & {});
+  grapheme_cluster_break:
+    | "Other"
+    | "Control"
+    | "CR"
+    | "Extend"
+    | "ExtendNumLet"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
+    | "ZWJ"
+    | "RI"
+    | "L"
+    | "V"
+    | "T"
+    | "LV"
+    | "LVT"
+    | "Prepend"
+    | "E_Base_Ext"
+    | (string & {});
 }
 
 export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point", "grapheme_cluster_break"];

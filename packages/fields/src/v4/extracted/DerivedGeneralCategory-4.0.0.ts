@@ -28,4 +28,7 @@ export interface ExtractedDerivedGeneralCategory400 {
   general_category: string;
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_400_FIELDS = ["code_point_range", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_400_FIELDS = [
+  "code_point_range",
+  "general_category",
+];

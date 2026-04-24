@@ -26,7 +26,39 @@ export interface AuxiliaryWordBreakProperty {
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
    */
-  word_break: "AL" | "CR" | "Extend" | "ExtendNumLet" | "FO" | "Format" | "H2" | "H3" | "Hebrew_Letter" | "HY" | "JL" | "JV" | "JT" | "Katakana" | "LE" | "LF" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "NL" | "NU" | "Other" | "Perl_CR" | "Perl_LF" | "RI" | "SA" | "SG" | "SP" | "STerm" | "WSegSpace" | (string & {});
+  word_break:
+    | "AL"
+    | "CR"
+    | "Extend"
+    | "ExtendNumLet"
+    | "FO"
+    | "Format"
+    | "H2"
+    | "H3"
+    | "Hebrew_Letter"
+    | "HY"
+    | "JL"
+    | "JV"
+    | "JT"
+    | "Katakana"
+    | "LE"
+    | "LF"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "NL"
+    | "NU"
+    | "Other"
+    | "Perl_CR"
+    | "Perl_LF"
+    | "RI"
+    | "SA"
+    | "SG"
+    | "SP"
+    | "STerm"
+    | "WSegSpace"
+    | (string & {});
 }
 
 export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

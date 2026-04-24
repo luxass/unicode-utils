@@ -25,7 +25,18 @@ export interface Unikemet {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/Unikemet.txt#L13-L16
    */
-  tag: "kEH_Cat" | "kEH_Core" | "kEH_Desc" | "kEH_Func" | "kEH_FVal" | "kEH_UniK" | "kEH_JSesh" | "kEH_HG" | "kEH_IFAO" | "kEH_NoMirror" | "kEH_NoRotate";
+  tag:
+    | "kEH_Cat"
+    | "kEH_Core"
+    | "kEH_Desc"
+    | "kEH_Func"
+    | "kEH_FVal"
+    | "kEH_UniK"
+    | "kEH_JSesh"
+    | "kEH_HG"
+    | "kEH_IFAO"
+    | "kEH_NoMirror"
+    | "kEH_NoRotate";
 
   /**
    * The line's value (in UTF-8).
