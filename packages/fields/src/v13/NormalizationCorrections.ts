@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:16.600Z
+ * @generated 2026-04-24T04:20:17.774Z
  */
 export interface NormalizationCorrections {
   /**
@@ -39,12 +39,12 @@ export interface NormalizationCorrections {
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/NormalizationCorrections.txt#L38-L39
    */
-  unicode_version: string;
+  version: string;
 }
 
 export const NORMALIZATION_CORRECTIONS_FIELDS = [
   "code_point",
   "original_decomposition",
   "corrected_decomposition",
-  "unicode_version",
+  "version",
 ];

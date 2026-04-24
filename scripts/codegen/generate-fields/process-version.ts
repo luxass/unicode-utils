@@ -1,12 +1,16 @@
-import { mkdir, rename, rm, rmdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, rm, rmdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 
 import { processFileForVersion } from "./process-file";
-import type { ProcessVersionOptions, ReviewEntry } from "./types";
+import type { ProcessFileOptions, ProcessVersionOptions, ReviewEntry } from "./types";
 import { collectTxtPaths, normalizeVersion, type TreeNode } from "./utils";
 
 const FILE_WORKERS = 8;
-const RESERVED_MODULE_BASENAMES = new Set(["index"]);
+const RESERVED_MODULE_BASENAMES = new Set([
+  // Index.txt will be generated as index.ts, and therefore "index" is reserved
+  // to avoid overwriting the index module file.
+  "index", // -> _Index
+]);
 
 function renderVersionIndex(
   shortVersion: string,
@@ -50,18 +54,31 @@ export async function processVersion(inputVersion: string, options: ProcessVersi
   const tempRootDir = join(options.outputDir, "..", ".codegen-tmp");
   const tempVersionDir = join(tempRootDir, `v${short}`);
   const legacyOutPath = join(options.outputDir, `v${short}.ts`);
+  const processFileOptions: ProcessFileOptions = {
+    ...options,
+    readExistingGeneratedFile: async (shortVersion, relPath) => {
+      const relativeOutPath = toGeneratedModulePath(relPath);
+      const existingPath = join(options.outputDir, `v${shortVersion}`, relativeOutPath);
+      return readFile(existingPath, "utf-8").catch((error: NodeJS.ErrnoException) => {
+        if (error.code === "ENOENT") return null;
+        throw error;
+      });
+    },
+  };
   await rm(tempVersionDir, { recursive: true, force: true });
   await mkdir(tempVersionDir, { recursive: true });
 
-  const moduleByIndex: Array<string | undefined> = new Array(relativePaths.length);
-  const reviewByIndex: Array<ReviewEntry | undefined> = new Array(relativePaths.length);
+  const moduleByIndex: Array<string | undefined> = Array.from({ length: relativePaths.length });
+  const reviewByIndex: Array<ReviewEntry | undefined> = Array.from({
+    length: relativePaths.length,
+  });
   const failures: string[] = [];
 
   async function runWorker(workerIndex: number) {
     for (let index = workerIndex; index < relativePaths.length; index += workerCount) {
       const relPath = relativePaths[index]!;
       try {
-        const processed = await processFileForVersion(full, short, relPath, options);
+        const processed = await processFileForVersion(full, short, relPath, processFileOptions);
         const relativeOutPath = toGeneratedModulePath(relPath);
         const absoluteOutPath = join(tempVersionDir, relativeOutPath);
         await mkdir(dirname(absoluteOutPath), { recursive: true });

@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12-L15
- * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L17
+ * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12
  *
  * @unicodeVersion 9
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:26.739Z
+ * @generated 2026-04-24T04:22:55.274Z
  */
 export interface ExtractedDerivedEastAsianWidth {
   /**
-   * @missing: 0000..10FFFF; Neutral.
+   * Unicode code point range or single code point explicitly listed for East_Asian_Width.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L17
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12
    */
   code_point_range: string;
 
   /**
-   * East_Asian_Width property value (listing EastAsianWidth.txt, field 1); unlisted code points have value Neutral (N).
+   * East Asian Width property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12-L15
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12
    */
-  east_asian_width: "A" | "F" | "H" | "Na" | "N" | "W" | (string & {});
+  east_asian_width: "F" | "H" | "W" | "Na" | "A" | "N";
 }
 
 export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_FIELDS = ["code_point_range", "east_asian_width"];

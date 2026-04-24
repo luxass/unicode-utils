@@ -5,24 +5,23 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/SentenceBreakProperty.txt#L11-L14
- * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 6.3
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:00.854Z
+ * @generated 2026-04-24T04:31:00.087Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range per standard UCD property file format documented in UAX #44.
+   * Unicode code point or range explicitly listed for Sentence_Break.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/SentenceBreakProperty.txt#L11-L14
    */
   code_point: string;
 
   /**
-   * Sentence_Break property value; all code points not explicitly listed have the value Other.
+   * Sentence_Break property value.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/SentenceBreakProperty.txt#L11-L14
    */
@@ -39,8 +38,7 @@ export interface AuxiliarySentenceBreakProperty {
     | "Lower"
     | "Upper"
     | "Numeric"
-    | "Other"
-    | (string & {});
+    | "Other";
 }
 
 export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break"];

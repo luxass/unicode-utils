@@ -10,7 +10,7 @@
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:33.986Z
+ * @generated 2026-04-24T04:26:31.221Z
  */
 export interface SpecialCasing {
   /**

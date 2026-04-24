@@ -4,33 +4,28 @@
  * @see https://unicode.org/Public/18.0.0/ucd/extracted/DerivedBidiClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/extracted/DerivedBidiClass.txt#L12
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 18
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:33.098Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:16:48.784Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Bidi Class (listing UnicodeData.txt, field 4: see UAX 44: https://www.unicode.org/reports/tr44/).
+   * Unicode code point or range in hexadecimal (e.g. '0041' or '0041..007A').
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/extracted/DerivedBidiClass.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoints: string;
+  code_point: string;
 
   /**
-   * Bidi Class property value (see UAX #44).
+   * Derived Bidi_Class property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/extracted/DerivedBidiClass.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class:
-    | "Left_To_Right"
-    | "Right_To_Left"
-    | "Arabic_Letter"
-    | "European_Terminator"
-    | (string & {});
+  bidi_class: string;
 }
 
-export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["codepoints", "bidi_class"];
+export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point", "bidi_class"];

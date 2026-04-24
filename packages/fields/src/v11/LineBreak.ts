@@ -5,26 +5,25 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L15-L24
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L44-L48
  *
  * @unicodeVersion 11
- * @fields 3
+ * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:33.105Z
+ * @generated 2026-04-24T04:22:11.349Z
  */
 export interface LineBreak {
   /**
    * Unicode code point value or range of code point values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L15-L17
    */
   codepoints: string;
 
   /**
-   * Line_Break property, consisting of one of the listed values.
+   * Line_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L15-L24
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L17-L24
    */
   line_break:
     | "BK"
@@ -70,13 +69,6 @@ export interface LineBreak {
     | "SG"
     | "SY"
     | "XX";
-
-  /**
-   * Comments following the number sign listing the General_Category property value or the L& alias of the derived value LC, the Unicode character name or names, and, in lines with ranges of code points, the code point count in square brackets.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/LineBreak.txt#L44-L48
-   */
-  comment: string;
 }
 
-export const LINE_BREAK_FIELDS = ["codepoints", "line_break", "comment"];
+export const LINE_BREAK_FIELDS = ["codepoints", "line_break"];

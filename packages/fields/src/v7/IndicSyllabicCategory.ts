@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:15.111Z
+ * @generated 2026-04-24T04:26:24.490Z
  */
 export interface IndicSyllabicCategory {
   /**
@@ -18,14 +18,14 @@ export interface IndicSyllabicCategory {
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/IndicSyllabicCategory.txt#L34
    */
-  code_point_or_range: string;
+  field_0: string;
 
   /**
    * Indic_Syllabic_Category property value
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/IndicSyllabicCategory.txt#L35
    */
-  indic_syllabic_category: string;
+  field_1: string;
 }
 
-export const INDIC_SYLLABIC_CATEGORY_FIELDS = ["code_point_or_range", "indic_syllabic_category"];
+export const INDIC_SYLLABIC_CATEGORY_FIELDS = ["field_0", "field_1"];

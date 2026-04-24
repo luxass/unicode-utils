@@ -10,18 +10,18 @@
  * @fields 8
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:50.363Z
+ * @generated 2026-04-24T04:20:39.992Z
  */
 export interface USourceData {
   /**
-   * The U-source ID
+   * The U-source ID.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L12
    */
   u_source_id: string;
 
   /**
-   * Text indicating the ideograph's status
+   * Text indicating the ideograph's status with possible values A=Encoded in Extension A, B=Encoded in Extension B, etc., including UTC-##### or UCI-##### for duplicates.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L13-L30
    */
@@ -45,42 +45,42 @@ export interface USourceData {
     | (string & {});
 
   /**
-   * A Unicode code point
+   * A Unicode code point; if status is V, specifies the encoded character for which this is a variant, otherwise the encoded character for this entry.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L31-L34
    */
   code_point: string;
 
   /**
-   * Radical-stroke count
+   * Radical-stroke count.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L35
    */
   radical_stroke_count: string;
 
   /**
-   * Virtual KangXi dictionary position
+   * Virtual KangXi dictionary position.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L36
    */
   virtual_kang_xi_position: string;
 
   /**
-   * Ideographic Description Sequence (IDS), if possible
+   * Ideographic Description Sequence (IDS), if possible.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L37
    */
   ids: string;
 
   /**
-   * Source(s)
+   * Source(s).
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L38
    */
   sources: string;
 
   /**
-   * General comments
+   * General comments.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/USourceData.txt#L39
    */

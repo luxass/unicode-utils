@@ -10,25 +10,25 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:21.953Z
+ * @generated 2026-04-24T04:15:38.087Z
  */
 export interface NameAliases {
   /**
-   * Code point.
+   * First field: Code point.
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L50
    */
   code_point: string;
 
   /**
-   * Alias.
+   * Second field: Alias.
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L51
    */
   alias: string;
 
   /**
-   * Type.
+   * Third field: Type.
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L52
    */

@@ -4,27 +4,26 @@
  * @see https://unicode.org/Public/17.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
- * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/extracted/DerivedNumericType.txt#L25
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 17
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:54.393Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:17:07.029Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * @missing: 0000..10FFFF; None.
+   * Unicode code point or range.
    *
-   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/extracted/DerivedNumericType.txt#L25
+   * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Derived Numeric_Type property value.
+   * Numeric_Type derived property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
+   * @source https://ucdjs.dev/reports/tr44/
    */
   numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
 }

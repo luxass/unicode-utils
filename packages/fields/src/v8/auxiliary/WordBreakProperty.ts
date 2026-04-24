@@ -4,26 +4,27 @@
  * @see https://unicode.org/Public/8.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+ * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 8
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:12.076Z
+ * @generated 2026-04-24T04:24:27.037Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range explicitly listed for Word_Break.
+   * Unicode code point range (e.g. 003A..003A or 0000..10FFFF).
    *
-   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
    * Word_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr29/
    */
   word_break:
     | "ALetter"
@@ -35,12 +36,10 @@ export interface AuxiliaryWordBreakProperty {
     | "E_Modifier"
     | "Extend"
     | "ExtendNumLet"
-    | "FO"
     | "Format"
     | "Glue_After_Zwj"
     | "Hebrew_Letter"
     | "Katakana"
-    | "LE"
     | "LF"
     | "MidLetter"
     | "MidNum"
@@ -49,13 +48,12 @@ export interface AuxiliaryWordBreakProperty {
     | "Numeric"
     | "Other"
     | "Perl"
-    | "RI"
     | "Regional_Indicator"
     | "Single_Quote"
-    | "SP"
-    | "WSegSpace"
+    | "Space"
+    | "WSegmenter"
     | "ZWJ"
     | (string & {});
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];

@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:42.411Z
+ * @generated 2026-04-24T04:20:04.332Z
  */
 export interface NushuSources {
   /**
@@ -25,7 +25,7 @@ export interface NushuSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NushuSources.txt#L18
    */
-  tag: string;
+  tag: "kSrc_NushuDuben" | "kReading" | (string & {});
 
   /**
    * The value of the tag (in UTF-8).

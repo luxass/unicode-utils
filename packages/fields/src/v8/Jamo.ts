@@ -10,11 +10,11 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:36.579Z
+ * @generated 2026-04-24T04:25:28.563Z
  */
 export interface Jamo {
   /**
-   * Code point in 4-digit hexadecimal form of a conjoining jamo character.
+   * 4-digit hexadecimal code point of a conjoining jamo character.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/Jamo.txt#L16-L18
    */
@@ -25,7 +25,7 @@ export interface Jamo {
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/Jamo.txt#L19-L21
    */
-  jamo_short_name: "" | string;
+  jamo_short_name: string;
 }
 
 export const JAMO_FIELDS = ["code_point", "jamo_short_name"];

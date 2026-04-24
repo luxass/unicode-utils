@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/4.0-Update/DerivedCoreProperties-4.0.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.0-Update/DerivedCoreProperties-4.0.0.txt#L13-L14
+
  *
  * @unicodeVersion 4
- * @fields 2
- * @confidence 0.80
+ * @fields 0
+ * @confidence 0.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:49.041Z
+ * @generated 2026-04-24T04:29:56.947Z
  */
-export interface DerivedCoreProperties400 {
-  /**
-   * Derived Property: Math Generated from: Sm + Other_Math.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/DerivedCoreProperties-4.0.0.txt#L13-L14
-   */
-  codepoint_range: string;
+export interface DerivedCoreProperties400 {}
 
-  /**
-   * Derived Property: Math, generated from Sm + Other_Math.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/DerivedCoreProperties-4.0.0.txt#L13-L14
-   */
-  math: boolean;
-}
-
-export const DERIVED_CORE_PROPERTIES_400_FIELDS = ["codepoint_range", "math"];
+export const DERIVED_CORE_PROPERTIES_400_FIELDS = [];

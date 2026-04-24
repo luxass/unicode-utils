@@ -4,14 +4,13 @@
  * @see https://unicode.org/Public/3.1-Update1/CaseFolding-4.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L26
- * - https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L28-L34
+ * - https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L26-L34
  *
  * @unicodeVersion 3.1.1
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:47.618Z
+ * @generated 2026-04-24T04:31:51.934Z
  */
 export interface CaseFolding4 {
   /**
@@ -22,9 +21,9 @@ export interface CaseFolding4 {
   code: string;
 
   /**
-   * Status of the case folding: C (common), F (full), S (simple), or I (special case for dotted I/dotless i).
+   * Status of the case folding: C (common), F (full), S (simple), or I (special).
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L28-L34
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L26-L34
    */
   status: "C" | "F" | "S" | "I";
 
@@ -36,7 +35,7 @@ export interface CaseFolding4 {
   mapping: string;
 
   /**
-   * Name of the character.
+   * Character name.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L26
    */

@@ -4,26 +4,26 @@
  * @see https://unicode.org/Public/6.0.0/ucd/NameAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/NameAliases.txt#L19-L20
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/NameAliases.txt#L18-L20
  *
  * @unicodeVersion 6
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:31.170Z
+ * @generated 2026-04-24T04:28:04.686Z
  */
 export interface NameAliases {
   /**
    * First field: Code point.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/NameAliases.txt#L19
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/NameAliases.txt#L18-L20
    */
   code_point: string;
 
   /**
    * Second field: Alias.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/NameAliases.txt#L20
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/NameAliases.txt#L18-L20
    */
   alias: string;
 }

@@ -6,12 +6,13 @@
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyValueAliases.txt#L22-L27
  * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyValueAliases.txt#L29-L30
+ * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyValueAliases.txt#L35
  *
  * @unicodeVersion 12
- * @fields 3
+ * @fields 4
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:14.238Z
+ * @generated 2026-04-24T04:24:05.470Z
  */
 export interface PropertyValueAliases {
   /**
@@ -22,7 +23,7 @@ export interface PropertyValueAliases {
   property: string;
 
   /**
-   * The short name for the property value. It is typically an abbreviation, but in a number of cases it is simply a duplicate of the long name in the third field.
+   * The short name for the property value. Typically an abbreviation, but in a number of cases it is simply a duplicate of the long name in the third field.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyValueAliases.txt#L25-L27
    */
@@ -34,6 +35,18 @@ export interface PropertyValueAliases {
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyValueAliases.txt#L29-L30
    */
   long_name: string;
+
+  /**
+   * Other aliases may be listed in additional fields.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyValueAliases.txt#L35
+   */
+  additional_aliases: string[];
 }
 
-export const PROPERTY_VALUE_ALIASES_FIELDS = ["property", "short_name", "long_name"];
+export const PROPERTY_VALUE_ALIASES_FIELDS = [
+  "property",
+  "short_name",
+  "long_name",
+  "additional_aliases",
+];

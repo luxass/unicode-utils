@@ -10,18 +10,18 @@
  * @fields 10
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:41.825Z
+ * @generated 2026-04-24T04:17:51.459Z
  */
 export interface USourceData {
   /**
-   * U-source identifier
+   * U-source identifier.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L14
    */
   u_source_identifier: string;
 
   /**
-   * Status of the ideograph encoding
+   * Status of the ideograph: Comp=Encoded as a CJK Compatibility Ideograph, ExtA=Encoded in Extension A, etc., including UTC/UCI deprecation identifiers.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L15-L33
    */
@@ -43,60 +43,61 @@ export interface USourceData {
     | "URO"
     | "Variant"
     | "WS-2024"
-    | "(UTC-\d{5})|(UCI-\d{5})"
+    | "(UTC-\d{5})"
+    | "(UCI-\d{5})"
     | (string & {});
 
   /**
-   * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant
+   * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L34
    */
   unicode_code_point: string;
 
   /**
-   * kRSUnicode property value (see UAX #38)
+   * kRSUnicode property value (see UAX #38).
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L35
    */
   k_rs_unicode: string;
 
   /**
-   * Virtual KangXi dictionary position
+   * Virtual KangXi dictionary position.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L36
    */
   virtual_kang_xi_position: string;
 
   /**
-   * Ideographic Description Sequence (IDS)
+   * Ideographic Description Sequence (IDS).
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L37
    */
   ids: string;
 
   /**
-   * Sources
+   * Sources.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L38
    */
   sources: string;
 
   /**
-   * General comments
+   * General comments.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L39
    */
   general_comments: string;
 
   /**
-   * kTotalStrokes property value (see UAX #38)
+   * kTotalStrokes property value (see UAX #38).
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L40
    */
   k_total_strokes: string;
 
   /**
-   * First residual stroke
+   * First residual stroke.
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/USourceData.txt#L41
    */

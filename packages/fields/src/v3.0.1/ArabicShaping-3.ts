@@ -10,32 +10,32 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:08.580Z
+ * @generated 2026-04-24T04:31:10.047Z
  */
 export interface ArabicShaping3 {
   /**
-   * The code point, in 4-digit hexadecimal form, of an Arabic or Syriac character.
+   * Code point, in 4-digit hexadecimal form, of an Arabic or Syriac character.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/ArabicShaping-3.txt#L16-L17
    */
   code_point: string;
 
   /**
-   * A short schematic name for that character, abbreviated from the normative Unicode character name.
+   * Short schematic name for that character, abbreviated from the normative Unicode character name.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/ArabicShaping-3.txt#L18-L19
    */
   schematic_name: string;
 
   /**
-   * The joining type: R right-joining, D dual-joining, U non-joining.
+   * R right-joining, D dual-joining, U non-joining.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/ArabicShaping-3.txt#L20-L21
    */
   joining_type: "R" | "D" | "U";
 
   /**
-   * The joining group.
+   * Joining group.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/ArabicShaping-3.txt#L22
    */

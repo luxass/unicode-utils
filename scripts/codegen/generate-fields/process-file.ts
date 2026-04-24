@@ -1,5 +1,6 @@
 import { generateFields } from "./model";
 import { renderFile } from "./render";
+import { preserveExistingFieldNames } from "./stable-names";
 import type { Field } from "./types";
 import type { ProcessedFile, ProcessFileOptions } from "./types";
 import { buildFilePath, isRateLimitError } from "./utils";
@@ -120,6 +121,8 @@ export async function processFileForVersion(
 
   const marker = reportSources.length > 0 ? ` (via ${reportSources.join(", ")})` : "";
   console.log(`[v${short}] ✓ ${relPath} conf=${result.confidence.toFixed(2)}${marker}`);
+  const existingCode = await options.readExistingGeneratedFile(short, relPath);
+  const fields = preserveExistingFieldNames(result.fields, existingCode);
 
   return {
     reviewEntry: {
@@ -136,7 +139,7 @@ export async function processFileForVersion(
       shortVersion: short,
       fileExplorerUrl,
       unicodeSourceUrl,
-      fields: result.fields,
+      fields,
       confidence: result.confidence,
       modelId,
     }),

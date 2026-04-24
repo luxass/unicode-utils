@@ -10,7 +10,7 @@
  * @fields 10
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:02:14.081Z
+ * @generated 2026-04-24T04:17:36.055Z
  */
 export interface USourceData {
   /**
@@ -21,7 +21,7 @@ export interface USourceData {
   u_source_identifier: string;
 
   /**
-   * Status of the ideograph with possible values including Comp (Encoded as a CJK Compatibility Ideograph), ExtA (Encoded in Extension A), etc., or UTC/UCI identifiers for duplicates.
+   * Status of the ideograph: Comp=Encoded as a CJK Compatibility Ideograph, ExtA=Encoded in Extension A, etc., (UTC-\d{5})|(UCI-\d{5})=Duplicate entries deprecated in favor of other entries.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/USourceData.txt#L15-L32
    */
@@ -46,7 +46,7 @@ export interface USourceData {
     | (string & {});
 
   /**
-   * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant.
+   * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/USourceData.txt#L33
    */

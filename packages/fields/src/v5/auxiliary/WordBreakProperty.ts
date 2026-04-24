@@ -4,27 +4,27 @@
  * @see https://unicode.org/Public/5.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
  * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 5
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:21.626Z
+ * @generated 2026-04-24T04:29:25.443Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range per standard UCD property file format documented in UAX #44.
+   * Unicode code point or range (e.g. 003A..003D).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Word_Break property value; unlisted code points have value Other.
+   * Word_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr29/
    */
   word_break:
     | "ALetter"
@@ -36,6 +36,8 @@ export interface AuxiliaryWordBreakProperty {
     | "E_Modifier"
     | "Extend"
     | "ExtendNumLet"
+    | "Format"
+    | "Glue_After_Zwj"
     | "Hebrew_Letter"
     | "Katakana"
     | "LF"
@@ -46,7 +48,7 @@ export interface AuxiliaryWordBreakProperty {
     | "Numeric"
     | "Other"
     | "Perl"
-    | "RI"
+    | "Regional_Indicator"
     | "Single_Quote"
     | "SP"
     | "WSegSpace"

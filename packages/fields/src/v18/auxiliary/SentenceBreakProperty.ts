@@ -4,45 +4,28 @@
  * @see https://unicode.org/Public/18.0.0/ucd/auxiliary/SentenceBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L12-L15
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 18
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:10.861Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:14:45.195Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range per standard UCD format documented in UAX #44.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Sentence_Break property value; all code points not explicitly listed have the value Other (XX).
+   * Sentence_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L12-L15
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  sentence_break:
-    | "ATerm"
-    | "Buffer"
-    | "Close"
-    | "CR"
-    | "Extend"
-    | "Format"
-    | "LF"
-    | "Lower"
-    | "Numeric"
-    | "OLetter"
-    | "Other"
-    | "Sep"
-    | "Sp"
-    | "STerm"
-    | "Upper"
-    | (string & {});
+  sentence_break: string;
 }
 
 export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break"];

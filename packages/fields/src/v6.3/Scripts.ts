@@ -5,28 +5,27 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/Scripts.txt#L11-L14
- * - https://ucdjs.dev/reports/tr24/
  *
  * @unicodeVersion 6.3
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:45.311Z
+ * @generated 2026-04-24T04:32:16.729Z
  */
 export interface Scripts {
   /**
-   * Code point range in the standard abbreviated format.
+   * Unicode code point or range explicitly listed for the Script property.
    *
-   * @source https://ucdjs.dev/reports/tr24/
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/Scripts.txt#L11-L14
    */
   code_point_range: string;
 
   /**
-   * Script property value; Unknown for code points not explicitly listed.
+   * Script property value.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/Scripts.txt#L11-L14
    */
-  script: "Zzzz" | string;
+  script: string;
 }
 
 export const SCRIPTS_FIELDS = ["code_point_range", "script"];

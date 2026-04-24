@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/13.0.0/ucd/LineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/LineBreak.txt#L16-L24
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/LineBreak.txt#L15-L24
  *
  * @unicodeVersion 13
  * @fields 2
- * @confidence 0.90
+ * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:26.365Z
+ * @generated 2026-04-24T04:20:14.145Z
  */
 export interface LineBreak {
   /**
@@ -18,12 +18,12 @@ export interface LineBreak {
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/LineBreak.txt#L16
    */
-  codepoints: string;
+  code_point_range: string;
 
   /**
-   * Line_Break property, consisting of one of the following values: Non-tailorable: "BK", "CM", "CR", "GL", "LF", "NL", "SP", "WJ", "ZW", "ZWJ"; Tailorable: "AI", "AL", "B2", "BA", "BB", "CB", "CJ", "CL", "CP", "EB", "EM", "EX", "H2", "H3", "HL", "HY", "ID", "IN", "IS", "JL", "JT", "JV", "NS", "NU", "OP", "PO", "PR", "QU", "RI", "SA", "SG", "SY", "XX".
+   * Line_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/LineBreak.txt#L17-L24
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/LineBreak.txt#L15-L24
    */
   line_break:
     | "BK"
@@ -68,8 +68,7 @@ export interface LineBreak {
     | "SA"
     | "SG"
     | "SY"
-    | "XX"
-    | (string & {});
+    | "XX";
 }
 
-export const LINE_BREAK_FIELDS = ["codepoints", "line_break"];
+export const LINE_BREAK_FIELDS = ["code_point_range", "line_break"];

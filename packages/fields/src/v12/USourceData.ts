@@ -10,7 +10,7 @@
  * @fields 8
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:27.029Z
+ * @generated 2026-04-24T04:24:11.960Z
  */
 export interface USourceData {
   /**
@@ -21,7 +21,7 @@ export interface USourceData {
   u_source_id: string;
 
   /**
-   * Text indicating the ideograph's status.
+   * Text indicating the ideograph's status with possible values A=Encoded in Extension A, B=Encoded in Extension B, etc., including patterns like UTC-\d{5} or UCI-\d{5} for duplicates.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/USourceData.txt#L13-L30
    */
@@ -45,7 +45,7 @@ export interface USourceData {
     | (string & {});
 
   /**
-   * A Unicode code point.
+   * A Unicode code point; if status is V, specifies the encoded character for which this is a variant, otherwise the encoded character for this entry.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/USourceData.txt#L31-L34
    */

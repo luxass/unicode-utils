@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:56:13.396Z
+ * @generated 2026-04-24T04:36:51.904Z
  */
 export interface LineBreak6 {
   /**
@@ -21,7 +21,7 @@ export interface LineBreak6 {
   unicode_value: string;
 
   /**
-   * LineBreak property, consisting of one of the normative ("BK", "CR", "LF", "CM", "SG", "GL", "CB", "SP", "ZW") or informative ("XX", "OP", "CL", "QU", "NS", "EX", "SY", "IS", "PR", "PO", "NU", "AL", "ID", "IN", "HY", "BB", "BA", "SA", "AI", "B2") values.
+   * LineBreak property, consisting of one of the normative or informative values listed.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update/LineBreak-6.txt#L8-L15
    */

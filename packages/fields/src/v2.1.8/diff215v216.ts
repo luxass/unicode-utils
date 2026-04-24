@@ -9,8 +9,8 @@
  * @unicodeVersion 2.1.8
  * @fields 0
  * @confidence 0.00
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:56:20.536Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:37:40.804Z
  */
 export interface Diff215V216 {}
 

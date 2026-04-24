@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/5.2.0/ucd/extracted/DerivedBinaryProperties.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 5.2
- * @fields 2
- * @confidence 0.80
+ * @fields 0
+ * @confidence 0.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:57.758Z
+ * @generated 2026-04-24T04:33:08.235Z
  */
-export interface ExtractedDerivedBinaryProperties {
-  /**
-   * Unicode code point range (first-last) or single code point; based on standard UCD file format documented in UAX #44.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point: string;
+export interface ExtractedDerivedBinaryProperties {}
 
-  /**
-   * Bidi_Mirrored binary property value listing UnicodeData.txt, field 9.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  property_value: "Y" | "N";
-}
-
-export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point", "property_value"];
+export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = [];

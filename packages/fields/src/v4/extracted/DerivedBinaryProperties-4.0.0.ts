@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:48.317Z
+ * @generated 2026-04-24T04:30:10.930Z
  */
 export interface ExtractedDerivedBinaryProperties400 {
   /**
-   * BidiMirrored (listing UnicodeData.txt, field 9: see UCD.html) All code points not explicitly listed in this file have the property value: N.
+   * Unicode code point or range explicitly listed with BidiMirrored property.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/extracted/DerivedBinaryProperties-4.0.0.txt#L13-L16
    */
   code_point_range: string;
 
   /**
-   * BidiMirrored property value; unlisted code points have default value N.
+   * BidiMirrored property value (Y for code points listed; default N for others).
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/extracted/DerivedBinaryProperties-4.0.0.txt#L13-L16
    */

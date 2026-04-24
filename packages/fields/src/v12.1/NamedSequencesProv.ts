@@ -4,26 +4,26 @@
  * @see https://unicode.org/Public/12.1.0/ucd/NamedSequencesProv.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NamedSequencesProv.txt#L16
+ * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NamedSequencesProv.txt#L15-L16
  *
  * @unicodeVersion 12.1
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:28.699Z
+ * @generated 2026-04-24T04:20:40.123Z
  */
 export interface NamedSequencesProv {
   /**
    * Name of Sequence
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NamedSequencesProv.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NamedSequencesProv.txt#L15-L16
    */
   name: string;
 
   /**
    * Code Point Sequence for USI
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NamedSequencesProv.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/NamedSequencesProv.txt#L15-L16
    */
   code_point_sequence: string;
 }

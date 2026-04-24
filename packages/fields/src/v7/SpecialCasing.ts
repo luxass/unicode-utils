@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/7.0.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L36
+ * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L35
  *
  * @unicodeVersion 7
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:24.760Z
+ * @generated 2026-04-24T04:27:02.096Z
  */
 export interface SpecialCasing {
   /**
@@ -21,23 +21,23 @@ export interface SpecialCasing {
   code: string;
 
   /**
-   * Full lowercase mapping, expressed as one or more hexadecimal character values separated by spaces.
+   * Full lowercase mapping, one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L36
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L35
    */
   lower: string;
 
   /**
-   * Full titlecase mapping, expressed as one or more hexadecimal character values separated by spaces.
+   * Full titlecase mapping, one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L36
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L35
    */
   title: string;
 
   /**
-   * Full uppercase mapping, expressed as one or more hexadecimal character values separated by spaces.
+   * Full uppercase mapping, one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L36
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/SpecialCasing.txt#L31-L35
    */
   upper: string;
 

@@ -11,7 +11,7 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:00:46.342Z
+ * @generated 2026-04-24T04:14:12.564Z
  */
 export interface CaseFolding {
   /**
@@ -36,7 +36,7 @@ export interface CaseFolding {
   mapping: string;
 
   /**
-   * Unicode character name.
+   * Character name.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CaseFolding.txt#L36
    */

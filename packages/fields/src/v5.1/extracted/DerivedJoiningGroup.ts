@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/5.1.0/ucd/extracted/DerivedJoiningGroup.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedJoiningGroup.txt#L13-L14
- * - https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedJoiningGroup.txt#L16
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 5.1
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:48.047Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:29:04.416Z
  */
 export interface ExtractedDerivedJoiningGroup {
   /**
-   * Code point range for which the Joining_Group value applies.
+   * Unicode code point or range of code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedJoiningGroup.txt#L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Default Joining Group value for all code points not explicitly listed.
+   * Joining Group property value as listed from ArabicShaping.txt field 3.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedJoiningGroup.txt#L13-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  joining_group: "No_Joining_Group";
+  joining_group: string;
 }
 
-export const EXTRACTED_DERIVED_JOINING_GROUP_FIELDS = ["code_point_range", "joining_group"];
+export const EXTRACTED_DERIVED_JOINING_GROUP_FIELDS = ["code_point", "joining_group"];

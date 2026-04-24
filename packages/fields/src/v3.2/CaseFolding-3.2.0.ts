@@ -10,11 +10,11 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:16.345Z
+ * @generated 2026-04-24T04:30:57.040Z
  */
 export interface CaseFolding320 {
   /**
-   * Unicode code point.
+   * <code>; <status>; <mapping>; <name>.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/CaseFolding-3.2.0.txt#L27
    */

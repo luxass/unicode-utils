@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:49.734Z
+ * @generated 2026-04-24T04:23:49.849Z
  */
 export interface NushuSources {
   /**

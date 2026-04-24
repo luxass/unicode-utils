@@ -10,22 +10,22 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:13.818Z
+ * @generated 2026-04-24T04:21:34.549Z
  */
 export interface BidiMirroring {
   /**
-   * Each mapping line contains two fields, separated by a semicolon (';').
+   * First field: source code point represented as a variable-length hexadecimal value with 4 to 6 digits.
    *
    * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/BidiMirroring.txt#L26-L28
    */
-  source: string;
+  source_code_point: string;
 
   /**
-   * Each mapping line contains two fields, separated by a semicolon (';').
+   * Second field: mirror code point represented as a variable-length hexadecimal value with 4 to 6 digits.
    *
    * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/BidiMirroring.txt#L26-L28
    */
-  mirror: string;
+  mirror_code_point: string;
 }
 
-export const BIDI_MIRRORING_FIELDS = ["source", "mirror"];
+export const BIDI_MIRRORING_FIELDS = ["source_code_point", "mirror_code_point"];

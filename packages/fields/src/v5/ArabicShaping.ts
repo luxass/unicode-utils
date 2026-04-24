@@ -4,38 +4,41 @@
  * @see https://unicode.org/Public/5.0.0/ucd/ArabicShaping.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L20-L32
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L20
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L22
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L24-L30
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L32
  *
  * @unicodeVersion 5
  * @fields 4
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:19.987Z
+ * @generated 2026-04-24T04:29:20.962Z
  */
 export interface ArabicShaping {
   /**
-   * The code point, in 4-digit hexadecimal form, of an Arabic or Syriac character.
+   * the code point, in 4-digit hexadecimal.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L20-L21
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L20
    */
-  code_point: string;
+  codepoint: string;
 
   /**
-   * A short schematic name for that character, abbreviated from the normative Unicode character name.
+   * a short schematic name for that character, abbreviated from the normative Unicode character name.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L22-L23
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L22
    */
   schematic_name: string;
 
   /**
-   * Joining type (property name: Joining_Type): R=Right_Joining, L=Left_Joining, D=Dual_Joining, C=Join_Causing, U=Non_Joining, T=Transparent.
+   * defines the joining type (property name: Joining_Type).
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L24-L31
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L24-L30
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
   /**
-   * Joining group (property name: Joining_Group).
+   * defines the joining group (property name: Joining_Group).
    *
    * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/ArabicShaping.txt#L32
    */
@@ -43,7 +46,7 @@ export interface ArabicShaping {
 }
 
 export const ARABIC_SHAPING_FIELDS = [
-  "code_point",
+  "codepoint",
   "schematic_name",
   "joining_type",
   "joining_group",

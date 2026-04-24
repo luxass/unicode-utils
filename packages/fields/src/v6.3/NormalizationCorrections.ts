@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:14.227Z
+ * @generated 2026-04-24T04:32:58.399Z
  */
 export interface NormalizationCorrections {
   /**

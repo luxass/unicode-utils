@@ -4,29 +4,14 @@
  * @see https://unicode.org/Public/15.0.0/ucd/DerivedCoreProperties.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/15.0.0/ucd/DerivedCoreProperties.txt#L12-L13
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 15
- * @fields 2
- * @confidence 0.80
+ * @fields 0
+ * @confidence 0.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:12.887Z
+ * @generated 2026-04-24T04:18:18.218Z
  */
-export interface DerivedCoreProperties {
-  /**
-   * Unicode code point or range per UCD file format documented in UAX #44.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point: string;
+export interface DerivedCoreProperties {}
 
-  /**
-   * Derived Property: Math. Generated from: Sm + Other_Math.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/DerivedCoreProperties.txt#L12-L13
-   */
-  math: "Y" | "N";
-}
-
-export const DERIVED_CORE_PROPERTIES_FIELDS = ["code_point", "math"];
+export const DERIVED_CORE_PROPERTIES_FIELDS = [];

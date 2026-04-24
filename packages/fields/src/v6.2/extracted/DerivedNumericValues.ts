@@ -11,11 +11,11 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:21.910Z
+ * @generated 2026-04-24T04:26:27.512Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
-   * The values are based on field 8 of UnicodeData.txt, plus the fields kAccountingNumeric, kOtherNumeric, kPrimaryNumeric in the Unicode Han Database (Unihan).
+   * The values are based on field 8 of UnicodeData.txt, plus the fields kAccountingNumeric, kOtherNumeric, kPrimaryNumeric in the Unicode Han Database (Unihan). The derivations for these values are as follows: Numeric_Value = the value of kAccountingNumeric, kOtherNumeric, or kPrimaryNumeric, if they exist; otherwise Numeric_Value = the value of field 8, if it exists; otherwise Numeric_Value = NaN.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedNumericValues.txt#L12-L18
    */

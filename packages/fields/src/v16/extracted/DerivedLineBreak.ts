@@ -4,13 +4,14 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedLineBreak.txt
  *
  * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
- * @fields 3
+ * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:01:16.419Z
+ * @generated 2026-04-24T04:17:10.475Z
  */
 export interface ExtractedDerivedLineBreak {
   /**
@@ -18,21 +19,14 @@ export interface ExtractedDerivedLineBreak {
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  range: string;
+  code_point_range: string;
 
   /**
-   * Line_Break property value such as Unknown (XX).
+   * Line_Break property value.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12
    */
-  line_break: string;
-
-  /**
-   * Optional comment providing additional context.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  comment: string;
+  line_break: "Unknown" | "Prefix_Numeric" | "Ideographic" | string;
 }
 
-export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["range", "line_break", "comment"];
+export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point_range", "line_break"];

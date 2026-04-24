@@ -9,9 +9,9 @@
  *
  * @unicodeVersion 6.3
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:42.260Z
+ * @generated 2026-04-24T04:31:59.639Z
  */
 export interface PropertyAliases {
   /**

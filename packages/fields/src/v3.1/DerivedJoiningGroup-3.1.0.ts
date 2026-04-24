@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/3.1-Update/DerivedJoiningGroup-3.1.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 3.1
- * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:55:35.156Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:36:47.976Z
  */
-export interface DerivedJoiningGroup310 {
-  /**
-   * Unicode code point or range.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  codepoint_range: string;
+export interface DerivedJoiningGroup310 {}
 
-  /**
-   * Joining Group property value derived from ArabicShaping.txt field 2.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  joining_group: string;
-}
-
-export const DERIVED_JOINING_GROUP_310_FIELDS = ["codepoint_range", "joining_group"];
+export const DERIVED_JOINING_GROUP_310_FIELDS = [];

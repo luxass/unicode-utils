@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:30.341Z
+ * @generated 2026-04-24T04:27:52.940Z
  */
 export interface IndicSyllabicCategory {
   /**
@@ -21,7 +21,7 @@ export interface IndicSyllabicCategory {
   code_point_or_range: string;
 
   /**
-   * Indic_Syllabic_Category
+   * Indic_Syllabic_Category enumerated property value
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/IndicSyllabicCategory.txt#L34
    */

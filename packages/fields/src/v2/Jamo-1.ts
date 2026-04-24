@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 2
  * @fields 3
- * @confidence 0.80
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:42.142Z
+ * @generated 2026-04-24T04:32:49.822Z
  */
 export interface Jamo1 {
   /**
@@ -18,21 +18,21 @@ export interface Jamo1 {
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/Jamo-1.txt#L1
    */
-  field_0: string;
+  value: string;
 
   /**
    * Short Name.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/Jamo-1.txt#L1
    */
-  field_1: string;
+  short_name: string;
 
   /**
    * Unicode Name.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/Jamo-1.txt#L1
    */
-  field_2: string;
+  unicode_name: string;
 }
 
-export const JAMO_1_FIELDS = ["field_0", "field_1", "field_2"];
+export const JAMO_1_FIELDS = ["value", "short_name", "unicode_name"];

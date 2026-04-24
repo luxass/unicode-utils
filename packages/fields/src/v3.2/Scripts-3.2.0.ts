@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/3.2-Update/Scripts-3.2.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr24/
+
  *
  * @unicodeVersion 3.2
- * @fields 2
- * @confidence 0.80
+ * @fields 0
+ * @confidence 0.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:56:00.521Z
+ * @generated 2026-04-24T04:32:38.564Z
  */
-export interface Scripts320 {
-  /**
-   * Unicode code point or range for the Script property.
-   *
-   * @source https://ucdjs.dev/reports/tr24/
-   */
-  code_point_range: string;
+export interface Scripts320 {}
 
-  /**
-   * Script property value.
-   *
-   * @source https://ucdjs.dev/reports/tr24/
-   */
-  script: string;
-}
-
-export const SCRIPTS_320_FIELDS = ["code_point_range", "script"];
+export const SCRIPTS_320_FIELDS = [];

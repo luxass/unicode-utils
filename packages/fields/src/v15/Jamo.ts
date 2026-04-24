@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:16.091Z
+ * @generated 2026-04-24T04:20:30.279Z
  */
 export interface Jamo {
   /**
@@ -21,7 +21,7 @@ export interface Jamo {
   code_point: string;
 
   /**
-   * Jamo_Short_Name as a one-, two-, or three-character ASCII string (or the null string for U+110B).
+   * The Jamo_Short_Name as a one-, two-, or three-character ASCII string (or in one case, for U+110B, the null string).
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/Jamo.txt#L19-L21
    */

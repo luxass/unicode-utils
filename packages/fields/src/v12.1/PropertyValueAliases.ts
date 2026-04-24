@@ -4,40 +4,41 @@
  * @see https://unicode.org/Public/12.1.0/ucd/PropertyValueAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L22-L27
- * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L29-L30
+ * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L22
+ * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L25
+ * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L29
  * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L35
  *
  * @unicodeVersion 12.1
  * @fields 4
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:50.967Z
+ * @generated 2026-04-24T04:20:33.656Z
  */
 export interface PropertyValueAliases {
   /**
    * The property for which the property value name is used.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L22-L24
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L22
    */
   property: string;
 
   /**
-   * The short name for the property value.
+   * The short name for the property value, typically an abbreviation.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L25-L27
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L25
    */
   short_name: string;
 
   /**
-   * The long name for the property value.
+   * The long name for the property value, typically the formal name used in documentation.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L29-L30
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L29
    */
   long_name: string;
 
   /**
-   * Additional aliases beyond the preferred ones.
+   * Other aliases may be listed in additional fields.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/PropertyValueAliases.txt#L35
    */

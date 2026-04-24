@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:56.658Z
+ * @generated 2026-04-24T04:31:55.129Z
  */
 export interface NameAliases {
   /**
@@ -28,7 +28,7 @@ export interface NameAliases {
   alias: string;
 
   /**
-   * Type labels used are: correction, control, alternate, figment, abbreviation.
+   * Type.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/NameAliases.txt#L37-L43
    */

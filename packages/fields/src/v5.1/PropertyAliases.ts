@@ -9,9 +9,9 @@
  *
  * @unicodeVersion 5.1
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:57.927Z
+ * @generated 2026-04-24T04:28:44.759Z
  */
 export interface PropertyAliases {
   /**
@@ -19,14 +19,14 @@ export interface PropertyAliases {
    *
    * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/PropertyAliases.txt#L21
    */
-  abbreviated_name: string;
+  property_abbrev: string;
 
   /**
    * The second field is a long name.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/PropertyAliases.txt#L23
    */
-  long_name: string;
+  property_long: string;
 }
 
-export const PROPERTY_ALIASES_FIELDS = ["abbreviated_name", "long_name"];
+export const PROPERTY_ALIASES_FIELDS = ["property_abbrev", "property_long"];

@@ -10,22 +10,22 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:49:25.100Z
+ * @generated 2026-04-24T04:19:54.239Z
  */
 export interface ExtractedDerivedBinaryProperties {
   /**
-   * Unicode code point range or single code point listing those with Bidi_Mirrored Yes.
+   * Unicode code point or range (in hexadecimal notation) for which the Bidi_Mirrored property is true.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point_range: string;
 
   /**
-   * Derived binary property name.
+   * Binary property name indicating the characters listed have this property set to Yes.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   property: "Bidi_Mirrored";
 }
 
-export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["codepoint_range", "property"];
+export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point_range", "property"];

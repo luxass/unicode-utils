@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/8.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/extracted/DerivedNumericType.txt#L11-L19
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 8
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:37.453Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:25:23.898Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Derived Property: Numeric_Type The values are based on fields 6-8 of UnicodeData.txt, plus the fields kAccountingNumeric, kOtherNumeric, kPrimaryNumeric in the Unicode Han Datab...
+   * Unicode code point or range as documented in UAX #44.
    *
-   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/extracted/DerivedNumericType.txt#L11-L19
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
    * Derived Numeric_Type property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/extracted/DerivedNumericType.txt#L11-L19
+   * @source https://ucdjs.dev/reports/tr44/
    */
   numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point_range", "numeric_type"];
+export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point", "numeric_type"];

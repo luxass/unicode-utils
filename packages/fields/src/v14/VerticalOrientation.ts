@@ -5,13 +5,12 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L15-L22
- * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L70-L73
  *
  * @unicodeVersion 14
- * @fields 3
+ * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:38.190Z
+ * @generated 2026-04-24T04:20:28.229Z
  */
 export interface VerticalOrientation {
   /**
@@ -19,7 +18,7 @@ export interface VerticalOrientation {
    *
    * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L15-L17
    */
-  code_point: string;
+  codepoints: string;
 
   /**
    * Vertical_Orientation property value.
@@ -27,13 +26,6 @@ export interface VerticalOrientation {
    * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L18-L22
    */
   vertical_orientation: "U" | "R" | "Tu" | "Tr";
-
-  /**
-   * Comments following the number sign listing General_Category property value or L& alias of LC, Unicode character name or names, and code point count in square brackets for ranges.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L70-L73
-   */
-  comment: string;
 }
 
-export const VERTICAL_ORIENTATION_FIELDS = ["code_point", "vertical_orientation", "comment"];
+export const VERTICAL_ORIENTATION_FIELDS = ["codepoints", "vertical_orientation"];

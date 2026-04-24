@@ -9,23 +9,23 @@
  * @unicodeVersion 3.1
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:56:04.282Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:36:58.937Z
  */
 export interface Scripts310 {
   /**
-   * Unicode code point or range.
+   * Code point range or single code point.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
-  code_point: string;
+  range: string;
 
   /**
-   * Script property value per UAX #24.
+   * Script property value.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   script: string;
 }
 
-export const SCRIPTS_310_FIELDS = ["code_point", "script"];
+export const SCRIPTS_310_FIELDS = ["range", "script"];

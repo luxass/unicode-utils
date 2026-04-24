@@ -4,28 +4,62 @@
  * @see https://unicode.org/Public/3.1-Update/DerivedLineBreak-3.1.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/3.1-Update/DerivedLineBreak-3.1.0.txt#L13
+ * - https://ucdjs.dev/file-explorer/v/3.1-Update/DerivedLineBreak-3.1.0.txt#L13-L14
  *
  * @unicodeVersion 3.1
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:16.001Z
+ * @generated 2026-04-24T04:36:53.789Z
  */
 export interface DerivedLineBreak310 {
   /**
-   * Unicode code point or range listing Line Break property from LineBreak.txt field 1.
+   * Unicode code point or range listing the Line Break property (from LineBreak.txt, field 1).
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/DerivedLineBreak-3.1.0.txt#L13
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/DerivedLineBreak-3.1.0.txt#L13-L14
    */
   code_point_range: string;
 
   /**
-   * Line Break property value.
+   * (listing LineBreak.txt, field 1) ================================================.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/DerivedLineBreak-3.1.0.txt#L13
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/DerivedLineBreak-3.1.0.txt#L13-L14
    */
-  line_break: string;
+  line_break:
+    | "BK"
+    | "CR"
+    | "LF"
+    | "CM"
+    | "NL"
+    | "SG"
+    | "WJ"
+    | "ZW"
+    | "GL"
+    | "SP"
+    | "ZWJ"
+    | "B2"
+    | "BA"
+    | "BB"
+    | "HY"
+    | "HH"
+    | "CB"
+    | "EX"
+    | "IN"
+    | "JI"
+    | "PR"
+    | "PO"
+    | "NU"
+    | "AL"
+    | "NS"
+    | "OP"
+    | "CL"
+    | "CP"
+    | "IS"
+    | "SY"
+    | "EB"
+    | "EM"
+    | "ZWJ"
+    | (string & {});
 }
 
 export const DERIVED_LINE_BREAK_310_FIELDS = ["code_point_range", "line_break"];

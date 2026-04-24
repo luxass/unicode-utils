@@ -4,47 +4,47 @@
  * @see https://unicode.org/Public/4.1.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24
+ * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24-L37
  *
  * @unicodeVersion 4.1
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:40.127Z
+ * @generated 2026-04-24T04:30:40.774Z
  */
 export interface SpecialCasing {
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Unicode code point value in hex.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24-L28
    */
   code: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Lowercase mapping; one or more character values in hex, space separated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24-L28
    */
   lower: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Titlecase mapping; one or more character values in hex, space separated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24-L28
    */
   title: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Uppercase mapping; one or more character values in hex, space separated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24-L28
    */
   upper: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Optional list of locale IDs or contexts, separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/SpecialCasing.txt#L24-L37
    */
   condition_list: string;
 

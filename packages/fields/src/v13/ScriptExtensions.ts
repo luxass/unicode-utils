@@ -5,28 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L28-L29
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L38
+ * - https://ucdjs.dev/reports/tr24/
  *
  * @unicodeVersion 13
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:15.548Z
+ * @generated 2026-04-24T04:19:14.500Z
  */
 export interface ScriptExtensions {
   /**
-   * Code point or range associated with the Script_Extensions value.
+   * Set of one or more abbreviated Script property values.
+   *
+   * @source https://ucdjs.dev/reports/tr24/
+   */
+  script_extensions: string;
+
+  /**
+   * List of code points associated with that Script_Extensions value, listed in code point order.
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L28-L29
    */
-  codepoint: string;
-
-  /**
-   * Property: Script_Extensions.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L38
-   */
-  script_extensions: string;
+  code_points: string;
 }
 
-export const SCRIPT_EXTENSIONS_FIELDS = ["codepoint", "script_extensions"];
+export const SCRIPT_EXTENSIONS_FIELDS = ["script_extensions", "code_points"];

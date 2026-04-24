@@ -4,72 +4,28 @@
  * @see https://unicode.org/Public/11.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr29/
+ * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
  *
  * @unicodeVersion 11
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:36.722Z
+ * @generated 2026-04-24T04:21:04.130Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range in standard UCD format.
+   * Unicode code point or range explicitly listed for Word_Break property.
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Word_Break property value.
+   * Assigned Word_Break property value (defaults to Other for unlisted code points).
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
    */
-  word_break:
-    | "ALetter"
-    | "ATerm"
-    | "B2"
-    | "CR"
-    | "Double_Quote"
-    | "E_Base"
-    | "E_Base_GAZ"
-    | "E_Modifier"
-    | "Extend"
-    | "ExtendNumLet"
-    | "FO"
-    | "Format"
-    | "Glue_After_Zwj"
-    | "H2"
-    | "H3"
-    | "Hebrew_Letter"
-    | "HY"
-    | "Ideographic"
-    | "JL"
-    | "JT"
-    | "JV"
-    | "Katakana"
-    | "LE"
-    | "LF"
-    | "Link"
-    | "MidLetter"
-    | "MidNum"
-    | "MidNumLet"
-    | "Newline"
-    | "Numeric"
-    | "Other"
-    | "Perl"
-    | "PO"
-    | "Prefix"
-    | "PRHangul"
-    | "Regional_Indicator"
-    | "RI"
-    | "Single_Quote"
-    | "Space"
-    | "STerm"
-    | "WSegSpace"
-    | "ZWJ"
-    | "ZwjEB"
-    | (string & {});
+  word_break: string;
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];

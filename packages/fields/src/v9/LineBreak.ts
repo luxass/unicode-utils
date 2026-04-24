@@ -4,19 +4,19 @@
  * @see https://unicode.org/Public/9.0.0/ucd/LineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/LineBreak.txt#L16-L24
+ * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/LineBreak.txt#L15-L24
  *
  * @unicodeVersion 9
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:49.316Z
+ * @generated 2026-04-24T04:23:49.208Z
  */
 export interface LineBreak {
   /**
    * Unicode code point value or range of code point values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/LineBreak.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/LineBreak.txt#L15-L17
    */
   codepoints: string;
 

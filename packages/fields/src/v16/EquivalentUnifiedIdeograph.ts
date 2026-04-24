@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:01:44.937Z
+ * @generated 2026-04-24T04:15:02.045Z
  */
 export interface EquivalentUnifiedIdeograph {
   /**
@@ -25,7 +25,10 @@ export interface EquivalentUnifiedIdeograph {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/EquivalentUnifiedIdeograph.txt#L23-L26
    */
-  equivalent_code_point: string;
+  equivalent_unified_ideograph: string;
 }
 
-export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = ["source_code_point", "equivalent_code_point"];
+export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = [
+  "source_code_point",
+  "equivalent_unified_ideograph",
+];

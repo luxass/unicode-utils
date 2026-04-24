@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/16.0.0/ucd/DoNotEmit.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L52-L97
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L52-L96
  *
  * @unicodeVersion 16
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:00:54.458Z
+ * @generated 2026-04-24T04:14:29.567Z
  */
 export interface DoNotEmit {
   /**
@@ -30,7 +30,7 @@ export interface DoNotEmit {
   /**
    * DoNotEmit type of the original character sequence.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L54-L97
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L54-L96
    */
   do_not_emit_type:
     | "Indic_Atomic_Consonant"

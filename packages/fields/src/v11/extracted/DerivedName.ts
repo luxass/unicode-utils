@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 11
  * @fields 2
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:02.003Z
+ * @generated 2026-04-24T04:21:47.012Z
  */
 export interface ExtractedDerivedName {
   /**
@@ -18,7 +18,7 @@ export interface ExtractedDerivedName {
    *
    * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedName.txt#L22-L23
    */
-  code_point_or_range: string;
+  codepoint: string;
 
   /**
    * Name property value or pattern.
@@ -28,4 +28,4 @@ export interface ExtractedDerivedName {
   name: string;
 }
 
-export const EXTRACTED_DERIVED_NAME_FIELDS = ["code_point_or_range", "name"];
+export const EXTRACTED_DERIVED_NAME_FIELDS = ["codepoint", "name"];

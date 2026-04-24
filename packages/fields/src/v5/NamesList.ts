@@ -9,8 +9,8 @@
  * @unicodeVersion 5
  * @fields 0
  * @confidence 0.00
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:54:28.218Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:29:41.530Z
  */
 export interface NamesList {}
 

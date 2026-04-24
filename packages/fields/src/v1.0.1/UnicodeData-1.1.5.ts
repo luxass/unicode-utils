@@ -9,8 +9,8 @@
  * @unicodeVersion 1.0.1
  * @fields 0
  * @confidence 0.00
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:56:42.070Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:32:56.050Z
  */
 export interface UnicodeData115 {}
 

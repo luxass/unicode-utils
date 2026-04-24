@@ -10,36 +10,22 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:11.408Z
+ * @generated 2026-04-24T04:18:07.813Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range explicitly listed for Sentence_Break.
+   * Code point or range explicitly listed for the Sentence_Break property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/auxiliary/SentenceBreakProperty.txt#L14
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/auxiliary/SentenceBreakProperty.txt#L14-L15
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Sentence_Break property value; unlisted code points have default value Other (XX).
+   * Sentence_Break property value (defaults to Other for unlisted code points).
    *
    * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/auxiliary/SentenceBreakProperty.txt#L12-L15
    */
-  sentence_break:
-    | "CR"
-    | "LF"
-    | "Extend"
-    | "Sp"
-    | "Sep"
-    | "STerm"
-    | "ATerm"
-    | "Lower"
-    | "Upper"
-    | "OLetter"
-    | "Numeric"
-    | "Close"
-    | "XX"
-    | (string & {});
+  sentence_break: string;
 }
 
-export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break"];
+export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point_range", "sentence_break"];

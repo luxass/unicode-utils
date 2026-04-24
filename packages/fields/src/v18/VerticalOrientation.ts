@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/18.0.0/ucd/VerticalOrientation.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/VerticalOrientation.txt#L15-L22
+ * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/VerticalOrientation.txt#L15-L23
  *
  * @unicodeVersion 18
  * @fields 2
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:50.134Z
+ * @generated 2026-04-24T04:16:51.945Z
  */
 export interface VerticalOrientation {
   /**
@@ -23,7 +23,7 @@ export interface VerticalOrientation {
   /**
    * Vertical_Orientation property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/VerticalOrientation.txt#L18-L22
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/VerticalOrientation.txt#L15-L23
    */
   vertical_orientation: "U" | "R" | "Tu" | "Tr";
 }

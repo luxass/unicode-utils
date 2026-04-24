@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:47.004Z
+ * @generated 2026-04-24T04:21:07.560Z
  */
 export interface EmojiSources {
   /**

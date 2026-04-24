@@ -9,23 +9,23 @@
  * @unicodeVersion 8
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:53:10.465Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:24:33.139Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * Unicode code point or range in hexadecimal notation.
+   * Unicode code point range (e.g. 0000..007F).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Major General_Category value: C (Other), L (Letter), M (Mark), N (Number), P (Punctuation), S (Symbol), Z (Separator).
+   * Derived General_Category value.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  general_category: "C" | "L" | "M" | "N" | "P" | "S" | "Z";
+  general_category: string;
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point_range", "general_category"];

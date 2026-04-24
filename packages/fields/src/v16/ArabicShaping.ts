@@ -4,21 +4,22 @@
  * @see https://unicode.org/Public/16.0.0/ucd/ArabicShaping.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39-L46
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L55
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63-L74
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L41-L46
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L54
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63
  *
  * @unicodeVersion 16
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:00:47.245Z
+ * @generated 2026-04-24T04:14:07.486Z
  */
 export interface ArabicShaping {
   /**
    * the code point of a character, in hexadecimal form.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39-L40
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39
    */
   code_point: string;
 
@@ -30,16 +31,16 @@ export interface ArabicShaping {
   schematic_name: string;
 
   /**
-   * defines the joining type (property name: Joining_Type)
+   * defines the joining type (property name: Joining_Type).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L55
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L54
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
   /**
-   * defines the joining group (property name: Joining_Group)
+   * defines the joining group (property name: Joining_Group).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63-L74
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63
    */
   joining_group: string;
 }

@@ -4,26 +4,26 @@
  * @see https://unicode.org/Public/9.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 9
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:38.771Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:23:31.777Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Derived Property: Numeric_Type The values are based on fields 6-8 of UnicodeData.txt, plus the fields kAccountingNumeric, kOtherNumeric, kPrimaryNumeric in the Unicode Han Datab...
+   * Unicode code point or range to which the Numeric_Type applies.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
+   * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Derived Numeric_Type property value based on UnicodeData.txt fields 6-8 and Unihan numeric fields.
+   * The value of the Numeric_Type property as derived from UnicodeData.txt fields 6-8 and Unihan numeric fields.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
+   * @source https://ucdjs.dev/reports/tr44/
    */
   numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
 }

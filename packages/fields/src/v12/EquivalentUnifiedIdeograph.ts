@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 12
  * @fields 2
- * @confidence 0.90
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:19.607Z
+ * @generated 2026-04-24T04:22:06.635Z
  */
 export interface EquivalentUnifiedIdeograph {
   /**
@@ -18,14 +18,17 @@ export interface EquivalentUnifiedIdeograph {
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/EquivalentUnifiedIdeograph.txt#L23-L26
    */
-  source_codepoint: string;
+  source_code_point_or_range: string;
 
   /**
-   * Equivalent CJK unified ideograph code point represented as a variable-length hexadecimal value with 4 to 6 digits.
+   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/EquivalentUnifiedIdeograph.txt#L23-L26
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/EquivalentUnifiedIdeograph.txt#L25-L26
    */
-  equivalent_codepoint: string;
+  equivalent_unified_ideograph: string;
 }
 
-export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = ["source_codepoint", "equivalent_codepoint"];
+export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = [
+  "source_code_point_or_range",
+  "equivalent_unified_ideograph",
+];

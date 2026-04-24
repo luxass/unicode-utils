@@ -4,35 +4,33 @@
  * @see https://unicode.org/Public/13.0.0/ucd/PropertyAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L21
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L27
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L30
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L19-L30
  *
  * @unicodeVersion 13
  * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:09.577Z
+ * @generated 2026-04-24T04:20:29.642Z
  */
 export interface PropertyAliases {
   /**
-   * The first field is the short name for the property. It is typically an abbreviation.
+   * The first field is the short name for the property. It is typically an abbreviation, but in a number of cases it is simply a duplicate of the "long name" in the second field.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L21
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L19-L30
    */
   short_name: string;
 
   /**
-   * The second field is the long name for the property, typically the formal name used in documentation.
+   * The second field is the long name for the property, typically the formal name used in documentation about the property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L27
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L19-L30
    */
   long_name: string;
 
   /**
    * Other aliases may be listed in additional fields.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L30
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyAliases.txt#L19-L30
    */
   additional_aliases: string[];
 }

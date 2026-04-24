@@ -4,21 +4,32 @@
  * @see https://unicode.org/Public/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L12-L15
+ * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L12
+ * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L14
  *
  * @unicodeVersion 9
- * @fields 1
+ * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:15.877Z
+ * @generated 2026-04-24T04:21:39.819Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Grapheme_Cluster_Break property value; defaults to Other (XX) for unlisted code points.
+   * Unicode code point or range with explicit Grapheme_Cluster_Break value (defaults to Other for unlisted code points).
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L12-L15
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L14
    */
-  grapheme_cluster_break: "Other" | (string & {});
+  code_point_range: string;
+
+  /**
+   * Grapheme cluster break property value.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L12
+   */
+  grapheme_cluster_break: string;
 }
 
-export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["grapheme_cluster_break"];
+export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = [
+  "code_point_range",
+  "grapheme_cluster_break",
+];

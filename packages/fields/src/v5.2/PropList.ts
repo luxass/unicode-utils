@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/5.2.0/ucd/PropList.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 5.2
- * @fields 2
- * @confidence 0.80
+ * @fields 0
+ * @confidence 0.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:18.348Z
+ * @generated 2026-04-24T04:34:46.105Z
  */
-export interface PropList {
-  /**
-   * Code point or code point range.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point_range: string;
+export interface PropList {}
 
-  /**
-   * Binary property value for the listed code points.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  property: "Y" | "N";
-}
-
-export const PROP_LIST_FIELDS = ["code_point_range", "property"];
+export const PROP_LIST_FIELDS = [];

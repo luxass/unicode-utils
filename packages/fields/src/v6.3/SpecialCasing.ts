@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/6.3.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24
+ * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24-L37
  *
  * @unicodeVersion 6.3
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:41.344Z
+ * @generated 2026-04-24T04:32:32.159Z
  */
 export interface SpecialCasing {
   /**
@@ -42,14 +42,14 @@ export interface SpecialCasing {
   upper: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Optional condition list of language IDs or contexts, separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24-L37
    */
   condition_list: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Informational comment.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24
    */

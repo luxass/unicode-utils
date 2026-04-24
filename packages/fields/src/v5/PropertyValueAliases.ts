@@ -4,28 +4,27 @@
  * @see https://unicode.org/Public/5.0.0/ucd/PropertyValueAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L22
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L25
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L28
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L22-L28
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L33
  *
  * @unicodeVersion 5
- * @fields 3
+ * @fields 4
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:46.013Z
+ * @generated 2026-04-24T04:30:19.649Z
  */
 export interface PropertyValueAliases {
   /**
-   * The property for which the property value name is used.
+   * The property for which that property value name is used.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L22
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L22-L24
    */
   property: string;
 
   /**
-   * An abbreviated name. If none available, marked with 'n/a'.
+   * An abbreviated name. If there is no abbreviated name available, the field is marked with "n/a".
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L25
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L25-L27
    */
   abbreviated_name: string;
 
@@ -35,6 +34,18 @@ export interface PropertyValueAliases {
    * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L28
    */
   long_name: string;
+
+  /**
+   * Other aliases may be listed in additional fields.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/PropertyValueAliases.txt#L33
+   */
+  additional_aliases: string[];
 }
 
-export const PROPERTY_VALUE_ALIASES_FIELDS = ["property", "abbreviated_name", "long_name"];
+export const PROPERTY_VALUE_ALIASES_FIELDS = [
+  "property",
+  "abbreviated_name",
+  "long_name",
+  "additional_aliases",
+];

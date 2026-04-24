@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:30.628Z
+ * @generated 2026-04-24T04:30:33.818Z
  */
 export interface StandardizedVariants400 {
   /**
@@ -28,7 +28,7 @@ export interface StandardizedVariants400 {
   description: string;
 
   /**
-   * where the appearance is only different in particular shaping environments; possible values: isolate, initial, medial, final (space-separated if multiple)
+   * where the appearance is only different in particular shaping environments; possible values: isolate, initial, medial, final (space-separated)
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/StandardizedVariants-4.0.0.txt#L16-L18
    */

@@ -8,24 +8,24 @@
  *
  * @unicodeVersion 3.1
  * @fields 2
- * @confidence 0.70
+ * @confidence 0.50
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:55:58.753Z
+ * @generated 2026-04-24T04:37:33.937Z
  */
 export interface DerivedJoiningType310 {
   /**
-   * Unicode code point range listing the Joining Type.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Joining Type value from ArabicShaping.txt field 1.
+   * Joining Type property value per ArabicShaping.txt field 1.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   joining_type: string;
 }
 
-export const DERIVED_JOINING_TYPE_310_FIELDS = ["code_point_range", "joining_type"];
+export const DERIVED_JOINING_TYPE_310_FIELDS = ["code_point", "joining_type"];

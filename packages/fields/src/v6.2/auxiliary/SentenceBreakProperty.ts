@@ -4,51 +4,31 @@
  * @see https://unicode.org/Public/6.2.0/ucd/auxiliary/SentenceBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
- * - https://ucdjs.dev/reports/tr29/
+ * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/auxiliary/SentenceBreakProperty.txt#L11-L14
  *
  * @unicodeVersion 6.2
- * @fields 3
+ * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:53.248Z
+ * @generated 2026-04-24T04:24:56.512Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range in standard UCD format.
+   * Unicode code point or range explicitly listed for the Sentence_Break property.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/auxiliary/SentenceBreakProperty.txt#L11-L14
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Sentence_Break property value.
+   * Value of the Sentence_Break property for the code point(s); unlisted code points have value Other (XX).
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/auxiliary/SentenceBreakProperty.txt#L11-L14
    */
-  sentence_break:
-    | "ATerm"
-    | "Buffer"
-    | "Close"
-    | "CR"
-    | "Extend"
-    | "Format"
-    | "LF"
-    | "Lower"
-    | "Numeric"
-    | "OLetter"
-    | "Other"
-    | "Sep"
-    | "Sp"
-    | "STerm"
-    | "Upper";
-
-  /**
-   * Optional comment field.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  comment: string;
+  sentence_break_value: string;
 }
 
-export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break", "comment"];
+export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = [
+  "code_point_range",
+  "sentence_break_value",
+];

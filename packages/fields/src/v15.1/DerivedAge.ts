@@ -4,28 +4,55 @@
  * @see https://unicode.org/Public/15.1.0/ucd/DerivedAge.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/15.1.0/ucd/DerivedAge.txt#L37
+ * - https://ucdjs.dev/file-explorer/v/15.1.0/ucd/DerivedAge.txt#L52
  *
  * @unicodeVersion 15.1
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:49:14.317Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:15:37.277Z
  */
 export interface DerivedAge {
   /**
-   * Hexadecimal code point or range (e.g. 0000..10FFFF).
+   * Age=V1_1.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/DerivedAge.txt#L52
    */
   code_point_range: string;
 
   /**
-   * Age property value indicating the Unicode version when the code point(s) were first assigned.
+   * Property: Age.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/DerivedAge.txt#L37
    */
-  age: string;
+  age:
+    | "V1_1"
+    | "V2_0"
+    | "V2_1"
+    | "V3_0"
+    | "V3_1"
+    | "V3_2"
+    | "V4_0"
+    | "V4_1"
+    | "V5_0"
+    | "V5_1"
+    | "V5_2"
+    | "V6_0"
+    | "V6_1"
+    | "V6_2"
+    | "V6_3"
+    | "V7_0"
+    | "V8_0"
+    | "V9_0"
+    | "V10_0"
+    | "V11_0"
+    | "V12_0"
+    | "V13_0"
+    | "V14_0"
+    | "V15_0"
+    | "V15_1"
+    | (string & {});
 }
 
 export const DERIVED_AGE_FIELDS = ["code_point_range", "age"];

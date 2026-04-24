@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/5.1.0/ucd/LineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.1.0/ucd/LineBreak.txt#L13-L23
+ * - https://ucdjs.dev/file-explorer/v/5.1.0/ucd/LineBreak.txt#L14-L22
  *
  * @unicodeVersion 5.1
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:59.729Z
+ * @generated 2026-04-24T04:29:14.349Z
  */
 export interface LineBreak {
   /**
@@ -23,9 +23,9 @@ export interface LineBreak {
   /**
    * LineBreak property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/LineBreak.txt#L13-L23
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/LineBreak.txt#L15-L22
    */
-  line_break_property:
+  linebreak_property:
     | "BK"
     | "CR"
     | "LF"
@@ -61,8 +61,7 @@ export interface LineBreak {
     | "BA"
     | "SA"
     | "AI"
-    | "B2"
-    | (string & {});
+    | "B2";
 }
 
-export const LINE_BREAK_FIELDS = ["unicode_value", "line_break_property"];
+export const LINE_BREAK_FIELDS = ["unicode_value", "linebreak_property"];

@@ -4,29 +4,21 @@
  * @see https://unicode.org/Public/7.0.0/ucd/ScriptExtensions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ScriptExtensions.txt#L24-L25
- * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ScriptExtensions.txt#L35
+ * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ScriptExtensions.txt#L15-L18
  *
  * @unicodeVersion 7
- * @fields 2
+ * @fields 1
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:17.327Z
+ * @generated 2026-04-24T04:26:21.256Z
  */
 export interface ScriptExtensions {
   /**
-   * Property: Script_Extensions.
+   * Set of one or more abbreviated Script property values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ScriptExtensions.txt#L35
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ScriptExtensions.txt#L15-L18
    */
   script_extensions: string;
-
-  /**
-   * List of code points associated with that Script_Extensions value, listed in code point order.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ScriptExtensions.txt#L24-L25
-   */
-  code_points: string;
 }
 
-export const SCRIPT_EXTENSIONS_FIELDS = ["script_extensions", "code_points"];
+export const SCRIPT_EXTENSIONS_FIELDS = ["script_extensions"];

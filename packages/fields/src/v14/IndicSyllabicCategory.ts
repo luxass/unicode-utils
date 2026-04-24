@@ -10,20 +10,20 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:42.632Z
+ * @generated 2026-04-24T04:20:30.810Z
  */
 export interface IndicSyllabicCategory {
   /**
    * Unicode code point value or range of code point values
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/IndicSyllabicCategory.txt#L27-L28
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/IndicSyllabicCategory.txt#L27
    */
   code_point_or_range: string;
 
   /**
    * Indic_Syllabic_Category property value
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/IndicSyllabicCategory.txt#L27-L28
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/IndicSyllabicCategory.txt#L28
    */
   indic_syllabic_category: string;
 }

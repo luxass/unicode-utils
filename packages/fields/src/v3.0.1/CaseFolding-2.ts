@@ -10,18 +10,18 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:04.001Z
+ * @generated 2026-04-24T04:31:15.285Z
  */
 export interface CaseFolding2 {
   /**
-   * Unicode code point.
+   * <code>; <status>; <mapping>; <name>.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/CaseFolding-2.txt#L23
    */
   code: string;
 
   /**
-   * L (Lowercase) or E (exception).
+   * L (for Lowercase) if the case mapping matches the standard 1-1 lowercase mapping; E (for exception) if it does not.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/CaseFolding-2.txt#L23-L27
    */

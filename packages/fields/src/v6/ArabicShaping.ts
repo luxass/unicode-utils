@@ -4,49 +4,46 @@
  * @see https://unicode.org/Public/6.0.0/ucd/ArabicShaping.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L20-L21
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L23-L26
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L28-L35
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L37-L47
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L18-L37
  *
  * @unicodeVersion 6
  * @fields 4
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:58.030Z
+ * @generated 2026-04-24T04:27:21.819Z
  */
 export interface ArabicShaping {
   /**
-   * The code point, in 4-digit hexadecimal form, of an Arabic, Syriac, or N'Ko character.
+   * the code point, in 4-digit hexadecimal form, of an Arabic, Syriac, or N'Ko character.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L20-L21
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L18-L21
    */
-  code_point: string;
+  codepoint: string;
 
   /**
-   * A short schematic name for that character, abbreviated from the normative Unicode character name. Note that this schematic name is considered a comment, and does not constitute a formal property value.
+   * short schematic name for that character, abbreviated from the normative Unicode character name (considered a comment).
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L23-L26
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L18-L26
    */
   schematic_name: string;
 
   /**
-   * Joining type (property name: Joining_Type): R=Right_Joining, L=Left_Joining, D=Dual_Joining, C=Join_Causing, U=Non_Joining, T=Transparent.
+   * defines the joining type (property name: Joining_Type).
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L28-L35
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L18-L35
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
   /**
-   * Joining group (property name: Joining_Group), based schematically on character names.
+   * defines the joining group (property name: Joining_Group).
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L37-L47
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ArabicShaping.txt#L18-L37
    */
   joining_group: string;
 }
 
 export const ARABIC_SHAPING_FIELDS = [
-  "code_point",
+  "codepoint",
   "schematic_name",
   "joining_type",
   "joining_group",

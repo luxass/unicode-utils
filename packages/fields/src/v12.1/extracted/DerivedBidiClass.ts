@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/12.1.0/ucd/extracted/DerivedBidiClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/extracted/DerivedBidiClass.txt#L12
- * - https://ucdjs.dev/file-explorer/v/12.1.0/ucd/extracted/DerivedBidiClass.txt#L44
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 12.1
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:26.512Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:20:04.147Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * @missing: 0000..10FFFF; Left_To_Right.
+   * Unicode code point or range in hexadecimal notation, possibly a range xxxx..yyyy.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/extracted/DerivedBidiClass.txt#L44
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Bidi_Class property value (listing UnicodeData.txt, field 4: see UAX #44).
+   * Value of the Bidi_Class property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/extracted/DerivedBidiClass.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class: "L" | "R" | "AL" | "ET" | "BN" | (string & {});
+  bidi_class: string;
 }
 
-export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point_range", "bidi_class"];
+export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point", "bidi_class"];

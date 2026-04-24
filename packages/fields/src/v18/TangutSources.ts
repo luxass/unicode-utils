@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:35.196Z
+ * @generated 2026-04-24T04:17:17.149Z
  */
 export interface TangutSources {
   /**
@@ -18,21 +18,21 @@ export interface TangutSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/TangutSources.txt#L19
    */
-  code_point: string;
+  field_0: string;
 
   /**
    * a tag indicating the type of information in the third field
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/TangutSources.txt#L20
    */
-  tag: "kTGT_MergedSrc" | "kTGT_RSUnicode" | "kTGT_Numeric";
+  field_1: string;
 
   /**
    * the value (in UTF-8)
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/TangutSources.txt#L21
    */
-  value: string;
+  field_2: string;
 }
 
-export const TANGUT_SOURCES_FIELDS = ["code_point", "tag", "value"];
+export const TANGUT_SOURCES_FIELDS = ["field_0", "field_1", "field_2"];

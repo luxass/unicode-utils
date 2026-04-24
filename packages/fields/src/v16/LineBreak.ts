@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:01:15.814Z
+ * @generated 2026-04-24T04:16:54.007Z
  */
 export interface LineBreak {
   /**

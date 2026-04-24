@@ -7,25 +7,36 @@
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 14
- * @fields 2
+ * @fields 3
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:43.303Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:20:04.057Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * Unicode code point range in standard abbreviated hex notation.
+   * Unicode code point or range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point_range: string;
 
   /**
-   * General_Category property value.
+   * Abbreviated value of the General_Category property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  general_category: string;
+  general_category_abbr: string;
+
+  /**
+   * Long name for the General_Category property value.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  general_category_long: string;
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["codepoint_range", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = [
+  "code_point_range",
+  "general_category_abbr",
+  "general_category_long",
+];

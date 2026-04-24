@@ -4,17 +4,18 @@
  * @see https://unicode.org/Public/6.0.0/ucd/DerivedCoreProperties.txt
  *
  * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/DerivedCoreProperties.txt#L11-L12
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 6
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:03.926Z
+ * @generated 2026-04-24T04:27:40.680Z
  */
 export interface DerivedCoreProperties {
   /**
-   * Unicode code point or range (e.g. 0030..0039).
+   * Unicode code point range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
@@ -23,7 +24,7 @@ export interface DerivedCoreProperties {
   /**
    * Derived Property: Math. Generated from: Sm + Other_Math.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/DerivedCoreProperties.txt#L11-L12
    */
   math: "Y" | "N";
 }

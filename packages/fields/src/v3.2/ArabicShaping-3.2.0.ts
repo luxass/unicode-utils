@@ -5,23 +5,24 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/3.2-Update/ArabicShaping-3.2.0.txt#L17-L23
+ * - https://ucdjs.dev/file-explorer/v/3.2-Update/ArabicShaping-3.2.0.txt#L46
  *
  * @unicodeVersion 3.2
- * @fields 4
- * @confidence 0.80
+ * @fields 5
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:20.359Z
+ * @generated 2026-04-24T04:30:53.488Z
  */
 export interface ArabicShaping320 {
   /**
-   * The code point, in 4-digit hexadecimal form, of an Arabic or Syriac character.
+   * Code point, in 4-digit hexadecimal form, of an Arabic or Syriac character.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/ArabicShaping-3.2.0.txt#L17-L18
    */
   code_point: string;
 
   /**
-   * A short schematic name for that character, abbreviated from the normative Unicode character name.
+   * Short schematic name for that character, abbreviated from the normative Unicode character name.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/ArabicShaping-3.2.0.txt#L19-L20
    */
@@ -40,6 +41,13 @@ export interface ArabicShaping320 {
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/ArabicShaping-3.2.0.txt#L23
    */
   joining_group: string;
+
+  /**
+   * Unicode; Schematic Name; Joining Type; Joining Group.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/ArabicShaping-3.2.0.txt#L46
+   */
+  comment: string;
 }
 
 export const ARABIC_SHAPING_320_FIELDS = [
@@ -47,4 +55,5 @@ export const ARABIC_SHAPING_320_FIELDS = [
   "schematic_name",
   "joining_type",
   "joining_group",
+  "comment",
 ];

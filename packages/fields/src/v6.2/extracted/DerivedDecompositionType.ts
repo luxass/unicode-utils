@@ -10,11 +10,11 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:03.083Z
+ * @generated 2026-04-24T04:25:44.020Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point or range explicitly listed as having a Decomposition_Type.
+   * Unicode code point or range listed explicitly for Decomposition_Type.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
    */

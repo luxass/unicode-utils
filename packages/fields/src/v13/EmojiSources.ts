@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:01.803Z
+ * @generated 2026-04-24T04:17:57.298Z
  */
 export interface EmojiSources {
   /**
@@ -18,33 +18,33 @@ export interface EmojiSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/EmojiSources.txt#L22
    */
-  unicode_code_point_or_sequence: string;
+  unicode: string;
 
   /**
    * DoCoMo Shift-JIS code.
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/EmojiSources.txt#L23
    */
-  docomo_shift_jis_code: string;
+  docomo_shift_jis: string;
 
   /**
    * KDDI Shift-JIS code.
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/EmojiSources.txt#L24
    */
-  kddi_shift_jis_code: string;
+  kddi_shift_jis: string;
 
   /**
    * SoftBank Shift-JIS code.
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/EmojiSources.txt#L25
    */
-  softbank_shift_jis_code: string;
+  softbank_shift_jis: string;
 }
 
 export const EMOJI_SOURCES_FIELDS = [
-  "unicode_code_point_or_sequence",
-  "docomo_shift_jis_code",
-  "kddi_shift_jis_code",
-  "softbank_shift_jis_code",
+  "unicode",
+  "docomo_shift_jis",
+  "kddi_shift_jis",
+  "softbank_shift_jis",
 ];

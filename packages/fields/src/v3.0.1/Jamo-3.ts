@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:06.679Z
+ * @generated 2026-04-24T04:31:14.251Z
  */
 export interface Jamo3 {
   /**
-   * 4-digit hexadecimal code point of a combining jamo character.
+   * The code point, in 4-digit hexadecimal form, of a combining jamo character.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/Jamo-3.txt#L15-L17
    */
   code_point: string;
 
   /**
-   * Jamo Short Name as a one-, two-, or three-character ASCII string (or null string for U+110B).
+   * The Jamo Short Name as a one-, two-, or three-character ASCII string (or the null string).
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/Jamo-3.txt#L18-L20
    */

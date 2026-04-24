@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 14
  * @fields 3
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:43.566Z
+ * @generated 2026-04-24T04:20:40.434Z
  */
 export interface TangutSources {
   /**

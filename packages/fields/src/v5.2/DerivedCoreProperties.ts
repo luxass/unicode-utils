@@ -7,25 +7,32 @@
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 5.2
- * @fields 2
+ * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:42.997Z
+ * @generated 2026-04-24T04:33:14.389Z
  */
 export interface DerivedCoreProperties {
   /**
-   * Unicode code point range in the standard abbreviated format.
+   * Code point range (e.g. '0041' or '0041..0041').
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point_range: string;
 
   /**
-   * Derived Math property: characters that belong to the Math category (Sm + Other_Math).
+   * Derived Math property: Y if character is in Sm + Other_Math, else N.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   math: "Y" | "N";
+
+  /**
+   * Source of the Math value (e.g. 'Sm', 'Other_Math').
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  source: string;
 }
 
-export const DERIVED_CORE_PROPERTIES_FIELDS = ["codepoint_range", "math"];
+export const DERIVED_CORE_PROPERTIES_FIELDS = ["code_point_range", "math", "source"];

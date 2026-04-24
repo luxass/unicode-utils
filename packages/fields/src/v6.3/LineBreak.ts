@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/6.3.0/ucd/LineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/LineBreak.txt#L13-L22
+ * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/LineBreak.txt#L14-L22
  *
  * @unicodeVersion 6.3
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:30.248Z
+ * @generated 2026-04-24T04:32:11.049Z
  */
 export interface LineBreak {
   /**
@@ -21,9 +21,9 @@ export interface LineBreak {
   unicode_value: string;
 
   /**
-   * Line_Break property, consisting of one of the following values: Normative: "BK", "CR", "LF", "CM", "SG", "GL", "CB", "SP", "ZW", "NL", "WJ", "JL", "JV", "JT", "H2", "H3" Informative: "XX", "OP", "CL", "CP", "QU", "NS", "EX", "SY", "IS", "PR", "PO", "NU", "AL", "ID", "IN", "HY", "BB", "BA", "SA", "AI", "B2", "HL", "CJ", "RI".
+   * Line_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/LineBreak.txt#L13-L22
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/LineBreak.txt#L15-L22
    */
   line_break:
     | "BK"

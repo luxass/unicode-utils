@@ -4,40 +4,28 @@
  * @see https://unicode.org/Public/4.1.0/ucd/auxiliary/GraphemeBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 4.1
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:37.146Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:30:25.569Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Code point range in standard UCD format.
+   * Code point or range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Grapheme_Cluster_Break property value; defaults to Other for unlisted code points.
+   * Grapheme_Cluster_Break property value; unlisted code points have value Other.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  grapheme_cluster_break:
-    | "Other"
-    | "Control"
-    | "CR"
-    | "Extend"
-    | "L"
-    | "LF"
-    | "Prepend"
-    | "Regional_Indicator"
-    | "SpacingMark"
-    | "T"
-    | (string & {});
+  grapheme_cluster_break: string;
 }
 
 export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point", "grapheme_cluster_break"];

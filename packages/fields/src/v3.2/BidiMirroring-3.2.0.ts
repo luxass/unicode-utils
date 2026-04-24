@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:16.567Z
+ * @generated 2026-04-24T04:30:54.708Z
  */
 export interface BidiMirroring320 {
   /**
-   * First code point (variable-length hexadecimal value with 4 to 6 digits).
+   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits that has the mirrored property.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/BidiMirroring-3.2.0.txt#L15-L17
    */
   source_code_point: string;
 
   /**
-   * Mirror code point (variable-length hexadecimal value with 4 to 6 digits).
+   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits that is the mirror image glyph.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/BidiMirroring-3.2.0.txt#L15-L17
    */

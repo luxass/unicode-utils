@@ -10,13 +10,13 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:02:54.426Z
+ * @generated 2026-04-24T04:16:01.044Z
  */
 export interface IndicSyllabicCategory {
   /**
    * Unicode code point value or range of code point values
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/IndicSyllabicCategory.txt#L27-L28
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/IndicSyllabicCategory.txt#L27
    */
   code_point_or_range: string;
 

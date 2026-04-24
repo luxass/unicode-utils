@@ -4,19 +4,19 @@
  * @see https://unicode.org/Public/16.0.0/ucd/StandardizedVariants.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/StandardizedVariants.txt#L39-L43
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/StandardizedVariants.txt#L38-L43
  *
  * @unicodeVersion 16
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:02:10.211Z
+ * @generated 2026-04-24T04:16:41.615Z
  */
 export interface StandardizedVariants {
   /**
    * the variation sequence
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/StandardizedVariants.txt#L39
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/StandardizedVariants.txt#L38-L39
    */
   variation_sequence: string;
 

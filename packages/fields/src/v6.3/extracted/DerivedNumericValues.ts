@@ -11,7 +11,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:26.910Z
+ * @generated 2026-04-24T04:32:07.204Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
@@ -26,7 +26,7 @@ export interface ExtractedDerivedNumericValues {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/extracted/DerivedNumericValues.txt#L19-L20
    */
-  numeric_type: string;
+  empty: string;
 
   /**
    * Expressing the same numeric value either as a whole integer where possible, or as a rational fraction such as "1/6".
@@ -38,6 +38,6 @@ export interface ExtractedDerivedNumericValues {
 
 export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
   "numeric_value",
-  "numeric_type",
+  "empty",
   "numeric_value_fraction",
 ];

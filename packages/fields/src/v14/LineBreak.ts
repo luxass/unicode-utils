@@ -4,21 +4,21 @@
  * @see https://unicode.org/Public/14.0.0/ucd/LineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/LineBreak.txt#L16-L24
+ * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/LineBreak.txt#L15-L24
  *
  * @unicodeVersion 14
  * @fields 2
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:11.742Z
+ * @generated 2026-04-24T04:20:37.888Z
  */
 export interface LineBreak {
   /**
    * Unicode code point value or range of code point values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/LineBreak.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/LineBreak.txt#L15-L17
    */
-  code_point: string;
+  codepoints: string;
 
   /**
    * Line_Break property value.
@@ -71,4 +71,4 @@ export interface LineBreak {
     | "XX";
 }
 
-export const LINE_BREAK_FIELDS = ["code_point", "line_break"];
+export const LINE_BREAK_FIELDS = ["codepoints", "line_break"];

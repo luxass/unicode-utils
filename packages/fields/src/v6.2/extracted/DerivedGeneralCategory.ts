@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/6.2.0/ucd/extracted/DerivedGeneralCategory.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedGeneralCategory.txt#L11
- * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedGeneralCategory.txt#L15
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 6.2
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:14.221Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:27:27.462Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * General_Category=Unassigned.
+   * Unicode code point or range in hexadecimal notation.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedGeneralCategory.txt#L15
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoints: string;
+  code_point_range: string;
 
   /**
-   * General_Category value.
+   * General_Category property value (abbreviated, e.g. 'Lu', 'Cn').
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedGeneralCategory.txt#L11
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  general_category: "Unassigned";
+  general_category: string;
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["codepoints", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point_range", "general_category"];

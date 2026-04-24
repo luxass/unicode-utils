@@ -8,24 +8,24 @@
  *
  * @unicodeVersion 17
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:52.349Z
+ * @confidence 0.50
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:17:44.611Z
  */
 export interface PropList {
   /**
-   * Unicode code point range (e.g. 0020..007E or single code point).
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point_range: string;
 
   /**
-   * Binary property value for the listed property.
+   * Name of the binary property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  property: "Y" | "N";
+  property: string;
 }
 
-export const PROP_LIST_FIELDS = ["codepoint_range", "property"];
+export const PROP_LIST_FIELDS = ["code_point_range", "property"];

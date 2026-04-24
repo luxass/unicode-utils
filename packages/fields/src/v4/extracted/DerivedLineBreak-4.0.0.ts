@@ -10,20 +10,20 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:25.688Z
+ * @generated 2026-04-24T04:30:31.906Z
  */
 export interface ExtractedDerivedLineBreak400 {
   /**
-   * Code point or range explicitly listed with a Line Break property value other than the default XX.
+   * Unicode code point or range explicitly listed.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/extracted/DerivedLineBreak-4.0.0.txt#L13-L16
    */
   code_point_range: string;
 
   /**
-   * Line Break property value from LineBreak.txt field 1.
+   * Line break property value (field 1 from LineBreak.txt). All unlisted code points have value XX.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/extracted/DerivedLineBreak-4.0.0.txt#L13
+   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/extracted/DerivedLineBreak-4.0.0.txt#L13-L16
    */
   line_break: string;
 }

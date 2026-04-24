@@ -5,27 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr15/
  *
  * @unicodeVersion 12.1
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:51:59.503Z
+ * @generated 2026-04-24T04:20:05.294Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point or range for which the FC_NFKC_Closure is defined.
+   * Hexadecimal Unicode code point for the base character.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  range: string;
 
   /**
-   * Space-separated list of code points constituting the FC_NFKC_Closure of the code point.
+   * Space-separated list of hexadecimal Unicode code points constituting the FC_NFKC_Closure.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/reports/tr15/
    */
   fc_nfkc_closure: Array<string>;
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point", "fc_nfkc_closure"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["range", "fc_nfkc_closure"];

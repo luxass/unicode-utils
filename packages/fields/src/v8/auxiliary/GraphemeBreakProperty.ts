@@ -4,29 +4,46 @@
  * @see https://unicode.org/Public/8.0.0/ucd/auxiliary/GraphemeBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
+ * - https://ucdjs.dev/reports/tr44/
  * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 8
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:07.417Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:25:16.048Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
    * Unicode code point or range.
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Grapheme_Cluster_Break property value; defaults to Other (XX) for unlisted code points.
+   * Grapheme cluster break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr29/
    */
-  grapheme_cluster_break: "Other" | (string & {});
+  grapheme_cluster_break:
+    | "XX"
+    | "CR"
+    | "LF"
+    | "Control"
+    | "Extend"
+    | "Regional_Indicator"
+    | "SpacingMark"
+    | "L"
+    | "V"
+    | "T"
+    | "LV"
+    | "LVT"
+    | "Prepend"
+    | "E_Base"
+    | "EBG"
+    | "EM"
+    | "ZWJ";
 }
 
 export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point", "grapheme_cluster_break"];

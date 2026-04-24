@@ -4,51 +4,65 @@
  * @see https://unicode.org/Public/6.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/WordBreakProperty.txt#L16
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 6
- * @fields 2
+ * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:05.869Z
+ * @generated 2026-04-24T04:27:28.770Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range (e.g. 0000..10FFFF).
+   * Code point or range of code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/WordBreakProperty.txt#L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code: string;
 
   /**
-   * Word_Break property value; unlisted code points have value Other (XX).
+   * Word_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
   word_break:
-    | "AL"
+    | "ALetter"
+    | "ATerm"
     | "CR"
+    | "Double_Quote"
+    | "E_Base"
+    | "E_Base_GAZ"
+    | "E_Modifier"
     | "Extend"
     | "ExtendNumLet"
     | "FO"
     | "Format"
-    | "H2"
-    | "H3"
+    | "Glue_After_Zwj"
     | "Hebrew_Letter"
-    | "HY"
-    | "ID"
-    | "JL"
-    | "JT"
-    | "JV"
+    | "Katakana"
+    | "LE"
     | "LF"
-    | "NL"
+    | "MidLetter"
+    | "MidNum"
+    | "MidNumLet"
+    | "Newline"
+    | "Numeric"
     | "Other"
     | "Perl"
     | "RI"
+    | "Regional_Indicator"
+    | "Single_Quote"
     | "SP"
-    | "SY"
-    | "XX";
+    | "WSegmenter"
+    | "ZWJ"
+    | (string & {});
+
+  /**
+   * Optional comment.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  comment: string;
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code", "word_break", "comment"];

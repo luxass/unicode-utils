@@ -5,28 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedLineBreak.txt#L11-L14
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedLineBreak.txt#L20
  *
  * @unicodeVersion 5.2
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:58.590Z
+ * @generated 2026-04-24T04:33:22.946Z
  */
 export interface ExtractedDerivedLineBreak {
   /**
-   * Unicode code point or range (inferred from standard UCD format documented in UAX #44).
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point: string;
-
-  /**
-   * Line_Break property value; Unknown (XX) for unlisted code points.
+   * Unicode code point or range explicitly listed for Line_Break.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedLineBreak.txt#L11-L14
    */
-  line_break: "Unknown" | (string & {});
+  code_point_range: string;
+
+  /**
+   * Line_Break property value (defaults to Unknown (XX) for unlisted code points).
+   *
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedLineBreak.txt#L20
+   */
+  line_break: "XX" | (string & {});
 }
 
-export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point", "line_break"];
+export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point_range", "line_break"];

@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:47.114Z
+ * @generated 2026-04-24T04:30:14.860Z
  */
 export interface EastAsianWidth400 {
   /**

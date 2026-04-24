@@ -10,11 +10,11 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:50.800Z
+ * @generated 2026-04-24T04:28:51.105Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point or range explicitly listed with a Decomposition_Type value other than the default None.
+   * Unicode code point or range explicitly listed for Decomposition_Type.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
    */
@@ -23,9 +23,9 @@ export interface ExtractedDerivedDecompositionType {
   /**
    * Decomposition_Type value from UnicodeData.txt field 5.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedDecompositionType.txt#L11
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
    */
-  decomposition_type: string;
+  decomposition_type: "None" | (string & {});
 }
 
 export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

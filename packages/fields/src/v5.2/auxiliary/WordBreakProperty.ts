@@ -4,29 +4,30 @@
  * @see https://unicode.org/Public/5.2.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr29/
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
  *
  * @unicodeVersion 5.2
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:44.072Z
+ * @generated 2026-04-24T04:33:07.411Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range (inferred from standard UCD format).
+   * Unicode code point range or single code point explicitly listed for Word_Break.
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
    * Word_Break property value.
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
   word_break:
-    | "AL"
+    | "ALetter"
+    | "ATerm"
     | "CR"
     | "Double_Quote"
     | "E_Base"
@@ -45,11 +46,11 @@ export interface AuxiliaryWordBreakProperty {
     | "Other"
     | "Perl"
     | "Regional_Indicator"
-    | "RI"
     | "Single_Quote"
     | "SP"
-    | "WSegmenter"
+    | "WSegSpace"
+    | "ZWJ"
     | (string & {});
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];

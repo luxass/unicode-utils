@@ -5,28 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ScriptExtensions.txt#L11
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ScriptExtensions.txt#L20
+ * - https://ucdjs.dev/reports/tr24/
  *
  * @unicodeVersion 6
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:34.242Z
+ * @generated 2026-04-24T04:28:23.816Z
  */
 export interface ScriptExtensions {
   /**
-   * Unicode code point range for the Script_Extensions property.
+   * Unicode code point or range.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ScriptExtensions.txt#L20
+   * @source https://ucdjs.dev/reports/tr24/
    */
-  codepoints: string;
+  code_point_range: string;
 
   /**
-   * Space-delimited short script values such as Hang for Hangul.
+   * Space-delimited short script values for characters that belong to multiple scripts.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ScriptExtensions.txt#L11
    */
   script_extensions: string;
 }
 
-export const SCRIPT_EXTENSIONS_FIELDS = ["codepoints", "script_extensions"];
+export const SCRIPT_EXTENSIONS_FIELDS = ["code_point_range", "script_extensions"];

@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 13
  * @fields 3
- * @confidence 0.80
+ * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:01.196Z
+ * @generated 2026-04-24T04:17:48.180Z
  */
 export interface CjkRadicals {
   /**
@@ -21,14 +21,14 @@ export interface CjkRadicals {
   cjk_radical_number: string;
 
   /**
-   * There is one line per CJK radical number.
+   * CJK radical character in Kangxi Radicals or CJK Radicals Supplement block.
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/CJKRadicals.txt#L17-L20
    */
   cjk_radical_character: string;
 
   /**
-   * CJK unified ideograph which is formed from that radical only.
+   * CJK unified ideograph formed from that radical only.
    *
    * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/CJKRadicals.txt#L17-L20
    */

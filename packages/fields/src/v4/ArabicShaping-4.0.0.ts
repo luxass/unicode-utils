@@ -11,7 +11,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:46.514Z
+ * @generated 2026-04-24T04:29:57.578Z
  */
 export interface ArabicShaping400 {
   /**

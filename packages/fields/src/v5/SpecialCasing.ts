@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/5.0.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24
+ * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24-L28
  *
  * @unicodeVersion 5
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:58.359Z
+ * @generated 2026-04-24T04:30:03.500Z
  */
 export interface SpecialCasing {
   /**
@@ -21,23 +21,23 @@ export interface SpecialCasing {
   code: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Lowercase mapping; one or more character values in hex, space-separated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24-L28
    */
   lower: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Titlecase mapping; one or more character values in hex, space-separated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24-L28
    */
   title: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Uppercase mapping; one or more character values in hex, space-separated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/SpecialCasing.txt#L24-L28
    */
   upper: string;
 

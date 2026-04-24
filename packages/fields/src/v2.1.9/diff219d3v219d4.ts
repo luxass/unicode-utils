@@ -9,8 +9,8 @@
  * @unicodeVersion 2.1.9
  * @fields 0
  * @confidence 0.00
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:54:39.747Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:32:38.361Z
  */
 export interface Diff219D3V219D4 {}
 

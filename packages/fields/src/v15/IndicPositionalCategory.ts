@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:38.382Z
+ * @generated 2026-04-24T04:19:46.455Z
  */
 export interface IndicPositionalCategory {
   /**

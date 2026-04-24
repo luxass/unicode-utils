@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:18.962Z
+ * @generated 2026-04-24T04:27:31.847Z
  */
 export interface EmojiSources {
   /**
@@ -18,7 +18,7 @@ export interface EmojiSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/EmojiSources.txt#L22
    */
-  unicode_sequence: string;
+  unicode: string;
 
   /**
    * DoCoMo Shift-JIS code.
@@ -43,7 +43,7 @@ export interface EmojiSources {
 }
 
 export const EMOJI_SOURCES_FIELDS = [
-  "unicode_sequence",
+  "unicode",
   "docomo_shift_jis_code",
   "kddi_shift_jis_code",
   "softbank_shift_jis_code",

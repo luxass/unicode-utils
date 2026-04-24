@@ -5,20 +5,21 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/DerivedAge.txt#L37
+ * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/DerivedAge.txt#L52
  *
  * @unicodeVersion 11
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:36.905Z
+ * @generated 2026-04-24T04:22:24.639Z
  */
 export interface DerivedAge {
   /**
-   * Unicode code point or range with Age value.
+   * Age=V1_1.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/DerivedAge.txt#L37
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/DerivedAge.txt#L52
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
    * Property: Age.
@@ -30,29 +31,24 @@ export interface DerivedAge {
     | "V1_1_5"
     | "V2_0"
     | "V2_1"
-    | "3_0"
-    | "3_2"
-    | "4_0"
-    | "4_1"
-    | "5_0"
-    | "5_1"
-    | "5_2"
-    | "6_0"
-    | "6_1"
-    | "6_2"
-    | "6_3"
-    | "7_0"
-    | "8_0"
-    | "9_0"
-    | "10_0"
-    | "11_0"
-    | "12_0"
-    | "13_0"
-    | "14_0"
-    | "15_0"
-    | "16_0"
-    | "17_0"
+    | "V3_0"
+    | "V3_1"
+    | "V3_2"
+    | "V4_0"
+    | "V4_1"
+    | "V5_0"
+    | "V6_0"
+    | "V7_0"
+    | "V8_0"
+    | "V9_0"
+    | "V10_0"
+    | "V11_0"
+    | "V12_0"
+    | "V13_0"
+    | "V14_0"
+    | "V15_0"
+    | "V16_0"
     | (string & {});
 }
 
-export const DERIVED_AGE_FIELDS = ["code_point", "age"];
+export const DERIVED_AGE_FIELDS = ["code_point_range", "age"];

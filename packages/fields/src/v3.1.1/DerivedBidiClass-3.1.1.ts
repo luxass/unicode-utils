@@ -4,43 +4,28 @@
  * @see https://unicode.org/Public/3.1-Update1/DerivedBidiClass-3.1.1.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/3.1-Update1/DerivedBidiClass-3.1.1.txt#L13-L14
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 3.1.1
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:47.799Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:32:36.778Z
  */
 export interface DerivedBidiClass311 {
   /**
-   * Bidi Class (listing UnicodeData.txt, field 4: see UnicodeData.html) ================================================.
+   * Unicode code point or range as listed for the Bidi class.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/DerivedBidiClass-3.1.1.txt#L13-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point: string;
 
   /**
-   * Derived Bidi Class from UnicodeData.txt field 4.
+   * Bidi class value from UnicodeData.txt field 4.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/DerivedBidiClass-3.1.1.txt#L13-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class:
-    | "L"
-    | "R"
-    | "AL"
-    | "EN"
-    | "ES"
-    | "ET"
-    | "AN"
-    | "CS"
-    | "NSM"
-    | "BN"
-    | "B"
-    | "S"
-    | "WS"
-    | "ON"
-    | (string & {});
+  bidi_class: string;
 }
 
-export const DERIVED_BIDI_CLASS_311_FIELDS = ["codepoint_range", "bidi_class"];
+export const DERIVED_BIDI_CLASS_311_FIELDS = ["code_point", "bidi_class"];

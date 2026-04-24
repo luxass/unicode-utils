@@ -4,33 +4,33 @@
  * @see https://unicode.org/Public/11.0.0/ucd/CJKRadicals.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L17-L20
+ * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L13-L22
  *
  * @unicodeVersion 11
  * @fields 3
- * @confidence 0.80
+ * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:27.717Z
+ * @generated 2026-04-24T04:21:07.138Z
  */
 export interface CjkRadicals {
   /**
    * CJK radical number matching [1-9][0-9]{0,2}'?.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L19-L22
    */
   cjk_radical_number: string;
 
   /**
-   * There is one line per CJK radical number.
+   * CJK radical character in Kangxi Radicals block or CJK Radicals Supplement block.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L13-L20
    */
   cjk_radical_character: string;
 
   /**
-   * CJK unified ideograph which is formed from that radical only.
+   * CJK unified ideograph formed from that radical only.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/CJKRadicals.txt#L15-L20
    */
   cjk_unified_ideograph: string;
 }

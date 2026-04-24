@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:06.031Z
+ * @generated 2026-04-24T04:22:39.966Z
  */
 export interface Jamo {
   /**

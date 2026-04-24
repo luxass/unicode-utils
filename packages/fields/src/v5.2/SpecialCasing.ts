@@ -4,47 +4,47 @@
  * @see https://unicode.org/Public/5.2.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24-L40
  *
  * @unicodeVersion 5.2
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:34.483Z
+ * @generated 2026-04-24T04:33:30.148Z
  */
 export interface SpecialCasing {
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Unicode code point(s) in hex. If more than one character, they are separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24-L28
    */
   code: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Lowercase mapping character values in hex. If more than one character, they are separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24-L28
    */
   lower: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Titlecase mapping character values in hex. If more than one character, they are separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24-L28
    */
   title: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Uppercase mapping character values in hex. If more than one character, they are separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24-L28
    */
   upper: string;
 
   /**
-   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   * Optional list of one or more language IDs or contexts, separated by spaces. Overrides normal behavior if all conditions are true.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/SpecialCasing.txt#L24-L40
    */
   condition_list: string;
 

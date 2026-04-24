@@ -11,7 +11,7 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:08.221Z
+ * @generated 2026-04-24T04:14:05.523Z
  */
 export interface CaseFolding {
   /**
@@ -22,7 +22,7 @@ export interface CaseFolding {
   code: string;
 
   /**
-   * Status field indicating the type of case folding: C (common), F (full), S (simple), T (special Turkic).
+   * Case folding status: C (common), F (full), S (simple), T (special Turkic).
    *
    * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/CaseFolding.txt#L38-L43
    */
@@ -36,7 +36,7 @@ export interface CaseFolding {
   mapping: string;
 
   /**
-   * Name of the code point.
+   * Unicode character name.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/CaseFolding.txt#L36
    */

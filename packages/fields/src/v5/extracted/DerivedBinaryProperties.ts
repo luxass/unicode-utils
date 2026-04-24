@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/5.0.0/ucd/extracted/DerivedBinaryProperties.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedBinaryProperties.txt#L11
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 5
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:28.585Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:30:13.916Z
  */
 export interface ExtractedDerivedBinaryProperties {
   /**
-   * Unicode code point or range for the Bidi_Mirrored binary property.
+   * Unicode code point or range where Bidi_Mirrored is true (Y).
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedBinaryProperties.txt#L11
+   * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Bidi_Mirrored property value listing UnicodeData.txt field 9.
+   * Fixed property name for this section, indicating the binary property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedBinaryProperties.txt#L11
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  property: "Y" | "N";
+  property_value: "Bidi_Mirrored";
 }
 
-export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point", "property"];
+export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point", "property_value"];

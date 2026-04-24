@@ -4,47 +4,47 @@
  * @see https://unicode.org/Public/5.2.0/ucd/extracted/DerivedNumericValues.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedNumericValues.txt#L11-L21
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 5.2
  * @fields 4
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:00.431Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:34:33.309Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
-   * @missing: 0000..10FFFF; ; NaN indicates code point range with default numeric value.
+   * Unicode code point or range of code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedNumericValues.txt#L21
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Numeric value expressed as a decimal with limited precision.
+   * Decimal representation of the numeric value, which may be a repeating fraction printed to limited decimal places.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedNumericValues.txt#L11-L20
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  numeric_value_decimal: string;
+  decimal_numeric_value: string;
 
   /**
-   * Third field is empty; it used to be a copy of the numeric type.
+   * Empty field that used to contain a copy of the numeric type.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedNumericValues.txt#L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  numeric_type: "none";
+  numeric_type: string;
 
   /**
-   * Numeric value expressed as a whole integer where possible or as a rational fraction, e.g. "1/6".
+   * Rational representation of the numeric value as a whole integer or fraction, e.g. "1/6".
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedNumericValues.txt#L18-L19
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  numeric_value_fraction: string;
+  rational_numeric_value: string;
 }
 
 export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
-  "code_point_range",
-  "numeric_value_decimal",
+  "code_point",
+  "decimal_numeric_value",
   "numeric_type",
-  "numeric_value_fraction",
+  "rational_numeric_value",
 ];

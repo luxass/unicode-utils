@@ -9,10 +9,10 @@
  * - https://ucdjs.dev/file-explorer/v/2.1-Update3/SpecialCasing-1.txt#L25-L27
  *
  * @unicodeVersion 2.1.8
- * @fields 5
- * @confidence 0.80
+ * @fields 6
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:56:21.282Z
+ * @generated 2026-04-24T04:37:45.941Z
  */
 export interface SpecialCasing1 {
   /**
@@ -49,6 +49,20 @@ export interface SpecialCasing1 {
    * @source https://ucdjs.dev/file-explorer/v/2.1-Update3/SpecialCasing-1.txt#L18
    */
   condition_list: string;
+
+  /**
+   * Optional comment.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/2.1-Update3/SpecialCasing-1.txt#L18
+   */
+  comment: string;
 }
 
-export const SPECIAL_CASING_1_FIELDS = ["source", "lower", "title", "upper", "condition_list"];
+export const SPECIAL_CASING_1_FIELDS = [
+  "source",
+  "lower",
+  "title",
+  "upper",
+  "condition_list",
+  "comment",
+];

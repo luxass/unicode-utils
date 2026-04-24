@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 15.1
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:49:16.832Z
+ * @generated 2026-04-24T04:15:57.926Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
@@ -21,41 +21,11 @@ export interface ExtractedDerivedGeneralCategory {
   code_point: string;
 
   /**
-   * General_Category property value.
+   * General_Category property value as defined in UAX #44.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  general_category:
-    | "Lu"
-    | "Ll"
-    | "Lt"
-    | "Lm"
-    | "Lo"
-    | "Mn"
-    | "Mc"
-    | "Me"
-    | "Nd"
-    | "Nl"
-    | "No"
-    | "Pc"
-    | "Pd"
-    | "Ps"
-    | "Pe"
-    | "Pi"
-    | "Pf"
-    | "Po"
-    | "Sm"
-    | "Sc"
-    | "Sk"
-    | "So"
-    | "Zs"
-    | "Zl"
-    | "Zp"
-    | "Cc"
-    | "Cf"
-    | "Cs"
-    | "Co"
-    | "Cn";
+  general_category: string;
 }
 
 export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point", "general_category"];

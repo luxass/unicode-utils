@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/4.1.0/ucd/extracted/DerivedJoiningType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedJoiningType.txt#L11-L14
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedJoiningType.txt#L18
+ * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedJoiningType.txt#L11-L18
  *
  * @unicodeVersion 4.1
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:29.750Z
+ * @generated 2026-04-24T04:30:20.877Z
  */
 export interface ExtractedDerivedJoiningType {
   /**
-   * Unicode code point or range explicitly listed for the derived Joining_Type.
+   * Unicode code point or range with Joining_Type=Join_Causing.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedJoiningType.txt#L11-L14
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedJoiningType.txt#L11-L18
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * =Join_Causing.
+   * Derived Joining_Type value.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedJoiningType.txt#L18
    */
   joining_type: "Join_Causing";
 }
 
-export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point", "joining_type"];
+export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point_range", "joining_type"];

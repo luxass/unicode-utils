@@ -10,29 +10,29 @@
  * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:12.778Z
+ * @generated 2026-04-24T04:19:20.032Z
  */
 export interface DerivedCoreProperties {
   /**
-   * Unicode code point or range in the standard format.
+   * Code point range in the form <code>..<code> or single <code>.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Derived Property: Math.
+   * Derived Property: Math, generated from Sm + Other_Math.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   math: "Y" | "N";
 
   /**
-   * Optional comment field.
+   * Source properties or files from which the Math value was derived.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  comment: string;
+  source: string;
 }
 
-export const DERIVED_CORE_PROPERTIES_FIELDS = ["code_point", "math", "comment"];
+export const DERIVED_CORE_PROPERTIES_FIELDS = ["code_point_range", "math", "source"];

@@ -10,53 +10,53 @@
  * @fields 7
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:50.261Z
+ * @generated 2026-04-24T04:26:17.920Z
  */
 export interface USourceData {
   /**
-   * The U-source ID
+   * The U-source ID.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L12
    */
   u_source_id: string;
 
   /**
-   * Text indicating the ideograph's status: C=Included in Extension C, D=Included in Extension D, E=Included in Extension E, F=Submitted for Extension F, N=Planned to be submitted for a future extension, U=Encoded, UNC-2013=Included in the UTC's 2013 "Urgently Needed Characters" proposal, V=Variant of an encoded character, W=Not to encode, X=No action taken
+   * Text indicating the ideograph's status: C=Included in Extension C, D=Included in Extension D, E=Included in Extension E, F=Submitted for Extension F, N=Planned to be submitted for a future extension, U=Encoded, UNC-2013=Included in the UTC's 2013 "Urgently Needed Characters" proposal, V=Variant of an encoded character, W=Not to encode, X=No action taken.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L13-L24
    */
   status: "C" | "D" | "E" | "F" | "N" | "U" | "UNC-2013" | "V" | "W" | "X";
 
   /**
-   * A Unicode code point: if status is V, the code point of the encoded character for which this entry is a variant; otherwise, the encoded character for this entry
+   * A Unicode code point. If the status is V (Field 1), the code point in Field 2 specifies the encoded character for which this entry is a variant. Otherwise, the code point specifies the encoded character for this entry.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L24-L27
    */
-  unicode_code_point: string;
+  code_point: string;
 
   /**
-   * Radical-stroke count
+   * Radical-stroke count.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L28
    */
   radical_stroke_count: string;
 
   /**
-   * Virtual KangXi dictionary position
+   * Virtual KangXi dictionary position.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L29
    */
-  virtual_kang_xi_dictionary_position: string;
+  virtual_kang_xi_position: string;
 
   /**
-   * Ideographic Description Sequence (IDS), if possible
+   * Ideographic Description Sequence (IDS), if possible.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L30
    */
-  ideographic_description_sequence: string;
+  ids: string;
 
   /**
-   * Source(s)
+   * Source(s).
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L31
    */
@@ -66,9 +66,9 @@ export interface USourceData {
 export const U_SOURCE_DATA_FIELDS = [
   "u_source_id",
   "status",
-  "unicode_code_point",
+  "code_point",
   "radical_stroke_count",
-  "virtual_kang_xi_dictionary_position",
-  "ideographic_description_sequence",
+  "virtual_kang_xi_position",
+  "ids",
   "sources",
 ];

@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/11.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericType.txt#L12-L27
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 11
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:05.936Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:24:03.562Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Unicode code point or range listed explicitly for Numeric_Type, with default None otherwise.
+   * Unicode code point or range of code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericType.txt#L12-L27
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoints: string;
+  code_point_range: string;
 
   /**
-   * Numeric_Type property value: Decimal when value in UnicodeData field 6; Digit when value in field 7 but not 6; Numeric when values in Unihan numeric fields or field 8 but not 7; None otherwise.
+   * Derived Numeric_Type property value: Decimal, Digit, Numeric, or None.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericType.txt#L12-L27
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  numeric_type: "Decimal" | "Digit" | "Numeric" | "None" | (string & {});
+  numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["codepoints", "numeric_type"];
+export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point_range", "numeric_type"];

@@ -10,11 +10,11 @@
  * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:05.288Z
+ * @generated 2026-04-24T04:14:24.303Z
  */
 export interface CjkRadicals {
   /**
-   * CJK radical number matching the regular expression [1-9][0-9]{0,2}'{0,2}.
+   * CJK radical number matching [1-9][0-9]{0,2}'{0,2}.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/CJKRadicals.txt#L17-L25
    */

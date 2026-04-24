@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/15.1.0/ucd/TangutSources.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/15.1.0/ucd/TangutSources.txt#L21-L33
+ * - https://ucdjs.dev/file-explorer/v/15.1.0/ucd/TangutSources.txt#L21-L23
  *
  * @unicodeVersion 15.1
  * @fields 3
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:37.744Z
+ * @generated 2026-04-24T04:16:45.949Z
  */
 export interface TangutSources {
   /**
@@ -18,14 +18,14 @@ export interface TangutSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/TangutSources.txt#L21
    */
-  tangut_code_point: string;
+  code_point: string;
 
   /**
-   * a tag indicating the type of information in the third field; current tags: kTGT_MergedSrc (Tangut Merged source), kRSTUnicode (Radical-Stroke indexes)
+   * a tag indicating the type of information in the third field
    *
-   * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/TangutSources.txt#L22-L33
+   * @source https://ucdjs.dev/file-explorer/v/15.1.0/ucd/TangutSources.txt#L22
    */
-  tag: "kTGT_MergedSrc" | "kRSTUnicode" | (string & {});
+  tag: string;
 
   /**
    * the value (in UTF-8)
@@ -35,4 +35,4 @@ export interface TangutSources {
   value: string;
 }
 
-export const TANGUT_SOURCES_FIELDS = ["tangut_code_point", "tag", "value"];
+export const TANGUT_SOURCES_FIELDS = ["code_point", "tag", "value"];

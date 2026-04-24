@@ -8,20 +8,20 @@
  *
  * @unicodeVersion 11
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:51:23.853Z
+ * @generated 2026-04-24T04:22:16.165Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range in standard UCD notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Decomposition_Type property value from UnicodeData.txt field 5.
+   * Decomposition_Type property value from field 5 of UnicodeData.txt as documented in UAX #44.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

@@ -7,47 +7,55 @@
  * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L22
  * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L25
  * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L28
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L33
+ * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L30-L31
  *
  * @unicodeVersion 4.1
- * @fields 4
+ * @fields 5
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:34.746Z
+ * @generated 2026-04-24T04:31:15.290Z
  */
 export interface PropertyValueAliases {
   /**
-   * The property for which the property value name is used.
+   * The property for which that property value name is used.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L22
    */
   property: string;
 
   /**
-   * Abbreviated name; 'n/a' if none.
+   * An abbreviated name. If there is no abbreviated name available, the field is marked with "n/a".
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L25
    */
-  abbrev_name: string;
+  abbreviated_name: string;
 
   /**
-   * Long name.
+   * A long name.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L28
    */
   long_name: string;
 
   /**
-   * Other aliases may be listed in additional fields.
+   * For ccc, the second field is numeric, third is abbreviated.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L33
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L30-L31
    */
-  additional_aliases: string[];
+  abbreviated_name_ccc: string;
+
+  /**
+   * For ccc, the fourth is long.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/PropertyValueAliases.txt#L31
+   */
+  long_name_ccc: string;
 }
 
 export const PROPERTY_VALUE_ALIASES_FIELDS = [
   "property",
-  "abbrev_name",
+  "abbreviated_name",
   "long_name",
-  "additional_aliases",
+  "abbreviated_name_ccc",
+  "long_name_ccc",
 ];

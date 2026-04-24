@@ -10,7 +10,7 @@
  * @fields 10
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:04.806Z
+ * @generated 2026-04-24T04:20:51.454Z
  */
 export interface USourceData {
   /**
@@ -21,9 +21,9 @@ export interface USourceData {
   u_source_id: string;
 
   /**
-   * Text indicating the ideograph's status: A=Encoded in Extension A, B=Encoded in Extension B, C=Encoded in Extension C, Comp=Encoded as a compatibility ideograph, D=Encoded in Extension D, E=Encoded in Extension E, F=Encoded in Extension F, G=Encoded in Extension G, N=Planned to be submitted for a future extension, U=Encoded in the URO or as a unified ideograph in the CJK Compatibility Ideographs block, UK-2015=Submitted by the UK for IRG Working Set 2015, V=Variant of an encoded character, W=Not suitable for encoding as a CJK Unified Ideograph, WS-2017=Submitted by the UTC for IRG Working Set 2017, X=No action taken, (UTC-\d{5})|(UCI-\d{5})=Duplicate entries deprecated in favor of other entries; the status value is the identifier of the non-deprecated character.
+   * Text indicating the ideograph's status: A=Encoded in Extension A, B=Encoded in Extension B, C=Encoded in Extension C, Comp=Encoded as a compatibility ideograph, D=Encoded in Extension D, E=Encoded in Extension E, F=Encoded in Extension F, G=Encoded in Extension G, N=Planned to be submitted for a future extension, U=Encoded in the URO or as a unified ideograph in the CJK Compatibility Ideographs block, UK-2015=Submitted by the UK for IRG Working Set 2015, V=Variant of an encoded character, W=Not suitable for encoding as a CJK Unified Ideograph, WS-2017=Submitted by the UTC for IRG Working Set 2017, X=No action taken, (UTC-\d{5})|(UCI-\d{5})=Duplicate entries deprecated in favor of other entries.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/USourceData.txt#L13-L29
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/USourceData.txt#L13-L30
    */
   status:
     | "A"
@@ -76,7 +76,7 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/USourceData.txt#L37
    */
-  sources: string[];
+  sources: string;
 
   /**
    * General comments

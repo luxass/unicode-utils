@@ -4,19 +4,19 @@
  * @see https://unicode.org/Public/12.0.0/ucd/StandardizedVariants.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/StandardizedVariants.txt#L38-L42
+ * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/StandardizedVariants.txt#L37-L42
  *
  * @unicodeVersion 12
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:28.257Z
+ * @generated 2026-04-24T04:23:26.499Z
  */
 export interface StandardizedVariants {
   /**
    * the variation sequence
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/StandardizedVariants.txt#L38
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/StandardizedVariants.txt#L37-L38
    */
   variation_sequence: string;
 
@@ -28,7 +28,7 @@ export interface StandardizedVariants {
   description: string;
 
   /**
-   * where the appearance is only different in particular shaping environments; possible values: isolate, initial, medial, final; multiple values separated by spaces
+   * where the appearance is only different in particular shaping environments. The possible values are: isolate, initial, medial, final. If more than one is present, there are spaces between them.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/StandardizedVariants.txt#L40-L42
    */

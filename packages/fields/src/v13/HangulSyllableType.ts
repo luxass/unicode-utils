@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:50:49.881Z
+ * @generated 2026-04-24T04:19:08.234Z
  */
 export interface HangulSyllableType {
   /**
-   * Unicode code point or range in hexadecimal format.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Value of the Hangul_Syllable_Type property.
+   * Hangul_Syllable_Type property value.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

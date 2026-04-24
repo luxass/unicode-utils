@@ -8,31 +8,31 @@
  *
  * @unicodeVersion 5
  * @fields 3
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:54:04.463Z
+ * @generated 2026-04-24T04:30:26.054Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point or range (e.g., 0020 or 00DF..00DF).
+   * A single code point or range of code points in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_points: string;
 
   /**
-   * One of the derived normalization properties.
+   * Name of the derived normalization property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  property: "NFC_QC" | "NFD_QC" | "NFKC_QC" | "NFKD_QC" | "FCC_CF" | "FC_NFKC_Closure";
+  property: string;
 
   /**
-   * The value for the property; for closures a space-separated list of code points.
+   * Space-separated list of Unicode code points constituting the property value (closure).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  value: string;
+  value: Array<string>;
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point_range", "property", "value"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_points", "property", "value"];

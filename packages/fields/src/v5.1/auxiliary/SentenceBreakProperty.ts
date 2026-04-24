@@ -11,18 +11,18 @@
  * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:46.956Z
+ * @generated 2026-04-24T04:28:05.652Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range in standard UCD format.
+   * Unicode code point or range (e.g. 0000..10FFFF).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Sentence_Break property value; defaults to Other (XX) for unlisted code points.
+   * Sentence_Break property value.
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
@@ -42,7 +42,7 @@ export interface AuxiliarySentenceBreakProperty {
     | (string & {});
 
   /**
-   * Optional machine-readable comment or empty.
+   * Optional comment field.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

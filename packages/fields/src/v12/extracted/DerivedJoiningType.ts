@@ -4,21 +4,28 @@
  * @see https://unicode.org/Public/12.0.0/ucd/extracted/DerivedJoiningType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/extracted/DerivedJoiningType.txt#L12-L21
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 12
- * @fields 1
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:24.298Z
+ * @fields 2
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:23:30.080Z
  */
 export interface ExtractedDerivedJoiningType {
   /**
-   * Joining_Type property value for code points explicitly listed.
+   * Unicode code point or range in hexadecimal notation.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/extracted/DerivedJoiningType.txt#L12-L21
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  joining_type: "Join_Causing" | (string & {});
+  code_point: string;
+
+  /**
+   * Value of the derived Joining_Type property.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  joining_type: string;
 }
 
-export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["joining_type"];
+export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point", "joining_type"];

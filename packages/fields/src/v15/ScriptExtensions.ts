@@ -11,7 +11,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:57.270Z
+ * @generated 2026-04-24T04:20:14.000Z
  */
 export interface ScriptExtensions {
   /**
@@ -26,7 +26,7 @@ export interface ScriptExtensions {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/ScriptExtensions.txt#L28-L29
    */
-  code_points: string;
+  code_points: string[];
 }
 
 export const SCRIPT_EXTENSIONS_FIELDS = ["script_extensions", "code_points"];

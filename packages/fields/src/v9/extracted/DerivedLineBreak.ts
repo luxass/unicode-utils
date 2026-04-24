@@ -5,28 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedLineBreak.txt#L12
- * - https://ucdjs.dev/reports/tr14/
+ * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedLineBreak.txt#L14
  *
  * @unicodeVersion 9
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:32.826Z
+ * @generated 2026-04-24T04:23:38.997Z
  */
 export interface ExtractedDerivedLineBreak {
   /**
-   * Unicode code point range or single code point.
+   * Unicode code point range or single code point explicitly listed for Line_Break.
    *
-   * @source https://ucdjs.dev/reports/tr14/
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedLineBreak.txt#L14
    */
   code_point_range: string;
 
   /**
-   * Property: Line_Break.
+   * Line_Break property value.
    *
    * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/extracted/DerivedLineBreak.txt#L12
    */
-  line_break: "XX" | (string & {});
+  line_break: string;
 }
 
 export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point_range", "line_break"];

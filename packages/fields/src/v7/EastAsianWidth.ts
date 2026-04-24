@@ -4,26 +4,26 @@
  * @see https://unicode.org/Public/7.0.0/ucd/EastAsianWidth.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L12-L17
+ * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L12-L15
  *
  * @unicodeVersion 7
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:12.721Z
+ * @generated 2026-04-24T04:25:04.126Z
  */
 export interface EastAsianWidth {
   /**
    * Unicode code point value or range of code point values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L13
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L12-L13
    */
   codepoints: string;
 
   /**
-   * East_Asian_Width property, consisting of one of the following values: "N", "A", "H", "W", "F", "Na".
+   * East_Asian_Width property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L12-L17
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L14-L15
    */
   east_asian_width: "N" | "A" | "H" | "W" | "F" | "Na";
 }

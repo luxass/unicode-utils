@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/4.0-Update/LineBreak-4.0.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.0-Update/LineBreak-4.0.0.txt#L7-L18
+ * - https://ucdjs.dev/file-explorer/v/4.0-Update/LineBreak-4.0.0.txt#L8-L16
  *
  * @unicodeVersion 4
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:02.897Z
+ * @generated 2026-04-24T04:30:25.685Z
  */
 export interface LineBreak400 {
   /**
@@ -21,9 +21,9 @@ export interface LineBreak400 {
   unicode_value: string;
 
   /**
-   * LineBreak property value.
+   * LineBreak property, consisting of one of the normative or informative values listed.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/LineBreak-4.0.0.txt#L7-L18
+   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/LineBreak-4.0.0.txt#L9-L16
    */
   linebreak_property:
     | "BK"

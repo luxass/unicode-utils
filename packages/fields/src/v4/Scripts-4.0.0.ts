@@ -5,28 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/4.0-Update/Scripts-4.0.0.txt#L11-L14
- * - https://ucdjs.dev/reports/tr24/
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 4
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:18.934Z
+ * @generated 2026-04-24T04:30:41.285Z
  */
 export interface Scripts400 {
   /**
-   * Code point or range explicitly listed with a Script property value.
+   * Unicode code point range or singleton.
    *
-   * @source https://ucdjs.dev/reports/tr24/
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  range: string;
 
   /**
-   * Script property value; all code points not explicitly listed have the property value COMMON.
+   * Script property value (Common for unlisted code points).
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/Scripts-4.0.0.txt#L11-L14
    */
   script: string;
 }
 
-export const SCRIPTS_400_FIELDS = ["code_point", "script"];
+export const SCRIPTS_400_FIELDS = ["range", "script"];

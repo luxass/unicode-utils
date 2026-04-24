@@ -4,40 +4,28 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedDecompositionType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L12-L15
  *
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:01:22.043Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:14:52.252Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Hexadecimal code point or range for characters with Decomposition_Type other than None.
+   * Unicode code point or range explicitly listed as having a Decomposition_Type other than the default None.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L12-L15
    */
-  code: string;
+  code_point: string;
 
   /**
-   * Decomposition_Type property value.
+   * Decomposition_Type value for the code point(s).
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L12
    */
-  decomposition_type:
-    | "Canonical"
-    | "Circle"
-    | "Compat"
-    | "Final"
-    | "Font"
-    | "Fraction"
-    | "Narrow"
-    | "NoBreak"
-    | "Small"
-    | "Square"
-    | "Vertical"
-    | "Wide";
+  decomposition_type: string;
 }
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code", "decomposition_type"];
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

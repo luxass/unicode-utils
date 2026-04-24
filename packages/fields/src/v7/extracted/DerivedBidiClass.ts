@@ -8,24 +8,47 @@
  *
  * @unicodeVersion 7
  * @fields 2
- * @confidence 0.70
+ * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:53:47.332Z
+ * @generated 2026-04-24T04:25:54.326Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Unicode code point or range in hexadecimal notation.
+   * Unicode code point or range of code points.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Bidi_Class property value as defined in UAX #44.
+   * Bidi_Class property value.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class: string;
+  bidi_class:
+    | "L"
+    | "R"
+    | "AL"
+    | "AN"
+    | "EN"
+    | "ES"
+    | "CS"
+    | "ET"
+    | "ON"
+    | "BN"
+    | "B"
+    | "S"
+    | "WS"
+    | "NSM"
+    | "LRE"
+    | "LRO"
+    | "RLE"
+    | "RLO"
+    | "PDF"
+    | "LRI"
+    | "RLI"
+    | "FSI"
+    | "PDI";
 }
 
 export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point", "bidi_class"];

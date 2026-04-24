@@ -10,7 +10,7 @@
  * @fields 10
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:43.442Z
+ * @generated 2026-04-24T04:16:41.106Z
  */
 export interface USourceData {
   /**
@@ -21,7 +21,7 @@ export interface USourceData {
   u_source_identifier: string;
 
   /**
-   * Status of the ideograph with enumerated values including Comp=Encoded as a CJK Compatibility Ideograph, ExtA=Encoded in Extension A, etc., and special cases for duplicates.
+   * Status of the ideograph encoding
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/USourceData.txt#L15-L33
    */
@@ -43,11 +43,12 @@ export interface USourceData {
     | "URO"
     | "Variant"
     | "WS-2024"
-    | "(UTC-\d{5})|(UCI-\d{5})"
+    | "UTC-\d{5}"
+    | "UCI-\d{5}"
     | (string & {});
 
   /**
-   * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant.
+   * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/USourceData.txt#L34
    */

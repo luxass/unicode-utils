@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:13.804Z
+ * @generated 2026-04-24T04:17:10.289Z
  */
 export interface JurchenSources {
   /**
@@ -18,21 +18,21 @@ export interface JurchenSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L20
    */
-  code_point: string;
+  field_0: string;
 
   /**
    * a tag indicating the type of information in the third field
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L21
    */
-  tag: string;
+  field_1: string;
 
   /**
    * the value (in UTF-8)
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L22
    */
-  value: string;
+  field_2: string;
 }
 
-export const JURCHEN_SOURCES_FIELDS = ["code_point", "tag", "value"];
+export const JURCHEN_SOURCES_FIELDS = ["field_0", "field_1", "field_2"];

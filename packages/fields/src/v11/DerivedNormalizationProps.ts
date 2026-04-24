@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/11.0.0/ucd/DerivedNormalizationProps.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 11
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:45.229Z
+ * @generated 2026-04-24T04:21:10.200Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point range or singleton.
+   * Code point range (e.g. 0061..007A).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point_range: string;
 
   /**
-   * List of code points constituting the FC_NFKC_Closure derived from NFKC(Fold(a)) computations (DEPRECATED as of Unicode 6.0.0).
+   * Space-separated list of code points in the FC_NFKC_Closure of the code point(s), or <none>.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
   fc_nfkc_closure: string[];
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["codepoint_range", "fc_nfkc_closure"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point_range", "fc_nfkc_closure"];

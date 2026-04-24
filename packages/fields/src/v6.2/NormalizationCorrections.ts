@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:25.683Z
+ * @generated 2026-04-24T04:27:42.580Z
  */
 export interface NormalizationCorrections {
   /**
@@ -18,33 +18,28 @@ export interface NormalizationCorrections {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/NormalizationCorrections.txt#L33
    */
-  unicode_code_point: string;
+  field_0: string;
 
   /**
    * Original (erroneous) decomposition.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/NormalizationCorrections.txt#L34
    */
-  original_decomposition: string;
+  field_1: string;
 
   /**
    * Corrected decomposition.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/NormalizationCorrections.txt#L35
    */
-  corrected_decomposition: string;
+  field_2: string;
 
   /**
    * Version of Unicode for which the correction was entered into UnicodeData.txt, in n.n.n format.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/NormalizationCorrections.txt#L36-L37
    */
-  version: string;
+  field_3: string;
 }
 
-export const NORMALIZATION_CORRECTIONS_FIELDS = [
-  "unicode_code_point",
-  "original_decomposition",
-  "corrected_decomposition",
-  "version",
-];
+export const NORMALIZATION_CORRECTIONS_FIELDS = ["field_0", "field_1", "field_2", "field_3"];

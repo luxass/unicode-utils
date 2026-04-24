@@ -7,36 +7,25 @@
  * - https://ucdjs.dev/reports/tr51/
  *
  * @unicodeVersion 17
- * @fields 3
- * @confidence 0.70
+ * @fields 2
+ * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:49:42.666Z
+ * @generated 2026-04-24T04:16:08.746Z
  */
 export interface EmojiEmojiVariationSequences {
   /**
-   * Base character code point of the variation sequence.
+   * Two space-separated hex values for the base character and variation selector-16 (U+FE0F) or variation selector-15 (U+FE0E).
    *
    * @source https://ucdjs.dev/reports/tr51/
    */
-  base_code_point: string;
+  sequence_codes: string;
 
   /**
-   * Variation selector code point (U+FE0E or U+FE0F) used in the sequence.
+   * The type “EVS”.
    *
    * @source https://ucdjs.dev/reports/tr51/
    */
-  variation_selector: string;
-
-  /**
-   * Recommended presentation style for the variation sequence.
-   *
-   * @source https://ucdjs.dev/reports/tr51/
-   */
-  presentation: "Emoji" | "Text";
+  evs_type: "EVS";
 }
 
-export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = [
-  "base_code_point",
-  "variation_selector",
-  "presentation",
-];
+export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = ["sequence_codes", "evs_type"];

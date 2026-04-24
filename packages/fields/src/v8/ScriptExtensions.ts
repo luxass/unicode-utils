@@ -4,20 +4,20 @@
  * @see https://unicode.org/Public/8.0.0/ucd/ScriptExtensions.txt
  *
  * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/ScriptExtensions.txt#L18-L21
  * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/ScriptExtensions.txt#L27-L28
- * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/ScriptExtensions.txt#L37
  *
  * @unicodeVersion 8
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:51.691Z
+ * @generated 2026-04-24T04:26:02.041Z
  */
 export interface ScriptExtensions {
   /**
-   * Property: Script_Extensions.
+   * Set of one or more abbreviated Script property values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/ScriptExtensions.txt#L37
+   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/ScriptExtensions.txt#L18-L21
    */
   script_extensions: string[];
 

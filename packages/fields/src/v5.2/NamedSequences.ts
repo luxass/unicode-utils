@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:07.022Z
+ * @generated 2026-04-24T04:33:25.481Z
  */
 export interface NamedSequences {
   /**
@@ -18,7 +18,7 @@ export interface NamedSequences {
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/NamedSequences.txt#L10
    */
-  name_of_sequence: string;
+  name: string;
 
   /**
    * Code Point Sequence for USI
@@ -28,4 +28,4 @@ export interface NamedSequences {
   code_point_sequence: string;
 }
 
-export const NAMED_SEQUENCES_FIELDS = ["name_of_sequence", "code_point_sequence"];
+export const NAMED_SEQUENCES_FIELDS = ["name", "code_point_sequence"];

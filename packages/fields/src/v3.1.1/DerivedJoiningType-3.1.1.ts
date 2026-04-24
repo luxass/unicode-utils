@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:47.225Z
+ * @generated 2026-04-24T04:31:45.289Z
  */
 export interface DerivedJoiningType311 {
   /**
@@ -18,14 +18,14 @@ export interface DerivedJoiningType311 {
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/DerivedJoiningType-3.1.1.txt#L18
    */
-  code_point: string;
+  code: string;
 
   /**
-   * JoinCausing derived joining type.
+   * Joining type such as JoinCausing from ArabicShaping.txt field 1.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/DerivedJoiningType-3.1.1.txt#L13-L18
    */
-  joining_type: "C" | (string & {});
+  joining_type: "JoinCausing" | (string & {});
 }
 
-export const DERIVED_JOINING_TYPE_311_FIELDS = ["code_point", "joining_type"];
+export const DERIVED_JOINING_TYPE_311_FIELDS = ["code", "joining_type"];

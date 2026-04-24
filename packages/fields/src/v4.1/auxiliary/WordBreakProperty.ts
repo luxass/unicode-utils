@@ -4,30 +4,30 @@
  * @see https://unicode.org/Public/4.1.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
  * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 4.1
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:40.852Z
+ * @generated 2026-04-24T04:29:44.672Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range.
+   * Code point or range explicitly listed for the Word_Break property.
    *
    * @source https://ucdjs.dev/reports/tr29/
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Word_Break property value; defaults to Other for unlisted code points.
+   * Word_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr29/
    */
   word_break:
     | "ALetter"
+    | "ATerm"
     | "CR"
     | "Double_Quote"
     | "E_Base"
@@ -35,8 +35,12 @@ export interface AuxiliaryWordBreakProperty {
     | "E_Modifier"
     | "Extend"
     | "ExtendNumLet"
+    | "FO"
+    | "Format"
+    | "Glue_After_Zwj"
     | "Hebrew_Letter"
     | "Katakana"
+    | "LE"
     | "LF"
     | "MidLetter"
     | "MidNum"
@@ -45,11 +49,13 @@ export interface AuxiliaryWordBreakProperty {
     | "Numeric"
     | "Other"
     | "Perl"
+    | "RI"
     | "Regional_Indicator"
     | "Single_Quote"
+    | "SP"
     | "WSegSpace"
     | "ZWJ"
     | (string & {});
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];

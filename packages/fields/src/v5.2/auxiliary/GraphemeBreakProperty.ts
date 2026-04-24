@@ -5,24 +5,23 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
- * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 5.2
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:45.620Z
+ * @generated 2026-04-24T04:33:06.105Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range explicitly listed for Grapheme_Cluster_Break.
    *
-   * @source https://ucdjs.dev/reports/tr29/
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
    */
   code_point_range: string;
 
   /**
-   * Grapheme_Cluster_Break property value; defaults to Other (XX) for unlisted code points.
+   * Grapheme_Cluster_Break property value.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
    */

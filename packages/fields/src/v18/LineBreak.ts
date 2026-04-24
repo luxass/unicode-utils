@@ -4,28 +4,38 @@
  * @see https://unicode.org/Public/18.0.0/ucd/LineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/LineBreak.txt#L16-L24
+ * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/LineBreak.txt#L15-L24
  *
  * @unicodeVersion 18
  * @fields 2
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:22.695Z
+ * @generated 2026-04-24T04:15:38.584Z
  */
 export interface LineBreak {
   /**
    * Unicode code point value or range of code point values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/LineBreak.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/LineBreak.txt#L15-L17
    */
-  code_point: string;
+  codepoints: string;
 
   /**
    * Line_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/LineBreak.txt#L17-L24
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/LineBreak.txt#L15-L24
    */
   line_break:
+    | "BK"
+    | "CM"
+    | "CR"
+    | "GL"
+    | "LF"
+    | "NL"
+    | "SP"
+    | "WJ"
+    | "ZW"
+    | "ZWJ"
     | "AI"
     | "AK"
     | "AL"
@@ -34,17 +44,13 @@ export interface LineBreak {
     | "B2"
     | "BA"
     | "BB"
-    | "BK"
     | "CB"
     | "CJ"
     | "CL"
-    | "CM"
     | "CP"
-    | "CR"
     | "EB"
     | "EM"
     | "EX"
-    | "GL"
     | "H2"
     | "H3"
     | "HL"
@@ -55,8 +61,6 @@ export interface LineBreak {
     | "JL"
     | "JT"
     | "JV"
-    | "LF"
-    | "NL"
     | "NS"
     | "NU"
     | "OP"
@@ -66,14 +70,10 @@ export interface LineBreak {
     | "RI"
     | "SA"
     | "SG"
-    | "SP"
     | "SY"
     | "VF"
     | "VI"
-    | "WJ"
-    | "XX"
-    | "ZW"
-    | "ZWJ";
+    | "XX";
 }
 
-export const LINE_BREAK_FIELDS = ["code_point", "line_break"];
+export const LINE_BREAK_FIELDS = ["codepoints", "line_break"];

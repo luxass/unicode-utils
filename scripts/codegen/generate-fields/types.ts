@@ -52,9 +52,13 @@ export interface ProcessFileOptions {
   fetchFile: (apiPath: string) => Promise<unknown>;
   runAi: <T>(task: () => Promise<T>, context: AiRunContext) => Promise<T>;
   confidenceThreshold: number;
+  readExistingGeneratedFile: (shortVersion: string, relPath: string) => Promise<string | null>;
 }
 
-export interface ProcessVersionOptions extends ProcessFileOptions {
+export interface ProcessVersionOptions extends Omit<
+  ProcessFileOptions,
+  "readExistingGeneratedFile"
+> {
   outputDir: string;
   fetchFileTree: (fullVersion: string) => Promise<unknown>;
 }

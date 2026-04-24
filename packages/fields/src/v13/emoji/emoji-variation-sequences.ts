@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/13.0.0/ucd/emoji/emoji-variation-sequences.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr51/
+
  *
  * @unicodeVersion 13
- * @fields 2
- * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:50:55.045Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:17:48.616Z
  */
-export interface EmojiEmojiVariationSequences {
-  /**
-   * Code point or code point sequence forming the emoji variation sequence.
-   *
-   * @source https://ucdjs.dev/reports/tr51/
-   */
-  sequence: string;
+export interface EmojiEmojiVariationSequences {}
 
-  /**
-   * Indicates that the preceding sequence uses an emoji variation selector.
-   *
-   * @source https://ucdjs.dev/reports/tr51/
-   */
-  emoji_vs: "Emoji_VS";
-}
-
-export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = ["sequence", "emoji_vs"];
+export const EMOJI_EMOJI_VARIATION_SEQUENCES_FIELDS = [];

@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/18.0.0/ucd/DerivedNormalizationProps.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 18
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:26.311Z
+ * @confidence 0.50
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:15:20.232Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point range for which the FC_NFKC_Closure mappings apply.
+   * Unicode code point (hex) of the source character.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point: string;
 
   /**
-   * Closures under NFKC of full case folding, listed as space-separated code points.
+   * Space-separated list of Unicode code points in the FC_NFKC_Closure.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  fc_nfkc_closure: string;
+  fc_nfkc_closure: Array<string>;
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["codepoint_range", "fc_nfkc_closure"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point", "fc_nfkc_closure"];

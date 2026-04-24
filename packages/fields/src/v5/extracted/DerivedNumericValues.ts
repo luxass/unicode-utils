@@ -9,19 +9,19 @@
  * @unicodeVersion 5
  * @fields 2
  * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:55:03.521Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:29:35.022Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
-   * Unicode code point or range.
+   * Unicode code point range (e.g. 0660..0669).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * The numeric value as decimal integer, fraction, or repeating decimal approximation.
+   * Numeric value extracted from UnicodeData.txt fields 6, 7, or 8.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

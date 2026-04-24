@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/13.0.0/ucd/Scripts.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/Scripts.txt#L18-L23
  * - https://ucdjs.dev/reports/tr24/
  *
  * @unicodeVersion 13
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:57.672Z
+ * @generated 2026-04-24T04:20:06.995Z
  */
 export interface Scripts {
   /**
-   * Unicode code point range or single code point.
+   * Code point range (e.g. '0041' or '1F600..1F64F').
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
-  code_point_range: string;
+  range: string;
 
   /**
-   * Script property value; Unknown (Zzzz) for unlisted code points.
+   * Script property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/Scripts.txt#L18-L23
+   * @source https://ucdjs.dev/reports/tr24/
    */
-  script: "Zzzz" | string;
+  script: string;
 }
 
-export const SCRIPTS_FIELDS = ["code_point_range", "script"];
+export const SCRIPTS_FIELDS = ["range", "script"];

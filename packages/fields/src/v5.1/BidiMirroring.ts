@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:43.184Z
+ * @generated 2026-04-24T04:28:00.674Z
  */
 export interface BidiMirroring {
   /**

@@ -10,13 +10,13 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:40.697Z
+ * @generated 2026-04-24T04:20:26.496Z
  */
 export interface LineBreak {
   /**
    * Unicode code point value or range of code point values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/LineBreak.txt#L16
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/LineBreak.txt#L16-L17
    */
   codepoints: string;
 

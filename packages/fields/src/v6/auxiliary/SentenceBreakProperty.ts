@@ -4,35 +4,42 @@
  * @see https://unicode.org/Public/6.0.0/ucd/auxiliary/SentenceBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L11
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L13-L14
  *
  * @unicodeVersion 6
- * @fields 3
- * @confidence 0.70
+ * @fields 2
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:03.218Z
+ * @generated 2026-04-24T04:27:30.897Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range explicitly listed for Sentence_Break.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L13-L14
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
    * Sentence_Break property value.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L11
    */
-  sentence_break: "AT" | "CR" | "LF" | "Sep" | "Sp" | "ST" | "XX" | (string & {});
-
-  /**
-   * Optional comment field.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  comment: string;
+  sentence_break:
+    | "CR"
+    | "LF"
+    | "Extend"
+    | "Sp"
+    | "Sep"
+    | "STerm"
+    | "ATerm"
+    | "Close"
+    | "OLetter"
+    | "Lower"
+    | "Numeric"
+    | "Other"
+    | (string & {});
 }
 
-export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break", "comment"];
+export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point_range", "sentence_break"];

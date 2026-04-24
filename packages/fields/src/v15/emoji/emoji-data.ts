@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:42.718Z
+ * @generated 2026-04-24T04:18:15.178Z
  */
 export interface EmojiEmojiData {
   /**
@@ -21,7 +21,7 @@ export interface EmojiEmojiData {
   codepoints: string;
 
   /**
-   * <codepoint(s)> ; <property> <comments>.
+   * Property value.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/emoji/emoji-data.txt#L13
    */

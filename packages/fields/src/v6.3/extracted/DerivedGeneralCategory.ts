@@ -10,15 +10,15 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:52:48.933Z
+ * @generated 2026-04-24T04:32:52.847Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * Hexadecimal code point range (first..last) or single code point.
+   * Unicode code point or range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
    * Value of the General_Category property.
@@ -28,4 +28,4 @@ export interface ExtractedDerivedGeneralCategory {
   general_category: string;
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point_range", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point", "general_category"];

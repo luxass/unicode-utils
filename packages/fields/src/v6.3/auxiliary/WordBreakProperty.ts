@@ -5,28 +5,27 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
- * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 6.3
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:57.464Z
+ * @generated 2026-04-24T04:31:02.138Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range.
-   *
-   * @source https://ucdjs.dev/reports/tr29/
-   */
-  code_point: string;
-
-  /**
-   * Word_Break property value; defaults to Other (XX) for unlisted code points.
+   * Unicode code point range or single code point explicitly listed for Word_Break.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
-  word_break:
+  code_point_range: string;
+
+  /**
+   * Value of the Word_Break property for the code points.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   */
+  word_break_value:
     | "ALetter"
     | "ATerm"
     | "CR"
@@ -36,13 +35,12 @@ export interface AuxiliaryWordBreakProperty {
     | "E_Modifier"
     | "Extend"
     | "ExtendNumLet"
-    | "FO"
     | "Format"
+    | "Glue_After_Zwj"
     | "Hebrew_Letter"
-    | "HY"
     | "Katakana"
-    | "LE"
-    | "LF"
+    | "LE_Word_Joiner"
+    | "Letter"
     | "MidLetter"
     | "MidNum"
     | "MidNumLet"
@@ -50,13 +48,12 @@ export interface AuxiliaryWordBreakProperty {
     | "Numeric"
     | "Other"
     | "Perl"
-    | "RI"
+    | "Regional_Indicator"
     | "Single_Quote"
-    | "SP"
-    | "STerm"
-    | "WSegSpace"
+    | "Space"
+    | "WSegmenter"
     | "ZWJ"
     | (string & {});
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break_value"];

@@ -4,54 +4,29 @@
  * @see https://unicode.org/Public/12.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
+ * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L12
+ * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L14-L15
  *
  * @unicodeVersion 12
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:08.182Z
+ * @generated 2026-04-24T04:21:46.466Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
    * Unicode code point or range explicitly listed for Word_Break.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L14
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L14-L15
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Word_Break property value; unlisted code points have default value Other.
+   * Word_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/auxiliary/WordBreakProperty.txt#L12
    */
-  word_break:
-    | "ALetter"
-    | "ATerm"
-    | "CR"
-    | "Double_Quote"
-    | "E_Base"
-    | "E_Base_GAZ"
-    | "E_Modifier"
-    | "Extend"
-    | "ExtendNumLet"
-    | "Hebrew_Letter"
-    | "Katakana"
-    | "LE"
-    | "LF"
-    | "MidLetter"
-    | "MidNum"
-    | "MidNumLet"
-    | "Newline"
-    | "Numeric"
-    | "Other"
-    | "Perl"
-    | "RI"
-    | "Regional_Indicator"
-    | "Single_Quote"
-    | "SP"
-    | "WSegSpace"
-    | (string & {});
+  word_break: "Other" | (string & {});
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];

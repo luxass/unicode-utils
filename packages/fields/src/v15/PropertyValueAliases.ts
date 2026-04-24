@@ -10,20 +10,20 @@
  *
  * @unicodeVersion 15
  * @fields 4
- * @confidence 0.80
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:59.043Z
+ * @generated 2026-04-24T04:20:38.826Z
  */
 export interface PropertyValueAliases {
   /**
-   * The property for which the property value name is used.
+   * The property for which that property value name is used.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/PropertyValueAliases.txt#L22-L24
    */
   property: string;
 
   /**
-   * The short name for the property value. It is typically an abbreviation, but in a number of cases it is simply a duplicate of the "long name" in the third field.
+   * The short name for the property value. Typically an abbreviation, but in a number of cases it is simply a duplicate of the long name in the third field.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/PropertyValueAliases.txt#L25-L27
    */
@@ -41,12 +41,12 @@ export interface PropertyValueAliases {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/PropertyValueAliases.txt#L35
    */
-  additional_aliases: Array<string>;
+  additional_alias: string;
 }
 
 export const PROPERTY_VALUE_ALIASES_FIELDS = [
   "property",
   "short_name",
   "long_name",
-  "additional_aliases",
+  "additional_alias",
 ];

@@ -4,50 +4,46 @@
  * @see https://unicode.org/Public/3.2-Update/extracted/DerivedDecompositionType-3.2.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/3.2-Update/extracted/DerivedDecompositionType-3.2.0.txt#L13-L14
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 3.2
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:55:29.001Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:32:31.518Z
  */
 export interface ExtractedDerivedDecompositionType320 {
   /**
-   * Decomposition Type (from UnicodeData.txt, field 5: see UnicodeData.html) ================================================.
+   * Unicode code point or range of code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/extracted/DerivedDecompositionType-3.2.0.txt#L13-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint_range: string;
+  code_point: string;
 
   /**
-   * Decomposition Type from UnicodeData.txt field 5.
+   * Decomposition Type property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/extracted/DerivedDecompositionType-3.2.0.txt#L13-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
   decomposition_type:
     | "None"
     | "Canonical"
-    | "Font"
-    | "NoBreak"
-    | "Initial"
-    | "Medial"
-    | "Final"
-    | "Isolated"
+    | "Compat"
     | "Circle"
-    | "Super"
-    | "Sub"
-    | "Vertical"
-    | "Wide"
+    | "Final"
+    | "Font"
+    | "Fraction"
+    | "Initial"
+    | "Isolated"
+    | "Medial"
     | "Narrow"
+    | "NoBreak"
     | "Small"
     | "Square"
-    | "Fraction"
-    | "Compat"
-    | (string & {});
+    | "Sub"
+    | "Super"
+    | "Vertical"
+    | "Wide";
 }
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_320_FIELDS = [
-  "codepoint_range",
-  "decomposition_type",
-];
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_320_FIELDS = ["code_point", "decomposition_type"];

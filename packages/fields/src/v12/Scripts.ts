@@ -4,27 +4,26 @@
  * @see https://unicode.org/Public/12.0.0/ucd/Scripts.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/Scripts.txt#L18-L23
  * - https://ucdjs.dev/reports/tr24/
  *
  * @unicodeVersion 12
  * @fields 2
- * @confidence 0.70
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:50:54.990Z
+ * @generated 2026-04-24T04:23:59.038Z
  */
 export interface Scripts {
   /**
-   * Code point range or single code point.
+   * Unicode code point or range (e.g. 0000..10FFFF).
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   code_point_range: string;
 
   /**
-   * Script property value (Unknown for unlisted code points).
+   * Script property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/Scripts.txt#L18-L23
+   * @source https://ucdjs.dev/reports/tr24/
    */
   script: string;
 }

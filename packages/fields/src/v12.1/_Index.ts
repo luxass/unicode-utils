@@ -9,8 +9,8 @@
  * @unicodeVersion 12.1
  * @fields 0
  * @confidence 0.00
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:51:41.687Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:19:22.282Z
  */
 export interface Index {}
 

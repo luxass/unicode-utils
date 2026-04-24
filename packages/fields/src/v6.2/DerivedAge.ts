@@ -4,36 +4,37 @@
  * @see https://unicode.org/Public/6.2.0/ucd/DerivedAge.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L36-L47
+ * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L36
+ * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L51
  *
  * @unicodeVersion 6.2
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:51:54.068Z
+ * @generated 2026-04-24T04:25:20.711Z
  */
 export interface DerivedAge {
   /**
-   * Code point range or single code point listed with Age property value.
+   * Age=V1_1.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L36-L47
+   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L51
    */
   code_point_range: string;
 
   /**
-   * Age property value indicating Unicode version when code point was first assigned.
+   * Property: Age.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L36-L47
+   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/DerivedAge.txt#L36
    */
   age:
     | "V1_1"
-    | "V1_1_5"
     | "V2_0"
     | "V2_1"
     | "V3_0"
     | "V3_1"
     | "V3_2"
     | "V4_0"
+    | "V4_1"
     | "V5_0"
     | "V5_1"
     | "V5_2"
@@ -49,11 +50,11 @@ export interface DerivedAge {
     | "V12_0"
     | "V12_1"
     | "V13_0"
-    | "V13_1"
     | "V14_0"
     | "V15_0"
     | "V15_1"
     | "V16_0"
+    | "V17_0"
     | (string & {});
 }
 

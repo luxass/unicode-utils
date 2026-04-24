@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:23.780Z
+ * @generated 2026-04-24T04:29:34.099Z
  */
 export interface DerivedCoreProperties {
   /**
-   * Unicode code point range (e.g. 0030..0039).
+   * Unicode code point range (e.g. 0000..10FFFF).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Derived Math property: characters used in mathematical notation.
+   * Derived Math property: Y if character is in Sm + Other_Math, else N.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

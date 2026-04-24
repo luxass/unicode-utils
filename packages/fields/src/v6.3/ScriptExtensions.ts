@@ -4,29 +4,29 @@
  * @see https://unicode.org/Public/6.3.0/ucd/ScriptExtensions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ScriptExtensions.txt#L18
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ScriptExtensions.txt#L22
+ * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr24/
  *
  * @unicodeVersion 6.3
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:43.821Z
+ * @generated 2026-04-24T04:32:07.352Z
  */
 export interface ScriptExtensions {
   /**
-   * @missing: 0000..10FFFF; <script>.
+   * Unicode code point or range listed explicitly for Script_Extensions.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ScriptExtensions.txt#L18
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoint: string;
+  code_point_range: string;
 
   /**
-   * Script_Extensions property value(s), each a Script property value.
+   * One or more Script property values for characters commonly used with more than one script.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ScriptExtensions.txt#L22
+   * @source https://ucdjs.dev/reports/tr24/
    */
   script_extensions: string[];
 }
 
-export const SCRIPT_EXTENSIONS_FIELDS = ["codepoint", "script_extensions"];
+export const SCRIPT_EXTENSIONS_FIELDS = ["code_point_range", "script_extensions"];

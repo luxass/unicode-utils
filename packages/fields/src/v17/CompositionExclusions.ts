@@ -8,13 +8,13 @@
  *
  * @unicodeVersion 17
  * @fields 1
- * @confidence 0.70
+ * @confidence 0.50
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:48:55.822Z
+ * @generated 2026-04-24T04:15:09.342Z
  */
 export interface CompositionExclusions {
   /**
-   * Code point or range listed in the Primary Composition Exclusion List Table.
+   * Unicode code point that is a primary composition exclusion per UAX #15.
    *
    * @source https://ucdjs.dev/reports/tr15/
    */

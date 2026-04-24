@@ -8,17 +8,17 @@
  *
  * @unicodeVersion 5.1
  * @fields 1
- * @confidence 0.70
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:54:44.961Z
+ * @confidence 0.80
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:28:42.912Z
  */
 export interface CompositionExclusions {
   /**
-   * Unicode code point or range of code points listed in the Composition Exclusion Table.
+   * Code point or range of characters for the Composition Exclusion Table defined in UAX #15.
    *
    * @source https://ucdjs.dev/reports/tr15/
    */
-  code_point: string;
+  code_point_range: string;
 }
 
-export const COMPOSITION_EXCLUSIONS_FIELDS = ["code_point"];
+export const COMPOSITION_EXCLUSIONS_FIELDS = ["code_point_range"];

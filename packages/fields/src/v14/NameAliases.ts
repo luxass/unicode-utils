@@ -4,33 +4,33 @@
  * @see https://unicode.org/Public/14.0.0/ucd/NameAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L18-L52
+ * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L18-L51
  *
  * @unicodeVersion 14
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:28.087Z
+ * @generated 2026-04-24T04:20:03.108Z
  */
 export interface NameAliases {
   /**
-   * Code point.
+   * First field: Code point.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L47-L50
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L47-L51
    */
   code_point: string;
 
   /**
-   * Alias.
+   * Second field: Alias.
    *
    * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L47-L51
    */
   alias: string;
 
   /**
-   * Type.
+   * Third field: Type, one of the type labels defined above.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L18-L52
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L18-L51
    */
   type: "correction" | "control" | "alternate" | "figment" | "abbreviation";
 }

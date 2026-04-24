@@ -5,15 +5,15 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L22
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L25
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L25-L26
  * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L28
  * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L33
  *
  * @unicodeVersion 6
  * @fields 4
- * @confidence 0.90
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:53:33.828Z
+ * @generated 2026-04-24T04:28:43.190Z
  */
 export interface PropertyValueAliases {
   /**
@@ -24,11 +24,11 @@ export interface PropertyValueAliases {
   property: string;
 
   /**
-   * Abbreviated name; 'n/a' if none.
+   * Abbreviated name (or 'n/a').
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L25
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L25-L26
    */
-  abbrev_name: string;
+  abbreviated_name: string;
 
   /**
    * Long name.
@@ -38,7 +38,7 @@ export interface PropertyValueAliases {
   long_name: string;
 
   /**
-   * Additional aliases beyond the preferred ones.
+   * Additional aliases if present.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/PropertyValueAliases.txt#L33
    */
@@ -47,7 +47,7 @@ export interface PropertyValueAliases {
 
 export const PROPERTY_VALUE_ALIASES_FIELDS = [
   "property",
-  "abbrev_name",
+  "abbreviated_name",
   "long_name",
   "additional_aliases",
 ];

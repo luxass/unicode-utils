@@ -4,32 +4,28 @@
  * @see https://unicode.org/Public/6.2.0/ucd/extracted/DerivedCombiningClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedCombiningClass.txt#L11-L14
- * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedCombiningClass.txt#L16
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 6.2
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:09.203Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:26:18.589Z
  */
 export interface ExtractedDerivedCombiningClass {
   /**
-   * @missing: 0000..10FFFF; Not_Reordered.
+   * Unicode code point or range in hexadecimal notation.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedCombiningClass.txt#L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  range: string;
 
   /**
-   * Canonical_Combining_Class values explicitly listed, with default Not_Reordered (0) for unlisted code points.
+   * Value of the Canonical_Combining_Class property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedCombiningClass.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  canonical_combining_class: "Not_Reordered" | (string & {});
+  canonical_combining_class: number;
 }
 
-export const EXTRACTED_DERIVED_COMBINING_CLASS_FIELDS = [
-  "code_point_range",
-  "canonical_combining_class",
-];
+export const EXTRACTED_DERIVED_COMBINING_CLASS_FIELDS = ["range", "canonical_combining_class"];

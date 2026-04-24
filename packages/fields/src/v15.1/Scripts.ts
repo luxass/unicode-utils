@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:56.483Z
+ * @generated 2026-04-24T04:16:13.433Z
  */
 export interface Scripts {
   /**
@@ -18,14 +18,14 @@ export interface Scripts {
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
-  code_point_range: string;
+  range: string;
 
   /**
-   * Script property value (Unknown for unlisted code points).
+   * Script property value.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   script: string;
 }
 
-export const SCRIPTS_FIELDS = ["code_point_range", "script"];
+export const SCRIPTS_FIELDS = ["range", "script"];

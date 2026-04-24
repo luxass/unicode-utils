@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:52:35.472Z
+ * @generated 2026-04-24T04:25:01.330Z
  */
 export interface LineBreak {
   /**
@@ -18,7 +18,7 @@ export interface LineBreak {
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/LineBreak.txt#L14
    */
-  unicode_code_point: string;
+  code_point_or_range: string;
 
   /**
    * Line_Break property value.
@@ -65,8 +65,7 @@ export interface LineBreak {
     | "B2"
     | "HL"
     | "CJ"
-    | "RI"
-    | (string & {});
+    | "RI";
 }
 
-export const LINE_BREAK_FIELDS = ["unicode_code_point", "line_break"];
+export const LINE_BREAK_FIELDS = ["code_point_or_range", "line_break"];

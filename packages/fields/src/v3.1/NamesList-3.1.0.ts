@@ -9,8 +9,8 @@
  * @unicodeVersion 3.1
  * @fields 0
  * @confidence 0.00
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-23T18:55:23.117Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:36:49.589Z
  */
 export interface NamesList310 {}
 
