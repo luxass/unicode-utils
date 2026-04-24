@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:19.139Z
+ * @generated 2026-04-24T03:53:50.173Z
  */
 export interface BidiBrackets {
   /**
@@ -25,7 +25,7 @@ export interface BidiBrackets {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiBrackets.txt#L50
    */
-  bidi_paired_bracket: string;
+  bidi_paired_bracket: "none" | string;
 
   /**
    * Bidi_Paired_Bracket_Type property value: o=Open, c=Close, n=None.

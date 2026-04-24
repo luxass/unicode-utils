@@ -9,23 +9,23 @@
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:54.108Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T03:55:05.597Z
  */
 export interface PropList {
   /**
-   * Unicode code point or code point range.
+   * Unicode code point or range in hexadecimal notation (e.g., '0041' or '0041..004E').
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Binary property value (Yes or No).
+   * Name of the binary Unicode character property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  property: "Y" | "N";
+  property: string;
 }
 
-export const PROP_LIST_FIELDS = ["code_point_range", "property"];
+export const PROP_LIST_FIELDS = ["code_point", "property"];

@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:19.838Z
+ * @generated 2026-04-24T03:54:03.028Z
  */
 export interface CjkRadicals {
   /**

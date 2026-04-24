@@ -4,26 +4,27 @@
  * @see https://unicode.org/Public/16.0.0/ucd/ArabicShaping.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39-L46
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L54
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L41-L46
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L60
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63-L101
  *
  * @unicodeVersion 16
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:13.671Z
+ * @generated 2026-04-24T03:53:52.020Z
  */
 export interface ArabicShaping {
   /**
    * The code point of a character, in hexadecimal form.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39-L40
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L39
    */
   code_point: string;
 
   /**
-   * A short schematic name for that character. The schematic name is descriptive of the shape, based as consistently as possible on a name for the skeleton and then the diacritic marks applied to the skeleton, if any. Note that this schematic name is considered a comment, and does not constitute a formal property value.
+   * A short schematic name for that character.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L41-L46
    */
@@ -32,14 +33,14 @@ export interface ArabicShaping {
   /**
    * Joining type (property name: Joining_Type).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L54
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L48-L60
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
   /**
    * Joining group (property name: Joining_Group).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/ArabicShaping.txt#L63-L101
    */
   joining_group: string;
 }

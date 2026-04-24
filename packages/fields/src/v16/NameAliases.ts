@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:25.562Z
+ * @generated 2026-04-24T03:54:27.680Z
  */
 export interface NameAliases {
   /**

@@ -31,6 +31,7 @@ Top-level: `{ fields: [{ name, type, description, source }], confidence: number,
 - snake_case only. Must be a valid TypeScript identifier.
 - Strip angle brackets, parentheses, and special characters from names.
 - Preserve the exact order fields appear in the header — never reorder.
+- `@missing` lines are metadata annotations for default property values. They are NEVER field declarations and MUST NOT be used to infer field names or field order.
 
 ### Types
 

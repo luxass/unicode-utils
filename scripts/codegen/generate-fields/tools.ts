@@ -1,7 +1,7 @@
 import { tool } from "ai";
 import z from "zod";
 
-import { normalizeReportUrl, fetchUnicodeReport } from "./reports";
+import { fetchUnicodeReport, normalizeReportUrl } from "./reports";
 import { loadSkill } from "./skill";
 import { validateAndNormalizeCandidateFields } from "./validation";
 
@@ -57,7 +57,7 @@ export const FETCH_UNICODE_REPORT_TOOL = tool({
     const text = await fetchUnicodeReport(normalizedUrl);
     const maxChars = 12_000;
     return text.length > maxChars
-      ? `${text.slice(0, maxChars)}\n\n[truncated — content exceeded ${maxChars} characters]`
+      ? `${text.slice(0, maxChars)}\n\n[truncated - content exceeded ${maxChars} characters]`
       : text;
   },
 });

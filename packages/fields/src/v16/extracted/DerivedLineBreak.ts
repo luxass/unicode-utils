@@ -4,27 +4,26 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedLineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L14-L15
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12-L66
  *
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:07.419Z
+ * @generated 2026-04-24T03:55:16.262Z
  */
 export interface ExtractedDerivedLineBreak {
   /**
-   * Property: Line_Break.
+   * Unicode code point range or block name explicitly listed for Line_Break or covered by @missing declarations.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12-L66
    */
   code_point_range: string;
 
   /**
-   * Line_Break property value, with default Unknown (XX) for unlisted code points.
+   * Value of the Line_Break property; defaults to Unknown (XX) for unlisted code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L14-L15
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedLineBreak.txt#L12-L15
    */
   line_break: "Unknown" | "Prefix_Numeric" | "Ideographic" | (string & {});
 }

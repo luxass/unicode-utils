@@ -4,35 +4,35 @@
  * @see https://unicode.org/Public/16.0.0/ucd/DoNotEmit.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L51-L96
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L52-L96
  *
  * @unicodeVersion 16
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:37.834Z
+ * @generated 2026-04-24T03:54:03.553Z
  */
 export interface DoNotEmit {
   /**
-   * A sequence of Unicode code point values
+   * A sequence of Unicode code point values.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L52
    */
-  field_0: string;
+  sequence: string;
 
   /**
-   * A replacement sequence of Unicode code point values
+   * A replacement sequence of Unicode code point values.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L53
    */
-  field_1: string;
+  replacement_sequence: string;
 
   /**
-   * DoNotEmit type of the original character sequence
+   * DoNotEmit type of the original character sequence.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L51-L96
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DoNotEmit.txt#L54-L96
    */
-  field_2:
+  do_not_emit_type:
     | "Indic_Atomic_Consonant"
     | "Indic_Consonant_Conjunct"
     | "Indic_Vowel_Letter"
@@ -47,4 +47,4 @@ export interface DoNotEmit {
     | "Preferred_Spelling";
 }
 
-export const DO_NOT_EMIT_FIELDS = ["field_0", "field_1", "field_2"];
+export const DO_NOT_EMIT_FIELDS = ["sequence", "replacement_sequence", "do_not_emit_type"];

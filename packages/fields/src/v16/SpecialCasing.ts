@@ -4,40 +4,40 @@
  * @see https://unicode.org/Public/16.0.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L35
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L36
  *
  * @unicodeVersion 16
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:57.812Z
+ * @generated 2026-04-24T03:55:24.271Z
  */
 export interface SpecialCasing {
   /**
    * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32
    */
   code: string;
 
   /**
-   * Full lowercase mapping, expressed as one or more hexadecimal character values separated by spaces.
+   * Lowercase mapping, expressed as one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   lower: string;
 
   /**
-   * Full titlecase mapping, expressed as one or more hexadecimal character values separated by spaces.
+   * Titlecase mapping, expressed as one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   title: string;
 
   /**
-   * Full uppercase mapping, expressed as one or more hexadecimal character values separated by spaces.
+   * Uppercase mapping, expressed as one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   upper: string;
 
@@ -49,7 +49,7 @@ export interface SpecialCasing {
   condition_list: string;
 
   /**
-   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
+   * Informational comment.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/SpecialCasing.txt#L32
    */

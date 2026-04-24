@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:28.517Z
+ * @generated 2026-04-24T03:54:22.344Z
  */
 export interface NamedSequencesProv {
   /**
-   * Name of Sequence
+   * Name of Sequence.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NamedSequencesProv.txt#L17
    */
   name: string;
 
   /**
-   * Code Point Sequence for USI
+   * Code Point Sequence for USI.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NamedSequencesProv.txt#L17
    */

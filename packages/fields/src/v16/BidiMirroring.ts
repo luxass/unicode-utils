@@ -4,35 +4,28 @@
  * @see https://unicode.org/Public/16.0.0/ucd/BidiMirroring.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiMirroring.txt#L27-L30
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiMirroring.txt#L27-L29
  *
  * @unicodeVersion 16
- * @fields 3
+ * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:22.146Z
+ * @generated 2026-04-24T03:53:57.278Z
  */
 export interface BidiMirroring {
   /**
-   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits.
+   * Each mapping line contains two fields, separated by a semicolon (';').
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiMirroring.txt#L27-L29
    */
-  source: string;
+  source_code_point: string;
 
   /**
-   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits.
+   * Each mapping line contains two fields, separated by a semicolon (';').
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiMirroring.txt#L27-L29
    */
-  target: string;
-
-  /**
-   * Comment indicating where the characters are BEST FIT mirroring.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiMirroring.txt#L30
-   */
-  comment: string;
+  mirrored_code_point: string;
 }
 
-export const BIDI_MIRRORING_FIELDS = ["source", "target", "comment"];
+export const BIDI_MIRRORING_FIELDS = ["source_code_point", "mirrored_code_point"];

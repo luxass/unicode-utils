@@ -16,6 +16,8 @@ Match this skill when ALL of the following are true:
 
 It does NOT matter whether the header contains a `# Property:` line.
 
+`# @missing:` lines are default-value annotations. They are not row format declarations. For example, `# @missing: 0000..10FFFF; <script>` does not define a `<script>` field and must not be used as field evidence.
+
 ## Common Header Shapes
 
 - Minimal headers that only reference `https://www.unicode.org/reports/tr44/` (e.g. `PropList.txt`, `DerivedCoreProperties.txt`, `DerivedAge.txt`, `auxiliary/*.txt`, `extracted/*.txt`).
@@ -37,6 +39,7 @@ It does NOT matter whether the header contains a `# Property:` line.
 
 ## Rules
 
+- Ignore all `# @missing:` lines when deciding fields. They document default values for omitted code points, not the record columns.
 - Do NOT mix `header:L<n>` and `report:<url>` sources for a single field — pick the most specific.
 - If the report lists valid property values, use a string literal union type.
 - Confidence should be 0.5-0.8 depending on how clear the report's field structure is.

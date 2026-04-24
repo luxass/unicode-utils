@@ -4,14 +4,13 @@
  * @see https://unicode.org/Public/16.0.0/ucd/NushuSources.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L18
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L20
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L18-L20
  *
  * @unicodeVersion 16
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:21.882Z
+ * @generated 2026-04-24T03:54:37.135Z
  */
 export interface NushuSources {
   /**
@@ -22,11 +21,11 @@ export interface NushuSources {
   code_point: string;
 
   /**
-   * The value of the tag (in UTF-8).
+   * A tag indicating the type of information in the third field.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L20
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L19
    */
-  tag: "kSrc_NushuDuben" | "kReading" | (string & {});
+  tag: string;
 
   /**
    * The value of the tag (in UTF-8).

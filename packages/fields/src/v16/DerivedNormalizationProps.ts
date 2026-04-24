@@ -4,28 +4,39 @@
  * @see https://unicode.org/Public/16.0.0/ucd/DerivedNormalizationProps.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
- * @fields 2
+ * @fields 3
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:35.626Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T03:54:51.014Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Code point range for which the FC_NFKC_Closure mapping applies.
+   * Unicode code point.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * List of code points constituting the FC_NFKC_Closure mapping.
+   * Derived normalization property name.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  fc_nfkc_closure: string[];
+  property:
+    | "FC_NFKC_Closure"
+    | "NFKC_Casefold"
+    | "Changes_When_NFKC_Casefold"
+    | "Changes_When_Casefolded";
+
+  /**
+   * Space-separated list of code points or ranges relevant to the property.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  value: Array<string>;
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point_range", "fc_nfkc_closure"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point", "property", "value"];

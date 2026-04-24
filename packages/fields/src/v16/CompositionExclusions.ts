@@ -4,21 +4,14 @@
  * @see https://unicode.org/Public/16.0.0/ucd/CompositionExclusions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CompositionExclusions.txt#L10-L17
+
  *
  * @unicodeVersion 16
- * @fields 1
- * @confidence 0.80
+ * @fields 0
+ * @confidence 0.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:15.733Z
+ * @generated 2026-04-24T03:54:13.932Z
  */
-export interface CompositionExclusions {
-  /**
-   * Unicode code point listed as a Composition Exclusion.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CompositionExclusions.txt#L10-L17
-   */
-  codepoint: string;
-}
+export interface CompositionExclusions {}
 
-export const COMPOSITION_EXCLUSIONS_FIELDS = ["codepoint"];
+export const COMPOSITION_EXCLUSIONS_FIELDS = [];

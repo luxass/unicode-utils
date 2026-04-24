@@ -36,6 +36,22 @@ function getHeaderSourceText(source: string, headingLines: ReadonlyMap<number, s
   return parts.join(" ");
 }
 
+function headerSourceContainsMissingAnnotation(
+  source: string,
+  headingLines: ReadonlyMap<number, string>,
+): boolean {
+  const range = extractHeaderRange(source);
+  if (range == null) return false;
+
+  const [start, end] = range;
+  for (let line = start; line <= end; line++) {
+    if (/^#\s*@missing\b/i.test(headingLines.get(line)?.trim() ?? "")) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function tokenizeForGrounding(text: string): string[] {
   const stopwords = new Set([
     "the",
@@ -178,6 +194,13 @@ export function validateAndNormalizeCandidateFields(
     }
 
     if (HEADER_SOURCE_RE.test(normalizedSource)) {
+      if (headerSourceContainsMissingAnnotation(normalizedSource, headingLines)) {
+        violations.push(
+          `field "${field.name}" cites ${normalizedSource}, but @missing lines are default-value annotations, not field declarations`,
+        );
+        continue;
+      }
+
       normalizedFields.push({
         ...field,
         source: normalizedSource,

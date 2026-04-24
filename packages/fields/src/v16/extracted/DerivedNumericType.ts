@@ -4,19 +4,20 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedNumericType.txt#L1-L27
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedNumericType.txt#L25
  *
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:49:08.191Z
+ * @generated 2026-04-24T03:54:21.611Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Unicode code point(s) for the Numeric_Type property.
+   * Unicode code point(s).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedNumericType.txt#L1-L27
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedNumericType.txt#L25
    */
   codepoints: string;
 

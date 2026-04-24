@@ -4,27 +4,26 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedDecompositionType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L12
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L17
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
- * @fields 3
+ * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:44.987Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T03:54:28.290Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Decomposition_Type (from UnicodeData.txt, field 5: see UAX 44: https://www.unicode.org/reports/tr44/).
+   * Hexadecimal Unicode code point or range (e.g. 0021 or 00A0..00FF) sharing the same Decomposition_Type value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  codepoints: string;
+  code_point_range: string;
 
   /**
-   * Decomposition_Type from UnicodeData.txt field 5.
+   * Value of the Decomposition_Type property as defined in UnicodeData.txt field 5.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
   decomposition_type:
     | "None"
@@ -43,20 +42,11 @@ export interface ExtractedDerivedDecompositionType {
     | "Narrow"
     | "Small"
     | "Square"
-    | "Fraction"
-    | "Compat"
-    | (string & {});
-
-  /**
-   * @missing: 0000..10FFFF; None.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedDecompositionType.txt#L17
-   */
-  comment: string;
+    | "Fractional"
+    | "Compat";
 }
 
 export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = [
-  "codepoints",
+  "code_point_range",
   "decomposition_type",
-  "comment",
 ];

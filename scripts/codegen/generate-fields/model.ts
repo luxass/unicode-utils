@@ -5,7 +5,7 @@ import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
 import { createXai } from "@ai-sdk/xai";
 import type { LanguageModel } from "ai";
-import { generateText, Output, stepCountIs, tool } from "ai";
+import { generateText, Output, stepCountIs } from "ai";
 import { z } from "zod";
 
 import { renderSkillDefinitions } from "./skill";

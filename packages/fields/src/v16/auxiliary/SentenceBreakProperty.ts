@@ -4,49 +4,45 @@
  * @see https://unicode.org/Public/16.0.0/ucd/auxiliary/SentenceBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L12
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-23T18:48:20.796Z
+ * @generated 2026-04-24T03:53:56.911Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range (first field in standard UCD format documented in UAX #44).
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
    * Sentence_Break property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/auxiliary/SentenceBreakProperty.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
   sentence_break:
-    | "AT"
-    | "CL"
     | "CR"
-    | "EX"
-    | "FO"
-    | "HY"
-    | "IN"
     | "LF"
-    | "LO"
-    | "NU"
-    | "PO"
-    | "PR"
-    | "SA"
+    | "Extend"
+    | "Regional_Indicator"
+    | "Sp"
+    | "STerm"
+    | "ATerm"
+    | "Upper"
+    | "Lower"
+    | "OLetter"
+    | "Numeric"
+    | "Sep"
+    | "Format"
+    | "ZWJ"
+    | "SB"
     | "SC"
-    | "SE"
-    | "SP"
-    | "ST"
-    | "UP"
-    | "XX"
-    | (string & {});
+    | "Other";
 }
 
-export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break"];
+export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point_range", "sentence_break"];
