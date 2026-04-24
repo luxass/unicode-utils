@@ -28,6 +28,45 @@ export class Limiter {
   }
 }
 
+export class RateLimitCooldown {
+  private cooldownUntil = 0;
+  private consecutiveHits = 0;
+  private readonly baseDelayMs: number;
+  private readonly maxDelayMs: number;
+
+  constructor(baseDelayMs: number, maxDelayMs: number) {
+    this.baseDelayMs = baseDelayMs;
+    this.maxDelayMs = maxDelayMs;
+  }
+
+  async wait(): Promise<void> {
+    const delayMs = this.cooldownUntil - Date.now();
+    if (delayMs > 0) {
+      await sleep(delayMs);
+    }
+  }
+
+  hit(): number {
+    this.consecutiveHits++;
+    const exponent = Math.min(this.consecutiveHits - 1, 4);
+    const delayMs = Math.min(this.baseDelayMs * (2 ** exponent), this.maxDelayMs);
+    this.cooldownUntil = Math.max(this.cooldownUntil, Date.now() + delayMs);
+    return delayMs;
+  }
+
+  success(): void {
+    this.consecutiveHits = 0;
+  }
+}
+
+export function isRateLimitError(error: unknown): boolean {
+  return /(?:\b429\b|too many requests|rate limit)/i.test(String(error));
+}
+
+export async function sleep(delayMs: number): Promise<void> {
+  await new Promise<void>((resolve) => setTimeout(resolve, delayMs));
+}
+
 export async function unwrap<T>(promise: Promise<{ data: T | null; error: unknown }>): Promise<T> {
   const { data, error } = await promise;
   if (error != null) throw error;

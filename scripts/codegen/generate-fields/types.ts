@@ -1,7 +1,7 @@
 import type { LanguageModel } from "ai";
 import type { createUCDClient } from "@ucdjs/client";
 import type { RenderedFile } from "../fields";
-import type { Limiter } from "../utils";
+import type { Limiter, RateLimitCooldown } from "../utils";
 
 export interface ProviderDefaults {
   fast: string;
@@ -36,4 +36,6 @@ export interface RuntimeContext {
   client: Awaited<ReturnType<typeof createUCDClient>>;
   fetchLimit: Limiter;
   aiLimit: Limiter;
+  aiRateLimitCooldown: RateLimitCooldown;
+  aiRateLimitRetries: number;
 }

@@ -1,0 +1,38 @@
+/**
+ * Parsed row from `TangutSources.txt` (Unicode 16).
+ *
+ * @see https://unicode.org/Public/16.0.0/ucd/TangutSources.txt
+ *
+ * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/TangutSources.txt#L22-L24
+ *
+ * @unicodeVersion 16
+ * @fields 3
+ * @confidence 1.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-23T18:49:46.812Z
+ */
+export interface TangutSources {
+  /**
+   * the Tangut code point value in U+ format
+   *
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/TangutSources.txt#L22
+   */
+  code_point: string;
+
+  /**
+   * a tag indicating the type of information in the third field
+   *
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/TangutSources.txt#L23
+   */
+  tag: string;
+
+  /**
+   * the value (in UTF-8)
+   *
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/TangutSources.txt#L24
+   */
+  value: string;
+}
+
+export const TANGUT_SOURCES_FIELDS = ["code_point", "tag", "value"];

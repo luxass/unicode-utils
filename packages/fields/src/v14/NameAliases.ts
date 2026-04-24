@@ -1,0 +1,38 @@
+/**
+ * Parsed row from `NameAliases.txt` (Unicode 14).
+ *
+ * @see https://unicode.org/Public/14.0.0/ucd/NameAliases.txt
+ *
+ * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L18-L52
+ *
+ * @unicodeVersion 14
+ * @fields 3
+ * @confidence 0.90
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-23T18:49:28.087Z
+ */
+export interface NameAliases {
+  /**
+   * Code point.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L47-L50
+   */
+  code_point: string;
+
+  /**
+   * Alias.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L47-L51
+   */
+  alias: string;
+
+  /**
+   * Type.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/NameAliases.txt#L18-L52
+   */
+  type: "correction" | "control" | "alternate" | "figment" | "abbreviation";
+}
+
+export const NAME_ALIASES_FIELDS = ["code_point", "alias", "type"];

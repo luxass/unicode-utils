@@ -48,9 +48,11 @@ Extract TypeScript field definitions from a Unicode data file header.
 2. Identify which skill matches the header's pattern.
 3. Call the \`load_skill\` tool with the matching skill name to retrieve its detailed playbook.
 4. Follow that skill's instructions to produce the output.
-5. If NO skill matches, return { "fields": [], "confidence": 0, "notes": "no matching skill" }.
+5. Call the \`validate_fields\` tool with your candidate fields.
+6. If validation returns issues, fix the fields and validate again.
+7. If NO skill matches, return { "fields": [], "confidence": 0, "notes": "no matching skill" }.
 
-You MUST call \`load_skill\` before producing a final answer unless you are returning an empty fields array.
+You MUST call \`load_skill\` and \`validate_fields\` before producing a final answer unless you are returning an empty fields array.
 
 ## Available skills
 - "field-n-pattern" — header contains explicit "# Field N: Name" declarations.
@@ -120,91 +122,327 @@ export interface GenerateFieldsResult {
   notes: string;
 }
 
-export async function generateFields(heading: string, model: LanguageModel): Promise<GenerateFieldsResult> {
-  const fetchedUrls = new Set<string>();
-  const result = await generateText({
-    model,
-    system: SYSTEM_PROMPT,
-    prompt: heading,
-    temperature: 0,
-    maxRetries: 5,
-    stopWhen: stepCountIs(20),
-    tools: {
-      load_skill: tool({
-        description: "Load the detailed playbook for a specific UCD header pattern. Call this after identifying which pattern the current header matches. You MUST call this before producing a final answer (unless returning an empty fields array).",
-        inputSchema: z.object({
-          name: z.enum((["field-n-pattern", "format-line", "property-only-header"] as const)).describe("The skill to load."),
-        }),
-        execute: async ({ name }) => readFile(path.join(path.join(import.meta.dirname, "skills"), `${name}.md`), "utf-8"),
-      }),
-      fetch_unicode_report: tool({
-        description: "Fetch a Unicode report or specification page from unicode.org",
-        inputSchema: z.object({
-          url: z.string().regex(/^https?:\/\/(www\.)?unicode\.org\/reports\/(.*)$/m),
-        }),
-        execute: async ({ url }) => {
-          if (
-            !url.startsWith("http://www.unicode.org/reports")
-            && !url.startsWith("https://www.unicode.org/reports")
-            && !url.startsWith("http://unicode.org/reports")
-            && !url.startsWith("https://unicode.org/reports")
-          ) {
-            return "Error: Only unicode.org/reports/ URLs are permitted.";
-          }
+const MAX_VALIDATION_ATTEMPTS = 3;
+const HEADER_SOURCE_RE = /^header:L\d+(?:-L\d+)?$/;
 
-          // Strip hash fragment and normalize versioned filenames (e.g. tr24/tr24-39.html → tr24/)
-          const normalizedUrl = url.split("#")[0]!.replace(/\/tr\d+-\d+\.html$/, "/");
-          if (fetchedUrls.has(normalizedUrl)) {
-            return "Error: This URL has already been fetched. Do not fetch the same URL twice.";
-          }
-          fetchedUrls.add(normalizedUrl);
+function normalizeReportUrl(url: string): string {
+  return url.split("#")[0]!.replace(/\/tr\d+-\d+\.html$/, "/");
+}
 
-          const text = await fetchUnicodeReport(normalizedUrl);
-          const MAX_CHARS = 12_000;
-          return text.length > MAX_CHARS
-            ? `${text.slice(0, MAX_CHARS)}\n\n[truncated — content exceeded ${MAX_CHARS} characters]`
-            : text;
-        },
-      }),
-    },
-    output: Output.object({
-      schema: z.object({
-        fields: z.array(z.object({
-          name: z.string(),
-          type: z.string(),
-          description: z.string(),
-          source: z.string().describe("Origin: 'header:L<n>', 'header:L<start>-L<end>', or 'report:<url>'. No other values permitted."),
-        })),
-        confidence: z.number().min(0).max(1).describe("0-1 certainty score per the rubric in the system prompt."),
-        notes: z.string().describe("Brief explanation of reasoning and any uncertainty."),
-      }),
-    }),
-  });
-  // Strict source validation: every field must cite a header line or a fetched report URL.
-  // Anything else (including "inferred") is a fabrication and rejected.
-  const HEADER_SOURCE_RE = /^header:L\d+(?:-L\d+)?$/;
+function parseNumberedHeadingLines(heading: string): Map<number, string> {
+  const lines = new Map<number, string>();
+  for (const rawLine of heading.split("\n")) {
+    const match = /^L(\d+):\s?(.*)$/.exec(rawLine);
+    if (match == null) continue;
+    lines.set(Number(match[1]!), match[2] ?? "");
+  }
+  return lines;
+}
+
+function extractHeaderRange(source: string): [number, number] | null {
+  const match = /^header:L(\d+)(?:-L(\d+))?$/.exec(source);
+  if (match == null) return null;
+  const start = Number(match[1]!);
+  const end = Number(match[2] ?? match[1]!);
+  return [Math.min(start, end), Math.max(start, end)];
+}
+
+function getHeaderSourceText(source: string, headingLines: ReadonlyMap<number, string>): string {
+  const range = extractHeaderRange(source);
+  if (range == null) return "";
+
+  const [start, end] = range;
+  const parts: string[] = [];
+  for (let line = start; line <= end; line++) {
+    const text = headingLines.get(line);
+    if (text != null && text.trim() !== "") {
+      parts.push(text.trim());
+    }
+  }
+  return parts.join(" ");
+}
+
+function tokenizeForGrounding(text: string): string[] {
+  const STOPWORDS = new Set([
+    "the", "and", "for", "with", "from", "that", "this", "used", "value", "values", "field",
+    "unicode", "code", "point", "points", "line", "lines", "data", "file", "property",
+  ]);
+  const tokens = text.toLowerCase().match(/[a-z0-9]{3,}/g) ?? [];
+  return [...new Set(tokens.filter((token) => !STOPWORDS.has(token)))];
+}
+
+function descriptionLooksGrounded(description: string, sourceText: string): boolean {
+  const descTokens = tokenizeForGrounding(description);
+  if (descTokens.length === 0) return true;
+
+  const sourceTokenSet = new Set(tokenizeForGrounding(sourceText));
+  if (sourceTokenSet.size === 0) return false;
+
+  let overlap = 0;
+  for (const token of descTokens) {
+    if (sourceTokenSet.has(token)) overlap++;
+  }
+
+  return (overlap / descTokens.length) >= 0.35;
+}
+
+function buildConservativeDescription(fieldName: string, sourceText: string): string {
+  let text = sourceText
+    .replace(/#/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  text = text.replace(/^Field\s+\d+\s*:\s*/i, "");
+
+  const fieldNamePattern = fieldName.replace(/_/g, "[\\s_]+");
+  const fieldPrefix = new RegExp(`^${fieldNamePattern}\\s*[:,-]?\\s*`, "i");
+  text = text.replace(fieldPrefix, "").trim();
+
+  if (text === "") {
+    return "See source header for details.";
+  }
+
+  const firstSentence = text.split(/(?<=[.!?])\s+/)[0]!.trim();
+  const sentence = firstSentence.length > 0 ? firstSentence : text;
+  const clipped = sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}...` : sentence;
+  return /[.!?]$/.test(clipped) ? clipped : `${clipped}.`;
+}
+
+function normalizeFieldDescription(
+  field: Field,
+  normalizedSource: string,
+  headingLines: ReadonlyMap<number, string>,
+): string {
+  const trimmed = field.description.trim();
+  if (trimmed === "") {
+    if (HEADER_SOURCE_RE.test(normalizedSource)) {
+      const sourceText = getHeaderSourceText(normalizedSource, headingLines);
+      return buildConservativeDescription(field.name, sourceText);
+    }
+    return "";
+  }
+
+  if (!HEADER_SOURCE_RE.test(normalizedSource)) {
+    return trimmed;
+  }
+
+  const sourceText = getHeaderSourceText(normalizedSource, headingLines);
+  if (sourceText === "") {
+    return trimmed;
+  }
+
+  if (descriptionLooksGrounded(trimmed, sourceText)) {
+    return trimmed;
+  }
+
+  return buildConservativeDescription(field.name, sourceText);
+}
+
+function validateAndNormalizeCandidateFields(
+  fields: Field[],
+  headingLines: ReadonlyMap<number, string>,
+  fetchedUrls: ReadonlySet<string>,
+): { normalizedFields: Field[]; violations: string[] } {
   const violations: string[] = [];
-  for (const f of result.output.fields) {
-    if (HEADER_SOURCE_RE.test(f.source)) continue;
-    if (f.source.startsWith("report:")) {
-      const claimed = f.source.slice("report:".length).split("#")[0]!;
-      if (!fetchedUrls.has(claimed)) {
-        violations.push(`field "${f.name}" claims report ${claimed} but that URL was not fetched`);
-      }
+  const normalizedFields: Field[] = [];
+
+  for (const field of fields) {
+    const normalizedSource = normalizeFieldSource(field.source);
+    if (normalizedSource == null) {
+      violations.push(`field "${field.name}" has invalid source "${field.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`);
       continue;
     }
-    violations.push(`field "${f.name}" has invalid source "${f.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`);
+
+    if (HEADER_SOURCE_RE.test(normalizedSource)) {
+      normalizedFields.push({
+        ...field,
+        source: normalizedSource,
+        description: normalizeFieldDescription(field, normalizedSource, headingLines),
+      });
+      continue;
+    }
+
+    if (normalizedSource.startsWith("report:")) {
+      const claimed = normalizedSource.slice("report:".length);
+      if (!fetchedUrls.has(claimed)) {
+        violations.push(`field "${field.name}" claims report ${claimed} but that URL was not fetched`);
+        continue;
+      }
+      normalizedFields.push({
+        ...field,
+        source: normalizedSource,
+        description: normalizeFieldDescription(field, normalizedSource, headingLines),
+      });
+      continue;
+    }
+
+    violations.push(`field "${field.name}" has invalid source "${field.source}" (must be header:L<n>, header:L<n>-L<n>, or report:<fetched-url>)`);
   }
 
-  if (violations.length > 0) {
-    throw new Error(`source validation failed:\n  - ${violations.join("\n  - ")}`);
+  return { normalizedFields, violations };
+}
+
+function normalizeFieldSource(source: string): string | null {
+  const trimmed = source.trim();
+  if (HEADER_SOURCE_RE.test(trimmed)) {
+    return trimmed;
   }
 
-  return {
-    fields: result.output.fields,
-    confidence: result.output.confidence,
-    notes: result.output.notes,
-  };
+  if (trimmed.startsWith("header:")) {
+    const matches = [...trimmed.matchAll(/L(\d+)(?:-L(\d+))?/g)];
+    if (matches.length === 0) return null;
+
+    let min = Number.POSITIVE_INFINITY;
+    let max = Number.NEGATIVE_INFINITY;
+    for (const match of matches) {
+      const start = Number(match[1]!);
+      const end = Number(match[2] ?? match[1]!);
+      min = Math.min(min, start, end);
+      max = Math.max(max, start, end);
+    }
+
+    return min === max
+      ? `header:L${min}`
+      : `header:L${min}-L${max}`;
+  }
+
+  if (trimmed.startsWith("report:")) {
+    const body = trimmed.slice("report:".length).trim();
+    const urlMatch = body.match(/https?:\/\/(?:www\.)?unicode\.org\/reports\/[^\s,|)]+/i);
+    const rawUrl = (urlMatch?.[0] ?? body.split(/[,\s|]+/)[0] ?? "").trim();
+    if (rawUrl === "") return null;
+    return `report:${normalizeReportUrl(rawUrl)}`;
+  }
+
+  return null;
+}
+
+export async function generateFields(heading: string, model: LanguageModel): Promise<GenerateFieldsResult> {
+  const fetchedUrls = new Set<string>();
+  const headingLines = parseNumberedHeadingLines(heading);
+  let lastViolations: string[] = [];
+  let lastConfidence = 0;
+  let lastNotes = "";
+
+  for (let attempt = 1; attempt <= MAX_VALIDATION_ATTEMPTS; attempt++) {
+    const prompt = attempt === 1
+      ? heading
+      : `${heading}
+
+# Validation feedback from previous attempt
+${lastViolations.map((violation) => `- ${violation}`).join("\n")}
+
+Fix the issues above. Call validate_fields before final output and return corrected fields.`;
+
+    const result = await generateText({
+      model,
+      system: SYSTEM_PROMPT,
+      prompt,
+      temperature: 0,
+      maxRetries: 2,
+      stopWhen: stepCountIs(20),
+      tools: {
+        load_skill: tool({
+          description: "Load the detailed playbook for a specific UCD header pattern. Call this after identifying which pattern the current header matches. You MUST call this before producing a final answer (unless returning an empty fields array).",
+          inputSchema: z.object({
+            name: z.enum((["field-n-pattern", "format-line", "property-only-header"] as const)).describe("The skill to load."),
+          }),
+          execute: async ({ name }) => readFile(path.join(path.join(import.meta.dirname, "skills"), `${name}.md`), "utf-8"),
+        }),
+        validate_fields: tool({
+          description: "Validate and normalize candidate fields. Call this before final output. If issues are returned, fix and call again.",
+          inputSchema: z.object({
+            fields: z.array(z.object({
+              name: z.string(),
+              type: z.string(),
+              description: z.string(),
+              source: z.string(),
+            })),
+          }),
+          execute: async ({ fields }) => {
+            const { normalizedFields, violations } = validateAndNormalizeCandidateFields(
+              fields,
+              headingLines,
+              fetchedUrls,
+            );
+            return {
+              ok: violations.length === 0,
+              violations,
+              normalizedFields,
+            };
+          },
+        }),
+        fetch_unicode_report: tool({
+          description: "Fetch a Unicode report or specification page from unicode.org",
+          inputSchema: z.object({
+            url: z.string().regex(/^https?:\/\/(www\.)?unicode\.org\/reports\/(.*)$/m),
+          }),
+          execute: async ({ url }) => {
+            if (
+              !url.startsWith("http://www.unicode.org/reports")
+              && !url.startsWith("https://www.unicode.org/reports")
+              && !url.startsWith("http://unicode.org/reports")
+              && !url.startsWith("https://unicode.org/reports")
+            ) {
+              return "Error: Only unicode.org/reports/ URLs are permitted.";
+            }
+
+            // Strip hash fragment and normalize versioned filenames (e.g. tr24/tr24-39.html → tr24/)
+            const normalizedUrl = normalizeReportUrl(url);
+            if (fetchedUrls.has(normalizedUrl)) {
+              return "Error: This URL has already been fetched. Do not fetch the same URL twice.";
+            }
+            fetchedUrls.add(normalizedUrl);
+
+            const text = await fetchUnicodeReport(normalizedUrl);
+            const MAX_CHARS = 12_000;
+            return text.length > MAX_CHARS
+              ? `${text.slice(0, MAX_CHARS)}\n\n[truncated — content exceeded ${MAX_CHARS} characters]`
+              : text;
+          },
+        }),
+      },
+      output: Output.object({
+        schema: z.object({
+          fields: z.array(z.object({
+            name: z.string(),
+            type: z.string(),
+            description: z.string(),
+            source: z.string().describe("Origin: 'header:L<n>', 'header:L<start>-L<end>', or 'report:<url>'. No other values permitted."),
+          })),
+          confidence: z.number().min(0).max(1).describe("0-1 certainty score per the rubric in the system prompt."),
+          notes: z.string().describe("Brief explanation of reasoning and any uncertainty."),
+        }),
+      }),
+    });
+
+    // Hard gate after model output: every field must cite a valid source and
+    // descriptions are normalized against header citations.
+    const { normalizedFields, violations } = validateAndNormalizeCandidateFields(
+      result.output.fields,
+      headingLines,
+      fetchedUrls,
+    );
+
+    if (violations.length === 0) {
+      return {
+        fields: normalizedFields,
+        confidence: result.output.confidence,
+        notes: result.output.notes,
+      };
+    }
+
+    lastViolations = violations;
+    lastConfidence = result.output.confidence;
+    lastNotes = result.output.notes;
+    if (attempt < MAX_VALIDATION_ATTEMPTS) {
+      console.warn(`validation failed (attempt ${attempt}/${MAX_VALIDATION_ATTEMPTS}); retrying with feedback`);
+    }
+  }
+
+  throw new Error(
+    `source validation failed after ${MAX_VALIDATION_ATTEMPTS} attempts:\n  - ${lastViolations.join("\n  - ")}\n  - last confidence=${lastConfidence.toFixed(2)} notes=${lastNotes}`,
+  );
 }
 
 export interface RenderFileOptions {
@@ -240,6 +478,38 @@ function resolveSourceLink(source: string, fileExplorerUrl: string): string {
   }
 
   return source;
+}
+
+function collapseSources(sources: string[]): string[] {
+  const reports: string[] = [];
+  const intervals: Array<[number, number]> = [];
+
+  for (const source of sources) {
+    const match = /^header:L(\d+)(?:-L(\d+))?$/.exec(source);
+    if (match != null) {
+      const start = Number(match[1]!);
+      const end = Number(match[2] ?? match[1]!);
+      intervals.push([Math.min(start, end), Math.max(start, end)]);
+      continue;
+    }
+    reports.push(source);
+  }
+
+  intervals.sort((a, b) => (a[0] - b[0]) || (a[1] - b[1]));
+
+  const merged: Array<[number, number]> = [];
+  for (const interval of intervals) {
+    const last = merged[merged.length - 1];
+    if (last == null || interval[0] > last[1] + 1) {
+      merged.push([interval[0], interval[1]]);
+      continue;
+    }
+    last[1] = Math.max(last[1], interval[1]);
+  }
+
+  const headerSources = merged.map(([start, end]) => (start === end ? `header:L${start}` : `header:L${start}-L${end}`));
+  const reportSources = [...new Set(reports)];
+  return [...headerSources, ...reportSources];
 }
 
 export function renderFile({
@@ -294,8 +564,9 @@ export function renderFile({
   const array = Object.keys(props).map((v) => `"${v}"`).join(", ");
   const fieldCount = Object.keys(props).length;
 
+  const collapsedSources = collapseSources(Object.values(fieldSources));
   const uniqueLinks = [...new Set(
-    Object.values(fieldSources).map((s) => resolveSourceLink(s, fileExplorerUrl)),
+    collapsedSources.map((s) => resolveSourceLink(s, fileExplorerUrl)),
   )];
   const sourceLines = uniqueLinks.map((s) => ` * - ${s}`).join("\n");
 
@@ -354,19 +625,33 @@ ${regions}
 }
 
 export async function generatePackageExports(srcDir: string): Promise<void> {
-  const files = await readdir(srcDir);
-  const versions = files
-    .filter((f) => /^v[\d.]+\.ts$/.test(f))
-    .map((f) => f.slice(1, -3))
-    .toSorted((a, b) => {
-      const pa = a.split(".").map(Number);
-      const pb = b.split(".").map(Number);
-      for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-        const diff = (pa[i] ?? 0) - (pb[i] ?? 0);
-        if (diff !== 0) return diff;
-      }
-      return 0;
-    });
+  const entries = await readdir(srcDir, { withFileTypes: true });
+  const versionKinds = new Map<string, "dir" | "file">();
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    if (!/^v[\d.]+$/.test(entry.name)) continue;
+    versionKinds.set(entry.name.slice(1), "dir");
+  }
+
+  for (const entry of entries) {
+    if (!entry.isFile()) continue;
+    if (!/^v[\d.]+\.ts$/.test(entry.name)) continue;
+    const version = entry.name.slice(1, -3);
+    if (!versionKinds.has(version)) {
+      versionKinds.set(version, "file");
+    }
+  }
+
+  const versions = [...versionKinds.keys()].toSorted((a, b) => {
+    const pa = a.split(".").map(Number);
+    const pb = b.split(".").map(Number);
+    for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+      const diff = (pa[i] ?? 0) - (pb[i] ?? 0);
+      if (diff !== 0) return diff;
+    }
+    return 0;
+  });
 
   const indexContent = [
     "// This file is auto-generated by scripts/codegen/generate-fields.ts",
@@ -381,7 +666,11 @@ export async function generatePackageExports(srcDir: string): Promise<void> {
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
   pkg.exports = {
     ".": "./dist/index.mjs",
-    ...Object.fromEntries(versions.map((v) => [`./v${v}`, `./dist/v${v}.mjs`])),
+    ...Object.fromEntries(versions.map((v) => {
+      const kind = versionKinds.get(v);
+      const target = kind === "dir" ? `./dist/v${v}/index.mjs` : `./dist/v${v}.mjs`;
+      return [`./v${v}`, target];
+    })),
     "./package.json": "./package.json",
   };
   await writeFile(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`, "utf-8");

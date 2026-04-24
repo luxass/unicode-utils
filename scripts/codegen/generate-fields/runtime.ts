@@ -6,7 +6,7 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { createXai } from "@ai-sdk/xai";
 import { createUCDClient } from "@ucdjs/client";
 import type { LanguageModel } from "ai";
-import { Limiter, unwrap } from "../utils";
+import { Limiter, RateLimitCooldown, unwrap } from "../utils";
 import type { ProviderDefaults, RuntimeContext } from "./types";
 
 const PROVIDER_DEFAULTS: Record<string, ProviderDefaults> = {
@@ -103,6 +103,8 @@ export async function createRuntime(): Promise<RuntimeContext> {
     client,
     fetchLimit: new Limiter(fetchConcurrency),
     aiLimit: new Limiter(aiConcurrency),
+    aiRateLimitCooldown: new RateLimitCooldown(10_000, 60_000),
+    aiRateLimitRetries: 6,
   };
 
   console.log(

@@ -1,11 +1,10 @@
 import { type Field, generateFields, renderFile } from "../fields";
-import { buildFilePath, unwrap } from "../utils";
+import { buildFilePath, isRateLimitError, sleep, unwrap } from "../utils";
 import type { ProcessedFile, RuntimeContext } from "./types";
 
 function needsReasoningPass(fields: Field[], confidence: number, threshold: number): boolean {
-  if (confidence < threshold) return true;
-  if (fields.length === 0) return true;
-  return false;
+  if (fields.length === 0) return false;
+  return confidence < threshold;
 }
 
 function extractNumberedHeading(content: string): string {
@@ -34,6 +33,39 @@ function extractNumberedHeading(content: string): string {
     .join("\n");
 }
 
+async function generateFieldsWithRateLimitRetry(
+  heading: string,
+  runtime: RuntimeContext,
+  model: RuntimeContext["fastModel"],
+  modelId: string,
+  short: string,
+  relPath: string,
+) {
+  for (let attempt = 1; attempt <= runtime.aiRateLimitRetries; attempt++) {
+    try {
+      await runtime.aiRateLimitCooldown.wait();
+      const result = await runtime.aiLimit.run(async () => {
+        await runtime.aiRateLimitCooldown.wait();
+        return generateFields(heading, model);
+      });
+      runtime.aiRateLimitCooldown.success();
+      return result;
+    } catch (error) {
+      if (!isRateLimitError(error) || attempt === runtime.aiRateLimitRetries) {
+        throw error;
+      }
+
+      const delayMs = runtime.aiRateLimitCooldown.hit();
+      console.warn(
+        `[v${short}] rate limited by ${modelId} for ${relPath}; retry ${attempt + 1}/${runtime.aiRateLimitRetries} after ${Math.ceil(delayMs / 1000)}s`,
+      );
+      await sleep(delayMs);
+    }
+  }
+
+  throw new Error(`unreachable rate-limit retry state for ${relPath}`);
+}
+
 export async function processFileForVersion(
   full: string,
   short: string,
@@ -50,17 +82,61 @@ export async function processFileForVersion(
   }
 
   const numberedHeading = extractNumberedHeading(content);
-  let result = await runtime.aiLimit.run(() => generateFields(numberedHeading, runtime.fastModel));
+  let result;
   let usedReasoningPass = false;
   let modelId = runtime.fastModelId;
 
-  if (needsReasoningPass(result.fields, result.confidence, runtime.confidenceThreshold)) {
-    console.log(`[v${short}] ↻ ${relPath} conf=${result.confidence.toFixed(2)} — retry with ${runtime.reasoningModelId}`);
-    const retry = await runtime.aiLimit.run(() => generateFields(numberedHeading, runtime.reasoningModel));
-    if (retry.confidence >= result.confidence) {
-      result = retry;
+  try {
+    result = await generateFieldsWithRateLimitRetry(
+      numberedHeading,
+      runtime,
+      runtime.fastModel,
+      runtime.fastModelId,
+      short,
+      relPath,
+    );
+  } catch (fastError) {
+    if (isRateLimitError(fastError)) {
+      throw new Error(`${runtime.fastModelId} rate limited after ${runtime.aiRateLimitRetries} attempts for ${relPath}: ${String(fastError)}`);
+    }
+
+    console.warn(`[v${short}] fast pass failed for ${relPath}; retrying with ${runtime.reasoningModelId}`);
+    try {
+      result = await generateFieldsWithRateLimitRetry(
+        numberedHeading,
+        runtime,
+        runtime.reasoningModel,
+        runtime.reasoningModelId,
+        short,
+        relPath,
+      );
       usedReasoningPass = true;
       modelId = runtime.reasoningModelId;
+    } catch (reasoningError) {
+      throw new Error(
+        `both fast and reasoning passes failed for ${relPath}\nfast: ${String(fastError)}\nreasoning: ${String(reasoningError)}`,
+      );
+    }
+  }
+
+  if (!usedReasoningPass && needsReasoningPass(result.fields, result.confidence, runtime.confidenceThreshold)) {
+    console.log(`[v${short}] ↻ ${relPath} conf=${result.confidence.toFixed(2)} — retry with ${runtime.reasoningModelId}`);
+    try {
+      const retry = await generateFieldsWithRateLimitRetry(
+        numberedHeading,
+        runtime,
+        runtime.reasoningModel,
+        runtime.reasoningModelId,
+        short,
+        relPath,
+      );
+      if (retry.confidence >= result.confidence) {
+        result = retry;
+        usedReasoningPass = true;
+        modelId = runtime.reasoningModelId;
+      }
+    } catch (reasoningError) {
+      console.warn(`[v${short}] reasoning retry failed for ${relPath}; keeping fast result (${String(reasoningError)})`);
     }
   }
 

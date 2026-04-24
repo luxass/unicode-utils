@@ -14,6 +14,7 @@ async function processVersionsWithConcurrency() {
   }
 
   await Promise.all(Array.from({ length: workers }, (_, workerIndex) => runWorker(workerIndex)));
+  console.log("all versions processed; updating package exports");
   await generatePackageExports(runtime.outputDir);
   console.log("updated index.ts and package.json exports");
 }
