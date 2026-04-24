@@ -1,17 +1,20 @@
-# Skill: Format Line Pattern
+---
+name: format-line
+description: Use this skill when the header contains a "# Format:" block followed by a single line describing the record shape using angle-bracket tokens.
+---
 
-Use this skill when the header contains a `# Format:` block followed by a single line describing the record shape using angle-bracket tokens.
+# Format Line Pattern
 
-## Trigger
+## When to Use This Skill
 
-The header contains a line like `# Format:` followed by `# <token1> ; <token2> # <token3>` — tokens in angle brackets are field names, separated by `;` or `#`.
+Use this skill when the header contains a `# Format:` block followed by a line like `# <token1> ; <token2> # <token3>`. Tokens in angle brackets are field names, separated by `;` or `#`.
 
-## Extraction rules
+## Extraction Rules
 
 - Angle-bracket tokens are field names. Strip brackets, parentheses, and special chars.
-  - `<codepoint(s)>` → `codepoints`
-  - `<property>` → `property`
-  - `<comment>` → `comment`
+- `<codepoint(s)>` → `codepoints`
+- `<property>` → `property`
+- `<comment>` → `comment`
 - Tokens before `#` are data fields; tokens after `#` are trailing comment fields — include both.
 - All fields cite the format line itself: `header:L<n>`.
 - If the format line is preceded by per-column explanations (e.g. `# Column 1: ...`), include those as additional header:L<n> sources where relevant.

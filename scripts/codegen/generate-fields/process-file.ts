@@ -1,6 +1,8 @@
-import { type Field, generateFields, renderFile } from "../fields";
-import { buildFilePath, isRateLimitError, sleep, unwrap } from "../utils";
-import type { ProcessedFile, RuntimeContext } from "./types";
+import { buildFilePath, isRateLimitError } from "./utils";
+import { generateFields } from "./model";
+import { renderFile } from "./render";
+import type { Field } from "./types";
+import type { ProcessedFile, ProcessFileOptions } from "./types";
 
 function needsReasoningPass(fields: Field[], confidence: number, threshold: number): boolean {
   if (fields.length === 0) return false;
@@ -33,50 +35,17 @@ function extractNumberedHeading(content: string): string {
     .join("\n");
 }
 
-async function generateFieldsWithRateLimitRetry(
-  heading: string,
-  runtime: RuntimeContext,
-  model: RuntimeContext["fastModel"],
-  modelId: string,
-  short: string,
-  relPath: string,
-) {
-  for (let attempt = 1; attempt <= runtime.aiRateLimitRetries; attempt++) {
-    try {
-      await runtime.aiRateLimitCooldown.wait();
-      const result = await runtime.aiLimit.run(async () => {
-        await runtime.aiRateLimitCooldown.wait();
-        return generateFields(heading, model);
-      });
-      runtime.aiRateLimitCooldown.success();
-      return result;
-    } catch (error) {
-      if (!isRateLimitError(error) || attempt === runtime.aiRateLimitRetries) {
-        throw error;
-      }
-
-      const delayMs = runtime.aiRateLimitCooldown.hit();
-      console.warn(
-        `[v${short}] rate limited by ${modelId} for ${relPath}; retry ${attempt + 1}/${runtime.aiRateLimitRetries} after ${Math.ceil(delayMs / 1000)}s`,
-      );
-      await sleep(delayMs);
-    }
-  }
-
-  throw new Error(`unreachable rate-limit retry state for ${relPath}`);
-}
-
 export async function processFileForVersion(
   full: string,
   short: string,
   relPath: string,
-  runtime: RuntimeContext,
+  options: ProcessFileOptions,
 ): Promise<ProcessedFile> {
   const apiPath = buildFilePath(full, relPath);
   const fileExplorerUrl = `https://ucdjs.dev/file-explorer/v/${apiPath}`;
   const unicodeSourceUrl = `https://unicode.org/Public/${apiPath}`;
 
-  const content = await runtime.fetchLimit.run(() => unwrap(runtime.client.files.get(apiPath)));
+  const content = await options.fetchFile(apiPath);
   if (typeof content !== "string") {
     throw new TypeError(`expected string content for ${apiPath}, got ${typeof content}`);
   }
@@ -84,38 +53,35 @@ export async function processFileForVersion(
   const numberedHeading = extractNumberedHeading(content);
   let result;
   let usedReasoningPass = false;
-  let modelId = runtime.fastModelId;
+  let modelId = options.fastModelId;
 
   try {
-    result = await generateFieldsWithRateLimitRetry(
-      numberedHeading,
-      runtime,
-      runtime.fastModel,
-      runtime.fastModelId,
-      short,
+    result = await options.runAi(() => generateFields(numberedHeading, options.fastModel), {
+      modelId: options.fastModelId,
+      shortVersion: short,
       relPath,
-    );
+    });
   } catch (fastError) {
     if (isRateLimitError(fastError)) {
       throw new Error(
-        `${runtime.fastModelId} rate limited after ${runtime.aiRateLimitRetries} attempts for ${relPath}: ${String(fastError)}`,
+        `${options.fastModelId} rate limited for ${relPath}: ${String(fastError)}`,
       );
     }
 
     console.warn(
-      `[v${short}] fast pass failed for ${relPath}; retrying with ${runtime.reasoningModelId}`,
+      `[v${short}] fast pass failed for ${relPath}; retrying with ${options.reasoningModelId}`,
     );
     try {
-      result = await generateFieldsWithRateLimitRetry(
-        numberedHeading,
-        runtime,
-        runtime.reasoningModel,
-        runtime.reasoningModelId,
-        short,
-        relPath,
+      result = await options.runAi(
+        () => generateFields(numberedHeading, options.reasoningModel),
+        {
+          modelId: options.reasoningModelId,
+          shortVersion: short,
+          relPath,
+        },
       );
       usedReasoningPass = true;
-      modelId = runtime.reasoningModelId;
+      modelId = options.reasoningModelId;
     } catch (reasoningError) {
       throw new Error(
         `both fast and reasoning passes failed for ${relPath}\nfast: ${String(fastError)}\nreasoning: ${String(reasoningError)}`,
@@ -125,24 +91,24 @@ export async function processFileForVersion(
 
   if (
     !usedReasoningPass &&
-    needsReasoningPass(result.fields, result.confidence, runtime.confidenceThreshold)
+    needsReasoningPass(result.fields, result.confidence, options.confidenceThreshold)
   ) {
     console.log(
-      `[v${short}] ↻ ${relPath} conf=${result.confidence.toFixed(2)} — retry with ${runtime.reasoningModelId}`,
+      `[v${short}] ↻ ${relPath} conf=${result.confidence.toFixed(2)} — retry with ${options.reasoningModelId}`,
     );
     try {
-      const retry = await generateFieldsWithRateLimitRetry(
-        numberedHeading,
-        runtime,
-        runtime.reasoningModel,
-        runtime.reasoningModelId,
-        short,
-        relPath,
+      const retry = await options.runAi(
+        () => generateFields(numberedHeading, options.reasoningModel),
+        {
+          modelId: options.reasoningModelId,
+          shortVersion: short,
+          relPath,
+        },
       );
       if (retry.confidence >= result.confidence) {
         result = retry;
         usedReasoningPass = true;
-        modelId = runtime.reasoningModelId;
+        modelId = options.reasoningModelId;
       }
     } catch (reasoningError) {
       console.warn(

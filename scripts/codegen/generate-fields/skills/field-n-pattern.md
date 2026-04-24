@@ -1,23 +1,26 @@
-# Skill: Field N Pattern
+---
+name: field-n-pattern
+description: Use this skill when the header contains explicit "# Field N: Name" declarations.
+---
 
-Use this skill when the header contains explicit `# Field N: Name` declarations.
+# Field N Pattern
 
-## Trigger
+## When to Use This Skill
 
-The header contains one or more lines matching `# Field <number>: <Name>` (possibly followed by parenthetical enum values).
+Use this skill when the header contains one or more lines matching `# Field <number>: <Name>`, possibly followed by parenthetical enum values.
 
-## Extraction rules
+## Extraction Rules
 
 - Each `Field N:` line defines one field. Preserve the order exactly.
 - The name after the colon is the canonical field name — convert to snake_case.
 - Parenthetical content like `(R = Right_Joining, L = Left_Joining, ...)` enumerates valid values — use a string literal union type.
 - Confidence should be 0.9-1.0 unless types required significant judgement.
 
-### Source ranges — include the FULL block
+## Source Ranges
 
 A field declaration often spans multiple continuation lines. The source MUST cover every line in the block, from the `# Field N:` line down to (and including) the last non-blank continuation line before the next blank `#` separator.
 
-How to find the range:
+## How to Find the Range
 
 1. Start at the `# Field N:` line (e.g. L23).
 2. Walk forward — include every subsequent line that is NOT a blank comment line (`#` alone or `# ` with only whitespace/separator chars like `---` or `===`).

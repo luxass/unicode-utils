@@ -1,8 +1,22 @@
-import type { createUCDClient } from "@ucdjs/client";
 import type { LanguageModel } from "ai";
 
-import type { RenderedFile } from "../fields";
-import type { Limiter, RateLimitCooldown } from "../utils";
+export interface Field {
+  name: string;
+  type: string;
+  description: string;
+  source: string;
+}
+
+export interface RenderedFile {
+  relPath: string;
+  code: string;
+}
+
+export interface GenerateFieldsResult {
+  fields: Field[];
+  confidence: number;
+  notes: string;
+}
 
 export interface ProviderDefaults {
   fast: string;
@@ -24,19 +38,23 @@ export interface ProcessedFile {
   reviewEntry: ReviewEntry;
 }
 
-export interface RuntimeContext {
-  versions: string[];
-  outputDir: string;
-  versionConcurrency: number;
-  fileTaskConcurrency: number;
-  confidenceThreshold: number;
+export interface AiRunContext {
+  modelId: string;
+  shortVersion: string;
+  relPath: string;
+}
+
+export interface ProcessFileOptions {
   fastModelId: string;
   reasoningModelId: string;
   fastModel: LanguageModel;
   reasoningModel: LanguageModel;
-  client: Awaited<ReturnType<typeof createUCDClient>>;
-  fetchLimit: Limiter;
-  aiLimit: Limiter;
-  aiRateLimitCooldown: RateLimitCooldown;
-  aiRateLimitRetries: number;
+  fetchFile: (apiPath: string) => Promise<unknown>;
+  runAi: <T>(task: () => Promise<T>, context: AiRunContext) => Promise<T>;
+  confidenceThreshold: number;
+}
+
+export interface ProcessVersionOptions extends ProcessFileOptions {
+  outputDir: string;
+  fetchFileTree: (fullVersion: string) => Promise<unknown>;
 }

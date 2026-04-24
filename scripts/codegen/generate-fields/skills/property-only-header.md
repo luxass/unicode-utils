@@ -1,21 +1,28 @@
-# Skill: External Reference Header
+---
+name: property-only-header
+description: Use this skill when the header has NO explicit field declarations and NO "# Format:" block, so the file's structure is only documented in an external Unicode Standard Annex / Technical Report.
+---
 
-Use this skill when the header has NO explicit field declarations and NO `# Format:` block, so the file's structure is only documented in an external Unicode Standard Annex / Technical Report. This is the **default fallback** skill — if neither `field-n-pattern` nor `format-line` matches, use this one.
+# Property Only Header
 
-## Trigger
+## When to Use This Skill
+
+Use this skill when the file structure is only documented in an external Unicode Standard Annex or Technical Report.
 
 Match this skill when ALL of the following are true:
 
 - NO `# Field <n>:` declarations anywhere in the header
 - NO `# Format:` block anywhere in the header
 
-It does NOT matter whether the header contains a `# Property:` line. Common shapes that hit this skill:
+It does NOT matter whether the header contains a `# Property:` line.
+
+## Common Header Shapes
 
 - Minimal headers that only reference `https://www.unicode.org/reports/tr44/` (e.g. `PropList.txt`, `DerivedCoreProperties.txt`, `DerivedAge.txt`, `auxiliary/*.txt`, `extracted/*.txt`).
 - Headers with a `# Property: <Name>` line but no field declarations (e.g. `Scripts.txt` referencing UAX #24).
 - Files with empty or near-empty headers like `UnicodeData.txt` (structure documented in UAX #44 Table 4-8 / §5.3).
 
-## Required procedure
+## Required Procedure
 
 1. Pick the most specific Unicode report URL referenced in the header (e.g. `https://www.unicode.org/reports/tr24/` for `Scripts.txt`). If the header references NO specific TR — or only references tr44 generically — use `https://www.unicode.org/reports/tr44/` as the fallback.
 2. Call the `fetch_unicode_report` tool with that URL.

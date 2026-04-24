@@ -1,9 +1,11 @@
 import { mkdir, rename, rm, rmdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 
-import { collectTxtPaths, normalizeVersion, unwrap, type TreeNode } from "../utils";
+import { collectTxtPaths, normalizeVersion, type TreeNode } from "./utils";
 import { processFileForVersion } from "./process-file";
-import type { ReviewEntry, RuntimeContext } from "./types";
+import type { ProcessVersionOptions, ReviewEntry } from "./types";
+
+const FILE_WORKERS = 8;
 
 function renderVersionIndex(
   shortVersion: string,
@@ -31,23 +33,21 @@ function toGeneratedModulePath(relPath: string): string {
   return join(dirname(tsPath), "index.fields.ts");
 }
 
-export async function processVersion(inputVersion: string, runtime: RuntimeContext) {
+export async function processVersion(inputVersion: string, options: ProcessVersionOptions) {
   const { full, short } = normalizeVersion(inputVersion);
   console.log(`[v${short}] fetching file tree`);
 
-  const tree = await runtime.fetchLimit.run(() =>
-    unwrap(runtime.client.versions.getFileTree(full)),
-  );
+  const tree = await options.fetchFileTree(full);
   const relativePaths = collectTxtPaths(tree as readonly TreeNode[]).toSorted((a, b) =>
     a.localeCompare(b),
   );
-  const workerCount = Math.min(Math.max(relativePaths.length, 1), runtime.fileTaskConcurrency);
+  const workerCount = Math.min(Math.max(relativePaths.length, 1), FILE_WORKERS);
   console.log(`[v${short}] ${relativePaths.length} files (workers=${workerCount})`);
 
-  const versionDir = join(runtime.outputDir, `v${short}`);
-  const tempRootDir = join(runtime.outputDir, "..", ".codegen-tmp");
+  const versionDir = join(options.outputDir, `v${short}`);
+  const tempRootDir = join(options.outputDir, "..", ".codegen-tmp");
   const tempVersionDir = join(tempRootDir, `v${short}`);
-  const legacyOutPath = join(runtime.outputDir, `v${short}.ts`);
+  const legacyOutPath = join(options.outputDir, `v${short}.ts`);
   await rm(tempVersionDir, { recursive: true, force: true });
   await mkdir(tempVersionDir, { recursive: true });
 
@@ -59,7 +59,7 @@ export async function processVersion(inputVersion: string, runtime: RuntimeConte
     for (let index = workerIndex; index < relativePaths.length; index += workerCount) {
       const relPath = relativePaths[index]!;
       try {
-        const processed = await processFileForVersion(full, short, relPath, runtime);
+        const processed = await processFileForVersion(full, short, relPath, options);
         const relativeOutPath = toGeneratedModulePath(relPath);
         const absoluteOutPath = join(tempVersionDir, relativeOutPath);
         await mkdir(dirname(absoluteOutPath), { recursive: true });
@@ -105,10 +105,10 @@ export async function processVersion(inputVersion: string, runtime: RuntimeConte
   const reviewEntries = reviewByIndex.filter((entry): entry is ReviewEntry => entry != null);
   reviewEntries.sort((a, b) => a.confidence - b.confidence);
 
-  const reviewPath = join(runtime.outputDir, `v${short}.review.json`);
+  const reviewPath = join(options.outputDir, `v${short}.review.json`);
   await writeFile(reviewPath, `${JSON.stringify(reviewEntries, null, 2)}\n`, "utf-8");
   const lowConfidenceCount = reviewEntries.filter(
-    (entry) => entry.confidence < runtime.confidenceThreshold,
+    (entry) => entry.confidence < options.confidenceThreshold,
   ).length;
   console.log(
     `[v${short}] wrote ${reviewPath} (${lowConfidenceCount} low-confidence of ${reviewEntries.length})`,
