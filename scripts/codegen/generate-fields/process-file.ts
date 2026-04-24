@@ -1,8 +1,8 @@
-import { buildFilePath, isRateLimitError } from "./utils";
 import { generateFields } from "./model";
 import { renderFile } from "./render";
 import type { Field } from "./types";
 import type { ProcessedFile, ProcessFileOptions } from "./types";
+import { buildFilePath, isRateLimitError } from "./utils";
 
 function needsReasoningPass(fields: Field[], confidence: number, threshold: number): boolean {
   if (fields.length === 0) return false;
@@ -63,23 +63,18 @@ export async function processFileForVersion(
     });
   } catch (fastError) {
     if (isRateLimitError(fastError)) {
-      throw new Error(
-        `${options.fastModelId} rate limited for ${relPath}: ${String(fastError)}`,
-      );
+      throw new Error(`${options.fastModelId} rate limited for ${relPath}: ${String(fastError)}`);
     }
 
     console.warn(
       `[v${short}] fast pass failed for ${relPath}; retrying with ${options.reasoningModelId}`,
     );
     try {
-      result = await options.runAi(
-        () => generateFields(numberedHeading, options.reasoningModel),
-        {
-          modelId: options.reasoningModelId,
-          shortVersion: short,
-          relPath,
-        },
-      );
+      result = await options.runAi(() => generateFields(numberedHeading, options.reasoningModel), {
+        modelId: options.reasoningModelId,
+        shortVersion: short,
+        relPath,
+      });
       usedReasoningPass = true;
       modelId = options.reasoningModelId;
     } catch (reasoningError) {

@@ -4,8 +4,8 @@ import { parseArgs } from "node:util";
 
 import { createUCDClient, type UCDClient } from "@ucdjs/client";
 
-import { buildModel, PROVIDER_DEFAULTS } from "./generate-fields/model";
 import { generatePackageExports } from "./generate-fields/exports";
+import { buildModel, PROVIDER_DEFAULTS } from "./generate-fields/model";
 import { processVersion } from "./generate-fields/process-version";
 import type { AiRunContext, ProcessVersionOptions } from "./generate-fields/types";
 import {

@@ -1,22 +1,17 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
 import { createXai } from "@ai-sdk/xai";
 import type { LanguageModel } from "ai";
 import { generateText, Output, stepCountIs, tool } from "ai";
-import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { z } from "zod";
+
 import { renderSkillDefinitions } from "./skill";
+import { LOAD_SKILL_TOOL, FETCH_UNICODE_REPORT_TOOL, VALIDATE_FIELDS_TOOL } from "./tools";
 import type { GenerateFieldsResult, ProviderDefaults } from "./types";
-import {
-  parseNumberedHeadingLines,
-  validateAndNormalizeCandidateFields,
-} from "./validation";
-import {
-  LOAD_SKILL_TOOL,
-  FETCH_UNICODE_REPORT_TOOL,
-  VALIDATE_FIELDS_TOOL
-} from "./tools";
+import { parseNumberedHeadingLines, validateAndNormalizeCandidateFields } from "./validation";
 
 export const PROVIDER_DEFAULTS: Record<string, ProviderDefaults> = {
   openai: { fast: "gpt-4o-mini", reasoning: "o3-mini" },
@@ -45,7 +40,7 @@ function loadSystemPrompt(): Promise<string> {
     path.join(import.meta.dirname, "system-prompt.md"),
     "utf-8",
   ).then(async (prompt) =>
-    prompt.trim().replace("{{SKILL_DEFINITIONS}}", await renderSkillDefinitions())
+    prompt.trim().replace("{{SKILL_DEFINITIONS}}", await renderSkillDefinitions()),
   );
   return systemPromptPromise;
 }
@@ -81,7 +76,7 @@ Fix the issues above. Call validate_fields before final output and return correc
       stopWhen: stepCountIs(20),
       experimental_context: {
         fetchedUrls,
-        headingLines
+        headingLines,
       },
       tools: {
         load_skill: LOAD_SKILL_TOOL,

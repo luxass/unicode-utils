@@ -1,9 +1,9 @@
 import { mkdir, rename, rm, rmdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 
-import { collectTxtPaths, normalizeVersion, type TreeNode } from "./utils";
 import { processFileForVersion } from "./process-file";
 import type { ProcessVersionOptions, ReviewEntry } from "./types";
+import { collectTxtPaths, normalizeVersion, type TreeNode } from "./utils";
 
 const FILE_WORKERS = 8;
 
