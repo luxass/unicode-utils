@@ -12,7 +12,7 @@
  * @fields 4
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:56:21.584Z
+ * @generated 2026-04-24T04:01:20.940Z
  */
 export interface PropertyValueAliases {
   /**
@@ -37,7 +37,7 @@ export interface PropertyValueAliases {
   long_name: string;
 
   /**
-   * Additional aliases for the property value beyond the preferred short and long names.
+   * Additional aliases for the property value, if any.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/PropertyValueAliases.txt#L35
    */

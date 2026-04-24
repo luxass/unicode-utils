@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/16.0.0/ucd/VerticalOrientation.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/VerticalOrientation.txt#L15-L22
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/VerticalOrientation.txt#L15-L23
  *
  * @unicodeVersion 16
  * @fields 2
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:54:59.356Z
+ * @generated 2026-04-24T04:01:43.873Z
  */
 export interface VerticalOrientation {
   /**
@@ -18,14 +18,14 @@ export interface VerticalOrientation {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/VerticalOrientation.txt#L15-L17
    */
-  code_point: string;
+  codepoints: string;
 
   /**
    * Vertical_Orientation property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/VerticalOrientation.txt#L18-L22
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/VerticalOrientation.txt#L15-L23
    */
   vertical_orientation: "U" | "R" | "Tu" | "Tr";
 }
 
-export const VERTICAL_ORIENTATION_FIELDS = ["code_point", "vertical_orientation"];
+export const VERTICAL_ORIENTATION_FIELDS = ["codepoints", "vertical_orientation"];

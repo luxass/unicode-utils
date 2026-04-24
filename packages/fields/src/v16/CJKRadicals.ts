@@ -10,18 +10,18 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:54:03.028Z
+ * @generated 2026-04-24T04:00:57.822Z
  */
 export interface CjkRadicals {
   /**
-   * CJK radical number matching the regular expression [1-9][0-9]{0,2}'{0,2}.
+   * CJK radical number matching [1-9][0-9]{0,2}'{0,2}.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L19-L20
    */
   cjk_radical_number: string;
 
   /**
-   * CJK radical character, which may be empty if the CJK radical character is not included in the Kangxi Radicals block or the CJK Radicals Supplement block.
+   * CJK radical character, which may be empty if not included in the Kangxi Radicals block or the CJK Radicals Supplement block.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L20-L22
    */

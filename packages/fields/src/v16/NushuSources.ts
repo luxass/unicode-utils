@@ -4,33 +4,33 @@
  * @see https://unicode.org/Public/16.0.0/ucd/NushuSources.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L18-L20
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L17-L20
  *
  * @unicodeVersion 16
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:54:37.135Z
+ * @generated 2026-04-24T04:02:59.335Z
  */
 export interface NushuSources {
   /**
    * The code point value in U+xxxxx format.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L18
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L17-L20
    */
   code_point: string;
 
   /**
    * A tag indicating the type of information in the third field.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L19
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L17-L20
    */
   tag: string;
 
   /**
    * The value of the tag (in UTF-8).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L20
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NushuSources.txt#L17-L20
    */
   value: string;
 }

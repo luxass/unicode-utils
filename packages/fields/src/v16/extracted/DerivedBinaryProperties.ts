@@ -4,28 +4,29 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedBinaryProperties.txt
  *
  * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedBinaryProperties.txt#L12
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T03:56:04.927Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:01:03.939Z
  */
 export interface ExtractedDerivedBinaryProperties {
   /**
-   * Hexadecimal Unicode code point or range (e.g. '0020..007E' or '0041') for characters having the property.
+   * Unicode code point range (e.g. 0041 or 0041..0041).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Binary property name indicating characters with Bidi_Mirrored=Y as listed from UnicodeData.txt field 9.
+   * Bidi_Mirrored property value.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedBinaryProperties.txt#L12
    */
-  property: "Bidi_Mirrored";
+  bidi_mirrored: "Y" | "N";
 }
 
-export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point_range", "property"];
+export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point_range", "bidi_mirrored"];

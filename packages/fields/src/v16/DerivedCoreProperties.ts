@@ -4,28 +4,14 @@
  * @see https://unicode.org/Public/16.0.0/ucd/DerivedCoreProperties.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 16
- * @fields 2
- * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T03:55:00.853Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:00:56.892Z
  */
-export interface DerivedCoreProperties {
-  /**
-   * Hexadecimal Unicode code point or range (e.g., '0041..005A' or '0020').
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point_range: string;
+export interface DerivedCoreProperties {}
 
-  /**
-   * Name of the derived core property (e.g., 'Math') for which the code points have value 'Yes'.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  property: string;
-}
-
-export const DERIVED_CORE_PROPERTIES_FIELDS = ["code_point_range", "property"];
+export const DERIVED_CORE_PROPERTIES_FIELDS = [];

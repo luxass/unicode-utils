@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/16.0.0/ucd/extracted/DerivedJoiningType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedJoiningType.txt#L12-L21
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:54:29.598Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-24T04:02:51.445Z
  */
 export interface ExtractedDerivedJoiningType {
   /**
-   * @missing: 0000..10FFFF; Non_Joining.
+   * Unicode code point or range, represented as hexadecimal value(s).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedJoiningType.txt#L17
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Derived Joining_Type value, defaulting to Non_Joining (U) for unlisted code points.
+   * Joining_Type property value (excluding Non_Joining which is default).
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedJoiningType.txt#L12-L21
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  joining_type: "Join_Causing" | (string & {});
+  joining_type: "Join_Causing" | "Dual_Joining" | "Left_Joining" | "Right_Joining" | "Transparent";
 }
 
-export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point_range", "joining_type"];
+export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point", "joining_type"];

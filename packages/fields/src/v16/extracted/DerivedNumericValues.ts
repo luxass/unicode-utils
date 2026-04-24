@@ -11,7 +11,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:54:34.003Z
+ * @generated 2026-04-24T04:01:28.949Z
  */
 export interface ExtractedDerivedNumericValues {
   /**

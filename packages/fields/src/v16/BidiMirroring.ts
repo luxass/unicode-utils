@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 16
  * @fields 2
- * @confidence 0.80
+ * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:53:57.278Z
+ * @generated 2026-04-24T04:00:50.566Z
  */
 export interface BidiMirroring {
   /**
@@ -25,7 +25,7 @@ export interface BidiMirroring {
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/BidiMirroring.txt#L27-L29
    */
-  mirrored_code_point: string;
+  target_code_point: string;
 }
 
-export const BIDI_MIRRORING_FIELDS = ["source_code_point", "mirrored_code_point"];
+export const BIDI_MIRRORING_FIELDS = ["source_code_point", "target_code_point"];

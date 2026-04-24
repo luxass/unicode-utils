@@ -11,22 +11,22 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:54:10.139Z
+ * @generated 2026-04-24T04:01:05.589Z
  */
 export interface ExtractedDerivedEastAsianWidth {
   /**
-   * Unicode code point range or single code point (field 1 from EastAsianWidth.txt).
+   * East_Asian_Width=Neutral.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L43
    */
-  codepoints: string;
+  range: string;
 
   /**
    * East Asian Width property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L43
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L12
    */
-  east_asian_width: "A" | "F" | "H" | "N" | "Na" | "W" | (string & {});
+  east_asian_width: "Neutral" | "Narrow" | "Wide" | "Ambiguous" | "Halfwidth" | "Fullwidth" | "A";
 }
 
-export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_FIELDS = ["codepoints", "east_asian_width"];
+export const EXTRACTED_DERIVED_EAST_ASIAN_WIDTH_FIELDS = ["range", "east_asian_width"];

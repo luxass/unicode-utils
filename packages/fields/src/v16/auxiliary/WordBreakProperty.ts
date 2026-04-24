@@ -10,11 +10,11 @@
  * @fields 3
  * @confidence 0.70
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:53:59.050Z
+ * @generated 2026-04-24T04:00:51.456Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range (e.g. 0020..002F).
+   * Unicode code point range (e.g. 003A..003A or 0000..10FFFF).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
@@ -28,7 +28,6 @@ export interface AuxiliaryWordBreakProperty {
   word_break:
     | "ALetter"
     | "ATerm"
-    | "BContinue"
     | "CR"
     | "Double_Quote"
     | "E_Base"
@@ -41,6 +40,7 @@ export interface AuxiliaryWordBreakProperty {
     | "Glue_After_Zwj"
     | "Hebrew_Letter"
     | "Katakana"
+    | "LE"
     | "LF"
     | "MidLetter"
     | "MidNum"
@@ -58,7 +58,7 @@ export interface AuxiliaryWordBreakProperty {
     | (string & {});
 
   /**
-   * Optional comment or source information.
+   * Optional comment field.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

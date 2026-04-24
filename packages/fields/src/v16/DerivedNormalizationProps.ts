@@ -7,36 +7,25 @@
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 16
- * @fields 3
- * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T03:54:51.014Z
+ * @fields 2
+ * @confidence 0.70
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-24T04:00:54.821Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point.
+   * Code point range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Derived normalization property name.
+   * List of code points that are the FC_NFKC_Closure of the code point range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  property:
-    | "FC_NFKC_Closure"
-    | "NFKC_Casefold"
-    | "Changes_When_NFKC_Casefold"
-    | "Changes_When_Casefolded";
-
-  /**
-   * Space-separated list of code points or ranges relevant to the property.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  value: Array<string>;
+  fc_nfkc_closure: string[];
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point", "property", "value"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point_range", "fc_nfkc_closure"];

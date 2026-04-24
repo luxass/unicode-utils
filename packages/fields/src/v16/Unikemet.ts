@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T03:56:28.036Z
+ * @generated 2026-04-24T04:01:25.573Z
  */
 export interface Unikemet {
   /**
@@ -28,7 +28,7 @@ export interface Unikemet {
   tag: string;
 
   /**
-   * Each line of this file consists of three tab-separated fields.
+   * Line's value in UTF-8.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/Unikemet.txt#L13-L16
    */
