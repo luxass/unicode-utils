@@ -35,12 +35,29 @@ Top-level: `{ fields: [{ name, type, description, source }], confidence: number,
 
 ### Types
 
-Valid TypeScript only: string, number, boolean, string[], number[], Array<string>, Array<number>, Record<string, string>, Record<string, number>, Record<string, unknown>, unknown.
+Return semantic type data, NOT TypeScript type syntax.
 
-- String literal unions: each value quoted with pipe separator — "\"R\" | \"L\" | \"D\""
-- If a field has known values but may also accept other strings, use `(string & {})` as the last union member — e.g. `"Comp" | "ExtA" | "Rejected" | (string & {})`. NEVER use `| string` — it erases the literal types at the TypeScript level.
-- Angle-bracket values like <none> → remove brackets and quote: "\"none\""
-- Never use: union, object, array, map, list, none (unquoted).
+`type.kind` MUST be one of:
+
+- `string`
+- `number`
+- `boolean`
+- `string_array`
+- `number_array`
+- `record_string`
+- `record_number`
+- `record_unknown`
+- `unknown`
+
+For string literal values, use:
+
+```json
+{ "kind": "string", "literals": ["R", "L", "D"], "allowOther": false }
+```
+
+If a field has known values but may also accept other strings, set `allowOther` to `true`. The generator will render `(string & {})`; do NOT include TypeScript syntax yourself.
+
+Angle-bracket values like `<none>` → remove brackets and put `none` in `literals`.
 
 ### Descriptions
 

@@ -9,6 +9,7 @@ import { generateText, Output, stepCountIs } from "ai";
 import { z } from "zod";
 
 import { renderSkillDefinitions } from "./skill";
+import { CANDIDATE_FIELD_SCHEMA } from "./schema";
 import { LOAD_SKILL_TOOL, FETCH_UNICODE_REPORT_TOOL, VALIDATE_FIELDS_TOOL } from "./tools";
 import type { GenerateFieldsResult, ProviderDefaults } from "./types";
 import { parseNumberedHeadingLines, validateAndNormalizeCandidateFields } from "./validation";
@@ -86,16 +87,7 @@ Fix the issues above. Call validate_fields before final output and return correc
       output: Output.object({
         schema: z.object({
           fields: z.array(
-            z.object({
-              name: z.string(),
-              type: z.string(),
-              description: z.string(),
-              source: z
-                .string()
-                .describe(
-                  "Origin: 'header:L<n>', 'header:L<start>-L<end>', or 'report:<url>'. No other values permitted.",
-                ),
-            }),
+            CANDIDATE_FIELD_SCHEMA,
           ),
           confidence: z
             .number()

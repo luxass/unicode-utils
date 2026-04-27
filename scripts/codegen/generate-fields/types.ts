@@ -7,6 +7,28 @@ export interface Field {
   source: string;
 }
 
+export interface FieldType {
+  kind:
+    | "string"
+    | "number"
+    | "boolean"
+    | "string_array"
+    | "number_array"
+    | "record_string"
+    | "record_number"
+    | "record_unknown"
+    | "unknown";
+  literals?: string[];
+  allowOther?: boolean;
+}
+
+export interface CandidateField {
+  name: string;
+  type: FieldType;
+  description: string;
+  source: string;
+}
+
 export interface RenderedFile {
   relPath: string;
   code: string;

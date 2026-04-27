@@ -1,5 +1,5 @@
 import { normalizeReportUrl } from "./reports";
-import type { Field } from "./types";
+import type { CandidateField, Field, FieldType } from "./types";
 
 export const HEADER_SOURCE_RE = /^header:L\d+(?:-L\d+)?$/;
 
@@ -114,7 +114,7 @@ function buildConservativeDescription(fieldName: string, sourceText: string): st
 }
 
 function normalizeFieldDescription(
-  field: Field,
+  field: CandidateField,
   normalizedSource: string,
   headingLines: ReadonlyMap<number, string>,
 ): string {
@@ -141,6 +141,44 @@ function normalizeFieldDescription(
   }
 
   return buildConservativeDescription(field.name, sourceText);
+}
+
+function renderFieldType(type: FieldType): { type: string | null; violation: string | null } {
+  const literals = type.literals ?? [];
+  if (literals.length > 0 && type.kind !== "string") {
+    return {
+      type: null,
+      violation: `literal values are only valid for string fields, got "${type.kind}"`,
+    };
+  }
+
+  switch (type.kind) {
+    case "string": {
+      if (literals.length === 0) return { type: "string", violation: null };
+
+      const members = [...new Set(literals)].map((literal) => JSON.stringify(literal));
+      if (type.allowOther === true) {
+        members.push("(string & {})");
+      }
+      return { type: members.join(" | "), violation: null };
+    }
+    case "number":
+      return { type: "number", violation: null };
+    case "boolean":
+      return { type: "boolean", violation: null };
+    case "string_array":
+      return { type: "string[]", violation: null };
+    case "number_array":
+      return { type: "number[]", violation: null };
+    case "record_string":
+      return { type: "Record<string, string>", violation: null };
+    case "record_number":
+      return { type: "Record<string, number>", violation: null };
+    case "record_unknown":
+      return { type: "Record<string, unknown>", violation: null };
+    case "unknown":
+      return { type: "unknown", violation: null };
+  }
 }
 
 export function normalizeFieldSource(source: string): string | null {
@@ -177,7 +215,7 @@ export function normalizeFieldSource(source: string): string | null {
 }
 
 export function validateAndNormalizeCandidateFields(
-  fields: Field[],
+  fields: CandidateField[],
   headingLines: ReadonlyMap<number, string>,
   fetchedUrls: ReadonlySet<string>,
 ): { normalizedFields: Field[]; violations: string[] } {
@@ -193,6 +231,12 @@ export function validateAndNormalizeCandidateFields(
       continue;
     }
 
+    const renderedType = renderFieldType(field.type);
+    if (renderedType.violation != null || renderedType.type == null) {
+      violations.push(`field "${field.name}" has invalid type: ${renderedType.violation}`);
+      continue;
+    }
+
     if (HEADER_SOURCE_RE.test(normalizedSource)) {
       if (headerSourceContainsMissingAnnotation(normalizedSource, headingLines)) {
         violations.push(
@@ -203,6 +247,7 @@ export function validateAndNormalizeCandidateFields(
 
       normalizedFields.push({
         ...field,
+        type: renderedType.type,
         source: normalizedSource,
         description: normalizeFieldDescription(field, normalizedSource, headingLines),
       });
@@ -219,6 +264,7 @@ export function validateAndNormalizeCandidateFields(
       }
       normalizedFields.push({
         ...field,
+        type: renderedType.type,
         source: normalizedSource,
         description: normalizeFieldDescription(field, normalizedSource, headingLines),
       });

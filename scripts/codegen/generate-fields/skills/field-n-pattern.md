@@ -13,7 +13,7 @@ Use this skill when the header contains one or more lines matching `# Field <num
 
 - Each `Field N:` line defines one field. Preserve the order exactly.
 - The name after the colon is the canonical field name — convert to snake_case.
-- Parenthetical content like `(R = Right_Joining, L = Left_Joining, ...)` enumerates valid values — use a string literal union type.
+- Parenthetical content like `(R = Right_Joining, L = Left_Joining, ...)` enumerates valid values — use `type.kind: "string"` with `type.literals`.
 - Confidence should be 0.9-1.0 unless types required significant judgement.
 
 ## Source Ranges
@@ -67,25 +67,25 @@ Output:
   "fields": [
     {
       "name": "code_point",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "The code point, in 4-digit hexadecimal form.",
       "source": "header:L23-L25"
     },
     {
       "name": "name",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "A short schematic name for the character.",
       "source": "header:L27-L32"
     },
     {
       "name": "joining_type",
-      "type": "\"R\" | \"L\" | \"D\" | \"C\" | \"U\" | \"T\"",
+      "type": { "kind": "string", "literals": ["R", "L", "D", "C", "U", "T"], "allowOther": false },
       "description": "Joining type: R=Right_Joining, L=Left_Joining, D=Dual_Joining, C=Join_Causing, U=Non_Joining, T=Transparent.",
       "source": "header:L34-L40"
     },
     {
       "name": "joining_group",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "Joining group name based on character names.",
       "source": "header:L49"
     }

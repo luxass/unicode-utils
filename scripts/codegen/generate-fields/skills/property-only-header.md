@@ -41,7 +41,7 @@ It does NOT matter whether the header contains a `# Property:` line.
 
 - Ignore all `# @missing:` lines when deciding fields. They document default values for omitted code points, not the record columns.
 - Do NOT mix `header:L<n>` and `report:<url>` sources for a single field — pick the most specific.
-- If the report lists valid property values, use a string literal union type.
+- If the report lists valid property values, use `type.kind: "string"` with `type.literals`.
 - Confidence should be 0.5-0.8 depending on how clear the report's field structure is.
 
 ## Example
@@ -65,13 +65,13 @@ Output (after fetching):
   "fields": [
     {
       "name": "code_point",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "Unicode code point or range.",
       "source": "report:https://www.unicode.org/reports/tr24/"
     },
     {
       "name": "script",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "Script property value per UAX #24.",
       "source": "report:https://www.unicode.org/reports/tr24/"
     }

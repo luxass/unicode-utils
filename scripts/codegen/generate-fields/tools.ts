@@ -2,6 +2,7 @@ import { tool } from "ai";
 import z from "zod";
 
 import { fetchUnicodeReport, normalizeReportUrl } from "./reports";
+import { CANDIDATE_FIELD_SCHEMA } from "./schema";
 import { loadSkill } from "./skill";
 import { validateAndNormalizeCandidateFields } from "./validation";
 
@@ -66,18 +67,11 @@ export const VALIDATE_FIELDS_TOOL = tool({
   description:
     "Validate and normalize candidate fields. Call this before final output. If issues are returned, fix and call again.",
   inputSchema: z.object({
-    fields: z.array(
-      z.object({
-        name: z.string(),
-        type: z.string(),
-        description: z.string(),
-        source: z.string(),
-      }),
-    ),
+    fields: z.array(CANDIDATE_FIELD_SCHEMA),
   }),
   execute: async ({ fields }, options) => {
     const context = getFieldToolContext(options.experimental_context);
-    const { normalizedFields, violations } = validateAndNormalizeCandidateFields(
+    const { violations } = validateAndNormalizeCandidateFields(
       fields,
       context.headingLines,
       context.fetchedUrls,
@@ -85,7 +79,6 @@ export const VALIDATE_FIELDS_TOOL = tool({
     return {
       ok: violations.length === 0,
       violations,
-      normalizedFields,
     };
   },
 });

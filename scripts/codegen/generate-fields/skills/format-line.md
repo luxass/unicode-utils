@@ -18,7 +18,7 @@ Use this skill when the header contains a `# Format:` block followed by a line l
 - Tokens before `#` are data fields; tokens after `#` are trailing comment fields — include both.
 - All fields cite the format line itself: `header:L<n>`.
 - If the format line is preceded by per-column explanations (e.g. `# Column 1: ...`), include those as additional header:L<n> sources where relevant.
-- Types are almost always `string` unless a column is explicitly labelled numeric or boolean.
+- Types are almost always `{ "kind": "string" }` unless a column is explicitly labelled numeric or boolean.
 - Confidence should be 0.8-0.9 (format line is explicit but types are usually inferred).
 
 ## Example
@@ -37,19 +37,19 @@ Output:
   "fields": [
     {
       "name": "codepoints",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "One or more Unicode code points in hexadecimal.",
       "source": "header:L8"
     },
     {
       "name": "property",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "The property value.",
       "source": "header:L8"
     },
     {
       "name": "comments",
-      "type": "string",
+      "type": { "kind": "string" },
       "description": "Informational comment.",
       "source": "header:L8"
     }
