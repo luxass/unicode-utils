@@ -8,24 +8,24 @@
  *
  * @unicodeVersion 17
  * @fields 2
- * @confidence 0.50
+ * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:16:30.894Z
+ * @generated 2026-04-28T04:43:05.265Z
  */
 export interface ExtractedDerivedJoiningType {
   /**
-   * Unicode code point or range.
+   * Code point range (single code point or range) in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Derived Joining Type property value.
+   * Value of the Derived Joining_Type property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  joining_type: string;
+  joining_type: "Non_Joining" | "Left_Joining" | "Right_Joining" | "Dual_Joining" | "Join_Causing" | "Transparent";
 }
 
 export const EXTRACTED_DERIVED_JOINING_TYPE_FIELDS = ["code_point", "joining_type"];

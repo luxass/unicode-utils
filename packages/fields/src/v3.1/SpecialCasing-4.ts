@@ -4,49 +4,56 @@
  * @see https://unicode.org/Public/3.1-Update/SpecialCasing-4.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17-L23
+ * - https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
  *
  * @unicodeVersion 3.1
- * @fields 5
+ * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:37:01.962Z
+ * @generated 2026-04-28T04:54:15.946Z
  */
 export interface SpecialCasing4 {
   /**
-   * Unicode code point value(s) in hexadecimal format. If there is more than one character, they are separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
    */
   code: string;
 
   /**
-   * Lowercase mapping value(s) in hex. If there is more than one character, they are separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
    */
   lower: string;
 
   /**
-   * Titlecase mapping value(s) in hex. If there is more than one character, they are separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
    */
   title: string;
 
   /**
-   * Uppercase mapping value(s) in hex. If there is more than one character, they are separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
    */
   upper: string;
 
   /**
-   * Optional condition list consisting of one or more locales or contexts, separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17-L23
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
    */
   condition_list: string;
+
+  /**
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
+   *
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/SpecialCasing-4.txt#L17
+   */
+  comment: string;
 }
 
-export const SPECIAL_CASING_4_FIELDS = ["code", "lower", "title", "upper", "condition_list"];
+export const SPECIAL_CASING_4_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

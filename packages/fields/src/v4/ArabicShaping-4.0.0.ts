@@ -4,14 +4,13 @@
  * @see https://unicode.org/Public/4.0-Update/ArabicShaping-4.0.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.0-Update/ArabicShaping-4.0.0.txt#L16-L26
- * - https://ucdjs.dev/file-explorer/v/4.0-Update/ArabicShaping-4.0.0.txt#L28
+ * - https://ucdjs.dev/file-explorer/v/4.0-Update/ArabicShaping-4.0.0.txt#L16-L28
  *
  * @unicodeVersion 4
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:57.578Z
+ * @generated 2026-04-28T04:54:24.429Z
  */
 export interface ArabicShaping400 {
   /**
@@ -31,7 +30,7 @@ export interface ArabicShaping400 {
   /**
    * R right-joining, L left-joining, D dual-joining, C join-causing, U non-joining, T transparent.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/ArabicShaping-4.0.0.txt#L20-L26
+   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/ArabicShaping-4.0.0.txt#L20-L27
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
@@ -43,9 +42,4 @@ export interface ArabicShaping400 {
   joining_group: string;
 }
 
-export const ARABIC_SHAPING_400_FIELDS = [
-  "code_point",
-  "schematic_name",
-  "joining_type",
-  "joining_group",
-];
+export const ARABIC_SHAPING_400_FIELDS = ["code_point", "schematic_name", "joining_type", "joining_group"];

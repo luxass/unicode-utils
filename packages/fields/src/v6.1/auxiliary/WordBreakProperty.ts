@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/6.1.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/6.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
  *
  * @unicodeVersion 6.1
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:27:40.438Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:54:21.186Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range for the Word_Break property.
+   * Unicode code point or range explicitly listed for the Word_Break property.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Word_Break property value (e.g. Other, XX).
+   * Word_Break property value; unlisted code points have default value Other (XX).
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.1.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
    */
-  word_break: string;
+  word_break: "Other" | (string & {});
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];

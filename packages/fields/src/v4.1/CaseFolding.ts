@@ -4,14 +4,13 @@
  * @see https://unicode.org/Public/4.1.0/ucd/CaseFolding.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/CaseFolding.txt#L34
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/CaseFolding.txt#L36-L40
+ * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/CaseFolding.txt#L34-L52
  *
  * @unicodeVersion 4.1
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:40.159Z
+ * @generated 2026-04-28T04:55:36.240Z
  */
 export interface CaseFolding {
   /**
@@ -22,9 +21,9 @@ export interface CaseFolding {
   code: string;
 
   /**
-   * Status field indicating the type of case folding: C (common), F (full), S (simple), T (special).
+   * Case folding status: C (common), F (full), S (simple), or T (special Turkic).
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/CaseFolding.txt#L36-L40
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/CaseFolding.txt#L34-L52
    */
   status: "C" | "F" | "S" | "T";
 
@@ -36,7 +35,7 @@ export interface CaseFolding {
   mapping: string;
 
   /**
-   * Name or comment for the code point.
+   * <code>; <status>; <mapping>; <name>.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/CaseFolding.txt#L34
    */

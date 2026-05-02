@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/18.0.0/ucd/NameAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L50-L52
+ * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L50-L53
  *
  * @unicodeVersion 18
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:15:38.087Z
+ * @generated 2026-04-28T04:42:01.751Z
  */
 export interface NameAliases {
   /**
@@ -30,7 +30,7 @@ export interface NameAliases {
   /**
    * Third field: Type.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L52
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/NameAliases.txt#L52-L53
    */
   type: "correction" | "control" | "alternate" | "figment" | "abbreviation";
 }

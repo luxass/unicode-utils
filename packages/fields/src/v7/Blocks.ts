@@ -10,25 +10,25 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:38.178Z
+ * @generated 2026-04-28T04:49:43.017Z
  */
 export interface Blocks {
   /**
-   * ..End Code; Block Name.
+   * Start Code of the Unicode block range in hexadecimal.
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/Blocks.txt#L13
    */
   start_code: string;
 
   /**
-   * Start Code..End Code; Block Name.
+   * End Code of the Unicode block range in hexadecimal.
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/Blocks.txt#L13
    */
   end_code: string;
 
   /**
-   * Name of the Unicode block.
+   * Block Name.
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/Blocks.txt#L13
    */

@@ -8,20 +8,20 @@
  *
  * @unicodeVersion 13
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:18:12.373Z
+ * @generated 2026-04-28T04:44:49.980Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range of code points.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Grapheme_Cluster_Break property value.
+   * Grapheme_Cluster_Break property value; defaults to Other for unlisted code points.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

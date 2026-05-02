@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 15.1
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:17:25.344Z
+ * @generated 2026-04-28T04:43:53.856Z
  */
 export interface ExtractedDerivedLineBreak {
   /**

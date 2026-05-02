@@ -7,13 +7,13 @@
  * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L23-L25
  * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L27-L32
  * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L34-L40
- * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L49-L73
+ * - https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L49-L59
  *
  * @unicodeVersion 7
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:41.193Z
+ * @generated 2026-04-28T04:49:42.056Z
  */
 export interface ArabicShaping {
   /**
@@ -31,16 +31,16 @@ export interface ArabicShaping {
   name: string;
 
   /**
-   * defines the joining type (property name: Joining_Type).
+   * defines the joining type (property name: Joining_Type): R Right_Joining; L Left_Joining; D Dual_Joining; C Join_Causing; U Non_Joining; T Transparent.
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L34-L40
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
   /**
-   * defines the joining group (property name: Joining_Group).
+   * defines the joining group (property name: Joining_Group). The values of the joining group are based schematically on character names.
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L49-L73
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/ArabicShaping.txt#L49-L59
    */
   joining_group: string;
 }

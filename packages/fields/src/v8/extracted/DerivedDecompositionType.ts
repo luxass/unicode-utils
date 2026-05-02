@@ -10,22 +10,22 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:26:31.177Z
+ * @generated 2026-04-28T04:52:26.317Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range in hexadecimal.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Decomposition_Type property value as defined in UAX #44.
+   * Decomposition_Type value (non-None).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  decomposition_type: string;
+  decomposition_type: "Canonical" | "Compat" | "Circle" | "Final" | "Font" | "Fraction" | "Initial" | "Isolated" | "Medial" | "Narrow" | "NoBreak" | "Small" | "Square" | "Sub" | "Super" | "Vertical" | "Wide";
 }
 
 export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

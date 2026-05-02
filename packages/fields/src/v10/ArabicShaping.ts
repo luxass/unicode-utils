@@ -5,15 +5,15 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L24-L26
- * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L28-L32
- * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L35-L41
+ * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L28-L33
+ * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L35-L42
  * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L50
  *
  * @unicodeVersion 10
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:50.433Z
+ * @generated 2026-04-28T04:45:59.194Z
  */
 export interface ArabicShaping {
   /**
@@ -24,30 +24,25 @@ export interface ArabicShaping {
   codepoint: string;
 
   /**
-   * a short schematic name for that character descriptive of the shape, based on a name for the skeleton and the diacritic marks applied to the skeleton.
+   * a short schematic name for that character.
    *
-   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L28-L32
+   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L28-L33
    */
   schematic_name: string;
 
   /**
-   * the joining type (property name: Joining_Type).
+   * defines the joining type (property name: Joining_Type).
    *
-   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L35-L41
+   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L35-L42
    */
-  joining_type: "R" | "L" | "D" | "C" | "U" | "T";
+  joining_type: "R" | "L" | "D" | "C" | "U" | "T" | "Right_Joining" | "Left_Joining" | "Dual_Joining" | "Join_Causing" | "Non_Joining" | "Transparent" | (string & {});
 
   /**
-   * the joining group (property name: Joining_Group).
+   * defines the joining group (property name: Joining_Group).
    *
    * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/ArabicShaping.txt#L50
    */
   joining_group: string;
 }
 
-export const ARABIC_SHAPING_FIELDS = [
-  "codepoint",
-  "schematic_name",
-  "joining_type",
-  "joining_group",
-];
+export const ARABIC_SHAPING_FIELDS = ["codepoint", "schematic_name", "joining_type", "joining_group"];

@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:51.934Z
+ * @generated 2026-04-28T04:57:44.767Z
  */
 export interface CaseFolding4 {
   /**
@@ -21,7 +21,7 @@ export interface CaseFolding4 {
   code: string;
 
   /**
-   * Status of the case folding: C (common), F (full), S (simple), or I (special).
+   * Status field indicating the type of case folding: C (common), F (full), S (simple), I (special case for dotted I/dotless i).
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update1/CaseFolding-4.txt#L26-L34
    */

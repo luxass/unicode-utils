@@ -7,36 +7,25 @@
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 5.2
- * @fields 3
+ * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:33:57.288Z
+ * @generated 2026-04-28T04:52:04.363Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point or range of code points to which the property applies.
+   * Code point or range for which the FC_NFKC_Closure is defined.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  codepoint_range: string;
 
   /**
-   * Name of the derived normalization property, such as FC_NFKC_Closure.
+   * Space-separated list of one or more code points or ranges constituting the FC_NFKC_Closure.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  property_name: string;
-
-  /**
-   * Value of the property; for FC_NFKC_Closure a sequence of code points.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  property_value: string;
+  fc_nfkc_closure: string[];
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = [
-  "code_point_range",
-  "property_name",
-  "property_value",
-];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["codepoint_range", "fc_nfkc_closure"];

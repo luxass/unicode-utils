@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:17:54.423Z
+ * @generated 2026-04-28T04:43:18.470Z
  */
 export interface BidiBrackets {
   /**
@@ -25,7 +25,7 @@ export interface BidiBrackets {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/BidiBrackets.txt#L50
    */
-  bidi_paired_bracket: string;
+  bidi_paired_bracket: "none" | (string & {});
 
   /**
    * Bidi_Paired_Bracket_Type property value: o=Open, c=Close, n=None.
@@ -35,8 +35,4 @@ export interface BidiBrackets {
   bidi_paired_bracket_type: "o" | "c" | "n";
 }
 
-export const BIDI_BRACKETS_FIELDS = [
-  "code_point",
-  "bidi_paired_bracket",
-  "bidi_paired_bracket_type",
-];
+export const BIDI_BRACKETS_FIELDS = ["code_point", "bidi_paired_bracket", "bidi_paired_bracket_type"];

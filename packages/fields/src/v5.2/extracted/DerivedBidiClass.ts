@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/5.2.0/ucd/extracted/DerivedBidiClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedBidiClass.txt#L11-L47
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedBidiClass.txt#L11
  *
  * @unicodeVersion 5.2
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:15.768Z
+ * @generated 2026-04-28T04:50:39.142Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Code point or range explicitly listed for Bidi_Class.
+   * Unicode code point or range explicitly listed for Bidi_Class.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedBidiClass.txt#L11-L47
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedBidiClass.txt#L11
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Bidi class value from UnicodeData.txt field 4 or derived per header rules.
+   * Bidi Class value (see UAX #44).
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedBidiClass.txt#L11-L47
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedBidiClass.txt#L11
    */
   bidi_class: string;
 }
 
-export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point", "bidi_class"];
+export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point_range", "bidi_class"];

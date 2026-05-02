@@ -4,37 +4,35 @@
  * @see https://unicode.org/Public/3.2-Update/PropertyValueAliases-3.2.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L17-L21
- * - https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L23-L24
- * - https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L26
+ * - https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L19-L26
  *
  * @unicodeVersion 3.2
  * @fields 3
- * @confidence 0.90
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:31.970Z
+ * @generated 2026-04-28T04:58:17.023Z
  */
 export interface PropertyValueAliases320 {
   /**
-   * First field: The property for which that property value name is used.
+   * The property for which that property value name is used. One special pseudo-property: 'qc' stands for any quick-check property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L17-L21
+   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L19-L22
    */
   property: string;
 
   /**
-   * Second field: The abbreviated name. If no abbreviated name available, the field is marked with 'n/a'.
+   * The abbreviated name. If there is no abbreviated name available, the field is marked with 'n/a'.
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L23-L24
+   * @source https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L23-L25
    */
-  abbrev_name: string;
+  abbreviated_name: "n/a" | (string & {});
 
   /**
-   * Third field: The long name.
+   * The long name.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/PropertyValueAliases-3.2.0.txt#L26
    */
   long_name: string;
 }
 
-export const PROPERTY_VALUE_ALIASES_320_FIELDS = ["property", "abbrev_name", "long_name"];
+export const PROPERTY_VALUE_ALIASES_320_FIELDS = ["property", "abbreviated_name", "long_name"];

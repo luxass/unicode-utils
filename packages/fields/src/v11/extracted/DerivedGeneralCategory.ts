@@ -8,54 +8,24 @@
  *
  * @unicodeVersion 11
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:22:09.396Z
+ * @generated 2026-04-28T04:47:57.829Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * Unicode code point range in hexadecimal notation, such as 0000..007F or a single code point like 0080.
+   * Unicode code point or range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * General_Category property value (short alias).
+   * Value of the Derived General Category property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  general_category:
-    | "Lu"
-    | "Ll"
-    | "Lt"
-    | "Lm"
-    | "Lo"
-    | "Mn"
-    | "Me"
-    | "Mc"
-    | "Nd"
-    | "Nl"
-    | "No"
-    | "Pc"
-    | "Pd"
-    | "Ps"
-    | "Pe"
-    | "Pi"
-    | "Pf"
-    | "Po"
-    | "Sm"
-    | "Sc"
-    | "Sk"
-    | "So"
-    | "Zs"
-    | "Zl"
-    | "Zp"
-    | "Cc"
-    | "Cf"
-    | "Cs"
-    | "Co"
-    | "Cn";
+  general_category: "Unassigned" | "Noncharacter_Code_Point";
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point_range", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point", "general_category"];

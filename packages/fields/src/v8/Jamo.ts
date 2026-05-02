@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:25:28.563Z
+ * @generated 2026-04-28T04:51:41.827Z
  */
 export interface Jamo {
   /**
-   * 4-digit hexadecimal code point of a conjoining jamo character.
+   * The code point, in 4-digit hexadecimal form, of a conjoining jamo character that participates in the algorithmic determination of Hangul syllable character names.
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/Jamo.txt#L16-L18
    */
   code_point: string;
 
   /**
-   * Jamo_Short_Name as a one-, two-, or three-character ASCII string (or null string for U+110B).
+   * The Jamo_Short_Name as a one-, two-, or three-character ASCII string (or in one case, for U+110B, the null string).
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/Jamo.txt#L19-L21
    */

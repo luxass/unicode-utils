@@ -5,28 +5,27 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedNumericType.txt#L11
- * - https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedNumericType.txt#L13-L14
  *
  * @unicodeVersion 5
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:26.943Z
+ * @generated 2026-04-28T04:57:01.629Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Unicode code point or range explicitly listed for Numeric_Type.
+   * Code point or range with Numeric_Type value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedNumericType.txt#L13-L14
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedNumericType.txt#L11
    */
   code_point_range: string;
 
   /**
-   * Numeric Type derived from UnicodeData.txt fields 6/7/8 and Unihan.txt.
+   * Numeric Type (from UnicodeData.txt, field 6/7/8 plus Unihan.txt).
    *
    * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/extracted/DerivedNumericType.txt#L11
    */
-  numeric_type: "Digit" | "Numeric" | (string & {});
+  numeric_type: "None" | (string & {});
 }
 
 export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point_range", "numeric_type"];

@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/5.2.0/ucd/PropertyAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L21
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L23
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L19-L25
  *
  * @unicodeVersion 5.2
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:25.434Z
+ * @generated 2026-04-28T04:52:05.379Z
  */
 export interface PropertyAliases {
   /**
    * The first field is an abbreviated name for the property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L21
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L19-L25
    */
-  abbreviated_name: string;
+  property_abbrev: string;
 
   /**
    * The second field is a long name.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L23
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyAliases.txt#L19-L25
    */
-  long_name: string;
+  property_long: string;
 }
 
-export const PROPERTY_ALIASES_FIELDS = ["abbreviated_name", "long_name"];
+export const PROPERTY_ALIASES_FIELDS = ["property_abbrev", "property_long"];

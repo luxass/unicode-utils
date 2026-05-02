@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:22:06.635Z
+ * @generated 2026-04-28T04:46:27.531Z
  */
 export interface EquivalentUnifiedIdeograph {
   /**
@@ -21,14 +21,11 @@ export interface EquivalentUnifiedIdeograph {
   source_code_point_or_range: string;
 
   /**
-   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits.
+   * Equivalent CJK unified ideograph code point represented as a variable-length hexadecimal value with 4 to 6 digits.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/EquivalentUnifiedIdeograph.txt#L25-L26
    */
   equivalent_unified_ideograph: string;
 }
 
-export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = [
-  "source_code_point_or_range",
-  "equivalent_unified_ideograph",
-];
+export const EQUIVALENT_UNIFIED_IDEOGRAPH_FIELDS = ["source_code_point_or_range", "equivalent_unified_ideograph"];

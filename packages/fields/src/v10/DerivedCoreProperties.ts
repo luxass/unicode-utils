@@ -11,18 +11,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:21:04.272Z
+ * @generated 2026-04-28T04:46:46.503Z
  */
 export interface DerivedCoreProperties {
   /**
-   * Unicode code point or range.
+   * Unicode code point range in the standard UCD format (e.g. '0041' or '0041..004C').
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Derived Math property: Y if character is in Sm + Other_Math, otherwise N.
+   * Derived Math property: Y if character is in Sm + Other_Math, else N.
    *
    * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/DerivedCoreProperties.txt#L12-L13
    */

@@ -4,14 +4,28 @@
  * @see https://unicode.org/Public/4.1.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
-
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 4.1
- * @fields 0
- * @confidence 0.00
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:07.559Z
+ * @fields 2
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:56:17.128Z
  */
-export interface ExtractedDerivedNumericType {}
+export interface ExtractedDerivedNumericType {
+  /**
+   * Unicode code point or range with non-default Numeric_Type.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  code_point: string;
 
-export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = [];
+  /**
+   * Numeric_Type property value (Decimal, Digit, Numeric).
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  numeric_type: "Decimal" | "Digit" | "Numeric";
+}
+
+export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point", "numeric_type"];

@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:42.881Z
+ * @generated 2026-04-28T04:46:02.784Z
  */
 export interface TangutSources {
   /**
@@ -25,7 +25,7 @@ export interface TangutSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/TangutSources.txt#L21
    */
-  tag: string;
+  tag: "kTGT_MergedSrc" | "kRSTUnicode";
 
   /**
    * the value (in UTF-8)

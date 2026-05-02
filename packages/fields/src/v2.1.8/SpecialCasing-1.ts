@@ -12,7 +12,7 @@
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:37:45.941Z
+ * @generated 2026-04-28T04:55:55.373Z
  */
 export interface SpecialCasing1 {
   /**
@@ -58,11 +58,4 @@ export interface SpecialCasing1 {
   comment: string;
 }
 
-export const SPECIAL_CASING_1_FIELDS = [
-  "source",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_1_FIELDS = ["source", "lower", "title", "upper", "condition_list", "comment"];

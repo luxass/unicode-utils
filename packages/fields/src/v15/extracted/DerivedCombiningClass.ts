@@ -11,18 +11,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:19:59.780Z
+ * @generated 2026-04-28T04:43:44.637Z
  */
 export interface ExtractedDerivedCombiningClass {
   /**
-   * Unicode code point or range explicitly listed for Canonical_Combining_Class.
+   * Unicode code point(s) or range explicitly listed with a Canonical_Combining_Class value.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/extracted/DerivedCombiningClass.txt#L12-L15
    */
   codepoints: string;
 
   /**
-   * Canonical_Combining_Class value.
+   * Canonical_Combining_Class value for the listed code points.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/extracted/DerivedCombiningClass.txt#L21
    */

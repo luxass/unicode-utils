@@ -4,14 +4,28 @@
  * @see https://unicode.org/Public/12.0.0/ucd/extracted/DerivedDecompositionType.txt
  *
  * Fields derived from:
-
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 12
- * @fields 0
- * @confidence 0.00
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:22:37.395Z
+ * @fields 2
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:48:05.833Z
  */
-export interface ExtractedDerivedDecompositionType {}
+export interface ExtractedDerivedDecompositionType {
+  /**
+   * Unicode code point or range in hexadecimal notation.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  code_point: string;
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = [];
+  /**
+   * Decomposition_Type property value; unlisted code points have value None.
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  decomposition_type: string;
+}
+
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

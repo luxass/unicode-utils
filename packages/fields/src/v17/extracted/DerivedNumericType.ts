@@ -8,20 +8,20 @@
  *
  * @unicodeVersion 17
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:17:07.029Z
+ * @generated 2026-04-28T04:41:38.917Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range for which the Numeric_Type is explicitly listed.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Numeric_Type derived property value.
+   * Numeric_Type property value: Decimal (field 6 of UnicodeData), Digit (field 7 not 6), Numeric (field 8 or Unihan numerics not Digit), None otherwise.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

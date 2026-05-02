@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:54.007Z
+ * @generated 2026-04-28T04:41:50.701Z
  */
 export interface LineBreak {
   /**
@@ -21,59 +21,11 @@ export interface LineBreak {
   codepoints: string;
 
   /**
-   * Line_Break property value.
+   * Line_Break property, consisting of one of the listed values.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/LineBreak.txt#L15-L24
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/LineBreak.txt#L17-L24
    */
-  line_break:
-    | "BK"
-    | "CM"
-    | "CR"
-    | "GL"
-    | "LF"
-    | "NL"
-    | "SP"
-    | "WJ"
-    | "ZW"
-    | "ZWJ"
-    | "AI"
-    | "AK"
-    | "AL"
-    | "AP"
-    | "AS"
-    | "B2"
-    | "BA"
-    | "BB"
-    | "CB"
-    | "CJ"
-    | "CL"
-    | "CP"
-    | "EB"
-    | "EM"
-    | "EX"
-    | "H2"
-    | "H3"
-    | "HL"
-    | "HY"
-    | "ID"
-    | "IN"
-    | "IS"
-    | "JL"
-    | "JT"
-    | "JV"
-    | "NS"
-    | "NU"
-    | "OP"
-    | "PO"
-    | "PR"
-    | "QU"
-    | "RI"
-    | "SA"
-    | "SG"
-    | "SY"
-    | "VF"
-    | "VI"
-    | "XX";
+  line_break: "BK" | "CM" | "CR" | "GL" | "LF" | "NL" | "SP" | "WJ" | "ZW" | "ZWJ" | "AI" | "AK" | "AL" | "AP" | "AS" | "B2" | "BA" | "BB" | "CB" | "CJ" | "CL" | "CP" | "EB" | "EM" | "EX" | "H2" | "H3" | "HL" | "HY" | "ID" | "IN" | "IS" | "JL" | "JT" | "JV" | "NS" | "NU" | "OP" | "PO" | "PR" | "QU" | "RI" | "SA" | "SG" | "SY" | "VF" | "VI" | "XX";
 }
 
 export const LINE_BREAK_FIELDS = ["codepoints", "line_break"];

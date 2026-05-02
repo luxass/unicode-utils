@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:25:36.906Z
+ * @generated 2026-04-28T04:51:38.117Z
  */
 export interface IndicSyllabicCategory {
   /**

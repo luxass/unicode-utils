@@ -4,14 +4,13 @@
  * @see https://unicode.org/Public/16.0.0/ucd/CJKRadicals.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L20-L21
- * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L23
+ * - https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L20-L23
  *
  * @unicodeVersion 16
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:14:25.579Z
+ * @generated 2026-04-28T04:39:27.428Z
  */
 export interface CjkRadicals {
   /**
@@ -24,7 +23,7 @@ export interface CjkRadicals {
   /**
    * The CJK radical character, which may be empty if the CJK radical character is not included in the Kangxi Radicals block or the CJK Radicals Supplement block.
    *
-   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L21
+   * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/CJKRadicals.txt#L21-L22
    */
   cjk_radical_character: string;
 
@@ -36,8 +35,4 @@ export interface CjkRadicals {
   cjk_unified_ideograph: string;
 }
 
-export const CJK_RADICALS_FIELDS = [
-  "cjk_radical_number",
-  "cjk_radical_character",
-  "cjk_unified_ideograph",
-];
+export const CJK_RADICALS_FIELDS = ["cjk_radical_number", "cjk_radical_character", "cjk_unified_ideograph"];

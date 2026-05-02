@@ -4,48 +4,37 @@
  * @see https://unicode.org/Public/5.2.0/ucd/PropertyValueAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L22-L28
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L33
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L22
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L25-L26
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L28
  *
  * @unicodeVersion 5.2
- * @fields 4
+ * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:28.123Z
+ * @generated 2026-04-28T04:52:08.237Z
  */
 export interface PropertyValueAliases {
   /**
-   * The property for which the property value name is used.
+   * The property for which that property value name is used.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L22-L24
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L22
    */
   property: string;
 
   /**
-   * Abbreviated name; 'n/a' if none available.
+   * An abbreviated name. If there is no abbreviated name available, the field is marked with "n/a".
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L25-L27
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L25-L26
    */
-  abbrev_name: string;
+  abbreviated_name: "n/a";
 
   /**
-   * Long name.
+   * A long name.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L28
    */
   long_name: string;
-
-  /**
-   * Additional aliases listed after the preferred aliases.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/PropertyValueAliases.txt#L33
-   */
-  additional_aliases: string[];
 }
 
-export const PROPERTY_VALUE_ALIASES_FIELDS = [
-  "property",
-  "abbrev_name",
-  "long_name",
-  "additional_aliases",
-];
+export const PROPERTY_VALUE_ALIASES_FIELDS = ["property", "abbreviated_name", "long_name"];

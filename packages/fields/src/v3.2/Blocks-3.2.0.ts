@@ -10,25 +10,25 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:56.195Z
+ * @generated 2026-04-28T04:58:01.628Z
  */
 export interface Blocks320 {
   /**
-   * Start Code of the Unicode block range in hexadecimal format.
+   * Start Code of the Unicode block range.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/Blocks-3.2.0.txt#L3
    */
   start_code: string;
 
   /**
-   * End Code of the Unicode block range in hexadecimal format.
+   * End Code of the Unicode block range.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/Blocks-3.2.0.txt#L3
    */
   end_code: string;
 
   /**
-   * Name assigned to the Unicode block.
+   * Block Name.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/Blocks-3.2.0.txt#L3
    */

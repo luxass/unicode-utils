@@ -10,22 +10,22 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:30:53.887Z
+ * @generated 2026-04-28T04:56:37.479Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Unicode code point or range explicitly listed for Bidi_Class.
+   * Unicode code point or range with non-default Bidi_Class value.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Bidi_Class property value.
+   * Bidi class value other than the default Left_To_Right (L).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class: string;
+  bidi_class: "L" | "R" | "AL" | "AN" | "EN" | "ES" | "CS" | "ET" | "FS" | "ON" | "BN" | "PDF" | "LRO" | "LRE" | "RLO" | "RLE" | "NSM";
 }
 
 export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point", "bidi_class"];

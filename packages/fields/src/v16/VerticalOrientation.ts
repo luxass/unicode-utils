@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 16
  * @fields 2
- * @confidence 0.90
+ * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:43.655Z
+ * @generated 2026-04-28T04:42:41.750Z
  */
 export interface VerticalOrientation {
   /**
@@ -21,7 +21,7 @@ export interface VerticalOrientation {
   codepoints: string;
 
   /**
-   * Vertical_Orientation property value.
+   * Vertical_Orientation property value, one of the following: U - Upright, the same orientation as in the code charts; R - Rotated 90 degrees clockwise compared to the code charts; Tu - Transformed typographically, with fallback to Upright; Tr - Transformed typographically, with fallback to Rotated.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/VerticalOrientation.txt#L18-L22
    */

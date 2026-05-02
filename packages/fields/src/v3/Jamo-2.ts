@@ -10,25 +10,25 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:41.959Z
+ * @generated 2026-04-28T05:10:19.036Z
  */
 export interface Jamo2 {
   /**
-   * Value.
+   * Value field.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update/Jamo-2.txt#L1
    */
   value: string;
 
   /**
-   * Short Name.
+   * Short Name field.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update/Jamo-2.txt#L1
    */
   short_name: string;
 
   /**
-   * Unicode Name.
+   * Unicode Name field.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update/Jamo-2.txt#L1
    */

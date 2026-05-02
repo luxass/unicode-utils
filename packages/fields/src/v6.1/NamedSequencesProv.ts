@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:28:55.789Z
+ * @generated 2026-04-28T04:55:44.947Z
  */
 export interface NamedSequencesProv {
   /**
@@ -25,7 +25,7 @@ export interface NamedSequencesProv {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.1.0/ucd/NamedSequencesProv.txt#L15
    */
-  code_point_sequence: string;
+  code_point_sequence: string[];
 }
 
 export const NAMED_SEQUENCES_PROV_FIELDS = ["name", "code_point_sequence"];

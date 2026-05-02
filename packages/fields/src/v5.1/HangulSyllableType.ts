@@ -11,11 +11,11 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:28:56.860Z
+ * @generated 2026-04-28T04:52:58.733Z
  */
 export interface HangulSyllableType {
   /**
-   * Unicode code point or range explicitly listed for the property.
+   * Code point range explicitly listed for the Hangul_Syllable_Type property.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/HangulSyllableType.txt#L11-L14
    */

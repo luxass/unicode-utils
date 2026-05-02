@@ -4,28 +4,29 @@
  * @see https://unicode.org/Public/11.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
+ * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 11
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:21:04.130Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:47:52.196Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range explicitly listed for Word_Break property.
+   * Unicode code point or range in hexadecimal.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Assigned Word_Break property value (defaults to Other for unlisted code points).
+   * Word_Break property value as defined in UAX #29.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/auxiliary/WordBreakProperty.txt#L12-L15
+   * @source https://ucdjs.dev/reports/tr29/
    */
-  word_break: string;
+  word_break: "ALetter" | "CR" | "Double_Quote" | "EBG" | "E_Base" | "E_Modifier" | "EM" | "Extend" | "ExtendNumLet" | "Hebrew_Letter" | "Katakana" | "L" | "LVT" | "LV" | "MidLetter" | "MidLetterQ" | "MidNum" | "MidNumLet" | "Newline" | "Numeric" | "Other" | "Regional_Indicator" | "Single_Quote" | "T" | "V" | "ZWJ";
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

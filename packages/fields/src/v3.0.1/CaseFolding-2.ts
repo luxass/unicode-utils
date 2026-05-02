@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:15.285Z
+ * @generated 2026-04-28T04:55:13.106Z
  */
 export interface CaseFolding2 {
   /**

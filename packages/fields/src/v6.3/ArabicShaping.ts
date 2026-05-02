@@ -6,14 +6,14 @@
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L24-L26
  * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L28-L33
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L35-L41
+ * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L35-L42
  * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L50-L60
  *
  * @unicodeVersion 6.3
  * @fields 4
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:53.934Z
+ * @generated 2026-04-28T04:48:03.890Z
  */
 export interface ArabicShaping {
   /**
@@ -21,10 +21,10 @@ export interface ArabicShaping {
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L24-L26
    */
-  code_point: string;
+  codepoint: string;
 
   /**
-   * gives a short schematic name for that character. The schematic name is descriptive of the shape, based as consistently as possible on a name for the skeleton and then the diacritic marks applied to the skeleton, if any. Note that this schematic name is considered a comment, and does not constitute a formal property value.
+   * a short schematic name for that character.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L28-L33
    */
@@ -33,7 +33,7 @@ export interface ArabicShaping {
   /**
    * defines the joining type (property name: Joining_Type).
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L35-L41
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/ArabicShaping.txt#L35-L42
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
@@ -45,9 +45,4 @@ export interface ArabicShaping {
   joining_group: string;
 }
 
-export const ARABIC_SHAPING_FIELDS = [
-  "code_point",
-  "schematic_name",
-  "joining_type",
-  "joining_group",
-];
+export const ARABIC_SHAPING_FIELDS = ["codepoint", "schematic_name", "joining_type", "joining_group"];

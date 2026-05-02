@@ -5,13 +5,13 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/extracted/DerivedNumericValues.txt#L13-L21
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L31
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L27
  *
  * @unicodeVersion 13
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:18:14.053Z
+ * @generated 2026-04-28T04:45:19.950Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
@@ -29,15 +29,11 @@ export interface ExtractedDerivedNumericValues {
   empty_field: string;
 
   /**
-   * Expressing the same numeric value either as a whole integer where possible, or as a rational fraction such as "1/6". Certain values, such as 0.16666667, are repeating fractions. Although they are only printed with a limited number of decimal places in this file, they should be expressed to the limits of the precision available when used.
+   * Expressing the same numeric value either as a whole integer where possible, or as a rational fraction such as "1/6".
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L31
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L27
    */
   numeric_value_fraction: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
-  "numeric_value",
-  "empty_field",
-  "numeric_value_fraction",
-];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["numeric_value", "empty_field", "numeric_value_fraction"];

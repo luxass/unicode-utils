@@ -4,28 +4,16 @@
  * @see https://unicode.org/Public/13.0.0/ucd/extracted/DerivedGeneralCategory.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 13
- * @fields 2
- * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:18:49.211Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:44:26.315Z
  */
 export interface ExtractedDerivedGeneralCategory {
-  /**
-   * Unicode code point or range in hexadecimal notation.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point: string;
 
-  /**
-   * Long-form General_Category property value.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  general_category: string;
 }
 
-export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = ["code_point", "general_category"];
+export const EXTRACTED_DERIVED_GENERAL_CATEGORY_FIELDS = [];

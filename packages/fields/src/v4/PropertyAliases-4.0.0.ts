@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:36.516Z
+ * @generated 2026-04-28T04:54:59.120Z
  */
 export interface PropertyAliases400 {
   /**

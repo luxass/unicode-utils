@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:25.864Z
+ * @generated 2026-04-28T04:56:12.012Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Unicode code point or range explicitly listed for Grapheme_Cluster_Break.
+   * Code point or range explicitly listed for Grapheme_Cluster_Break property.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
    */
   code_point: string;
 
   /**
-   * Grapheme cluster break property value.
+   * Value of the Grapheme_Cluster_Break property; unlisted code points have default value Other (XX).
    *
    * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
    */

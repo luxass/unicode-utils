@@ -4,56 +4,28 @@
  * @see https://unicode.org/Public/6.3.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+ * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 6.3
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:02.138Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:48:48.095Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point range or single code point explicitly listed for Word_Break.
+   * Hexadecimal code point or range to which the Word_Break value applies.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr29/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Value of the Word_Break property for the code points.
+   * Word_Break property value as defined in UAX #29.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/auxiliary/WordBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr29/
    */
-  word_break_value:
-    | "ALetter"
-    | "ATerm"
-    | "CR"
-    | "Double_Quote"
-    | "E_Base"
-    | "E_Base_GAZ"
-    | "E_Modifier"
-    | "Extend"
-    | "ExtendNumLet"
-    | "Format"
-    | "Glue_After_Zwj"
-    | "Hebrew_Letter"
-    | "Katakana"
-    | "LE_Word_Joiner"
-    | "Letter"
-    | "MidLetter"
-    | "MidNum"
-    | "MidNumLet"
-    | "Newline"
-    | "Numeric"
-    | "Other"
-    | "Perl"
-    | "Regional_Indicator"
-    | "Single_Quote"
-    | "Space"
-    | "WSegmenter"
-    | "ZWJ"
-    | (string & {});
+  word_break: "ALetter" | "Ambiguous" | "AN" | "AQ" | "B2" | "CR" | "Double_Quote" | "E_Base" | "EBG" | "E_Modifier" | "Extend" | "ExtendNumLet" | "FO" | "Format" | "GL" | "Hebrew_Letter" | "H2" | "H3" | "JL" | "JV" | "JWT" | "Katakana" | "LF" | "MidLetter" | "MidNum" | "MidNumLet" | "Newline" | "NL" | "Numeric" | "NU" | "Other" | "Perl" | "Regional_Indicator" | "Single_Quote" | "SP" | "STerm" | "WJ" | "ZWJ" | "XX";
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break_value"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

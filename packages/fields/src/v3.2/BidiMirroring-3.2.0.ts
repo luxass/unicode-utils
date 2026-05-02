@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:54.708Z
+ * @generated 2026-04-28T04:58:06.959Z
  */
 export interface BidiMirroring320 {
   /**
@@ -21,7 +21,7 @@ export interface BidiMirroring320 {
   source_code_point: string;
 
   /**
-   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits that is the mirror image glyph.
+   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits that is the mirror image glyph mapping.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.2-Update/BidiMirroring-3.2.0.txt#L15-L17
    */

@@ -4,19 +4,19 @@
  * @see https://unicode.org/Public/18.0.0/ucd/StandardizedVariants.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/StandardizedVariants.txt#L39-L43
+ * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/StandardizedVariants.txt#L38-L43
  *
  * @unicodeVersion 18
  * @fields 3
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:17:46.375Z
+ * @generated 2026-04-28T04:42:44.799Z
  */
 export interface StandardizedVariants {
   /**
    * the variation sequence
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/StandardizedVariants.txt#L39
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/StandardizedVariants.txt#L38-L39
    */
   variation_sequence: string;
 
@@ -28,15 +28,11 @@ export interface StandardizedVariants {
   description: string;
 
   /**
-   * where the appearance is only different in particular shaping environments; possible values: isolate, initial, medial, final; multiple values separated by spaces
+   * where the appearance is only different in particular shaping environments; possible values: isolate, initial, medial, final (space-separated if multiple)
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/StandardizedVariants.txt#L41-L43
    */
   shaping_environments: "isolate" | "initial" | "medial" | "final" | (string & {});
 }
 
-export const STANDARDIZED_VARIANTS_FIELDS = [
-  "variation_sequence",
-  "description",
-  "shaping_environments",
-];
+export const STANDARDIZED_VARIANTS_FIELDS = ["variation_sequence", "description", "shaping_environments"];

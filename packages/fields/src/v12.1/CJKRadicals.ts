@@ -8,31 +8,31 @@
  *
  * @unicodeVersion 12.1
  * @fields 3
- * @confidence 0.90
+ * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:18:23.677Z
+ * @generated 2026-04-28T04:45:17.988Z
  */
 export interface CjkRadicals {
   /**
-   * The first field is the CJK radical number.
+   * fields, separated by a semicolon (';').
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/CJKRadicals.txt#L18-L20
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/CJKRadicals.txt#L18
    */
-  radical_number: string;
+  cjk_radical_number: string;
 
   /**
-   * The second field is the CJK radical character.
+   * The CJK radical character in the Kangxi Radicals block or the CJK Radicals Supplement block.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/CJKRadicals.txt#L18-L20
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/CJKRadicals.txt#L19
    */
-  radical_character: string;
+  cjk_radical_character: string;
 
   /**
-   * The third field is the CJK unified ideograph.
+   * The CJK unified ideograph which is formed from that radical only.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/CJKRadicals.txt#L18-L20
+   * @source https://ucdjs.dev/file-explorer/v/12.1.0/ucd/CJKRadicals.txt#L20
    */
-  unified_ideograph: string;
+  cjk_unified_ideograph: string;
 }
 
-export const CJK_RADICALS_FIELDS = ["radical_number", "radical_character", "unified_ideograph"];
+export const CJK_RADICALS_FIELDS = ["cjk_radical_number", "cjk_radical_character", "cjk_unified_ideograph"];

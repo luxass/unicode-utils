@@ -4,21 +4,16 @@
  * @see https://unicode.org/Public/5.1.0/ucd/CompositionExclusions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr15/
+
  *
  * @unicodeVersion 5.1
- * @fields 1
- * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:28:42.912Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:52:11.721Z
  */
 export interface CompositionExclusions {
-  /**
-   * Code point or range of characters for the Composition Exclusion Table defined in UAX #15.
-   *
-   * @source https://ucdjs.dev/reports/tr15/
-   */
-  code_point_range: string;
+
 }
 
-export const COMPOSITION_EXCLUSIONS_FIELDS = ["code_point_range"];
+export const COMPOSITION_EXCLUSIONS_FIELDS = [];

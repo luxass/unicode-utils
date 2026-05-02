@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/18.0.0/ucd/JurchenSources.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L20-L22
+ * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L20-L33
  *
  * @unicodeVersion 18
  * @fields 3
- * @confidence 1.00
+ * @confidence 0.95
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:17:10.289Z
+ * @generated 2026-04-28T04:41:25.509Z
  */
 export interface JurchenSources {
   /**
@@ -18,21 +18,21 @@ export interface JurchenSources {
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L20
    */
-  field_0: string;
+  code_point: string;
 
   /**
    * a tag indicating the type of information in the third field
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L21
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L21-L33
    */
-  field_1: string;
+  tag: "kJURC_RSUnicode" | "kJURC_Src" | "kJURC_NCReading" | "kJURC_Numeric";
 
   /**
    * the value (in UTF-8)
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/JurchenSources.txt#L22
    */
-  field_2: string;
+  value: string;
 }
 
-export const JURCHEN_SOURCES_FIELDS = ["field_0", "field_1", "field_2"];
+export const JURCHEN_SOURCES_FIELDS = ["code_point", "tag", "value"];

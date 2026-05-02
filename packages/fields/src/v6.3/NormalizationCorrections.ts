@@ -9,26 +9,26 @@
  * @unicodeVersion 6.3
  * @fields 4
  * @confidence 1.00
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:58.399Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:49:31.603Z
  */
 export interface NormalizationCorrections {
   /**
-   * Unicode code point.
+   * Unicode code point
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/NormalizationCorrections.txt#L33
    */
   field_0: string;
 
   /**
-   * Original (erroneous) decomposition.
+   * Original (erroneous) decomposition
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/NormalizationCorrections.txt#L34
    */
   field_1: string;
 
   /**
-   * Corrected decomposition.
+   * Corrected decomposition
    *
    * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/NormalizationCorrections.txt#L35
    */

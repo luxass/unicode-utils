@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:19:59.173Z
+ * @generated 2026-04-28T04:44:55.479Z
  */
 export interface EquivalentUnifiedIdeograph {
   /**

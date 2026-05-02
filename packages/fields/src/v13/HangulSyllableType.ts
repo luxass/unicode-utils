@@ -4,28 +4,29 @@
  * @see https://unicode.org/Public/13.0.0/ucd/HangulSyllableType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/HangulSyllableType.txt#L12
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/HangulSyllableType.txt#L14
  *
  * @unicodeVersion 13
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:19:08.234Z
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:44:43.626Z
  */
 export interface HangulSyllableType {
   /**
-   * Unicode code point or range.
+   * Code point or range explicitly listed for the Hangul_Syllable_Type property.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/HangulSyllableType.txt#L14
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Hangul_Syllable_Type property value.
+   * Value of the Hangul_Syllable_Type property; unlisted code points have default value Not_Applicable.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/HangulSyllableType.txt#L12
    */
-  hangul_syllable_type: string;
+  hangul_syllable_type: "Leading_Jamo" | (string & {});
 }
 
-export const HANGUL_SYLLABLE_TYPE_FIELDS = ["code_point", "hangul_syllable_type"];
+export const HANGUL_SYLLABLE_TYPE_FIELDS = ["code_point_range", "hangul_syllable_type"];

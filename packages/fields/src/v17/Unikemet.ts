@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/17.0.0/ucd/Unikemet.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/Unikemet.txt#L13-L32
+ * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/Unikemet.txt#L13-L16
  *
  * @unicodeVersion 17
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:17:06.446Z
+ * @generated 2026-04-28T04:42:08.613Z
  */
 export interface Unikemet {
   /**
@@ -18,7 +18,7 @@ export interface Unikemet {
    *
    * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/Unikemet.txt#L13-L15
    */
-  code_point: string;
+  codepoint: string;
 
   /**
    * Tag indicating the type of information in the third field.
@@ -28,11 +28,11 @@ export interface Unikemet {
   tag: string;
 
   /**
-   * Line's value in UTF-8, varies by tag (e.g. Catalog value for kEH_Cat, Core value for kEH_Core, etc.).
+   * Line's value in UTF-8, depending on the tag.
    *
-   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/Unikemet.txt#L13-L32
+   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/Unikemet.txt#L13-L16
    */
   value: string;
 }
 
-export const UNIKEMET_FIELDS = ["code_point", "tag", "value"];
+export const UNIKEMET_FIELDS = ["codepoint", "tag", "value"];

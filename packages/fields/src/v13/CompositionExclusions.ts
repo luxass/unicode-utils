@@ -4,21 +4,16 @@
  * @see https://unicode.org/Public/13.0.0/ucd/CompositionExclusions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr15/
+
  *
  * @unicodeVersion 13
- * @fields 1
- * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:19:37.548Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:45:02.670Z
  */
 export interface CompositionExclusions {
-  /**
-   * Hexadecimal Unicode code point or range excluded from canonical composition, as listed in the Primary Exclusion List.
-   *
-   * @source https://ucdjs.dev/reports/tr15/
-   */
-  code_point: string;
+
 }
 
-export const COMPOSITION_EXCLUSIONS_FIELDS = ["code_point"];
+export const COMPOSITION_EXCLUSIONS_FIELDS = [];

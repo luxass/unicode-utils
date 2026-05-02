@@ -4,24 +4,24 @@
  * @see https://unicode.org/Public/15.0.0/ucd/CJKRadicals.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/15.0.0/ucd/CJKRadicals.txt#L17-L20
+ * - https://ucdjs.dev/file-explorer/v/15.0.0/ucd/CJKRadicals.txt#L17-L22
  *
  * @unicodeVersion 15
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:18:15.826Z
+ * @generated 2026-04-28T04:43:29.330Z
  */
 export interface CjkRadicals {
   /**
-   * CJK radical number matching [1-9][0-9]{0,2}'?.
+   * CJK radical number matching the regular expression [1-9][0-9]{0,2}\'?.
    *
-   * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/CJKRadicals.txt#L17-L20
+   * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/CJKRadicals.txt#L17-L22
    */
-  cjk_radical_number: string;
+  cjk_radical_number: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | (string & {});
 
   /**
-   * CJK radical character in the Kangxi Radicals block or the CJK Radicals Supplement block.
+   * Corresponding CJK radical character in the Kangxi Radicals block or the CJK Radicals Supplement block.
    *
    * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/CJKRadicals.txt#L17-L20
    */
@@ -35,8 +35,4 @@ export interface CjkRadicals {
   cjk_unified_ideograph: string;
 }
 
-export const CJK_RADICALS_FIELDS = [
-  "cjk_radical_number",
-  "cjk_radical_character",
-  "cjk_unified_ideograph",
-];
+export const CJK_RADICALS_FIELDS = ["cjk_radical_number", "cjk_radical_character", "cjk_unified_ideograph"];

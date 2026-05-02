@@ -8,27 +8,27 @@
  *
  * @unicodeVersion 2
  * @fields 3
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:50.623Z
+ * @generated 2026-04-28T04:58:09.475Z
  */
 export interface Blocks1 {
   /**
-   * Starting code point of the Unicode block.
+   * Start Code of the Unicode block range.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/Blocks-1.txt#L1
    */
   start_code: string;
 
   /**
-   * Ending code point of the Unicode block.
+   * End Code of the Unicode block range.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/Blocks-1.txt#L1
    */
   end_code: string;
 
   /**
-   * Name of the Unicode block.
+   * Block Name.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/Blocks-1.txt#L1
    */

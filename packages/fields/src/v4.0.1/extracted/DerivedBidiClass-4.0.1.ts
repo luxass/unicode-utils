@@ -4,29 +4,35 @@
  * @see https://unicode.org/Public/4.0-Update1/extracted/DerivedBidiClass-4.0.1.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.0-Update1/extracted/DerivedBidiClass-4.0.1.txt#L11-L14
- * - https://ucdjs.dev/file-explorer/v/4.0-Update1/extracted/DerivedBidiClass-4.0.1.txt#L18
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 4.0.1
- * @fields 2
+ * @fields 3
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:34:52.797Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:53:30.173Z
  */
 export interface ExtractedDerivedBidiClass401 {
   /**
-   * Unicode code point or range explicitly listed for Bidi_Class (all others default to Left_To_Right (L)).
+   * Code point or range (hex style).
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update1/extracted/DerivedBidiClass-4.0.1.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Bidi class value (e.g. Left_To_Right).
+   * Bidi_Class value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update1/extracted/DerivedBidiClass-4.0.1.txt#L18
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class: "Left_To_Right";
+  bidi_class: string;
+
+  /**
+   * Source of the value (optional).
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  source: string;
 }
 
-export const EXTRACTED_DERIVED_BIDI_CLASS_401_FIELDS = ["code_point_range", "bidi_class"];
+export const EXTRACTED_DERIVED_BIDI_CLASS_401_FIELDS = ["code_point", "bidi_class", "source"];

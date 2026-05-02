@@ -4,28 +4,16 @@
  * @see https://unicode.org/Public/17.0.0/ucd/extracted/DerivedCombiningClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+
  *
  * @unicodeVersion 17
- * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:15:50.736Z
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:40:14.844Z
  */
 export interface ExtractedDerivedCombiningClass {
-  /**
-   * Unicode code point or range.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  code_point: string;
 
-  /**
-   * Decimal integer value of the Canonical_Combining_Class property.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  canonical_combining_class: number;
 }
 
-export const EXTRACTED_DERIVED_COMBINING_CLASS_FIELDS = ["code_point", "canonical_combining_class"];
+export const EXTRACTED_DERIVED_COMBINING_CLASS_FIELDS = [];

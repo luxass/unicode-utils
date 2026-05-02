@@ -8,43 +8,24 @@
  *
  * @unicodeVersion 15
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:18:55.185Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:44:30.493Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point or range in standard UCD format.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Decomposition type derived from UnicodeData.txt field 5.
+   * Decomposition_Type property value from UnicodeData.txt field 5.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  decomposition_type:
-    | "None"
-    | "Canonical"
-    | "Font"
-    | "NoBreak"
-    | "Initial"
-    | "Medial"
-    | "Final"
-    | "Isolated"
-    | "Circle"
-    | "Super"
-    | "Sub"
-    | "Vertical"
-    | "Wide"
-    | "Narrow"
-    | "Small"
-    | "Square"
-    | "Fraction"
-    | "Compat"
-    | (string & {});
+  decomposition_type: string;
 }
 
 export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

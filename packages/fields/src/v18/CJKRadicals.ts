@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:14:16.868Z
+ * @generated 2026-04-28T04:40:38.422Z
  */
 export interface CjkRadicals {
   /**
@@ -23,7 +23,7 @@ export interface CjkRadicals {
   /**
    * The CJK radical character, which may be empty if the CJK radical character is not included in the Kangxi Radicals block or the CJK Radicals Supplement block.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/CJKRadicals.txt#L20-L22
+   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/CJKRadicals.txt#L21-L22
    */
   cjk_radical_character: string;
 
@@ -35,8 +35,4 @@ export interface CjkRadicals {
   cjk_unified_ideograph: string;
 }
 
-export const CJK_RADICALS_FIELDS = [
-  "cjk_radical_number",
-  "cjk_radical_character",
-  "cjk_unified_ideograph",
-];
+export const CJK_RADICALS_FIELDS = ["cjk_radical_number", "cjk_radical_character", "cjk_unified_ideograph"];

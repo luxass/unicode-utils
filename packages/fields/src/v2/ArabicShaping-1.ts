@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:49.913Z
+ * @generated 2026-04-28T04:58:06.147Z
  */
 export interface ArabicShaping1 {
   /**
@@ -35,7 +35,7 @@ export interface ArabicShaping1 {
   link: string;
 
   /**
-   * Link group classification.
+   * Group for the link.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.0-Update/ArabicShaping-1.txt#L1
    */

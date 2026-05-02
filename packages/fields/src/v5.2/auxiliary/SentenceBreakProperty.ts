@@ -9,41 +9,23 @@
  * @unicodeVersion 5.2
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:07.841Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:51:03.466Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Sentence_Break property value.
+   * Value of the Sentence_Break property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  sentence_break:
-    | "CR"
-    | "LF"
-    | "Extend"
-    | "Regional_Indicator"
-    | "Sp"
-    | "STerm"
-    | "ATerm"
-    | "SContinue"
-    | "Upper"
-    | "Lower"
-    | "OLetter"
-    | "Numeric"
-    | "Sep"
-    | "Format"
-    | "ZWJ"
-    | "SB"
-    | "SC"
-    | "Other";
+  sentence_break: string;
 }
 
-export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point_range", "sentence_break"];
+export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break"];

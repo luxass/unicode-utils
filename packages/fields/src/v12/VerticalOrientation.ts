@@ -5,13 +5,12 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/VerticalOrientation.txt#L16-L22
- * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/VerticalOrientation.txt#L67-L70
  *
  * @unicodeVersion 12
- * @fields 3
- * @confidence 0.90
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:17.902Z
+ * @fields 2
+ * @confidence 1.00
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:48:56.652Z
  */
 export interface VerticalOrientation {
   /**
@@ -22,18 +21,11 @@ export interface VerticalOrientation {
   code_point: string;
 
   /**
-   * Vertical_Orientation property value, one of the following: U - Upright, R - Rotated 90 degrees clockwise, Tu - Transformed typographically with fallback to Upright, Tr - Transformed typographically with fallback to Rotated.
+   * Vertical_Orientation property value: U=Upright, R=Rotated 90 degrees clockwise compared to the code charts, Tu=Transformed typographically with fallback to Upright, Tr=Transformed typographically with fallback to Rotated.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/VerticalOrientation.txt#L18-L22
    */
   vertical_orientation: "U" | "R" | "Tu" | "Tr";
-
-  /**
-   * Comments following the number sign list the General_Category property value or the L& alias of the derived value LC, the Unicode character name or names, and, in lines with ranges of code points, the code point count in square brackets.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/VerticalOrientation.txt#L67-L70
-   */
-  comment: string;
 }
 
-export const VERTICAL_ORIENTATION_FIELDS = ["code_point", "vertical_orientation", "comment"];
+export const VERTICAL_ORIENTATION_FIELDS = ["code_point", "vertical_orientation"];

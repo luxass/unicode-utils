@@ -10,7 +10,7 @@
  * @fields 8
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:11.960Z
+ * @generated 2026-04-28T04:48:22.216Z
  */
 export interface USourceData {
   /**
@@ -21,31 +21,14 @@ export interface USourceData {
   u_source_id: string;
 
   /**
-   * Text indicating the ideograph's status with possible values A=Encoded in Extension A, B=Encoded in Extension B, etc., including patterns like UTC-\d{5} or UCI-\d{5} for duplicates.
+   * Text indicating the ideograph's status: A=Encoded in Extension A, B=Encoded in Extension B, etc., including patterns like UTC-\d{5} or UCI-\d{5} for duplicates.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/USourceData.txt#L13-L30
    */
-  status:
-    | "A"
-    | "B"
-    | "C"
-    | "D"
-    | "E"
-    | "F"
-    | "G"
-    | "N"
-    | "U"
-    | "UNC-2013"
-    | "UNC-2015"
-    | "UK-2015"
-    | "V"
-    | "W"
-    | "WS-2017"
-    | "X"
-    | (string & {});
+  status: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "N" | "U" | "UNC-2013" | "UNC-2015" | "UK-2015" | "V" | "W" | "WS-2017" | "X" | (string & {});
 
   /**
-   * A Unicode code point; if status is V, specifies the encoded character for which this is a variant, otherwise the encoded character for this entry.
+   * A Unicode code point; for status V, specifies the encoded character for which this is a variant, otherwise the encoded character for this entry.
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/USourceData.txt#L31-L34
    */
@@ -87,13 +70,4 @@ export interface USourceData {
   comments: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = [
-  "u_source_id",
-  "status",
-  "code_point",
-  "radical_stroke_count",
-  "virtual_kang_xi_position",
-  "ids",
-  "sources",
-  "comments",
-];
+export const U_SOURCE_DATA_FIELDS = ["u_source_id", "status", "code_point", "radical_stroke_count", "virtual_kang_xi_position", "ids", "sources", "comments"];

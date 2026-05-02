@@ -10,22 +10,22 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:24:03.562Z
+ * @generated 2026-04-28T04:48:19.252Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Unicode code point or range of code points.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Derived Numeric_Type property value: Decimal, Digit, Numeric, or None.
+   * The Numeric_Type property value: None, Decimal, Digit, or Numeric.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
+  numeric_type: "None" | "Decimal" | "Digit" | "Numeric";
 }
 
 export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point_range", "numeric_type"];

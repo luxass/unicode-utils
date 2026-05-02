@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/14.0.0/ucd/extracted/DerivedBidiClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/extracted/DerivedBidiClass.txt#L12
- * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/extracted/DerivedBidiClass.txt#L48
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 14
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:19:13.548Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:45:54.595Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Unicode code point or range explicitly listed with a Bidi_Class value.
+   * Unicode code point or range in hexadecimal notation, possibly with .. for ranges.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/extracted/DerivedBidiClass.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  codepoint_range: string;
 
   /**
-   * Bidi class value overriding the default Left_To_Right.
+   * Bidi_Class value as defined in UAX #44 and UAX #9.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/extracted/DerivedBidiClass.txt#L48
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  bidi_class: string;
+  bidi_class: "L" | "R" | "AL" | "EN" | "ES" | "ET" | "CS" | "NSM" | "BN" | "B" | "S" | "WS" | "ON" | "PDF" | "LRE" | "LRO" | "RLE" | "RLO" | "LRI" | "RLI" | "FSI" | "PDI";
 }
 
-export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point_range", "bidi_class"];
+export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["codepoint_range", "bidi_class"];

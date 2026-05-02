@@ -7,13 +7,13 @@
  * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L18-L21
  * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L23-L24
  * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L26-L33
- * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L35
+ * - https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L35-L46
  *
  * @unicodeVersion 5.2
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:03.819Z
+ * @generated 2026-04-28T04:50:25.915Z
  */
 export interface ArabicShaping {
   /**
@@ -24,30 +24,25 @@ export interface ArabicShaping {
   codepoint: string;
 
   /**
-   * a short schematic name for that character, abbreviated from the normative Unicode character name.
+   * short schematic name for that character, abbreviated from the normative Unicode character name.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L23-L24
    */
   schematic_name: string;
 
   /**
-   * defines the joining type (property name: Joining_Type).
+   * Joining_Type property: R=Right_Joining, L=Left_Joining, D=Dual_Joining, C=Join_Causing, U=Non_Joining, T=Transparent.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L26-L33
    */
   joining_type: "R" | "L" | "D" | "C" | "U" | "T";
 
   /**
-   * defines the joining group (property name: Joining_Group).
+   * Joining_Group property value, based schematically on character names with parts joined by underscores.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L35
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/ArabicShaping.txt#L35-L46
    */
   joining_group: string;
 }
 
-export const ARABIC_SHAPING_FIELDS = [
-  "codepoint",
-  "schematic_name",
-  "joining_type",
-  "joining_group",
-];
+export const ARABIC_SHAPING_FIELDS = ["codepoint", "schematic_name", "joining_type", "joining_group"];

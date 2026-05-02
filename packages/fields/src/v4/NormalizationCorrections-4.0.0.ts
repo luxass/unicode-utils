@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:29.796Z
+ * @generated 2026-04-28T04:54:52.709Z
  */
 export interface NormalizationCorrections400 {
   /**
@@ -42,9 +42,4 @@ export interface NormalizationCorrections400 {
   version: string;
 }
 
-export const NORMALIZATION_CORRECTIONS_400_FIELDS = [
-  "unicode_code_point",
-  "original_decomposition",
-  "corrected_decomposition",
-  "version",
-];
+export const NORMALIZATION_CORRECTIONS_400_FIELDS = ["unicode_code_point", "original_decomposition", "corrected_decomposition", "version"];

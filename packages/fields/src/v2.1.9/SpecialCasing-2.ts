@@ -4,49 +4,49 @@
  * @see https://unicode.org/Public/2.1-Update4/SpecialCasing-2.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L18
- * - https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L20
+ * - https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L22
  * - https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L24-L26
+ * - https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L32
  *
  * @unicodeVersion 2.1.9
  * @fields 5
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:46.012Z
+ * @generated 2026-04-28T04:58:02.425Z
  */
 export interface SpecialCasing2 {
   /**
    * Source code point.
    *
-   * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L20
+   * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L22
    */
   source: string;
 
   /**
-   * Lowercase code point list.
+   * = <code_point_list>.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L24
    */
   lower: string;
 
   /**
-   * Titlecase code point list.
+   * = <code_point_list>.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L25
    */
   title: string;
 
   /**
-   * Uppercase code point list.
+   * = <code_point_list>.
    *
    * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L26
    */
   upper: string;
 
   /**
-   * Optional condition list of locales and contexts.
+   * Optional condition list for locale-specific or context-specific mappings.
    *
-   * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L18
+   * @source https://ucdjs.dev/file-explorer/v/2.1-Update4/SpecialCasing-2.txt#L32
    */
   condition_list: string;
 }

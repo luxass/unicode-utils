@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:19:33.855Z
+ * @generated 2026-04-28T04:44:19.989Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range (e.g. 0020 or 0000..007F).
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Word_Break property value such as Other.
+   * Word_Break property value.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

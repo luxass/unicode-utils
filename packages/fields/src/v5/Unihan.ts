@@ -10,29 +10,29 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:19.539Z
+ * @generated 2026-04-28T04:57:04.595Z
  */
 export interface Unihan {
   /**
-   * Unicode scalar value as U+[x]xxxx with four or five hex digits.
+   * Unicode scalar value as U+[x]xxxx (four or five hex digits).
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/Unihan.txt#L14-L17
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/Unihan.txt#L14-L15
    */
-  unicode_scalar_value: string;
+  codepoint: string;
 
   /**
-   * Tag indicating the type of information in the value field.
+   * Tag indicating the type of information in the third field.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/Unihan.txt#L14-L17
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/Unihan.txt#L16
    */
   tag: string;
 
   /**
-   * Line's value in UTF-8 corresponding to the tag.
+   * Line's value (in UTF-8).
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/Unihan.txt#L14-L17
+   * @source https://ucdjs.dev/file-explorer/v/5.0.0/ucd/Unihan.txt#L17
    */
   value: string;
 }
 
-export const UNIHAN_FIELDS = ["unicode_scalar_value", "tag", "value"];
+export const UNIHAN_FIELDS = ["codepoint", "tag", "value"];

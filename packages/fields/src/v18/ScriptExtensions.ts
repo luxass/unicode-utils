@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.70
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:13.586Z
+ * @generated 2026-04-28T04:42:24.667Z
  */
 export interface ScriptExtensions {
   /**
@@ -21,7 +21,7 @@ export interface ScriptExtensions {
   code_point_range: string;
 
   /**
-   * Set of one or more abbreviated Script property values, alphabetically ordered.
+   * Set of one or more abbreviated Script property values.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */

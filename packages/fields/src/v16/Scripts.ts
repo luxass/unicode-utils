@@ -8,20 +8,20 @@
  *
  * @unicodeVersion 16
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:29.924Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:42:30.331Z
  */
 export interface Scripts {
   /**
-   * Code point range or single code point.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   range: string;
 
   /**
-   * Script property value.
+   * Script property value per UAX #24.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */

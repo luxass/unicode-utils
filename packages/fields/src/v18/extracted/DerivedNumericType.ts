@@ -4,27 +4,26 @@
  * @see https://unicode.org/Public/18.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/18.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 18
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:15:06.784Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:41:42.932Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Code point range or single code point.
+   * Unicode code point or range in hexadecimal format (e.g. '0030..0039' or '0041').
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Derived Numeric_Type property value.
+   * Numeric_Type property value: Decimal, Digit, Numeric, or None.
    *
-   * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/extracted/DerivedNumericType.txt#L12-L20
+   * @source https://ucdjs.dev/reports/tr44/
    */
   numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
 }

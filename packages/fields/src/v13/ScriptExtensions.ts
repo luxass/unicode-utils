@@ -4,29 +4,21 @@
  * @see https://unicode.org/Public/13.0.0/ucd/ScriptExtensions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L28-L29
- * - https://ucdjs.dev/reports/tr24/
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L38-L42
  *
  * @unicodeVersion 13
- * @fields 2
+ * @fields 1
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:19:14.500Z
+ * @generated 2026-04-28T04:45:42.937Z
  */
 export interface ScriptExtensions {
   /**
-   * Set of one or more abbreviated Script property values.
+   * Property: Script_Extensions ================================================ Script_Extensions=Beng.
    *
-   * @source https://ucdjs.dev/reports/tr24/
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L38-L42
    */
-  script_extensions: string;
-
-  /**
-   * List of code points associated with that Script_Extensions value, listed in code point order.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/ScriptExtensions.txt#L28-L29
-   */
-  code_points: string;
+  script_extensions: "Beng" | (string & {});
 }
 
-export const SCRIPT_EXTENSIONS_FIELDS = ["script_extensions", "code_points"];
+export const SCRIPT_EXTENSIONS_FIELDS = ["script_extensions"];

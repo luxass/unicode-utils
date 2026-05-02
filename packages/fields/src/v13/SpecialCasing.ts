@@ -4,15 +4,13 @@
  * @see https://unicode.org/Public/13.0.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L32
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L34
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L39
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L32-L36
  *
  * @unicodeVersion 13
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:09.506Z
+ * @generated 2026-04-28T04:45:06.691Z
  */
 export interface SpecialCasing {
   /**
@@ -23,30 +21,30 @@ export interface SpecialCasing {
   code: string;
 
   /**
-   * <code>, <lower>, <title>, and <upper> provide the respective full case mappings.
+   * Full lowercase mapping(s), expressed as one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L34
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   lower: string;
 
   /**
-   * <code>, <lower>, <title>, and <upper> provide the respective full case mappings.
+   * Full titlecase mapping(s), expressed as one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L34
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   title: string;
 
   /**
-   * <code>, <lower>, <title>, and <upper> provide the respective full case mappings.
+   * Full uppercase mapping(s), expressed as one or more hexadecimal character values separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L34
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   upper: string;
 
   /**
-   * Optional condition list consisting of one or more language IDs or casing contexts, separated by spaces.
+   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L39
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/SpecialCasing.txt#L32
    */
   condition_list: string;
 
@@ -58,11 +56,4 @@ export interface SpecialCasing {
   comment: string;
 }
 
-export const SPECIAL_CASING_FIELDS = [
-  "code",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/8.0.0/ucd/extracted/DerivedNumericType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/8.0.0/ucd/extracted/DerivedNumericType.txt#L11-L23
  *
  * @unicodeVersion 8
  * @fields 2
- * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:25:23.898Z
+ * @confidence 0.80
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:52:55.353Z
  */
 export interface ExtractedDerivedNumericType {
   /**
-   * Unicode code point or range as documented in UAX #44.
+   * Unicode code point range with Numeric_Type values explicitly listed.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/extracted/DerivedNumericType.txt#L11-L23
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
    * Derived Numeric_Type property value.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/extracted/DerivedNumericType.txt#L11-L19
    */
   numeric_type: "Decimal" | "Digit" | "Numeric" | "None";
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point", "numeric_type"];
+export const EXTRACTED_DERIVED_NUMERIC_TYPE_FIELDS = ["code_point_range", "numeric_type"];

@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:21:28.904Z
+ * @generated 2026-04-28T04:47:48.755Z
  */
 export interface StandardizedVariants {
   /**
@@ -32,11 +32,7 @@ export interface StandardizedVariants {
    *
    * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/StandardizedVariants.txt#L40-L42
    */
-  shaping_environments: string;
+  shaping_environments: string[];
 }
 
-export const STANDARDIZED_VARIANTS_FIELDS = [
-  "variation_sequence",
-  "description",
-  "shaping_environments",
-];
+export const STANDARDIZED_VARIANTS_FIELDS = ["variation_sequence", "description", "shaping_environments"];

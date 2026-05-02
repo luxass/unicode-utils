@@ -11,7 +11,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:25:48.532Z
+ * @generated 2026-04-28T04:51:18.722Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
@@ -36,8 +36,4 @@ export interface ExtractedDerivedNumericValues {
   numeric_value_fraction: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
-  "numeric_value",
-  "numeric_type",
-  "numeric_value_fraction",
-];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["numeric_value", "numeric_type", "numeric_value_fraction"];

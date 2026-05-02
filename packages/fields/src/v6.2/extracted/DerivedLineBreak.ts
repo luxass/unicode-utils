@@ -4,66 +4,29 @@
  * @see https://unicode.org/Public/6.2.0/ucd/extracted/DerivedLineBreak.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedLineBreak.txt#L11-L14
+ * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr14/
  *
  * @unicodeVersion 6.2
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:26:32.038Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:51:47.971Z
  */
 export interface ExtractedDerivedLineBreak {
   /**
-   * Unicode code point or range explicitly listed for Line_Break.
+   * Unicode code point or range in standard UCD hexadecimal notation.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedLineBreak.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Line_Break property value.
+   * Line_Break property value as defined in UAX #14.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/extracted/DerivedLineBreak.txt#L11-L14
+   * @source https://ucdjs.dev/reports/tr14/
    */
-  line_break:
-    | "XX"
-    | "AL"
-    | "CM"
-    | "BA"
-    | "BB"
-    | "B2"
-    | "BK"
-    | "CB"
-    | "CL"
-    | "CP"
-    | "CR"
-    | "EX"
-    | "GL"
-    | "H2"
-    | "H3"
-    | "HL"
-    | "HY"
-    | "ID"
-    | "IN"
-    | "JL"
-    | "JT"
-    | "JV"
-    | "LF"
-    | "NL"
-    | "NS"
-    | "NU"
-    | "OP"
-    | "PO"
-    | "PR"
-    | "QU"
-    | "RI"
-    | "SA"
-    | "SG"
-    | "SP"
-    | "SY"
-    | "WJ"
-    | "ZW"
-    | (string & {});
+  line_break: string;
 }
 
-export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point_range", "line_break"];
+export const EXTRACTED_DERIVED_LINE_BREAK_FIELDS = ["code_point", "line_break"];

@@ -4,27 +4,26 @@
  * @see https://unicode.org/Public/6.0.0/ucd/extracted/DerivedEastAsianWidth.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L20
- * - https://ucdjs.dev/reports/tr11/
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L11-L14
  *
  * @unicodeVersion 6
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:27:52.038Z
+ * @generated 2026-04-28T04:53:38.339Z
  */
 export interface ExtractedDerivedEastAsianWidth {
   /**
-   * Unicode code point or range explicitly listed.
+   * Unicode code point range or single code point listed explicitly for East_Asian_Width.
    *
-   * @source https://ucdjs.dev/reports/tr11/
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L11-L14
    */
   code_point_range: string;
 
   /**
-   * East_Asian_Width property value (Neutral indicated by N per EastAsianWidth.txt conventions).
+   * East Asian Width property value; Neutral (N) for all unlisted code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L20
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedEastAsianWidth.txt#L13-L14
    */
   east_asian_width: "Neutral" | "N" | (string & {});
 }

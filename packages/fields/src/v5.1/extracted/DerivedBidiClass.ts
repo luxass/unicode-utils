@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:29:05.652Z
+ * @generated 2026-04-28T04:53:12.669Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
@@ -21,7 +21,7 @@ export interface ExtractedDerivedBidiClass {
   code_point_range: string;
 
   /**
-   * Derived Bidi_Class property value (e.g. L, R, AL).
+   * Value of the Bidi_Class property as defined in UAX #44.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

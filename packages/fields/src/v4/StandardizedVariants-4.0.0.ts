@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:33.818Z
+ * @generated 2026-04-28T04:55:02.640Z
  */
 export interface StandardizedVariants400 {
   /**
@@ -28,15 +28,11 @@ export interface StandardizedVariants400 {
   description: string;
 
   /**
-   * where the appearance is only different in particular shaping environments; possible values: isolate, initial, medial, final (space-separated)
+   * where the appearance is only different in particular shaping environments. The possible values are: isolate, initial, medial, final. If more than one is present, there are spaces between them.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/StandardizedVariants-4.0.0.txt#L16-L18
    */
   shaping_environments: string[];
 }
 
-export const STANDARDIZED_VARIANTS_400_FIELDS = [
-  "variation_sequence",
-  "description",
-  "shaping_environments",
-];
+export const STANDARDIZED_VARIANTS_400_FIELDS = ["variation_sequence", "description", "shaping_environments"];

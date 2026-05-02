@@ -10,11 +10,11 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:46.462Z
+ * @generated 2026-04-28T04:42:44.298Z
  */
 export interface NameAliases {
   /**
-   * Unicode code point.
+   * First field: Code point.
    *
    * @source https://ucdjs.dev/file-explorer/v/16.0.0/ucd/NameAliases.txt#L50
    */

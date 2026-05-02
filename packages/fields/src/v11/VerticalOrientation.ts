@@ -4,14 +4,14 @@
  * @see https://unicode.org/Public/11.0.0/ucd/VerticalOrientation.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/VerticalOrientation.txt#L15-L22
+ * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/VerticalOrientation.txt#L15-L23
  * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/VerticalOrientation.txt#L67-L70
  *
  * @unicodeVersion 11
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:14.011Z
+ * @generated 2026-04-28T04:49:08.131Z
  */
 export interface VerticalOrientation {
   /**
@@ -24,12 +24,12 @@ export interface VerticalOrientation {
   /**
    * Vertical_Orientation property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/VerticalOrientation.txt#L18-L22
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/VerticalOrientation.txt#L15-L23
    */
   vertical_orientation: "U" | "R" | "Tu" | "Tr";
 
   /**
-   * Comments listing General_Category, character names, and code point count.
+   * Comments listing General_Category property value or L& alias, Unicode character name(s), and code point count.
    *
    * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/VerticalOrientation.txt#L67-L70
    */

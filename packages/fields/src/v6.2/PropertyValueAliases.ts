@@ -12,7 +12,7 @@
  * @fields 4
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:26:08.401Z
+ * @generated 2026-04-28T04:51:28.039Z
  */
 export interface PropertyValueAliases {
   /**
@@ -23,30 +23,25 @@ export interface PropertyValueAliases {
   property: string;
 
   /**
-   * Abbreviated name for the property value.
+   * Abbreviated name.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/PropertyValueAliases.txt#L24-L25
    */
   abbreviated_name: string;
 
   /**
-   * Long name for the property value.
+   * Long name.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/PropertyValueAliases.txt#L26
    */
   long_name: string;
 
   /**
-   * Additional aliases beyond the preferred ones.
+   * Additional aliases may be listed in further fields.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/PropertyValueAliases.txt#L31
    */
   additional_aliases: string[];
 }
 
-export const PROPERTY_VALUE_ALIASES_FIELDS = [
-  "property",
-  "abbreviated_name",
-  "long_name",
-  "additional_aliases",
-];
+export const PROPERTY_VALUE_ALIASES_FIELDS = ["property", "abbreviated_name", "long_name", "additional_aliases"];

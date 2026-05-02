@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 3
  * @fields 4
- * @confidence 1.00
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:42.854Z
+ * @generated 2026-04-28T05:10:20.046Z
  */
 export interface ArabicShaping2 {
   /**

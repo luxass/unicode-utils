@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:25:04.126Z
+ * @generated 2026-04-28T04:49:51.315Z
  */
 export interface EastAsianWidth {
   /**
@@ -21,7 +21,7 @@ export interface EastAsianWidth {
   codepoints: string;
 
   /**
-   * East_Asian_Width property value.
+   * East_Asian_Width property, consisting of one of the following values.
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/EastAsianWidth.txt#L14-L15
    */

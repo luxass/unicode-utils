@@ -10,25 +10,22 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:57.251Z
+ * @generated 2026-04-28T04:50:22.363Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Unicode code point or range explicitly listed.
+   * Property: Grapheme_Cluster_Break.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
+   * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Grapheme_Cluster_Break property value.
+   * Grapheme_Cluster_Break property value; Other (XX) for all code points not explicitly listed.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.2.0/ucd/auxiliary/GraphemeBreakProperty.txt#L11-L14
    */
-  grapheme_cluster_break: "Other" | (string & {});
+  grapheme_cluster_break: "Other" | "XX" | (string & {});
 }
 
-export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = [
-  "code_point_range",
-  "grapheme_cluster_break",
-];
+export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point", "grapheme_cluster_break"];

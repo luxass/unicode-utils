@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:28:58.726Z
+ * @generated 2026-04-28T04:55:16.608Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * Unicode code point or range.
+   * Code point or range (e.g. 0000..007F) with the specified General_Category.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * General_Category property value.
+   * Value of the General_Category property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

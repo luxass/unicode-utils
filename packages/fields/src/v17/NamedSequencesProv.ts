@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:15:44.002Z
+ * @generated 2026-04-28T04:42:08.821Z
  */
 export interface NamedSequencesProv {
   /**

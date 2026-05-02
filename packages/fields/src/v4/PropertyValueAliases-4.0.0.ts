@@ -9,13 +9,13 @@
  *
  * @unicodeVersion 4
  * @fields 3
- * @confidence 0.90
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:43.440Z
+ * @generated 2026-04-28T04:55:09.195Z
  */
 export interface PropertyValueAliases400 {
   /**
-   * The property for which that property value name is used. 'qc' stands for any quick-check property.
+   * The property for which the property value name is used. 'qc' stands for any quick-check property.
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/PropertyValueAliases-4.0.0.txt#L17-L20
    */
@@ -26,7 +26,7 @@ export interface PropertyValueAliases400 {
    *
    * @source https://ucdjs.dev/file-explorer/v/4.0-Update/PropertyValueAliases-4.0.0.txt#L21-L22
    */
-  abbrev_name: string;
+  abbrev_name: "n/a" | (string & {});
 
   /**
    * Long name.

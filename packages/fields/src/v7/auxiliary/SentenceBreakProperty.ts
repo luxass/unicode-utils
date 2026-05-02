@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:25:35.457Z
+ * @generated 2026-04-28T04:50:31.960Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range of code points.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Sentence_Break property value; unlisted code points default to Other.
+   * Value of the Sentence_Break property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

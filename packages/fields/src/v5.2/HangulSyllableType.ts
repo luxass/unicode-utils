@@ -11,7 +11,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:21.339Z
+ * @generated 2026-04-28T04:51:25.128Z
  */
 export interface HangulSyllableType {
   /**
@@ -26,7 +26,7 @@ export interface HangulSyllableType {
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/HangulSyllableType.txt#L20
    */
-  hangul_syllable_type: "Leading_Jamo" | (string & {});
+  hangul_syllable_type: "Leading_Jamo" | "Trailing_Jamo" | "Vowel_Jamo" | "Syllable";
 }
 
 export const HANGUL_SYLLABLE_TYPE_FIELDS = ["code_point", "hangul_syllable_type"];

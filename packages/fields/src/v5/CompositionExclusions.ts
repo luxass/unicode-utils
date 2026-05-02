@@ -4,14 +4,28 @@
  * @see https://unicode.org/Public/5.0.0/ucd/CompositionExclusions.txt
  *
  * Fields derived from:
-
+ * - https://ucdjs.dev/reports/tr15/
  *
  * @unicodeVersion 5
- * @fields 0
- * @confidence 0.00
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:21.237Z
+ * @fields 2
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:56:42.580Z
  */
-export interface CompositionExclusions {}
+export interface CompositionExclusions {
+  /**
+   * Unicode code point or range listed in the Composition Exclusion Table.
+   *
+   * @source https://ucdjs.dev/reports/tr15/
+   */
+  code_point_range: string;
 
-export const COMPOSITION_EXCLUSIONS_FIELDS = [];
+  /**
+   * Type of composition exclusion (Primary or Secondary).
+   *
+   * @source https://ucdjs.dev/reports/tr15/
+   */
+  exclusion_type: "Primary" | "Secondary";
+}
+
+export const COMPOSITION_EXCLUSIONS_FIELDS = ["code_point_range", "exclusion_type"];

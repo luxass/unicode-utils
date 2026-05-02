@@ -11,18 +11,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:26:04.989Z
+ * @generated 2026-04-28T04:49:52.619Z
  */
 export interface DerivedCoreProperties {
   /**
-   * Unicode code point range (e.g. 0000..10FFFF).
+   * Code point range (e.g. 0000..10FFFF).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point_range: string;
 
   /**
-   * Derived Property: Math. Generated from: Sm + Other_Math.
+   * Derived Property: Math, generated from Sm + Other_Math.
    *
    * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/DerivedCoreProperties.txt#L11-L12
    */

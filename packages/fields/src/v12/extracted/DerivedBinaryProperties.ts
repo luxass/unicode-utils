@@ -4,14 +4,29 @@
  * @see https://unicode.org/Public/12.0.0/ucd/extracted/DerivedBinaryProperties.txt
  *
  * Fields derived from:
-
+ * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/extracted/DerivedBinaryProperties.txt#L12
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 12
- * @fields 0
- * @confidence 0.00
+ * @fields 2
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:23:53.299Z
+ * @generated 2026-04-28T04:47:22.413Z
  */
-export interface ExtractedDerivedBinaryProperties {}
+export interface ExtractedDerivedBinaryProperties {
+  /**
+   * Unicode code point range (e.g. 0000..10FFFF).
+   *
+   * @source https://ucdjs.dev/reports/tr44/
+   */
+  code_point_range: string;
 
-export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = [];
+  /**
+   * Bidi_Mirrored property value listing characters from UnicodeData.txt field 9.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/extracted/DerivedBinaryProperties.txt#L12
+   */
+  property_value: "Y" | "N";
+}
+
+export const EXTRACTED_DERIVED_BINARY_PROPERTIES_FIELDS = ["code_point_range", "property_value"];

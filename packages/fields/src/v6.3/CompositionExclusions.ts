@@ -10,11 +10,11 @@
  * @fields 1
  * @confidence 0.50
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:31:47.823Z
+ * @generated 2026-04-28T04:49:13.693Z
  */
 export interface CompositionExclusions {
   /**
-   * Code point or range listed in the Composition Exclusion Table per UAX #15.
+   * Unicode code point listed in the Composition Exclusion Table defined in UAX #15.
    *
    * @source https://ucdjs.dev/reports/tr15/
    */

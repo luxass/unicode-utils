@@ -4,48 +4,45 @@
  * @see https://unicode.org/Public/6.0.0/ucd/extracted/DerivedNumericValues.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L16-L19
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L11
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L14
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L16
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L18-L19
  *
  * @unicodeVersion 6
  * @fields 4
- * @confidence 0.50
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:28:38.871Z
+ * @generated 2026-04-28T04:53:30.173Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
-   * Unicode code point or range (inferred from standard UCD file format).
+   * Numeric Values (from UnicodeData.txt, field 6/7/8).
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L11
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Numeric value from UnicodeData.txt fields 6/7/8, as decimal approximation; repeating fractions printed with limited decimals.
+   * in this file, they should be expressed to the limits of the precision.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L14
    */
-  numeric_value: string;
+  numeric_value_decimal: string;
 
   /**
-   * Third field is empty; formerly a copy of the numeric type.
+   * Empty field; formerly a copy of the numeric type.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L16
    */
-  numeric_type: "none";
+  numeric_value_fraction: string;
 
   /**
-   * Numeric value as whole integer or rational fraction (added Unicode 5.1.0).
+   * Numeric value as rational fraction where possible (e.g. 1/6), added in Unicode 5.1.0.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L17-L19
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedNumericValues.txt#L18-L19
    */
-  numeric_value_fraction: string;
+  numeric_value_rational: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
-  "code_point",
-  "numeric_value",
-  "numeric_type",
-  "numeric_value_fraction",
-];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["code_point_range", "numeric_value_decimal", "numeric_value_fraction", "numeric_value_rational"];

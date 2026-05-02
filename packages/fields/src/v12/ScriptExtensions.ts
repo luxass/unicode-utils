@@ -10,22 +10,22 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:24:09.501Z
+ * @generated 2026-04-28T04:50:21.966Z
  */
 export interface ScriptExtensions {
   /**
-   * Unicode code point or range in hexadecimal notation.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   code_point: string;
 
   /**
-   * Set of one or more abbreviated Script property values, comma-separated and sorted alphabetically.
+   * Set of one or more Script property values.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
-  script_extensions: string;
+  script_extensions: string[];
 }
 
 export const SCRIPT_EXTENSIONS_FIELDS = ["code_point", "script_extensions"];

@@ -4,40 +4,40 @@
  * @see https://unicode.org/Public/11.0.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32-L36
+ * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32
  *
  * @unicodeVersion 11
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:22:58.992Z
+ * @generated 2026-04-28T04:48:40.487Z
  */
 export interface SpecialCasing {
   /**
    * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32-L36
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32
    */
   code: string;
 
   /**
-   * Full lowercase mapping, one or more character values in hex separated by spaces.
+   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32-L36
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32
    */
   lower: string;
 
   /**
-   * Full titlecase mapping, one or more character values in hex separated by spaces.
+   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32-L36
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32
    */
   title: string;
 
   /**
-   * Full uppercase mapping, one or more character values in hex separated by spaces.
+   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32-L36
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32
    */
   upper: string;
 
@@ -49,18 +49,11 @@ export interface SpecialCasing {
   condition_list: string;
 
   /**
-   * Informational comment.
+   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
    *
    * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/SpecialCasing.txt#L32
    */
   comment: string;
 }
 
-export const SPECIAL_CASING_FIELDS = [
-  "code",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

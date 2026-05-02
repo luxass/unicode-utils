@@ -4,32 +4,28 @@
  * @see https://unicode.org/Public/4.1.0/ucd/extracted/DerivedDecompositionType.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedDecompositionType.txt#L11
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
  *
  * @unicodeVersion 4.1
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:49.445Z
+ * @generated 2026-04-28T04:55:42.872Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point range (e.g. 0374..037A).
+   * Unicode code point or range explicitly listed for Decomposition_Type.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
    */
   code_point_range: string;
 
   /**
-   * Decomposition type extracted from field 5 of UnicodeData.txt.
+   * Decomposition_Type value (None is default for unlisted code points).
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedDecompositionType.txt#L11
+   * @source https://ucdjs.dev/file-explorer/v/4.1.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
    */
-  decomposition_type: "None" | "Canonical" | "Font" | "NoBreak" | (string & {});
+  decomposition_type: "None" | (string & {});
 }
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = [
-  "code_point_range",
-  "decomposition_type",
-];
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point_range", "decomposition_type"];

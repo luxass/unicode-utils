@@ -10,44 +10,22 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:33:13.921Z
+ * @generated 2026-04-28T04:50:59.766Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point range with explicit Decomposition_Type values (unlisted have None).
-   *
-   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
-   */
-  code_point_range: string;
-
-  /**
-   * Decomposition type from UnicodeData.txt field 5.
+   * Unicode code point or range with Decomposition_Type from UnicodeData.txt field 5.
    *
    * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedDecompositionType.txt#L11
    */
-  decomposition_type:
-    | "None"
-    | "Canonical"
-    | "Font"
-    | "NoBreak"
-    | "Initial"
-    | "Medial"
-    | "Final"
-    | "Isolated"
-    | "Circle"
-    | "Super"
-    | "Sub"
-    | "Vertical"
-    | "Wide"
-    | "Narrow"
-    | "Small"
-    | "Square"
-    | "Fraction"
-    | "Compat"
-    | (string & {});
+  code_point: string;
+
+  /**
+   * Decomposition type value; defaults to None for unlisted code points.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/5.2.0/ucd/extracted/DerivedDecompositionType.txt#L11-L14
+   */
+  decomposition_type: "None" | "Canonical" | "Font" | "NoBreak" | "Initial" | "Medial" | "Final" | "Isolated" | "Circle" | "Super" | "Sub" | "Vertical" | "Wide" | "Narrow" | "Small" | "Square" | "Fraction" | "Compat" | (string & {});
 }
 
-export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = [
-  "code_point_range",
-  "decomposition_type",
-];
+export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

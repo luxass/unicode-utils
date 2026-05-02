@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:12.030Z
+ * @generated 2026-04-28T04:55:12.734Z
  */
 export interface BidiMirroring1 {
   /**
-   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits that has the mirrored property.
+   * Each mapping line contains two fields, separated by a semicolon (';').
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/BidiMirroring-1.txt#L15-L17
    */
   source_code_point: string;
 
   /**
-   * Code point represented as a variable-length hexadecimal value with 4 to 6 digits that is the mirror image glyph.
+   * Each mapping line contains two fields, separated by a semicolon (';').
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update1/BidiMirroring-1.txt#L15-L17
    */

@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/9.0.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L35
+ * - https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L36
  *
  * @unicodeVersion 9
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:23:28.349Z
+ * @generated 2026-04-28T04:50:01.766Z
  */
 export interface SpecialCasing {
   /**
@@ -21,23 +21,23 @@ export interface SpecialCasing {
   code: string;
 
   /**
-   * Full lowercase mapping, one or more character values in hex separated by spaces.
+   * Full lowercase mapping, expressed as one or more character values in hex separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   lower: string;
 
   /**
-   * Full titlecase mapping, one or more character values in hex separated by spaces.
+   * Full titlecase mapping, expressed as one or more character values in hex separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   title: string;
 
   /**
-   * Full uppercase mapping, one or more character values in hex separated by spaces.
+   * Full uppercase mapping, expressed as one or more character values in hex separated by spaces.
    *
-   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L35
+   * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32-L36
    */
   upper: string;
 
@@ -49,18 +49,11 @@ export interface SpecialCasing {
   condition_list: string;
 
   /**
-   * <code>; <lower>; <title>; <upper>; (<condition_list>;)?
+   * Informational comment.
    *
    * @source https://ucdjs.dev/file-explorer/v/9.0.0/ucd/SpecialCasing.txt#L32
    */
   comment: string;
 }
 
-export const SPECIAL_CASING_FIELDS = [
-  "code",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

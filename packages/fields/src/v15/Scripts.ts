@@ -10,18 +10,18 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:12.065Z
+ * @generated 2026-04-28T04:45:27.965Z
  */
 export interface Scripts {
   /**
-   * Unicode code point or range in standard UCD range notation.
+   * Unicode code point or range to which a Script property value is assigned.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   code_point_range: string;
 
   /**
-   * Script property value.
+   * Assigned Script property value.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */

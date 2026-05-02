@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 13
  * @fields 2
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:06.860Z
+ * @generated 2026-04-28T04:45:47.709Z
  */
 export interface VerticalOrientation {
   /**

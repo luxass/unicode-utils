@@ -9,42 +9,23 @@
  * @unicodeVersion 14
  * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:19:21.224Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:44:44.365Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
-   * Unicode code point or range in the form 0041 or 0041..0045.
+   * Unicode code point or range of code points listed explicitly (unlisted have Decomposition_Type None).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Decomposition type value from UnicodeData.txt field 5.
+   * Decomposition_Type property value from UnicodeData.txt field 5 (None for unlisted code points).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  decomposition_type:
-    | "None"
-    | "Canonical"
-    | "Font"
-    | "NoBreak"
-    | "Initial"
-    | "Medial"
-    | "Final"
-    | "Isolated"
-    | "Circle"
-    | "Super"
-    | "Sub"
-    | "Vertical"
-    | "Wide"
-    | "Narrow"
-    | "Small"
-    | "Square"
-    | "Fraction"
-    | "Compat"
-    | (string & {});
+  decomposition_type: "Canonical" | "Font" | "NoBreak" | "Initial" | "Medial" | "Final" | "Isolated" | "Circle" | "Super" | "Sub" | "Vertical" | "Wide" | "Narrow" | "Small" | "Square" | "Fraction" | "Compat";
 }
 
 export const EXTRACTED_DERIVED_DECOMPOSITION_TYPE_FIELDS = ["code_point", "decomposition_type"];

@@ -11,18 +11,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:28:23.816Z
+ * @generated 2026-04-28T04:53:37.345Z
  */
 export interface ScriptExtensions {
   /**
-   * Unicode code point or range.
+   * Unicode code point or range for characters belonging to multiple scripts.
    *
    * @source https://ucdjs.dev/reports/tr24/
    */
   code_point_range: string;
 
   /**
-   * Space-delimited short script values for characters that belong to multiple scripts.
+   * Space-delimited short script values, such as Hang for Hangul.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/ScriptExtensions.txt#L11
    */

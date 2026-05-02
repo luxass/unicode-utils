@@ -4,29 +4,29 @@
  * @see https://unicode.org/Public/17.0.0/ucd/ScriptExtensions.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/ScriptExtensions.txt#L10-L26
- * - https://ucdjs.dev/reports/tr24/
+ * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/ScriptExtensions.txt#L19-L22
+ * - https://ucdjs.dev/file-explorer/v/17.0.0/ucd/ScriptExtensions.txt#L24
  *
  * @unicodeVersion 17
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:00.656Z
+ * @generated 2026-04-28T04:42:23.392Z
  */
 export interface ScriptExtensions {
   /**
-   * Unicode code point or range in standard UCD format.
+   * Unicode code point or range explicitly listed for Script_Extensions.
    *
-   * @source https://ucdjs.dev/reports/tr24/
+   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/ScriptExtensions.txt#L24
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Set of one or more abbreviated Script property values, alphabetically ordered.
+   * Set of one or more abbreviated Script property values, given in alphabetical order.
    *
-   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/ScriptExtensions.txt#L10-L26
+   * @source https://ucdjs.dev/file-explorer/v/17.0.0/ucd/ScriptExtensions.txt#L19-L22
    */
   script_extensions: string[];
 }
 
-export const SCRIPT_EXTENSIONS_FIELDS = ["code_point", "script_extensions"];
+export const SCRIPT_EXTENSIONS_FIELDS = ["code_point_range", "script_extensions"];

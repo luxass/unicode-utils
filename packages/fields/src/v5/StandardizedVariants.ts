@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:30:39.647Z
+ * @generated 2026-04-28T04:57:08.472Z
  */
 export interface StandardizedVariants {
   /**
@@ -35,8 +35,4 @@ export interface StandardizedVariants {
   shaping_environments: string[];
 }
 
-export const STANDARDIZED_VARIANTS_FIELDS = [
-  "variation_sequence",
-  "description",
-  "shaping_environments",
-];
+export const STANDARDIZED_VARIANTS_FIELDS = ["variation_sequence", "description", "shaping_environments"];

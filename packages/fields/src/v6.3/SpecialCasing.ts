@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/6.3.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24-L37
+ * - https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24
  *
  * @unicodeVersion 6.3
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:32.159Z
+ * @generated 2026-04-28T04:49:47.368Z
  */
 export interface SpecialCasing {
   /**
@@ -42,9 +42,9 @@ export interface SpecialCasing {
   upper: string;
 
   /**
-   * Optional condition list of language IDs or contexts, separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24-L37
+   * @source https://ucdjs.dev/file-explorer/v/6.3.0/ucd/SpecialCasing.txt#L24
    */
   condition_list: string;
 
@@ -56,11 +56,4 @@ export interface SpecialCasing {
   comment: string;
 }
 
-export const SPECIAL_CASING_FIELDS = [
-  "code",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

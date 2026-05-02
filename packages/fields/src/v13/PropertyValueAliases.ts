@@ -4,57 +4,43 @@
  * @see https://unicode.org/Public/13.0.0/ucd/PropertyValueAliases.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L22-L27
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L29-L30
- * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L32-L33
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L20-L31
+ * - https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L35
  *
  * @unicodeVersion 13
- * @fields 5
- * @confidence 0.80
+ * @fields 4
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:33.737Z
+ * @generated 2026-04-28T04:45:24.900Z
  */
 export interface PropertyValueAliases {
   /**
-   * The property for which that property value name is used.
+   * First field: the property for which that property value name is used.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L22-L24
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L20-L24
    */
   property: string;
 
   /**
-   * The short name for the property value. It is typically an abbreviation, but in a number of cases it is simply a duplicate of the long name in the third field.
+   * Second field: the short name for the property value. Typically an abbreviation, but in a number of cases it is simply a duplicate of the long name in the third field.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L25-L27
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L25-L28
    */
   short_name: string;
 
   /**
-   * The long name for the property value, typically the formal name used in documentation about the property value.
+   * Third field: the long name for the property value, typically the formal name used in documentation about the property value.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L29-L30
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L29-L31
    */
   long_name: string;
 
   /**
-   * Numeric value for Canonical_Combining_Class (ccc) cases.
+   * Other aliases may be listed in additional fields.
    *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L32-L33
+   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L35
    */
-  short_name_ccc: number;
-
-  /**
-   * Long name for Canonical_Combining_Class (ccc) cases.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/13.0.0/ucd/PropertyValueAliases.txt#L32-L33
-   */
-  long_name_ccc: string;
+  additional_alias: string;
 }
 
-export const PROPERTY_VALUE_ALIASES_FIELDS = [
-  "property",
-  "short_name",
-  "long_name",
-  "short_name_ccc",
-  "long_name_ccc",
-];
+export const PROPERTY_VALUE_ALIASES_FIELDS = ["property", "short_name", "long_name", "additional_alias"];

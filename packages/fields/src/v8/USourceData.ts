@@ -10,11 +10,11 @@
  * @fields 7
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:26:17.920Z
+ * @generated 2026-04-28T04:52:02.791Z
  */
 export interface USourceData {
   /**
-   * The U-source ID.
+   * The U-source ID
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L12
    */
@@ -35,40 +35,32 @@ export interface USourceData {
   code_point: string;
 
   /**
-   * Radical-stroke count.
+   * Radical-stroke count
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L28
    */
   radical_stroke_count: string;
 
   /**
-   * Virtual KangXi dictionary position.
+   * Virtual KangXi dictionary position
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L29
    */
   virtual_kang_xi_position: string;
 
   /**
-   * Ideographic Description Sequence (IDS), if possible.
+   * Ideographic Description Sequence (IDS), if possible
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L30
    */
   ids: string;
 
   /**
-   * Source(s).
+   * Source(s)
    *
    * @source https://ucdjs.dev/file-explorer/v/8.0.0/ucd/USourceData.txt#L31
    */
   sources: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = [
-  "u_source_id",
-  "status",
-  "code_point",
-  "radical_stroke_count",
-  "virtual_kang_xi_position",
-  "ids",
-  "sources",
-];
+export const U_SOURCE_DATA_FIELDS = ["u_source_id", "status", "code_point", "radical_stroke_count", "virtual_kang_xi_position", "ids", "sources"];

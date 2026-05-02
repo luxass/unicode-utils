@@ -4,28 +4,28 @@
  * @see https://unicode.org/Public/4.0-Update1/Scripts-4.0.1.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/4.0-Update1/Scripts-4.0.1.txt#L11-L14
  *
  * @unicodeVersion 4.0.1
  * @fields 2
- * @confidence 0.50
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:36:02.597Z
+ * @confidence 0.80
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:53:24.579Z
  */
 export interface Scripts401 {
   /**
-   * Unicode code point or range in hexadecimal notation.
+   * Unicode code point or range explicitly listed for a Script value.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/4.0-Update1/Scripts-4.0.1.txt#L13-L14
    */
-  code_point: string;
+  code_point_range: string;
 
   /**
-   * Script property value.
+   * Script property value; unlisted code points have value Common (Zyyy).
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/4.0-Update1/Scripts-4.0.1.txt#L11-L14
    */
-  script: string;
+  script: "Zyyy" | (string & {});
 }
 
-export const SCRIPTS_401_FIELDS = ["code_point", "script"];
+export const SCRIPTS_401_FIELDS = ["code_point_range", "script"];

@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/4.0-Update/SpecialCasing-4.0.0.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/4.0-Update/SpecialCasing-4.0.0.txt#L19-L26
+ * - https://ucdjs.dev/file-explorer/v/4.0-Update/SpecialCasing-4.0.0.txt#L19
  *
  * @unicodeVersion 4
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:01.003Z
+ * @generated 2026-04-28T04:55:03.314Z
  */
 export interface SpecialCasing400 {
   /**
@@ -42,9 +42,9 @@ export interface SpecialCasing400 {
   upper: string;
 
   /**
-   * Optional space-separated list of locales or contexts (e.g. 'lt tr Final_Sigma').
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/SpecialCasing-4.0.0.txt#L19-L26
+   * @source https://ucdjs.dev/file-explorer/v/4.0-Update/SpecialCasing-4.0.0.txt#L19
    */
   condition_list: string;
 
@@ -56,11 +56,4 @@ export interface SpecialCasing400 {
   comment: string;
 }
 
-export const SPECIAL_CASING_400_FIELDS = [
-  "code",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_400_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

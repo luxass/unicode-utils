@@ -4,47 +4,45 @@
  * @see https://unicode.org/Public/6.1.0/ucd/extracted/DerivedNumericValues.txt
  *
  * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/6.1.0/ucd/extracted/DerivedNumericValues.txt#L11-L17
+ * - https://ucdjs.dev/file-explorer/v/6.1.0/ucd/extracted/DerivedNumericValues.txt#L24
+ * - https://ucdjs.dev/file-explorer/v/6.1.0/ucd/extracted/DerivedNumericValues.txt#L26-L28
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 6.1
  * @fields 4
- * @confidence 0.70
- * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:27:59.150Z
+ * @confidence 0.80
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:55:12.510Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
-   * Unicode code point or range (e.g. 0030 or 2460..24FF).
+   * Code point or range in the standard format for UCD files.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Decimal approximation of the numeric value (e.g. 10, 0.16666667) or NaN.
+   * The Numeric_Value derived from UnicodeData.txt field 8 or Unihan numeric fields, or NaN.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.1.0/ucd/extracted/DerivedNumericValues.txt#L11-L17
    */
   numeric_value: string;
 
   /**
-   * Obsolete field; always empty.
+   * Empty field; formerly a copy of the numeric type.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.1.0/ucd/extracted/DerivedNumericValues.txt#L24
    */
   numeric_type: string;
 
   /**
-   * Exact rational representation as integer or fraction (e.g. 10, 1/6).
+   * Numeric value expressed as a whole integer where possible or as a rational fraction (added in Unicode 5.1.0).
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/6.1.0/ucd/extracted/DerivedNumericValues.txt#L26-L28
    */
-  fraction: string;
+  numeric_value_fraction: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
-  "code_point_range",
-  "numeric_value",
-  "numeric_type",
-  "fraction",
-];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["code_point", "numeric_value", "numeric_type", "numeric_value_fraction"];

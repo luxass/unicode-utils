@@ -5,13 +5,13 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericValues.txt#L13-L21
- * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L31
+ * - https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L27
  *
  * @unicodeVersion 11
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:22:36.558Z
+ * @generated 2026-04-28T04:49:14.688Z
  */
 export interface ExtractedDerivedNumericValues {
   /**
@@ -26,18 +26,14 @@ export interface ExtractedDerivedNumericValues {
    *
    * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericValues.txt#L20-L21
    */
-  unused: string;
+  empty_field: string;
 
   /**
    * Expressing the same numeric value either as a whole integer where possible, or as a rational fraction such as "1/6".
    *
-   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L31
+   * @source https://ucdjs.dev/file-explorer/v/11.0.0/ucd/extracted/DerivedNumericValues.txt#L23-L27
    */
   numeric_value_fraction: string;
 }
 
-export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = [
-  "numeric_value",
-  "unused",
-  "numeric_value_fraction",
-];
+export const EXTRACTED_DERIVED_NUMERIC_VALUES_FIELDS = ["numeric_value", "empty_field", "numeric_value_fraction"];

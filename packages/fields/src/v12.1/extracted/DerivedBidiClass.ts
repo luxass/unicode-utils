@@ -8,20 +8,20 @@
  *
  * @unicodeVersion 12.1
  * @fields 2
- * @confidence 0.70
+ * @confidence 0.50
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:20:04.147Z
+ * @generated 2026-04-28T04:46:18.308Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Unicode code point or range in hexadecimal notation, possibly a range xxxx..yyyy.
+   * Unicode code point or range in hexadecimal.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Value of the Bidi_Class property.
+   * Bidirectional class value as listed for the Bidi_Class property.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

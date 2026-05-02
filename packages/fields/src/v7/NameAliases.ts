@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:25:59.139Z
+ * @generated 2026-04-28T04:51:07.809Z
  */
 export interface NameAliases {
   /**
@@ -28,11 +28,11 @@ export interface NameAliases {
   alias: string;
 
   /**
-   * Third field: Type.
+   * Type label of the alias (case-insensitive).
    *
-   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/NameAliases.txt#L49
+   * @source https://ucdjs.dev/file-explorer/v/7.0.0/ucd/NameAliases.txt#L48-L49
    */
-  type: string;
+  type: "correction" | "control" | "alternate" | "figment" | "abbreviation";
 }
 
 export const NAME_ALIASES_FIELDS = ["code_point", "alias", "type"];

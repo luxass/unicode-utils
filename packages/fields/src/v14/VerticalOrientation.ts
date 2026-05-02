@@ -4,21 +4,21 @@
  * @see https://unicode.org/Public/14.0.0/ucd/VerticalOrientation.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L15-L22
+ * - https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L16-L22
  *
  * @unicodeVersion 14
  * @fields 2
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:28.229Z
+ * @generated 2026-04-28T04:45:37.736Z
  */
 export interface VerticalOrientation {
   /**
    * Unicode code point value or range of code point values in hexadecimal form.
    *
-   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L15-L17
+   * @source https://ucdjs.dev/file-explorer/v/14.0.0/ucd/VerticalOrientation.txt#L16-L17
    */
-  codepoints: string;
+  code_point_range: string;
 
   /**
    * Vertical_Orientation property value.
@@ -28,4 +28,4 @@ export interface VerticalOrientation {
   vertical_orientation: "U" | "R" | "Tu" | "Tr";
 }
 
-export const VERTICAL_ORIENTATION_FIELDS = ["codepoints", "vertical_orientation"];
+export const VERTICAL_ORIENTATION_FIELDS = ["code_point_range", "vertical_orientation"];

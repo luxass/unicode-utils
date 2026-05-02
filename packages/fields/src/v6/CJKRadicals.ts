@@ -4,39 +4,35 @@
  * @see https://unicode.org/Public/6.0.0/ucd/CJKRadicals.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L18-L22
+ * - https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L13-L23
  *
  * @unicodeVersion 6
  * @fields 3
- * @confidence 1.00
+ * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:27:31.889Z
+ * @generated 2026-04-28T04:52:36.692Z
  */
 export interface CjkRadicals {
   /**
-   * The radical number matching the regular expression [0-9]{1,3}'?.
+   * The radical number used in the kRSUnicode property, matching [0-9]{1,3}'?.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L18-L22
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L17-L23
    */
   radical_number: string;
 
   /**
-   * The CJK Radical character from the CJK Radical block or the CJK Radicals Supplement block.
+   * The corresponding character in the CJK Radical block or the CJK Radicals Supplement block.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L19-L20
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L13-L20
    */
   cjk_radical_character: string;
 
   /**
-   * The CJK Unified Ideograph which is formed from that radical only.
+   * A CJK Unified Ideograph which is formed from that radical only.
    *
-   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L20
+   * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/CJKRadicals.txt#L14-L20
    */
   cjk_unified_ideograph: string;
 }
 
-export const CJK_RADICALS_FIELDS = [
-  "radical_number",
-  "cjk_radical_character",
-  "cjk_unified_ideograph",
-];
+export const CJK_RADICALS_FIELDS = ["radical_number", "cjk_radical_character", "cjk_unified_ideograph"];

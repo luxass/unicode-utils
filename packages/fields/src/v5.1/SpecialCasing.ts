@@ -4,13 +4,13 @@
  * @see https://unicode.org/Public/5.1.0/ucd/SpecialCasing.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24-L30
+ * - https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24
  *
  * @unicodeVersion 5.1
  * @fields 6
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:20.687Z
+ * @generated 2026-04-28T04:54:16.973Z
  */
 export interface SpecialCasing {
   /**
@@ -21,30 +21,30 @@ export interface SpecialCasing {
   code: string;
 
   /**
-   * Lowercase mapping(s), multiple values separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24-L28
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24
    */
   lower: string;
 
   /**
-   * Titlecase mapping(s), multiple values separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24-L28
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24
    */
   title: string;
 
   /**
-   * Uppercase mapping(s), multiple values separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24-L28
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24
    */
   upper: string;
 
   /**
-   * Optional condition list of language IDs or contexts, separated by spaces.
+   * <code>; <lower> ; <title> ; <upper> ; (<condition_list> ;)?
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24-L30
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/SpecialCasing.txt#L24
    */
   condition_list: string;
 
@@ -56,11 +56,4 @@ export interface SpecialCasing {
   comment: string;
 }
 
-export const SPECIAL_CASING_FIELDS = [
-  "code",
-  "lower",
-  "title",
-  "upper",
-  "condition_list",
-  "comment",
-];
+export const SPECIAL_CASING_FIELDS = ["code", "lower", "title", "upper", "condition_list", "comment"];

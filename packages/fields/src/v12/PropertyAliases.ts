@@ -12,7 +12,7 @@
  * @fields 3
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:24:01.106Z
+ * @generated 2026-04-28T04:47:27.015Z
  */
 export interface PropertyAliases {
   /**
@@ -34,7 +34,7 @@ export interface PropertyAliases {
    *
    * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/PropertyAliases.txt#L30
    */
-  additional_alias: string;
+  additional_alias: string[];
 }
 
 export const PROPERTY_ALIASES_FIELDS = ["short_name", "long_name", "additional_alias"];

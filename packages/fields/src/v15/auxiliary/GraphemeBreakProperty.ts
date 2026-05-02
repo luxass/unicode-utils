@@ -11,18 +11,18 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:19:01.500Z
+ * @generated 2026-04-28T04:44:28.275Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Hexadecimal Unicode code point or range (e.g. 0020..002E).
+   * Unicode code point or range in hexadecimal notation.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Value of the Grapheme_Cluster_Break property.
+   * Value of the Grapheme_Cluster_Break property as defined in UAX #29.
    *
    * @source https://ucdjs.dev/reports/tr29/
    */

@@ -10,20 +10,20 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:28:34.822Z
+ * @generated 2026-04-28T04:53:20.133Z
  */
 export interface ExtractedDerivedGeneralCategory {
   /**
-   * Unicode code point range with General_Category=Unassigned.
+   * Code point range with General_Category=Unassigned property.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedGeneralCategory.txt#L15
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedGeneralCategory.txt#L11-L15
    */
   code_point_range: string;
 
   /**
-   * General_Category value.
+   * General category value for the code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedGeneralCategory.txt#L11-L15
+   * @source https://ucdjs.dev/file-explorer/v/5.1.0/ucd/extracted/DerivedGeneralCategory.txt#L15
    */
   general_category: "Unassigned";
 }

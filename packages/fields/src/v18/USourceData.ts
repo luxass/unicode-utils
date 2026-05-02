@@ -10,7 +10,7 @@
  * @fields 10
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:16:41.106Z
+ * @generated 2026-04-28T04:42:39.182Z
  */
 export interface USourceData {
   /**
@@ -21,31 +21,11 @@ export interface USourceData {
   u_source_identifier: string;
 
   /**
-   * Status of the ideograph encoding
+   * Status of the ideograph such as Comp: Encoded as a CJK Compatibility Ideograph, ExtA: Encoded in Extension A, etc., or (UTC-\d{5})|(UCI-\d{5}): Duplicate entries deprecated in favor of other entries.
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/USourceData.txt#L15-L33
    */
-  status:
-    | "Comp"
-    | "ExtA"
-    | "ExtB"
-    | "ExtC"
-    | "ExtD"
-    | "ExtE"
-    | "ExtF"
-    | "ExtG"
-    | "ExtH"
-    | "ExtI"
-    | "ExtJ"
-    | "FutureWS"
-    | "NoAction"
-    | "Rejected"
-    | "URO"
-    | "Variant"
-    | "WS-2024"
-    | "UTC-\d{5}"
-    | "UCI-\d{5}"
-    | (string & {});
+  status: "Comp" | "ExtA" | "ExtB" | "ExtC" | "ExtD" | "ExtE" | "ExtF" | "ExtG" | "ExtH" | "ExtI" | "ExtJ" | "FutureWS" | "NoAction" | "Rejected" | "URO" | "Variant" | "WS-2024" | (string & {});
 
   /**
    * The Unicode code point of this ideograph, if any; otherwise, the code point specifies the encoded ideograph to which this entry is related, generally as a variant
@@ -66,14 +46,14 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/USourceData.txt#L36
    */
-  virtual_kang_xi_position: string;
+  virtual_kang_xi_dictionary_position: string;
 
   /**
    * Ideographic Description Sequence (IDS)
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/USourceData.txt#L37
    */
-  ids: string;
+  ideographic_description_sequence: string;
 
   /**
    * Sources
@@ -94,7 +74,7 @@ export interface USourceData {
    *
    * @source https://ucdjs.dev/file-explorer/v/18.0.0/ucd/USourceData.txt#L40
    */
-  k_total_strokes: string;
+  k_total_strokes: number;
 
   /**
    * First residual stroke
@@ -104,15 +84,4 @@ export interface USourceData {
   first_residual_stroke: string;
 }
 
-export const U_SOURCE_DATA_FIELDS = [
-  "u_source_identifier",
-  "status",
-  "unicode_code_point",
-  "k_rs_unicode",
-  "virtual_kang_xi_position",
-  "ids",
-  "sources",
-  "general_comments",
-  "k_total_strokes",
-  "first_residual_stroke",
-];
+export const U_SOURCE_DATA_FIELDS = ["u_source_identifier", "status", "unicode_code_point", "k_rs_unicode", "virtual_kang_xi_dictionary_position", "ideographic_description_sequence", "sources", "general_comments", "k_total_strokes", "first_residual_stroke"];

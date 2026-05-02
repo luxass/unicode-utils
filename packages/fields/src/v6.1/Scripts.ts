@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:29:16.355Z
+ * @generated 2026-04-28T04:56:00.293Z
  */
 export interface Scripts {
   /**

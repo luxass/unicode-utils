@@ -4,54 +4,28 @@
  * @see https://unicode.org/Public/15.0.0/ucd/auxiliary/WordBreakProperty.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/15.0.0/ucd/auxiliary/WordBreakProperty.txt#L12
- * - https://ucdjs.dev/file-explorer/v/15.0.0/ucd/auxiliary/WordBreakProperty.txt#L14-L15
+ * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 15
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:17:55.167Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:44:04.261Z
  */
 export interface AuxiliaryWordBreakProperty {
   /**
-   * Unicode code point or range explicitly listed for Word_Break.
+   * Unicode code point or range of code points.
    *
-   * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/auxiliary/WordBreakProperty.txt#L14-L15
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Word_Break property value.
+   * Word_Break property value per UAX #44 and UAX #29.
    *
-   * @source https://ucdjs.dev/file-explorer/v/15.0.0/ucd/auxiliary/WordBreakProperty.txt#L12
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  word_break:
-    | "AL"
-    | "CR"
-    | "Extend"
-    | "ExtendNumLet"
-    | "FO"
-    | "Format"
-    | "H2"
-    | "H3"
-    | "HL"
-    | "HY"
-    | "ID"
-    | "JL"
-    | "JT"
-    | "JV"
-    | "LF"
-    | "NL"
-    | "NU"
-    | "Other"
-    | "Perl_CR"
-    | "Perl_LF"
-    | "RI"
-    | "SP"
-    | "SY"
-    | "WSegSpace"
-    | (string & {});
+  word_break: string;
 }
 
-export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point_range", "word_break"];
+export const AUXILIARY_WORD_BREAK_PROPERTY_FIELDS = ["code_point", "word_break"];

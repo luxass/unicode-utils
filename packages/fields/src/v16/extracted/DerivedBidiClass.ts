@@ -8,20 +8,20 @@
  *
  * @unicodeVersion 16
  * @fields 2
- * @confidence 0.70
+ * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:16:58.747Z
+ * @generated 2026-04-28T04:42:23.775Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Unicode code point or range in hexadecimal notation (e.g. '0041' or '0041..0061').
+   * Unicode code point or range in hexadecimal notation (e.g. 0041, 0590..05FF).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Bidirectional class property value (e.g. 'L', 'R', 'AL').
+   * Bidi_Class property value (e.g. L, R, AL, ET).
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

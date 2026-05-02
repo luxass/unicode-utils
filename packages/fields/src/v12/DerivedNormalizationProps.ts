@@ -4,29 +4,28 @@
  * @see https://unicode.org/Public/12.0.0/ucd/DerivedNormalizationProps.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
  * - https://ucdjs.dev/reports/tr44/
  *
  * @unicodeVersion 12
  * @fields 2
- * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:22:01.825Z
+ * @confidence 0.70
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:47:00.472Z
  */
 export interface DerivedNormalizationProps {
   /**
-   * Unicode code point range (e.g. 0061 or 0061..0061).
+   * Unicode code point (hex notation) for the source of the FC_NFKC_Closure mapping.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * List of code points constituting the FC_NFKC_Closure set, generated from NFKC(Fold(a)) computations.
+   * Space-delimited list of one or more Unicode code points (hex notation) that constitute the FC_NFKC_Closure for the source code point.
    *
-   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/DerivedNormalizationProps.txt#L12-L16
+   * @source https://ucdjs.dev/reports/tr44/
    */
-  fc_nfkc_closure: string[];
+  closures: string[];
 }
 
-export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point_range", "fc_nfkc_closure"];
+export const DERIVED_NORMALIZATION_PROPS_FIELDS = ["code_point", "closures"];

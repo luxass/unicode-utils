@@ -7,32 +7,25 @@
  * - https://ucdjs.dev/file-explorer/v/3.1-Update/Blocks-4.txt#L1
  *
  * @unicodeVersion 3.1
- * @fields 3
- * @confidence 1.00
+ * @fields 2
+ * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:36:43.833Z
+ * @generated 2026-04-28T04:53:58.973Z
  */
 export interface Blocks4 {
   /**
-   * Start Code.
+   * Unicode code point range from Start Code to End Code.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Blocks-4.txt#L1
    */
-  start_code: string;
+  code_range: string;
 
   /**
-   * End Code.
-   *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Blocks-4.txt#L1
-   */
-  end_code: string;
-
-  /**
-   * Block Name.
+   * Name of the Unicode block.
    *
    * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Blocks-4.txt#L1
    */
   block_name: string;
 }
 
-export const BLOCKS_4_FIELDS = ["start_code", "end_code", "block_name"];
+export const BLOCKS_4_FIELDS = ["code_range", "block_name"];

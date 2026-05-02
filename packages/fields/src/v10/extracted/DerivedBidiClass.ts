@@ -4,53 +4,28 @@
  * @see https://unicode.org/Public/10.0.0/ucd/extracted/DerivedBidiClass.txt
  *
  * Fields derived from:
- * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/extracted/DerivedBidiClass.txt#L12
- * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/file-explorer/v/10.0.0/ucd/extracted/DerivedBidiClass.txt#L46
  *
  * @unicodeVersion 10
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:20:59.211Z
+ * @generated 2026-04-28T04:46:16.308Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
-   * Unicode code point or range (e.g. 0041 or 0000..10FFFF).
+   * Bidi_Class=Left_To_Right.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/extracted/DerivedBidiClass.txt#L46
    */
   code_point_range: string;
 
   /**
-   * Bidi Class (listing UnicodeData.txt, field 4: see UAX #44).
+   * =Left_To_Right.
    *
-   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/extracted/DerivedBidiClass.txt#L12
+   * @source https://ucdjs.dev/file-explorer/v/10.0.0/ucd/extracted/DerivedBidiClass.txt#L46
    */
-  bidi_class:
-    | "L"
-    | "R"
-    | "AL"
-    | "EN"
-    | "ES"
-    | "ET"
-    | "AN"
-    | "CS"
-    | "NSM"
-    | "BN"
-    | "B"
-    | "S"
-    | "WS"
-    | "ON"
-    | "PDF"
-    | "LRE"
-    | "RLE"
-    | "LRO"
-    | "RLO"
-    | "RLI"
-    | "LRI"
-    | "FSI"
-    | "PDI"
-    | (string & {});
+  bidi_class: "Left_To_Right" | "Right_To_Left" | "Arabic_Letter" | "European_Number" | "European_Separator" | "European_Terminator" | "Arabic_Number" | "Common_Separator" | "Nonspacing_Mark" | "Boundary_Neutral" | "Paragraph_Separator" | "Segment_Separator" | "Whitespace" | "Other_Neutral" | "Left_To_Right_Embedding" | "Left_To_Right_Override" | "Right_To_Left_Arabic" | "Right_To_Left_Embedding" | "Right_To_Left_Override" | "Pop_Directional_Format" | (string & {});
 }
 
 export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point_range", "bidi_class"];

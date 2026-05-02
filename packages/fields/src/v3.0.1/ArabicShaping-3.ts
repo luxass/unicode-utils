@@ -10,7 +10,7 @@
  * @fields 4
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:31:10.047Z
+ * @generated 2026-04-28T04:55:13.601Z
  */
 export interface ArabicShaping3 {
   /**
@@ -42,9 +42,4 @@ export interface ArabicShaping3 {
   joining_group: string;
 }
 
-export const ARABIC_SHAPING_3_FIELDS = [
-  "code_point",
-  "schematic_name",
-  "joining_type",
-  "joining_group",
-];
+export const ARABIC_SHAPING_3_FIELDS = ["code_point", "schematic_name", "joining_type", "joining_group"];

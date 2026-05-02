@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 0.80
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:27:37.531Z
+ * @generated 2026-04-28T04:53:00.475Z
  */
 export interface ExtractedDerivedBidiClass {
   /**
@@ -21,11 +21,11 @@ export interface ExtractedDerivedBidiClass {
   code_point_range: string;
 
   /**
-   * Derived Bidi Class value.
+   * Bidi Class derived from UnicodeData.txt field 4.
    *
    * @source https://ucdjs.dev/file-explorer/v/6.0.0/ucd/extracted/DerivedBidiClass.txt#L11
    */
-  bidi_class: "Left_To_Right" | "Right_To_Left" | "Arabic_Letter" | (string & {});
+  bidi_class: string;
 }
 
 export const EXTRACTED_DERIVED_BIDI_CLASS_FIELDS = ["code_point_range", "bidi_class"];

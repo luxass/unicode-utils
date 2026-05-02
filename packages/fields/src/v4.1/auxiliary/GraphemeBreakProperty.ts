@@ -5,27 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 4.1
  * @fields 2
- * @confidence 0.80
+ * @confidence 0.70
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:30:25.569Z
+ * @generated 2026-04-28T04:56:30.357Z
  */
 export interface AuxiliaryGraphemeBreakProperty {
   /**
-   * Code point or range in hexadecimal notation.
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
   code_point: string;
 
   /**
-   * Grapheme_Cluster_Break property value; unlisted code points have value Other.
+   * Grapheme_Cluster_Break property value (defaults to Other for unlisted code points).
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/reports/tr29/
    */
-  grapheme_cluster_break: string;
+  grapheme_cluster_break: "Other" | (string & {});
 }
 
 export const AUXILIARY_GRAPHEME_BREAK_PROPERTY_FIELDS = ["code_point", "grapheme_cluster_break"];

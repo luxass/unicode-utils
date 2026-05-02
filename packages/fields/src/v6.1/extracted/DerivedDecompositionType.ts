@@ -8,9 +8,9 @@
  *
  * @unicodeVersion 6.1
  * @fields 2
- * @confidence 0.70
+ * @confidence 0.80
  * @model grok-4-1-fast-reasoning
- * @generated 2026-04-24T04:28:42.035Z
+ * @generated 2026-04-28T04:55:36.453Z
  */
 export interface ExtractedDerivedDecompositionType {
   /**
@@ -21,7 +21,7 @@ export interface ExtractedDerivedDecompositionType {
   code_point: string;
 
   /**
-   * Decomposition_Type property value (non-None).
+   * Decomposition type property value from UnicodeData.txt field 5.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */

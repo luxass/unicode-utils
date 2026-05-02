@@ -10,7 +10,7 @@
  * @fields 2
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:15:47.140Z
+ * @generated 2026-04-28T04:41:22.339Z
  */
 export interface IndicPositionalCategory {
   /**
@@ -28,7 +28,4 @@ export interface IndicPositionalCategory {
   indic_positional_category: string;
 }
 
-export const INDIC_POSITIONAL_CATEGORY_FIELDS = [
-  "code_point_or_range",
-  "indic_positional_category",
-];
+export const INDIC_POSITIONAL_CATEGORY_FIELDS = ["code_point_or_range", "indic_positional_category"];

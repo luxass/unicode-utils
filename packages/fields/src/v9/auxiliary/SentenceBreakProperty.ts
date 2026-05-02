@@ -5,53 +5,28 @@
  *
  * Fields derived from:
  * - https://ucdjs.dev/reports/tr44/
+ * - https://ucdjs.dev/reports/tr29/
  *
  * @unicodeVersion 9
- * @fields 3
+ * @fields 2
  * @confidence 0.80
- * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:21:38.669Z
+ * @model grok-4-1-fast-reasoning
+ * @generated 2026-04-28T04:49:16.834Z
  */
 export interface AuxiliarySentenceBreakProperty {
   /**
-   * Unicode code point or range (e.g. 0020..FFFF).
+   * Unicode code point or range.
    *
    * @source https://ucdjs.dev/reports/tr44/
    */
-  code_point_range: string;
+  code_point: string;
 
   /**
-   * Sentence_Break property value.
+   * Value of the Sentence_Break property.
    *
-   * @source https://ucdjs.dev/reports/tr44/
+   * @source https://ucdjs.dev/reports/tr29/
    */
-  sentence_break:
-    | "CR"
-    | "LF"
-    | "Extend"
-    | "Regional_Indicator"
-    | "Sp"
-    | "Sep"
-    | "Format"
-    | "STerm"
-    | "ATerm"
-    | "Lower"
-    | "Upper"
-    | "OLetter"
-    | "Numeric"
-    | "Other"
-    | (string & {});
-
-  /**
-   * Optional comment field.
-   *
-   * @source https://ucdjs.dev/reports/tr44/
-   */
-  comment: string;
+  sentence_break: "CR" | "LF" | "Sep" | "STerm" | "ATerm" | "OLetter" | "Upper" | "Lower" | "Numeric" | "Sp" | "Format" | "Extend" | "XX";
 }
 
-export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = [
-  "code_point_range",
-  "sentence_break",
-  "comment",
-];
+export const AUXILIARY_SENTENCE_BREAK_PROPERTY_FIELDS = ["code_point", "sentence_break"];

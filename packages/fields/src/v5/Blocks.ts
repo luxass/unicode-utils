@@ -10,7 +10,7 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:29:21.192Z
+ * @generated 2026-04-28T04:56:08.334Z
  */
 export interface Blocks {
   /**

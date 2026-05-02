@@ -11,7 +11,7 @@
  * @fields 3
  * @confidence 1.00
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:32:43.476Z
+ * @generated 2026-04-28T05:10:19.962Z
  */
 export interface LineBreak5 {
   /**
@@ -22,43 +22,14 @@ export interface LineBreak5 {
   unicode_value: string;
 
   /**
-   * LineBreak property value.
+   * LineBreak property, consisting of one of the following values: Normative: "BK", "CR", "LF", "CM", "SG", "GL", "CB", "SP", "ZW" Informative: "XX", "OP", "CL", "QU", "NS", "EX", "SY", "IS", "PR", "PO", "NU", "AL", "ID", "IN", "HY", "BB", "BA", "SA", "AI", "B2".
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update/LineBreak-5.txt#L9-L15
    */
-  linebreak_property:
-    | "BK"
-    | "CR"
-    | "LF"
-    | "CM"
-    | "SG"
-    | "GL"
-    | "CB"
-    | "SP"
-    | "ZW"
-    | "XX"
-    | "OP"
-    | "CL"
-    | "QU"
-    | "NS"
-    | "EX"
-    | "SY"
-    | "IS"
-    | "PR"
-    | "PO"
-    | "NU"
-    | "AL"
-    | "ID"
-    | "IN"
-    | "HY"
-    | "BB"
-    | "BA"
-    | "SA"
-    | "AI"
-    | "B2";
+  linebreak_property: "BK" | "CR" | "LF" | "CM" | "SG" | "GL" | "CB" | "SP" | "ZW" | "XX" | "OP" | "CL" | "QU" | "NS" | "EX" | "SY" | "IS" | "PR" | "PO" | "NU" | "AL" | "ID" | "IN" | "HY" | "BB" | "BA" | "SA" | "AI" | "B2";
 
   /**
-   * Unicode name (purely informative).
+   * Unicode name (this is purely informative).
    *
    * @source https://ucdjs.dev/file-explorer/v/3.0-Update/LineBreak-5.txt#L24
    */

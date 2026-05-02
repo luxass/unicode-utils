@@ -10,27 +10,27 @@
  * @fields 3
  * @confidence 0.90
  * @model grok-4-1-fast-non-reasoning
- * @generated 2026-04-24T04:36:53.549Z
+ * @generated 2026-04-28T04:54:07.962Z
  */
 export interface Unihan31 {
   /**
-   * Unicode scalar value as U+xxxx or U+xxxxx (four or five hex digits).
+   * The Unicode scalar value as U+[x]xxxx (that is, there are either four or five hex digits)
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Unihan-3.1.txt#L30-L33
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Unihan-3.1.txt#L30-L32
    */
   codepoint: string;
 
   /**
-   * Tag indicating the type of information in the value field.
+   * A tag indicating the type of information in the third field
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Unihan-3.1.txt#L30-L34
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Unihan-3.1.txt#L33
    */
   tag: string;
 
   /**
-   * The line's value in UTF-8.
+   * The line's value (in UTF-8)
    *
-   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Unihan-3.1.txt#L30-L34
+   * @source https://ucdjs.dev/file-explorer/v/3.1-Update/Unihan-3.1.txt#L34
    */
   value: string;
 }
