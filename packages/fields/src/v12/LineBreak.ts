@@ -1,0 +1,31 @@
+/**
+ * Parsed row from `LineBreak.txt` (Unicode 12).
+ *
+ * @see https://unicode.org/Public/12.0.0/ucd/LineBreak.txt
+ *
+ * Fields derived from:
+ * - https://ucdjs.dev/file-explorer/v/12.0.0/ucd/LineBreak.txt#L16-L24
+ *
+ * @unicodeVersion 12
+ * @fields 2
+ * @confidence 0.90
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:47:48.370Z
+ */
+export interface LineBreak {
+  /**
+   * Unicode code point value or range of code point values.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/LineBreak.txt#L16
+   */
+  code_point_range: string;
+
+  /**
+   * Line_Break property, consisting of one of the listed values.
+   *
+   * @source https://ucdjs.dev/file-explorer/v/12.0.0/ucd/LineBreak.txt#L17-L24
+   */
+  line_break: "BK" | "CM" | "CR" | "GL" | "LF" | "NL" | "SP" | "WJ" | "ZW" | "ZWJ" | "AI" | "AL" | "B2" | "BA" | "BB" | "CB" | "CJ" | "CL" | "CP" | "EB" | "EM" | "EX" | "H2" | "H3" | "HL" | "HY" | "ID" | "IN" | "IS" | "JL" | "JT" | "JV" | "NS" | "NU" | "OP" | "PO" | "PR" | "QU" | "RI" | "SA" | "SG" | "SY" | "XX";
+}
+
+export const LINE_BREAK_FIELDS = ["code_point_range", "line_break"];

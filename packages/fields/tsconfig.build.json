@@ -1,0 +1,3 @@
+{
+  "extends": "@unicode-utils-tooling/tsconfig/base.build"
+}

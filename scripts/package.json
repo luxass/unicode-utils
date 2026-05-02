@@ -1,0 +1,28 @@
+{
+  "name": "@unicode-utils/scripts",
+  "version": "0.12.0-beta.27",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch-ucd-files": "node fetch-ucd-files.ts",
+    "generate:header-files": "tsx generate-header-tests.ts",
+    "generate:fields": "tsx codegen/generate-fields.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "catalog:codegen",
+    "@ai-sdk/openai": "catalog:codegen",
+    "@ai-sdk/xai": "catalog:codegen",
+    "@luxass/utils": "catalog:build",
+    "@ucdjs/client": "catalog:codegen",
+    "@unicode-utils/metadata": "workspace:*",
+    "@unicode-utils/parser": "workspace:*",
+    "ai": "catalog:codegen",
+    "zod": "catalog:build"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:types",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev"
+  }
+}

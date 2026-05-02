@@ -1,0 +1,19 @@
+/**
+ * Parsed row from `DerivedGeneralCategory-3.1.0.txt` (Unicode 3.1).
+ *
+ * @see https://unicode.org/Public/3.1-Update/DerivedGeneralCategory-3.1.0.txt
+ *
+ * Fields derived from:
+
+ *
+ * @unicodeVersion 3.1
+ * @fields 0
+ * @confidence 0.00
+ * @model grok-4-1-fast-non-reasoning
+ * @generated 2026-04-28T04:54:09.596Z
+ */
+export interface DerivedGeneralCategory310 {
+
+}
+
+export const DERIVED_GENERAL_CATEGORY_310_FIELDS = [];

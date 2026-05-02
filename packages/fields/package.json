@@ -1,0 +1,89 @@
+{
+  "name": "@unicode-utils/fields",
+  "version": "0.12.0-beta.27",
+  "description": "All UCD file fields",
+  "keywords": [
+    "character",
+    "database",
+    "fields",
+    "ucd",
+    "unicode"
+  ],
+  "homepage": "https://github.com/luxass/unicode-utils#readme",
+  "bugs": "https://github.com/luxass/unicode-utils/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/unicode-utils.git",
+    "directory": "packages/fields"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./v1": "./dist/v1/index.mjs",
+    "./v1.0.1": "./dist/v1.0.1/index.mjs",
+    "./v1.1": "./dist/v1.1/index.mjs",
+    "./v1.1.5": "./dist/v1.1.5/index.mjs",
+    "./v2": "./dist/v2/index.mjs",
+    "./v2.1.2": "./dist/v2.1.2/index.mjs",
+    "./v2.1.5": "./dist/v2.1.5/index.mjs",
+    "./v2.1.8": "./dist/v2.1.8/index.mjs",
+    "./v2.1.9": "./dist/v2.1.9/index.mjs",
+    "./v3": "./dist/v3/index.mjs",
+    "./v3.0.1": "./dist/v3.0.1/index.mjs",
+    "./v3.1": "./dist/v3.1/index.mjs",
+    "./v3.1.1": "./dist/v3.1.1/index.mjs",
+    "./v3.2": "./dist/v3.2/index.mjs",
+    "./v4": "./dist/v4/index.mjs",
+    "./v4.0.1": "./dist/v4.0.1/index.mjs",
+    "./v4.1": "./dist/v4.1/index.mjs",
+    "./v5": "./dist/v5/index.mjs",
+    "./v5.1": "./dist/v5.1/index.mjs",
+    "./v5.2": "./dist/v5.2/index.mjs",
+    "./v6": "./dist/v6/index.mjs",
+    "./v6.1": "./dist/v6.1/index.mjs",
+    "./v6.2": "./dist/v6.2/index.mjs",
+    "./v6.3": "./dist/v6.3/index.mjs",
+    "./v7": "./dist/v7/index.mjs",
+    "./v8": "./dist/v8/index.mjs",
+    "./v9": "./dist/v9/index.mjs",
+    "./v10": "./dist/v10/index.mjs",
+    "./v11": "./dist/v11/index.mjs",
+    "./v12": "./dist/v12/index.mjs",
+    "./v12.1": "./dist/v12.1/index.mjs",
+    "./v13": "./dist/v13/index.mjs",
+    "./v14": "./dist/v14/index.mjs",
+    "./v15": "./dist/v15/index.mjs",
+    "./v15.1": "./dist/v15.1/index.mjs",
+    "./v16": "./dist/v16/index.mjs",
+    "./v17": "./dist/v17/index.mjs",
+    "./v18": "./dist/v18/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:types",
+    "@unicode-utils-tooling/tsconfig": "workspace:*",
+    "@unicode-utils-tooling/tsdown-config": "workspace:*",
+    "publint": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "typescript": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
