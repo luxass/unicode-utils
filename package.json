@@ -38,5 +38,5 @@
     "typescript": "catalog:dev",
     "vitest": "catalog:testing"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.2"
 }
