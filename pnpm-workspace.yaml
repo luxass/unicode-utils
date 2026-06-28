@@ -38,5 +38,5 @@ catalogs:
 overrides:
   rolldown: catalog:dev
 minimumReleaseAgeExclude:
-  # Renovate security update: pnpm@11.5.3
-  - pnpm@11.5.3
+  # Renovate security update: pnpm@11.5.3 || 11.8.0
+  - pnpm@11.5.3 || 11.8.0
