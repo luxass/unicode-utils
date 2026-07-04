@@ -29,7 +29,7 @@ catalogs:
     typescript: 6.0.3
     tsdown: 0.21.10
     publint: 0.3.18
-    turbo: 2.9.7
+    turbo: 2.9.14
     rolldown: 1.0.0-rc.18
     oxlint: 1.57.0
     oxfmt: 0.47.0
@@ -40,3 +40,5 @@ overrides:
 minimumReleaseAgeExclude:
   # Renovate security update: pnpm@11.5.3 || 11.8.0
   - pnpm@11.5.3 || 11.8.0
+  # Renovate security update: turbo@2.9.14
+  - turbo@2.9.14
