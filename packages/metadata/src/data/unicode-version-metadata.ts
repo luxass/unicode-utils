@@ -240,7 +240,7 @@ export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   },
   {
     version: "2.1.9",
-    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.9/",
     date: "1999",
     url: "https://www.unicode.org/Public/2.1-Update4",
     mappedUcdVersion: "2.1-Update4",
@@ -248,7 +248,7 @@ export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   },
   {
     version: "2.1.8",
-    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.8/",
     date: "1998",
     url: "https://www.unicode.org/Public/2.1-Update3",
     mappedUcdVersion: "2.1-Update3",
@@ -256,7 +256,7 @@ export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   },
   {
     version: "2.1.5",
-    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.5/",
     date: "1998",
     url: "https://www.unicode.org/Public/2.1-Update2",
     mappedUcdVersion: "2.1-Update2",
@@ -264,7 +264,7 @@ export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   },
   {
     version: "2.1.2",
-    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.0/",
+    documentationUrl: "https://www.unicode.org/versions/Unicode2.1.2/",
     date: "1998",
     url: "https://www.unicode.org/Public/2.1-Update",
     mappedUcdVersion: "2.1-Update",
@@ -280,7 +280,7 @@ export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   },
   {
     version: "1.1.5",
-    documentationUrl: "https://www.unicode.org/versions/Unicode1.1.0/",
+    documentationUrl: "https://www.unicode.org/versions/Unicode1.1.5/",
     date: "1995",
     url: "https://www.unicode.org/Public/1.1-Update",
     mappedUcdVersion: "1.1-Update",
@@ -296,7 +296,7 @@ export const UNICODE_VERSION_METADATA: UnicodeVersionMetadata[] = [
   },
   {
     version: "1.0.1",
-    documentationUrl: "https://www.unicode.org/versions/Unicode1.0.0/",
+    documentationUrl: "https://www.unicode.org/versions/Unicode1.0.1/",
     date: "1992",
     url: "https://www.unicode.org/Public/1.1-Update",
     mappedUcdVersion: "1.1-Update",
