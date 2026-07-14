@@ -31,7 +31,7 @@ catalogs:
     publint: 0.3.18
     turbo: 2.9.7
     rolldown: 1.0.0-rc.18
-    oxlint: 1.57.0
+    oxlint: 1.73.0
     oxfmt: 0.47.0
     oxlint-tsgolint: 0.22.1
 
