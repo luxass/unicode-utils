@@ -33,7 +33,7 @@ catalogs:
     rolldown: 1.0.0-rc.18
     oxlint: 1.57.0
     oxfmt: 0.47.0
-    oxlint-tsgolint: 0.22.1
+    oxlint-tsgolint: 7.0.2004
 
 overrides:
   rolldown: catalog:dev
