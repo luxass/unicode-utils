@@ -21,7 +21,7 @@ catalogs:
     "@luxass/utils": 2.7.3
 
   testing:
-    msw: 2.14.2
+    msw: 3.0.3
     vitest: 4.1.2
 
   dev:
