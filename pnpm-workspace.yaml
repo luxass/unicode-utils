@@ -12,28 +12,28 @@ packages:
 
 catalogs:
   types:
-    "@types/node": 24.12.2
+    "@types/node": 24.19.2
     "@types/picomatch": 4.0.3
 
   build:
-    picomatch: 4.0.4
-    zod: 4.4.2
-    "@luxass/utils": 2.7.3
+    picomatch: 4.0.7
+    zod: 4.6.5
+    "@luxass/utils": 2.7.5
 
   testing:
-    msw: 2.14.2
+    msw: 2.15.0
     vitest: 4.1.2
 
   dev:
-    tsx: 4.21.0
+    tsx: 4.23.15
     typescript: 6.0.3
-    tsdown: 0.21.10
-    publint: 0.3.18
+    tsdown: 0.23.0
+    publint: 0.3.25
     turbo: 2.9.7
-    rolldown: 1.0.0-rc.18
+    rolldown: 1.2.13
     oxlint: 1.57.0
-    oxfmt: 0.47.0
-    oxlint-tsgolint: 0.22.1
+    oxfmt: 0.72.0
+    oxlint-tsgolint: 0.25.0
 
 overrides:
   rolldown: catalog:dev
