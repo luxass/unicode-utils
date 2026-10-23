@@ -17,7 +17,7 @@ catalogs:
 
   build:
     picomatch: 4.0.4
-    zod: 4.4.2
+    zod: 4.6.6
     "@luxass/utils": 2.7.3
 
   testing:
@@ -40,3 +40,5 @@ overrides:
 minimumReleaseAgeExclude:
   # Renovate security update: pnpm@11.5.3 || 11.8.0 || 11.11.0
   - pnpm@11.5.3 || 11.8.0 || 11.11.0
+  # Renovate security update: zod@4.6.6
+  - zod@4.6.6
