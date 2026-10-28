@@ -43,8 +43,8 @@ catalogs:
       version: 4.1.2
   types:
     '@types/node':
-      specifier: 24.12.2
-      version: 24.12.2
+      specifier: 26.6.5
+      version: 26.6.5
 
 overrides:
   rolldown: 1.0.0-rc.18
@@ -55,7 +55,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: catalog:types
-        version: 24.12.2
+        version: 26.6.5
       oxfmt:
         specifier: catalog:dev
         version: 0.47.0
@@ -76,7 +76,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: catalog:testing
-        version: 4.1.2(@types/node@24.12.2)(msw@2.14.2(@types/node@24.12.2)(typescript@6.0.3))(vite@7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2))
+        version: 4.1.2(@types/node@26.6.5)(msw@2.14.2(@types/node@26.6.5)(typescript@6.0.3))(vite@7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2))
 
   packages/core:
     dependencies:
@@ -92,7 +92,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: catalog:types
-        version: 24.12.2
+        version: 26.6.5
       '@unicode-utils-tooling/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
@@ -101,7 +101,7 @@ importers:
         version: link:../../tooling/tsdown-config
       msw:
         specifier: catalog:testing
-        version: 2.14.2(@types/node@24.12.2)(typescript@6.0.3)
+        version: 2.14.2(@types/node@26.6.5)(typescript@6.0.3)
       publint:
         specifier: catalog:dev
         version: 0.3.18
@@ -123,7 +123,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: catalog:types
-        version: 24.12.2
+        version: 26.6.5
       '@unicode-utils-tooling/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
@@ -151,7 +151,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: catalog:types
-        version: 24.12.2
+        version: 26.6.5
       '@unicode-utils-tooling/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
@@ -160,7 +160,7 @@ importers:
         version: link:../../tooling/tsdown-config
       msw:
         specifier: catalog:testing
-        version: 2.14.2(@types/node@24.12.2)(typescript@6.0.3)
+        version: 2.14.2(@types/node@26.6.5)(typescript@6.0.3)
       publint:
         specifier: catalog:dev
         version: 0.3.18
@@ -182,7 +182,7 @@ importers:
         version: 2.7.3
       '@types/node':
         specifier: catalog:types
-        version: 24.12.2
+        version: 26.6.5
       '@unicode-utils-tooling/tsconfig':
         specifier: workspace:*
         version: link:../tooling/tsconfig
@@ -1169,8 +1169,8 @@ packages:
   '@types/jsesc@2.5.1':
     resolution: {integrity: sha512-9VN+6yxLOPLOav+7PwjZbxiID2bVaeq0ED4qSQmdQTdjnXJSaCVKTR58t15oqH1H5t8Ng2ZX1SabJVoN9Q34bw==}
 
-  '@types/node@24.12.2':
-    resolution: {integrity: sha512-A1sre26ke7HDIuY/M23nd9gfB+nrmhtYyMINbjI1zHJxYteKR6qSMX56FsmjMcDb3SMcjJg5BiRRgOCC/yBD0g==}
+  '@types/node@26.6.5':
+    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
 
   '@types/set-cookie-parser@2.4.10':
     resolution: {integrity: sha512-GGmQVGpQWUe5qglJozEjZV/5dyxbOOZ0LHe/lqyWssB88Y4svNfst0uqBVscdDeIKl5Jy5+aPSvy7mI9tYRguw==}
@@ -1695,8 +1695,8 @@ packages:
   unconfig-core@7.5.0:
     resolution: {integrity: sha512-Su3FauozOGP44ZmKdHy2oE6LPjk51M/TRRjHv2HNCWiDvfvCoxC2lno6jevMA91MYAdCdwP05QnWdWpSbncX/w==}
 
-  undici-types@7.16.0:
-    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
   unrun@0.2.37:
     resolution: {integrity: sha512-AA7vDuYsgeSYVzJMm16UKA+aXFKhy7nFqW9z5l7q44K4ppFWZAMqYS58ePRZbugMLPH0fwwMzD5A8nP0avxwZQ==}
@@ -2007,30 +2007,30 @@ snapshots:
 
   '@inquirer/ansi@2.0.5': {}
 
-  '@inquirer/confirm@6.0.12(@types/node@24.12.2)':
+  '@inquirer/confirm@6.0.12(@types/node@26.6.5)':
     dependencies:
-      '@inquirer/core': 11.1.9(@types/node@24.12.2)
-      '@inquirer/type': 4.0.5(@types/node@24.12.2)
+      '@inquirer/core': 11.1.9(@types/node@26.6.5)
+      '@inquirer/type': 4.0.5(@types/node@26.6.5)
     optionalDependencies:
-      '@types/node': 24.12.2
+      '@types/node': 26.6.5
 
-  '@inquirer/core@11.1.9(@types/node@24.12.2)':
+  '@inquirer/core@11.1.9(@types/node@26.6.5)':
     dependencies:
       '@inquirer/ansi': 2.0.5
       '@inquirer/figures': 2.0.5
-      '@inquirer/type': 4.0.5(@types/node@24.12.2)
+      '@inquirer/type': 4.0.5(@types/node@26.6.5)
       cli-width: 4.1.0
       fast-wrap-ansi: 0.2.0
       mute-stream: 3.0.0
       signal-exit: 4.1.0
     optionalDependencies:
-      '@types/node': 24.12.2
+      '@types/node': 26.6.5
 
   '@inquirer/figures@2.0.5': {}
 
-  '@inquirer/type@4.0.5(@types/node@24.12.2)':
+  '@inquirer/type@4.0.5(@types/node@26.6.5)':
     optionalDependencies:
-      '@types/node': 24.12.2
+      '@types/node': 26.6.5
 
   '@jridgewell/gen-mapping@0.3.12':
     dependencies:
@@ -2366,13 +2366,13 @@ snapshots:
 
   '@types/jsesc@2.5.1': {}
 
-  '@types/node@24.12.2':
+  '@types/node@26.6.5':
     dependencies:
-      undici-types: 7.16.0
+      undici-types: 8.9.0
 
   '@types/set-cookie-parser@2.4.10':
     dependencies:
-      '@types/node': 24.12.2
+      '@types/node': 26.6.5
 
   '@types/statuses@2.0.6': {}
 
@@ -2385,14 +2385,14 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.2(msw@2.14.2(@types/node@24.12.2)(typescript@6.0.3))(vite@7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2))':
+  '@vitest/mocker@4.1.2(msw@2.14.2(@types/node@26.6.5)(typescript@6.0.3))(vite@7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@vitest/spy': 4.1.2
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      msw: 2.14.2(@types/node@24.12.2)(typescript@6.0.3)
-      vite: 7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2)
+      msw: 2.14.2(@types/node@26.6.5)(typescript@6.0.3)
+      vite: 7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2)
 
   '@vitest/pretty-format@4.1.2':
     dependencies:
@@ -2631,9 +2631,9 @@ snapshots:
 
   mri@1.2.0: {}
 
-  msw@2.14.2(@types/node@24.12.2)(typescript@6.0.3):
+  msw@2.14.2(@types/node@26.6.5)(typescript@6.0.3):
     dependencies:
-      '@inquirer/confirm': 6.0.12(@types/node@24.12.2)
+      '@inquirer/confirm': 6.0.12(@types/node@26.6.5)
       '@mswjs/interceptors': 0.41.3
       '@open-draft/deferred-promise': 3.0.0
       '@types/statuses': 2.0.6
@@ -2942,7 +2942,7 @@ snapshots:
       '@quansync/fs': 1.0.0
       quansync: 1.0.0
 
-  undici-types@7.16.0: {}
+  undici-types@8.9.0: {}
 
   unrun@0.2.37(synckit@0.11.12):
     dependencies:
@@ -2952,7 +2952,7 @@ snapshots:
 
   until-async@3.0.2: {}
 
-  vite@7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2):
+  vite@7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       esbuild: 0.25.5
       fdir: 6.5.0(picomatch@4.0.4)
@@ -2961,17 +2961,17 @@ snapshots:
       rollup: 4.44.1
       tinyglobby: 0.2.16
     optionalDependencies:
-      '@types/node': 24.12.2
+      '@types/node': 26.6.5
       fsevents: 2.3.3
       jiti: 2.6.0
       lightningcss: 1.29.3
       tsx: 4.21.0
       yaml: 2.8.2
 
-  vitest@4.1.2(@types/node@24.12.2)(msw@2.14.2(@types/node@24.12.2)(typescript@6.0.3))(vite@7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2)):
+  vitest@4.1.2(@types/node@26.6.5)(msw@2.14.2(@types/node@26.6.5)(typescript@6.0.3))(vite@7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
       '@vitest/expect': 4.1.2
-      '@vitest/mocker': 4.1.2(msw@2.14.2(@types/node@24.12.2)(typescript@6.0.3))(vite@7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2))
+      '@vitest/mocker': 4.1.2(msw@2.14.2(@types/node@26.6.5)(typescript@6.0.3))(vite@7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2))
       '@vitest/pretty-format': 4.1.2
       '@vitest/runner': 4.1.2
       '@vitest/snapshot': 4.1.2
@@ -2988,10 +2988,10 @@ snapshots:
       tinyexec: 1.1.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vite: 7.0.0(@types/node@24.12.2)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.0.0(@types/node@26.6.5)(jiti@2.6.0)(lightningcss@1.29.3)(tsx@4.21.0)(yaml@2.8.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 24.12.2
+      '@types/node': 26.6.5
     transitivePeerDependencies:
       - msw
 
