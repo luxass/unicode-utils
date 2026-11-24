@@ -29,7 +29,7 @@ jobs:
       models: read
     if: github.repository == 'luxass/unicode-utils'
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           persist-credentials: false
 
@@ -37,7 +37,7 @@ jobs:
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
 
       - name: setup node
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version: lts/*
           cache: pnpm
@@ -46,7 +46,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: check unicode releases
-        uses: luxass/unicode-releases-action@5f69f1aa427dda9bf28eb2d545810220fddd4039 # v0.7.5
+        uses: luxass/unicode-releases-action@214e613ea221e9e0f8e74d8dc128df5931d264db # v0.8.0
         id: unicode
         with:
           api_base_url: ${{ github.event.inputs.base-url }}
@@ -103,7 +103,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: create pull request
-        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.3
         if: ${{ github.event.inputs.dry-run != 'true' && steps.generate-diff.outputs.DIFF != '' }}
         env:
           DIFF: ${{ steps.generate-diff.outputs.DIFF }}
